@@ -515,92 +515,92 @@ func (r *DataTypeResource) Create(ctx context.Context, req resource.CreateReques
 			for _, RulesItem := range RulesElems {
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.KeyPattern != nil {
-					KeyPatternMap := make(map[string]interface{})
+					RulesKeyPatternMap := make(map[string]interface{})
 					if RulesItem.KeyPattern.ExactValues != nil {
-						ExactValuesMap := make(map[string]interface{})
+						RulesKeyPatternExactValuesMap := make(map[string]interface{})
 						if !RulesItem.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								ExactValuesMap["exact_values"] = ExactValuesItems
+								RulesKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						KeyPatternMap["exact_values"] = ExactValuesMap
+						RulesKeyPatternMap["exact_values"] = RulesKeyPatternExactValuesMap
 					}
 					if !RulesItem.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyPattern.RegexValue.IsUnknown() {
-						KeyPatternMap["regex_value"] = RulesItem.KeyPattern.RegexValue.ValueString()
+						RulesKeyPatternMap["regex_value"] = RulesItem.KeyPattern.RegexValue.ValueString()
 					}
 					if !RulesItem.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyPattern.SubstringValue.IsUnknown() {
-						KeyPatternMap["substring_value"] = RulesItem.KeyPattern.SubstringValue.ValueString()
+						RulesKeyPatternMap["substring_value"] = RulesItem.KeyPattern.SubstringValue.ValueString()
 					}
-					RulesItemMap["key_pattern"] = KeyPatternMap
+					RulesItemMap["key_pattern"] = RulesKeyPatternMap
 				}
 				if RulesItem.KeyValuePattern != nil {
-					KeyValuePatternMap := make(map[string]interface{})
+					RulesKeyValuePatternMap := make(map[string]interface{})
 					if RulesItem.KeyValuePattern.KeyPattern != nil {
-						KeyPatternMap := make(map[string]interface{})
+						RulesKeyValuePatternKeyPatternMap := make(map[string]interface{})
 						if RulesItem.KeyValuePattern.KeyPattern.ExactValues != nil {
-							ExactValuesMap := make(map[string]interface{})
+							RulesKeyValuePatternKeyPatternExactValuesMap := make(map[string]interface{})
 							if !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 								if !diags.HasError() {
-									ExactValuesMap["exact_values"] = ExactValuesItems
+									RulesKeyValuePatternKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
 							}
-							KeyPatternMap["exact_values"] = ExactValuesMap
+							RulesKeyValuePatternKeyPatternMap["exact_values"] = RulesKeyValuePatternKeyPatternExactValuesMap
 						}
 						if !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsUnknown() {
-							KeyPatternMap["regex_value"] = RulesItem.KeyValuePattern.KeyPattern.RegexValue.ValueString()
+							RulesKeyValuePatternKeyPatternMap["regex_value"] = RulesItem.KeyValuePattern.KeyPattern.RegexValue.ValueString()
 						}
 						if !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsUnknown() {
-							KeyPatternMap["substring_value"] = RulesItem.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
+							RulesKeyValuePatternKeyPatternMap["substring_value"] = RulesItem.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
 						}
-						KeyValuePatternMap["key_pattern"] = KeyPatternMap
+						RulesKeyValuePatternMap["key_pattern"] = RulesKeyValuePatternKeyPatternMap
 					}
 					if RulesItem.KeyValuePattern.ValuePattern != nil {
-						ValuePatternMap := make(map[string]interface{})
+						RulesKeyValuePatternValuePatternMap := make(map[string]interface{})
 						if RulesItem.KeyValuePattern.ValuePattern.ExactValues != nil {
-							ExactValuesMap := make(map[string]interface{})
+							RulesKeyValuePatternValuePatternExactValuesMap := make(map[string]interface{})
 							if !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 								if !diags.HasError() {
-									ExactValuesMap["exact_values"] = ExactValuesItems
+									RulesKeyValuePatternValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
 							}
-							ValuePatternMap["exact_values"] = ExactValuesMap
+							RulesKeyValuePatternValuePatternMap["exact_values"] = RulesKeyValuePatternValuePatternExactValuesMap
 						}
 						if !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsUnknown() {
-							ValuePatternMap["regex_value"] = RulesItem.KeyValuePattern.ValuePattern.RegexValue.ValueString()
+							RulesKeyValuePatternValuePatternMap["regex_value"] = RulesItem.KeyValuePattern.ValuePattern.RegexValue.ValueString()
 						}
 						if !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsUnknown() {
-							ValuePatternMap["substring_value"] = RulesItem.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
+							RulesKeyValuePatternValuePatternMap["substring_value"] = RulesItem.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
 						}
-						KeyValuePatternMap["value_pattern"] = ValuePatternMap
+						RulesKeyValuePatternMap["value_pattern"] = RulesKeyValuePatternValuePatternMap
 					}
-					RulesItemMap["key_value_pattern"] = KeyValuePatternMap
+					RulesItemMap["key_value_pattern"] = RulesKeyValuePatternMap
 				}
 				if RulesItem.ValuePattern != nil {
-					ValuePatternMap := make(map[string]interface{})
+					RulesValuePatternMap := make(map[string]interface{})
 					if RulesItem.ValuePattern.ExactValues != nil {
-						ExactValuesMap := make(map[string]interface{})
+						RulesValuePatternExactValuesMap := make(map[string]interface{})
 						if !RulesItem.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								ExactValuesMap["exact_values"] = ExactValuesItems
+								RulesValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						ValuePatternMap["exact_values"] = ExactValuesMap
+						RulesValuePatternMap["exact_values"] = RulesValuePatternExactValuesMap
 					}
 					if !RulesItem.ValuePattern.RegexValue.IsNull() && !RulesItem.ValuePattern.RegexValue.IsUnknown() {
-						ValuePatternMap["regex_value"] = RulesItem.ValuePattern.RegexValue.ValueString()
+						RulesValuePatternMap["regex_value"] = RulesItem.ValuePattern.RegexValue.ValueString()
 					}
 					if !RulesItem.ValuePattern.SubstringValue.IsNull() && !RulesItem.ValuePattern.SubstringValue.IsUnknown() {
-						ValuePatternMap["substring_value"] = RulesItem.ValuePattern.SubstringValue.ValueString()
+						RulesValuePatternMap["substring_value"] = RulesItem.ValuePattern.SubstringValue.ValueString()
 					}
-					RulesItemMap["value_pattern"] = ValuePatternMap
+					RulesItemMap["value_pattern"] = RulesValuePatternMap
 				}
 				RulesList = append(RulesList, RulesItemMap)
 			}
@@ -1252,92 +1252,92 @@ func (r *DataTypeResource) Update(ctx context.Context, req resource.UpdateReques
 			for _, RulesItem := range RulesElems {
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.KeyPattern != nil {
-					KeyPatternMap := make(map[string]interface{})
+					RulesKeyPatternMap := make(map[string]interface{})
 					if RulesItem.KeyPattern.ExactValues != nil {
-						ExactValuesMap := make(map[string]interface{})
+						RulesKeyPatternExactValuesMap := make(map[string]interface{})
 						if !RulesItem.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								ExactValuesMap["exact_values"] = ExactValuesItems
+								RulesKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						KeyPatternMap["exact_values"] = ExactValuesMap
+						RulesKeyPatternMap["exact_values"] = RulesKeyPatternExactValuesMap
 					}
 					if !RulesItem.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyPattern.RegexValue.IsUnknown() {
-						KeyPatternMap["regex_value"] = RulesItem.KeyPattern.RegexValue.ValueString()
+						RulesKeyPatternMap["regex_value"] = RulesItem.KeyPattern.RegexValue.ValueString()
 					}
 					if !RulesItem.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyPattern.SubstringValue.IsUnknown() {
-						KeyPatternMap["substring_value"] = RulesItem.KeyPattern.SubstringValue.ValueString()
+						RulesKeyPatternMap["substring_value"] = RulesItem.KeyPattern.SubstringValue.ValueString()
 					}
-					RulesItemMap["key_pattern"] = KeyPatternMap
+					RulesItemMap["key_pattern"] = RulesKeyPatternMap
 				}
 				if RulesItem.KeyValuePattern != nil {
-					KeyValuePatternMap := make(map[string]interface{})
+					RulesKeyValuePatternMap := make(map[string]interface{})
 					if RulesItem.KeyValuePattern.KeyPattern != nil {
-						KeyPatternMap := make(map[string]interface{})
+						RulesKeyValuePatternKeyPatternMap := make(map[string]interface{})
 						if RulesItem.KeyValuePattern.KeyPattern.ExactValues != nil {
-							ExactValuesMap := make(map[string]interface{})
+							RulesKeyValuePatternKeyPatternExactValuesMap := make(map[string]interface{})
 							if !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.KeyPattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 								if !diags.HasError() {
-									ExactValuesMap["exact_values"] = ExactValuesItems
+									RulesKeyValuePatternKeyPatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
 							}
-							KeyPatternMap["exact_values"] = ExactValuesMap
+							RulesKeyValuePatternKeyPatternMap["exact_values"] = RulesKeyValuePatternKeyPatternExactValuesMap
 						}
 						if !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.RegexValue.IsUnknown() {
-							KeyPatternMap["regex_value"] = RulesItem.KeyValuePattern.KeyPattern.RegexValue.ValueString()
+							RulesKeyValuePatternKeyPatternMap["regex_value"] = RulesItem.KeyValuePattern.KeyPattern.RegexValue.ValueString()
 						}
 						if !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.KeyPattern.SubstringValue.IsUnknown() {
-							KeyPatternMap["substring_value"] = RulesItem.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
+							RulesKeyValuePatternKeyPatternMap["substring_value"] = RulesItem.KeyValuePattern.KeyPattern.SubstringValue.ValueString()
 						}
-						KeyValuePatternMap["key_pattern"] = KeyPatternMap
+						RulesKeyValuePatternMap["key_pattern"] = RulesKeyValuePatternKeyPatternMap
 					}
 					if RulesItem.KeyValuePattern.ValuePattern != nil {
-						ValuePatternMap := make(map[string]interface{})
+						RulesKeyValuePatternValuePatternMap := make(map[string]interface{})
 						if RulesItem.KeyValuePattern.ValuePattern.ExactValues != nil {
-							ExactValuesMap := make(map[string]interface{})
+							RulesKeyValuePatternValuePatternExactValuesMap := make(map[string]interface{})
 							if !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.KeyValuePattern.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 								if !diags.HasError() {
-									ExactValuesMap["exact_values"] = ExactValuesItems
+									RulesKeyValuePatternValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 								}
 							}
-							ValuePatternMap["exact_values"] = ExactValuesMap
+							RulesKeyValuePatternValuePatternMap["exact_values"] = RulesKeyValuePatternValuePatternExactValuesMap
 						}
 						if !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.RegexValue.IsUnknown() {
-							ValuePatternMap["regex_value"] = RulesItem.KeyValuePattern.ValuePattern.RegexValue.ValueString()
+							RulesKeyValuePatternValuePatternMap["regex_value"] = RulesItem.KeyValuePattern.ValuePattern.RegexValue.ValueString()
 						}
 						if !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsNull() && !RulesItem.KeyValuePattern.ValuePattern.SubstringValue.IsUnknown() {
-							ValuePatternMap["substring_value"] = RulesItem.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
+							RulesKeyValuePatternValuePatternMap["substring_value"] = RulesItem.KeyValuePattern.ValuePattern.SubstringValue.ValueString()
 						}
-						KeyValuePatternMap["value_pattern"] = ValuePatternMap
+						RulesKeyValuePatternMap["value_pattern"] = RulesKeyValuePatternValuePatternMap
 					}
-					RulesItemMap["key_value_pattern"] = KeyValuePatternMap
+					RulesItemMap["key_value_pattern"] = RulesKeyValuePatternMap
 				}
 				if RulesItem.ValuePattern != nil {
-					ValuePatternMap := make(map[string]interface{})
+					RulesValuePatternMap := make(map[string]interface{})
 					if RulesItem.ValuePattern.ExactValues != nil {
-						ExactValuesMap := make(map[string]interface{})
+						RulesValuePatternExactValuesMap := make(map[string]interface{})
 						if !RulesItem.ValuePattern.ExactValues.ExactValues.IsNull() && !RulesItem.ValuePattern.ExactValues.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.ValuePattern.ExactValues.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
 							if !diags.HasError() {
-								ExactValuesMap["exact_values"] = ExactValuesItems
+								RulesValuePatternExactValuesMap["exact_values"] = ExactValuesItems
 							}
 						}
-						ValuePatternMap["exact_values"] = ExactValuesMap
+						RulesValuePatternMap["exact_values"] = RulesValuePatternExactValuesMap
 					}
 					if !RulesItem.ValuePattern.RegexValue.IsNull() && !RulesItem.ValuePattern.RegexValue.IsUnknown() {
-						ValuePatternMap["regex_value"] = RulesItem.ValuePattern.RegexValue.ValueString()
+						RulesValuePatternMap["regex_value"] = RulesItem.ValuePattern.RegexValue.ValueString()
 					}
 					if !RulesItem.ValuePattern.SubstringValue.IsNull() && !RulesItem.ValuePattern.SubstringValue.IsUnknown() {
-						ValuePatternMap["substring_value"] = RulesItem.ValuePattern.SubstringValue.ValueString()
+						RulesValuePatternMap["substring_value"] = RulesItem.ValuePattern.SubstringValue.ValueString()
 					}
-					RulesItemMap["value_pattern"] = ValuePatternMap
+					RulesItemMap["value_pattern"] = RulesValuePatternMap
 				}
 				RulesList = append(RulesList, RulesItemMap)
 			}

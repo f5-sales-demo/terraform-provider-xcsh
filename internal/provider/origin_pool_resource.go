@@ -2316,367 +2316,367 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			for _, OriginServersItem := range OriginServersElems {
 				OriginServersItemMap := make(map[string]interface{})
 				if OriginServersItem.CbipService != nil {
-					CbipServiceMap := make(map[string]interface{})
+					OriginServersCbipServiceMap := make(map[string]interface{})
 					if !OriginServersItem.CbipService.ServiceName.IsNull() && !OriginServersItem.CbipService.ServiceName.IsUnknown() {
-						CbipServiceMap["service_name"] = OriginServersItem.CbipService.ServiceName.ValueString()
+						OriginServersCbipServiceMap["service_name"] = OriginServersItem.CbipService.ServiceName.ValueString()
 					}
-					OriginServersItemMap["cbip_service"] = CbipServiceMap
+					OriginServersItemMap["cbip_service"] = OriginServersCbipServiceMap
 				}
 				if OriginServersItem.ConsulService != nil {
-					ConsulServiceMap := make(map[string]interface{})
+					OriginServersConsulServiceMap := make(map[string]interface{})
 					if OriginServersItem.ConsulService.InsideNetwork != nil {
-						ConsulServiceMap["inside_network"] = map[string]interface{}{}
+						OriginServersConsulServiceMap["inside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.ConsulService.OutsideNetwork != nil {
-						ConsulServiceMap["outside_network"] = map[string]interface{}{}
+						OriginServersConsulServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.ConsulService.ServiceName.IsNull() && !OriginServersItem.ConsulService.ServiceName.IsUnknown() {
-						ConsulServiceMap["service_name"] = OriginServersItem.ConsulService.ServiceName.ValueString()
+						OriginServersConsulServiceMap["service_name"] = OriginServersItem.ConsulService.ServiceName.ValueString()
 					}
 					if OriginServersItem.ConsulService.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersConsulServiceSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.ConsulService.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersConsulServiceSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.Site.Name.ValueString()
+								OriginServersConsulServiceSiteLocatorSiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
+								OriginServersConsulServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
+								OriginServersConsulServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersConsulServiceSiteLocatorMap["site"] = OriginServersConsulServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.ConsulService.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersConsulServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersConsulServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersConsulServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersConsulServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersConsulServiceSiteLocatorMap["virtual_site"] = OriginServersConsulServiceSiteLocatorVirtualSiteMap
 						}
-						ConsulServiceMap["site_locator"] = SiteLocatorMap
+						OriginServersConsulServiceMap["site_locator"] = OriginServersConsulServiceSiteLocatorMap
 					}
 					if OriginServersItem.ConsulService.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersConsulServiceSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.ConsulService.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersConsulServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.ConsulService.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersConsulServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersConsulServiceSnatPoolMap["snat_pool"] = OriginServersConsulServiceSnatPoolSnatPoolMap
 						}
-						ConsulServiceMap["snat_pool"] = SnatPoolMap
+						OriginServersConsulServiceMap["snat_pool"] = OriginServersConsulServiceSnatPoolMap
 					}
-					OriginServersItemMap["consul_service"] = ConsulServiceMap
+					OriginServersItemMap["consul_service"] = OriginServersConsulServiceMap
 				}
 				if OriginServersItem.CustomEndpointObject != nil {
-					CustomEndpointObjectMap := make(map[string]interface{})
+					OriginServersCustomEndpointObjectMap := make(map[string]interface{})
 					if OriginServersItem.CustomEndpointObject.Endpoint != nil {
-						EndpointMap := make(map[string]interface{})
+						OriginServersCustomEndpointObjectEndpointMap := make(map[string]interface{})
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Name.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Name.IsUnknown() {
-							EndpointMap["name"] = OriginServersItem.CustomEndpointObject.Endpoint.Name.ValueString()
+							OriginServersCustomEndpointObjectEndpointMap["name"] = OriginServersItem.CustomEndpointObject.Endpoint.Name.ValueString()
 						}
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsUnknown() {
-							EndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
+							OriginServersCustomEndpointObjectEndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
 						}
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsUnknown() {
-							EndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
+							OriginServersCustomEndpointObjectEndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
 						}
-						CustomEndpointObjectMap["endpoint"] = EndpointMap
+						OriginServersCustomEndpointObjectMap["endpoint"] = OriginServersCustomEndpointObjectEndpointMap
 					}
-					OriginServersItemMap["custom_endpoint_object"] = CustomEndpointObjectMap
+					OriginServersItemMap["custom_endpoint_object"] = OriginServersCustomEndpointObjectMap
 				}
 				if OriginServersItem.K8SService != nil {
-					K8SServiceMap := make(map[string]interface{})
+					OriginServersK8SServiceMap := make(map[string]interface{})
 					if OriginServersItem.K8SService.InsideNetwork != nil {
-						K8SServiceMap["inside_network"] = map[string]interface{}{}
+						OriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.K8SService.OutsideNetwork != nil {
-						K8SServiceMap["outside_network"] = map[string]interface{}{}
+						OriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
-						K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+						OriginServersK8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
 					}
 					if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
-						K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+						OriginServersK8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
 					}
 					if OriginServersItem.K8SService.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersK8SServiceSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.K8SService.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersK8SServiceSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+								OriginServersK8SServiceSiteLocatorSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+								OriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+								OriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersK8SServiceSiteLocatorMap["site"] = OriginServersK8SServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersK8SServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersK8SServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersK8SServiceSiteLocatorVirtualSiteMap
 						}
-						K8SServiceMap["site_locator"] = SiteLocatorMap
+						OriginServersK8SServiceMap["site_locator"] = OriginServersK8SServiceSiteLocatorMap
 					}
 					if OriginServersItem.K8SService.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersK8SServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersK8SServiceSnatPoolMap["snat_pool"] = OriginServersK8SServiceSnatPoolSnatPoolMap
 						}
-						K8SServiceMap["snat_pool"] = SnatPoolMap
+						OriginServersK8SServiceMap["snat_pool"] = OriginServersK8SServiceSnatPoolMap
 					}
 					if OriginServersItem.K8SService.Vk8sNetworks != nil {
-						K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+						OriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 					}
-					OriginServersItemMap["k8s_service"] = K8SServiceMap
+					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
 				if OriginServersItem.Labels != nil {
 					OriginServersItemMap["labels"] = map[string]interface{}{}
 				}
 				if OriginServersItem.PrivateIP != nil {
-					PrivateIPMap := make(map[string]interface{})
+					OriginServersPrivateIPMap := make(map[string]interface{})
 					if OriginServersItem.PrivateIP.InsideNetwork != nil {
-						PrivateIPMap["inside_network"] = map[string]interface{}{}
+						OriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
-						PrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
+						OriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 					}
 					if OriginServersItem.PrivateIP.OutsideNetwork != nil {
-						PrivateIPMap["outside_network"] = map[string]interface{}{}
+						OriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PrivateIP.Segment != nil {
-						SegmentMap := make(map[string]interface{})
+						OriginServersPrivateIPSegmentMap := make(map[string]interface{})
 						if !OriginServersItem.PrivateIP.Segment.Name.IsNull() && !OriginServersItem.PrivateIP.Segment.Name.IsUnknown() {
-							SegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
+							OriginServersPrivateIPSegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
 						}
 						if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
-							SegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
+							OriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 						}
 						if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-							SegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
+							OriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
 						}
-						PrivateIPMap["segment"] = SegmentMap
+						OriginServersPrivateIPMap["segment"] = OriginServersPrivateIPSegmentMap
 					}
 					if OriginServersItem.PrivateIP.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersPrivateIPSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.PrivateIP.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersPrivateIPSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
+								OriginServersPrivateIPSiteLocatorSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
+								OriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
+								OriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersPrivateIPSiteLocatorMap["site"] = OriginServersPrivateIPSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersPrivateIPSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersPrivateIPSiteLocatorVirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginServersPrivateIPSiteLocatorVirtualSiteMap
 						}
-						PrivateIPMap["site_locator"] = SiteLocatorMap
+						OriginServersPrivateIPMap["site_locator"] = OriginServersPrivateIPSiteLocatorMap
 					}
 					if OriginServersItem.PrivateIP.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersPrivateIPSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersPrivateIPSnatPoolMap["snat_pool"] = OriginServersPrivateIPSnatPoolSnatPoolMap
 						}
-						PrivateIPMap["snat_pool"] = SnatPoolMap
+						OriginServersPrivateIPMap["snat_pool"] = OriginServersPrivateIPSnatPoolMap
 					}
-					OriginServersItemMap["private_ip"] = PrivateIPMap
+					OriginServersItemMap["private_ip"] = OriginServersPrivateIPMap
 				}
 				if OriginServersItem.PrivateName != nil {
-					PrivateNameMap := make(map[string]interface{})
+					OriginServersPrivateNameMap := make(map[string]interface{})
 					if !OriginServersItem.PrivateName.DNSName.IsNull() && !OriginServersItem.PrivateName.DNSName.IsUnknown() {
-						PrivateNameMap["dns_name"] = OriginServersItem.PrivateName.DNSName.ValueString()
+						OriginServersPrivateNameMap["dns_name"] = OriginServersItem.PrivateName.DNSName.ValueString()
 					}
 					if OriginServersItem.PrivateName.InsideNetwork != nil {
-						PrivateNameMap["inside_network"] = map[string]interface{}{}
+						OriginServersPrivateNameMap["inside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PrivateName.OutsideNetwork != nil {
-						PrivateNameMap["outside_network"] = map[string]interface{}{}
+						OriginServersPrivateNameMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateName.RefreshInterval.IsNull() && !OriginServersItem.PrivateName.RefreshInterval.IsUnknown() {
-						PrivateNameMap["refresh_interval"] = OriginServersItem.PrivateName.RefreshInterval.ValueInt64()
+						OriginServersPrivateNameMap["refresh_interval"] = OriginServersItem.PrivateName.RefreshInterval.ValueInt64()
 					}
 					if OriginServersItem.PrivateName.Segment != nil {
-						SegmentMap := make(map[string]interface{})
+						OriginServersPrivateNameSegmentMap := make(map[string]interface{})
 						if !OriginServersItem.PrivateName.Segment.Name.IsNull() && !OriginServersItem.PrivateName.Segment.Name.IsUnknown() {
-							SegmentMap["name"] = OriginServersItem.PrivateName.Segment.Name.ValueString()
+							OriginServersPrivateNameSegmentMap["name"] = OriginServersItem.PrivateName.Segment.Name.ValueString()
 						}
 						if !OriginServersItem.PrivateName.Segment.Namespace.IsNull() && !OriginServersItem.PrivateName.Segment.Namespace.IsUnknown() {
-							SegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
+							OriginServersPrivateNameSegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
 						}
 						if !OriginServersItem.PrivateName.Segment.Tenant.IsNull() && !OriginServersItem.PrivateName.Segment.Tenant.IsUnknown() {
-							SegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
+							OriginServersPrivateNameSegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
 						}
-						PrivateNameMap["segment"] = SegmentMap
+						OriginServersPrivateNameMap["segment"] = OriginServersPrivateNameSegmentMap
 					}
 					if OriginServersItem.PrivateName.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersPrivateNameSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.PrivateName.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersPrivateNameSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.Site.Name.ValueString()
+								OriginServersPrivateNameSiteLocatorSiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
+								OriginServersPrivateNameSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
+								OriginServersPrivateNameSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersPrivateNameSiteLocatorMap["site"] = OriginServersPrivateNameSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateName.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersPrivateNameSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersPrivateNameSiteLocatorVirtualSiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersPrivateNameSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersPrivateNameSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersPrivateNameSiteLocatorMap["virtual_site"] = OriginServersPrivateNameSiteLocatorVirtualSiteMap
 						}
-						PrivateNameMap["site_locator"] = SiteLocatorMap
+						OriginServersPrivateNameMap["site_locator"] = OriginServersPrivateNameSiteLocatorMap
 					}
 					if OriginServersItem.PrivateName.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersPrivateNameSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.PrivateName.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersPrivateNameSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateName.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersPrivateNameSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersPrivateNameSnatPoolMap["snat_pool"] = OriginServersPrivateNameSnatPoolSnatPoolMap
 						}
-						PrivateNameMap["snat_pool"] = SnatPoolMap
+						OriginServersPrivateNameMap["snat_pool"] = OriginServersPrivateNameSnatPoolMap
 					}
-					OriginServersItemMap["private_name"] = PrivateNameMap
+					OriginServersItemMap["private_name"] = OriginServersPrivateNameMap
 				}
 				if OriginServersItem.PublicIP != nil {
-					PublicIPMap := make(map[string]interface{})
+					OriginServersPublicIPMap := make(map[string]interface{})
 					if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-						PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+						OriginServersPublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
 					}
-					OriginServersItemMap["public_ip"] = PublicIPMap
+					OriginServersItemMap["public_ip"] = OriginServersPublicIPMap
 				}
 				if OriginServersItem.PublicName != nil {
-					PublicNameMap := make(map[string]interface{})
+					OriginServersPublicNameMap := make(map[string]interface{})
 					if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-						PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+						OriginServersPublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
 					}
 					if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-						PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+						OriginServersPublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
 					}
-					OriginServersItemMap["public_name"] = PublicNameMap
+					OriginServersItemMap["public_name"] = OriginServersPublicNameMap
 				}
 				if OriginServersItem.VnPrivateIP != nil {
-					VnPrivateIPMap := make(map[string]interface{})
+					OriginServersVnPrivateIPMap := make(map[string]interface{})
 					if !OriginServersItem.VnPrivateIP.IP.IsNull() && !OriginServersItem.VnPrivateIP.IP.IsUnknown() {
-						VnPrivateIPMap["ip"] = OriginServersItem.VnPrivateIP.IP.ValueString()
+						OriginServersVnPrivateIPMap["ip"] = OriginServersItem.VnPrivateIP.IP.ValueString()
 					}
 					if OriginServersItem.VnPrivateIP.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						OriginServersVnPrivateIPVirtualNetworkMap := make(map[string]interface{})
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Name.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Name.IsUnknown() {
-							VirtualNetworkMap["name"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Name.ValueString()
+							OriginServersVnPrivateIPVirtualNetworkMap["name"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Name.ValueString()
 						}
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsUnknown() {
-							VirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
+							OriginServersVnPrivateIPVirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
 						}
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsUnknown() {
-							VirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
+							OriginServersVnPrivateIPVirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
 						}
-						VnPrivateIPMap["virtual_network"] = VirtualNetworkMap
+						OriginServersVnPrivateIPMap["virtual_network"] = OriginServersVnPrivateIPVirtualNetworkMap
 					}
-					OriginServersItemMap["vn_private_ip"] = VnPrivateIPMap
+					OriginServersItemMap["vn_private_ip"] = OriginServersVnPrivateIPMap
 				}
 				if OriginServersItem.VnPrivateName != nil {
-					VnPrivateNameMap := make(map[string]interface{})
+					OriginServersVnPrivateNameMap := make(map[string]interface{})
 					if !OriginServersItem.VnPrivateName.DNSName.IsNull() && !OriginServersItem.VnPrivateName.DNSName.IsUnknown() {
-						VnPrivateNameMap["dns_name"] = OriginServersItem.VnPrivateName.DNSName.ValueString()
+						OriginServersVnPrivateNameMap["dns_name"] = OriginServersItem.VnPrivateName.DNSName.ValueString()
 					}
 					if OriginServersItem.VnPrivateName.PrivateNetwork != nil {
-						PrivateNetworkMap := make(map[string]interface{})
+						OriginServersVnPrivateNamePrivateNetworkMap := make(map[string]interface{})
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Name.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Name.IsUnknown() {
-							PrivateNetworkMap["name"] = OriginServersItem.VnPrivateName.PrivateNetwork.Name.ValueString()
+							OriginServersVnPrivateNamePrivateNetworkMap["name"] = OriginServersItem.VnPrivateName.PrivateNetwork.Name.ValueString()
 						}
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsUnknown() {
-							PrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
+							OriginServersVnPrivateNamePrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
 						}
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsUnknown() {
-							PrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
+							OriginServersVnPrivateNamePrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
 						}
-						VnPrivateNameMap["private_network"] = PrivateNetworkMap
+						OriginServersVnPrivateNameMap["private_network"] = OriginServersVnPrivateNamePrivateNetworkMap
 					}
-					OriginServersItemMap["vn_private_name"] = VnPrivateNameMap
+					OriginServersItemMap["vn_private_name"] = OriginServersVnPrivateNameMap
 				}
 				OriginServersList = append(OriginServersList, OriginServersItemMap)
 			}
@@ -2689,23 +2689,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			AdvancedOptionsMap["auto_http_config"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.CircuitBreaker != nil {
-			CircuitBreakerMap := make(map[string]interface{})
+			AdvancedOptionsCircuitBreakerMap := make(map[string]interface{})
 			if !data.AdvancedOptions.CircuitBreaker.ConnectionLimit.IsNull() && !data.AdvancedOptions.CircuitBreaker.ConnectionLimit.IsUnknown() {
-				CircuitBreakerMap["connection_limit"] = data.AdvancedOptions.CircuitBreaker.ConnectionLimit.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["connection_limit"] = data.AdvancedOptions.CircuitBreaker.ConnectionLimit.ValueInt64()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.MaxRequests.IsNull() && !data.AdvancedOptions.CircuitBreaker.MaxRequests.IsUnknown() {
-				CircuitBreakerMap["max_requests"] = data.AdvancedOptions.CircuitBreaker.MaxRequests.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["max_requests"] = data.AdvancedOptions.CircuitBreaker.MaxRequests.ValueInt64()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.PendingRequests.IsNull() && !data.AdvancedOptions.CircuitBreaker.PendingRequests.IsUnknown() {
-				CircuitBreakerMap["pending_requests"] = data.AdvancedOptions.CircuitBreaker.PendingRequests.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["pending_requests"] = data.AdvancedOptions.CircuitBreaker.PendingRequests.ValueInt64()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.Priority.IsNull() && !data.AdvancedOptions.CircuitBreaker.Priority.IsUnknown() {
-				CircuitBreakerMap["priority"] = data.AdvancedOptions.CircuitBreaker.Priority.ValueString()
+				AdvancedOptionsCircuitBreakerMap["priority"] = data.AdvancedOptions.CircuitBreaker.Priority.ValueString()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.Retries.IsNull() && !data.AdvancedOptions.CircuitBreaker.Retries.IsUnknown() {
-				CircuitBreakerMap["retries"] = data.AdvancedOptions.CircuitBreaker.Retries.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["retries"] = data.AdvancedOptions.CircuitBreaker.Retries.ValueInt64()
 			}
-			AdvancedOptionsMap["circuit_breaker"] = CircuitBreakerMap
+			AdvancedOptionsMap["circuit_breaker"] = AdvancedOptionsCircuitBreakerMap
 		}
 		if !data.AdvancedOptions.ConnectionTimeout.IsNull() && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 			AdvancedOptionsMap["connection_timeout"] = data.AdvancedOptions.ConnectionTimeout.ValueInt64()
@@ -2732,16 +2732,16 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			AdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.EnableSubsets != nil {
-			EnableSubsetsMap := make(map[string]interface{})
+			AdvancedOptionsEnableSubsetsMap := make(map[string]interface{})
 			if data.AdvancedOptions.EnableSubsets.AnyEndpoint != nil {
-				EnableSubsetsMap["any_endpoint"] = map[string]interface{}{}
+				AdvancedOptionsEnableSubsetsMap["any_endpoint"] = map[string]interface{}{}
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
-				DefaultSubsetMap := make(map[string]interface{})
+				AdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
 				if data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
-					DefaultSubsetMap["default_subset"] = map[string]interface{}{}
+					AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
 				}
-				EnableSubsetsMap["default_subset"] = DefaultSubsetMap
+				AdvancedOptionsEnableSubsetsMap["default_subset"] = AdvancedOptionsEnableSubsetsDefaultSubsetMap
 			}
 			if !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsNull() && !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsUnknown() {
 				var EndpointSubsetsElems []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
@@ -2760,40 +2760,40 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
 					}
-					EnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
+					AdvancedOptionsEnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 				}
 			}
 			if data.AdvancedOptions.EnableSubsets.FailRequest != nil {
-				EnableSubsetsMap["fail_request"] = map[string]interface{}{}
+				AdvancedOptionsEnableSubsetsMap["fail_request"] = map[string]interface{}{}
 			}
-			AdvancedOptionsMap["enable_subsets"] = EnableSubsetsMap
+			AdvancedOptionsMap["enable_subsets"] = AdvancedOptionsEnableSubsetsMap
 		}
 		if data.AdvancedOptions.Http1Config != nil {
-			Http1ConfigMap := make(map[string]interface{})
+			AdvancedOptionsHttp1ConfigMap := make(map[string]interface{})
 			if data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-				HeaderTransformationMap := make(map[string]interface{})
+				AdvancedOptionsHttp1ConfigHeaderTransformationMap := make(map[string]interface{})
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
-					HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-					HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-					HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-					HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
-				Http1ConfigMap["header_transformation"] = HeaderTransformationMap
+				AdvancedOptionsHttp1ConfigMap["header_transformation"] = AdvancedOptionsHttp1ConfigHeaderTransformationMap
 			}
-			AdvancedOptionsMap["http1_config"] = Http1ConfigMap
+			AdvancedOptionsMap["http1_config"] = AdvancedOptionsHttp1ConfigMap
 		}
 		if data.AdvancedOptions.Http2Options != nil {
-			Http2OptionsMap := make(map[string]interface{})
+			AdvancedOptionsHttp2OptionsMap := make(map[string]interface{})
 			if !data.AdvancedOptions.Http2Options.Enabled.IsNull() && !data.AdvancedOptions.Http2Options.Enabled.IsUnknown() {
-				Http2OptionsMap["enabled"] = data.AdvancedOptions.Http2Options.Enabled.ValueBool()
+				AdvancedOptionsHttp2OptionsMap["enabled"] = data.AdvancedOptions.Http2Options.Enabled.ValueBool()
 			}
-			AdvancedOptionsMap["http2_options"] = Http2OptionsMap
+			AdvancedOptionsMap["http2_options"] = AdvancedOptionsHttp2OptionsMap
 		}
 		if !data.AdvancedOptions.HTTPIdleTimeout.IsNull() && !data.AdvancedOptions.HTTPIdleTimeout.IsUnknown() {
 			AdvancedOptionsMap["http_idle_timeout"] = data.AdvancedOptions.HTTPIdleTimeout.ValueInt64()
@@ -2808,23 +2808,23 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			AdvancedOptionsMap["no_request_limit_per_connection"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.OutlierDetection != nil {
-			OutlierDetectionMap := make(map[string]interface{})
+			AdvancedOptionsOutlierDetectionMap := make(map[string]interface{})
 			if !data.AdvancedOptions.OutlierDetection.BaseEjectionTime.IsNull() && !data.AdvancedOptions.OutlierDetection.BaseEjectionTime.IsUnknown() {
-				OutlierDetectionMap["base_ejection_time"] = data.AdvancedOptions.OutlierDetection.BaseEjectionTime.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["base_ejection_time"] = data.AdvancedOptions.OutlierDetection.BaseEjectionTime.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.Consecutive5xx.IsNull() && !data.AdvancedOptions.OutlierDetection.Consecutive5xx.IsUnknown() {
-				OutlierDetectionMap["consecutive_5xx"] = data.AdvancedOptions.OutlierDetection.Consecutive5xx.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["consecutive_5xx"] = data.AdvancedOptions.OutlierDetection.Consecutive5xx.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.IsNull() && !data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
-				OutlierDetectionMap["consecutive_gateway_failure"] = data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["consecutive_gateway_failure"] = data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.Interval.IsNull() && !data.AdvancedOptions.OutlierDetection.Interval.IsUnknown() {
-				OutlierDetectionMap["interval"] = data.AdvancedOptions.OutlierDetection.Interval.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["interval"] = data.AdvancedOptions.OutlierDetection.Interval.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.IsNull() && !data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.IsUnknown() {
-				OutlierDetectionMap["max_ejection_percent"] = data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["max_ejection_percent"] = data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.ValueInt64()
 			}
-			AdvancedOptionsMap["outlier_detection"] = OutlierDetectionMap
+			AdvancedOptionsMap["outlier_detection"] = AdvancedOptionsOutlierDetectionMap
 		}
 		if !data.AdvancedOptions.PanicThreshold.IsNull() && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 			AdvancedOptionsMap["panic_threshold"] = data.AdvancedOptions.PanicThreshold.ValueInt64()
@@ -2877,40 +2877,40 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			UseTLSMap["sni"] = data.UseTLS.Sni.ValueString()
 		}
 		if data.UseTLS.TLSConfig != nil {
-			TLSConfigMap := make(map[string]interface{})
+			UseTLSTLSConfigMap := make(map[string]interface{})
 			if data.UseTLS.TLSConfig.CustomSecurity != nil {
-				CustomSecurityMap := make(map[string]interface{})
+				UseTLSTLSConfigCustomSecurityMap := make(map[string]interface{})
 				if !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						UseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-					CustomSecurityMap["max_version"] = data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					UseTLSTLSConfigCustomSecurityMap["max_version"] = data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 				}
 				if !data.UseTLS.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-					CustomSecurityMap["min_version"] = data.UseTLS.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					UseTLSTLSConfigCustomSecurityMap["min_version"] = data.UseTLS.TLSConfig.CustomSecurity.MinVersion.ValueString()
 				}
-				TLSConfigMap["custom_security"] = CustomSecurityMap
+				UseTLSTLSConfigMap["custom_security"] = UseTLSTLSConfigCustomSecurityMap
 			}
 			if data.UseTLS.TLSConfig.DefaultSecurity != nil {
-				TLSConfigMap["default_security"] = map[string]interface{}{}
+				UseTLSTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
 			if data.UseTLS.TLSConfig.LowSecurity != nil {
-				TLSConfigMap["low_security"] = map[string]interface{}{}
+				UseTLSTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
 			if data.UseTLS.TLSConfig.MediumSecurity != nil {
-				TLSConfigMap["medium_security"] = map[string]interface{}{}
+				UseTLSTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
-			UseTLSMap["tls_config"] = TLSConfigMap
+			UseTLSMap["tls_config"] = UseTLSTLSConfigMap
 		}
 		if data.UseTLS.UseHostHeaderAsSni != nil {
 			UseTLSMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
 		if data.UseTLS.UseMtls != nil {
-			UseMtlsMap := make(map[string]interface{})
+			UseTLSUseMtlsMap := make(map[string]interface{})
 			if !data.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []OriginPoolUseTLSUseMtlsTLSCertificatesModel
 				diags := data.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
@@ -2923,15 +2923,15 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -2940,74 +2940,74 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							UseTLSUseMtlsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								UseTLSUseMtlsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								UseTLSUseMtlsTLSCertificatesPrivateKeyMap["clear_secret_info"] = UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = UseTLSUseMtlsTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					UseMtlsMap["tls_certificates"] = TLSCertificatesList
+					UseTLSUseMtlsMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
-			UseTLSMap["use_mtls"] = UseMtlsMap
+			UseTLSMap["use_mtls"] = UseTLSUseMtlsMap
 		}
 		if data.UseTLS.UseMtlsObj != nil {
-			UseMtlsObjMap := make(map[string]interface{})
+			UseTLSUseMtlsObjMap := make(map[string]interface{})
 			if !data.UseTLS.UseMtlsObj.Name.IsNull() && !data.UseTLS.UseMtlsObj.Name.IsUnknown() {
-				UseMtlsObjMap["name"] = data.UseTLS.UseMtlsObj.Name.ValueString()
+				UseTLSUseMtlsObjMap["name"] = data.UseTLS.UseMtlsObj.Name.ValueString()
 			}
 			if !data.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
-				UseMtlsObjMap["namespace"] = data.UseTLS.UseMtlsObj.Namespace.ValueString()
+				UseTLSUseMtlsObjMap["namespace"] = data.UseTLS.UseMtlsObj.Namespace.ValueString()
 			}
 			if !data.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-				UseMtlsObjMap["tenant"] = data.UseTLS.UseMtlsObj.Tenant.ValueString()
+				UseTLSUseMtlsObjMap["tenant"] = data.UseTLS.UseMtlsObj.Tenant.ValueString()
 			}
-			UseTLSMap["use_mtls_obj"] = UseMtlsObjMap
+			UseTLSMap["use_mtls_obj"] = UseTLSUseMtlsObjMap
 		}
 		if data.UseTLS.UseServerVerification != nil {
-			UseServerVerificationMap := make(map[string]interface{})
+			UseTLSUseServerVerificationMap := make(map[string]interface{})
 			if data.UseTLS.UseServerVerification.TrustedCA != nil {
-				TrustedCAMap := make(map[string]interface{})
+				UseTLSUseServerVerificationTrustedCAMap := make(map[string]interface{})
 				if !data.UseTLS.UseServerVerification.TrustedCA.Name.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Name.IsUnknown() {
-					TrustedCAMap["name"] = data.UseTLS.UseServerVerification.TrustedCA.Name.ValueString()
+					UseTLSUseServerVerificationTrustedCAMap["name"] = data.UseTLS.UseServerVerification.TrustedCA.Name.ValueString()
 				}
 				if !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
-					TrustedCAMap["namespace"] = data.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
+					UseTLSUseServerVerificationTrustedCAMap["namespace"] = data.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
 				}
 				if !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-					TrustedCAMap["tenant"] = data.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
+					UseTLSUseServerVerificationTrustedCAMap["tenant"] = data.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 				}
-				UseServerVerificationMap["trusted_ca"] = TrustedCAMap
+				UseTLSUseServerVerificationMap["trusted_ca"] = UseTLSUseServerVerificationTrustedCAMap
 			}
 			if !data.UseTLS.UseServerVerification.TrustedCAURL.IsNull() && !data.UseTLS.UseServerVerification.TrustedCAURL.IsUnknown() {
-				UseServerVerificationMap["trusted_ca_url"] = data.UseTLS.UseServerVerification.TrustedCAURL.ValueString()
+				UseTLSUseServerVerificationMap["trusted_ca_url"] = data.UseTLS.UseServerVerification.TrustedCAURL.ValueString()
 			}
-			UseTLSMap["use_server_verification"] = UseServerVerificationMap
+			UseTLSMap["use_server_verification"] = UseTLSUseServerVerificationMap
 		}
 		if data.UseTLS.VolterraTrustedCA != nil {
 			UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
@@ -6518,367 +6518,367 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			for _, OriginServersItem := range OriginServersElems {
 				OriginServersItemMap := make(map[string]interface{})
 				if OriginServersItem.CbipService != nil {
-					CbipServiceMap := make(map[string]interface{})
+					OriginServersCbipServiceMap := make(map[string]interface{})
 					if !OriginServersItem.CbipService.ServiceName.IsNull() && !OriginServersItem.CbipService.ServiceName.IsUnknown() {
-						CbipServiceMap["service_name"] = OriginServersItem.CbipService.ServiceName.ValueString()
+						OriginServersCbipServiceMap["service_name"] = OriginServersItem.CbipService.ServiceName.ValueString()
 					}
-					OriginServersItemMap["cbip_service"] = CbipServiceMap
+					OriginServersItemMap["cbip_service"] = OriginServersCbipServiceMap
 				}
 				if OriginServersItem.ConsulService != nil {
-					ConsulServiceMap := make(map[string]interface{})
+					OriginServersConsulServiceMap := make(map[string]interface{})
 					if OriginServersItem.ConsulService.InsideNetwork != nil {
-						ConsulServiceMap["inside_network"] = map[string]interface{}{}
+						OriginServersConsulServiceMap["inside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.ConsulService.OutsideNetwork != nil {
-						ConsulServiceMap["outside_network"] = map[string]interface{}{}
+						OriginServersConsulServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.ConsulService.ServiceName.IsNull() && !OriginServersItem.ConsulService.ServiceName.IsUnknown() {
-						ConsulServiceMap["service_name"] = OriginServersItem.ConsulService.ServiceName.ValueString()
+						OriginServersConsulServiceMap["service_name"] = OriginServersItem.ConsulService.ServiceName.ValueString()
 					}
 					if OriginServersItem.ConsulService.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersConsulServiceSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.ConsulService.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersConsulServiceSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.Site.Name.ValueString()
+								OriginServersConsulServiceSiteLocatorSiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
+								OriginServersConsulServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
+								OriginServersConsulServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersConsulServiceSiteLocatorMap["site"] = OriginServersConsulServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.ConsulService.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersConsulServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersConsulServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersConsulServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersConsulServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.ConsulService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersConsulServiceSiteLocatorMap["virtual_site"] = OriginServersConsulServiceSiteLocatorVirtualSiteMap
 						}
-						ConsulServiceMap["site_locator"] = SiteLocatorMap
+						OriginServersConsulServiceMap["site_locator"] = OriginServersConsulServiceSiteLocatorMap
 					}
 					if OriginServersItem.ConsulService.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersConsulServiceSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.ConsulService.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersConsulServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.ConsulService.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersConsulServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.ConsulService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersConsulServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersConsulServiceSnatPoolMap["snat_pool"] = OriginServersConsulServiceSnatPoolSnatPoolMap
 						}
-						ConsulServiceMap["snat_pool"] = SnatPoolMap
+						OriginServersConsulServiceMap["snat_pool"] = OriginServersConsulServiceSnatPoolMap
 					}
-					OriginServersItemMap["consul_service"] = ConsulServiceMap
+					OriginServersItemMap["consul_service"] = OriginServersConsulServiceMap
 				}
 				if OriginServersItem.CustomEndpointObject != nil {
-					CustomEndpointObjectMap := make(map[string]interface{})
+					OriginServersCustomEndpointObjectMap := make(map[string]interface{})
 					if OriginServersItem.CustomEndpointObject.Endpoint != nil {
-						EndpointMap := make(map[string]interface{})
+						OriginServersCustomEndpointObjectEndpointMap := make(map[string]interface{})
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Name.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Name.IsUnknown() {
-							EndpointMap["name"] = OriginServersItem.CustomEndpointObject.Endpoint.Name.ValueString()
+							OriginServersCustomEndpointObjectEndpointMap["name"] = OriginServersItem.CustomEndpointObject.Endpoint.Name.ValueString()
 						}
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Namespace.IsUnknown() {
-							EndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
+							OriginServersCustomEndpointObjectEndpointMap["namespace"] = OriginServersItem.CustomEndpointObject.Endpoint.Namespace.ValueString()
 						}
 						if !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsNull() && !OriginServersItem.CustomEndpointObject.Endpoint.Tenant.IsUnknown() {
-							EndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
+							OriginServersCustomEndpointObjectEndpointMap["tenant"] = OriginServersItem.CustomEndpointObject.Endpoint.Tenant.ValueString()
 						}
-						CustomEndpointObjectMap["endpoint"] = EndpointMap
+						OriginServersCustomEndpointObjectMap["endpoint"] = OriginServersCustomEndpointObjectEndpointMap
 					}
-					OriginServersItemMap["custom_endpoint_object"] = CustomEndpointObjectMap
+					OriginServersItemMap["custom_endpoint_object"] = OriginServersCustomEndpointObjectMap
 				}
 				if OriginServersItem.K8SService != nil {
-					K8SServiceMap := make(map[string]interface{})
+					OriginServersK8SServiceMap := make(map[string]interface{})
 					if OriginServersItem.K8SService.InsideNetwork != nil {
-						K8SServiceMap["inside_network"] = map[string]interface{}{}
+						OriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.K8SService.OutsideNetwork != nil {
-						K8SServiceMap["outside_network"] = map[string]interface{}{}
+						OriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
-						K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+						OriginServersK8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
 					}
 					if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
-						K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+						OriginServersK8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
 					}
 					if OriginServersItem.K8SService.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersK8SServiceSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.K8SService.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersK8SServiceSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+								OriginServersK8SServiceSiteLocatorSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+								OriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+								OriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersK8SServiceSiteLocatorMap["site"] = OriginServersK8SServiceSiteLocatorSiteMap
 						}
 						if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersK8SServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersK8SServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersK8SServiceSiteLocatorVirtualSiteMap
 						}
-						K8SServiceMap["site_locator"] = SiteLocatorMap
+						OriginServersK8SServiceMap["site_locator"] = OriginServersK8SServiceSiteLocatorMap
 					}
 					if OriginServersItem.K8SService.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersK8SServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersK8SServiceSnatPoolMap["snat_pool"] = OriginServersK8SServiceSnatPoolSnatPoolMap
 						}
-						K8SServiceMap["snat_pool"] = SnatPoolMap
+						OriginServersK8SServiceMap["snat_pool"] = OriginServersK8SServiceSnatPoolMap
 					}
 					if OriginServersItem.K8SService.Vk8sNetworks != nil {
-						K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+						OriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 					}
-					OriginServersItemMap["k8s_service"] = K8SServiceMap
+					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
 				if OriginServersItem.Labels != nil {
 					OriginServersItemMap["labels"] = map[string]interface{}{}
 				}
 				if OriginServersItem.PrivateIP != nil {
-					PrivateIPMap := make(map[string]interface{})
+					OriginServersPrivateIPMap := make(map[string]interface{})
 					if OriginServersItem.PrivateIP.InsideNetwork != nil {
-						PrivateIPMap["inside_network"] = map[string]interface{}{}
+						OriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
-						PrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
+						OriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 					}
 					if OriginServersItem.PrivateIP.OutsideNetwork != nil {
-						PrivateIPMap["outside_network"] = map[string]interface{}{}
+						OriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PrivateIP.Segment != nil {
-						SegmentMap := make(map[string]interface{})
+						OriginServersPrivateIPSegmentMap := make(map[string]interface{})
 						if !OriginServersItem.PrivateIP.Segment.Name.IsNull() && !OriginServersItem.PrivateIP.Segment.Name.IsUnknown() {
-							SegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
+							OriginServersPrivateIPSegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
 						}
 						if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
-							SegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
+							OriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 						}
 						if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-							SegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
+							OriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
 						}
-						PrivateIPMap["segment"] = SegmentMap
+						OriginServersPrivateIPMap["segment"] = OriginServersPrivateIPSegmentMap
 					}
 					if OriginServersItem.PrivateIP.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersPrivateIPSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.PrivateIP.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersPrivateIPSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
+								OriginServersPrivateIPSiteLocatorSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
+								OriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
+								OriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersPrivateIPSiteLocatorMap["site"] = OriginServersPrivateIPSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersPrivateIPSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersPrivateIPSiteLocatorVirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginServersPrivateIPSiteLocatorVirtualSiteMap
 						}
-						PrivateIPMap["site_locator"] = SiteLocatorMap
+						OriginServersPrivateIPMap["site_locator"] = OriginServersPrivateIPSiteLocatorMap
 					}
 					if OriginServersItem.PrivateIP.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersPrivateIPSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersPrivateIPSnatPoolMap["snat_pool"] = OriginServersPrivateIPSnatPoolSnatPoolMap
 						}
-						PrivateIPMap["snat_pool"] = SnatPoolMap
+						OriginServersPrivateIPMap["snat_pool"] = OriginServersPrivateIPSnatPoolMap
 					}
-					OriginServersItemMap["private_ip"] = PrivateIPMap
+					OriginServersItemMap["private_ip"] = OriginServersPrivateIPMap
 				}
 				if OriginServersItem.PrivateName != nil {
-					PrivateNameMap := make(map[string]interface{})
+					OriginServersPrivateNameMap := make(map[string]interface{})
 					if !OriginServersItem.PrivateName.DNSName.IsNull() && !OriginServersItem.PrivateName.DNSName.IsUnknown() {
-						PrivateNameMap["dns_name"] = OriginServersItem.PrivateName.DNSName.ValueString()
+						OriginServersPrivateNameMap["dns_name"] = OriginServersItem.PrivateName.DNSName.ValueString()
 					}
 					if OriginServersItem.PrivateName.InsideNetwork != nil {
-						PrivateNameMap["inside_network"] = map[string]interface{}{}
+						OriginServersPrivateNameMap["inside_network"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PrivateName.OutsideNetwork != nil {
-						PrivateNameMap["outside_network"] = map[string]interface{}{}
+						OriginServersPrivateNameMap["outside_network"] = map[string]interface{}{}
 					}
 					if !OriginServersItem.PrivateName.RefreshInterval.IsNull() && !OriginServersItem.PrivateName.RefreshInterval.IsUnknown() {
-						PrivateNameMap["refresh_interval"] = OriginServersItem.PrivateName.RefreshInterval.ValueInt64()
+						OriginServersPrivateNameMap["refresh_interval"] = OriginServersItem.PrivateName.RefreshInterval.ValueInt64()
 					}
 					if OriginServersItem.PrivateName.Segment != nil {
-						SegmentMap := make(map[string]interface{})
+						OriginServersPrivateNameSegmentMap := make(map[string]interface{})
 						if !OriginServersItem.PrivateName.Segment.Name.IsNull() && !OriginServersItem.PrivateName.Segment.Name.IsUnknown() {
-							SegmentMap["name"] = OriginServersItem.PrivateName.Segment.Name.ValueString()
+							OriginServersPrivateNameSegmentMap["name"] = OriginServersItem.PrivateName.Segment.Name.ValueString()
 						}
 						if !OriginServersItem.PrivateName.Segment.Namespace.IsNull() && !OriginServersItem.PrivateName.Segment.Namespace.IsUnknown() {
-							SegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
+							OriginServersPrivateNameSegmentMap["namespace"] = OriginServersItem.PrivateName.Segment.Namespace.ValueString()
 						}
 						if !OriginServersItem.PrivateName.Segment.Tenant.IsNull() && !OriginServersItem.PrivateName.Segment.Tenant.IsUnknown() {
-							SegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
+							OriginServersPrivateNameSegmentMap["tenant"] = OriginServersItem.PrivateName.Segment.Tenant.ValueString()
 						}
-						PrivateNameMap["segment"] = SegmentMap
+						OriginServersPrivateNameMap["segment"] = OriginServersPrivateNameSegmentMap
 					}
 					if OriginServersItem.PrivateName.SiteLocator != nil {
-						SiteLocatorMap := make(map[string]interface{})
+						OriginServersPrivateNameSiteLocatorMap := make(map[string]interface{})
 						if OriginServersItem.PrivateName.SiteLocator.Site != nil {
-							SiteMap := make(map[string]interface{})
+							OriginServersPrivateNameSiteLocatorSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Name.IsUnknown() {
-								SiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.Site.Name.ValueString()
+								OriginServersPrivateNameSiteLocatorSiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.Site.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
+								OriginServersPrivateNameSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.Site.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
+								OriginServersPrivateNameSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.Site.Tenant.ValueString()
 							}
-							SiteLocatorMap["site"] = SiteMap
+							OriginServersPrivateNameSiteLocatorMap["site"] = OriginServersPrivateNameSiteLocatorSiteMap
 						}
 						if OriginServersItem.PrivateName.SiteLocator.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							OriginServersPrivateNameSiteLocatorVirtualSiteMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.ValueString()
+								OriginServersPrivateNameSiteLocatorVirtualSiteMap["name"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Name.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
+								OriginServersPrivateNameSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Namespace.ValueString()
 							}
 							if !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
+								OriginServersPrivateNameSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateName.SiteLocator.VirtualSite.Tenant.ValueString()
 							}
-							SiteLocatorMap["virtual_site"] = VirtualSiteMap
+							OriginServersPrivateNameSiteLocatorMap["virtual_site"] = OriginServersPrivateNameSiteLocatorVirtualSiteMap
 						}
-						PrivateNameMap["site_locator"] = SiteLocatorMap
+						OriginServersPrivateNameMap["site_locator"] = OriginServersPrivateNameSiteLocatorMap
 					}
 					if OriginServersItem.PrivateName.SnatPool != nil {
-						SnatPoolMap := make(map[string]interface{})
+						OriginServersPrivateNameSnatPoolMap := make(map[string]interface{})
 						if OriginServersItem.PrivateName.SnatPool.NoSnatPool != nil {
-							SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+							OriginServersPrivateNameSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 						}
 						if OriginServersItem.PrivateName.SnatPool.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersPrivateNameSnatPoolSnatPoolMap := make(map[string]interface{})
 							if !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := OriginServersItem.PrivateName.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									SnatPoolMap["prefixes"] = PrefixesItems
+									OriginServersPrivateNameSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 								}
 							}
-							SnatPoolMap["snat_pool"] = SnatPoolMap
+							OriginServersPrivateNameSnatPoolMap["snat_pool"] = OriginServersPrivateNameSnatPoolSnatPoolMap
 						}
-						PrivateNameMap["snat_pool"] = SnatPoolMap
+						OriginServersPrivateNameMap["snat_pool"] = OriginServersPrivateNameSnatPoolMap
 					}
-					OriginServersItemMap["private_name"] = PrivateNameMap
+					OriginServersItemMap["private_name"] = OriginServersPrivateNameMap
 				}
 				if OriginServersItem.PublicIP != nil {
-					PublicIPMap := make(map[string]interface{})
+					OriginServersPublicIPMap := make(map[string]interface{})
 					if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-						PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+						OriginServersPublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
 					}
-					OriginServersItemMap["public_ip"] = PublicIPMap
+					OriginServersItemMap["public_ip"] = OriginServersPublicIPMap
 				}
 				if OriginServersItem.PublicName != nil {
-					PublicNameMap := make(map[string]interface{})
+					OriginServersPublicNameMap := make(map[string]interface{})
 					if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-						PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+						OriginServersPublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
 					}
 					if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-						PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+						OriginServersPublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
 					}
-					OriginServersItemMap["public_name"] = PublicNameMap
+					OriginServersItemMap["public_name"] = OriginServersPublicNameMap
 				}
 				if OriginServersItem.VnPrivateIP != nil {
-					VnPrivateIPMap := make(map[string]interface{})
+					OriginServersVnPrivateIPMap := make(map[string]interface{})
 					if !OriginServersItem.VnPrivateIP.IP.IsNull() && !OriginServersItem.VnPrivateIP.IP.IsUnknown() {
-						VnPrivateIPMap["ip"] = OriginServersItem.VnPrivateIP.IP.ValueString()
+						OriginServersVnPrivateIPMap["ip"] = OriginServersItem.VnPrivateIP.IP.ValueString()
 					}
 					if OriginServersItem.VnPrivateIP.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						OriginServersVnPrivateIPVirtualNetworkMap := make(map[string]interface{})
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Name.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Name.IsUnknown() {
-							VirtualNetworkMap["name"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Name.ValueString()
+							OriginServersVnPrivateIPVirtualNetworkMap["name"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Name.ValueString()
 						}
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.IsUnknown() {
-							VirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
+							OriginServersVnPrivateIPVirtualNetworkMap["namespace"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Namespace.ValueString()
 						}
 						if !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.IsUnknown() {
-							VirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
+							OriginServersVnPrivateIPVirtualNetworkMap["tenant"] = OriginServersItem.VnPrivateIP.VirtualNetwork.Tenant.ValueString()
 						}
-						VnPrivateIPMap["virtual_network"] = VirtualNetworkMap
+						OriginServersVnPrivateIPMap["virtual_network"] = OriginServersVnPrivateIPVirtualNetworkMap
 					}
-					OriginServersItemMap["vn_private_ip"] = VnPrivateIPMap
+					OriginServersItemMap["vn_private_ip"] = OriginServersVnPrivateIPMap
 				}
 				if OriginServersItem.VnPrivateName != nil {
-					VnPrivateNameMap := make(map[string]interface{})
+					OriginServersVnPrivateNameMap := make(map[string]interface{})
 					if !OriginServersItem.VnPrivateName.DNSName.IsNull() && !OriginServersItem.VnPrivateName.DNSName.IsUnknown() {
-						VnPrivateNameMap["dns_name"] = OriginServersItem.VnPrivateName.DNSName.ValueString()
+						OriginServersVnPrivateNameMap["dns_name"] = OriginServersItem.VnPrivateName.DNSName.ValueString()
 					}
 					if OriginServersItem.VnPrivateName.PrivateNetwork != nil {
-						PrivateNetworkMap := make(map[string]interface{})
+						OriginServersVnPrivateNamePrivateNetworkMap := make(map[string]interface{})
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Name.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Name.IsUnknown() {
-							PrivateNetworkMap["name"] = OriginServersItem.VnPrivateName.PrivateNetwork.Name.ValueString()
+							OriginServersVnPrivateNamePrivateNetworkMap["name"] = OriginServersItem.VnPrivateName.PrivateNetwork.Name.ValueString()
 						}
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.IsUnknown() {
-							PrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
+							OriginServersVnPrivateNamePrivateNetworkMap["namespace"] = OriginServersItem.VnPrivateName.PrivateNetwork.Namespace.ValueString()
 						}
 						if !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsNull() && !OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.IsUnknown() {
-							PrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
+							OriginServersVnPrivateNamePrivateNetworkMap["tenant"] = OriginServersItem.VnPrivateName.PrivateNetwork.Tenant.ValueString()
 						}
-						VnPrivateNameMap["private_network"] = PrivateNetworkMap
+						OriginServersVnPrivateNameMap["private_network"] = OriginServersVnPrivateNamePrivateNetworkMap
 					}
-					OriginServersItemMap["vn_private_name"] = VnPrivateNameMap
+					OriginServersItemMap["vn_private_name"] = OriginServersVnPrivateNameMap
 				}
 				OriginServersList = append(OriginServersList, OriginServersItemMap)
 			}
@@ -6891,23 +6891,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			AdvancedOptionsMap["auto_http_config"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.CircuitBreaker != nil {
-			CircuitBreakerMap := make(map[string]interface{})
+			AdvancedOptionsCircuitBreakerMap := make(map[string]interface{})
 			if !data.AdvancedOptions.CircuitBreaker.ConnectionLimit.IsNull() && !data.AdvancedOptions.CircuitBreaker.ConnectionLimit.IsUnknown() {
-				CircuitBreakerMap["connection_limit"] = data.AdvancedOptions.CircuitBreaker.ConnectionLimit.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["connection_limit"] = data.AdvancedOptions.CircuitBreaker.ConnectionLimit.ValueInt64()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.MaxRequests.IsNull() && !data.AdvancedOptions.CircuitBreaker.MaxRequests.IsUnknown() {
-				CircuitBreakerMap["max_requests"] = data.AdvancedOptions.CircuitBreaker.MaxRequests.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["max_requests"] = data.AdvancedOptions.CircuitBreaker.MaxRequests.ValueInt64()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.PendingRequests.IsNull() && !data.AdvancedOptions.CircuitBreaker.PendingRequests.IsUnknown() {
-				CircuitBreakerMap["pending_requests"] = data.AdvancedOptions.CircuitBreaker.PendingRequests.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["pending_requests"] = data.AdvancedOptions.CircuitBreaker.PendingRequests.ValueInt64()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.Priority.IsNull() && !data.AdvancedOptions.CircuitBreaker.Priority.IsUnknown() {
-				CircuitBreakerMap["priority"] = data.AdvancedOptions.CircuitBreaker.Priority.ValueString()
+				AdvancedOptionsCircuitBreakerMap["priority"] = data.AdvancedOptions.CircuitBreaker.Priority.ValueString()
 			}
 			if !data.AdvancedOptions.CircuitBreaker.Retries.IsNull() && !data.AdvancedOptions.CircuitBreaker.Retries.IsUnknown() {
-				CircuitBreakerMap["retries"] = data.AdvancedOptions.CircuitBreaker.Retries.ValueInt64()
+				AdvancedOptionsCircuitBreakerMap["retries"] = data.AdvancedOptions.CircuitBreaker.Retries.ValueInt64()
 			}
-			AdvancedOptionsMap["circuit_breaker"] = CircuitBreakerMap
+			AdvancedOptionsMap["circuit_breaker"] = AdvancedOptionsCircuitBreakerMap
 		}
 		if !data.AdvancedOptions.ConnectionTimeout.IsNull() && !data.AdvancedOptions.ConnectionTimeout.IsUnknown() {
 			AdvancedOptionsMap["connection_timeout"] = data.AdvancedOptions.ConnectionTimeout.ValueInt64()
@@ -6934,16 +6934,16 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			AdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.EnableSubsets != nil {
-			EnableSubsetsMap := make(map[string]interface{})
+			AdvancedOptionsEnableSubsetsMap := make(map[string]interface{})
 			if data.AdvancedOptions.EnableSubsets.AnyEndpoint != nil {
-				EnableSubsetsMap["any_endpoint"] = map[string]interface{}{}
+				AdvancedOptionsEnableSubsetsMap["any_endpoint"] = map[string]interface{}{}
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
-				DefaultSubsetMap := make(map[string]interface{})
+				AdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
 				if data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
-					DefaultSubsetMap["default_subset"] = map[string]interface{}{}
+					AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
 				}
-				EnableSubsetsMap["default_subset"] = DefaultSubsetMap
+				AdvancedOptionsEnableSubsetsMap["default_subset"] = AdvancedOptionsEnableSubsetsDefaultSubsetMap
 			}
 			if !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsNull() && !data.AdvancedOptions.EnableSubsets.EndpointSubsets.IsUnknown() {
 				var EndpointSubsetsElems []OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel
@@ -6962,40 +6962,40 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						EndpointSubsetsList = append(EndpointSubsetsList, EndpointSubsetsItemMap)
 					}
-					EnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
+					AdvancedOptionsEnableSubsetsMap["endpoint_subsets"] = EndpointSubsetsList
 				}
 			}
 			if data.AdvancedOptions.EnableSubsets.FailRequest != nil {
-				EnableSubsetsMap["fail_request"] = map[string]interface{}{}
+				AdvancedOptionsEnableSubsetsMap["fail_request"] = map[string]interface{}{}
 			}
-			AdvancedOptionsMap["enable_subsets"] = EnableSubsetsMap
+			AdvancedOptionsMap["enable_subsets"] = AdvancedOptionsEnableSubsetsMap
 		}
 		if data.AdvancedOptions.Http1Config != nil {
-			Http1ConfigMap := make(map[string]interface{})
+			AdvancedOptionsHttp1ConfigMap := make(map[string]interface{})
 			if data.AdvancedOptions.Http1Config.HeaderTransformation != nil {
-				HeaderTransformationMap := make(map[string]interface{})
+				AdvancedOptionsHttp1ConfigHeaderTransformationMap := make(map[string]interface{})
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.DefaultHeaderTransformation != nil {
-					HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.LegacyHeaderTransformation != nil {
-					HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-					HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
 				if data.AdvancedOptions.Http1Config.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-					HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+					AdvancedOptionsHttp1ConfigHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
-				Http1ConfigMap["header_transformation"] = HeaderTransformationMap
+				AdvancedOptionsHttp1ConfigMap["header_transformation"] = AdvancedOptionsHttp1ConfigHeaderTransformationMap
 			}
-			AdvancedOptionsMap["http1_config"] = Http1ConfigMap
+			AdvancedOptionsMap["http1_config"] = AdvancedOptionsHttp1ConfigMap
 		}
 		if data.AdvancedOptions.Http2Options != nil {
-			Http2OptionsMap := make(map[string]interface{})
+			AdvancedOptionsHttp2OptionsMap := make(map[string]interface{})
 			if !data.AdvancedOptions.Http2Options.Enabled.IsNull() && !data.AdvancedOptions.Http2Options.Enabled.IsUnknown() {
-				Http2OptionsMap["enabled"] = data.AdvancedOptions.Http2Options.Enabled.ValueBool()
+				AdvancedOptionsHttp2OptionsMap["enabled"] = data.AdvancedOptions.Http2Options.Enabled.ValueBool()
 			}
-			AdvancedOptionsMap["http2_options"] = Http2OptionsMap
+			AdvancedOptionsMap["http2_options"] = AdvancedOptionsHttp2OptionsMap
 		}
 		if !data.AdvancedOptions.HTTPIdleTimeout.IsNull() && !data.AdvancedOptions.HTTPIdleTimeout.IsUnknown() {
 			AdvancedOptionsMap["http_idle_timeout"] = data.AdvancedOptions.HTTPIdleTimeout.ValueInt64()
@@ -7010,23 +7010,23 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			AdvancedOptionsMap["no_request_limit_per_connection"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.OutlierDetection != nil {
-			OutlierDetectionMap := make(map[string]interface{})
+			AdvancedOptionsOutlierDetectionMap := make(map[string]interface{})
 			if !data.AdvancedOptions.OutlierDetection.BaseEjectionTime.IsNull() && !data.AdvancedOptions.OutlierDetection.BaseEjectionTime.IsUnknown() {
-				OutlierDetectionMap["base_ejection_time"] = data.AdvancedOptions.OutlierDetection.BaseEjectionTime.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["base_ejection_time"] = data.AdvancedOptions.OutlierDetection.BaseEjectionTime.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.Consecutive5xx.IsNull() && !data.AdvancedOptions.OutlierDetection.Consecutive5xx.IsUnknown() {
-				OutlierDetectionMap["consecutive_5xx"] = data.AdvancedOptions.OutlierDetection.Consecutive5xx.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["consecutive_5xx"] = data.AdvancedOptions.OutlierDetection.Consecutive5xx.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.IsNull() && !data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.IsUnknown() {
-				OutlierDetectionMap["consecutive_gateway_failure"] = data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["consecutive_gateway_failure"] = data.AdvancedOptions.OutlierDetection.ConsecutiveGatewayFailure.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.Interval.IsNull() && !data.AdvancedOptions.OutlierDetection.Interval.IsUnknown() {
-				OutlierDetectionMap["interval"] = data.AdvancedOptions.OutlierDetection.Interval.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["interval"] = data.AdvancedOptions.OutlierDetection.Interval.ValueInt64()
 			}
 			if !data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.IsNull() && !data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.IsUnknown() {
-				OutlierDetectionMap["max_ejection_percent"] = data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.ValueInt64()
+				AdvancedOptionsOutlierDetectionMap["max_ejection_percent"] = data.AdvancedOptions.OutlierDetection.MaxEjectionPercent.ValueInt64()
 			}
-			AdvancedOptionsMap["outlier_detection"] = OutlierDetectionMap
+			AdvancedOptionsMap["outlier_detection"] = AdvancedOptionsOutlierDetectionMap
 		}
 		if !data.AdvancedOptions.PanicThreshold.IsNull() && !data.AdvancedOptions.PanicThreshold.IsUnknown() {
 			AdvancedOptionsMap["panic_threshold"] = data.AdvancedOptions.PanicThreshold.ValueInt64()
@@ -7079,40 +7079,40 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			UseTLSMap["sni"] = data.UseTLS.Sni.ValueString()
 		}
 		if data.UseTLS.TLSConfig != nil {
-			TLSConfigMap := make(map[string]interface{})
+			UseTLSTLSConfigMap := make(map[string]interface{})
 			if data.UseTLS.TLSConfig.CustomSecurity != nil {
-				CustomSecurityMap := make(map[string]interface{})
+				UseTLSTLSConfigCustomSecurityMap := make(map[string]interface{})
 				if !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.UseTLS.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						UseTLSTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-					CustomSecurityMap["max_version"] = data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					UseTLSTLSConfigCustomSecurityMap["max_version"] = data.UseTLS.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 				}
 				if !data.UseTLS.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.UseTLS.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-					CustomSecurityMap["min_version"] = data.UseTLS.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					UseTLSTLSConfigCustomSecurityMap["min_version"] = data.UseTLS.TLSConfig.CustomSecurity.MinVersion.ValueString()
 				}
-				TLSConfigMap["custom_security"] = CustomSecurityMap
+				UseTLSTLSConfigMap["custom_security"] = UseTLSTLSConfigCustomSecurityMap
 			}
 			if data.UseTLS.TLSConfig.DefaultSecurity != nil {
-				TLSConfigMap["default_security"] = map[string]interface{}{}
+				UseTLSTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
 			if data.UseTLS.TLSConfig.LowSecurity != nil {
-				TLSConfigMap["low_security"] = map[string]interface{}{}
+				UseTLSTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
 			if data.UseTLS.TLSConfig.MediumSecurity != nil {
-				TLSConfigMap["medium_security"] = map[string]interface{}{}
+				UseTLSTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
-			UseTLSMap["tls_config"] = TLSConfigMap
+			UseTLSMap["tls_config"] = UseTLSTLSConfigMap
 		}
 		if data.UseTLS.UseHostHeaderAsSni != nil {
 			UseTLSMap["use_host_header_as_sni"] = map[string]interface{}{}
 		}
 		if data.UseTLS.UseMtls != nil {
-			UseMtlsMap := make(map[string]interface{})
+			UseTLSUseMtlsMap := make(map[string]interface{})
 			if !data.UseTLS.UseMtls.TLSCertificates.IsNull() && !data.UseTLS.UseMtls.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []OriginPoolUseTLSUseMtlsTLSCertificatesModel
 				diags := data.UseTLS.UseMtls.TLSCertificates.ElementsAs(ctx, &TLSCertificatesElems, false)
@@ -7125,15 +7125,15 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = UseTLSUseMtlsTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -7142,74 +7142,74 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							UseTLSUseMtlsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								UseTLSUseMtlsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = UseTLSUseMtlsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								UseTLSUseMtlsTLSCertificatesPrivateKeyMap["clear_secret_info"] = UseTLSUseMtlsTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = UseTLSUseMtlsTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					UseMtlsMap["tls_certificates"] = TLSCertificatesList
+					UseTLSUseMtlsMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
-			UseTLSMap["use_mtls"] = UseMtlsMap
+			UseTLSMap["use_mtls"] = UseTLSUseMtlsMap
 		}
 		if data.UseTLS.UseMtlsObj != nil {
-			UseMtlsObjMap := make(map[string]interface{})
+			UseTLSUseMtlsObjMap := make(map[string]interface{})
 			if !data.UseTLS.UseMtlsObj.Name.IsNull() && !data.UseTLS.UseMtlsObj.Name.IsUnknown() {
-				UseMtlsObjMap["name"] = data.UseTLS.UseMtlsObj.Name.ValueString()
+				UseTLSUseMtlsObjMap["name"] = data.UseTLS.UseMtlsObj.Name.ValueString()
 			}
 			if !data.UseTLS.UseMtlsObj.Namespace.IsNull() && !data.UseTLS.UseMtlsObj.Namespace.IsUnknown() {
-				UseMtlsObjMap["namespace"] = data.UseTLS.UseMtlsObj.Namespace.ValueString()
+				UseTLSUseMtlsObjMap["namespace"] = data.UseTLS.UseMtlsObj.Namespace.ValueString()
 			}
 			if !data.UseTLS.UseMtlsObj.Tenant.IsNull() && !data.UseTLS.UseMtlsObj.Tenant.IsUnknown() {
-				UseMtlsObjMap["tenant"] = data.UseTLS.UseMtlsObj.Tenant.ValueString()
+				UseTLSUseMtlsObjMap["tenant"] = data.UseTLS.UseMtlsObj.Tenant.ValueString()
 			}
-			UseTLSMap["use_mtls_obj"] = UseMtlsObjMap
+			UseTLSMap["use_mtls_obj"] = UseTLSUseMtlsObjMap
 		}
 		if data.UseTLS.UseServerVerification != nil {
-			UseServerVerificationMap := make(map[string]interface{})
+			UseTLSUseServerVerificationMap := make(map[string]interface{})
 			if data.UseTLS.UseServerVerification.TrustedCA != nil {
-				TrustedCAMap := make(map[string]interface{})
+				UseTLSUseServerVerificationTrustedCAMap := make(map[string]interface{})
 				if !data.UseTLS.UseServerVerification.TrustedCA.Name.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Name.IsUnknown() {
-					TrustedCAMap["name"] = data.UseTLS.UseServerVerification.TrustedCA.Name.ValueString()
+					UseTLSUseServerVerificationTrustedCAMap["name"] = data.UseTLS.UseServerVerification.TrustedCA.Name.ValueString()
 				}
 				if !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Namespace.IsUnknown() {
-					TrustedCAMap["namespace"] = data.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
+					UseTLSUseServerVerificationTrustedCAMap["namespace"] = data.UseTLS.UseServerVerification.TrustedCA.Namespace.ValueString()
 				}
 				if !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsNull() && !data.UseTLS.UseServerVerification.TrustedCA.Tenant.IsUnknown() {
-					TrustedCAMap["tenant"] = data.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
+					UseTLSUseServerVerificationTrustedCAMap["tenant"] = data.UseTLS.UseServerVerification.TrustedCA.Tenant.ValueString()
 				}
-				UseServerVerificationMap["trusted_ca"] = TrustedCAMap
+				UseTLSUseServerVerificationMap["trusted_ca"] = UseTLSUseServerVerificationTrustedCAMap
 			}
 			if !data.UseTLS.UseServerVerification.TrustedCAURL.IsNull() && !data.UseTLS.UseServerVerification.TrustedCAURL.IsUnknown() {
-				UseServerVerificationMap["trusted_ca_url"] = data.UseTLS.UseServerVerification.TrustedCAURL.ValueString()
+				UseTLSUseServerVerificationMap["trusted_ca_url"] = data.UseTLS.UseServerVerification.TrustedCAURL.ValueString()
 			}
-			UseTLSMap["use_server_verification"] = UseServerVerificationMap
+			UseTLSMap["use_server_verification"] = UseTLSUseServerVerificationMap
 		}
 		if data.UseTLS.VolterraTrustedCA != nil {
 			UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}

@@ -1021,35 +1021,35 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 	if data.AWSProvider != nil {
 		AWSProviderMap := make(map[string]interface{})
 		if data.AWSProvider.AWSTGWSite != nil {
-			AWSTGWSiteMap := make(map[string]interface{})
+			AWSProviderAWSTGWSiteMap := make(map[string]interface{})
 			if data.AWSProvider.AWSTGWSite.Cred != nil {
-				CredMap := make(map[string]interface{})
+				AWSProviderAWSTGWSiteCredMap := make(map[string]interface{})
 				if !data.AWSProvider.AWSTGWSite.Cred.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Name.IsUnknown() {
-					CredMap["name"] = data.AWSProvider.AWSTGWSite.Cred.Name.ValueString()
+					AWSProviderAWSTGWSiteCredMap["name"] = data.AWSProvider.AWSTGWSite.Cred.Name.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsUnknown() {
-					CredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
+					AWSProviderAWSTGWSiteCredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsUnknown() {
-					CredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
+					AWSProviderAWSTGWSiteCredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
 				}
-				AWSTGWSiteMap["cred"] = CredMap
+				AWSProviderAWSTGWSiteMap["cred"] = AWSProviderAWSTGWSiteCredMap
 			}
 			if data.AWSProvider.AWSTGWSite.Site != nil {
-				SiteMap := make(map[string]interface{})
+				AWSProviderAWSTGWSiteSiteMap := make(map[string]interface{})
 				if !data.AWSProvider.AWSTGWSite.Site.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Name.IsUnknown() {
-					SiteMap["name"] = data.AWSProvider.AWSTGWSite.Site.Name.ValueString()
+					AWSProviderAWSTGWSiteSiteMap["name"] = data.AWSProvider.AWSTGWSite.Site.Name.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Namespace.IsUnknown() {
-					SiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
+					AWSProviderAWSTGWSiteSiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Tenant.IsUnknown() {
-					SiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
+					AWSProviderAWSTGWSiteSiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
 				}
-				AWSTGWSiteMap["site"] = SiteMap
+				AWSProviderAWSTGWSiteMap["site"] = AWSProviderAWSTGWSiteSiteMap
 			}
 			if data.AWSProvider.AWSTGWSite.VPCAttachments != nil {
-				VPCAttachmentsMap := make(map[string]interface{})
+				AWSProviderAWSTGWSiteVPCAttachmentsMap := make(map[string]interface{})
 				if !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
 					var VPCListElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 					diags := data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
@@ -1059,7 +1059,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 						for _, VPCListItem := range VPCListElems {
 							VPCListItemMap := make(map[string]interface{})
 							if VPCListItem.CustomRouting != nil {
-								CustomRoutingMap := make(map[string]interface{})
+								AWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap := make(map[string]interface{})
 								if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
 									var RouteTablesElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 									diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
@@ -1080,28 +1080,28 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 											}
 											RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
 										}
-										CustomRoutingMap["route_tables"] = RouteTablesList
+										AWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap["route_tables"] = RouteTablesList
 									}
 								}
-								VPCListItemMap["custom_routing"] = CustomRoutingMap
+								VPCListItemMap["custom_routing"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap
 							}
 							if VPCListItem.DefaultRoute != nil {
-								DefaultRouteMap := make(map[string]interface{})
+								AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap := make(map[string]interface{})
 								if VPCListItem.DefaultRoute.AllRouteTables != nil {
-									DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 								}
 								if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-									SelectiveRouteTablesMap := make(map[string]interface{})
+									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap := make(map[string]interface{})
 									if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 										var RouteTableIDItems []string
 										diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 										if !diags.HasError() {
-											SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+											AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 										}
 									}
-									DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["selective_route_tables"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap
 								}
-								VPCListItemMap["default_route"] = DefaultRouteMap
+								VPCListItemMap["default_route"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap
 							}
 							if VPCListItem.Labels != nil {
 								VPCListItemMap["labels"] = map[string]interface{}{}
@@ -1114,45 +1114,45 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 							}
 							VPCListList = append(VPCListList, VPCListItemMap)
 						}
-						VPCAttachmentsMap["vpc_list"] = VPCListList
+						AWSProviderAWSTGWSiteVPCAttachmentsMap["vpc_list"] = VPCListList
 					}
 				}
-				AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
+				AWSProviderAWSTGWSiteMap["vpc_attachments"] = AWSProviderAWSTGWSiteVPCAttachmentsMap
 			}
-			AWSProviderMap["aws_tgw_site"] = AWSTGWSiteMap
+			AWSProviderMap["aws_tgw_site"] = AWSProviderAWSTGWSiteMap
 		}
 		createReq.Spec["aws_provider"] = AWSProviderMap
 	}
 	if data.AWSTGWSite != nil {
 		AWSTGWSiteMap := make(map[string]interface{})
 		if data.AWSTGWSite.Cred != nil {
-			CredMap := make(map[string]interface{})
+			AWSTGWSiteCredMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Cred.Name.IsNull() && !data.AWSTGWSite.Cred.Name.IsUnknown() {
-				CredMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
+				AWSTGWSiteCredMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSTGWSite.Cred.Namespace.IsUnknown() {
-				CredMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
+				AWSTGWSiteCredMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSTGWSite.Cred.Tenant.IsUnknown() {
-				CredMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
+				AWSTGWSiteCredMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
 			}
-			AWSTGWSiteMap["cred"] = CredMap
+			AWSTGWSiteMap["cred"] = AWSTGWSiteCredMap
 		}
 		if data.AWSTGWSite.Site != nil {
-			SiteMap := make(map[string]interface{})
+			AWSTGWSiteSiteMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Site.Name.IsNull() && !data.AWSTGWSite.Site.Name.IsUnknown() {
-				SiteMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
+				AWSTGWSiteSiteMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSTGWSite.Site.Namespace.IsUnknown() {
-				SiteMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
+				AWSTGWSiteSiteMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSTGWSite.Site.Tenant.IsUnknown() {
-				SiteMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
+				AWSTGWSiteSiteMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
 			}
-			AWSTGWSiteMap["site"] = SiteMap
+			AWSTGWSiteMap["site"] = AWSTGWSiteSiteMap
 		}
 		if data.AWSTGWSite.VPCAttachments != nil {
-			VPCAttachmentsMap := make(map[string]interface{})
+			AWSTGWSiteVPCAttachmentsMap := make(map[string]interface{})
 			if !data.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
 				var VPCListElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
 				diags := data.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
@@ -1162,7 +1162,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 					for _, VPCListItem := range VPCListElems {
 						VPCListItemMap := make(map[string]interface{})
 						if VPCListItem.CustomRouting != nil {
-							CustomRoutingMap := make(map[string]interface{})
+							AWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap := make(map[string]interface{})
 							if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
 								var RouteTablesElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 								diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
@@ -1183,28 +1183,28 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 										}
 										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
 									}
-									CustomRoutingMap["route_tables"] = RouteTablesList
+									AWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap["route_tables"] = RouteTablesList
 								}
 							}
-							VPCListItemMap["custom_routing"] = CustomRoutingMap
+							VPCListItemMap["custom_routing"] = AWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap
 						}
 						if VPCListItem.DefaultRoute != nil {
-							DefaultRouteMap := make(map[string]interface{})
+							AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap := make(map[string]interface{})
 							if VPCListItem.DefaultRoute.AllRouteTables != nil {
-								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+								AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 							}
 							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-								SelectiveRouteTablesMap := make(map[string]interface{})
+								AWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap := make(map[string]interface{})
 								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 									var RouteTableIDItems []string
 									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+										AWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+								AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["selective_route_tables"] = AWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap
 							}
-							VPCListItemMap["default_route"] = DefaultRouteMap
+							VPCListItemMap["default_route"] = AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap
 						}
 						if VPCListItem.Labels != nil {
 							VPCListItemMap["labels"] = map[string]interface{}{}
@@ -1217,30 +1217,30 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 						}
 						VPCListList = append(VPCListList, VPCListItemMap)
 					}
-					VPCAttachmentsMap["vpc_list"] = VPCListList
+					AWSTGWSiteVPCAttachmentsMap["vpc_list"] = VPCListList
 				}
 			}
-			AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
+			AWSTGWSiteMap["vpc_attachments"] = AWSTGWSiteVPCAttachmentsMap
 		}
 		createReq.Spec["aws_tgw_site"] = AWSTGWSiteMap
 	}
 	if data.AzureVNETSite != nil {
 		AzureVNETSiteMap := make(map[string]interface{})
 		if data.AzureVNETSite.Site != nil {
-			SiteMap := make(map[string]interface{})
+			AzureVNETSiteSiteMap := make(map[string]interface{})
 			if !data.AzureVNETSite.Site.Name.IsNull() && !data.AzureVNETSite.Site.Name.IsUnknown() {
-				SiteMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
+				AzureVNETSiteSiteMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Namespace.IsNull() && !data.AzureVNETSite.Site.Namespace.IsUnknown() {
-				SiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
+				AzureVNETSiteSiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Tenant.IsNull() && !data.AzureVNETSite.Site.Tenant.IsUnknown() {
-				SiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
+				AzureVNETSiteSiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
 			}
-			AzureVNETSiteMap["site"] = SiteMap
+			AzureVNETSiteMap["site"] = AzureVNETSiteSiteMap
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
-			VNETAttachmentsMap := make(map[string]interface{})
+			AzureVNETSiteVNETAttachmentsMap := make(map[string]interface{})
 			if !data.AzureVNETSite.VNETAttachments.VNETList.IsNull() && !data.AzureVNETSite.VNETAttachments.VNETList.IsUnknown() {
 				var VNETListElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 				diags := data.AzureVNETSite.VNETAttachments.VNETList.ElementsAs(ctx, &VNETListElems, false)
@@ -1250,7 +1250,7 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 					for _, VNETListItem := range VNETListElems {
 						VNETListItemMap := make(map[string]interface{})
 						if VNETListItem.CustomRouting != nil {
-							CustomRoutingMap := make(map[string]interface{})
+							AzureVNETSiteVNETAttachmentsVNETListCustomRoutingMap := make(map[string]interface{})
 							if !VNETListItem.CustomRouting.RouteTables.IsNull() && !VNETListItem.CustomRouting.RouteTables.IsUnknown() {
 								var RouteTablesElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
 								diags := VNETListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
@@ -1271,28 +1271,28 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 										}
 										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
 									}
-									CustomRoutingMap["route_tables"] = RouteTablesList
+									AzureVNETSiteVNETAttachmentsVNETListCustomRoutingMap["route_tables"] = RouteTablesList
 								}
 							}
-							VNETListItemMap["custom_routing"] = CustomRoutingMap
+							VNETListItemMap["custom_routing"] = AzureVNETSiteVNETAttachmentsVNETListCustomRoutingMap
 						}
 						if VNETListItem.DefaultRoute != nil {
-							DefaultRouteMap := make(map[string]interface{})
+							AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap := make(map[string]interface{})
 							if VNETListItem.DefaultRoute.AllRouteTables != nil {
-								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 							}
 							if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
-								SelectiveRouteTablesMap := make(map[string]interface{})
+								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap := make(map[string]interface{})
 								if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 									var RouteTableIDItems []string
 									diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+										AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap["selective_route_tables"] = AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap
 							}
-							VNETListItemMap["default_route"] = DefaultRouteMap
+							VNETListItemMap["default_route"] = AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap
 						}
 						if VNETListItem.Labels != nil {
 							VNETListItemMap["labels"] = map[string]interface{}{}
@@ -1308,10 +1308,10 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 						}
 						VNETListList = append(VNETListList, VNETListItemMap)
 					}
-					VNETAttachmentsMap["vnet_list"] = VNETListList
+					AzureVNETSiteVNETAttachmentsMap["vnet_list"] = VNETListList
 				}
 			}
-			AzureVNETSiteMap["vnet_attachments"] = VNETAttachmentsMap
+			AzureVNETSiteMap["vnet_attachments"] = AzureVNETSiteVNETAttachmentsMap
 		}
 		createReq.Spec["azure_vnet_site"] = AzureVNETSiteMap
 	}
@@ -2698,35 +2698,35 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 	if data.AWSProvider != nil {
 		AWSProviderMap := make(map[string]interface{})
 		if data.AWSProvider.AWSTGWSite != nil {
-			AWSTGWSiteMap := make(map[string]interface{})
+			AWSProviderAWSTGWSiteMap := make(map[string]interface{})
 			if data.AWSProvider.AWSTGWSite.Cred != nil {
-				CredMap := make(map[string]interface{})
+				AWSProviderAWSTGWSiteCredMap := make(map[string]interface{})
 				if !data.AWSProvider.AWSTGWSite.Cred.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Name.IsUnknown() {
-					CredMap["name"] = data.AWSProvider.AWSTGWSite.Cred.Name.ValueString()
+					AWSProviderAWSTGWSiteCredMap["name"] = data.AWSProvider.AWSTGWSite.Cred.Name.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Namespace.IsUnknown() {
-					CredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
+					AWSProviderAWSTGWSiteCredMap["namespace"] = data.AWSProvider.AWSTGWSite.Cred.Namespace.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Cred.Tenant.IsUnknown() {
-					CredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
+					AWSProviderAWSTGWSiteCredMap["tenant"] = data.AWSProvider.AWSTGWSite.Cred.Tenant.ValueString()
 				}
-				AWSTGWSiteMap["cred"] = CredMap
+				AWSProviderAWSTGWSiteMap["cred"] = AWSProviderAWSTGWSiteCredMap
 			}
 			if data.AWSProvider.AWSTGWSite.Site != nil {
-				SiteMap := make(map[string]interface{})
+				AWSProviderAWSTGWSiteSiteMap := make(map[string]interface{})
 				if !data.AWSProvider.AWSTGWSite.Site.Name.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Name.IsUnknown() {
-					SiteMap["name"] = data.AWSProvider.AWSTGWSite.Site.Name.ValueString()
+					AWSProviderAWSTGWSiteSiteMap["name"] = data.AWSProvider.AWSTGWSite.Site.Name.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Namespace.IsUnknown() {
-					SiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
+					AWSProviderAWSTGWSiteSiteMap["namespace"] = data.AWSProvider.AWSTGWSite.Site.Namespace.ValueString()
 				}
 				if !data.AWSProvider.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSProvider.AWSTGWSite.Site.Tenant.IsUnknown() {
-					SiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
+					AWSProviderAWSTGWSiteSiteMap["tenant"] = data.AWSProvider.AWSTGWSite.Site.Tenant.ValueString()
 				}
-				AWSTGWSiteMap["site"] = SiteMap
+				AWSProviderAWSTGWSiteMap["site"] = AWSProviderAWSTGWSiteSiteMap
 			}
 			if data.AWSProvider.AWSTGWSite.VPCAttachments != nil {
-				VPCAttachmentsMap := make(map[string]interface{})
+				AWSProviderAWSTGWSiteVPCAttachmentsMap := make(map[string]interface{})
 				if !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
 					var VPCListElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 					diags := data.AWSProvider.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
@@ -2736,7 +2736,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 						for _, VPCListItem := range VPCListElems {
 							VPCListItemMap := make(map[string]interface{})
 							if VPCListItem.CustomRouting != nil {
-								CustomRoutingMap := make(map[string]interface{})
+								AWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap := make(map[string]interface{})
 								if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
 									var RouteTablesElems []CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 									diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
@@ -2757,28 +2757,28 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 											}
 											RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
 										}
-										CustomRoutingMap["route_tables"] = RouteTablesList
+										AWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap["route_tables"] = RouteTablesList
 									}
 								}
-								VPCListItemMap["custom_routing"] = CustomRoutingMap
+								VPCListItemMap["custom_routing"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap
 							}
 							if VPCListItem.DefaultRoute != nil {
-								DefaultRouteMap := make(map[string]interface{})
+								AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap := make(map[string]interface{})
 								if VPCListItem.DefaultRoute.AllRouteTables != nil {
-									DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 								}
 								if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-									SelectiveRouteTablesMap := make(map[string]interface{})
+									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap := make(map[string]interface{})
 									if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 										var RouteTableIDItems []string
 										diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 										if !diags.HasError() {
-											SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+											AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 										}
 									}
-									DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+									AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["selective_route_tables"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap
 								}
-								VPCListItemMap["default_route"] = DefaultRouteMap
+								VPCListItemMap["default_route"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap
 							}
 							if VPCListItem.Labels != nil {
 								VPCListItemMap["labels"] = map[string]interface{}{}
@@ -2791,45 +2791,45 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 							}
 							VPCListList = append(VPCListList, VPCListItemMap)
 						}
-						VPCAttachmentsMap["vpc_list"] = VPCListList
+						AWSProviderAWSTGWSiteVPCAttachmentsMap["vpc_list"] = VPCListList
 					}
 				}
-				AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
+				AWSProviderAWSTGWSiteMap["vpc_attachments"] = AWSProviderAWSTGWSiteVPCAttachmentsMap
 			}
-			AWSProviderMap["aws_tgw_site"] = AWSTGWSiteMap
+			AWSProviderMap["aws_tgw_site"] = AWSProviderAWSTGWSiteMap
 		}
 		apiResource.Spec["aws_provider"] = AWSProviderMap
 	}
 	if data.AWSTGWSite != nil {
 		AWSTGWSiteMap := make(map[string]interface{})
 		if data.AWSTGWSite.Cred != nil {
-			CredMap := make(map[string]interface{})
+			AWSTGWSiteCredMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Cred.Name.IsNull() && !data.AWSTGWSite.Cred.Name.IsUnknown() {
-				CredMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
+				AWSTGWSiteCredMap["name"] = data.AWSTGWSite.Cred.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Namespace.IsNull() && !data.AWSTGWSite.Cred.Namespace.IsUnknown() {
-				CredMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
+				AWSTGWSiteCredMap["namespace"] = data.AWSTGWSite.Cred.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Cred.Tenant.IsNull() && !data.AWSTGWSite.Cred.Tenant.IsUnknown() {
-				CredMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
+				AWSTGWSiteCredMap["tenant"] = data.AWSTGWSite.Cred.Tenant.ValueString()
 			}
-			AWSTGWSiteMap["cred"] = CredMap
+			AWSTGWSiteMap["cred"] = AWSTGWSiteCredMap
 		}
 		if data.AWSTGWSite.Site != nil {
-			SiteMap := make(map[string]interface{})
+			AWSTGWSiteSiteMap := make(map[string]interface{})
 			if !data.AWSTGWSite.Site.Name.IsNull() && !data.AWSTGWSite.Site.Name.IsUnknown() {
-				SiteMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
+				AWSTGWSiteSiteMap["name"] = data.AWSTGWSite.Site.Name.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Namespace.IsNull() && !data.AWSTGWSite.Site.Namespace.IsUnknown() {
-				SiteMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
+				AWSTGWSiteSiteMap["namespace"] = data.AWSTGWSite.Site.Namespace.ValueString()
 			}
 			if !data.AWSTGWSite.Site.Tenant.IsNull() && !data.AWSTGWSite.Site.Tenant.IsUnknown() {
-				SiteMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
+				AWSTGWSiteSiteMap["tenant"] = data.AWSTGWSite.Site.Tenant.ValueString()
 			}
-			AWSTGWSiteMap["site"] = SiteMap
+			AWSTGWSiteMap["site"] = AWSTGWSiteSiteMap
 		}
 		if data.AWSTGWSite.VPCAttachments != nil {
-			VPCAttachmentsMap := make(map[string]interface{})
+			AWSTGWSiteVPCAttachmentsMap := make(map[string]interface{})
 			if !data.AWSTGWSite.VPCAttachments.VPCList.IsNull() && !data.AWSTGWSite.VPCAttachments.VPCList.IsUnknown() {
 				var VPCListElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListModel
 				diags := data.AWSTGWSite.VPCAttachments.VPCList.ElementsAs(ctx, &VPCListElems, false)
@@ -2839,7 +2839,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 					for _, VPCListItem := range VPCListElems {
 						VPCListItemMap := make(map[string]interface{})
 						if VPCListItem.CustomRouting != nil {
-							CustomRoutingMap := make(map[string]interface{})
+							AWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap := make(map[string]interface{})
 							if !VPCListItem.CustomRouting.RouteTables.IsNull() && !VPCListItem.CustomRouting.RouteTables.IsUnknown() {
 								var RouteTablesElems []CloudConnectAWSTGWSiteVPCAttachmentsVPCListCustomRoutingRouteTablesModel
 								diags := VPCListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
@@ -2860,28 +2860,28 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 										}
 										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
 									}
-									CustomRoutingMap["route_tables"] = RouteTablesList
+									AWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap["route_tables"] = RouteTablesList
 								}
 							}
-							VPCListItemMap["custom_routing"] = CustomRoutingMap
+							VPCListItemMap["custom_routing"] = AWSTGWSiteVPCAttachmentsVPCListCustomRoutingMap
 						}
 						if VPCListItem.DefaultRoute != nil {
-							DefaultRouteMap := make(map[string]interface{})
+							AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap := make(map[string]interface{})
 							if VPCListItem.DefaultRoute.AllRouteTables != nil {
-								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+								AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 							}
 							if VPCListItem.DefaultRoute.SelectiveRouteTables != nil {
-								SelectiveRouteTablesMap := make(map[string]interface{})
+								AWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap := make(map[string]interface{})
 								if !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 									var RouteTableIDItems []string
 									diags := VPCListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+										AWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+								AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap["selective_route_tables"] = AWSTGWSiteVPCAttachmentsVPCListDefaultRouteSelectiveRouteTablesMap
 							}
-							VPCListItemMap["default_route"] = DefaultRouteMap
+							VPCListItemMap["default_route"] = AWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap
 						}
 						if VPCListItem.Labels != nil {
 							VPCListItemMap["labels"] = map[string]interface{}{}
@@ -2894,30 +2894,30 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 						}
 						VPCListList = append(VPCListList, VPCListItemMap)
 					}
-					VPCAttachmentsMap["vpc_list"] = VPCListList
+					AWSTGWSiteVPCAttachmentsMap["vpc_list"] = VPCListList
 				}
 			}
-			AWSTGWSiteMap["vpc_attachments"] = VPCAttachmentsMap
+			AWSTGWSiteMap["vpc_attachments"] = AWSTGWSiteVPCAttachmentsMap
 		}
 		apiResource.Spec["aws_tgw_site"] = AWSTGWSiteMap
 	}
 	if data.AzureVNETSite != nil {
 		AzureVNETSiteMap := make(map[string]interface{})
 		if data.AzureVNETSite.Site != nil {
-			SiteMap := make(map[string]interface{})
+			AzureVNETSiteSiteMap := make(map[string]interface{})
 			if !data.AzureVNETSite.Site.Name.IsNull() && !data.AzureVNETSite.Site.Name.IsUnknown() {
-				SiteMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
+				AzureVNETSiteSiteMap["name"] = data.AzureVNETSite.Site.Name.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Namespace.IsNull() && !data.AzureVNETSite.Site.Namespace.IsUnknown() {
-				SiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
+				AzureVNETSiteSiteMap["namespace"] = data.AzureVNETSite.Site.Namespace.ValueString()
 			}
 			if !data.AzureVNETSite.Site.Tenant.IsNull() && !data.AzureVNETSite.Site.Tenant.IsUnknown() {
-				SiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
+				AzureVNETSiteSiteMap["tenant"] = data.AzureVNETSite.Site.Tenant.ValueString()
 			}
-			AzureVNETSiteMap["site"] = SiteMap
+			AzureVNETSiteMap["site"] = AzureVNETSiteSiteMap
 		}
 		if data.AzureVNETSite.VNETAttachments != nil {
-			VNETAttachmentsMap := make(map[string]interface{})
+			AzureVNETSiteVNETAttachmentsMap := make(map[string]interface{})
 			if !data.AzureVNETSite.VNETAttachments.VNETList.IsNull() && !data.AzureVNETSite.VNETAttachments.VNETList.IsUnknown() {
 				var VNETListElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 				diags := data.AzureVNETSite.VNETAttachments.VNETList.ElementsAs(ctx, &VNETListElems, false)
@@ -2927,7 +2927,7 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 					for _, VNETListItem := range VNETListElems {
 						VNETListItemMap := make(map[string]interface{})
 						if VNETListItem.CustomRouting != nil {
-							CustomRoutingMap := make(map[string]interface{})
+							AzureVNETSiteVNETAttachmentsVNETListCustomRoutingMap := make(map[string]interface{})
 							if !VNETListItem.CustomRouting.RouteTables.IsNull() && !VNETListItem.CustomRouting.RouteTables.IsUnknown() {
 								var RouteTablesElems []CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingRouteTablesModel
 								diags := VNETListItem.CustomRouting.RouteTables.ElementsAs(ctx, &RouteTablesElems, false)
@@ -2948,28 +2948,28 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 										}
 										RouteTablesList = append(RouteTablesList, RouteTablesItemMap)
 									}
-									CustomRoutingMap["route_tables"] = RouteTablesList
+									AzureVNETSiteVNETAttachmentsVNETListCustomRoutingMap["route_tables"] = RouteTablesList
 								}
 							}
-							VNETListItemMap["custom_routing"] = CustomRoutingMap
+							VNETListItemMap["custom_routing"] = AzureVNETSiteVNETAttachmentsVNETListCustomRoutingMap
 						}
 						if VNETListItem.DefaultRoute != nil {
-							DefaultRouteMap := make(map[string]interface{})
+							AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap := make(map[string]interface{})
 							if VNETListItem.DefaultRoute.AllRouteTables != nil {
-								DefaultRouteMap["all_route_tables"] = map[string]interface{}{}
+								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap["all_route_tables"] = map[string]interface{}{}
 							}
 							if VNETListItem.DefaultRoute.SelectiveRouteTables != nil {
-								SelectiveRouteTablesMap := make(map[string]interface{})
+								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap := make(map[string]interface{})
 								if !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsNull() && !VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.IsUnknown() {
 									var RouteTableIDItems []string
 									diags := VNETListItem.DefaultRoute.SelectiveRouteTables.RouteTableID.ElementsAs(ctx, &RouteTableIDItems, false)
 									if !diags.HasError() {
-										SelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
+										AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap["route_table_id"] = RouteTableIDItems
 									}
 								}
-								DefaultRouteMap["selective_route_tables"] = SelectiveRouteTablesMap
+								AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap["selective_route_tables"] = AzureVNETSiteVNETAttachmentsVNETListDefaultRouteSelectiveRouteTablesMap
 							}
-							VNETListItemMap["default_route"] = DefaultRouteMap
+							VNETListItemMap["default_route"] = AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap
 						}
 						if VNETListItem.Labels != nil {
 							VNETListItemMap["labels"] = map[string]interface{}{}
@@ -2985,10 +2985,10 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 						}
 						VNETListList = append(VNETListList, VNETListItemMap)
 					}
-					VNETAttachmentsMap["vnet_list"] = VNETListList
+					AzureVNETSiteVNETAttachmentsMap["vnet_list"] = VNETListList
 				}
 			}
-			AzureVNETSiteMap["vnet_attachments"] = VNETAttachmentsMap
+			AzureVNETSiteMap["vnet_attachments"] = AzureVNETSiteVNETAttachmentsMap
 		}
 		apiResource.Spec["azure_vnet_site"] = AzureVNETSiteMap
 	}

@@ -3146,55 +3146,55 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.AWSCloudWatchReceiver != nil {
 		AWSCloudWatchReceiverMap := make(map[string]interface{})
 		if data.AWSCloudWatchReceiver.AWSCred != nil {
-			AWSCredMap := make(map[string]interface{})
+			AWSCloudWatchReceiverAWSCredMap := make(map[string]interface{})
 			if !data.AWSCloudWatchReceiver.AWSCred.Name.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Name.IsUnknown() {
-				AWSCredMap["name"] = data.AWSCloudWatchReceiver.AWSCred.Name.ValueString()
+				AWSCloudWatchReceiverAWSCredMap["name"] = data.AWSCloudWatchReceiver.AWSCred.Name.ValueString()
 			}
 			if !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsUnknown() {
-				AWSCredMap["namespace"] = data.AWSCloudWatchReceiver.AWSCred.Namespace.ValueString()
+				AWSCloudWatchReceiverAWSCredMap["namespace"] = data.AWSCloudWatchReceiver.AWSCred.Namespace.ValueString()
 			}
 			if !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsUnknown() {
-				AWSCredMap["tenant"] = data.AWSCloudWatchReceiver.AWSCred.Tenant.ValueString()
+				AWSCloudWatchReceiverAWSCredMap["tenant"] = data.AWSCloudWatchReceiver.AWSCred.Tenant.ValueString()
 			}
-			AWSCloudWatchReceiverMap["aws_cred"] = AWSCredMap
+			AWSCloudWatchReceiverMap["aws_cred"] = AWSCloudWatchReceiverAWSCredMap
 		}
 		if !data.AWSCloudWatchReceiver.AWSRegion.IsNull() && !data.AWSCloudWatchReceiver.AWSRegion.IsUnknown() {
 			AWSCloudWatchReceiverMap["aws_region"] = data.AWSCloudWatchReceiver.AWSRegion.ValueString()
 		}
 		if data.AWSCloudWatchReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			AWSCloudWatchReceiverBatchMap := make(map[string]interface{})
 			if !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsNull() && !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.AWSCloudWatchReceiver.Batch.MaxBytes.ValueInt64()
+				AWSCloudWatchReceiverBatchMap["max_bytes"] = data.AWSCloudWatchReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				AWSCloudWatchReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsNull() && !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.AWSCloudWatchReceiver.Batch.MaxEvents.ValueInt64()
+				AWSCloudWatchReceiverBatchMap["max_events"] = data.AWSCloudWatchReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				AWSCloudWatchReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.IsNull() && !data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.ValueString()
+				AWSCloudWatchReceiverBatchMap["timeout_seconds"] = data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				AWSCloudWatchReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			AWSCloudWatchReceiverMap["batch"] = BatchMap
+			AWSCloudWatchReceiverMap["batch"] = AWSCloudWatchReceiverBatchMap
 		}
 		if data.AWSCloudWatchReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			AWSCloudWatchReceiverCompressionMap := make(map[string]interface{})
 			if data.AWSCloudWatchReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				AWSCloudWatchReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.AWSCloudWatchReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				AWSCloudWatchReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.AWSCloudWatchReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				AWSCloudWatchReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			AWSCloudWatchReceiverMap["compression"] = CompressionMap
+			AWSCloudWatchReceiverMap["compression"] = AWSCloudWatchReceiverCompressionMap
 		}
 		if !data.AWSCloudWatchReceiver.GroupName.IsNull() && !data.AWSCloudWatchReceiver.GroupName.IsUnknown() {
 			AWSCloudWatchReceiverMap["group_name"] = data.AWSCloudWatchReceiver.GroupName.ValueString()
@@ -3207,31 +3207,31 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.AzureEventHubsReceiver != nil {
 		AzureEventHubsReceiverMap := make(map[string]interface{})
 		if data.AzureEventHubsReceiver.ConnectionString != nil {
-			ConnectionStringMap := make(map[string]interface{})
+			AzureEventHubsReceiverConnectionStringMap := make(map[string]interface{})
 			if data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap["decryption_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
+					AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap["location"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap["store_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ConnectionStringMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzureEventHubsReceiverConnectionStringMap["blindfold_secret_info"] = AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap
 			}
 			if data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzureEventHubsReceiverConnectionStringClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
+					AzureEventHubsReceiverConnectionStringClearSecretInfoMap["provider"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
+					AzureEventHubsReceiverConnectionStringClearSecretInfoMap["url"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
 				}
-				ConnectionStringMap["clear_secret_info"] = ClearSecretInfoMap
+				AzureEventHubsReceiverConnectionStringMap["clear_secret_info"] = AzureEventHubsReceiverConnectionStringClearSecretInfoMap
 			}
-			AzureEventHubsReceiverMap["connection_string"] = ConnectionStringMap
+			AzureEventHubsReceiverMap["connection_string"] = AzureEventHubsReceiverConnectionStringMap
 		}
 		if !data.AzureEventHubsReceiver.Instance.IsNull() && !data.AzureEventHubsReceiver.Instance.IsUnknown() {
 			AzureEventHubsReceiverMap["instance"] = data.AzureEventHubsReceiver.Instance.ValueString()
@@ -3244,148 +3244,148 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.AzureReceiver != nil {
 		AzureReceiverMap := make(map[string]interface{})
 		if data.AzureReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			AzureReceiverBatchMap := make(map[string]interface{})
 			if !data.AzureReceiver.Batch.MaxBytes.IsNull() && !data.AzureReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.AzureReceiver.Batch.MaxBytes.ValueInt64()
+				AzureReceiverBatchMap["max_bytes"] = data.AzureReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.AzureReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				AzureReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.AzureReceiver.Batch.MaxEvents.IsNull() && !data.AzureReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.AzureReceiver.Batch.MaxEvents.ValueInt64()
+				AzureReceiverBatchMap["max_events"] = data.AzureReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.AzureReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				AzureReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.AzureReceiver.Batch.TimeoutSeconds.IsNull() && !data.AzureReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.AzureReceiver.Batch.TimeoutSeconds.ValueString()
+				AzureReceiverBatchMap["timeout_seconds"] = data.AzureReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.AzureReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				AzureReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			AzureReceiverMap["batch"] = BatchMap
+			AzureReceiverMap["batch"] = AzureReceiverBatchMap
 		}
 		if data.AzureReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			AzureReceiverCompressionMap := make(map[string]interface{})
 			if data.AzureReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				AzureReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.AzureReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				AzureReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.AzureReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				AzureReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			AzureReceiverMap["compression"] = CompressionMap
+			AzureReceiverMap["compression"] = AzureReceiverCompressionMap
 		}
 		if data.AzureReceiver.ConnectionString != nil {
-			ConnectionStringMap := make(map[string]interface{})
+			AzureReceiverConnectionStringMap := make(map[string]interface{})
 			if data.AzureReceiver.ConnectionString.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzureReceiverConnectionStringBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzureReceiverConnectionStringBlindfoldSecretInfoMap["decryption_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsNull() && !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
+					AzureReceiverConnectionStringBlindfoldSecretInfoMap["location"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzureReceiverConnectionStringBlindfoldSecretInfoMap["store_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ConnectionStringMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzureReceiverConnectionStringMap["blindfold_secret_info"] = AzureReceiverConnectionStringBlindfoldSecretInfoMap
 			}
 			if data.AzureReceiver.ConnectionString.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzureReceiverConnectionStringClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.IsNull() && !data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
+					AzureReceiverConnectionStringClearSecretInfoMap["provider"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.IsNull() && !data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
+					AzureReceiverConnectionStringClearSecretInfoMap["url"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
 				}
-				ConnectionStringMap["clear_secret_info"] = ClearSecretInfoMap
+				AzureReceiverConnectionStringMap["clear_secret_info"] = AzureReceiverConnectionStringClearSecretInfoMap
 			}
-			AzureReceiverMap["connection_string"] = ConnectionStringMap
+			AzureReceiverMap["connection_string"] = AzureReceiverConnectionStringMap
 		}
 		if !data.AzureReceiver.ContainerName.IsNull() && !data.AzureReceiver.ContainerName.IsUnknown() {
 			AzureReceiverMap["container_name"] = data.AzureReceiver.ContainerName.ValueString()
 		}
 		if data.AzureReceiver.FilenameOptions != nil {
-			FilenameOptionsMap := make(map[string]interface{})
+			AzureReceiverFilenameOptionsMap := make(map[string]interface{})
 			if !data.AzureReceiver.FilenameOptions.CustomFolder.IsNull() && !data.AzureReceiver.FilenameOptions.CustomFolder.IsUnknown() {
-				FilenameOptionsMap["custom_folder"] = data.AzureReceiver.FilenameOptions.CustomFolder.ValueString()
+				AzureReceiverFilenameOptionsMap["custom_folder"] = data.AzureReceiver.FilenameOptions.CustomFolder.ValueString()
 			}
 			if data.AzureReceiver.FilenameOptions.LogTypeFolder != nil {
-				FilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
+				AzureReceiverFilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
 			}
 			if data.AzureReceiver.FilenameOptions.NoFolder != nil {
-				FilenameOptionsMap["no_folder"] = map[string]interface{}{}
+				AzureReceiverFilenameOptionsMap["no_folder"] = map[string]interface{}{}
 			}
-			AzureReceiverMap["filename_options"] = FilenameOptionsMap
+			AzureReceiverMap["filename_options"] = AzureReceiverFilenameOptionsMap
 		}
 		createReq.Spec["azure_receiver"] = AzureReceiverMap
 	}
 	if data.DatadogReceiver != nil {
 		DatadogReceiverMap := make(map[string]interface{})
 		if data.DatadogReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			DatadogReceiverBatchMap := make(map[string]interface{})
 			if !data.DatadogReceiver.Batch.MaxBytes.IsNull() && !data.DatadogReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.DatadogReceiver.Batch.MaxBytes.ValueInt64()
+				DatadogReceiverBatchMap["max_bytes"] = data.DatadogReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.DatadogReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				DatadogReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.DatadogReceiver.Batch.MaxEvents.IsNull() && !data.DatadogReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.DatadogReceiver.Batch.MaxEvents.ValueInt64()
+				DatadogReceiverBatchMap["max_events"] = data.DatadogReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.DatadogReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				DatadogReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.DatadogReceiver.Batch.TimeoutSeconds.IsNull() && !data.DatadogReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.DatadogReceiver.Batch.TimeoutSeconds.ValueString()
+				DatadogReceiverBatchMap["timeout_seconds"] = data.DatadogReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.DatadogReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				DatadogReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			DatadogReceiverMap["batch"] = BatchMap
+			DatadogReceiverMap["batch"] = DatadogReceiverBatchMap
 		}
 		if data.DatadogReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			DatadogReceiverCompressionMap := make(map[string]interface{})
 			if data.DatadogReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				DatadogReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				DatadogReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				DatadogReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			DatadogReceiverMap["compression"] = CompressionMap
+			DatadogReceiverMap["compression"] = DatadogReceiverCompressionMap
 		}
 		if data.DatadogReceiver.DatadogAPIKey != nil {
-			DatadogAPIKeyMap := make(map[string]interface{})
+			DatadogReceiverDatadogAPIKeyMap := make(map[string]interface{})
 			if data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.IsNull() && !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.ValueString()
+					DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap["location"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				DatadogAPIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				DatadogReceiverDatadogAPIKeyMap["blindfold_secret_info"] = DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap
 			}
 			if data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				DatadogReceiverDatadogAPIKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.IsNull() && !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.ValueString()
+					DatadogReceiverDatadogAPIKeyClearSecretInfoMap["provider"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.IsNull() && !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.ValueString()
+					DatadogReceiverDatadogAPIKeyClearSecretInfoMap["url"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.ValueString()
 				}
-				DatadogAPIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				DatadogReceiverDatadogAPIKeyMap["clear_secret_info"] = DatadogReceiverDatadogAPIKeyClearSecretInfoMap
 			}
-			DatadogReceiverMap["datadog_api_key"] = DatadogAPIKeyMap
+			DatadogReceiverMap["datadog_api_key"] = DatadogReceiverDatadogAPIKeyMap
 		}
 		if !data.DatadogReceiver.Endpoint.IsNull() && !data.DatadogReceiver.Endpoint.IsUnknown() {
 			DatadogReceiverMap["endpoint"] = data.DatadogReceiver.Endpoint.ValueString()
@@ -3397,63 +3397,63 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			DatadogReceiverMap["site"] = data.DatadogReceiver.Site.ValueString()
 		}
 		if data.DatadogReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			DatadogReceiverUseTLSMap := make(map[string]interface{})
 			if data.DatadogReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				DatadogReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					DatadogReceiverUseTLSMtlsEnableMap["certificate"] = data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					DatadogReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						DatadogReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						DatadogReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					DatadogReceiverUseTLSMtlsEnableMap["key_url"] = DatadogReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				DatadogReceiverUseTLSMap["mtls_enable"] = DatadogReceiverUseTLSMtlsEnableMap
 			}
 			if data.DatadogReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.DatadogReceiver.UseTLS.TrustedCAURL.IsNull() && !data.DatadogReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.DatadogReceiver.UseTLS.TrustedCAURL.ValueString()
+				DatadogReceiverUseTLSMap["trusted_ca_url"] = data.DatadogReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			DatadogReceiverMap["use_tls"] = UseTLSMap
+			DatadogReceiverMap["use_tls"] = DatadogReceiverUseTLSMap
 		}
 		createReq.Spec["datadog_receiver"] = DatadogReceiverMap
 	}
@@ -3463,175 +3463,175 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.GCPBucketReceiver != nil {
 		GCPBucketReceiverMap := make(map[string]interface{})
 		if data.GCPBucketReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			GCPBucketReceiverBatchMap := make(map[string]interface{})
 			if !data.GCPBucketReceiver.Batch.MaxBytes.IsNull() && !data.GCPBucketReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.GCPBucketReceiver.Batch.MaxBytes.ValueInt64()
+				GCPBucketReceiverBatchMap["max_bytes"] = data.GCPBucketReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.GCPBucketReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				GCPBucketReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.GCPBucketReceiver.Batch.MaxEvents.IsNull() && !data.GCPBucketReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.GCPBucketReceiver.Batch.MaxEvents.ValueInt64()
+				GCPBucketReceiverBatchMap["max_events"] = data.GCPBucketReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.GCPBucketReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				GCPBucketReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.GCPBucketReceiver.Batch.TimeoutSeconds.IsNull() && !data.GCPBucketReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.GCPBucketReceiver.Batch.TimeoutSeconds.ValueString()
+				GCPBucketReceiverBatchMap["timeout_seconds"] = data.GCPBucketReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.GCPBucketReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				GCPBucketReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			GCPBucketReceiverMap["batch"] = BatchMap
+			GCPBucketReceiverMap["batch"] = GCPBucketReceiverBatchMap
 		}
 		if !data.GCPBucketReceiver.Bucket.IsNull() && !data.GCPBucketReceiver.Bucket.IsUnknown() {
 			GCPBucketReceiverMap["bucket"] = data.GCPBucketReceiver.Bucket.ValueString()
 		}
 		if data.GCPBucketReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			GCPBucketReceiverCompressionMap := make(map[string]interface{})
 			if data.GCPBucketReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				GCPBucketReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.GCPBucketReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				GCPBucketReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.GCPBucketReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				GCPBucketReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			GCPBucketReceiverMap["compression"] = CompressionMap
+			GCPBucketReceiverMap["compression"] = GCPBucketReceiverCompressionMap
 		}
 		if data.GCPBucketReceiver.FilenameOptions != nil {
-			FilenameOptionsMap := make(map[string]interface{})
+			GCPBucketReceiverFilenameOptionsMap := make(map[string]interface{})
 			if !data.GCPBucketReceiver.FilenameOptions.CustomFolder.IsNull() && !data.GCPBucketReceiver.FilenameOptions.CustomFolder.IsUnknown() {
-				FilenameOptionsMap["custom_folder"] = data.GCPBucketReceiver.FilenameOptions.CustomFolder.ValueString()
+				GCPBucketReceiverFilenameOptionsMap["custom_folder"] = data.GCPBucketReceiver.FilenameOptions.CustomFolder.ValueString()
 			}
 			if data.GCPBucketReceiver.FilenameOptions.LogTypeFolder != nil {
-				FilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
+				GCPBucketReceiverFilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
 			}
 			if data.GCPBucketReceiver.FilenameOptions.NoFolder != nil {
-				FilenameOptionsMap["no_folder"] = map[string]interface{}{}
+				GCPBucketReceiverFilenameOptionsMap["no_folder"] = map[string]interface{}{}
 			}
-			GCPBucketReceiverMap["filename_options"] = FilenameOptionsMap
+			GCPBucketReceiverMap["filename_options"] = GCPBucketReceiverFilenameOptionsMap
 		}
 		if data.GCPBucketReceiver.GCPCred != nil {
-			GCPCredMap := make(map[string]interface{})
+			GCPBucketReceiverGCPCredMap := make(map[string]interface{})
 			if !data.GCPBucketReceiver.GCPCred.Name.IsNull() && !data.GCPBucketReceiver.GCPCred.Name.IsUnknown() {
-				GCPCredMap["name"] = data.GCPBucketReceiver.GCPCred.Name.ValueString()
+				GCPBucketReceiverGCPCredMap["name"] = data.GCPBucketReceiver.GCPCred.Name.ValueString()
 			}
 			if !data.GCPBucketReceiver.GCPCred.Namespace.IsNull() && !data.GCPBucketReceiver.GCPCred.Namespace.IsUnknown() {
-				GCPCredMap["namespace"] = data.GCPBucketReceiver.GCPCred.Namespace.ValueString()
+				GCPBucketReceiverGCPCredMap["namespace"] = data.GCPBucketReceiver.GCPCred.Namespace.ValueString()
 			}
 			if !data.GCPBucketReceiver.GCPCred.Tenant.IsNull() && !data.GCPBucketReceiver.GCPCred.Tenant.IsUnknown() {
-				GCPCredMap["tenant"] = data.GCPBucketReceiver.GCPCred.Tenant.ValueString()
+				GCPBucketReceiverGCPCredMap["tenant"] = data.GCPBucketReceiver.GCPCred.Tenant.ValueString()
 			}
-			GCPBucketReceiverMap["gcp_cred"] = GCPCredMap
+			GCPBucketReceiverMap["gcp_cred"] = GCPBucketReceiverGCPCredMap
 		}
 		createReq.Spec["gcp_bucket_receiver"] = GCPBucketReceiverMap
 	}
 	if data.HTTPReceiver != nil {
 		HTTPReceiverMap := make(map[string]interface{})
 		if data.HTTPReceiver.AuthBasic != nil {
-			AuthBasicMap := make(map[string]interface{})
+			HTTPReceiverAuthBasicMap := make(map[string]interface{})
 			if data.HTTPReceiver.AuthBasic.Password != nil {
-				PasswordMap := make(map[string]interface{})
+				HTTPReceiverAuthBasicPasswordMap := make(map[string]interface{})
 				if data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.IsNull() && !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.ValueString()
+						HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					HTTPReceiverAuthBasicPasswordMap["blindfold_secret_info"] = HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap
 				}
 				if data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthBasicPasswordClearSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.IsNull() && !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.ValueString()
+						HTTPReceiverAuthBasicPasswordClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.IsNull() && !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.ValueString()
+						HTTPReceiverAuthBasicPasswordClearSecretInfoMap["url"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.ValueString()
 					}
-					PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					HTTPReceiverAuthBasicPasswordMap["clear_secret_info"] = HTTPReceiverAuthBasicPasswordClearSecretInfoMap
 				}
-				AuthBasicMap["password"] = PasswordMap
+				HTTPReceiverAuthBasicMap["password"] = HTTPReceiverAuthBasicPasswordMap
 			}
 			if !data.HTTPReceiver.AuthBasic.UserName.IsNull() && !data.HTTPReceiver.AuthBasic.UserName.IsUnknown() {
-				AuthBasicMap["user_name"] = data.HTTPReceiver.AuthBasic.UserName.ValueString()
+				HTTPReceiverAuthBasicMap["user_name"] = data.HTTPReceiver.AuthBasic.UserName.ValueString()
 			}
-			HTTPReceiverMap["auth_basic"] = AuthBasicMap
+			HTTPReceiverMap["auth_basic"] = HTTPReceiverAuthBasicMap
 		}
 		if data.HTTPReceiver.AuthNone != nil {
 			HTTPReceiverMap["auth_none"] = map[string]interface{}{}
 		}
 		if data.HTTPReceiver.AuthToken != nil {
-			AuthTokenMap := make(map[string]interface{})
+			HTTPReceiverAuthTokenMap := make(map[string]interface{})
 			if data.HTTPReceiver.AuthToken.Token != nil {
-				TokenMap := make(map[string]interface{})
+				HTTPReceiverAuthTokenTokenMap := make(map[string]interface{})
 				if data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.IsNull() && !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
+						HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+						HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					HTTPReceiverAuthTokenTokenMap["blindfold_secret_info"] = HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap
 				}
 				if data.HTTPReceiver.AuthToken.Token.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthTokenTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.IsNull() && !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
+						HTTPReceiverAuthTokenTokenClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.IsNull() && !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.ValueString()
+						HTTPReceiverAuthTokenTokenClearSecretInfoMap["url"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.ValueString()
 					}
-					TokenMap["clear_secret_info"] = ClearSecretInfoMap
+					HTTPReceiverAuthTokenTokenMap["clear_secret_info"] = HTTPReceiverAuthTokenTokenClearSecretInfoMap
 				}
-				AuthTokenMap["token"] = TokenMap
+				HTTPReceiverAuthTokenMap["token"] = HTTPReceiverAuthTokenTokenMap
 			}
-			HTTPReceiverMap["auth_token"] = AuthTokenMap
+			HTTPReceiverMap["auth_token"] = HTTPReceiverAuthTokenMap
 		}
 		if data.HTTPReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			HTTPReceiverBatchMap := make(map[string]interface{})
 			if !data.HTTPReceiver.Batch.MaxBytes.IsNull() && !data.HTTPReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.HTTPReceiver.Batch.MaxBytes.ValueInt64()
+				HTTPReceiverBatchMap["max_bytes"] = data.HTTPReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.HTTPReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				HTTPReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.HTTPReceiver.Batch.MaxEvents.IsNull() && !data.HTTPReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.HTTPReceiver.Batch.MaxEvents.ValueInt64()
+				HTTPReceiverBatchMap["max_events"] = data.HTTPReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.HTTPReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				HTTPReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.HTTPReceiver.Batch.TimeoutSeconds.IsNull() && !data.HTTPReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.HTTPReceiver.Batch.TimeoutSeconds.ValueString()
+				HTTPReceiverBatchMap["timeout_seconds"] = data.HTTPReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.HTTPReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				HTTPReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			HTTPReceiverMap["batch"] = BatchMap
+			HTTPReceiverMap["batch"] = HTTPReceiverBatchMap
 		}
 		if data.HTTPReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			HTTPReceiverCompressionMap := make(map[string]interface{})
 			if data.HTTPReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				HTTPReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				HTTPReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				HTTPReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			HTTPReceiverMap["compression"] = CompressionMap
+			HTTPReceiverMap["compression"] = HTTPReceiverCompressionMap
 		}
 		if data.HTTPReceiver.NoTLS != nil {
 			HTTPReceiverMap["no_tls"] = map[string]interface{}{}
@@ -3640,89 +3640,89 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			HTTPReceiverMap["uri"] = data.HTTPReceiver.URI.ValueString()
 		}
 		if data.HTTPReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			HTTPReceiverUseTLSMap := make(map[string]interface{})
 			if data.HTTPReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				HTTPReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					HTTPReceiverUseTLSMtlsEnableMap["certificate"] = data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					HTTPReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						HTTPReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						HTTPReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					HTTPReceiverUseTLSMtlsEnableMap["key_url"] = HTTPReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				HTTPReceiverUseTLSMap["mtls_enable"] = HTTPReceiverUseTLSMtlsEnableMap
 			}
 			if data.HTTPReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.HTTPReceiver.UseTLS.TrustedCAURL.IsNull() && !data.HTTPReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.HTTPReceiver.UseTLS.TrustedCAURL.ValueString()
+				HTTPReceiverUseTLSMap["trusted_ca_url"] = data.HTTPReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			HTTPReceiverMap["use_tls"] = UseTLSMap
+			HTTPReceiverMap["use_tls"] = HTTPReceiverUseTLSMap
 		}
 		createReq.Spec["http_receiver"] = HTTPReceiverMap
 	}
 	if data.KafkaReceiver != nil {
 		KafkaReceiverMap := make(map[string]interface{})
 		if data.KafkaReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			KafkaReceiverBatchMap := make(map[string]interface{})
 			if !data.KafkaReceiver.Batch.MaxBytes.IsNull() && !data.KafkaReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.KafkaReceiver.Batch.MaxBytes.ValueInt64()
+				KafkaReceiverBatchMap["max_bytes"] = data.KafkaReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.KafkaReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				KafkaReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.KafkaReceiver.Batch.MaxEvents.IsNull() && !data.KafkaReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.KafkaReceiver.Batch.MaxEvents.ValueInt64()
+				KafkaReceiverBatchMap["max_events"] = data.KafkaReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.KafkaReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				KafkaReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.KafkaReceiver.Batch.TimeoutSeconds.IsNull() && !data.KafkaReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.KafkaReceiver.Batch.TimeoutSeconds.ValueString()
+				KafkaReceiverBatchMap["timeout_seconds"] = data.KafkaReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.KafkaReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				KafkaReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			KafkaReceiverMap["batch"] = BatchMap
+			KafkaReceiverMap["batch"] = KafkaReceiverBatchMap
 		}
 		if !data.KafkaReceiver.BootstrapServers.IsNull() && !data.KafkaReceiver.BootstrapServers.IsUnknown() {
 			var BootstrapServersItems []string
@@ -3732,17 +3732,17 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			}
 		}
 		if data.KafkaReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			KafkaReceiverCompressionMap := make(map[string]interface{})
 			if data.KafkaReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				KafkaReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				KafkaReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				KafkaReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			KafkaReceiverMap["compression"] = CompressionMap
+			KafkaReceiverMap["compression"] = KafkaReceiverCompressionMap
 		}
 		if !data.KafkaReceiver.KafkaTopic.IsNull() && !data.KafkaReceiver.KafkaTopic.IsUnknown() {
 			KafkaReceiverMap["kafka_topic"] = data.KafkaReceiver.KafkaTopic.ValueString()
@@ -3751,94 +3751,94 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			KafkaReceiverMap["no_tls"] = map[string]interface{}{}
 		}
 		if data.KafkaReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			KafkaReceiverUseTLSMap := make(map[string]interface{})
 			if data.KafkaReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				KafkaReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					KafkaReceiverUseTLSMtlsEnableMap["certificate"] = data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					KafkaReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						KafkaReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						KafkaReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					KafkaReceiverUseTLSMtlsEnableMap["key_url"] = KafkaReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				KafkaReceiverUseTLSMap["mtls_enable"] = KafkaReceiverUseTLSMtlsEnableMap
 			}
 			if data.KafkaReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.KafkaReceiver.UseTLS.TrustedCAURL.IsNull() && !data.KafkaReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.KafkaReceiver.UseTLS.TrustedCAURL.ValueString()
+				KafkaReceiverUseTLSMap["trusted_ca_url"] = data.KafkaReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			KafkaReceiverMap["use_tls"] = UseTLSMap
+			KafkaReceiverMap["use_tls"] = KafkaReceiverUseTLSMap
 		}
 		createReq.Spec["kafka_receiver"] = KafkaReceiverMap
 	}
 	if data.NewRelicReceiver != nil {
 		NewRelicReceiverMap := make(map[string]interface{})
 		if data.NewRelicReceiver.APIKey != nil {
-			APIKeyMap := make(map[string]interface{})
+			NewRelicReceiverAPIKeyMap := make(map[string]interface{})
 			if data.NewRelicReceiver.APIKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				NewRelicReceiverAPIKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					NewRelicReceiverAPIKeyBlindfoldSecretInfoMap["decryption_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.IsNull() && !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.ValueString()
+					NewRelicReceiverAPIKeyBlindfoldSecretInfoMap["location"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					NewRelicReceiverAPIKeyBlindfoldSecretInfoMap["store_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				APIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				NewRelicReceiverAPIKeyMap["blindfold_secret_info"] = NewRelicReceiverAPIKeyBlindfoldSecretInfoMap
 			}
 			if data.NewRelicReceiver.APIKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				NewRelicReceiverAPIKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.IsNull() && !data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.ValueString()
+					NewRelicReceiverAPIKeyClearSecretInfoMap["provider"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.IsNull() && !data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.ValueString()
+					NewRelicReceiverAPIKeyClearSecretInfoMap["url"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.ValueString()
 				}
-				APIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				NewRelicReceiverAPIKeyMap["clear_secret_info"] = NewRelicReceiverAPIKeyClearSecretInfoMap
 			}
-			NewRelicReceiverMap["api_key"] = APIKeyMap
+			NewRelicReceiverMap["api_key"] = NewRelicReceiverAPIKeyMap
 		}
 		if data.NewRelicReceiver.Eu != nil {
 			NewRelicReceiverMap["eu"] = map[string]interface{}{}
@@ -3865,39 +3865,39 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.QradarReceiver != nil {
 		QradarReceiverMap := make(map[string]interface{})
 		if data.QradarReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			QradarReceiverBatchMap := make(map[string]interface{})
 			if !data.QradarReceiver.Batch.MaxBytes.IsNull() && !data.QradarReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.QradarReceiver.Batch.MaxBytes.ValueInt64()
+				QradarReceiverBatchMap["max_bytes"] = data.QradarReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.QradarReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				QradarReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.QradarReceiver.Batch.MaxEvents.IsNull() && !data.QradarReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.QradarReceiver.Batch.MaxEvents.ValueInt64()
+				QradarReceiverBatchMap["max_events"] = data.QradarReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.QradarReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				QradarReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.QradarReceiver.Batch.TimeoutSeconds.IsNull() && !data.QradarReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.QradarReceiver.Batch.TimeoutSeconds.ValueString()
+				QradarReceiverBatchMap["timeout_seconds"] = data.QradarReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.QradarReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				QradarReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			QradarReceiverMap["batch"] = BatchMap
+			QradarReceiverMap["batch"] = QradarReceiverBatchMap
 		}
 		if data.QradarReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			QradarReceiverCompressionMap := make(map[string]interface{})
 			if data.QradarReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				QradarReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				QradarReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				QradarReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			QradarReceiverMap["compression"] = CompressionMap
+			QradarReceiverMap["compression"] = QradarReceiverCompressionMap
 		}
 		if data.QradarReceiver.NoTLS != nil {
 			QradarReceiverMap["no_tls"] = map[string]interface{}{}
@@ -3906,63 +3906,63 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			QradarReceiverMap["uri"] = data.QradarReceiver.URI.ValueString()
 		}
 		if data.QradarReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			QradarReceiverUseTLSMap := make(map[string]interface{})
 			if data.QradarReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				QradarReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.QradarReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.QradarReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					QradarReceiverUseTLSMtlsEnableMap["certificate"] = data.QradarReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					QradarReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						QradarReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						QradarReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					QradarReceiverUseTLSMtlsEnableMap["key_url"] = QradarReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				QradarReceiverUseTLSMap["mtls_enable"] = QradarReceiverUseTLSMtlsEnableMap
 			}
 			if data.QradarReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.QradarReceiver.UseTLS.TrustedCAURL.IsNull() && !data.QradarReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.QradarReceiver.UseTLS.TrustedCAURL.ValueString()
+				QradarReceiverUseTLSMap["trusted_ca_url"] = data.QradarReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			QradarReceiverMap["use_tls"] = UseTLSMap
+			QradarReceiverMap["use_tls"] = QradarReceiverUseTLSMap
 		}
 		createReq.Spec["qradar_receiver"] = QradarReceiverMap
 	}
@@ -3972,71 +3972,71 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.S3Receiver != nil {
 		S3ReceiverMap := make(map[string]interface{})
 		if data.S3Receiver.AWSCred != nil {
-			AWSCredMap := make(map[string]interface{})
+			S3ReceiverAWSCredMap := make(map[string]interface{})
 			if !data.S3Receiver.AWSCred.Name.IsNull() && !data.S3Receiver.AWSCred.Name.IsUnknown() {
-				AWSCredMap["name"] = data.S3Receiver.AWSCred.Name.ValueString()
+				S3ReceiverAWSCredMap["name"] = data.S3Receiver.AWSCred.Name.ValueString()
 			}
 			if !data.S3Receiver.AWSCred.Namespace.IsNull() && !data.S3Receiver.AWSCred.Namespace.IsUnknown() {
-				AWSCredMap["namespace"] = data.S3Receiver.AWSCred.Namespace.ValueString()
+				S3ReceiverAWSCredMap["namespace"] = data.S3Receiver.AWSCred.Namespace.ValueString()
 			}
 			if !data.S3Receiver.AWSCred.Tenant.IsNull() && !data.S3Receiver.AWSCred.Tenant.IsUnknown() {
-				AWSCredMap["tenant"] = data.S3Receiver.AWSCred.Tenant.ValueString()
+				S3ReceiverAWSCredMap["tenant"] = data.S3Receiver.AWSCred.Tenant.ValueString()
 			}
-			S3ReceiverMap["aws_cred"] = AWSCredMap
+			S3ReceiverMap["aws_cred"] = S3ReceiverAWSCredMap
 		}
 		if !data.S3Receiver.AWSRegion.IsNull() && !data.S3Receiver.AWSRegion.IsUnknown() {
 			S3ReceiverMap["aws_region"] = data.S3Receiver.AWSRegion.ValueString()
 		}
 		if data.S3Receiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			S3ReceiverBatchMap := make(map[string]interface{})
 			if !data.S3Receiver.Batch.MaxBytes.IsNull() && !data.S3Receiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.S3Receiver.Batch.MaxBytes.ValueInt64()
+				S3ReceiverBatchMap["max_bytes"] = data.S3Receiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.S3Receiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				S3ReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.S3Receiver.Batch.MaxEvents.IsNull() && !data.S3Receiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.S3Receiver.Batch.MaxEvents.ValueInt64()
+				S3ReceiverBatchMap["max_events"] = data.S3Receiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.S3Receiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				S3ReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.S3Receiver.Batch.TimeoutSeconds.IsNull() && !data.S3Receiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.S3Receiver.Batch.TimeoutSeconds.ValueString()
+				S3ReceiverBatchMap["timeout_seconds"] = data.S3Receiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.S3Receiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				S3ReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			S3ReceiverMap["batch"] = BatchMap
+			S3ReceiverMap["batch"] = S3ReceiverBatchMap
 		}
 		if !data.S3Receiver.Bucket.IsNull() && !data.S3Receiver.Bucket.IsUnknown() {
 			S3ReceiverMap["bucket"] = data.S3Receiver.Bucket.ValueString()
 		}
 		if data.S3Receiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			S3ReceiverCompressionMap := make(map[string]interface{})
 			if data.S3Receiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				S3ReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.S3Receiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				S3ReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.S3Receiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				S3ReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			S3ReceiverMap["compression"] = CompressionMap
+			S3ReceiverMap["compression"] = S3ReceiverCompressionMap
 		}
 		if data.S3Receiver.FilenameOptions != nil {
-			FilenameOptionsMap := make(map[string]interface{})
+			S3ReceiverFilenameOptionsMap := make(map[string]interface{})
 			if !data.S3Receiver.FilenameOptions.CustomFolder.IsNull() && !data.S3Receiver.FilenameOptions.CustomFolder.IsUnknown() {
-				FilenameOptionsMap["custom_folder"] = data.S3Receiver.FilenameOptions.CustomFolder.ValueString()
+				S3ReceiverFilenameOptionsMap["custom_folder"] = data.S3Receiver.FilenameOptions.CustomFolder.ValueString()
 			}
 			if data.S3Receiver.FilenameOptions.LogTypeFolder != nil {
-				FilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
+				S3ReceiverFilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
 			}
 			if data.S3Receiver.FilenameOptions.NoFolder != nil {
-				FilenameOptionsMap["no_folder"] = map[string]interface{}{}
+				S3ReceiverFilenameOptionsMap["no_folder"] = map[string]interface{}{}
 			}
-			S3ReceiverMap["filename_options"] = FilenameOptionsMap
+			S3ReceiverMap["filename_options"] = S3ReceiverFilenameOptionsMap
 		}
 		createReq.Spec["s3_receiver"] = S3ReceiverMap
 	}
@@ -4046,39 +4046,39 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 	if data.SplunkReceiver != nil {
 		SplunkReceiverMap := make(map[string]interface{})
 		if data.SplunkReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			SplunkReceiverBatchMap := make(map[string]interface{})
 			if !data.SplunkReceiver.Batch.MaxBytes.IsNull() && !data.SplunkReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.SplunkReceiver.Batch.MaxBytes.ValueInt64()
+				SplunkReceiverBatchMap["max_bytes"] = data.SplunkReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.SplunkReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				SplunkReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.SplunkReceiver.Batch.MaxEvents.IsNull() && !data.SplunkReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.SplunkReceiver.Batch.MaxEvents.ValueInt64()
+				SplunkReceiverBatchMap["max_events"] = data.SplunkReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.SplunkReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				SplunkReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.SplunkReceiver.Batch.TimeoutSeconds.IsNull() && !data.SplunkReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.SplunkReceiver.Batch.TimeoutSeconds.ValueString()
+				SplunkReceiverBatchMap["timeout_seconds"] = data.SplunkReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.SplunkReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				SplunkReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			SplunkReceiverMap["batch"] = BatchMap
+			SplunkReceiverMap["batch"] = SplunkReceiverBatchMap
 		}
 		if data.SplunkReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			SplunkReceiverCompressionMap := make(map[string]interface{})
 			if data.SplunkReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				SplunkReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				SplunkReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				SplunkReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			SplunkReceiverMap["compression"] = CompressionMap
+			SplunkReceiverMap["compression"] = SplunkReceiverCompressionMap
 		}
 		if !data.SplunkReceiver.Endpoint.IsNull() && !data.SplunkReceiver.Endpoint.IsUnknown() {
 			SplunkReceiverMap["endpoint"] = data.SplunkReceiver.Endpoint.ValueString()
@@ -4087,121 +4087,121 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			SplunkReceiverMap["no_tls"] = map[string]interface{}{}
 		}
 		if data.SplunkReceiver.SplunkHecToken != nil {
-			SplunkHecTokenMap := make(map[string]interface{})
+			SplunkReceiverSplunkHecTokenMap := make(map[string]interface{})
 			if data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.IsNull() && !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.ValueString()
+					SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap["location"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				SplunkHecTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SplunkReceiverSplunkHecTokenMap["blindfold_secret_info"] = SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap
 			}
 			if data.SplunkReceiver.SplunkHecToken.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SplunkReceiverSplunkHecTokenClearSecretInfoMap := make(map[string]interface{})
 				if !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.IsNull() && !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.ValueString()
+					SplunkReceiverSplunkHecTokenClearSecretInfoMap["provider"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.IsNull() && !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.ValueString()
+					SplunkReceiverSplunkHecTokenClearSecretInfoMap["url"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.ValueString()
 				}
-				SplunkHecTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				SplunkReceiverSplunkHecTokenMap["clear_secret_info"] = SplunkReceiverSplunkHecTokenClearSecretInfoMap
 			}
-			SplunkReceiverMap["splunk_hec_token"] = SplunkHecTokenMap
+			SplunkReceiverMap["splunk_hec_token"] = SplunkReceiverSplunkHecTokenMap
 		}
 		if data.SplunkReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			SplunkReceiverUseTLSMap := make(map[string]interface{})
 			if data.SplunkReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				SplunkReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					SplunkReceiverUseTLSMtlsEnableMap["certificate"] = data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					SplunkReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						SplunkReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						SplunkReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					SplunkReceiverUseTLSMtlsEnableMap["key_url"] = SplunkReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				SplunkReceiverUseTLSMap["mtls_enable"] = SplunkReceiverUseTLSMtlsEnableMap
 			}
 			if data.SplunkReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.SplunkReceiver.UseTLS.TrustedCAURL.IsNull() && !data.SplunkReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.SplunkReceiver.UseTLS.TrustedCAURL.ValueString()
+				SplunkReceiverUseTLSMap["trusted_ca_url"] = data.SplunkReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			SplunkReceiverMap["use_tls"] = UseTLSMap
+			SplunkReceiverMap["use_tls"] = SplunkReceiverUseTLSMap
 		}
 		createReq.Spec["splunk_receiver"] = SplunkReceiverMap
 	}
 	if data.SumoLogicReceiver != nil {
 		SumoLogicReceiverMap := make(map[string]interface{})
 		if data.SumoLogicReceiver.URL != nil {
-			URLMap := make(map[string]interface{})
+			SumoLogicReceiverURLMap := make(map[string]interface{})
 			if data.SumoLogicReceiver.URL.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SumoLogicReceiverURLBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SumoLogicReceiverURLBlindfoldSecretInfoMap["decryption_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.IsNull() && !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.ValueString()
+					SumoLogicReceiverURLBlindfoldSecretInfoMap["location"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SumoLogicReceiverURLBlindfoldSecretInfoMap["store_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SumoLogicReceiverURLMap["blindfold_secret_info"] = SumoLogicReceiverURLBlindfoldSecretInfoMap
 			}
 			if data.SumoLogicReceiver.URL.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SumoLogicReceiverURLClearSecretInfoMap := make(map[string]interface{})
 				if !data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.IsNull() && !data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.ValueString()
+					SumoLogicReceiverURLClearSecretInfoMap["provider"] = data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.SumoLogicReceiver.URL.ClearSecretInfo.URL.IsNull() && !data.SumoLogicReceiver.URL.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.SumoLogicReceiver.URL.ClearSecretInfo.URL.ValueString()
+					SumoLogicReceiverURLClearSecretInfoMap["url"] = data.SumoLogicReceiver.URL.ClearSecretInfo.URL.ValueString()
 				}
-				URLMap["clear_secret_info"] = ClearSecretInfoMap
+				SumoLogicReceiverURLMap["clear_secret_info"] = SumoLogicReceiverURLClearSecretInfoMap
 			}
-			SumoLogicReceiverMap["url"] = URLMap
+			SumoLogicReceiverMap["url"] = SumoLogicReceiverURLMap
 		}
 		createReq.Spec["sumo_logic_receiver"] = SumoLogicReceiverMap
 	}
@@ -9485,55 +9485,55 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.AWSCloudWatchReceiver != nil {
 		AWSCloudWatchReceiverMap := make(map[string]interface{})
 		if data.AWSCloudWatchReceiver.AWSCred != nil {
-			AWSCredMap := make(map[string]interface{})
+			AWSCloudWatchReceiverAWSCredMap := make(map[string]interface{})
 			if !data.AWSCloudWatchReceiver.AWSCred.Name.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Name.IsUnknown() {
-				AWSCredMap["name"] = data.AWSCloudWatchReceiver.AWSCred.Name.ValueString()
+				AWSCloudWatchReceiverAWSCredMap["name"] = data.AWSCloudWatchReceiver.AWSCred.Name.ValueString()
 			}
 			if !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Namespace.IsUnknown() {
-				AWSCredMap["namespace"] = data.AWSCloudWatchReceiver.AWSCred.Namespace.ValueString()
+				AWSCloudWatchReceiverAWSCredMap["namespace"] = data.AWSCloudWatchReceiver.AWSCred.Namespace.ValueString()
 			}
 			if !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsNull() && !data.AWSCloudWatchReceiver.AWSCred.Tenant.IsUnknown() {
-				AWSCredMap["tenant"] = data.AWSCloudWatchReceiver.AWSCred.Tenant.ValueString()
+				AWSCloudWatchReceiverAWSCredMap["tenant"] = data.AWSCloudWatchReceiver.AWSCred.Tenant.ValueString()
 			}
-			AWSCloudWatchReceiverMap["aws_cred"] = AWSCredMap
+			AWSCloudWatchReceiverMap["aws_cred"] = AWSCloudWatchReceiverAWSCredMap
 		}
 		if !data.AWSCloudWatchReceiver.AWSRegion.IsNull() && !data.AWSCloudWatchReceiver.AWSRegion.IsUnknown() {
 			AWSCloudWatchReceiverMap["aws_region"] = data.AWSCloudWatchReceiver.AWSRegion.ValueString()
 		}
 		if data.AWSCloudWatchReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			AWSCloudWatchReceiverBatchMap := make(map[string]interface{})
 			if !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsNull() && !data.AWSCloudWatchReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.AWSCloudWatchReceiver.Batch.MaxBytes.ValueInt64()
+				AWSCloudWatchReceiverBatchMap["max_bytes"] = data.AWSCloudWatchReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.AWSCloudWatchReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				AWSCloudWatchReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsNull() && !data.AWSCloudWatchReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.AWSCloudWatchReceiver.Batch.MaxEvents.ValueInt64()
+				AWSCloudWatchReceiverBatchMap["max_events"] = data.AWSCloudWatchReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.AWSCloudWatchReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				AWSCloudWatchReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.IsNull() && !data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.ValueString()
+				AWSCloudWatchReceiverBatchMap["timeout_seconds"] = data.AWSCloudWatchReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.AWSCloudWatchReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				AWSCloudWatchReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			AWSCloudWatchReceiverMap["batch"] = BatchMap
+			AWSCloudWatchReceiverMap["batch"] = AWSCloudWatchReceiverBatchMap
 		}
 		if data.AWSCloudWatchReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			AWSCloudWatchReceiverCompressionMap := make(map[string]interface{})
 			if data.AWSCloudWatchReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				AWSCloudWatchReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.AWSCloudWatchReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				AWSCloudWatchReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.AWSCloudWatchReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				AWSCloudWatchReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			AWSCloudWatchReceiverMap["compression"] = CompressionMap
+			AWSCloudWatchReceiverMap["compression"] = AWSCloudWatchReceiverCompressionMap
 		}
 		if !data.AWSCloudWatchReceiver.GroupName.IsNull() && !data.AWSCloudWatchReceiver.GroupName.IsUnknown() {
 			AWSCloudWatchReceiverMap["group_name"] = data.AWSCloudWatchReceiver.GroupName.ValueString()
@@ -9546,31 +9546,31 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.AzureEventHubsReceiver != nil {
 		AzureEventHubsReceiverMap := make(map[string]interface{})
 		if data.AzureEventHubsReceiver.ConnectionString != nil {
-			ConnectionStringMap := make(map[string]interface{})
+			AzureEventHubsReceiverConnectionStringMap := make(map[string]interface{})
 			if data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap["decryption_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
+					AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap["location"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap["store_provider"] = data.AzureEventHubsReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ConnectionStringMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzureEventHubsReceiverConnectionStringMap["blindfold_secret_info"] = AzureEventHubsReceiverConnectionStringBlindfoldSecretInfoMap
 			}
 			if data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzureEventHubsReceiverConnectionStringClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
+					AzureEventHubsReceiverConnectionStringClearSecretInfoMap["provider"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.IsNull() && !data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
+					AzureEventHubsReceiverConnectionStringClearSecretInfoMap["url"] = data.AzureEventHubsReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
 				}
-				ConnectionStringMap["clear_secret_info"] = ClearSecretInfoMap
+				AzureEventHubsReceiverConnectionStringMap["clear_secret_info"] = AzureEventHubsReceiverConnectionStringClearSecretInfoMap
 			}
-			AzureEventHubsReceiverMap["connection_string"] = ConnectionStringMap
+			AzureEventHubsReceiverMap["connection_string"] = AzureEventHubsReceiverConnectionStringMap
 		}
 		if !data.AzureEventHubsReceiver.Instance.IsNull() && !data.AzureEventHubsReceiver.Instance.IsUnknown() {
 			AzureEventHubsReceiverMap["instance"] = data.AzureEventHubsReceiver.Instance.ValueString()
@@ -9583,148 +9583,148 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.AzureReceiver != nil {
 		AzureReceiverMap := make(map[string]interface{})
 		if data.AzureReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			AzureReceiverBatchMap := make(map[string]interface{})
 			if !data.AzureReceiver.Batch.MaxBytes.IsNull() && !data.AzureReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.AzureReceiver.Batch.MaxBytes.ValueInt64()
+				AzureReceiverBatchMap["max_bytes"] = data.AzureReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.AzureReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				AzureReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.AzureReceiver.Batch.MaxEvents.IsNull() && !data.AzureReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.AzureReceiver.Batch.MaxEvents.ValueInt64()
+				AzureReceiverBatchMap["max_events"] = data.AzureReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.AzureReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				AzureReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.AzureReceiver.Batch.TimeoutSeconds.IsNull() && !data.AzureReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.AzureReceiver.Batch.TimeoutSeconds.ValueString()
+				AzureReceiverBatchMap["timeout_seconds"] = data.AzureReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.AzureReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				AzureReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			AzureReceiverMap["batch"] = BatchMap
+			AzureReceiverMap["batch"] = AzureReceiverBatchMap
 		}
 		if data.AzureReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			AzureReceiverCompressionMap := make(map[string]interface{})
 			if data.AzureReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				AzureReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.AzureReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				AzureReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.AzureReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				AzureReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			AzureReceiverMap["compression"] = CompressionMap
+			AzureReceiverMap["compression"] = AzureReceiverCompressionMap
 		}
 		if data.AzureReceiver.ConnectionString != nil {
-			ConnectionStringMap := make(map[string]interface{})
+			AzureReceiverConnectionStringMap := make(map[string]interface{})
 			if data.AzureReceiver.ConnectionString.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzureReceiverConnectionStringBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzureReceiverConnectionStringBlindfoldSecretInfoMap["decryption_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsNull() && !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
+					AzureReceiverConnectionStringBlindfoldSecretInfoMap["location"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzureReceiverConnectionStringBlindfoldSecretInfoMap["store_provider"] = data.AzureReceiver.ConnectionString.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ConnectionStringMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzureReceiverConnectionStringMap["blindfold_secret_info"] = AzureReceiverConnectionStringBlindfoldSecretInfoMap
 			}
 			if data.AzureReceiver.ConnectionString.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzureReceiverConnectionStringClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.IsNull() && !data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
+					AzureReceiverConnectionStringClearSecretInfoMap["provider"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.IsNull() && !data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
+					AzureReceiverConnectionStringClearSecretInfoMap["url"] = data.AzureReceiver.ConnectionString.ClearSecretInfo.URL.ValueString()
 				}
-				ConnectionStringMap["clear_secret_info"] = ClearSecretInfoMap
+				AzureReceiverConnectionStringMap["clear_secret_info"] = AzureReceiverConnectionStringClearSecretInfoMap
 			}
-			AzureReceiverMap["connection_string"] = ConnectionStringMap
+			AzureReceiverMap["connection_string"] = AzureReceiverConnectionStringMap
 		}
 		if !data.AzureReceiver.ContainerName.IsNull() && !data.AzureReceiver.ContainerName.IsUnknown() {
 			AzureReceiverMap["container_name"] = data.AzureReceiver.ContainerName.ValueString()
 		}
 		if data.AzureReceiver.FilenameOptions != nil {
-			FilenameOptionsMap := make(map[string]interface{})
+			AzureReceiverFilenameOptionsMap := make(map[string]interface{})
 			if !data.AzureReceiver.FilenameOptions.CustomFolder.IsNull() && !data.AzureReceiver.FilenameOptions.CustomFolder.IsUnknown() {
-				FilenameOptionsMap["custom_folder"] = data.AzureReceiver.FilenameOptions.CustomFolder.ValueString()
+				AzureReceiverFilenameOptionsMap["custom_folder"] = data.AzureReceiver.FilenameOptions.CustomFolder.ValueString()
 			}
 			if data.AzureReceiver.FilenameOptions.LogTypeFolder != nil {
-				FilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
+				AzureReceiverFilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
 			}
 			if data.AzureReceiver.FilenameOptions.NoFolder != nil {
-				FilenameOptionsMap["no_folder"] = map[string]interface{}{}
+				AzureReceiverFilenameOptionsMap["no_folder"] = map[string]interface{}{}
 			}
-			AzureReceiverMap["filename_options"] = FilenameOptionsMap
+			AzureReceiverMap["filename_options"] = AzureReceiverFilenameOptionsMap
 		}
 		apiResource.Spec["azure_receiver"] = AzureReceiverMap
 	}
 	if data.DatadogReceiver != nil {
 		DatadogReceiverMap := make(map[string]interface{})
 		if data.DatadogReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			DatadogReceiverBatchMap := make(map[string]interface{})
 			if !data.DatadogReceiver.Batch.MaxBytes.IsNull() && !data.DatadogReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.DatadogReceiver.Batch.MaxBytes.ValueInt64()
+				DatadogReceiverBatchMap["max_bytes"] = data.DatadogReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.DatadogReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				DatadogReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.DatadogReceiver.Batch.MaxEvents.IsNull() && !data.DatadogReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.DatadogReceiver.Batch.MaxEvents.ValueInt64()
+				DatadogReceiverBatchMap["max_events"] = data.DatadogReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.DatadogReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				DatadogReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.DatadogReceiver.Batch.TimeoutSeconds.IsNull() && !data.DatadogReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.DatadogReceiver.Batch.TimeoutSeconds.ValueString()
+				DatadogReceiverBatchMap["timeout_seconds"] = data.DatadogReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.DatadogReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				DatadogReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			DatadogReceiverMap["batch"] = BatchMap
+			DatadogReceiverMap["batch"] = DatadogReceiverBatchMap
 		}
 		if data.DatadogReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			DatadogReceiverCompressionMap := make(map[string]interface{})
 			if data.DatadogReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				DatadogReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				DatadogReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				DatadogReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			DatadogReceiverMap["compression"] = CompressionMap
+			DatadogReceiverMap["compression"] = DatadogReceiverCompressionMap
 		}
 		if data.DatadogReceiver.DatadogAPIKey != nil {
-			DatadogAPIKeyMap := make(map[string]interface{})
+			DatadogReceiverDatadogAPIKeyMap := make(map[string]interface{})
 			if data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.IsNull() && !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.ValueString()
+					DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap["location"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.DatadogAPIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				DatadogAPIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				DatadogReceiverDatadogAPIKeyMap["blindfold_secret_info"] = DatadogReceiverDatadogAPIKeyBlindfoldSecretInfoMap
 			}
 			if data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				DatadogReceiverDatadogAPIKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.IsNull() && !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.ValueString()
+					DatadogReceiverDatadogAPIKeyClearSecretInfoMap["provider"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.IsNull() && !data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.ValueString()
+					DatadogReceiverDatadogAPIKeyClearSecretInfoMap["url"] = data.DatadogReceiver.DatadogAPIKey.ClearSecretInfo.URL.ValueString()
 				}
-				DatadogAPIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				DatadogReceiverDatadogAPIKeyMap["clear_secret_info"] = DatadogReceiverDatadogAPIKeyClearSecretInfoMap
 			}
-			DatadogReceiverMap["datadog_api_key"] = DatadogAPIKeyMap
+			DatadogReceiverMap["datadog_api_key"] = DatadogReceiverDatadogAPIKeyMap
 		}
 		if !data.DatadogReceiver.Endpoint.IsNull() && !data.DatadogReceiver.Endpoint.IsUnknown() {
 			DatadogReceiverMap["endpoint"] = data.DatadogReceiver.Endpoint.ValueString()
@@ -9736,63 +9736,63 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			DatadogReceiverMap["site"] = data.DatadogReceiver.Site.ValueString()
 		}
 		if data.DatadogReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			DatadogReceiverUseTLSMap := make(map[string]interface{})
 			if data.DatadogReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.DatadogReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				DatadogReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					DatadogReceiverUseTLSMtlsEnableMap["certificate"] = data.DatadogReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					DatadogReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						DatadogReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = DatadogReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.DatadogReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						DatadogReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = DatadogReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					DatadogReceiverUseTLSMtlsEnableMap["key_url"] = DatadogReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				DatadogReceiverUseTLSMap["mtls_enable"] = DatadogReceiverUseTLSMtlsEnableMap
 			}
 			if data.DatadogReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				DatadogReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.DatadogReceiver.UseTLS.TrustedCAURL.IsNull() && !data.DatadogReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.DatadogReceiver.UseTLS.TrustedCAURL.ValueString()
+				DatadogReceiverUseTLSMap["trusted_ca_url"] = data.DatadogReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			DatadogReceiverMap["use_tls"] = UseTLSMap
+			DatadogReceiverMap["use_tls"] = DatadogReceiverUseTLSMap
 		}
 		apiResource.Spec["datadog_receiver"] = DatadogReceiverMap
 	}
@@ -9802,175 +9802,175 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.GCPBucketReceiver != nil {
 		GCPBucketReceiverMap := make(map[string]interface{})
 		if data.GCPBucketReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			GCPBucketReceiverBatchMap := make(map[string]interface{})
 			if !data.GCPBucketReceiver.Batch.MaxBytes.IsNull() && !data.GCPBucketReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.GCPBucketReceiver.Batch.MaxBytes.ValueInt64()
+				GCPBucketReceiverBatchMap["max_bytes"] = data.GCPBucketReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.GCPBucketReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				GCPBucketReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.GCPBucketReceiver.Batch.MaxEvents.IsNull() && !data.GCPBucketReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.GCPBucketReceiver.Batch.MaxEvents.ValueInt64()
+				GCPBucketReceiverBatchMap["max_events"] = data.GCPBucketReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.GCPBucketReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				GCPBucketReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.GCPBucketReceiver.Batch.TimeoutSeconds.IsNull() && !data.GCPBucketReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.GCPBucketReceiver.Batch.TimeoutSeconds.ValueString()
+				GCPBucketReceiverBatchMap["timeout_seconds"] = data.GCPBucketReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.GCPBucketReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				GCPBucketReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			GCPBucketReceiverMap["batch"] = BatchMap
+			GCPBucketReceiverMap["batch"] = GCPBucketReceiverBatchMap
 		}
 		if !data.GCPBucketReceiver.Bucket.IsNull() && !data.GCPBucketReceiver.Bucket.IsUnknown() {
 			GCPBucketReceiverMap["bucket"] = data.GCPBucketReceiver.Bucket.ValueString()
 		}
 		if data.GCPBucketReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			GCPBucketReceiverCompressionMap := make(map[string]interface{})
 			if data.GCPBucketReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				GCPBucketReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.GCPBucketReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				GCPBucketReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.GCPBucketReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				GCPBucketReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			GCPBucketReceiverMap["compression"] = CompressionMap
+			GCPBucketReceiverMap["compression"] = GCPBucketReceiverCompressionMap
 		}
 		if data.GCPBucketReceiver.FilenameOptions != nil {
-			FilenameOptionsMap := make(map[string]interface{})
+			GCPBucketReceiverFilenameOptionsMap := make(map[string]interface{})
 			if !data.GCPBucketReceiver.FilenameOptions.CustomFolder.IsNull() && !data.GCPBucketReceiver.FilenameOptions.CustomFolder.IsUnknown() {
-				FilenameOptionsMap["custom_folder"] = data.GCPBucketReceiver.FilenameOptions.CustomFolder.ValueString()
+				GCPBucketReceiverFilenameOptionsMap["custom_folder"] = data.GCPBucketReceiver.FilenameOptions.CustomFolder.ValueString()
 			}
 			if data.GCPBucketReceiver.FilenameOptions.LogTypeFolder != nil {
-				FilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
+				GCPBucketReceiverFilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
 			}
 			if data.GCPBucketReceiver.FilenameOptions.NoFolder != nil {
-				FilenameOptionsMap["no_folder"] = map[string]interface{}{}
+				GCPBucketReceiverFilenameOptionsMap["no_folder"] = map[string]interface{}{}
 			}
-			GCPBucketReceiverMap["filename_options"] = FilenameOptionsMap
+			GCPBucketReceiverMap["filename_options"] = GCPBucketReceiverFilenameOptionsMap
 		}
 		if data.GCPBucketReceiver.GCPCred != nil {
-			GCPCredMap := make(map[string]interface{})
+			GCPBucketReceiverGCPCredMap := make(map[string]interface{})
 			if !data.GCPBucketReceiver.GCPCred.Name.IsNull() && !data.GCPBucketReceiver.GCPCred.Name.IsUnknown() {
-				GCPCredMap["name"] = data.GCPBucketReceiver.GCPCred.Name.ValueString()
+				GCPBucketReceiverGCPCredMap["name"] = data.GCPBucketReceiver.GCPCred.Name.ValueString()
 			}
 			if !data.GCPBucketReceiver.GCPCred.Namespace.IsNull() && !data.GCPBucketReceiver.GCPCred.Namespace.IsUnknown() {
-				GCPCredMap["namespace"] = data.GCPBucketReceiver.GCPCred.Namespace.ValueString()
+				GCPBucketReceiverGCPCredMap["namespace"] = data.GCPBucketReceiver.GCPCred.Namespace.ValueString()
 			}
 			if !data.GCPBucketReceiver.GCPCred.Tenant.IsNull() && !data.GCPBucketReceiver.GCPCred.Tenant.IsUnknown() {
-				GCPCredMap["tenant"] = data.GCPBucketReceiver.GCPCred.Tenant.ValueString()
+				GCPBucketReceiverGCPCredMap["tenant"] = data.GCPBucketReceiver.GCPCred.Tenant.ValueString()
 			}
-			GCPBucketReceiverMap["gcp_cred"] = GCPCredMap
+			GCPBucketReceiverMap["gcp_cred"] = GCPBucketReceiverGCPCredMap
 		}
 		apiResource.Spec["gcp_bucket_receiver"] = GCPBucketReceiverMap
 	}
 	if data.HTTPReceiver != nil {
 		HTTPReceiverMap := make(map[string]interface{})
 		if data.HTTPReceiver.AuthBasic != nil {
-			AuthBasicMap := make(map[string]interface{})
+			HTTPReceiverAuthBasicMap := make(map[string]interface{})
 			if data.HTTPReceiver.AuthBasic.Password != nil {
-				PasswordMap := make(map[string]interface{})
+				HTTPReceiverAuthBasicPasswordMap := make(map[string]interface{})
 				if data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.IsNull() && !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.ValueString()
+						HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+						HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthBasic.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					HTTPReceiverAuthBasicPasswordMap["blindfold_secret_info"] = HTTPReceiverAuthBasicPasswordBlindfoldSecretInfoMap
 				}
 				if data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthBasicPasswordClearSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.IsNull() && !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.ValueString()
+						HTTPReceiverAuthBasicPasswordClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.IsNull() && !data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.ValueString()
+						HTTPReceiverAuthBasicPasswordClearSecretInfoMap["url"] = data.HTTPReceiver.AuthBasic.Password.ClearSecretInfo.URL.ValueString()
 					}
-					PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					HTTPReceiverAuthBasicPasswordMap["clear_secret_info"] = HTTPReceiverAuthBasicPasswordClearSecretInfoMap
 				}
-				AuthBasicMap["password"] = PasswordMap
+				HTTPReceiverAuthBasicMap["password"] = HTTPReceiverAuthBasicPasswordMap
 			}
 			if !data.HTTPReceiver.AuthBasic.UserName.IsNull() && !data.HTTPReceiver.AuthBasic.UserName.IsUnknown() {
-				AuthBasicMap["user_name"] = data.HTTPReceiver.AuthBasic.UserName.ValueString()
+				HTTPReceiverAuthBasicMap["user_name"] = data.HTTPReceiver.AuthBasic.UserName.ValueString()
 			}
-			HTTPReceiverMap["auth_basic"] = AuthBasicMap
+			HTTPReceiverMap["auth_basic"] = HTTPReceiverAuthBasicMap
 		}
 		if data.HTTPReceiver.AuthNone != nil {
 			HTTPReceiverMap["auth_none"] = map[string]interface{}{}
 		}
 		if data.HTTPReceiver.AuthToken != nil {
-			AuthTokenMap := make(map[string]interface{})
+			HTTPReceiverAuthTokenMap := make(map[string]interface{})
 			if data.HTTPReceiver.AuthToken.Token != nil {
-				TokenMap := make(map[string]interface{})
+				HTTPReceiverAuthTokenTokenMap := make(map[string]interface{})
 				if data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.IsNull() && !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
+						HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap["location"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+						HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					HTTPReceiverAuthTokenTokenMap["blindfold_secret_info"] = HTTPReceiverAuthTokenTokenBlindfoldSecretInfoMap
 				}
 				if data.HTTPReceiver.AuthToken.Token.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					HTTPReceiverAuthTokenTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.IsNull() && !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
+						HTTPReceiverAuthTokenTokenClearSecretInfoMap["provider"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.IsNull() && !data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.ValueString()
+						HTTPReceiverAuthTokenTokenClearSecretInfoMap["url"] = data.HTTPReceiver.AuthToken.Token.ClearSecretInfo.URL.ValueString()
 					}
-					TokenMap["clear_secret_info"] = ClearSecretInfoMap
+					HTTPReceiverAuthTokenTokenMap["clear_secret_info"] = HTTPReceiverAuthTokenTokenClearSecretInfoMap
 				}
-				AuthTokenMap["token"] = TokenMap
+				HTTPReceiverAuthTokenMap["token"] = HTTPReceiverAuthTokenTokenMap
 			}
-			HTTPReceiverMap["auth_token"] = AuthTokenMap
+			HTTPReceiverMap["auth_token"] = HTTPReceiverAuthTokenMap
 		}
 		if data.HTTPReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			HTTPReceiverBatchMap := make(map[string]interface{})
 			if !data.HTTPReceiver.Batch.MaxBytes.IsNull() && !data.HTTPReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.HTTPReceiver.Batch.MaxBytes.ValueInt64()
+				HTTPReceiverBatchMap["max_bytes"] = data.HTTPReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.HTTPReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				HTTPReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.HTTPReceiver.Batch.MaxEvents.IsNull() && !data.HTTPReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.HTTPReceiver.Batch.MaxEvents.ValueInt64()
+				HTTPReceiverBatchMap["max_events"] = data.HTTPReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.HTTPReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				HTTPReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.HTTPReceiver.Batch.TimeoutSeconds.IsNull() && !data.HTTPReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.HTTPReceiver.Batch.TimeoutSeconds.ValueString()
+				HTTPReceiverBatchMap["timeout_seconds"] = data.HTTPReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.HTTPReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				HTTPReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			HTTPReceiverMap["batch"] = BatchMap
+			HTTPReceiverMap["batch"] = HTTPReceiverBatchMap
 		}
 		if data.HTTPReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			HTTPReceiverCompressionMap := make(map[string]interface{})
 			if data.HTTPReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				HTTPReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				HTTPReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				HTTPReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			HTTPReceiverMap["compression"] = CompressionMap
+			HTTPReceiverMap["compression"] = HTTPReceiverCompressionMap
 		}
 		if data.HTTPReceiver.NoTLS != nil {
 			HTTPReceiverMap["no_tls"] = map[string]interface{}{}
@@ -9979,89 +9979,89 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			HTTPReceiverMap["uri"] = data.HTTPReceiver.URI.ValueString()
 		}
 		if data.HTTPReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			HTTPReceiverUseTLSMap := make(map[string]interface{})
 			if data.HTTPReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.HTTPReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				HTTPReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					HTTPReceiverUseTLSMtlsEnableMap["certificate"] = data.HTTPReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					HTTPReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						HTTPReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = HTTPReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.HTTPReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						HTTPReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = HTTPReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					HTTPReceiverUseTLSMtlsEnableMap["key_url"] = HTTPReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				HTTPReceiverUseTLSMap["mtls_enable"] = HTTPReceiverUseTLSMtlsEnableMap
 			}
 			if data.HTTPReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				HTTPReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.HTTPReceiver.UseTLS.TrustedCAURL.IsNull() && !data.HTTPReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.HTTPReceiver.UseTLS.TrustedCAURL.ValueString()
+				HTTPReceiverUseTLSMap["trusted_ca_url"] = data.HTTPReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			HTTPReceiverMap["use_tls"] = UseTLSMap
+			HTTPReceiverMap["use_tls"] = HTTPReceiverUseTLSMap
 		}
 		apiResource.Spec["http_receiver"] = HTTPReceiverMap
 	}
 	if data.KafkaReceiver != nil {
 		KafkaReceiverMap := make(map[string]interface{})
 		if data.KafkaReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			KafkaReceiverBatchMap := make(map[string]interface{})
 			if !data.KafkaReceiver.Batch.MaxBytes.IsNull() && !data.KafkaReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.KafkaReceiver.Batch.MaxBytes.ValueInt64()
+				KafkaReceiverBatchMap["max_bytes"] = data.KafkaReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.KafkaReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				KafkaReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.KafkaReceiver.Batch.MaxEvents.IsNull() && !data.KafkaReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.KafkaReceiver.Batch.MaxEvents.ValueInt64()
+				KafkaReceiverBatchMap["max_events"] = data.KafkaReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.KafkaReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				KafkaReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.KafkaReceiver.Batch.TimeoutSeconds.IsNull() && !data.KafkaReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.KafkaReceiver.Batch.TimeoutSeconds.ValueString()
+				KafkaReceiverBatchMap["timeout_seconds"] = data.KafkaReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.KafkaReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				KafkaReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			KafkaReceiverMap["batch"] = BatchMap
+			KafkaReceiverMap["batch"] = KafkaReceiverBatchMap
 		}
 		if !data.KafkaReceiver.BootstrapServers.IsNull() && !data.KafkaReceiver.BootstrapServers.IsUnknown() {
 			var BootstrapServersItems []string
@@ -10071,17 +10071,17 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			}
 		}
 		if data.KafkaReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			KafkaReceiverCompressionMap := make(map[string]interface{})
 			if data.KafkaReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				KafkaReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				KafkaReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				KafkaReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			KafkaReceiverMap["compression"] = CompressionMap
+			KafkaReceiverMap["compression"] = KafkaReceiverCompressionMap
 		}
 		if !data.KafkaReceiver.KafkaTopic.IsNull() && !data.KafkaReceiver.KafkaTopic.IsUnknown() {
 			KafkaReceiverMap["kafka_topic"] = data.KafkaReceiver.KafkaTopic.ValueString()
@@ -10090,94 +10090,94 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			KafkaReceiverMap["no_tls"] = map[string]interface{}{}
 		}
 		if data.KafkaReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			KafkaReceiverUseTLSMap := make(map[string]interface{})
 			if data.KafkaReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.KafkaReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				KafkaReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					KafkaReceiverUseTLSMtlsEnableMap["certificate"] = data.KafkaReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					KafkaReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						KafkaReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = KafkaReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.KafkaReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						KafkaReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = KafkaReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					KafkaReceiverUseTLSMtlsEnableMap["key_url"] = KafkaReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				KafkaReceiverUseTLSMap["mtls_enable"] = KafkaReceiverUseTLSMtlsEnableMap
 			}
 			if data.KafkaReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				KafkaReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.KafkaReceiver.UseTLS.TrustedCAURL.IsNull() && !data.KafkaReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.KafkaReceiver.UseTLS.TrustedCAURL.ValueString()
+				KafkaReceiverUseTLSMap["trusted_ca_url"] = data.KafkaReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			KafkaReceiverMap["use_tls"] = UseTLSMap
+			KafkaReceiverMap["use_tls"] = KafkaReceiverUseTLSMap
 		}
 		apiResource.Spec["kafka_receiver"] = KafkaReceiverMap
 	}
 	if data.NewRelicReceiver != nil {
 		NewRelicReceiverMap := make(map[string]interface{})
 		if data.NewRelicReceiver.APIKey != nil {
-			APIKeyMap := make(map[string]interface{})
+			NewRelicReceiverAPIKeyMap := make(map[string]interface{})
 			if data.NewRelicReceiver.APIKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				NewRelicReceiverAPIKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					NewRelicReceiverAPIKeyBlindfoldSecretInfoMap["decryption_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.IsNull() && !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.ValueString()
+					NewRelicReceiverAPIKeyBlindfoldSecretInfoMap["location"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					NewRelicReceiverAPIKeyBlindfoldSecretInfoMap["store_provider"] = data.NewRelicReceiver.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				APIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				NewRelicReceiverAPIKeyMap["blindfold_secret_info"] = NewRelicReceiverAPIKeyBlindfoldSecretInfoMap
 			}
 			if data.NewRelicReceiver.APIKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				NewRelicReceiverAPIKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.IsNull() && !data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.ValueString()
+					NewRelicReceiverAPIKeyClearSecretInfoMap["provider"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.IsNull() && !data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.ValueString()
+					NewRelicReceiverAPIKeyClearSecretInfoMap["url"] = data.NewRelicReceiver.APIKey.ClearSecretInfo.URL.ValueString()
 				}
-				APIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				NewRelicReceiverAPIKeyMap["clear_secret_info"] = NewRelicReceiverAPIKeyClearSecretInfoMap
 			}
-			NewRelicReceiverMap["api_key"] = APIKeyMap
+			NewRelicReceiverMap["api_key"] = NewRelicReceiverAPIKeyMap
 		}
 		if data.NewRelicReceiver.Eu != nil {
 			NewRelicReceiverMap["eu"] = map[string]interface{}{}
@@ -10204,39 +10204,39 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.QradarReceiver != nil {
 		QradarReceiverMap := make(map[string]interface{})
 		if data.QradarReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			QradarReceiverBatchMap := make(map[string]interface{})
 			if !data.QradarReceiver.Batch.MaxBytes.IsNull() && !data.QradarReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.QradarReceiver.Batch.MaxBytes.ValueInt64()
+				QradarReceiverBatchMap["max_bytes"] = data.QradarReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.QradarReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				QradarReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.QradarReceiver.Batch.MaxEvents.IsNull() && !data.QradarReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.QradarReceiver.Batch.MaxEvents.ValueInt64()
+				QradarReceiverBatchMap["max_events"] = data.QradarReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.QradarReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				QradarReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.QradarReceiver.Batch.TimeoutSeconds.IsNull() && !data.QradarReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.QradarReceiver.Batch.TimeoutSeconds.ValueString()
+				QradarReceiverBatchMap["timeout_seconds"] = data.QradarReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.QradarReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				QradarReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			QradarReceiverMap["batch"] = BatchMap
+			QradarReceiverMap["batch"] = QradarReceiverBatchMap
 		}
 		if data.QradarReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			QradarReceiverCompressionMap := make(map[string]interface{})
 			if data.QradarReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				QradarReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				QradarReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				QradarReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			QradarReceiverMap["compression"] = CompressionMap
+			QradarReceiverMap["compression"] = QradarReceiverCompressionMap
 		}
 		if data.QradarReceiver.NoTLS != nil {
 			QradarReceiverMap["no_tls"] = map[string]interface{}{}
@@ -10245,63 +10245,63 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			QradarReceiverMap["uri"] = data.QradarReceiver.URI.ValueString()
 		}
 		if data.QradarReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			QradarReceiverUseTLSMap := make(map[string]interface{})
 			if data.QradarReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.QradarReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				QradarReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.QradarReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.QradarReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					QradarReceiverUseTLSMtlsEnableMap["certificate"] = data.QradarReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.QradarReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					QradarReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						QradarReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = QradarReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.QradarReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						QradarReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = QradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					QradarReceiverUseTLSMtlsEnableMap["key_url"] = QradarReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				QradarReceiverUseTLSMap["mtls_enable"] = QradarReceiverUseTLSMtlsEnableMap
 			}
 			if data.QradarReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				QradarReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.QradarReceiver.UseTLS.TrustedCAURL.IsNull() && !data.QradarReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.QradarReceiver.UseTLS.TrustedCAURL.ValueString()
+				QradarReceiverUseTLSMap["trusted_ca_url"] = data.QradarReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			QradarReceiverMap["use_tls"] = UseTLSMap
+			QradarReceiverMap["use_tls"] = QradarReceiverUseTLSMap
 		}
 		apiResource.Spec["qradar_receiver"] = QradarReceiverMap
 	}
@@ -10311,71 +10311,71 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.S3Receiver != nil {
 		S3ReceiverMap := make(map[string]interface{})
 		if data.S3Receiver.AWSCred != nil {
-			AWSCredMap := make(map[string]interface{})
+			S3ReceiverAWSCredMap := make(map[string]interface{})
 			if !data.S3Receiver.AWSCred.Name.IsNull() && !data.S3Receiver.AWSCred.Name.IsUnknown() {
-				AWSCredMap["name"] = data.S3Receiver.AWSCred.Name.ValueString()
+				S3ReceiverAWSCredMap["name"] = data.S3Receiver.AWSCred.Name.ValueString()
 			}
 			if !data.S3Receiver.AWSCred.Namespace.IsNull() && !data.S3Receiver.AWSCred.Namespace.IsUnknown() {
-				AWSCredMap["namespace"] = data.S3Receiver.AWSCred.Namespace.ValueString()
+				S3ReceiverAWSCredMap["namespace"] = data.S3Receiver.AWSCred.Namespace.ValueString()
 			}
 			if !data.S3Receiver.AWSCred.Tenant.IsNull() && !data.S3Receiver.AWSCred.Tenant.IsUnknown() {
-				AWSCredMap["tenant"] = data.S3Receiver.AWSCred.Tenant.ValueString()
+				S3ReceiverAWSCredMap["tenant"] = data.S3Receiver.AWSCred.Tenant.ValueString()
 			}
-			S3ReceiverMap["aws_cred"] = AWSCredMap
+			S3ReceiverMap["aws_cred"] = S3ReceiverAWSCredMap
 		}
 		if !data.S3Receiver.AWSRegion.IsNull() && !data.S3Receiver.AWSRegion.IsUnknown() {
 			S3ReceiverMap["aws_region"] = data.S3Receiver.AWSRegion.ValueString()
 		}
 		if data.S3Receiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			S3ReceiverBatchMap := make(map[string]interface{})
 			if !data.S3Receiver.Batch.MaxBytes.IsNull() && !data.S3Receiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.S3Receiver.Batch.MaxBytes.ValueInt64()
+				S3ReceiverBatchMap["max_bytes"] = data.S3Receiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.S3Receiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				S3ReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.S3Receiver.Batch.MaxEvents.IsNull() && !data.S3Receiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.S3Receiver.Batch.MaxEvents.ValueInt64()
+				S3ReceiverBatchMap["max_events"] = data.S3Receiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.S3Receiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				S3ReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.S3Receiver.Batch.TimeoutSeconds.IsNull() && !data.S3Receiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.S3Receiver.Batch.TimeoutSeconds.ValueString()
+				S3ReceiverBatchMap["timeout_seconds"] = data.S3Receiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.S3Receiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				S3ReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			S3ReceiverMap["batch"] = BatchMap
+			S3ReceiverMap["batch"] = S3ReceiverBatchMap
 		}
 		if !data.S3Receiver.Bucket.IsNull() && !data.S3Receiver.Bucket.IsUnknown() {
 			S3ReceiverMap["bucket"] = data.S3Receiver.Bucket.ValueString()
 		}
 		if data.S3Receiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			S3ReceiverCompressionMap := make(map[string]interface{})
 			if data.S3Receiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				S3ReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.S3Receiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				S3ReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.S3Receiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				S3ReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			S3ReceiverMap["compression"] = CompressionMap
+			S3ReceiverMap["compression"] = S3ReceiverCompressionMap
 		}
 		if data.S3Receiver.FilenameOptions != nil {
-			FilenameOptionsMap := make(map[string]interface{})
+			S3ReceiverFilenameOptionsMap := make(map[string]interface{})
 			if !data.S3Receiver.FilenameOptions.CustomFolder.IsNull() && !data.S3Receiver.FilenameOptions.CustomFolder.IsUnknown() {
-				FilenameOptionsMap["custom_folder"] = data.S3Receiver.FilenameOptions.CustomFolder.ValueString()
+				S3ReceiverFilenameOptionsMap["custom_folder"] = data.S3Receiver.FilenameOptions.CustomFolder.ValueString()
 			}
 			if data.S3Receiver.FilenameOptions.LogTypeFolder != nil {
-				FilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
+				S3ReceiverFilenameOptionsMap["log_type_folder"] = map[string]interface{}{}
 			}
 			if data.S3Receiver.FilenameOptions.NoFolder != nil {
-				FilenameOptionsMap["no_folder"] = map[string]interface{}{}
+				S3ReceiverFilenameOptionsMap["no_folder"] = map[string]interface{}{}
 			}
-			S3ReceiverMap["filename_options"] = FilenameOptionsMap
+			S3ReceiverMap["filename_options"] = S3ReceiverFilenameOptionsMap
 		}
 		apiResource.Spec["s3_receiver"] = S3ReceiverMap
 	}
@@ -10385,39 +10385,39 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 	if data.SplunkReceiver != nil {
 		SplunkReceiverMap := make(map[string]interface{})
 		if data.SplunkReceiver.Batch != nil {
-			BatchMap := make(map[string]interface{})
+			SplunkReceiverBatchMap := make(map[string]interface{})
 			if !data.SplunkReceiver.Batch.MaxBytes.IsNull() && !data.SplunkReceiver.Batch.MaxBytes.IsUnknown() {
-				BatchMap["max_bytes"] = data.SplunkReceiver.Batch.MaxBytes.ValueInt64()
+				SplunkReceiverBatchMap["max_bytes"] = data.SplunkReceiver.Batch.MaxBytes.ValueInt64()
 			}
 			if data.SplunkReceiver.Batch.MaxBytesDisabled != nil {
-				BatchMap["max_bytes_disabled"] = map[string]interface{}{}
+				SplunkReceiverBatchMap["max_bytes_disabled"] = map[string]interface{}{}
 			}
 			if !data.SplunkReceiver.Batch.MaxEvents.IsNull() && !data.SplunkReceiver.Batch.MaxEvents.IsUnknown() {
-				BatchMap["max_events"] = data.SplunkReceiver.Batch.MaxEvents.ValueInt64()
+				SplunkReceiverBatchMap["max_events"] = data.SplunkReceiver.Batch.MaxEvents.ValueInt64()
 			}
 			if data.SplunkReceiver.Batch.MaxEventsDisabled != nil {
-				BatchMap["max_events_disabled"] = map[string]interface{}{}
+				SplunkReceiverBatchMap["max_events_disabled"] = map[string]interface{}{}
 			}
 			if !data.SplunkReceiver.Batch.TimeoutSeconds.IsNull() && !data.SplunkReceiver.Batch.TimeoutSeconds.IsUnknown() {
-				BatchMap["timeout_seconds"] = data.SplunkReceiver.Batch.TimeoutSeconds.ValueString()
+				SplunkReceiverBatchMap["timeout_seconds"] = data.SplunkReceiver.Batch.TimeoutSeconds.ValueString()
 			}
 			if data.SplunkReceiver.Batch.TimeoutSecondsDefault != nil {
-				BatchMap["timeout_seconds_default"] = map[string]interface{}{}
+				SplunkReceiverBatchMap["timeout_seconds_default"] = map[string]interface{}{}
 			}
-			SplunkReceiverMap["batch"] = BatchMap
+			SplunkReceiverMap["batch"] = SplunkReceiverBatchMap
 		}
 		if data.SplunkReceiver.Compression != nil {
-			CompressionMap := make(map[string]interface{})
+			SplunkReceiverCompressionMap := make(map[string]interface{})
 			if data.SplunkReceiver.Compression.CompressionDefault != nil {
-				CompressionMap["compression_default"] = map[string]interface{}{}
+				SplunkReceiverCompressionMap["compression_default"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.Compression.CompressionGzip != nil {
-				CompressionMap["compression_gzip"] = map[string]interface{}{}
+				SplunkReceiverCompressionMap["compression_gzip"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.Compression.CompressionNone != nil {
-				CompressionMap["compression_none"] = map[string]interface{}{}
+				SplunkReceiverCompressionMap["compression_none"] = map[string]interface{}{}
 			}
-			SplunkReceiverMap["compression"] = CompressionMap
+			SplunkReceiverMap["compression"] = SplunkReceiverCompressionMap
 		}
 		if !data.SplunkReceiver.Endpoint.IsNull() && !data.SplunkReceiver.Endpoint.IsUnknown() {
 			SplunkReceiverMap["endpoint"] = data.SplunkReceiver.Endpoint.ValueString()
@@ -10426,121 +10426,121 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			SplunkReceiverMap["no_tls"] = map[string]interface{}{}
 		}
 		if data.SplunkReceiver.SplunkHecToken != nil {
-			SplunkHecTokenMap := make(map[string]interface{})
+			SplunkReceiverSplunkHecTokenMap := make(map[string]interface{})
 			if data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.IsNull() && !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.ValueString()
+					SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap["location"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.SplunkHecToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				SplunkHecTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SplunkReceiverSplunkHecTokenMap["blindfold_secret_info"] = SplunkReceiverSplunkHecTokenBlindfoldSecretInfoMap
 			}
 			if data.SplunkReceiver.SplunkHecToken.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SplunkReceiverSplunkHecTokenClearSecretInfoMap := make(map[string]interface{})
 				if !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.IsNull() && !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.ValueString()
+					SplunkReceiverSplunkHecTokenClearSecretInfoMap["provider"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.IsNull() && !data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.ValueString()
+					SplunkReceiverSplunkHecTokenClearSecretInfoMap["url"] = data.SplunkReceiver.SplunkHecToken.ClearSecretInfo.URL.ValueString()
 				}
-				SplunkHecTokenMap["clear_secret_info"] = ClearSecretInfoMap
+				SplunkReceiverSplunkHecTokenMap["clear_secret_info"] = SplunkReceiverSplunkHecTokenClearSecretInfoMap
 			}
-			SplunkReceiverMap["splunk_hec_token"] = SplunkHecTokenMap
+			SplunkReceiverMap["splunk_hec_token"] = SplunkReceiverSplunkHecTokenMap
 		}
 		if data.SplunkReceiver.UseTLS != nil {
-			UseTLSMap := make(map[string]interface{})
+			SplunkReceiverUseTLSMap := make(map[string]interface{})
 			if data.SplunkReceiver.UseTLS.DisableVerifyCertificate != nil {
-				UseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["disable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.DisableVerifyHostname != nil {
-				UseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["disable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.EnableVerifyCertificate != nil {
-				UseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["enable_verify_certificate"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.EnableVerifyHostname != nil {
-				UseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["enable_verify_hostname"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.MtlsDisabled != nil {
-				UseTLSMap["mtls_disabled"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.SplunkReceiver.UseTLS.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				SplunkReceiverUseTLSMtlsEnableMap := make(map[string]interface{})
 				if !data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
+					SplunkReceiverUseTLSMtlsEnableMap["certificate"] = data.SplunkReceiver.UseTLS.MtlsEnable.Certificate.ValueString()
 				}
 				if data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					SplunkReceiverUseTLSMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						SplunkReceiverUseTLSMtlsEnableKeyURLMap["blindfold_secret_info"] = SplunkReceiverUseTLSMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap["url"] = data.SplunkReceiver.UseTLS.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						SplunkReceiverUseTLSMtlsEnableKeyURLMap["clear_secret_info"] = SplunkReceiverUseTLSMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					SplunkReceiverUseTLSMtlsEnableMap["key_url"] = SplunkReceiverUseTLSMtlsEnableKeyURLMap
 				}
-				UseTLSMap["mtls_enable"] = MtlsEnableMap
+				SplunkReceiverUseTLSMap["mtls_enable"] = SplunkReceiverUseTLSMtlsEnableMap
 			}
 			if data.SplunkReceiver.UseTLS.NoCA != nil {
-				UseTLSMap["no_ca"] = map[string]interface{}{}
+				SplunkReceiverUseTLSMap["no_ca"] = map[string]interface{}{}
 			}
 			if !data.SplunkReceiver.UseTLS.TrustedCAURL.IsNull() && !data.SplunkReceiver.UseTLS.TrustedCAURL.IsUnknown() {
-				UseTLSMap["trusted_ca_url"] = data.SplunkReceiver.UseTLS.TrustedCAURL.ValueString()
+				SplunkReceiverUseTLSMap["trusted_ca_url"] = data.SplunkReceiver.UseTLS.TrustedCAURL.ValueString()
 			}
-			SplunkReceiverMap["use_tls"] = UseTLSMap
+			SplunkReceiverMap["use_tls"] = SplunkReceiverUseTLSMap
 		}
 		apiResource.Spec["splunk_receiver"] = SplunkReceiverMap
 	}
 	if data.SumoLogicReceiver != nil {
 		SumoLogicReceiverMap := make(map[string]interface{})
 		if data.SumoLogicReceiver.URL != nil {
-			URLMap := make(map[string]interface{})
+			SumoLogicReceiverURLMap := make(map[string]interface{})
 			if data.SumoLogicReceiver.URL.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SumoLogicReceiverURLBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SumoLogicReceiverURLBlindfoldSecretInfoMap["decryption_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.IsNull() && !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.ValueString()
+					SumoLogicReceiverURLBlindfoldSecretInfoMap["location"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SumoLogicReceiverURLBlindfoldSecretInfoMap["store_provider"] = data.SumoLogicReceiver.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SumoLogicReceiverURLMap["blindfold_secret_info"] = SumoLogicReceiverURLBlindfoldSecretInfoMap
 			}
 			if data.SumoLogicReceiver.URL.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SumoLogicReceiverURLClearSecretInfoMap := make(map[string]interface{})
 				if !data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.IsNull() && !data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.ValueString()
+					SumoLogicReceiverURLClearSecretInfoMap["provider"] = data.SumoLogicReceiver.URL.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.SumoLogicReceiver.URL.ClearSecretInfo.URL.IsNull() && !data.SumoLogicReceiver.URL.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.SumoLogicReceiver.URL.ClearSecretInfo.URL.ValueString()
+					SumoLogicReceiverURLClearSecretInfoMap["url"] = data.SumoLogicReceiver.URL.ClearSecretInfo.URL.ValueString()
 				}
-				URLMap["clear_secret_info"] = ClearSecretInfoMap
+				SumoLogicReceiverURLMap["clear_secret_info"] = SumoLogicReceiverURLClearSecretInfoMap
 			}
-			SumoLogicReceiverMap["url"] = URLMap
+			SumoLogicReceiverMap["url"] = SumoLogicReceiverURLMap
 		}
 		apiResource.Spec["sumo_logic_receiver"] = SumoLogicReceiverMap
 	}

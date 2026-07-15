@@ -332,17 +332,17 @@ func (r *SensitiveDataPolicyResource) Create(ctx context.Context, req resource.C
 			for _, CustomDataTypesItem := range CustomDataTypesElems {
 				CustomDataTypesItemMap := make(map[string]interface{})
 				if CustomDataTypesItem.CustomDataTypeRef != nil {
-					CustomDataTypeRefMap := make(map[string]interface{})
+					CustomDataTypesCustomDataTypeRefMap := make(map[string]interface{})
 					if !CustomDataTypesItem.CustomDataTypeRef.Name.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Name.IsUnknown() {
-						CustomDataTypeRefMap["name"] = CustomDataTypesItem.CustomDataTypeRef.Name.ValueString()
+						CustomDataTypesCustomDataTypeRefMap["name"] = CustomDataTypesItem.CustomDataTypeRef.Name.ValueString()
 					}
 					if !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsUnknown() {
-						CustomDataTypeRefMap["namespace"] = CustomDataTypesItem.CustomDataTypeRef.Namespace.ValueString()
+						CustomDataTypesCustomDataTypeRefMap["namespace"] = CustomDataTypesItem.CustomDataTypeRef.Namespace.ValueString()
 					}
 					if !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsUnknown() {
-						CustomDataTypeRefMap["tenant"] = CustomDataTypesItem.CustomDataTypeRef.Tenant.ValueString()
+						CustomDataTypesCustomDataTypeRefMap["tenant"] = CustomDataTypesItem.CustomDataTypeRef.Tenant.ValueString()
 					}
-					CustomDataTypesItemMap["custom_data_type_ref"] = CustomDataTypeRefMap
+					CustomDataTypesItemMap["custom_data_type_ref"] = CustomDataTypesCustomDataTypeRefMap
 				}
 				CustomDataTypesList = append(CustomDataTypesList, CustomDataTypesItemMap)
 			}
@@ -693,17 +693,17 @@ func (r *SensitiveDataPolicyResource) Update(ctx context.Context, req resource.U
 			for _, CustomDataTypesItem := range CustomDataTypesElems {
 				CustomDataTypesItemMap := make(map[string]interface{})
 				if CustomDataTypesItem.CustomDataTypeRef != nil {
-					CustomDataTypeRefMap := make(map[string]interface{})
+					CustomDataTypesCustomDataTypeRefMap := make(map[string]interface{})
 					if !CustomDataTypesItem.CustomDataTypeRef.Name.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Name.IsUnknown() {
-						CustomDataTypeRefMap["name"] = CustomDataTypesItem.CustomDataTypeRef.Name.ValueString()
+						CustomDataTypesCustomDataTypeRefMap["name"] = CustomDataTypesItem.CustomDataTypeRef.Name.ValueString()
 					}
 					if !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Namespace.IsUnknown() {
-						CustomDataTypeRefMap["namespace"] = CustomDataTypesItem.CustomDataTypeRef.Namespace.ValueString()
+						CustomDataTypesCustomDataTypeRefMap["namespace"] = CustomDataTypesItem.CustomDataTypeRef.Namespace.ValueString()
 					}
 					if !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsNull() && !CustomDataTypesItem.CustomDataTypeRef.Tenant.IsUnknown() {
-						CustomDataTypeRefMap["tenant"] = CustomDataTypesItem.CustomDataTypeRef.Tenant.ValueString()
+						CustomDataTypesCustomDataTypeRefMap["tenant"] = CustomDataTypesItem.CustomDataTypeRef.Tenant.ValueString()
 					}
-					CustomDataTypesItemMap["custom_data_type_ref"] = CustomDataTypeRefMap
+					CustomDataTypesItemMap["custom_data_type_ref"] = CustomDataTypesCustomDataTypeRefMap
 				}
 				CustomDataTypesList = append(CustomDataTypesList, CustomDataTypesItemMap)
 			}

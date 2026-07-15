@@ -985,11 +985,11 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 				for _, RulesItem := range RulesElems {
 					RulesItemMap := make(map[string]interface{})
 					if RulesItem.AdvancedAction != nil {
-						AdvancedActionMap := make(map[string]interface{})
+						RuleListRulesAdvancedActionMap := make(map[string]interface{})
 						if !RulesItem.AdvancedAction.Action.IsNull() && !RulesItem.AdvancedAction.Action.IsUnknown() {
-							AdvancedActionMap["action"] = RulesItem.AdvancedAction.Action.ValueString()
+							RuleListRulesAdvancedActionMap["action"] = RulesItem.AdvancedAction.Action.ValueString()
 						}
-						RulesItemMap["advanced_action"] = AdvancedActionMap
+						RulesItemMap["advanced_action"] = RuleListRulesAdvancedActionMap
 					}
 					if RulesItem.AllDestinations != nil {
 						RulesItemMap["all_destinations"] = map[string]interface{}{}
@@ -1016,32 +1016,32 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						RulesItemMap["allow"] = map[string]interface{}{}
 					}
 					if RulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						RuleListRulesApplicationsMap := make(map[string]interface{})
 						if !RulesItem.Applications.Applications.IsNull() && !RulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := RulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								RuleListRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						RulesItemMap["applications"] = ApplicationsMap
+						RulesItemMap["applications"] = RuleListRulesApplicationsMap
 					}
 					if RulesItem.Deny != nil {
 						RulesItemMap["deny"] = map[string]interface{}{}
 					}
 					if RulesItem.DestinationAWSVPCIds != nil {
-						DestinationAWSVPCIdsMap := make(map[string]interface{})
+						RuleListRulesDestinationAWSVPCIdsMap := make(map[string]interface{})
 						if !RulesItem.DestinationAWSVPCIds.VPCID.IsNull() && !RulesItem.DestinationAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.DestinationAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
 							if !diags.HasError() {
-								DestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
+								RuleListRulesDestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
 						}
-						RulesItemMap["destination_aws_vpc_ids"] = DestinationAWSVPCIdsMap
+						RulesItemMap["destination_aws_vpc_ids"] = RuleListRulesDestinationAWSVPCIdsMap
 					}
 					if RulesItem.DestinationIPPrefixSet != nil {
-						DestinationIPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesDestinationIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.DestinationIPPrefixSet.Ref.IsNull() && !RulesItem.DestinationIPPrefixSet.Ref.IsUnknown() {
 							var RefElems []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
 							diags := RulesItem.DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1067,49 +1067,49 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								DestinationIPPrefixSetMap["ref"] = RefList
+								RuleListRulesDestinationIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						RulesItemMap["destination_ip_prefix_set"] = DestinationIPPrefixSetMap
+						RulesItemMap["destination_ip_prefix_set"] = RuleListRulesDestinationIPPrefixSetMap
 					}
 					if RulesItem.DestinationLabelSelector != nil {
-						DestinationLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesDestinationLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.DestinationLabelSelector.Expressions.IsNull() && !RulesItem.DestinationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DestinationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								DestinationLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesDestinationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["destination_label_selector"] = DestinationLabelSelectorMap
+						RulesItemMap["destination_label_selector"] = RuleListRulesDestinationLabelSelectorMap
 					}
 					if RulesItem.DestinationPrefixList != nil {
-						DestinationPrefixListMap := make(map[string]interface{})
+						RuleListRulesDestinationPrefixListMap := make(map[string]interface{})
 						if !RulesItem.DestinationPrefixList.Prefixes.IsNull() && !RulesItem.DestinationPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DestinationPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								DestinationPrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesDestinationPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["destination_prefix_list"] = DestinationPrefixListMap
+						RulesItemMap["destination_prefix_list"] = RuleListRulesDestinationPrefixListMap
 					}
 					if RulesItem.InsertService != nil {
-						InsertServiceMap := make(map[string]interface{})
+						RuleListRulesInsertServiceMap := make(map[string]interface{})
 						if RulesItem.InsertService.NfvService != nil {
-							NfvServiceMap := make(map[string]interface{})
+							RuleListRulesInsertServiceNfvServiceMap := make(map[string]interface{})
 							if !RulesItem.InsertService.NfvService.Name.IsNull() && !RulesItem.InsertService.NfvService.Name.IsUnknown() {
-								NfvServiceMap["name"] = RulesItem.InsertService.NfvService.Name.ValueString()
+								RuleListRulesInsertServiceNfvServiceMap["name"] = RulesItem.InsertService.NfvService.Name.ValueString()
 							}
 							if !RulesItem.InsertService.NfvService.Namespace.IsNull() && !RulesItem.InsertService.NfvService.Namespace.IsUnknown() {
-								NfvServiceMap["namespace"] = RulesItem.InsertService.NfvService.Namespace.ValueString()
+								RuleListRulesInsertServiceNfvServiceMap["namespace"] = RulesItem.InsertService.NfvService.Namespace.ValueString()
 							}
 							if !RulesItem.InsertService.NfvService.Tenant.IsNull() && !RulesItem.InsertService.NfvService.Tenant.IsUnknown() {
-								NfvServiceMap["tenant"] = RulesItem.InsertService.NfvService.Tenant.ValueString()
+								RuleListRulesInsertServiceNfvServiceMap["tenant"] = RulesItem.InsertService.NfvService.Tenant.ValueString()
 							}
-							InsertServiceMap["nfv_service"] = NfvServiceMap
+							RuleListRulesInsertServiceMap["nfv_service"] = RuleListRulesInsertServiceNfvServiceMap
 						}
-						RulesItemMap["insert_service"] = InsertServiceMap
+						RulesItemMap["insert_service"] = RuleListRulesInsertServiceMap
 					}
 					if RulesItem.InsideDestinations != nil {
 						RulesItemMap["inside_destinations"] = map[string]interface{}{}
@@ -1118,25 +1118,25 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						RulesItemMap["inside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.LabelMatcher != nil {
-						LabelMatcherMap := make(map[string]interface{})
+						RuleListRulesLabelMatcherMap := make(map[string]interface{})
 						if !RulesItem.LabelMatcher.Keys.IsNull() && !RulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := RulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 							if !diags.HasError() {
-								LabelMatcherMap["keys"] = KeysItems
+								RuleListRulesLabelMatcherMap["keys"] = KeysItems
 							}
 						}
-						RulesItemMap["label_matcher"] = LabelMatcherMap
+						RulesItemMap["label_matcher"] = RuleListRulesLabelMatcherMap
 					}
 					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RuleListRulesMetadataMap := make(map[string]interface{})
 						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							RuleListRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							RuleListRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
 					if RulesItem.OutsideDestinations != nil {
 						RulesItemMap["outside_destinations"] = map[string]interface{}{}
@@ -1145,32 +1145,32 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 						RulesItemMap["outside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						RuleListRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !RulesItem.ProtocolPortRange.PortRanges.IsNull() && !RulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := RulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								RuleListRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !RulesItem.ProtocolPortRange.Protocol.IsNull() && !RulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = RulesItem.ProtocolPortRange.Protocol.ValueString()
+							RuleListRulesProtocolPortRangeMap["protocol"] = RulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						RulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						RulesItemMap["protocol_port_range"] = RuleListRulesProtocolPortRangeMap
 					}
 					if RulesItem.SourceAWSVPCIds != nil {
-						SourceAWSVPCIdsMap := make(map[string]interface{})
+						RuleListRulesSourceAWSVPCIdsMap := make(map[string]interface{})
 						if !RulesItem.SourceAWSVPCIds.VPCID.IsNull() && !RulesItem.SourceAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.SourceAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
 							if !diags.HasError() {
-								SourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
+								RuleListRulesSourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
 						}
-						RulesItemMap["source_aws_vpc_ids"] = SourceAWSVPCIdsMap
+						RulesItemMap["source_aws_vpc_ids"] = RuleListRulesSourceAWSVPCIdsMap
 					}
 					if RulesItem.SourceIPPrefixSet != nil {
-						SourceIPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesSourceIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.SourceIPPrefixSet.Ref.IsNull() && !RulesItem.SourceIPPrefixSet.Ref.IsUnknown() {
 							var RefElems []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
 							diags := RulesItem.SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1196,32 +1196,32 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								SourceIPPrefixSetMap["ref"] = RefList
+								RuleListRulesSourceIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						RulesItemMap["source_ip_prefix_set"] = SourceIPPrefixSetMap
+						RulesItemMap["source_ip_prefix_set"] = RuleListRulesSourceIPPrefixSetMap
 					}
 					if RulesItem.SourceLabelSelector != nil {
-						SourceLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesSourceLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.SourceLabelSelector.Expressions.IsNull() && !RulesItem.SourceLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.SourceLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								SourceLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesSourceLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["source_label_selector"] = SourceLabelSelectorMap
+						RulesItemMap["source_label_selector"] = RuleListRulesSourceLabelSelectorMap
 					}
 					if RulesItem.SourcePrefixList != nil {
-						SourcePrefixListMap := make(map[string]interface{})
+						RuleListRulesSourcePrefixListMap := make(map[string]interface{})
 						if !RulesItem.SourcePrefixList.Prefixes.IsNull() && !RulesItem.SourcePrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.SourcePrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								SourcePrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesSourcePrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["source_prefix_list"] = SourcePrefixListMap
+						RulesItemMap["source_prefix_list"] = RuleListRulesSourcePrefixListMap
 					}
 					RulesList = append(RulesList, RulesItemMap)
 				}
@@ -2626,11 +2626,11 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 				for _, RulesItem := range RulesElems {
 					RulesItemMap := make(map[string]interface{})
 					if RulesItem.AdvancedAction != nil {
-						AdvancedActionMap := make(map[string]interface{})
+						RuleListRulesAdvancedActionMap := make(map[string]interface{})
 						if !RulesItem.AdvancedAction.Action.IsNull() && !RulesItem.AdvancedAction.Action.IsUnknown() {
-							AdvancedActionMap["action"] = RulesItem.AdvancedAction.Action.ValueString()
+							RuleListRulesAdvancedActionMap["action"] = RulesItem.AdvancedAction.Action.ValueString()
 						}
-						RulesItemMap["advanced_action"] = AdvancedActionMap
+						RulesItemMap["advanced_action"] = RuleListRulesAdvancedActionMap
 					}
 					if RulesItem.AllDestinations != nil {
 						RulesItemMap["all_destinations"] = map[string]interface{}{}
@@ -2657,32 +2657,32 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						RulesItemMap["allow"] = map[string]interface{}{}
 					}
 					if RulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						RuleListRulesApplicationsMap := make(map[string]interface{})
 						if !RulesItem.Applications.Applications.IsNull() && !RulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := RulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								RuleListRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						RulesItemMap["applications"] = ApplicationsMap
+						RulesItemMap["applications"] = RuleListRulesApplicationsMap
 					}
 					if RulesItem.Deny != nil {
 						RulesItemMap["deny"] = map[string]interface{}{}
 					}
 					if RulesItem.DestinationAWSVPCIds != nil {
-						DestinationAWSVPCIdsMap := make(map[string]interface{})
+						RuleListRulesDestinationAWSVPCIdsMap := make(map[string]interface{})
 						if !RulesItem.DestinationAWSVPCIds.VPCID.IsNull() && !RulesItem.DestinationAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.DestinationAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
 							if !diags.HasError() {
-								DestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
+								RuleListRulesDestinationAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
 						}
-						RulesItemMap["destination_aws_vpc_ids"] = DestinationAWSVPCIdsMap
+						RulesItemMap["destination_aws_vpc_ids"] = RuleListRulesDestinationAWSVPCIdsMap
 					}
 					if RulesItem.DestinationIPPrefixSet != nil {
-						DestinationIPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesDestinationIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.DestinationIPPrefixSet.Ref.IsNull() && !RulesItem.DestinationIPPrefixSet.Ref.IsUnknown() {
 							var RefElems []EnhancedFirewallPolicyRuleListRulesDestinationIPPrefixSetRefModel
 							diags := RulesItem.DestinationIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -2708,49 +2708,49 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								DestinationIPPrefixSetMap["ref"] = RefList
+								RuleListRulesDestinationIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						RulesItemMap["destination_ip_prefix_set"] = DestinationIPPrefixSetMap
+						RulesItemMap["destination_ip_prefix_set"] = RuleListRulesDestinationIPPrefixSetMap
 					}
 					if RulesItem.DestinationLabelSelector != nil {
-						DestinationLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesDestinationLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.DestinationLabelSelector.Expressions.IsNull() && !RulesItem.DestinationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DestinationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								DestinationLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesDestinationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["destination_label_selector"] = DestinationLabelSelectorMap
+						RulesItemMap["destination_label_selector"] = RuleListRulesDestinationLabelSelectorMap
 					}
 					if RulesItem.DestinationPrefixList != nil {
-						DestinationPrefixListMap := make(map[string]interface{})
+						RuleListRulesDestinationPrefixListMap := make(map[string]interface{})
 						if !RulesItem.DestinationPrefixList.Prefixes.IsNull() && !RulesItem.DestinationPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DestinationPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								DestinationPrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesDestinationPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["destination_prefix_list"] = DestinationPrefixListMap
+						RulesItemMap["destination_prefix_list"] = RuleListRulesDestinationPrefixListMap
 					}
 					if RulesItem.InsertService != nil {
-						InsertServiceMap := make(map[string]interface{})
+						RuleListRulesInsertServiceMap := make(map[string]interface{})
 						if RulesItem.InsertService.NfvService != nil {
-							NfvServiceMap := make(map[string]interface{})
+							RuleListRulesInsertServiceNfvServiceMap := make(map[string]interface{})
 							if !RulesItem.InsertService.NfvService.Name.IsNull() && !RulesItem.InsertService.NfvService.Name.IsUnknown() {
-								NfvServiceMap["name"] = RulesItem.InsertService.NfvService.Name.ValueString()
+								RuleListRulesInsertServiceNfvServiceMap["name"] = RulesItem.InsertService.NfvService.Name.ValueString()
 							}
 							if !RulesItem.InsertService.NfvService.Namespace.IsNull() && !RulesItem.InsertService.NfvService.Namespace.IsUnknown() {
-								NfvServiceMap["namespace"] = RulesItem.InsertService.NfvService.Namespace.ValueString()
+								RuleListRulesInsertServiceNfvServiceMap["namespace"] = RulesItem.InsertService.NfvService.Namespace.ValueString()
 							}
 							if !RulesItem.InsertService.NfvService.Tenant.IsNull() && !RulesItem.InsertService.NfvService.Tenant.IsUnknown() {
-								NfvServiceMap["tenant"] = RulesItem.InsertService.NfvService.Tenant.ValueString()
+								RuleListRulesInsertServiceNfvServiceMap["tenant"] = RulesItem.InsertService.NfvService.Tenant.ValueString()
 							}
-							InsertServiceMap["nfv_service"] = NfvServiceMap
+							RuleListRulesInsertServiceMap["nfv_service"] = RuleListRulesInsertServiceNfvServiceMap
 						}
-						RulesItemMap["insert_service"] = InsertServiceMap
+						RulesItemMap["insert_service"] = RuleListRulesInsertServiceMap
 					}
 					if RulesItem.InsideDestinations != nil {
 						RulesItemMap["inside_destinations"] = map[string]interface{}{}
@@ -2759,25 +2759,25 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						RulesItemMap["inside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.LabelMatcher != nil {
-						LabelMatcherMap := make(map[string]interface{})
+						RuleListRulesLabelMatcherMap := make(map[string]interface{})
 						if !RulesItem.LabelMatcher.Keys.IsNull() && !RulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := RulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 							if !diags.HasError() {
-								LabelMatcherMap["keys"] = KeysItems
+								RuleListRulesLabelMatcherMap["keys"] = KeysItems
 							}
 						}
-						RulesItemMap["label_matcher"] = LabelMatcherMap
+						RulesItemMap["label_matcher"] = RuleListRulesLabelMatcherMap
 					}
 					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RuleListRulesMetadataMap := make(map[string]interface{})
 						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							RuleListRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							RuleListRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
 					if RulesItem.OutsideDestinations != nil {
 						RulesItemMap["outside_destinations"] = map[string]interface{}{}
@@ -2786,32 +2786,32 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 						RulesItemMap["outside_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						RuleListRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !RulesItem.ProtocolPortRange.PortRanges.IsNull() && !RulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := RulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								RuleListRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !RulesItem.ProtocolPortRange.Protocol.IsNull() && !RulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = RulesItem.ProtocolPortRange.Protocol.ValueString()
+							RuleListRulesProtocolPortRangeMap["protocol"] = RulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						RulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						RulesItemMap["protocol_port_range"] = RuleListRulesProtocolPortRangeMap
 					}
 					if RulesItem.SourceAWSVPCIds != nil {
-						SourceAWSVPCIdsMap := make(map[string]interface{})
+						RuleListRulesSourceAWSVPCIdsMap := make(map[string]interface{})
 						if !RulesItem.SourceAWSVPCIds.VPCID.IsNull() && !RulesItem.SourceAWSVPCIds.VPCID.IsUnknown() {
 							var VPCIDItems []string
 							diags := RulesItem.SourceAWSVPCIds.VPCID.ElementsAs(ctx, &VPCIDItems, false)
 							if !diags.HasError() {
-								SourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
+								RuleListRulesSourceAWSVPCIdsMap["vpc_id"] = VPCIDItems
 							}
 						}
-						RulesItemMap["source_aws_vpc_ids"] = SourceAWSVPCIdsMap
+						RulesItemMap["source_aws_vpc_ids"] = RuleListRulesSourceAWSVPCIdsMap
 					}
 					if RulesItem.SourceIPPrefixSet != nil {
-						SourceIPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesSourceIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.SourceIPPrefixSet.Ref.IsNull() && !RulesItem.SourceIPPrefixSet.Ref.IsUnknown() {
 							var RefElems []EnhancedFirewallPolicyRuleListRulesSourceIPPrefixSetRefModel
 							diags := RulesItem.SourceIPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -2837,32 +2837,32 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								SourceIPPrefixSetMap["ref"] = RefList
+								RuleListRulesSourceIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						RulesItemMap["source_ip_prefix_set"] = SourceIPPrefixSetMap
+						RulesItemMap["source_ip_prefix_set"] = RuleListRulesSourceIPPrefixSetMap
 					}
 					if RulesItem.SourceLabelSelector != nil {
-						SourceLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesSourceLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.SourceLabelSelector.Expressions.IsNull() && !RulesItem.SourceLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.SourceLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								SourceLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesSourceLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["source_label_selector"] = SourceLabelSelectorMap
+						RulesItemMap["source_label_selector"] = RuleListRulesSourceLabelSelectorMap
 					}
 					if RulesItem.SourcePrefixList != nil {
-						SourcePrefixListMap := make(map[string]interface{})
+						RuleListRulesSourcePrefixListMap := make(map[string]interface{})
 						if !RulesItem.SourcePrefixList.Prefixes.IsNull() && !RulesItem.SourcePrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.SourcePrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								SourcePrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesSourcePrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["source_prefix_list"] = SourcePrefixListMap
+						RulesItemMap["source_prefix_list"] = RuleListRulesSourcePrefixListMap
 					}
 					RulesList = append(RulesList, RulesItemMap)
 				}

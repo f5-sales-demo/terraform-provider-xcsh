@@ -978,78 +978,78 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 					PeersItemMap["bfd_disabled"] = map[string]interface{}{}
 				}
 				if PeersItem.BfdEnabled != nil {
-					BfdEnabledMap := make(map[string]interface{})
+					PeersBfdEnabledMap := make(map[string]interface{})
 					if !PeersItem.BfdEnabled.Multiplier.IsNull() && !PeersItem.BfdEnabled.Multiplier.IsUnknown() {
-						BfdEnabledMap["multiplier"] = PeersItem.BfdEnabled.Multiplier.ValueInt64()
+						PeersBfdEnabledMap["multiplier"] = PeersItem.BfdEnabled.Multiplier.ValueInt64()
 					}
 					if !PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.IsNull() && !PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
-						BfdEnabledMap["receive_interval_milliseconds"] = PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
+						PeersBfdEnabledMap["receive_interval_milliseconds"] = PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
 					}
 					if !PeersItem.BfdEnabled.TransmitIntervalMilliseconds.IsNull() && !PeersItem.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
-						BfdEnabledMap["transmit_interval_milliseconds"] = PeersItem.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
+						PeersBfdEnabledMap["transmit_interval_milliseconds"] = PeersItem.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
 					}
-					PeersItemMap["bfd_enabled"] = BfdEnabledMap
+					PeersItemMap["bfd_enabled"] = PeersBfdEnabledMap
 				}
 				if PeersItem.DisableSpec != nil {
 					PeersItemMap["disable"] = map[string]interface{}{}
 				}
 				if PeersItem.External != nil {
-					ExternalMap := make(map[string]interface{})
+					PeersExternalMap := make(map[string]interface{})
 					if !PeersItem.External.Address.IsNull() && !PeersItem.External.Address.IsUnknown() {
-						ExternalMap["address"] = PeersItem.External.Address.ValueString()
+						PeersExternalMap["address"] = PeersItem.External.Address.ValueString()
 					}
 					if !PeersItem.External.AddressIpv6.IsNull() && !PeersItem.External.AddressIpv6.IsUnknown() {
-						ExternalMap["address_ipv6"] = PeersItem.External.AddressIpv6.ValueString()
+						PeersExternalMap["address_ipv6"] = PeersItem.External.AddressIpv6.ValueString()
 					}
 					if !PeersItem.External.Asn.IsNull() && !PeersItem.External.Asn.IsUnknown() {
-						ExternalMap["asn"] = PeersItem.External.Asn.ValueInt64()
+						PeersExternalMap["asn"] = PeersItem.External.Asn.ValueInt64()
 					}
 					if PeersItem.External.DefaultGateway != nil {
-						ExternalMap["default_gateway"] = map[string]interface{}{}
+						PeersExternalMap["default_gateway"] = map[string]interface{}{}
 					}
 					if PeersItem.External.DefaultGatewayV6 != nil {
-						ExternalMap["default_gateway_v6"] = map[string]interface{}{}
+						PeersExternalMap["default_gateway_v6"] = map[string]interface{}{}
 					}
 					if PeersItem.External.DisableSpec != nil {
-						ExternalMap["disable"] = map[string]interface{}{}
+						PeersExternalMap["disable"] = map[string]interface{}{}
 					}
 					if PeersItem.External.DisableV6 != nil {
-						ExternalMap["disable_v6"] = map[string]interface{}{}
+						PeersExternalMap["disable_v6"] = map[string]interface{}{}
 					}
 					if PeersItem.External.ExternalConnector != nil {
-						ExternalMap["external_connector"] = map[string]interface{}{}
+						PeersExternalMap["external_connector"] = map[string]interface{}{}
 					}
 					if PeersItem.External.FamilyInet != nil {
-						FamilyInetMap := make(map[string]interface{})
+						PeersExternalFamilyInetMap := make(map[string]interface{})
 						if PeersItem.External.FamilyInet.DisableSpec != nil {
-							FamilyInetMap["disable"] = map[string]interface{}{}
+							PeersExternalFamilyInetMap["disable"] = map[string]interface{}{}
 						}
 						if PeersItem.External.FamilyInet.Enable != nil {
-							FamilyInetMap["enable"] = map[string]interface{}{}
+							PeersExternalFamilyInetMap["enable"] = map[string]interface{}{}
 						}
-						ExternalMap["family_inet"] = FamilyInetMap
+						PeersExternalMap["family_inet"] = PeersExternalFamilyInetMap
 					}
 					if PeersItem.External.FromSite != nil {
-						ExternalMap["from_site"] = map[string]interface{}{}
+						PeersExternalMap["from_site"] = map[string]interface{}{}
 					}
 					if PeersItem.External.FromSiteV6 != nil {
-						ExternalMap["from_site_v6"] = map[string]interface{}{}
+						PeersExternalMap["from_site_v6"] = map[string]interface{}{}
 					}
 					if PeersItem.External.Interface != nil {
-						InterfaceMap := make(map[string]interface{})
+						PeersExternalInterfaceMap := make(map[string]interface{})
 						if !PeersItem.External.Interface.Name.IsNull() && !PeersItem.External.Interface.Name.IsUnknown() {
-							InterfaceMap["name"] = PeersItem.External.Interface.Name.ValueString()
+							PeersExternalInterfaceMap["name"] = PeersItem.External.Interface.Name.ValueString()
 						}
 						if !PeersItem.External.Interface.Namespace.IsNull() && !PeersItem.External.Interface.Namespace.IsUnknown() {
-							InterfaceMap["namespace"] = PeersItem.External.Interface.Namespace.ValueString()
+							PeersExternalInterfaceMap["namespace"] = PeersItem.External.Interface.Namespace.ValueString()
 						}
 						if !PeersItem.External.Interface.Tenant.IsNull() && !PeersItem.External.Interface.Tenant.IsUnknown() {
-							InterfaceMap["tenant"] = PeersItem.External.Interface.Tenant.ValueString()
+							PeersExternalInterfaceMap["tenant"] = PeersItem.External.Interface.Tenant.ValueString()
 						}
-						ExternalMap["interface"] = InterfaceMap
+						PeersExternalMap["interface"] = PeersExternalInterfaceMap
 					}
 					if PeersItem.External.InterfaceList != nil {
-						InterfaceListMap := make(map[string]interface{})
+						PeersExternalInterfaceListMap := make(map[string]interface{})
 						if !PeersItem.External.InterfaceList.Interfaces.IsNull() && !PeersItem.External.InterfaceList.Interfaces.IsUnknown() {
 							var InterfacesElems []BGPPeersExternalInterfaceListInterfacesModel
 							diags := PeersItem.External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesElems, false)
@@ -1069,46 +1069,46 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									}
 									InterfacesList = append(InterfacesList, InterfacesItemMap)
 								}
-								InterfaceListMap["interfaces"] = InterfacesList
+								PeersExternalInterfaceListMap["interfaces"] = InterfacesList
 							}
 						}
-						ExternalMap["interface_list"] = InterfaceListMap
+						PeersExternalMap["interface_list"] = PeersExternalInterfaceListMap
 					}
 					if !PeersItem.External.MD5AuthKey.IsNull() && !PeersItem.External.MD5AuthKey.IsUnknown() {
-						ExternalMap["md5_auth_key"] = PeersItem.External.MD5AuthKey.ValueString()
+						PeersExternalMap["md5_auth_key"] = PeersItem.External.MD5AuthKey.ValueString()
 					}
 					if PeersItem.External.NoAuthentication != nil {
-						ExternalMap["no_authentication"] = map[string]interface{}{}
+						PeersExternalMap["no_authentication"] = map[string]interface{}{}
 					}
 					if !PeersItem.External.Port.IsNull() && !PeersItem.External.Port.IsUnknown() {
-						ExternalMap["port"] = PeersItem.External.Port.ValueInt64()
+						PeersExternalMap["port"] = PeersItem.External.Port.ValueInt64()
 					}
 					if !PeersItem.External.SubnetBeginOffset.IsNull() && !PeersItem.External.SubnetBeginOffset.IsUnknown() {
-						ExternalMap["subnet_begin_offset"] = PeersItem.External.SubnetBeginOffset.ValueInt64()
+						PeersExternalMap["subnet_begin_offset"] = PeersItem.External.SubnetBeginOffset.ValueInt64()
 					}
 					if !PeersItem.External.SubnetBeginOffsetV6.IsNull() && !PeersItem.External.SubnetBeginOffsetV6.IsUnknown() {
-						ExternalMap["subnet_begin_offset_v6"] = PeersItem.External.SubnetBeginOffsetV6.ValueInt64()
+						PeersExternalMap["subnet_begin_offset_v6"] = PeersItem.External.SubnetBeginOffsetV6.ValueInt64()
 					}
 					if !PeersItem.External.SubnetEndOffset.IsNull() && !PeersItem.External.SubnetEndOffset.IsUnknown() {
-						ExternalMap["subnet_end_offset"] = PeersItem.External.SubnetEndOffset.ValueInt64()
+						PeersExternalMap["subnet_end_offset"] = PeersItem.External.SubnetEndOffset.ValueInt64()
 					}
 					if !PeersItem.External.SubnetEndOffsetV6.IsNull() && !PeersItem.External.SubnetEndOffsetV6.IsUnknown() {
-						ExternalMap["subnet_end_offset_v6"] = PeersItem.External.SubnetEndOffsetV6.ValueInt64()
+						PeersExternalMap["subnet_end_offset_v6"] = PeersItem.External.SubnetEndOffsetV6.ValueInt64()
 					}
-					PeersItemMap["external"] = ExternalMap
+					PeersItemMap["external"] = PeersExternalMap
 				}
 				if !PeersItem.Label.IsNull() && !PeersItem.Label.IsUnknown() {
 					PeersItemMap["label"] = PeersItem.Label.ValueString()
 				}
 				if PeersItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
+					PeersMetadataMap := make(map[string]interface{})
 					if !PeersItem.Metadata.DescriptionSpec.IsNull() && !PeersItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = PeersItem.Metadata.DescriptionSpec.ValueString()
+						PeersMetadataMap["description"] = PeersItem.Metadata.DescriptionSpec.ValueString()
 					}
 					if !PeersItem.Metadata.Name.IsNull() && !PeersItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = PeersItem.Metadata.Name.ValueString()
+						PeersMetadataMap["name"] = PeersItem.Metadata.Name.ValueString()
 					}
-					PeersItemMap["metadata"] = MetadataMap
+					PeersItemMap["metadata"] = PeersMetadataMap
 				}
 				if PeersItem.PassiveModeDisabled != nil {
 					PeersItemMap["passive_mode_disabled"] = map[string]interface{}{}
@@ -1117,7 +1117,7 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 					PeersItemMap["passive_mode_enabled"] = map[string]interface{}{}
 				}
 				if PeersItem.RoutingPolicies != nil {
-					RoutingPoliciesMap := make(map[string]interface{})
+					PeersRoutingPoliciesMap := make(map[string]interface{})
 					if !PeersItem.RoutingPolicies.RoutePolicy.IsNull() && !PeersItem.RoutingPolicies.RoutePolicy.IsUnknown() {
 						var RoutePolicyElems []BGPPeersRoutingPoliciesRoutePolicyModel
 						diags := PeersItem.RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyElems, false)
@@ -1133,15 +1133,15 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 									RoutePolicyItemMap["inbound"] = map[string]interface{}{}
 								}
 								if RoutePolicyItem.NodeName != nil {
-									NodeNameMap := make(map[string]interface{})
+									PeersRoutingPoliciesRoutePolicyNodeNameMap := make(map[string]interface{})
 									if !RoutePolicyItem.NodeName.Node.IsNull() && !RoutePolicyItem.NodeName.Node.IsUnknown() {
 										var NodeItems []string
 										diags := RoutePolicyItem.NodeName.Node.ElementsAs(ctx, &NodeItems, false)
 										if !diags.HasError() {
-											NodeNameMap["node"] = NodeItems
+											PeersRoutingPoliciesRoutePolicyNodeNameMap["node"] = NodeItems
 										}
 									}
-									RoutePolicyItemMap["node_name"] = NodeNameMap
+									RoutePolicyItemMap["node_name"] = PeersRoutingPoliciesRoutePolicyNodeNameMap
 								}
 								if !RoutePolicyItem.ObjectRefs.IsNull() && !RoutePolicyItem.ObjectRefs.IsUnknown() {
 									var ObjectRefsElems []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
@@ -1176,10 +1176,10 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 								}
 								RoutePolicyList = append(RoutePolicyList, RoutePolicyItemMap)
 							}
-							RoutingPoliciesMap["route_policy"] = RoutePolicyList
+							PeersRoutingPoliciesMap["route_policy"] = RoutePolicyList
 						}
 					}
-					PeersItemMap["routing_policies"] = RoutingPoliciesMap
+					PeersItemMap["routing_policies"] = PeersRoutingPoliciesMap
 				}
 				PeersList = append(PeersList, PeersItemMap)
 			}
@@ -1205,15 +1205,15 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []BGPWhereSiteRefModel
@@ -1240,21 +1240,21 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []BGPWhereVirtualSiteRefModel
@@ -1281,10 +1281,10 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		createReq.Spec["where"] = WhereMap
 	}
@@ -2873,78 +2873,78 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 					PeersItemMap["bfd_disabled"] = map[string]interface{}{}
 				}
 				if PeersItem.BfdEnabled != nil {
-					BfdEnabledMap := make(map[string]interface{})
+					PeersBfdEnabledMap := make(map[string]interface{})
 					if !PeersItem.BfdEnabled.Multiplier.IsNull() && !PeersItem.BfdEnabled.Multiplier.IsUnknown() {
-						BfdEnabledMap["multiplier"] = PeersItem.BfdEnabled.Multiplier.ValueInt64()
+						PeersBfdEnabledMap["multiplier"] = PeersItem.BfdEnabled.Multiplier.ValueInt64()
 					}
 					if !PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.IsNull() && !PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.IsUnknown() {
-						BfdEnabledMap["receive_interval_milliseconds"] = PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
+						PeersBfdEnabledMap["receive_interval_milliseconds"] = PeersItem.BfdEnabled.ReceiveIntervalMilliseconds.ValueInt64()
 					}
 					if !PeersItem.BfdEnabled.TransmitIntervalMilliseconds.IsNull() && !PeersItem.BfdEnabled.TransmitIntervalMilliseconds.IsUnknown() {
-						BfdEnabledMap["transmit_interval_milliseconds"] = PeersItem.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
+						PeersBfdEnabledMap["transmit_interval_milliseconds"] = PeersItem.BfdEnabled.TransmitIntervalMilliseconds.ValueInt64()
 					}
-					PeersItemMap["bfd_enabled"] = BfdEnabledMap
+					PeersItemMap["bfd_enabled"] = PeersBfdEnabledMap
 				}
 				if PeersItem.DisableSpec != nil {
 					PeersItemMap["disable"] = map[string]interface{}{}
 				}
 				if PeersItem.External != nil {
-					ExternalMap := make(map[string]interface{})
+					PeersExternalMap := make(map[string]interface{})
 					if !PeersItem.External.Address.IsNull() && !PeersItem.External.Address.IsUnknown() {
-						ExternalMap["address"] = PeersItem.External.Address.ValueString()
+						PeersExternalMap["address"] = PeersItem.External.Address.ValueString()
 					}
 					if !PeersItem.External.AddressIpv6.IsNull() && !PeersItem.External.AddressIpv6.IsUnknown() {
-						ExternalMap["address_ipv6"] = PeersItem.External.AddressIpv6.ValueString()
+						PeersExternalMap["address_ipv6"] = PeersItem.External.AddressIpv6.ValueString()
 					}
 					if !PeersItem.External.Asn.IsNull() && !PeersItem.External.Asn.IsUnknown() {
-						ExternalMap["asn"] = PeersItem.External.Asn.ValueInt64()
+						PeersExternalMap["asn"] = PeersItem.External.Asn.ValueInt64()
 					}
 					if PeersItem.External.DefaultGateway != nil {
-						ExternalMap["default_gateway"] = map[string]interface{}{}
+						PeersExternalMap["default_gateway"] = map[string]interface{}{}
 					}
 					if PeersItem.External.DefaultGatewayV6 != nil {
-						ExternalMap["default_gateway_v6"] = map[string]interface{}{}
+						PeersExternalMap["default_gateway_v6"] = map[string]interface{}{}
 					}
 					if PeersItem.External.DisableSpec != nil {
-						ExternalMap["disable"] = map[string]interface{}{}
+						PeersExternalMap["disable"] = map[string]interface{}{}
 					}
 					if PeersItem.External.DisableV6 != nil {
-						ExternalMap["disable_v6"] = map[string]interface{}{}
+						PeersExternalMap["disable_v6"] = map[string]interface{}{}
 					}
 					if PeersItem.External.ExternalConnector != nil {
-						ExternalMap["external_connector"] = map[string]interface{}{}
+						PeersExternalMap["external_connector"] = map[string]interface{}{}
 					}
 					if PeersItem.External.FamilyInet != nil {
-						FamilyInetMap := make(map[string]interface{})
+						PeersExternalFamilyInetMap := make(map[string]interface{})
 						if PeersItem.External.FamilyInet.DisableSpec != nil {
-							FamilyInetMap["disable"] = map[string]interface{}{}
+							PeersExternalFamilyInetMap["disable"] = map[string]interface{}{}
 						}
 						if PeersItem.External.FamilyInet.Enable != nil {
-							FamilyInetMap["enable"] = map[string]interface{}{}
+							PeersExternalFamilyInetMap["enable"] = map[string]interface{}{}
 						}
-						ExternalMap["family_inet"] = FamilyInetMap
+						PeersExternalMap["family_inet"] = PeersExternalFamilyInetMap
 					}
 					if PeersItem.External.FromSite != nil {
-						ExternalMap["from_site"] = map[string]interface{}{}
+						PeersExternalMap["from_site"] = map[string]interface{}{}
 					}
 					if PeersItem.External.FromSiteV6 != nil {
-						ExternalMap["from_site_v6"] = map[string]interface{}{}
+						PeersExternalMap["from_site_v6"] = map[string]interface{}{}
 					}
 					if PeersItem.External.Interface != nil {
-						InterfaceMap := make(map[string]interface{})
+						PeersExternalInterfaceMap := make(map[string]interface{})
 						if !PeersItem.External.Interface.Name.IsNull() && !PeersItem.External.Interface.Name.IsUnknown() {
-							InterfaceMap["name"] = PeersItem.External.Interface.Name.ValueString()
+							PeersExternalInterfaceMap["name"] = PeersItem.External.Interface.Name.ValueString()
 						}
 						if !PeersItem.External.Interface.Namespace.IsNull() && !PeersItem.External.Interface.Namespace.IsUnknown() {
-							InterfaceMap["namespace"] = PeersItem.External.Interface.Namespace.ValueString()
+							PeersExternalInterfaceMap["namespace"] = PeersItem.External.Interface.Namespace.ValueString()
 						}
 						if !PeersItem.External.Interface.Tenant.IsNull() && !PeersItem.External.Interface.Tenant.IsUnknown() {
-							InterfaceMap["tenant"] = PeersItem.External.Interface.Tenant.ValueString()
+							PeersExternalInterfaceMap["tenant"] = PeersItem.External.Interface.Tenant.ValueString()
 						}
-						ExternalMap["interface"] = InterfaceMap
+						PeersExternalMap["interface"] = PeersExternalInterfaceMap
 					}
 					if PeersItem.External.InterfaceList != nil {
-						InterfaceListMap := make(map[string]interface{})
+						PeersExternalInterfaceListMap := make(map[string]interface{})
 						if !PeersItem.External.InterfaceList.Interfaces.IsNull() && !PeersItem.External.InterfaceList.Interfaces.IsUnknown() {
 							var InterfacesElems []BGPPeersExternalInterfaceListInterfacesModel
 							diags := PeersItem.External.InterfaceList.Interfaces.ElementsAs(ctx, &InterfacesElems, false)
@@ -2964,46 +2964,46 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									}
 									InterfacesList = append(InterfacesList, InterfacesItemMap)
 								}
-								InterfaceListMap["interfaces"] = InterfacesList
+								PeersExternalInterfaceListMap["interfaces"] = InterfacesList
 							}
 						}
-						ExternalMap["interface_list"] = InterfaceListMap
+						PeersExternalMap["interface_list"] = PeersExternalInterfaceListMap
 					}
 					if !PeersItem.External.MD5AuthKey.IsNull() && !PeersItem.External.MD5AuthKey.IsUnknown() {
-						ExternalMap["md5_auth_key"] = PeersItem.External.MD5AuthKey.ValueString()
+						PeersExternalMap["md5_auth_key"] = PeersItem.External.MD5AuthKey.ValueString()
 					}
 					if PeersItem.External.NoAuthentication != nil {
-						ExternalMap["no_authentication"] = map[string]interface{}{}
+						PeersExternalMap["no_authentication"] = map[string]interface{}{}
 					}
 					if !PeersItem.External.Port.IsNull() && !PeersItem.External.Port.IsUnknown() {
-						ExternalMap["port"] = PeersItem.External.Port.ValueInt64()
+						PeersExternalMap["port"] = PeersItem.External.Port.ValueInt64()
 					}
 					if !PeersItem.External.SubnetBeginOffset.IsNull() && !PeersItem.External.SubnetBeginOffset.IsUnknown() {
-						ExternalMap["subnet_begin_offset"] = PeersItem.External.SubnetBeginOffset.ValueInt64()
+						PeersExternalMap["subnet_begin_offset"] = PeersItem.External.SubnetBeginOffset.ValueInt64()
 					}
 					if !PeersItem.External.SubnetBeginOffsetV6.IsNull() && !PeersItem.External.SubnetBeginOffsetV6.IsUnknown() {
-						ExternalMap["subnet_begin_offset_v6"] = PeersItem.External.SubnetBeginOffsetV6.ValueInt64()
+						PeersExternalMap["subnet_begin_offset_v6"] = PeersItem.External.SubnetBeginOffsetV6.ValueInt64()
 					}
 					if !PeersItem.External.SubnetEndOffset.IsNull() && !PeersItem.External.SubnetEndOffset.IsUnknown() {
-						ExternalMap["subnet_end_offset"] = PeersItem.External.SubnetEndOffset.ValueInt64()
+						PeersExternalMap["subnet_end_offset"] = PeersItem.External.SubnetEndOffset.ValueInt64()
 					}
 					if !PeersItem.External.SubnetEndOffsetV6.IsNull() && !PeersItem.External.SubnetEndOffsetV6.IsUnknown() {
-						ExternalMap["subnet_end_offset_v6"] = PeersItem.External.SubnetEndOffsetV6.ValueInt64()
+						PeersExternalMap["subnet_end_offset_v6"] = PeersItem.External.SubnetEndOffsetV6.ValueInt64()
 					}
-					PeersItemMap["external"] = ExternalMap
+					PeersItemMap["external"] = PeersExternalMap
 				}
 				if !PeersItem.Label.IsNull() && !PeersItem.Label.IsUnknown() {
 					PeersItemMap["label"] = PeersItem.Label.ValueString()
 				}
 				if PeersItem.Metadata != nil {
-					MetadataMap := make(map[string]interface{})
+					PeersMetadataMap := make(map[string]interface{})
 					if !PeersItem.Metadata.DescriptionSpec.IsNull() && !PeersItem.Metadata.DescriptionSpec.IsUnknown() {
-						MetadataMap["description"] = PeersItem.Metadata.DescriptionSpec.ValueString()
+						PeersMetadataMap["description"] = PeersItem.Metadata.DescriptionSpec.ValueString()
 					}
 					if !PeersItem.Metadata.Name.IsNull() && !PeersItem.Metadata.Name.IsUnknown() {
-						MetadataMap["name"] = PeersItem.Metadata.Name.ValueString()
+						PeersMetadataMap["name"] = PeersItem.Metadata.Name.ValueString()
 					}
-					PeersItemMap["metadata"] = MetadataMap
+					PeersItemMap["metadata"] = PeersMetadataMap
 				}
 				if PeersItem.PassiveModeDisabled != nil {
 					PeersItemMap["passive_mode_disabled"] = map[string]interface{}{}
@@ -3012,7 +3012,7 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 					PeersItemMap["passive_mode_enabled"] = map[string]interface{}{}
 				}
 				if PeersItem.RoutingPolicies != nil {
-					RoutingPoliciesMap := make(map[string]interface{})
+					PeersRoutingPoliciesMap := make(map[string]interface{})
 					if !PeersItem.RoutingPolicies.RoutePolicy.IsNull() && !PeersItem.RoutingPolicies.RoutePolicy.IsUnknown() {
 						var RoutePolicyElems []BGPPeersRoutingPoliciesRoutePolicyModel
 						diags := PeersItem.RoutingPolicies.RoutePolicy.ElementsAs(ctx, &RoutePolicyElems, false)
@@ -3028,15 +3028,15 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									RoutePolicyItemMap["inbound"] = map[string]interface{}{}
 								}
 								if RoutePolicyItem.NodeName != nil {
-									NodeNameMap := make(map[string]interface{})
+									PeersRoutingPoliciesRoutePolicyNodeNameMap := make(map[string]interface{})
 									if !RoutePolicyItem.NodeName.Node.IsNull() && !RoutePolicyItem.NodeName.Node.IsUnknown() {
 										var NodeItems []string
 										diags := RoutePolicyItem.NodeName.Node.ElementsAs(ctx, &NodeItems, false)
 										if !diags.HasError() {
-											NodeNameMap["node"] = NodeItems
+											PeersRoutingPoliciesRoutePolicyNodeNameMap["node"] = NodeItems
 										}
 									}
-									RoutePolicyItemMap["node_name"] = NodeNameMap
+									RoutePolicyItemMap["node_name"] = PeersRoutingPoliciesRoutePolicyNodeNameMap
 								}
 								if !RoutePolicyItem.ObjectRefs.IsNull() && !RoutePolicyItem.ObjectRefs.IsUnknown() {
 									var ObjectRefsElems []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
@@ -3071,10 +3071,10 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 								}
 								RoutePolicyList = append(RoutePolicyList, RoutePolicyItemMap)
 							}
-							RoutingPoliciesMap["route_policy"] = RoutePolicyList
+							PeersRoutingPoliciesMap["route_policy"] = RoutePolicyList
 						}
 					}
-					PeersItemMap["routing_policies"] = RoutingPoliciesMap
+					PeersItemMap["routing_policies"] = PeersRoutingPoliciesMap
 				}
 				PeersList = append(PeersList, PeersItemMap)
 			}
@@ -3100,15 +3100,15 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []BGPWhereSiteRefModel
@@ -3135,21 +3135,21 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []BGPWhereVirtualSiteRefModel
@@ -3176,10 +3176,10 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		apiResource.Spec["where"] = WhereMap
 	}

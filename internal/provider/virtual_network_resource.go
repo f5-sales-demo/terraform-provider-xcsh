@@ -442,7 +442,7 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 					}
 				}
 				if StaticRoutesItem.NodeInterface != nil {
-					NodeInterfaceMap := make(map[string]interface{})
+					StaticRoutesNodeInterfaceMap := make(map[string]interface{})
 					if !StaticRoutesItem.NodeInterface.List.IsNull() && !StaticRoutesItem.NodeInterface.List.IsUnknown() {
 						var ListElems []VirtualNetworkStaticRoutesNodeInterfaceListModel
 						diags := StaticRoutesItem.NodeInterface.List.ElementsAs(ctx, &ListElems, false)
@@ -484,10 +484,10 @@ func (r *VirtualNetworkResource) Create(ctx context.Context, req resource.Create
 								}
 								ListList = append(ListList, ListItemMap)
 							}
-							NodeInterfaceMap["list"] = ListList
+							StaticRoutesNodeInterfaceMap["list"] = ListList
 						}
 					}
-					StaticRoutesItemMap["node_interface"] = NodeInterfaceMap
+					StaticRoutesItemMap["node_interface"] = StaticRoutesNodeInterfaceMap
 				}
 				StaticRoutesList = append(StaticRoutesList, StaticRoutesItemMap)
 			}
@@ -1030,7 +1030,7 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 					}
 				}
 				if StaticRoutesItem.NodeInterface != nil {
-					NodeInterfaceMap := make(map[string]interface{})
+					StaticRoutesNodeInterfaceMap := make(map[string]interface{})
 					if !StaticRoutesItem.NodeInterface.List.IsNull() && !StaticRoutesItem.NodeInterface.List.IsUnknown() {
 						var ListElems []VirtualNetworkStaticRoutesNodeInterfaceListModel
 						diags := StaticRoutesItem.NodeInterface.List.ElementsAs(ctx, &ListElems, false)
@@ -1072,10 +1072,10 @@ func (r *VirtualNetworkResource) Update(ctx context.Context, req resource.Update
 								}
 								ListList = append(ListList, ListItemMap)
 							}
-							NodeInterfaceMap["list"] = ListList
+							StaticRoutesNodeInterfaceMap["list"] = ListList
 						}
 					}
-					StaticRoutesItemMap["node_interface"] = NodeInterfaceMap
+					StaticRoutesItemMap["node_interface"] = StaticRoutesNodeInterfaceMap
 				}
 				StaticRoutesList = append(StaticRoutesList, StaticRoutesItemMap)
 			}

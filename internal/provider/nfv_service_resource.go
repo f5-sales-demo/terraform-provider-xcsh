@@ -3032,117 +3032,117 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.F5BigIPAWSService != nil {
 		F5BigIPAWSServiceMap := make(map[string]interface{})
 		if data.F5BigIPAWSService.AdminPassword != nil {
-			AdminPasswordMap := make(map[string]interface{})
+			F5BigIPAWSServiceAdminPasswordMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+					F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap["location"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+					F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				F5BigIPAWSServiceAdminPasswordMap["blindfold_secret_info"] = F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap
 			}
 			if data.F5BigIPAWSService.AdminPassword.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				F5BigIPAWSServiceAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.ValueString()
+					F5BigIPAWSServiceAdminPasswordClearSecretInfoMap["provider"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.ValueString()
+					F5BigIPAWSServiceAdminPasswordClearSecretInfoMap["url"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.ValueString()
 				}
-				AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				F5BigIPAWSServiceAdminPasswordMap["clear_secret_info"] = F5BigIPAWSServiceAdminPasswordClearSecretInfoMap
 			}
-			F5BigIPAWSServiceMap["admin_password"] = AdminPasswordMap
+			F5BigIPAWSServiceMap["admin_password"] = F5BigIPAWSServiceAdminPasswordMap
 		}
 		if !data.F5BigIPAWSService.AdminUsername.IsNull() && !data.F5BigIPAWSService.AdminUsername.IsUnknown() {
 			F5BigIPAWSServiceMap["admin_username"] = data.F5BigIPAWSService.AdminUsername.ValueString()
 		}
 		if data.F5BigIPAWSService.AWSTGWSiteParams != nil {
-			AWSTGWSiteParamsMap := make(map[string]interface{})
+			F5BigIPAWSServiceAWSTGWSiteParamsMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite != nil {
-				AWSTGWSiteMap := make(map[string]interface{})
+				F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.IsUnknown() {
-					AWSTGWSiteMap["name"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.ValueString()
+					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["name"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.ValueString()
 				}
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsUnknown() {
-					AWSTGWSiteMap["namespace"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.ValueString()
+					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["namespace"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.ValueString()
 				}
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsUnknown() {
-					AWSTGWSiteMap["tenant"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.ValueString()
+					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["tenant"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.ValueString()
 				}
-				AWSTGWSiteParamsMap["aws_tgw_site"] = AWSTGWSiteMap
+				F5BigIPAWSServiceAWSTGWSiteParamsMap["aws_tgw_site"] = F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap
 			}
-			F5BigIPAWSServiceMap["aws_tgw_site_params"] = AWSTGWSiteParamsMap
+			F5BigIPAWSServiceMap["aws_tgw_site_params"] = F5BigIPAWSServiceAWSTGWSiteParamsMap
 		}
 		if data.F5BigIPAWSService.EndpointService != nil {
-			EndpointServiceMap := make(map[string]interface{})
+			F5BigIPAWSServiceEndpointServiceMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIP != nil {
-				EndpointServiceMap["advertise_on_slo_ip"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["advertise_on_slo_ip"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIPExternal != nil {
-				EndpointServiceMap["advertise_on_slo_ip_external"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["advertise_on_slo_ip_external"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.AutomaticVIP != nil {
-				EndpointServiceMap["automatic_vip"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["automatic_vip"] = map[string]interface{}{}
 			}
 			if !data.F5BigIPAWSService.EndpointService.ConfiguredVIP.IsNull() && !data.F5BigIPAWSService.EndpointService.ConfiguredVIP.IsUnknown() {
-				EndpointServiceMap["configured_vip"] = data.F5BigIPAWSService.EndpointService.ConfiguredVIP.ValueString()
+				F5BigIPAWSServiceEndpointServiceMap["configured_vip"] = data.F5BigIPAWSService.EndpointService.ConfiguredVIP.ValueString()
 			}
 			if data.F5BigIPAWSService.EndpointService.CustomTCPPorts != nil {
-				CustomTCPPortsMap := make(map[string]interface{})
+				F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
 					if !diags.HasError() {
-						CustomTCPPortsMap["ports"] = PortsItems
+						F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap["ports"] = PortsItems
 					}
 				}
-				EndpointServiceMap["custom_tcp_ports"] = CustomTCPPortsMap
+				F5BigIPAWSServiceEndpointServiceMap["custom_tcp_ports"] = F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap
 			}
 			if data.F5BigIPAWSService.EndpointService.CustomUDPPorts != nil {
-				CustomUDPPortsMap := make(map[string]interface{})
+				F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
 					if !diags.HasError() {
-						CustomUDPPortsMap["ports"] = PortsItems
+						F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap["ports"] = PortsItems
 					}
 				}
-				EndpointServiceMap["custom_udp_ports"] = CustomUDPPortsMap
+				F5BigIPAWSServiceEndpointServiceMap["custom_udp_ports"] = F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap
 			}
 			if data.F5BigIPAWSService.EndpointService.DefaultTCPPorts != nil {
-				EndpointServiceMap["default_tcp_ports"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["default_tcp_ports"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.DisableAdvertiseOnSloIP != nil {
-				EndpointServiceMap["disable_advertise_on_slo_ip"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["disable_advertise_on_slo_ip"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.HTTPPort != nil {
-				EndpointServiceMap["http_port"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["http_port"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.HTTPSPort != nil {
-				EndpointServiceMap["https_port"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["https_port"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.NoTCPPorts != nil {
-				EndpointServiceMap["no_tcp_ports"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["no_tcp_ports"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.NoUDPPorts != nil {
-				EndpointServiceMap["no_udp_ports"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["no_udp_ports"] = map[string]interface{}{}
 			}
-			F5BigIPAWSServiceMap["endpoint_service"] = EndpointServiceMap
+			F5BigIPAWSServiceMap["endpoint_service"] = F5BigIPAWSServiceEndpointServiceMap
 		}
 		if data.F5BigIPAWSService.MarketPlaceImage != nil {
-			MarketPlaceImageMap := make(map[string]interface{})
+			F5BigIPAWSServiceMarketPlaceImageMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.MarketPlaceImage.Awafpayg200mbps != nil {
-				MarketPlaceImageMap["AWAFPayG200Mbps"] = map[string]interface{}{}
+				F5BigIPAWSServiceMarketPlaceImageMap["AWAFPayG200Mbps"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.MarketPlaceImage.Awafpayg3gbps != nil {
-				MarketPlaceImageMap["AWAFPayG3Gbps"] = map[string]interface{}{}
+				F5BigIPAWSServiceMarketPlaceImageMap["AWAFPayG3Gbps"] = map[string]interface{}{}
 			}
-			F5BigIPAWSServiceMap["market_place_image"] = MarketPlaceImageMap
+			F5BigIPAWSServiceMap["market_place_image"] = F5BigIPAWSServiceMarketPlaceImageMap
 		}
 		if !data.F5BigIPAWSService.Nodes.IsNull() && !data.F5BigIPAWSService.Nodes.IsUnknown() {
 			var NodesElems []NfvServiceF5BigIPAWSServiceNodesModel
@@ -3159,18 +3159,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 						NodesItemMap["aws_az_name"] = NodesItem.AWSAzName.ValueString()
 					}
 					if NodesItem.MgmtSubnet != nil {
-						MgmtSubnetMap := make(map[string]interface{})
+						F5BigIPAWSServiceNodesMgmtSubnetMap := make(map[string]interface{})
 						if !NodesItem.MgmtSubnet.ExistingSubnetID.IsNull() && !NodesItem.MgmtSubnet.ExistingSubnetID.IsUnknown() {
-							MgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
+							F5BigIPAWSServiceNodesMgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
 						}
 						if NodesItem.MgmtSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							F5BigIPAWSServiceNodesMgmtSubnetSubnetParamMap := make(map[string]interface{})
 							if !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsNull() && !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
+								F5BigIPAWSServiceNodesMgmtSubnetSubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							MgmtSubnetMap["subnet_param"] = SubnetParamMap
+							F5BigIPAWSServiceNodesMgmtSubnetMap["subnet_param"] = F5BigIPAWSServiceNodesMgmtSubnetSubnetParamMap
 						}
-						NodesItemMap["mgmt_subnet"] = MgmtSubnetMap
+						NodesItemMap["mgmt_subnet"] = F5BigIPAWSServiceNodesMgmtSubnetMap
 					}
 					if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
 						NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
@@ -3197,29 +3197,29 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.HTTPSManagement != nil {
 		HTTPSManagementMap := make(map[string]interface{})
 		if data.HTTPSManagement.AdvertiseOnInternet != nil {
-			AdvertiseOnInternetMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnInternetMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnInternet.PublicIP != nil {
-				PublicIPMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnInternetPublicIPMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsUnknown() {
-					PublicIPMap["name"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.ValueString()
+					HTTPSManagementAdvertiseOnInternetPublicIPMap["name"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.ValueString()
 				}
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsUnknown() {
-					PublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
+					HTTPSManagementAdvertiseOnInternetPublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
 				}
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsUnknown() {
-					PublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
+					HTTPSManagementAdvertiseOnInternetPublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
 				}
-				AdvertiseOnInternetMap["public_ip"] = PublicIPMap
+				HTTPSManagementAdvertiseOnInternetMap["public_ip"] = HTTPSManagementAdvertiseOnInternetPublicIPMap
 			}
-			HTTPSManagementMap["advertise_on_internet"] = AdvertiseOnInternetMap
+			HTTPSManagementMap["advertise_on_internet"] = HTTPSManagementAdvertiseOnInternetMap
 		}
 		if data.HTTPSManagement.AdvertiseOnInternetDefaultVIP != nil {
 			HTTPSManagementMap["advertise_on_internet_default_vip"] = map[string]interface{}{}
 		}
 		if data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-			AdvertiseOnSLIVIPMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSLIVIPMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls != nil {
-				AdvertiseOnSLIVIPMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSLIVIPMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
@@ -3233,15 +3233,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -3250,129 +3250,129 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSLIVIPMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSLIVIPMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSLIVIPMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSLIVIPMap["tls_config"] = HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSLIVIPMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSLIVIPMap["use_mtls"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_sli_vip"] = AdvertiseOnSLIVIPMap
+			HTTPSManagementMap["advertise_on_sli_vip"] = HTTPSManagementAdvertiseOnSLIVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-			AdvertiseOnSloInternetVIPMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSloInternetVIPMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls != nil {
-				AdvertiseOnSloInternetVIPMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSloInternetVIPMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
@@ -3386,15 +3386,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -3403,129 +3403,129 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSloInternetVIPMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSloInternetVIPMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSloInternetVIPMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSloInternetVIPMap["tls_config"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSloInternetVIPMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSloInternetVIPMap["use_mtls"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_slo_internet_vip"] = AdvertiseOnSloInternetVIPMap
+			HTTPSManagementMap["advertise_on_slo_internet_vip"] = HTTPSManagementAdvertiseOnSloInternetVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-			AdvertiseOnSloSLIMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSloSLIMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls != nil {
-				AdvertiseOnSloSLIMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSloSLIMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
@@ -3539,15 +3539,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -3556,129 +3556,129 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSloSLIMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSloSLIMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloSLITLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSloSLIMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSloSLIMap["tls_config"] = HTTPSManagementAdvertiseOnSloSLITLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloSLIUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSloSLIMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSloSLIMap["use_mtls"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_slo_sli"] = AdvertiseOnSloSLIMap
+			HTTPSManagementMap["advertise_on_slo_sli"] = HTTPSManagementAdvertiseOnSloSLIMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-			AdvertiseOnSloVIPMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSloVIPMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls != nil {
-				AdvertiseOnSloVIPMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSloVIPMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
@@ -3692,15 +3692,15 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -3709,124 +3709,124 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSloVIPMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSloVIPMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloVIPTLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSloVIPMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSloVIPMap["tls_config"] = HTTPSManagementAdvertiseOnSloVIPTLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloVIPUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSloVIPMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSloVIPMap["use_mtls"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_slo_vip"] = AdvertiseOnSloVIPMap
+			HTTPSManagementMap["advertise_on_slo_vip"] = HTTPSManagementAdvertiseOnSloVIPMap
 		}
 		if data.HTTPSManagement.DefaultHTTPSPort != nil {
 			HTTPSManagementMap["default_https_port"] = map[string]interface{}{}
@@ -3842,85 +3842,85 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.PaloAltoFwService != nil {
 		PaloAltoFwServiceMap := make(map[string]interface{})
 		if data.PaloAltoFwService.AutoSetup != nil {
-			AutoSetupMap := make(map[string]interface{})
+			PaloAltoFwServiceAutoSetupMap := make(map[string]interface{})
 			if data.PaloAltoFwService.AutoSetup.AdminPassword != nil {
-				AdminPasswordMap := make(map[string]interface{})
+				PaloAltoFwServiceAutoSetupAdminPasswordMap := make(map[string]interface{})
 				if data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					PaloAltoFwServiceAutoSetupAdminPasswordMap["blindfold_secret_info"] = PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap
 				}
 				if data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.ValueString()
 					}
-					AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					PaloAltoFwServiceAutoSetupAdminPasswordMap["clear_secret_info"] = PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap
 				}
-				AutoSetupMap["admin_password"] = AdminPasswordMap
+				PaloAltoFwServiceAutoSetupMap["admin_password"] = PaloAltoFwServiceAutoSetupAdminPasswordMap
 			}
 			if !data.PaloAltoFwService.AutoSetup.AdminUsername.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminUsername.IsUnknown() {
-				AutoSetupMap["admin_username"] = data.PaloAltoFwService.AutoSetup.AdminUsername.ValueString()
+				PaloAltoFwServiceAutoSetupMap["admin_username"] = data.PaloAltoFwService.AutoSetup.AdminUsername.ValueString()
 			}
 			if data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil {
-				ManualSSHKeysMap := make(map[string]interface{})
+				PaloAltoFwServiceAutoSetupManualSSHKeysMap := make(map[string]interface{})
 				if data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
-					PrivateKeyMap := make(map[string]interface{})
+					PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap := make(map[string]interface{})
 					if data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap["blindfold_secret_info"] = PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap
 					}
 					if data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.ValueString()
 						}
-						PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap["clear_secret_info"] = PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap
 					}
-					ManualSSHKeysMap["private_key"] = PrivateKeyMap
+					PaloAltoFwServiceAutoSetupManualSSHKeysMap["private_key"] = PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap
 				}
 				if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.IsUnknown() {
-					ManualSSHKeysMap["public_key"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.ValueString()
+					PaloAltoFwServiceAutoSetupManualSSHKeysMap["public_key"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.ValueString()
 				}
-				AutoSetupMap["manual_ssh_keys"] = ManualSSHKeysMap
+				PaloAltoFwServiceAutoSetupMap["manual_ssh_keys"] = PaloAltoFwServiceAutoSetupManualSSHKeysMap
 			}
-			PaloAltoFwServiceMap["auto_setup"] = AutoSetupMap
+			PaloAltoFwServiceMap["auto_setup"] = PaloAltoFwServiceAutoSetupMap
 		}
 		if data.PaloAltoFwService.AWSTGWSite != nil {
-			AWSTGWSiteMap := make(map[string]interface{})
+			PaloAltoFwServiceAWSTGWSiteMap := make(map[string]interface{})
 			if !data.PaloAltoFwService.AWSTGWSite.Name.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Name.IsUnknown() {
-				AWSTGWSiteMap["name"] = data.PaloAltoFwService.AWSTGWSite.Name.ValueString()
+				PaloAltoFwServiceAWSTGWSiteMap["name"] = data.PaloAltoFwService.AWSTGWSite.Name.ValueString()
 			}
 			if !data.PaloAltoFwService.AWSTGWSite.Namespace.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Namespace.IsUnknown() {
-				AWSTGWSiteMap["namespace"] = data.PaloAltoFwService.AWSTGWSite.Namespace.ValueString()
+				PaloAltoFwServiceAWSTGWSiteMap["namespace"] = data.PaloAltoFwService.AWSTGWSite.Namespace.ValueString()
 			}
 			if !data.PaloAltoFwService.AWSTGWSite.Tenant.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Tenant.IsUnknown() {
-				AWSTGWSiteMap["tenant"] = data.PaloAltoFwService.AWSTGWSite.Tenant.ValueString()
+				PaloAltoFwServiceAWSTGWSiteMap["tenant"] = data.PaloAltoFwService.AWSTGWSite.Tenant.ValueString()
 			}
-			PaloAltoFwServiceMap["aws_tgw_site"] = AWSTGWSiteMap
+			PaloAltoFwServiceMap["aws_tgw_site"] = PaloAltoFwServiceAWSTGWSiteMap
 		}
 		if data.PaloAltoFwService.DisablePanaroma != nil {
 			PaloAltoFwServiceMap["disable_panaroma"] = map[string]interface{}{}
@@ -3935,47 +3935,47 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 			PaloAltoFwServiceMap["pan_ami_bundle2"] = map[string]interface{}{}
 		}
 		if data.PaloAltoFwService.PanoramaServer != nil {
-			PanoramaServerMap := make(map[string]interface{})
+			PaloAltoFwServicePanoramaServerMap := make(map[string]interface{})
 			if data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil {
-				AuthorizationKeyMap := make(map[string]interface{})
+				PaloAltoFwServicePanoramaServerAuthorizationKeyMap := make(map[string]interface{})
 				if data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AuthorizationKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					PaloAltoFwServicePanoramaServerAuthorizationKeyMap["blindfold_secret_info"] = PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap
 				}
 				if data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap["provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap["url"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.ValueString()
 					}
-					AuthorizationKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					PaloAltoFwServicePanoramaServerAuthorizationKeyMap["clear_secret_info"] = PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap
 				}
-				PanoramaServerMap["authorization_key"] = AuthorizationKeyMap
+				PaloAltoFwServicePanoramaServerMap["authorization_key"] = PaloAltoFwServicePanoramaServerAuthorizationKeyMap
 			}
 			if !data.PaloAltoFwService.PanoramaServer.DeviceGroupName.IsNull() && !data.PaloAltoFwService.PanoramaServer.DeviceGroupName.IsUnknown() {
-				PanoramaServerMap["device_group_name"] = data.PaloAltoFwService.PanoramaServer.DeviceGroupName.ValueString()
+				PaloAltoFwServicePanoramaServerMap["device_group_name"] = data.PaloAltoFwService.PanoramaServer.DeviceGroupName.ValueString()
 			}
 			if !data.PaloAltoFwService.PanoramaServer.Server.IsNull() && !data.PaloAltoFwService.PanoramaServer.Server.IsUnknown() {
-				PanoramaServerMap["server"] = data.PaloAltoFwService.PanoramaServer.Server.ValueString()
+				PaloAltoFwServicePanoramaServerMap["server"] = data.PaloAltoFwService.PanoramaServer.Server.ValueString()
 			}
 			if !data.PaloAltoFwService.PanoramaServer.TemplateStackName.IsNull() && !data.PaloAltoFwService.PanoramaServer.TemplateStackName.IsUnknown() {
-				PanoramaServerMap["template_stack_name"] = data.PaloAltoFwService.PanoramaServer.TemplateStackName.ValueString()
+				PaloAltoFwServicePanoramaServerMap["template_stack_name"] = data.PaloAltoFwService.PanoramaServer.TemplateStackName.ValueString()
 			}
-			PaloAltoFwServiceMap["panorama_server"] = PanoramaServerMap
+			PaloAltoFwServiceMap["panorama_server"] = PaloAltoFwServicePanoramaServerMap
 		}
 		if data.PaloAltoFwService.ServiceNodes != nil {
-			ServiceNodesMap := make(map[string]interface{})
+			PaloAltoFwServiceServiceNodesMap := make(map[string]interface{})
 			if !data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() && !data.PaloAltoFwService.ServiceNodes.Nodes.IsUnknown() {
 				var NodesElems []NfvServicePaloAltoFwServiceServiceNodesNodesModel
 				diags := data.PaloAltoFwService.ServiceNodes.Nodes.ElementsAs(ctx, &NodesElems, false)
@@ -3988,18 +3988,18 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 							NodesItemMap["aws_az_name"] = NodesItem.AWSAzName.ValueString()
 						}
 						if NodesItem.MgmtSubnet != nil {
-							MgmtSubnetMap := make(map[string]interface{})
+							PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap := make(map[string]interface{})
 							if !NodesItem.MgmtSubnet.ExistingSubnetID.IsNull() && !NodesItem.MgmtSubnet.ExistingSubnetID.IsUnknown() {
-								MgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
+								PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
 							}
 							if NodesItem.MgmtSubnet.SubnetParam != nil {
-								SubnetParamMap := make(map[string]interface{})
+								PaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamMap := make(map[string]interface{})
 								if !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsNull() && !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsUnknown() {
-									SubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
+									PaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
 								}
-								MgmtSubnetMap["subnet_param"] = SubnetParamMap
+								PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap["subnet_param"] = PaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamMap
 							}
-							NodesItemMap["mgmt_subnet"] = MgmtSubnetMap
+							NodesItemMap["mgmt_subnet"] = PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap
 						}
 						if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
 							NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
@@ -4009,10 +4009,10 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						NodesList = append(NodesList, NodesItemMap)
 					}
-					ServiceNodesMap["nodes"] = NodesList
+					PaloAltoFwServiceServiceNodesMap["nodes"] = NodesList
 				}
 			}
-			PaloAltoFwServiceMap["service_nodes"] = ServiceNodesMap
+			PaloAltoFwServiceMap["service_nodes"] = PaloAltoFwServiceServiceNodesMap
 		}
 		if !data.PaloAltoFwService.SSHKey.IsNull() && !data.PaloAltoFwService.SSHKey.IsUnknown() {
 			PaloAltoFwServiceMap["ssh_key"] = data.PaloAltoFwService.SSHKey.ValueString()
@@ -8726,117 +8726,117 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.F5BigIPAWSService != nil {
 		F5BigIPAWSServiceMap := make(map[string]interface{})
 		if data.F5BigIPAWSService.AdminPassword != nil {
-			AdminPasswordMap := make(map[string]interface{})
+			F5BigIPAWSServiceAdminPasswordMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+					F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap["location"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+					F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.F5BigIPAWSService.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				F5BigIPAWSServiceAdminPasswordMap["blindfold_secret_info"] = F5BigIPAWSServiceAdminPasswordBlindfoldSecretInfoMap
 			}
 			if data.F5BigIPAWSService.AdminPassword.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				F5BigIPAWSServiceAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.ValueString()
+					F5BigIPAWSServiceAdminPasswordClearSecretInfoMap["provider"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.ValueString()
+					F5BigIPAWSServiceAdminPasswordClearSecretInfoMap["url"] = data.F5BigIPAWSService.AdminPassword.ClearSecretInfo.URL.ValueString()
 				}
-				AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				F5BigIPAWSServiceAdminPasswordMap["clear_secret_info"] = F5BigIPAWSServiceAdminPasswordClearSecretInfoMap
 			}
-			F5BigIPAWSServiceMap["admin_password"] = AdminPasswordMap
+			F5BigIPAWSServiceMap["admin_password"] = F5BigIPAWSServiceAdminPasswordMap
 		}
 		if !data.F5BigIPAWSService.AdminUsername.IsNull() && !data.F5BigIPAWSService.AdminUsername.IsUnknown() {
 			F5BigIPAWSServiceMap["admin_username"] = data.F5BigIPAWSService.AdminUsername.ValueString()
 		}
 		if data.F5BigIPAWSService.AWSTGWSiteParams != nil {
-			AWSTGWSiteParamsMap := make(map[string]interface{})
+			F5BigIPAWSServiceAWSTGWSiteParamsMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite != nil {
-				AWSTGWSiteMap := make(map[string]interface{})
+				F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.IsUnknown() {
-					AWSTGWSiteMap["name"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.ValueString()
+					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["name"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Name.ValueString()
 				}
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.IsUnknown() {
-					AWSTGWSiteMap["namespace"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.ValueString()
+					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["namespace"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Namespace.ValueString()
 				}
 				if !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsNull() && !data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.IsUnknown() {
-					AWSTGWSiteMap["tenant"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.ValueString()
+					F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap["tenant"] = data.F5BigIPAWSService.AWSTGWSiteParams.AWSTGWSite.Tenant.ValueString()
 				}
-				AWSTGWSiteParamsMap["aws_tgw_site"] = AWSTGWSiteMap
+				F5BigIPAWSServiceAWSTGWSiteParamsMap["aws_tgw_site"] = F5BigIPAWSServiceAWSTGWSiteParamsAWSTGWSiteMap
 			}
-			F5BigIPAWSServiceMap["aws_tgw_site_params"] = AWSTGWSiteParamsMap
+			F5BigIPAWSServiceMap["aws_tgw_site_params"] = F5BigIPAWSServiceAWSTGWSiteParamsMap
 		}
 		if data.F5BigIPAWSService.EndpointService != nil {
-			EndpointServiceMap := make(map[string]interface{})
+			F5BigIPAWSServiceEndpointServiceMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIP != nil {
-				EndpointServiceMap["advertise_on_slo_ip"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["advertise_on_slo_ip"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.AdvertiseOnSloIPExternal != nil {
-				EndpointServiceMap["advertise_on_slo_ip_external"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["advertise_on_slo_ip_external"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.AutomaticVIP != nil {
-				EndpointServiceMap["automatic_vip"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["automatic_vip"] = map[string]interface{}{}
 			}
 			if !data.F5BigIPAWSService.EndpointService.ConfiguredVIP.IsNull() && !data.F5BigIPAWSService.EndpointService.ConfiguredVIP.IsUnknown() {
-				EndpointServiceMap["configured_vip"] = data.F5BigIPAWSService.EndpointService.ConfiguredVIP.ValueString()
+				F5BigIPAWSServiceEndpointServiceMap["configured_vip"] = data.F5BigIPAWSService.EndpointService.ConfiguredVIP.ValueString()
 			}
 			if data.F5BigIPAWSService.EndpointService.CustomTCPPorts != nil {
-				CustomTCPPortsMap := make(map[string]interface{})
+				F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomTCPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
 					if !diags.HasError() {
-						CustomTCPPortsMap["ports"] = PortsItems
+						F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap["ports"] = PortsItems
 					}
 				}
-				EndpointServiceMap["custom_tcp_ports"] = CustomTCPPortsMap
+				F5BigIPAWSServiceEndpointServiceMap["custom_tcp_ports"] = F5BigIPAWSServiceEndpointServiceCustomTCPPortsMap
 			}
 			if data.F5BigIPAWSService.EndpointService.CustomUDPPorts != nil {
-				CustomUDPPortsMap := make(map[string]interface{})
+				F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap := make(map[string]interface{})
 				if !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsNull() && !data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.IsUnknown() {
 					var PortsItems []string
 					diags := data.F5BigIPAWSService.EndpointService.CustomUDPPorts.Ports.ElementsAs(ctx, &PortsItems, false)
 					if !diags.HasError() {
-						CustomUDPPortsMap["ports"] = PortsItems
+						F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap["ports"] = PortsItems
 					}
 				}
-				EndpointServiceMap["custom_udp_ports"] = CustomUDPPortsMap
+				F5BigIPAWSServiceEndpointServiceMap["custom_udp_ports"] = F5BigIPAWSServiceEndpointServiceCustomUDPPortsMap
 			}
 			if data.F5BigIPAWSService.EndpointService.DefaultTCPPorts != nil {
-				EndpointServiceMap["default_tcp_ports"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["default_tcp_ports"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.DisableAdvertiseOnSloIP != nil {
-				EndpointServiceMap["disable_advertise_on_slo_ip"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["disable_advertise_on_slo_ip"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.HTTPPort != nil {
-				EndpointServiceMap["http_port"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["http_port"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.HTTPSPort != nil {
-				EndpointServiceMap["https_port"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["https_port"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.NoTCPPorts != nil {
-				EndpointServiceMap["no_tcp_ports"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["no_tcp_ports"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.EndpointService.NoUDPPorts != nil {
-				EndpointServiceMap["no_udp_ports"] = map[string]interface{}{}
+				F5BigIPAWSServiceEndpointServiceMap["no_udp_ports"] = map[string]interface{}{}
 			}
-			F5BigIPAWSServiceMap["endpoint_service"] = EndpointServiceMap
+			F5BigIPAWSServiceMap["endpoint_service"] = F5BigIPAWSServiceEndpointServiceMap
 		}
 		if data.F5BigIPAWSService.MarketPlaceImage != nil {
-			MarketPlaceImageMap := make(map[string]interface{})
+			F5BigIPAWSServiceMarketPlaceImageMap := make(map[string]interface{})
 			if data.F5BigIPAWSService.MarketPlaceImage.Awafpayg200mbps != nil {
-				MarketPlaceImageMap["AWAFPayG200Mbps"] = map[string]interface{}{}
+				F5BigIPAWSServiceMarketPlaceImageMap["AWAFPayG200Mbps"] = map[string]interface{}{}
 			}
 			if data.F5BigIPAWSService.MarketPlaceImage.Awafpayg3gbps != nil {
-				MarketPlaceImageMap["AWAFPayG3Gbps"] = map[string]interface{}{}
+				F5BigIPAWSServiceMarketPlaceImageMap["AWAFPayG3Gbps"] = map[string]interface{}{}
 			}
-			F5BigIPAWSServiceMap["market_place_image"] = MarketPlaceImageMap
+			F5BigIPAWSServiceMap["market_place_image"] = F5BigIPAWSServiceMarketPlaceImageMap
 		}
 		if !data.F5BigIPAWSService.Nodes.IsNull() && !data.F5BigIPAWSService.Nodes.IsUnknown() {
 			var NodesElems []NfvServiceF5BigIPAWSServiceNodesModel
@@ -8853,18 +8853,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 						NodesItemMap["aws_az_name"] = NodesItem.AWSAzName.ValueString()
 					}
 					if NodesItem.MgmtSubnet != nil {
-						MgmtSubnetMap := make(map[string]interface{})
+						F5BigIPAWSServiceNodesMgmtSubnetMap := make(map[string]interface{})
 						if !NodesItem.MgmtSubnet.ExistingSubnetID.IsNull() && !NodesItem.MgmtSubnet.ExistingSubnetID.IsUnknown() {
-							MgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
+							F5BigIPAWSServiceNodesMgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
 						}
 						if NodesItem.MgmtSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							F5BigIPAWSServiceNodesMgmtSubnetSubnetParamMap := make(map[string]interface{})
 							if !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsNull() && !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
+								F5BigIPAWSServiceNodesMgmtSubnetSubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							MgmtSubnetMap["subnet_param"] = SubnetParamMap
+							F5BigIPAWSServiceNodesMgmtSubnetMap["subnet_param"] = F5BigIPAWSServiceNodesMgmtSubnetSubnetParamMap
 						}
-						NodesItemMap["mgmt_subnet"] = MgmtSubnetMap
+						NodesItemMap["mgmt_subnet"] = F5BigIPAWSServiceNodesMgmtSubnetMap
 					}
 					if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
 						NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
@@ -8891,29 +8891,29 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.HTTPSManagement != nil {
 		HTTPSManagementMap := make(map[string]interface{})
 		if data.HTTPSManagement.AdvertiseOnInternet != nil {
-			AdvertiseOnInternetMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnInternetMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnInternet.PublicIP != nil {
-				PublicIPMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnInternetPublicIPMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.IsUnknown() {
-					PublicIPMap["name"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.ValueString()
+					HTTPSManagementAdvertiseOnInternetPublicIPMap["name"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Name.ValueString()
 				}
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.IsUnknown() {
-					PublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
+					HTTPSManagementAdvertiseOnInternetPublicIPMap["namespace"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Namespace.ValueString()
 				}
 				if !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.IsUnknown() {
-					PublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
+					HTTPSManagementAdvertiseOnInternetPublicIPMap["tenant"] = data.HTTPSManagement.AdvertiseOnInternet.PublicIP.Tenant.ValueString()
 				}
-				AdvertiseOnInternetMap["public_ip"] = PublicIPMap
+				HTTPSManagementAdvertiseOnInternetMap["public_ip"] = HTTPSManagementAdvertiseOnInternetPublicIPMap
 			}
-			HTTPSManagementMap["advertise_on_internet"] = AdvertiseOnInternetMap
+			HTTPSManagementMap["advertise_on_internet"] = HTTPSManagementAdvertiseOnInternetMap
 		}
 		if data.HTTPSManagement.AdvertiseOnInternetDefaultVIP != nil {
 			HTTPSManagementMap["advertise_on_internet_default_vip"] = map[string]interface{}{}
 		}
 		if data.HTTPSManagement.AdvertiseOnSLIVIP != nil {
-			AdvertiseOnSLIVIPMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSLIVIPMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSLIVIP.NoMtls != nil {
-				AdvertiseOnSLIVIPMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSLIVIPMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSLIVIPTLSCertificatesModel
@@ -8927,15 +8927,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -8944,129 +8944,129 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSLIVIPTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSLIVIPMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSLIVIPMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSLIVIPTLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSLIVIPMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSLIVIPMap["tls_config"] = HTTPSManagementAdvertiseOnSLIVIPTLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSLIVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSLIVIPMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSLIVIPMap["use_mtls"] = HTTPSManagementAdvertiseOnSLIVIPUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_sli_vip"] = AdvertiseOnSLIVIPMap
+			HTTPSManagementMap["advertise_on_sli_vip"] = HTTPSManagementAdvertiseOnSLIVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloInternetVIP != nil {
-			AdvertiseOnSloInternetVIPMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSloInternetVIPMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.NoMtls != nil {
-				AdvertiseOnSloInternetVIPMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSloInternetVIPMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesModel
@@ -9080,15 +9080,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -9097,129 +9097,129 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSloInternetVIPMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSloInternetVIPMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSloInternetVIPMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSloInternetVIPMap["tls_config"] = HTTPSManagementAdvertiseOnSloInternetVIPTLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloInternetVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSloInternetVIPMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSloInternetVIPMap["use_mtls"] = HTTPSManagementAdvertiseOnSloInternetVIPUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_slo_internet_vip"] = AdvertiseOnSloInternetVIPMap
+			HTTPSManagementMap["advertise_on_slo_internet_vip"] = HTTPSManagementAdvertiseOnSloInternetVIPMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloSLI != nil {
-			AdvertiseOnSloSLIMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSloSLIMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSloSLI.NoMtls != nil {
-				AdvertiseOnSloSLIMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSloSLIMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSloSLITLSCertificatesModel
@@ -9233,15 +9233,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -9250,129 +9250,129 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSloSLITLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSloSLIMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSloSLIMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloSLITLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSloSLITLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLITLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSloSLIMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSloSLIMap["tls_config"] = HTTPSManagementAdvertiseOnSloSLITLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloSLIUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloSLI.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSloSLIUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSloSLIMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSloSLIMap["use_mtls"] = HTTPSManagementAdvertiseOnSloSLIUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_slo_sli"] = AdvertiseOnSloSLIMap
+			HTTPSManagementMap["advertise_on_slo_sli"] = HTTPSManagementAdvertiseOnSloSLIMap
 		}
 		if data.HTTPSManagement.AdvertiseOnSloVIP != nil {
-			AdvertiseOnSloVIPMap := make(map[string]interface{})
+			HTTPSManagementAdvertiseOnSloVIPMap := make(map[string]interface{})
 			if data.HTTPSManagement.AdvertiseOnSloVIP.NoMtls != nil {
-				AdvertiseOnSloVIPMap["no_mtls"] = map[string]interface{}{}
+				HTTPSManagementAdvertiseOnSloVIPMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []NfvServiceHTTPSManagementAdvertiseOnSloVIPTLSCertificatesModel
@@ -9386,15 +9386,15 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -9403,124 +9403,124 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap["clear_secret_info"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = HTTPSManagementAdvertiseOnSloVIPTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					AdvertiseOnSloVIPMap["tls_certificates"] = TLSCertificatesList
+					HTTPSManagementAdvertiseOnSloVIPMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloVIPTLSConfigMap := make(map[string]interface{})
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["max_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap["min_version"] = data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["custom_security"] = HTTPSManagementAdvertiseOnSloVIPTLSConfigCustomSecurityMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				AdvertiseOnSloVIPMap["tls_config"] = TLSConfigMap
+				HTTPSManagementAdvertiseOnSloVIPMap["tls_config"] = HTTPSManagementAdvertiseOnSloVIPTLSConfigMap
 			}
 			if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				HTTPSManagementAdvertiseOnSloVIPUseMtlsMap := make(map[string]interface{})
 				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.ValueBool()
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["client_certificate_optional"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["crl"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsCRLMap
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["name"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["namespace"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
+						HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap["tenant"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["trusted_ca"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsTrustedCAMap
 				}
 				if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.ValueString()
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["trusted_ca_url"] = data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.HTTPSManagement.AdvertiseOnSloVIP.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					HTTPSManagementAdvertiseOnSloVIPUseMtlsMap["xfcc_options"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsXfccOptionsMap
 				}
-				AdvertiseOnSloVIPMap["use_mtls"] = UseMtlsMap
+				HTTPSManagementAdvertiseOnSloVIPMap["use_mtls"] = HTTPSManagementAdvertiseOnSloVIPUseMtlsMap
 			}
-			HTTPSManagementMap["advertise_on_slo_vip"] = AdvertiseOnSloVIPMap
+			HTTPSManagementMap["advertise_on_slo_vip"] = HTTPSManagementAdvertiseOnSloVIPMap
 		}
 		if data.HTTPSManagement.DefaultHTTPSPort != nil {
 			HTTPSManagementMap["default_https_port"] = map[string]interface{}{}
@@ -9536,85 +9536,85 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.PaloAltoFwService != nil {
 		PaloAltoFwServiceMap := make(map[string]interface{})
 		if data.PaloAltoFwService.AutoSetup != nil {
-			AutoSetupMap := make(map[string]interface{})
+			PaloAltoFwServiceAutoSetupMap := make(map[string]interface{})
 			if data.PaloAltoFwService.AutoSetup.AdminPassword != nil {
-				AdminPasswordMap := make(map[string]interface{})
+				PaloAltoFwServiceAutoSetupAdminPasswordMap := make(map[string]interface{})
 				if data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					PaloAltoFwServiceAutoSetupAdminPasswordMap["blindfold_secret_info"] = PaloAltoFwServiceAutoSetupAdminPasswordBlindfoldSecretInfoMap
 				}
 				if data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.ValueString()
+						PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.AdminPassword.ClearSecretInfo.URL.ValueString()
 					}
-					AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+					PaloAltoFwServiceAutoSetupAdminPasswordMap["clear_secret_info"] = PaloAltoFwServiceAutoSetupAdminPasswordClearSecretInfoMap
 				}
-				AutoSetupMap["admin_password"] = AdminPasswordMap
+				PaloAltoFwServiceAutoSetupMap["admin_password"] = PaloAltoFwServiceAutoSetupAdminPasswordMap
 			}
 			if !data.PaloAltoFwService.AutoSetup.AdminUsername.IsNull() && !data.PaloAltoFwService.AutoSetup.AdminUsername.IsUnknown() {
-				AutoSetupMap["admin_username"] = data.PaloAltoFwService.AutoSetup.AdminUsername.ValueString()
+				PaloAltoFwServiceAutoSetupMap["admin_username"] = data.PaloAltoFwService.AutoSetup.AdminUsername.ValueString()
 			}
 			if data.PaloAltoFwService.AutoSetup.ManualSSHKeys != nil {
-				ManualSSHKeysMap := make(map[string]interface{})
+				PaloAltoFwServiceAutoSetupManualSSHKeysMap := make(map[string]interface{})
 				if data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey != nil {
-					PrivateKeyMap := make(map[string]interface{})
+					PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap := make(map[string]interface{})
 					if data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap["blindfold_secret_info"] = PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyBlindfoldSecretInfoMap
 					}
 					if data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap["provider"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.ValueString()
+							PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap["url"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PrivateKey.ClearSecretInfo.URL.ValueString()
 						}
-						PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap["clear_secret_info"] = PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyClearSecretInfoMap
 					}
-					ManualSSHKeysMap["private_key"] = PrivateKeyMap
+					PaloAltoFwServiceAutoSetupManualSSHKeysMap["private_key"] = PaloAltoFwServiceAutoSetupManualSSHKeysPrivateKeyMap
 				}
 				if !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.IsNull() && !data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.IsUnknown() {
-					ManualSSHKeysMap["public_key"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.ValueString()
+					PaloAltoFwServiceAutoSetupManualSSHKeysMap["public_key"] = data.PaloAltoFwService.AutoSetup.ManualSSHKeys.PublicKey.ValueString()
 				}
-				AutoSetupMap["manual_ssh_keys"] = ManualSSHKeysMap
+				PaloAltoFwServiceAutoSetupMap["manual_ssh_keys"] = PaloAltoFwServiceAutoSetupManualSSHKeysMap
 			}
-			PaloAltoFwServiceMap["auto_setup"] = AutoSetupMap
+			PaloAltoFwServiceMap["auto_setup"] = PaloAltoFwServiceAutoSetupMap
 		}
 		if data.PaloAltoFwService.AWSTGWSite != nil {
-			AWSTGWSiteMap := make(map[string]interface{})
+			PaloAltoFwServiceAWSTGWSiteMap := make(map[string]interface{})
 			if !data.PaloAltoFwService.AWSTGWSite.Name.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Name.IsUnknown() {
-				AWSTGWSiteMap["name"] = data.PaloAltoFwService.AWSTGWSite.Name.ValueString()
+				PaloAltoFwServiceAWSTGWSiteMap["name"] = data.PaloAltoFwService.AWSTGWSite.Name.ValueString()
 			}
 			if !data.PaloAltoFwService.AWSTGWSite.Namespace.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Namespace.IsUnknown() {
-				AWSTGWSiteMap["namespace"] = data.PaloAltoFwService.AWSTGWSite.Namespace.ValueString()
+				PaloAltoFwServiceAWSTGWSiteMap["namespace"] = data.PaloAltoFwService.AWSTGWSite.Namespace.ValueString()
 			}
 			if !data.PaloAltoFwService.AWSTGWSite.Tenant.IsNull() && !data.PaloAltoFwService.AWSTGWSite.Tenant.IsUnknown() {
-				AWSTGWSiteMap["tenant"] = data.PaloAltoFwService.AWSTGWSite.Tenant.ValueString()
+				PaloAltoFwServiceAWSTGWSiteMap["tenant"] = data.PaloAltoFwService.AWSTGWSite.Tenant.ValueString()
 			}
-			PaloAltoFwServiceMap["aws_tgw_site"] = AWSTGWSiteMap
+			PaloAltoFwServiceMap["aws_tgw_site"] = PaloAltoFwServiceAWSTGWSiteMap
 		}
 		if data.PaloAltoFwService.DisablePanaroma != nil {
 			PaloAltoFwServiceMap["disable_panaroma"] = map[string]interface{}{}
@@ -9629,47 +9629,47 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 			PaloAltoFwServiceMap["pan_ami_bundle2"] = map[string]interface{}{}
 		}
 		if data.PaloAltoFwService.PanoramaServer != nil {
-			PanoramaServerMap := make(map[string]interface{})
+			PaloAltoFwServicePanoramaServerMap := make(map[string]interface{})
 			if data.PaloAltoFwService.PanoramaServer.AuthorizationKey != nil {
-				AuthorizationKeyMap := make(map[string]interface{})
+				PaloAltoFwServicePanoramaServerAuthorizationKeyMap := make(map[string]interface{})
 				if data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap["decryption_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap["location"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap["store_provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AuthorizationKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					PaloAltoFwServicePanoramaServerAuthorizationKeyMap["blindfold_secret_info"] = PaloAltoFwServicePanoramaServerAuthorizationKeyBlindfoldSecretInfoMap
 				}
 				if data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap := make(map[string]interface{})
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap["provider"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.IsNull() && !data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.ValueString()
+						PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap["url"] = data.PaloAltoFwService.PanoramaServer.AuthorizationKey.ClearSecretInfo.URL.ValueString()
 					}
-					AuthorizationKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					PaloAltoFwServicePanoramaServerAuthorizationKeyMap["clear_secret_info"] = PaloAltoFwServicePanoramaServerAuthorizationKeyClearSecretInfoMap
 				}
-				PanoramaServerMap["authorization_key"] = AuthorizationKeyMap
+				PaloAltoFwServicePanoramaServerMap["authorization_key"] = PaloAltoFwServicePanoramaServerAuthorizationKeyMap
 			}
 			if !data.PaloAltoFwService.PanoramaServer.DeviceGroupName.IsNull() && !data.PaloAltoFwService.PanoramaServer.DeviceGroupName.IsUnknown() {
-				PanoramaServerMap["device_group_name"] = data.PaloAltoFwService.PanoramaServer.DeviceGroupName.ValueString()
+				PaloAltoFwServicePanoramaServerMap["device_group_name"] = data.PaloAltoFwService.PanoramaServer.DeviceGroupName.ValueString()
 			}
 			if !data.PaloAltoFwService.PanoramaServer.Server.IsNull() && !data.PaloAltoFwService.PanoramaServer.Server.IsUnknown() {
-				PanoramaServerMap["server"] = data.PaloAltoFwService.PanoramaServer.Server.ValueString()
+				PaloAltoFwServicePanoramaServerMap["server"] = data.PaloAltoFwService.PanoramaServer.Server.ValueString()
 			}
 			if !data.PaloAltoFwService.PanoramaServer.TemplateStackName.IsNull() && !data.PaloAltoFwService.PanoramaServer.TemplateStackName.IsUnknown() {
-				PanoramaServerMap["template_stack_name"] = data.PaloAltoFwService.PanoramaServer.TemplateStackName.ValueString()
+				PaloAltoFwServicePanoramaServerMap["template_stack_name"] = data.PaloAltoFwService.PanoramaServer.TemplateStackName.ValueString()
 			}
-			PaloAltoFwServiceMap["panorama_server"] = PanoramaServerMap
+			PaloAltoFwServiceMap["panorama_server"] = PaloAltoFwServicePanoramaServerMap
 		}
 		if data.PaloAltoFwService.ServiceNodes != nil {
-			ServiceNodesMap := make(map[string]interface{})
+			PaloAltoFwServiceServiceNodesMap := make(map[string]interface{})
 			if !data.PaloAltoFwService.ServiceNodes.Nodes.IsNull() && !data.PaloAltoFwService.ServiceNodes.Nodes.IsUnknown() {
 				var NodesElems []NfvServicePaloAltoFwServiceServiceNodesNodesModel
 				diags := data.PaloAltoFwService.ServiceNodes.Nodes.ElementsAs(ctx, &NodesElems, false)
@@ -9682,18 +9682,18 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 							NodesItemMap["aws_az_name"] = NodesItem.AWSAzName.ValueString()
 						}
 						if NodesItem.MgmtSubnet != nil {
-							MgmtSubnetMap := make(map[string]interface{})
+							PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap := make(map[string]interface{})
 							if !NodesItem.MgmtSubnet.ExistingSubnetID.IsNull() && !NodesItem.MgmtSubnet.ExistingSubnetID.IsUnknown() {
-								MgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
+								PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap["existing_subnet_id"] = NodesItem.MgmtSubnet.ExistingSubnetID.ValueString()
 							}
 							if NodesItem.MgmtSubnet.SubnetParam != nil {
-								SubnetParamMap := make(map[string]interface{})
+								PaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamMap := make(map[string]interface{})
 								if !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsNull() && !NodesItem.MgmtSubnet.SubnetParam.Ipv4.IsUnknown() {
-									SubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
+									PaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamMap["ipv4"] = NodesItem.MgmtSubnet.SubnetParam.Ipv4.ValueString()
 								}
-								MgmtSubnetMap["subnet_param"] = SubnetParamMap
+								PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap["subnet_param"] = PaloAltoFwServiceServiceNodesNodesMgmtSubnetSubnetParamMap
 							}
-							NodesItemMap["mgmt_subnet"] = MgmtSubnetMap
+							NodesItemMap["mgmt_subnet"] = PaloAltoFwServiceServiceNodesNodesMgmtSubnetMap
 						}
 						if !NodesItem.NodeName.IsNull() && !NodesItem.NodeName.IsUnknown() {
 							NodesItemMap["node_name"] = NodesItem.NodeName.ValueString()
@@ -9703,10 +9703,10 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						NodesList = append(NodesList, NodesItemMap)
 					}
-					ServiceNodesMap["nodes"] = NodesList
+					PaloAltoFwServiceServiceNodesMap["nodes"] = NodesList
 				}
 			}
-			PaloAltoFwServiceMap["service_nodes"] = ServiceNodesMap
+			PaloAltoFwServiceMap["service_nodes"] = PaloAltoFwServiceServiceNodesMap
 		}
 		if !data.PaloAltoFwService.SSHKey.IsNull() && !data.PaloAltoFwService.SSHKey.IsUnknown() {
 			PaloAltoFwServiceMap["ssh_key"] = data.PaloAltoFwService.SSHKey.ValueString()

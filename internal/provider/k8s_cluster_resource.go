@@ -894,90 +894,90 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 				for _, ClusterWideAppsItem := range ClusterWideAppsElems {
 					ClusterWideAppsItemMap := make(map[string]interface{})
 					if ClusterWideAppsItem.ArgoCd != nil {
-						ArgoCdMap := make(map[string]interface{})
+						ClusterWideAppListClusterWideAppsArgoCdMap := make(map[string]interface{})
 						if ClusterWideAppsItem.ArgoCd.LocalDomain != nil {
-							LocalDomainMap := make(map[string]interface{})
+							ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap := make(map[string]interface{})
 							if ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort != nil {
-								LocalDomainMap["default_port"] = map[string]interface{}{}
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["default_port"] = map[string]interface{}{}
 							}
 							if !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsUnknown() {
-								LocalDomainMap["local_domain"] = ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.ValueString()
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["local_domain"] = ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.ValueString()
 							}
 							if ClusterWideAppsItem.ArgoCd.LocalDomain.Password != nil {
-								PasswordMap := make(map[string]interface{})
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap := make(map[string]interface{})
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-									BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoInternalMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										BlindfoldSecretInfoInternalMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoInternalMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 									}
-									PasswordMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info_internal"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap["url"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.ValueString()
 									}
-									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["clear_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap
 								}
 								if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsUnknown() {
-									PasswordMap["secret_encoding_type"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.ValueString()
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["secret_encoding_type"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.ValueString()
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-									VaultSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsUnknown() {
-										VaultSecretInfoMap["key"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["key"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsUnknown() {
-										VaultSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsUnknown() {
-										VaultSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										VaultSecretInfoMap["secret_encoding"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["secret_encoding"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-										VaultSecretInfoMap["version"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.ValueInt64()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["version"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.ValueInt64()
 									}
-									PasswordMap["vault_secret_info"] = VaultSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["vault_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-									WingmanSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsUnknown() {
-										WingmanSecretInfoMap["name"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap["name"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.ValueString()
 									}
-									PasswordMap["wingman_secret_info"] = WingmanSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["wingman_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap
 								}
-								LocalDomainMap["password"] = PasswordMap
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["password"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap
 							}
 							if !ClusterWideAppsItem.ArgoCd.LocalDomain.Port.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Port.IsUnknown() {
-								LocalDomainMap["port"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Port.ValueInt64()
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["port"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Port.ValueInt64()
 							}
-							ArgoCdMap["local_domain"] = LocalDomainMap
+							ClusterWideAppListClusterWideAppsArgoCdMap["local_domain"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap
 						}
-						ClusterWideAppsItemMap["argo_cd"] = ArgoCdMap
+						ClusterWideAppsItemMap["argo_cd"] = ClusterWideAppListClusterWideAppsArgoCdMap
 					}
 					if ClusterWideAppsItem.Dashboard != nil {
 						ClusterWideAppsItemMap["dashboard"] = map[string]interface{}{}
@@ -2295,90 +2295,90 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 				for _, ClusterWideAppsItem := range ClusterWideAppsElems {
 					ClusterWideAppsItemMap := make(map[string]interface{})
 					if ClusterWideAppsItem.ArgoCd != nil {
-						ArgoCdMap := make(map[string]interface{})
+						ClusterWideAppListClusterWideAppsArgoCdMap := make(map[string]interface{})
 						if ClusterWideAppsItem.ArgoCd.LocalDomain != nil {
-							LocalDomainMap := make(map[string]interface{})
+							ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap := make(map[string]interface{})
 							if ClusterWideAppsItem.ArgoCd.LocalDomain.DefaultPort != nil {
-								LocalDomainMap["default_port"] = map[string]interface{}{}
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["default_port"] = map[string]interface{}{}
 							}
 							if !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.IsUnknown() {
-								LocalDomainMap["local_domain"] = ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.ValueString()
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["local_domain"] = ClusterWideAppsItem.ArgoCd.LocalDomain.LocalDomain.ValueString()
 							}
 							if ClusterWideAppsItem.ArgoCd.LocalDomain.Password != nil {
-								PasswordMap := make(map[string]interface{})
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap := make(map[string]interface{})
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.Location.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-									BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoInternalMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										BlindfoldSecretInfoInternalMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoInternalMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 									}
-									PasswordMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info_internal"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap["url"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.ValueString()
 									}
-									PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["clear_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap
 								}
 								if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsUnknown() {
-									PasswordMap["secret_encoding_type"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.ValueString()
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["secret_encoding_type"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.ValueString()
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-									VaultSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsUnknown() {
-										VaultSecretInfoMap["key"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["key"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsUnknown() {
-										VaultSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsUnknown() {
-										VaultSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										VaultSecretInfoMap["secret_encoding"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["secret_encoding"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.ValueString()
 									}
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-										VaultSecretInfoMap["version"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.ValueInt64()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["version"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.ValueInt64()
 									}
-									PasswordMap["vault_secret_info"] = VaultSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["vault_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap
 								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-									WingmanSecretInfoMap := make(map[string]interface{})
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsUnknown() {
-										WingmanSecretInfoMap["name"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.ValueString()
+										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap["name"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.ValueString()
 									}
-									PasswordMap["wingman_secret_info"] = WingmanSecretInfoMap
+									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["wingman_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap
 								}
-								LocalDomainMap["password"] = PasswordMap
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["password"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap
 							}
 							if !ClusterWideAppsItem.ArgoCd.LocalDomain.Port.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Port.IsUnknown() {
-								LocalDomainMap["port"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Port.ValueInt64()
+								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["port"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Port.ValueInt64()
 							}
-							ArgoCdMap["local_domain"] = LocalDomainMap
+							ClusterWideAppListClusterWideAppsArgoCdMap["local_domain"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap
 						}
-						ClusterWideAppsItemMap["argo_cd"] = ArgoCdMap
+						ClusterWideAppsItemMap["argo_cd"] = ClusterWideAppListClusterWideAppsArgoCdMap
 					}
 					if ClusterWideAppsItem.Dashboard != nil {
 						ClusterWideAppsItemMap["dashboard"] = map[string]interface{}{}

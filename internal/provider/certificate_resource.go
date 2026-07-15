@@ -425,27 +425,27 @@ func (r *CertificateResource) Create(ctx context.Context, req resource.CreateReq
 	if data.PrivateKey != nil {
 		PrivateKeyMap := make(map[string]interface{})
 		if data.PrivateKey.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			PrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				PrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+				PrivateKeyBlindfoldSecretInfoMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				PrivateKeyBlindfoldSecretInfoMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			PrivateKeyMap["blindfold_secret_info"] = PrivateKeyBlindfoldSecretInfoMap
 		}
 		if data.PrivateKey.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			PrivateKeyClearSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
+				PrivateKeyClearSecretInfoMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
+				PrivateKeyClearSecretInfoMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
 			}
-			PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			PrivateKeyMap["clear_secret_info"] = PrivateKeyClearSecretInfoMap
 		}
 		createReq.Spec["private_key"] = PrivateKeyMap
 	}
@@ -858,27 +858,27 @@ func (r *CertificateResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.PrivateKey != nil {
 		PrivateKeyMap := make(map[string]interface{})
 		if data.PrivateKey.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			PrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				PrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = data.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+				PrivateKeyBlindfoldSecretInfoMap["location"] = data.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+				PrivateKeyBlindfoldSecretInfoMap["store_provider"] = data.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			PrivateKeyMap["blindfold_secret_info"] = PrivateKeyBlindfoldSecretInfoMap
 		}
 		if data.PrivateKey.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			PrivateKeyClearSecretInfoMap := make(map[string]interface{})
 			if !data.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
+				PrivateKeyClearSecretInfoMap["provider"] = data.PrivateKey.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
+				PrivateKeyClearSecretInfoMap["url"] = data.PrivateKey.ClearSecretInfo.URL.ValueString()
 			}
-			PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+			PrivateKeyMap["clear_secret_info"] = PrivateKeyClearSecretInfoMap
 		}
 		apiResource.Spec["private_key"] = PrivateKeyMap
 	}

@@ -1062,7 +1062,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						}
 					}
 					if ForwardProxyPbrRulesItem.HTTPList != nil {
-						HTTPListMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesHTTPListMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsUnknown() {
 							var HTTPListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
 							diags := ForwardProxyPbrRulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
@@ -1094,58 +1094,58 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 									}
 									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								HTTPListMap["http_list"] = HTTPListList
+								ForwardProxyPbrForwardProxyPbrRulesHTTPListMap["http_list"] = HTTPListList
 							}
 						}
-						ForwardProxyPbrRulesItemMap["http_list"] = HTTPListMap
+						ForwardProxyPbrRulesItemMap["http_list"] = ForwardProxyPbrForwardProxyPbrRulesHTTPListMap
 					}
 					if ForwardProxyPbrRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.IPPrefixSet.Name.IsNull() && !ForwardProxyPbrRulesItem.IPPrefixSet.Name.IsUnknown() {
-							IPPrefixSetMap["name"] = ForwardProxyPbrRulesItem.IPPrefixSet.Name.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap["name"] = ForwardProxyPbrRulesItem.IPPrefixSet.Name.ValueString()
 						}
 						if !ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.IsNull() && !ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.IsUnknown() {
-							IPPrefixSetMap["namespace"] = ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap["namespace"] = ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.ValueString()
 						}
 						if !ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.IsNull() && !ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.IsUnknown() {
-							IPPrefixSetMap["tenant"] = ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap["tenant"] = ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.ValueString()
 						}
-						ForwardProxyPbrRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						ForwardProxyPbrRulesItemMap["ip_prefix_set"] = ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap
 					}
 					if ForwardProxyPbrRulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsNull() && !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := ForwardProxyPbrRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						ForwardProxyPbrRulesItemMap["label_selector"] = LabelSelectorMap
+						ForwardProxyPbrRulesItemMap["label_selector"] = ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap
 					}
 					if ForwardProxyPbrRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesMetadataMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.IsNull() && !ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesMetadataMap["description"] = ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !ForwardProxyPbrRulesItem.Metadata.Name.IsNull() && !ForwardProxyPbrRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ForwardProxyPbrRulesItem.Metadata.Name.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesMetadataMap["name"] = ForwardProxyPbrRulesItem.Metadata.Name.ValueString()
 						}
-						ForwardProxyPbrRulesItemMap["metadata"] = MetadataMap
+						ForwardProxyPbrRulesItemMap["metadata"] = ForwardProxyPbrForwardProxyPbrRulesMetadataMap
 					}
 					if ForwardProxyPbrRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesPrefixListMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsNull() && !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := ForwardProxyPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								ForwardProxyPbrForwardProxyPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						ForwardProxyPbrRulesItemMap["prefix_list"] = PrefixListMap
+						ForwardProxyPbrRulesItemMap["prefix_list"] = ForwardProxyPbrForwardProxyPbrRulesPrefixListMap
 					}
 					if ForwardProxyPbrRulesItem.TLSList != nil {
-						TLSListMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesTLSListMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesItem.TLSList.TLSList.IsUnknown() {
 							var TLSListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
 							diags := ForwardProxyPbrRulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
@@ -1165,10 +1165,10 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 									}
 									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								TLSListMap["tls_list"] = TLSListList
+								ForwardProxyPbrForwardProxyPbrRulesTLSListMap["tls_list"] = TLSListList
 							}
 						}
-						ForwardProxyPbrRulesItemMap["tls_list"] = TLSListMap
+						ForwardProxyPbrRulesItemMap["tls_list"] = ForwardProxyPbrForwardProxyPbrRulesTLSListMap
 					}
 					ForwardProxyPbrRulesList = append(ForwardProxyPbrRulesList, ForwardProxyPbrRulesItemMap)
 				}
@@ -1183,15 +1183,15 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 			NetworkPbrMap["any"] = map[string]interface{}{}
 		}
 		if data.NetworkPbr.LabelSelector != nil {
-			LabelSelectorMap := make(map[string]interface{})
+			NetworkPbrLabelSelectorMap := make(map[string]interface{})
 			if !data.NetworkPbr.LabelSelector.Expressions.IsNull() && !data.NetworkPbr.LabelSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.NetworkPbr.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 				if !diags.HasError() {
-					LabelSelectorMap["expressions"] = ExpressionsItems
+					NetworkPbrLabelSelectorMap["expressions"] = ExpressionsItems
 				}
 			}
-			NetworkPbrMap["label_selector"] = LabelSelectorMap
+			NetworkPbrMap["label_selector"] = NetworkPbrLabelSelectorMap
 		}
 		if !data.NetworkPbr.NetworkPbrRules.IsNull() && !data.NetworkPbr.NetworkPbrRules.IsUnknown() {
 			var NetworkPbrRulesElems []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
@@ -1214,15 +1214,15 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						NetworkPbrRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if NetworkPbrRulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesApplicationsMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.Applications.Applications.IsNull() && !NetworkPbrRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := NetworkPbrRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								NetworkPbrNetworkPbrRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						NetworkPbrRulesItemMap["applications"] = ApplicationsMap
+						NetworkPbrRulesItemMap["applications"] = NetworkPbrNetworkPbrRulesApplicationsMap
 					}
 					if !NetworkPbrRulesItem.DNSName.IsNull() && !NetworkPbrRulesItem.DNSName.IsUnknown() {
 						NetworkPbrRulesItemMap["dns_name"] = NetworkPbrRulesItem.DNSName.ValueString()
@@ -1250,7 +1250,7 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 						}
 					}
 					if NetworkPbrRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesIPPrefixSetMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.IPPrefixSet.Ref.IsNull() && !NetworkPbrRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
 							diags := NetworkPbrRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1276,45 +1276,45 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								NetworkPbrNetworkPbrRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						NetworkPbrRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						NetworkPbrRulesItemMap["ip_prefix_set"] = NetworkPbrNetworkPbrRulesIPPrefixSetMap
 					}
 					if NetworkPbrRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesMetadataMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.Metadata.DescriptionSpec.IsNull() && !NetworkPbrRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = NetworkPbrRulesItem.Metadata.DescriptionSpec.ValueString()
+							NetworkPbrNetworkPbrRulesMetadataMap["description"] = NetworkPbrRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !NetworkPbrRulesItem.Metadata.Name.IsNull() && !NetworkPbrRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = NetworkPbrRulesItem.Metadata.Name.ValueString()
+							NetworkPbrNetworkPbrRulesMetadataMap["name"] = NetworkPbrRulesItem.Metadata.Name.ValueString()
 						}
-						NetworkPbrRulesItemMap["metadata"] = MetadataMap
+						NetworkPbrRulesItemMap["metadata"] = NetworkPbrNetworkPbrRulesMetadataMap
 					}
 					if NetworkPbrRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesPrefixListMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.PrefixList.Prefixes.IsNull() && !NetworkPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := NetworkPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								NetworkPbrNetworkPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						NetworkPbrRulesItemMap["prefix_list"] = PrefixListMap
+						NetworkPbrRulesItemMap["prefix_list"] = NetworkPbrNetworkPbrRulesPrefixListMap
 					}
 					if NetworkPbrRulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsNull() && !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := NetworkPbrRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								NetworkPbrNetworkPbrRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !NetworkPbrRulesItem.ProtocolPortRange.Protocol.IsNull() && !NetworkPbrRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = NetworkPbrRulesItem.ProtocolPortRange.Protocol.ValueString()
+							NetworkPbrNetworkPbrRulesProtocolPortRangeMap["protocol"] = NetworkPbrRulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						NetworkPbrRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						NetworkPbrRulesItemMap["protocol_port_range"] = NetworkPbrNetworkPbrRulesProtocolPortRangeMap
 					}
 					NetworkPbrRulesList = append(NetworkPbrRulesList, NetworkPbrRulesItemMap)
 				}
@@ -1322,15 +1322,15 @@ func (r *PolicyBasedRoutingResource) Create(ctx context.Context, req resource.Cr
 			}
 		}
 		if data.NetworkPbr.PrefixList != nil {
-			PrefixListMap := make(map[string]interface{})
+			NetworkPbrPrefixListMap := make(map[string]interface{})
 			if !data.NetworkPbr.PrefixList.Prefixes.IsNull() && !data.NetworkPbr.PrefixList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.NetworkPbr.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 				if !diags.HasError() {
-					PrefixListMap["prefixes"] = PrefixesItems
+					NetworkPbrPrefixListMap["prefixes"] = PrefixesItems
 				}
 			}
-			NetworkPbrMap["prefix_list"] = PrefixListMap
+			NetworkPbrMap["prefix_list"] = NetworkPbrPrefixListMap
 		}
 		createReq.Spec["network_pbr"] = NetworkPbrMap
 	}
@@ -2834,7 +2834,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						}
 					}
 					if ForwardProxyPbrRulesItem.HTTPList != nil {
-						HTTPListMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesHTTPListMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsNull() && !ForwardProxyPbrRulesItem.HTTPList.HTTPList.IsUnknown() {
 							var HTTPListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesHTTPListHTTPListModel
 							diags := ForwardProxyPbrRulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
@@ -2866,58 +2866,58 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 									}
 									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								HTTPListMap["http_list"] = HTTPListList
+								ForwardProxyPbrForwardProxyPbrRulesHTTPListMap["http_list"] = HTTPListList
 							}
 						}
-						ForwardProxyPbrRulesItemMap["http_list"] = HTTPListMap
+						ForwardProxyPbrRulesItemMap["http_list"] = ForwardProxyPbrForwardProxyPbrRulesHTTPListMap
 					}
 					if ForwardProxyPbrRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.IPPrefixSet.Name.IsNull() && !ForwardProxyPbrRulesItem.IPPrefixSet.Name.IsUnknown() {
-							IPPrefixSetMap["name"] = ForwardProxyPbrRulesItem.IPPrefixSet.Name.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap["name"] = ForwardProxyPbrRulesItem.IPPrefixSet.Name.ValueString()
 						}
 						if !ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.IsNull() && !ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.IsUnknown() {
-							IPPrefixSetMap["namespace"] = ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap["namespace"] = ForwardProxyPbrRulesItem.IPPrefixSet.Namespace.ValueString()
 						}
 						if !ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.IsNull() && !ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.IsUnknown() {
-							IPPrefixSetMap["tenant"] = ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap["tenant"] = ForwardProxyPbrRulesItem.IPPrefixSet.Tenant.ValueString()
 						}
-						ForwardProxyPbrRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						ForwardProxyPbrRulesItemMap["ip_prefix_set"] = ForwardProxyPbrForwardProxyPbrRulesIPPrefixSetMap
 					}
 					if ForwardProxyPbrRulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsNull() && !ForwardProxyPbrRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := ForwardProxyPbrRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						ForwardProxyPbrRulesItemMap["label_selector"] = LabelSelectorMap
+						ForwardProxyPbrRulesItemMap["label_selector"] = ForwardProxyPbrForwardProxyPbrRulesLabelSelectorMap
 					}
 					if ForwardProxyPbrRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesMetadataMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.IsNull() && !ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesMetadataMap["description"] = ForwardProxyPbrRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !ForwardProxyPbrRulesItem.Metadata.Name.IsNull() && !ForwardProxyPbrRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = ForwardProxyPbrRulesItem.Metadata.Name.ValueString()
+							ForwardProxyPbrForwardProxyPbrRulesMetadataMap["name"] = ForwardProxyPbrRulesItem.Metadata.Name.ValueString()
 						}
-						ForwardProxyPbrRulesItemMap["metadata"] = MetadataMap
+						ForwardProxyPbrRulesItemMap["metadata"] = ForwardProxyPbrForwardProxyPbrRulesMetadataMap
 					}
 					if ForwardProxyPbrRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesPrefixListMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsNull() && !ForwardProxyPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := ForwardProxyPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								ForwardProxyPbrForwardProxyPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						ForwardProxyPbrRulesItemMap["prefix_list"] = PrefixListMap
+						ForwardProxyPbrRulesItemMap["prefix_list"] = ForwardProxyPbrForwardProxyPbrRulesPrefixListMap
 					}
 					if ForwardProxyPbrRulesItem.TLSList != nil {
-						TLSListMap := make(map[string]interface{})
+						ForwardProxyPbrForwardProxyPbrRulesTLSListMap := make(map[string]interface{})
 						if !ForwardProxyPbrRulesItem.TLSList.TLSList.IsNull() && !ForwardProxyPbrRulesItem.TLSList.TLSList.IsUnknown() {
 							var TLSListElems []PolicyBasedRoutingForwardProxyPbrForwardProxyPbrRulesTLSListTLSListModel
 							diags := ForwardProxyPbrRulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
@@ -2937,10 +2937,10 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 									}
 									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								TLSListMap["tls_list"] = TLSListList
+								ForwardProxyPbrForwardProxyPbrRulesTLSListMap["tls_list"] = TLSListList
 							}
 						}
-						ForwardProxyPbrRulesItemMap["tls_list"] = TLSListMap
+						ForwardProxyPbrRulesItemMap["tls_list"] = ForwardProxyPbrForwardProxyPbrRulesTLSListMap
 					}
 					ForwardProxyPbrRulesList = append(ForwardProxyPbrRulesList, ForwardProxyPbrRulesItemMap)
 				}
@@ -2955,15 +2955,15 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 			NetworkPbrMap["any"] = map[string]interface{}{}
 		}
 		if data.NetworkPbr.LabelSelector != nil {
-			LabelSelectorMap := make(map[string]interface{})
+			NetworkPbrLabelSelectorMap := make(map[string]interface{})
 			if !data.NetworkPbr.LabelSelector.Expressions.IsNull() && !data.NetworkPbr.LabelSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.NetworkPbr.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 				if !diags.HasError() {
-					LabelSelectorMap["expressions"] = ExpressionsItems
+					NetworkPbrLabelSelectorMap["expressions"] = ExpressionsItems
 				}
 			}
-			NetworkPbrMap["label_selector"] = LabelSelectorMap
+			NetworkPbrMap["label_selector"] = NetworkPbrLabelSelectorMap
 		}
 		if !data.NetworkPbr.NetworkPbrRules.IsNull() && !data.NetworkPbr.NetworkPbrRules.IsUnknown() {
 			var NetworkPbrRulesElems []PolicyBasedRoutingNetworkPbrNetworkPbrRulesModel
@@ -2986,15 +2986,15 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						NetworkPbrRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if NetworkPbrRulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesApplicationsMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.Applications.Applications.IsNull() && !NetworkPbrRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := NetworkPbrRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								NetworkPbrNetworkPbrRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						NetworkPbrRulesItemMap["applications"] = ApplicationsMap
+						NetworkPbrRulesItemMap["applications"] = NetworkPbrNetworkPbrRulesApplicationsMap
 					}
 					if !NetworkPbrRulesItem.DNSName.IsNull() && !NetworkPbrRulesItem.DNSName.IsUnknown() {
 						NetworkPbrRulesItemMap["dns_name"] = NetworkPbrRulesItem.DNSName.ValueString()
@@ -3022,7 +3022,7 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 						}
 					}
 					if NetworkPbrRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesIPPrefixSetMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.IPPrefixSet.Ref.IsNull() && !NetworkPbrRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []PolicyBasedRoutingNetworkPbrNetworkPbrRulesIPPrefixSetRefModel
 							diags := NetworkPbrRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3048,45 +3048,45 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								NetworkPbrNetworkPbrRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						NetworkPbrRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						NetworkPbrRulesItemMap["ip_prefix_set"] = NetworkPbrNetworkPbrRulesIPPrefixSetMap
 					}
 					if NetworkPbrRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesMetadataMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.Metadata.DescriptionSpec.IsNull() && !NetworkPbrRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = NetworkPbrRulesItem.Metadata.DescriptionSpec.ValueString()
+							NetworkPbrNetworkPbrRulesMetadataMap["description"] = NetworkPbrRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !NetworkPbrRulesItem.Metadata.Name.IsNull() && !NetworkPbrRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = NetworkPbrRulesItem.Metadata.Name.ValueString()
+							NetworkPbrNetworkPbrRulesMetadataMap["name"] = NetworkPbrRulesItem.Metadata.Name.ValueString()
 						}
-						NetworkPbrRulesItemMap["metadata"] = MetadataMap
+						NetworkPbrRulesItemMap["metadata"] = NetworkPbrNetworkPbrRulesMetadataMap
 					}
 					if NetworkPbrRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesPrefixListMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.PrefixList.Prefixes.IsNull() && !NetworkPbrRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := NetworkPbrRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								NetworkPbrNetworkPbrRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						NetworkPbrRulesItemMap["prefix_list"] = PrefixListMap
+						NetworkPbrRulesItemMap["prefix_list"] = NetworkPbrNetworkPbrRulesPrefixListMap
 					}
 					if NetworkPbrRulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						NetworkPbrNetworkPbrRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsNull() && !NetworkPbrRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := NetworkPbrRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								NetworkPbrNetworkPbrRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !NetworkPbrRulesItem.ProtocolPortRange.Protocol.IsNull() && !NetworkPbrRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = NetworkPbrRulesItem.ProtocolPortRange.Protocol.ValueString()
+							NetworkPbrNetworkPbrRulesProtocolPortRangeMap["protocol"] = NetworkPbrRulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						NetworkPbrRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						NetworkPbrRulesItemMap["protocol_port_range"] = NetworkPbrNetworkPbrRulesProtocolPortRangeMap
 					}
 					NetworkPbrRulesList = append(NetworkPbrRulesList, NetworkPbrRulesItemMap)
 				}
@@ -3094,15 +3094,15 @@ func (r *PolicyBasedRoutingResource) Update(ctx context.Context, req resource.Up
 			}
 		}
 		if data.NetworkPbr.PrefixList != nil {
-			PrefixListMap := make(map[string]interface{})
+			NetworkPbrPrefixListMap := make(map[string]interface{})
 			if !data.NetworkPbr.PrefixList.Prefixes.IsNull() && !data.NetworkPbr.PrefixList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.NetworkPbr.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 				if !diags.HasError() {
-					PrefixListMap["prefixes"] = PrefixesItems
+					NetworkPbrPrefixListMap["prefixes"] = PrefixesItems
 				}
 			}
-			NetworkPbrMap["prefix_list"] = PrefixListMap
+			NetworkPbrMap["prefix_list"] = NetworkPbrPrefixListMap
 		}
 		apiResource.Spec["network_pbr"] = NetworkPbrMap
 	}

@@ -358,42 +358,42 @@ func (r *FilterSetResource) Create(ctx context.Context, req resource.CreateReque
 			for _, FilterFieldsItem := range FilterFieldsElems {
 				FilterFieldsItemMap := make(map[string]interface{})
 				if FilterFieldsItem.DateField != nil {
-					DateFieldMap := make(map[string]interface{})
+					FilterFieldsDateFieldMap := make(map[string]interface{})
 					if FilterFieldsItem.DateField.Absolute != nil {
-						AbsoluteMap := make(map[string]interface{})
+						FilterFieldsDateFieldAbsoluteMap := make(map[string]interface{})
 						if !FilterFieldsItem.DateField.Absolute.EndDate.IsNull() && !FilterFieldsItem.DateField.Absolute.EndDate.IsUnknown() {
-							AbsoluteMap["end_date"] = FilterFieldsItem.DateField.Absolute.EndDate.ValueString()
+							FilterFieldsDateFieldAbsoluteMap["end_date"] = FilterFieldsItem.DateField.Absolute.EndDate.ValueString()
 						}
 						if !FilterFieldsItem.DateField.Absolute.StartDate.IsNull() && !FilterFieldsItem.DateField.Absolute.StartDate.IsUnknown() {
-							AbsoluteMap["start_date"] = FilterFieldsItem.DateField.Absolute.StartDate.ValueString()
+							FilterFieldsDateFieldAbsoluteMap["start_date"] = FilterFieldsItem.DateField.Absolute.StartDate.ValueString()
 						}
-						DateFieldMap["absolute"] = AbsoluteMap
+						FilterFieldsDateFieldMap["absolute"] = FilterFieldsDateFieldAbsoluteMap
 					}
 					if !FilterFieldsItem.DateField.Relative.IsNull() && !FilterFieldsItem.DateField.Relative.IsUnknown() {
-						DateFieldMap["relative"] = FilterFieldsItem.DateField.Relative.ValueString()
+						FilterFieldsDateFieldMap["relative"] = FilterFieldsItem.DateField.Relative.ValueString()
 					}
-					FilterFieldsItemMap["date_field"] = DateFieldMap
+					FilterFieldsItemMap["date_field"] = FilterFieldsDateFieldMap
 				}
 				if !FilterFieldsItem.FieldID.IsNull() && !FilterFieldsItem.FieldID.IsUnknown() {
 					FilterFieldsItemMap["field_id"] = FilterFieldsItem.FieldID.ValueString()
 				}
 				if FilterFieldsItem.FilterExpressionField != nil {
-					FilterExpressionFieldMap := make(map[string]interface{})
+					FilterFieldsFilterExpressionFieldMap := make(map[string]interface{})
 					if !FilterFieldsItem.FilterExpressionField.Expression.IsNull() && !FilterFieldsItem.FilterExpressionField.Expression.IsUnknown() {
-						FilterExpressionFieldMap["expression"] = FilterFieldsItem.FilterExpressionField.Expression.ValueString()
+						FilterFieldsFilterExpressionFieldMap["expression"] = FilterFieldsItem.FilterExpressionField.Expression.ValueString()
 					}
-					FilterFieldsItemMap["filter_expression_field"] = FilterExpressionFieldMap
+					FilterFieldsItemMap["filter_expression_field"] = FilterFieldsFilterExpressionFieldMap
 				}
 				if FilterFieldsItem.StringField != nil {
-					StringFieldMap := make(map[string]interface{})
+					FilterFieldsStringFieldMap := make(map[string]interface{})
 					if !FilterFieldsItem.StringField.FieldValues.IsNull() && !FilterFieldsItem.StringField.FieldValues.IsUnknown() {
 						var FieldValuesItems []string
 						diags := FilterFieldsItem.StringField.FieldValues.ElementsAs(ctx, &FieldValuesItems, false)
 						if !diags.HasError() {
-							StringFieldMap["field_values"] = FieldValuesItems
+							FilterFieldsStringFieldMap["field_values"] = FieldValuesItems
 						}
 					}
-					FilterFieldsItemMap["string_field"] = StringFieldMap
+					FilterFieldsItemMap["string_field"] = FilterFieldsStringFieldMap
 				}
 				FilterFieldsList = append(FilterFieldsList, FilterFieldsItemMap)
 			}
@@ -781,42 +781,42 @@ func (r *FilterSetResource) Update(ctx context.Context, req resource.UpdateReque
 			for _, FilterFieldsItem := range FilterFieldsElems {
 				FilterFieldsItemMap := make(map[string]interface{})
 				if FilterFieldsItem.DateField != nil {
-					DateFieldMap := make(map[string]interface{})
+					FilterFieldsDateFieldMap := make(map[string]interface{})
 					if FilterFieldsItem.DateField.Absolute != nil {
-						AbsoluteMap := make(map[string]interface{})
+						FilterFieldsDateFieldAbsoluteMap := make(map[string]interface{})
 						if !FilterFieldsItem.DateField.Absolute.EndDate.IsNull() && !FilterFieldsItem.DateField.Absolute.EndDate.IsUnknown() {
-							AbsoluteMap["end_date"] = FilterFieldsItem.DateField.Absolute.EndDate.ValueString()
+							FilterFieldsDateFieldAbsoluteMap["end_date"] = FilterFieldsItem.DateField.Absolute.EndDate.ValueString()
 						}
 						if !FilterFieldsItem.DateField.Absolute.StartDate.IsNull() && !FilterFieldsItem.DateField.Absolute.StartDate.IsUnknown() {
-							AbsoluteMap["start_date"] = FilterFieldsItem.DateField.Absolute.StartDate.ValueString()
+							FilterFieldsDateFieldAbsoluteMap["start_date"] = FilterFieldsItem.DateField.Absolute.StartDate.ValueString()
 						}
-						DateFieldMap["absolute"] = AbsoluteMap
+						FilterFieldsDateFieldMap["absolute"] = FilterFieldsDateFieldAbsoluteMap
 					}
 					if !FilterFieldsItem.DateField.Relative.IsNull() && !FilterFieldsItem.DateField.Relative.IsUnknown() {
-						DateFieldMap["relative"] = FilterFieldsItem.DateField.Relative.ValueString()
+						FilterFieldsDateFieldMap["relative"] = FilterFieldsItem.DateField.Relative.ValueString()
 					}
-					FilterFieldsItemMap["date_field"] = DateFieldMap
+					FilterFieldsItemMap["date_field"] = FilterFieldsDateFieldMap
 				}
 				if !FilterFieldsItem.FieldID.IsNull() && !FilterFieldsItem.FieldID.IsUnknown() {
 					FilterFieldsItemMap["field_id"] = FilterFieldsItem.FieldID.ValueString()
 				}
 				if FilterFieldsItem.FilterExpressionField != nil {
-					FilterExpressionFieldMap := make(map[string]interface{})
+					FilterFieldsFilterExpressionFieldMap := make(map[string]interface{})
 					if !FilterFieldsItem.FilterExpressionField.Expression.IsNull() && !FilterFieldsItem.FilterExpressionField.Expression.IsUnknown() {
-						FilterExpressionFieldMap["expression"] = FilterFieldsItem.FilterExpressionField.Expression.ValueString()
+						FilterFieldsFilterExpressionFieldMap["expression"] = FilterFieldsItem.FilterExpressionField.Expression.ValueString()
 					}
-					FilterFieldsItemMap["filter_expression_field"] = FilterExpressionFieldMap
+					FilterFieldsItemMap["filter_expression_field"] = FilterFieldsFilterExpressionFieldMap
 				}
 				if FilterFieldsItem.StringField != nil {
-					StringFieldMap := make(map[string]interface{})
+					FilterFieldsStringFieldMap := make(map[string]interface{})
 					if !FilterFieldsItem.StringField.FieldValues.IsNull() && !FilterFieldsItem.StringField.FieldValues.IsUnknown() {
 						var FieldValuesItems []string
 						diags := FilterFieldsItem.StringField.FieldValues.ElementsAs(ctx, &FieldValuesItems, false)
 						if !diags.HasError() {
-							StringFieldMap["field_values"] = FieldValuesItems
+							FilterFieldsStringFieldMap["field_values"] = FieldValuesItems
 						}
 					}
-					FilterFieldsItemMap["string_field"] = StringFieldMap
+					FilterFieldsItemMap["string_field"] = FilterFieldsStringFieldMap
 				}
 				FilterFieldsList = append(FilterFieldsList, FilterFieldsItemMap)
 			}

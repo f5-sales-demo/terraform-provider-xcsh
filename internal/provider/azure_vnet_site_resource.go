@@ -7443,69 +7443,69 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if data.AdminPassword != nil {
 		AdminPasswordMap := make(map[string]interface{})
 		if data.AdminPassword.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
 		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
 		}
 		if data.AdminPassword.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
+				AdminPasswordClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
+				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
-			AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
 		}
 		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
 			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
 		}
 		if data.AdminPassword.VaultSecretInfo != nil {
-			VaultSecretInfoMap := make(map[string]interface{})
+			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				VaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
+				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				VaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
+				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				VaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
+				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				VaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
+				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				VaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
+				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
 			}
-			AdminPasswordMap["vault_secret_info"] = VaultSecretInfoMap
+			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
 		}
 		if data.AdminPassword.WingmanSecretInfo != nil {
-			WingmanSecretInfoMap := make(map[string]interface{})
+			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				WingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
+				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
 			}
-			AdminPasswordMap["wingman_secret_info"] = WingmanSecretInfoMap
+			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		createReq.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -7590,17 +7590,17 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if data.IngressEgressGw != nil {
 		IngressEgressGwMap := make(map[string]interface{})
 		if data.IngressEgressGw.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressEgressGwAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressEgressGw.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressEgressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGw.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressEgressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressEgressGwMap["accelerated_networking"] = IngressEgressGwAcceleratedNetworkingMap
 		}
 		if data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -7620,13 +7620,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			IngressEgressGwMap["active_enhanced_firewall_policies"] = IngressEgressGwActiveEnhancedFirewallPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -7646,13 +7646,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					IngressEgressGwActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			IngressEgressGwMap["active_forward_proxy_policies"] = IngressEgressGwActiveForwardProxyPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -7672,10 +7672,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					IngressEgressGwActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			IngressEgressGwMap["active_network_policies"] = IngressEgressGwActiveNetworkPoliciesMap
 		}
 		if !data.IngressEgressGw.AzNodes.IsNull() && !data.IngressEgressGw.AzNodes.IsUnknown() {
 			var AzNodesElems []AzureVNETSiteIngressEgressGwAzNodesModel
@@ -7689,52 +7689,52 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						AzNodesItemMap["azure_az"] = AzNodesItem.AzureAz.ValueString()
 					}
 					if AzNodesItem.InsideSubnet != nil {
-						InsideSubnetMap := make(map[string]interface{})
+						IngressEgressGwAzNodesInsideSubnetMap := make(map[string]interface{})
 						if AzNodesItem.InsideSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							IngressEgressGwAzNodesInsideSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.InsideSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.InsideSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.InsideSubnet.Subnet.SubnetName.ValueString()
+								IngressEgressGwAzNodesInsideSubnetSubnetMap["subnet_name"] = AzNodesItem.InsideSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+								IngressEgressGwAzNodesInsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								IngressEgressGwAzNodesInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							InsideSubnetMap["subnet"] = SubnetMap
+							IngressEgressGwAzNodesInsideSubnetMap["subnet"] = IngressEgressGwAzNodesInsideSubnetSubnetMap
 						}
 						if AzNodesItem.InsideSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							IngressEgressGwAzNodesInsideSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
+								IngressEgressGwAzNodesInsideSubnetSubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							InsideSubnetMap["subnet_param"] = SubnetParamMap
+							IngressEgressGwAzNodesInsideSubnetMap["subnet_param"] = IngressEgressGwAzNodesInsideSubnetSubnetParamMap
 						}
-						AzNodesItemMap["inside_subnet"] = InsideSubnetMap
+						AzNodesItemMap["inside_subnet"] = IngressEgressGwAzNodesInsideSubnetMap
 					}
 					if AzNodesItem.OutsideSubnet != nil {
-						OutsideSubnetMap := make(map[string]interface{})
+						IngressEgressGwAzNodesOutsideSubnetMap := make(map[string]interface{})
 						if AzNodesItem.OutsideSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							IngressEgressGwAzNodesOutsideSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.OutsideSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.OutsideSubnet.Subnet.SubnetName.ValueString()
+								IngressEgressGwAzNodesOutsideSubnetSubnetMap["subnet_name"] = AzNodesItem.OutsideSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+								IngressEgressGwAzNodesOutsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								IngressEgressGwAzNodesOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							OutsideSubnetMap["subnet"] = SubnetMap
+							IngressEgressGwAzNodesOutsideSubnetMap["subnet"] = IngressEgressGwAzNodesOutsideSubnetSubnetMap
 						}
 						if AzNodesItem.OutsideSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							IngressEgressGwAzNodesOutsideSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+								IngressEgressGwAzNodesOutsideSubnetSubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							OutsideSubnetMap["subnet_param"] = SubnetParamMap
+							IngressEgressGwAzNodesOutsideSubnetMap["subnet_param"] = IngressEgressGwAzNodesOutsideSubnetSubnetParamMap
 						}
-						AzNodesItemMap["outside_subnet"] = OutsideSubnetMap
+						AzNodesItemMap["outside_subnet"] = IngressEgressGwAzNodesOutsideSubnetMap
 					}
 					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
@@ -7745,36 +7745,36 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressEgressGwMap["azure_certified_hw"] = data.IngressEgressGw.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-			DcClusterGroupInsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupInsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsUnknown() {
-				DcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
-				DcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				DcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_inside_vn"] = DcClusterGroupInsideVnMap
+			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-			DcClusterGroupOutsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupOutsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsUnknown() {
-				DcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
-				DcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				DcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_outside_vn"] = DcClusterGroupOutsideVnMap
+			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
 		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			IngressEgressGwGlobalNetworkListMap := make(map[string]interface{})
 			if !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -7784,58 +7784,58 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					IngressEgressGwGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			IngressEgressGwMap["global_network_list"] = GlobalNetworkListMap
+			IngressEgressGwMap["global_network_list"] = IngressEgressGwGlobalNetworkListMap
 		}
 		if data.IngressEgressGw.Hub != nil {
-			HubMap := make(map[string]interface{})
+			IngressEgressGwHubMap := make(map[string]interface{})
 			if data.IngressEgressGw.Hub.ExpressRouteDisabled != nil {
-				HubMap["express_route_disabled"] = map[string]interface{}{}
+				IngressEgressGwHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
-				ExpressRouteEnabledMap := make(map[string]interface{})
+				IngressEgressGwHubExpressRouteEnabledMap := make(map[string]interface{})
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn != nil {
-					ExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
 					var ConnectionsElems []AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsModel
@@ -7849,176 +7849,176 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								ConnectionsItemMap["circuit_id"] = ConnectionsItem.CircuitID.ValueString()
 							}
 							if ConnectionsItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
+								IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap := make(map[string]interface{})
 								if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+									IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 								}
 								if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+									IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 								}
-								ConnectionsItemMap["metadata"] = MetadataMap
+								ConnectionsItemMap["metadata"] = IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap
 							}
 							if ConnectionsItem.OtherSubscription != nil {
-								OtherSubscriptionMap := make(map[string]interface{})
+								IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap := make(map[string]interface{})
 								if ConnectionsItem.OtherSubscription.AuthorizedKey != nil {
-									AuthorizedKeyMap := make(map[string]interface{})
+									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap := make(map[string]interface{})
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo != nil {
-										BlindfoldSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsUnknown() {
-											BlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
-										ClearSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
-											ClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsUnknown() {
-											ClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
-										AuthorizedKeyMap["clear_secret_info"] = ClearSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
 									}
 									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										AuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										VaultSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											VaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											VaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											VaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											VaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											VaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
 										}
-										AuthorizedKeyMap["vault_secret_info"] = VaultSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										WingmanSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											WingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
 										}
-										AuthorizedKeyMap["wingman_secret_info"] = WingmanSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
-									OtherSubscriptionMap["authorized_key"] = AuthorizedKeyMap
+									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
 								if !ConnectionsItem.OtherSubscription.CircuitID.IsNull() && !ConnectionsItem.OtherSubscription.CircuitID.IsUnknown() {
-									OtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
+									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
 								}
-								ConnectionsItemMap["other_subscription"] = OtherSubscriptionMap
+								ConnectionsItemMap["other_subscription"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap
 							}
 							if !ConnectionsItem.Weight.IsNull() && !ConnectionsItem.Weight.IsUnknown() {
 								ConnectionsItemMap["weight"] = ConnectionsItem.Weight.ValueInt64()
 							}
 							ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 						}
-						ExpressRouteEnabledMap["connections"] = ConnectionsList
+						IngressEgressGwHubExpressRouteEnabledMap["connections"] = ConnectionsList
 					}
 				}
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
-					ExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
+					IngressEgressGwHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
-					GatewaySubnetMap := make(map[string]interface{})
+					IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
-						GatewaySubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						GatewaySubnetMap["subnet"] = SubnetMap
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
 						}
-						GatewaySubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["subnet_param"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["gateway_subnet"] = GatewaySubnetMap
+					IngressEgressGwHubExpressRouteEnabledMap["gateway_subnet"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
-					RouteServerSubnetMap := make(map[string]interface{})
+					IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
-						RouteServerSubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						RouteServerSubnetMap["subnet"] = SubnetMap
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
 						}
-						RouteServerSubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["subnet_param"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["route_server_subnet"] = RouteServerSubnetMap
+					IngressEgressGwHubExpressRouteEnabledMap["route_server_subnet"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute != nil {
-					SiteRegistrationOverExpressRouteMap := make(map[string]interface{})
+					IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap := make(map[string]interface{})
 					if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsUnknown() {
-						SiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
+						IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
 					}
-					ExpressRouteEnabledMap["site_registration_over_express_route"] = SiteRegistrationOverExpressRouteMap
+					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
-					ExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
-					ExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
-					ExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
-					ExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard != nil {
-					ExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
-				HubMap["express_route_enabled"] = ExpressRouteEnabledMap
+				IngressEgressGwHubMap["express_route_enabled"] = IngressEgressGwHubExpressRouteEnabledMap
 			}
 			if !data.IngressEgressGw.Hub.SpokeVnets.IsNull() && !data.IngressEgressGw.Hub.SpokeVnets.IsUnknown() {
 				var SpokeVnetsElems []AzureVNETSiteIngressEgressGwHubSpokeVnetsModel
@@ -8038,30 +8038,30 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
-							VNETMap := make(map[string]interface{})
+							IngressEgressGwHubSpokeVnetsVNETMap := make(map[string]interface{})
 							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
-								VNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
+								IngressEgressGwHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
 							if SpokeVnetsItem.VNET.ManualRouting != nil {
-								VNETMap["manual_routing"] = map[string]interface{}{}
+								IngressEgressGwHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
-								VNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
+								IngressEgressGwHubSpokeVnetsVNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
 							}
 							if !SpokeVnetsItem.VNET.VNETName.IsNull() && !SpokeVnetsItem.VNET.VNETName.IsUnknown() {
-								VNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
+								IngressEgressGwHubSpokeVnetsVNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
 							}
-							SpokeVnetsItemMap["vnet"] = VNETMap
+							SpokeVnetsItemMap["vnet"] = IngressEgressGwHubSpokeVnetsVNETMap
 						}
 						SpokeVnetsList = append(SpokeVnetsList, SpokeVnetsItemMap)
 					}
-					HubMap["spoke_vnets"] = SpokeVnetsList
+					IngressEgressGwHubMap["spoke_vnets"] = SpokeVnetsList
 				}
 			}
-			IngressEgressGwMap["hub"] = HubMap
+			IngressEgressGwMap["hub"] = IngressEgressGwHubMap
 		}
 		if data.IngressEgressGw.InsideStaticRoutes != nil {
-			InsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwInsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -8071,19 +8071,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -8109,31 +8109,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -8144,41 +8144,41 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					InsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwInsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["inside_static_routes"] = InsideStaticRoutesMap
+			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.NoDcClusterGroup != nil {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -8202,7 +8202,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressEgressGwMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -8212,19 +8212,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -8250,31 +8250,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -8285,58 +8285,58 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["outside_static_routes"] = OutsideStaticRoutesMap
+			IngressEgressGwMap["outside_static_routes"] = IngressEgressGwOutsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
 		if data.IngressEgressGw.SmConnectionPublicIP != nil {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -8349,17 +8349,17 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if data.IngressEgressGwAr != nil {
 		IngressEgressGwArMap := make(map[string]interface{})
 		if data.IngressEgressGwAr.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressEgressGwArAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressEgressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGwAr.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressEgressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressEgressGwArMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressEgressGwArMap["accelerated_networking"] = IngressEgressGwArAcceleratedNetworkingMap
 		}
 		if data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			IngressEgressGwArActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteIngressEgressGwArActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -8379,13 +8379,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					IngressEgressGwArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			IngressEgressGwArMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			IngressEgressGwArMap["active_enhanced_firewall_policies"] = IngressEgressGwArActiveEnhancedFirewallPoliciesMap
 		}
 		if data.IngressEgressGwAr.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			IngressEgressGwArActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGwAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteIngressEgressGwArActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.IngressEgressGwAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -8405,13 +8405,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					IngressEgressGwArActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			IngressEgressGwArMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			IngressEgressGwArMap["active_forward_proxy_policies"] = IngressEgressGwArActiveForwardProxyPoliciesMap
 		}
 		if data.IngressEgressGwAr.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			IngressEgressGwArActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGwAr.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteIngressEgressGwArActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.IngressEgressGwAr.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -8431,45 +8431,45 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					IngressEgressGwArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			IngressEgressGwArMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			IngressEgressGwArMap["active_network_policies"] = IngressEgressGwArActiveNetworkPoliciesMap
 		}
 		if !data.IngressEgressGwAr.AzureCertifiedHw.IsNull() && !data.IngressEgressGwAr.AzureCertifiedHw.IsUnknown() {
 			IngressEgressGwArMap["azure_certified_hw"] = data.IngressEgressGwAr.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressEgressGwAr.DcClusterGroupInsideVn != nil {
-			DcClusterGroupInsideVnMap := make(map[string]interface{})
+			IngressEgressGwArDcClusterGroupInsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.IsUnknown() {
-				DcClusterGroupInsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.ValueString()
+				IngressEgressGwArDcClusterGroupInsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsUnknown() {
-				DcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.ValueString()
+				IngressEgressGwArDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				DcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.ValueString()
+				IngressEgressGwArDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwArMap["dc_cluster_group_inside_vn"] = DcClusterGroupInsideVnMap
+			IngressEgressGwArMap["dc_cluster_group_inside_vn"] = IngressEgressGwArDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
-			DcClusterGroupOutsideVnMap := make(map[string]interface{})
+			IngressEgressGwArDcClusterGroupOutsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.IsUnknown() {
-				DcClusterGroupOutsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.ValueString()
+				IngressEgressGwArDcClusterGroupOutsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
-				DcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.ValueString()
+				IngressEgressGwArDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				DcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.ValueString()
+				IngressEgressGwArDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = DcClusterGroupOutsideVnMap
+			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = IngressEgressGwArDcClusterGroupOutsideVnMap
 		}
 		if data.IngressEgressGwAr.ForwardProxyAllowAll != nil {
 			IngressEgressGwArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			IngressEgressGwArGlobalNetworkListMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGwAr.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteIngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.IngressEgressGwAr.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -8479,58 +8479,58 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					IngressEgressGwArGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			IngressEgressGwArMap["global_network_list"] = GlobalNetworkListMap
+			IngressEgressGwArMap["global_network_list"] = IngressEgressGwArGlobalNetworkListMap
 		}
 		if data.IngressEgressGwAr.Hub != nil {
-			HubMap := make(map[string]interface{})
+			IngressEgressGwArHubMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.Hub.ExpressRouteDisabled != nil {
-				HubMap["express_route_disabled"] = map[string]interface{}{}
+				IngressEgressGwArHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
-				ExpressRouteEnabledMap := make(map[string]interface{})
+				IngressEgressGwArHubExpressRouteEnabledMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn != nil {
-					ExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
 					var ConnectionsElems []AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsModel
@@ -8544,176 +8544,176 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 								ConnectionsItemMap["circuit_id"] = ConnectionsItem.CircuitID.ValueString()
 							}
 							if ConnectionsItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
+								IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap := make(map[string]interface{})
 								if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+									IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 								}
 								if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+									IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 								}
-								ConnectionsItemMap["metadata"] = MetadataMap
+								ConnectionsItemMap["metadata"] = IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap
 							}
 							if ConnectionsItem.OtherSubscription != nil {
-								OtherSubscriptionMap := make(map[string]interface{})
+								IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap := make(map[string]interface{})
 								if ConnectionsItem.OtherSubscription.AuthorizedKey != nil {
-									AuthorizedKeyMap := make(map[string]interface{})
+									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap := make(map[string]interface{})
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo != nil {
-										BlindfoldSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsUnknown() {
-											BlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
-										ClearSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
-											ClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsUnknown() {
-											ClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
-										AuthorizedKeyMap["clear_secret_info"] = ClearSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
 									}
 									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										AuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										VaultSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											VaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											VaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											VaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											VaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											VaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
 										}
-										AuthorizedKeyMap["vault_secret_info"] = VaultSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										WingmanSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											WingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
 										}
-										AuthorizedKeyMap["wingman_secret_info"] = WingmanSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
-									OtherSubscriptionMap["authorized_key"] = AuthorizedKeyMap
+									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
 								if !ConnectionsItem.OtherSubscription.CircuitID.IsNull() && !ConnectionsItem.OtherSubscription.CircuitID.IsUnknown() {
-									OtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
+									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
 								}
-								ConnectionsItemMap["other_subscription"] = OtherSubscriptionMap
+								ConnectionsItemMap["other_subscription"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap
 							}
 							if !ConnectionsItem.Weight.IsNull() && !ConnectionsItem.Weight.IsUnknown() {
 								ConnectionsItemMap["weight"] = ConnectionsItem.Weight.ValueInt64()
 							}
 							ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 						}
-						ExpressRouteEnabledMap["connections"] = ConnectionsList
+						IngressEgressGwArHubExpressRouteEnabledMap["connections"] = ConnectionsList
 					}
 				}
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
-					ExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
+					IngressEgressGwArHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
-					GatewaySubnetMap := make(map[string]interface{})
+					IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
-						GatewaySubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						GatewaySubnetMap["subnet"] = SubnetMap
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
 						}
-						GatewaySubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["subnet_param"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["gateway_subnet"] = GatewaySubnetMap
+					IngressEgressGwArHubExpressRouteEnabledMap["gateway_subnet"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
-					RouteServerSubnetMap := make(map[string]interface{})
+					IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
-						RouteServerSubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						RouteServerSubnetMap["subnet"] = SubnetMap
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
 						}
-						RouteServerSubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["subnet_param"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["route_server_subnet"] = RouteServerSubnetMap
+					IngressEgressGwArHubExpressRouteEnabledMap["route_server_subnet"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute != nil {
-					SiteRegistrationOverExpressRouteMap := make(map[string]interface{})
+					IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsUnknown() {
-						SiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
+						IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
 					}
-					ExpressRouteEnabledMap["site_registration_over_express_route"] = SiteRegistrationOverExpressRouteMap
+					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
-					ExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
-					ExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
-					ExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
-					ExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard != nil {
-					ExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
-				HubMap["express_route_enabled"] = ExpressRouteEnabledMap
+				IngressEgressGwArHubMap["express_route_enabled"] = IngressEgressGwArHubExpressRouteEnabledMap
 			}
 			if !data.IngressEgressGwAr.Hub.SpokeVnets.IsNull() && !data.IngressEgressGwAr.Hub.SpokeVnets.IsUnknown() {
 				var SpokeVnetsElems []AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel
@@ -8733,30 +8733,30 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
-							VNETMap := make(map[string]interface{})
+							IngressEgressGwArHubSpokeVnetsVNETMap := make(map[string]interface{})
 							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
-								VNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
+								IngressEgressGwArHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
 							if SpokeVnetsItem.VNET.ManualRouting != nil {
-								VNETMap["manual_routing"] = map[string]interface{}{}
+								IngressEgressGwArHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
-								VNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
+								IngressEgressGwArHubSpokeVnetsVNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
 							}
 							if !SpokeVnetsItem.VNET.VNETName.IsNull() && !SpokeVnetsItem.VNET.VNETName.IsUnknown() {
-								VNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
+								IngressEgressGwArHubSpokeVnetsVNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
 							}
-							SpokeVnetsItemMap["vnet"] = VNETMap
+							SpokeVnetsItemMap["vnet"] = IngressEgressGwArHubSpokeVnetsVNETMap
 						}
 						SpokeVnetsList = append(SpokeVnetsList, SpokeVnetsItemMap)
 					}
-					HubMap["spoke_vnets"] = SpokeVnetsList
+					IngressEgressGwArHubMap["spoke_vnets"] = SpokeVnetsList
 				}
 			}
-			IngressEgressGwArMap["hub"] = HubMap
+			IngressEgressGwArMap["hub"] = IngressEgressGwArHubMap
 		}
 		if data.IngressEgressGwAr.InsideStaticRoutes != nil {
-			InsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwArInsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGwAr.InsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGwAr.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -8766,19 +8766,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -8804,31 +8804,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -8839,41 +8839,41 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					InsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwArInsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwArMap["inside_static_routes"] = InsideStaticRoutesMap
+			IngressEgressGwArMap["inside_static_routes"] = IngressEgressGwArInsideStaticRoutesMap
 		}
 		if data.IngressEgressGwAr.NoDcClusterGroup != nil {
 			IngressEgressGwArMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -8894,71 +8894,71 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressEgressGwArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.Node != nil {
-			NodeMap := make(map[string]interface{})
+			IngressEgressGwArNodeMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.Node.FaultDomain.IsNull() && !data.IngressEgressGwAr.Node.FaultDomain.IsUnknown() {
-				NodeMap["fault_domain"] = data.IngressEgressGwAr.Node.FaultDomain.ValueInt64()
+				IngressEgressGwArNodeMap["fault_domain"] = data.IngressEgressGwAr.Node.FaultDomain.ValueInt64()
 			}
 			if data.IngressEgressGwAr.Node.InsideSubnet != nil {
-				InsideSubnetMap := make(map[string]interface{})
+				IngressEgressGwArNodeInsideSubnetMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					IngressEgressGwArNodeInsideSubnetSubnetMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.ValueString()
+						IngressEgressGwArNodeInsideSubnetSubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+						IngressEgressGwArNodeInsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						IngressEgressGwArNodeInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					InsideSubnetMap["subnet"] = SubnetMap
+					IngressEgressGwArNodeInsideSubnetMap["subnet"] = IngressEgressGwArNodeInsideSubnetSubnetMap
 				}
 				if data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					IngressEgressGwArNodeInsideSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.ValueString()
+						IngressEgressGwArNodeInsideSubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					InsideSubnetMap["subnet_param"] = SubnetParamMap
+					IngressEgressGwArNodeInsideSubnetMap["subnet_param"] = IngressEgressGwArNodeInsideSubnetSubnetParamMap
 				}
-				NodeMap["inside_subnet"] = InsideSubnetMap
+				IngressEgressGwArNodeMap["inside_subnet"] = IngressEgressGwArNodeInsideSubnetMap
 			}
 			if !data.IngressEgressGwAr.Node.NodeNumber.IsNull() && !data.IngressEgressGwAr.Node.NodeNumber.IsUnknown() {
-				NodeMap["node_number"] = data.IngressEgressGwAr.Node.NodeNumber.ValueInt64()
+				IngressEgressGwArNodeMap["node_number"] = data.IngressEgressGwAr.Node.NodeNumber.ValueInt64()
 			}
 			if data.IngressEgressGwAr.Node.OutsideSubnet != nil {
-				OutsideSubnetMap := make(map[string]interface{})
+				IngressEgressGwArNodeOutsideSubnetMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					IngressEgressGwArNodeOutsideSubnetSubnetMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.ValueString()
+						IngressEgressGwArNodeOutsideSubnetSubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+						IngressEgressGwArNodeOutsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						IngressEgressGwArNodeOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					OutsideSubnetMap["subnet"] = SubnetMap
+					IngressEgressGwArNodeOutsideSubnetMap["subnet"] = IngressEgressGwArNodeOutsideSubnetSubnetMap
 				}
 				if data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					IngressEgressGwArNodeOutsideSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+						IngressEgressGwArNodeOutsideSubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					OutsideSubnetMap["subnet_param"] = SubnetParamMap
+					IngressEgressGwArNodeOutsideSubnetMap["subnet_param"] = IngressEgressGwArNodeOutsideSubnetSubnetParamMap
 				}
-				NodeMap["outside_subnet"] = OutsideSubnetMap
+				IngressEgressGwArNodeMap["outside_subnet"] = IngressEgressGwArNodeOutsideSubnetMap
 			}
 			if !data.IngressEgressGwAr.Node.UpdateDomain.IsNull() && !data.IngressEgressGwAr.Node.UpdateDomain.IsUnknown() {
-				NodeMap["update_domain"] = data.IngressEgressGwAr.Node.UpdateDomain.ValueInt64()
+				IngressEgressGwArNodeMap["update_domain"] = data.IngressEgressGwAr.Node.UpdateDomain.ValueInt64()
 			}
-			IngressEgressGwArMap["node"] = NodeMap
+			IngressEgressGwArMap["node"] = IngressEgressGwArNodeMap
 		}
 		if data.IngressEgressGwAr.NotHub != nil {
 			IngressEgressGwArMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwArOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGwAr.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGwAr.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -8968,19 +8968,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -9006,31 +9006,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -9041,58 +9041,58 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwArOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwArMap["outside_static_routes"] = OutsideStaticRoutesMap
+			IngressEgressGwArMap["outside_static_routes"] = IngressEgressGwArOutsideStaticRoutesMap
 		}
 		if data.IngressEgressGwAr.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressEgressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressEgressGwArMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressEgressGwArMap["performance_enhancement_mode"] = IngressEgressGwArPerformanceEnhancementModeMap
 		}
 		if data.IngressEgressGwAr.SmConnectionPublicIP != nil {
 			IngressEgressGwArMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -9105,14 +9105,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if data.IngressGw != nil {
 		IngressGwMap := make(map[string]interface{})
 		if data.IngressGw.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressGwAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressGw.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressGw.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressGwMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressGwMap["accelerated_networking"] = IngressGwAcceleratedNetworkingMap
 		}
 		if !data.IngressGw.AzNodes.IsNull() && !data.IngressGw.AzNodes.IsUnknown() {
 			var AzNodesElems []AzureVNETSiteIngressGwAzNodesModel
@@ -9126,28 +9126,28 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						AzNodesItemMap["azure_az"] = AzNodesItem.AzureAz.ValueString()
 					}
 					if AzNodesItem.LocalSubnet != nil {
-						LocalSubnetMap := make(map[string]interface{})
+						IngressGwAzNodesLocalSubnetMap := make(map[string]interface{})
 						if AzNodesItem.LocalSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							IngressGwAzNodesLocalSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
+								IngressGwAzNodesLocalSubnetSubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+								IngressGwAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								IngressGwAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							LocalSubnetMap["subnet"] = SubnetMap
+							IngressGwAzNodesLocalSubnetMap["subnet"] = IngressGwAzNodesLocalSubnetSubnetMap
 						}
 						if AzNodesItem.LocalSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							IngressGwAzNodesLocalSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+								IngressGwAzNodesLocalSubnetSubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							LocalSubnetMap["subnet_param"] = SubnetParamMap
+							IngressGwAzNodesLocalSubnetMap["subnet_param"] = IngressGwAzNodesLocalSubnetSubnetParamMap
 						}
-						AzNodesItemMap["local_subnet"] = LocalSubnetMap
+						AzNodesItemMap["local_subnet"] = IngressGwAzNodesLocalSubnetMap
 					}
 					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
@@ -9158,92 +9158,92 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			IngressGwMap["azure_certified_hw"] = data.IngressGw.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
 		createReq.Spec["ingress_gw"] = IngressGwMap
 	}
 	if data.IngressGwAr != nil {
 		IngressGwArMap := make(map[string]interface{})
 		if data.IngressGwAr.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressGwArAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressGwAr.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressGwAr.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressGwArMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressGwArMap["accelerated_networking"] = IngressGwArAcceleratedNetworkingMap
 		}
 		if !data.IngressGwAr.AzureCertifiedHw.IsNull() && !data.IngressGwAr.AzureCertifiedHw.IsUnknown() {
 			IngressGwArMap["azure_certified_hw"] = data.IngressGwAr.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressGwAr.Node != nil {
-			NodeMap := make(map[string]interface{})
+			IngressGwArNodeMap := make(map[string]interface{})
 			if !data.IngressGwAr.Node.FaultDomain.IsNull() && !data.IngressGwAr.Node.FaultDomain.IsUnknown() {
-				NodeMap["fault_domain"] = data.IngressGwAr.Node.FaultDomain.ValueInt64()
+				IngressGwArNodeMap["fault_domain"] = data.IngressGwAr.Node.FaultDomain.ValueInt64()
 			}
 			if data.IngressGwAr.Node.LocalSubnet != nil {
-				LocalSubnetMap := make(map[string]interface{})
+				IngressGwArNodeLocalSubnetMap := make(map[string]interface{})
 				if data.IngressGwAr.Node.LocalSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					IngressGwArNodeLocalSubnetSubnetMap := make(map[string]interface{})
 					if !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
+						IngressGwArNodeLocalSubnetSubnetMap["subnet_name"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+						IngressGwArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						IngressGwArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					LocalSubnetMap["subnet"] = SubnetMap
+					IngressGwArNodeLocalSubnetMap["subnet"] = IngressGwArNodeLocalSubnetSubnetMap
 				}
 				if data.IngressGwAr.Node.LocalSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					IngressGwArNodeLocalSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
+						IngressGwArNodeLocalSubnetSubnetParamMap["ipv4"] = data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					LocalSubnetMap["subnet_param"] = SubnetParamMap
+					IngressGwArNodeLocalSubnetMap["subnet_param"] = IngressGwArNodeLocalSubnetSubnetParamMap
 				}
-				NodeMap["local_subnet"] = LocalSubnetMap
+				IngressGwArNodeMap["local_subnet"] = IngressGwArNodeLocalSubnetMap
 			}
 			if !data.IngressGwAr.Node.NodeNumber.IsNull() && !data.IngressGwAr.Node.NodeNumber.IsUnknown() {
-				NodeMap["node_number"] = data.IngressGwAr.Node.NodeNumber.ValueInt64()
+				IngressGwArNodeMap["node_number"] = data.IngressGwAr.Node.NodeNumber.ValueInt64()
 			}
 			if !data.IngressGwAr.Node.UpdateDomain.IsNull() && !data.IngressGwAr.Node.UpdateDomain.IsUnknown() {
-				NodeMap["update_domain"] = data.IngressGwAr.Node.UpdateDomain.ValueInt64()
+				IngressGwArNodeMap["update_domain"] = data.IngressGwAr.Node.UpdateDomain.ValueInt64()
 			}
-			IngressGwArMap["node"] = NodeMap
+			IngressGwArMap["node"] = IngressGwArNodeMap
 		}
 		if data.IngressGwAr.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressGwArMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressGwArMap["performance_enhancement_mode"] = IngressGwArPerformanceEnhancementModeMap
 		}
 		createReq.Spec["ingress_gw_ar"] = IngressGwArMap
 	}
@@ -9253,20 +9253,20 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
-			EnableUpgradeDrainMap := make(map[string]interface{})
+			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
-				EnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
-				EnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
-			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = EnableUpgradeDrainMap
+			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
 		}
 		createReq.Spec["kubernetes_upgrade_drain"] = KubernetesUpgradeDrainMap
 	}
@@ -9316,50 +9316,50 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 	if data.VNET != nil {
 		VNETMap := make(map[string]interface{})
 		if data.VNET.ExistingVNET != nil {
-			ExistingVNETMap := make(map[string]interface{})
+			VNETExistingVNETMap := make(map[string]interface{})
 			if data.VNET.ExistingVNET.F5OrchestratedRouting != nil {
-				ExistingVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
+				VNETExistingVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 			}
 			if data.VNET.ExistingVNET.ManualRouting != nil {
-				ExistingVNETMap["manual_routing"] = map[string]interface{}{}
+				VNETExistingVNETMap["manual_routing"] = map[string]interface{}{}
 			}
 			if !data.VNET.ExistingVNET.ResourceGroup.IsNull() && !data.VNET.ExistingVNET.ResourceGroup.IsUnknown() {
-				ExistingVNETMap["resource_group"] = data.VNET.ExistingVNET.ResourceGroup.ValueString()
+				VNETExistingVNETMap["resource_group"] = data.VNET.ExistingVNET.ResourceGroup.ValueString()
 			}
 			if !data.VNET.ExistingVNET.VNETName.IsNull() && !data.VNET.ExistingVNET.VNETName.IsUnknown() {
-				ExistingVNETMap["vnet_name"] = data.VNET.ExistingVNET.VNETName.ValueString()
+				VNETExistingVNETMap["vnet_name"] = data.VNET.ExistingVNET.VNETName.ValueString()
 			}
-			VNETMap["existing_vnet"] = ExistingVNETMap
+			VNETMap["existing_vnet"] = VNETExistingVNETMap
 		}
 		if data.VNET.NewVNET != nil {
-			NewVNETMap := make(map[string]interface{})
+			VNETNewVNETMap := make(map[string]interface{})
 			if data.VNET.NewVNET.Autogenerate != nil {
-				NewVNETMap["autogenerate"] = map[string]interface{}{}
+				VNETNewVNETMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.VNET.NewVNET.Name.IsNull() && !data.VNET.NewVNET.Name.IsUnknown() {
-				NewVNETMap["name"] = data.VNET.NewVNET.Name.ValueString()
+				VNETNewVNETMap["name"] = data.VNET.NewVNET.Name.ValueString()
 			}
 			if !data.VNET.NewVNET.PrimaryIpv4.IsNull() && !data.VNET.NewVNET.PrimaryIpv4.IsUnknown() {
-				NewVNETMap["primary_ipv4"] = data.VNET.NewVNET.PrimaryIpv4.ValueString()
+				VNETNewVNETMap["primary_ipv4"] = data.VNET.NewVNET.PrimaryIpv4.ValueString()
 			}
-			VNETMap["new_vnet"] = NewVNETMap
+			VNETMap["new_vnet"] = VNETNewVNETMap
 		}
 		createReq.Spec["vnet"] = VNETMap
 	}
 	if data.VoltstackCluster != nil {
 		VoltstackClusterMap := make(map[string]interface{})
 		if data.VoltstackCluster.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			VoltstackClusterAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.VoltstackCluster.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				VoltstackClusterAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.VoltstackCluster.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				VoltstackClusterAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			VoltstackClusterMap["accelerated_networking"] = AcceleratedNetworkingMap
+			VoltstackClusterMap["accelerated_networking"] = VoltstackClusterAcceleratedNetworkingMap
 		}
 		if data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -9379,13 +9379,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			VoltstackClusterMap["active_enhanced_firewall_policies"] = VoltstackClusterActiveEnhancedFirewallPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -9405,13 +9405,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					VoltstackClusterActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			VoltstackClusterMap["active_forward_proxy_policies"] = VoltstackClusterActiveForwardProxyPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -9431,10 +9431,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					VoltstackClusterActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			VoltstackClusterMap["active_network_policies"] = VoltstackClusterActiveNetworkPoliciesMap
 		}
 		if !data.VoltstackCluster.AzNodes.IsNull() && !data.VoltstackCluster.AzNodes.IsUnknown() {
 			var AzNodesElems []AzureVNETSiteVoltstackClusterAzNodesModel
@@ -9448,28 +9448,28 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						AzNodesItemMap["azure_az"] = AzNodesItem.AzureAz.ValueString()
 					}
 					if AzNodesItem.LocalSubnet != nil {
-						LocalSubnetMap := make(map[string]interface{})
+						VoltstackClusterAzNodesLocalSubnetMap := make(map[string]interface{})
 						if AzNodesItem.LocalSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							VoltstackClusterAzNodesLocalSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
+								VoltstackClusterAzNodesLocalSubnetSubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+								VoltstackClusterAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								VoltstackClusterAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							LocalSubnetMap["subnet"] = SubnetMap
+							VoltstackClusterAzNodesLocalSubnetMap["subnet"] = VoltstackClusterAzNodesLocalSubnetSubnetMap
 						}
 						if AzNodesItem.LocalSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							VoltstackClusterAzNodesLocalSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+								VoltstackClusterAzNodesLocalSubnetSubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							LocalSubnetMap["subnet_param"] = SubnetParamMap
+							VoltstackClusterAzNodesLocalSubnetMap["subnet_param"] = VoltstackClusterAzNodesLocalSubnetSubnetParamMap
 						}
-						AzNodesItemMap["local_subnet"] = LocalSubnetMap
+						AzNodesItemMap["local_subnet"] = VoltstackClusterAzNodesLocalSubnetMap
 					}
 					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
@@ -9480,17 +9480,17 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterMap["azure_certified_hw"] = data.VoltstackCluster.AzureCertifiedHw.ValueString()
 		}
 		if data.VoltstackCluster.DcClusterGroup != nil {
-			DcClusterGroupMap := make(map[string]interface{})
+			VoltstackClusterDcClusterGroupMap := make(map[string]interface{})
 			if !data.VoltstackCluster.DcClusterGroup.Name.IsNull() && !data.VoltstackCluster.DcClusterGroup.Name.IsUnknown() {
-				DcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
+				VoltstackClusterDcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
-				DcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
+				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				DcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
+				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
 			}
-			VoltstackClusterMap["dc_cluster_group"] = DcClusterGroupMap
+			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
 		if data.VoltstackCluster.DefaultStorage != nil {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
@@ -9499,7 +9499,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			VoltstackClusterGlobalNetworkListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -9509,58 +9509,58 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					VoltstackClusterGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			VoltstackClusterMap["global_network_list"] = GlobalNetworkListMap
+			VoltstackClusterMap["global_network_list"] = VoltstackClusterGlobalNetworkListMap
 		}
 		if data.VoltstackCluster.K8SCluster != nil {
-			K8SClusterMap := make(map[string]interface{})
+			VoltstackClusterK8SClusterMap := make(map[string]interface{})
 			if !data.VoltstackCluster.K8SCluster.Name.IsNull() && !data.VoltstackCluster.K8SCluster.Name.IsUnknown() {
-				K8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
+				VoltstackClusterK8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
-				K8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
+				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				K8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
+				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
-			VoltstackClusterMap["k8s_cluster"] = K8SClusterMap
+			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
 		if data.VoltstackCluster.NoDcClusterGroup != nil {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -9581,7 +9581,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			VoltstackClusterOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
 				diags := data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -9591,19 +9591,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -9629,31 +9629,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -9664,41 +9664,41 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					VoltstackClusterOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			VoltstackClusterMap["outside_static_routes"] = OutsideStaticRoutesMap
+			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
 		if data.VoltstackCluster.SmConnectionPublicIP != nil {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -9707,7 +9707,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
-			StorageClassListMap := make(map[string]interface{})
+			VoltstackClusterStorageClassListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
 				var StorageClassesElems []AzureVNETSiteVoltstackClusterStorageClassListStorageClassesModel
 				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
@@ -9724,27 +9724,27 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					StorageClassListMap["storage_classes"] = StorageClassesList
+					VoltstackClusterStorageClassListMap["storage_classes"] = StorageClassesList
 				}
 			}
-			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
+			VoltstackClusterMap["storage_class_list"] = VoltstackClusterStorageClassListMap
 		}
 		createReq.Spec["voltstack_cluster"] = VoltstackClusterMap
 	}
 	if data.VoltstackClusterAr != nil {
 		VoltstackClusterArMap := make(map[string]interface{})
 		if data.VoltstackClusterAr.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			VoltstackClusterArAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				VoltstackClusterArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.VoltstackClusterAr.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				VoltstackClusterArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			VoltstackClusterArMap["accelerated_networking"] = AcceleratedNetworkingMap
+			VoltstackClusterArMap["accelerated_networking"] = VoltstackClusterArAcceleratedNetworkingMap
 		}
 		if data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			VoltstackClusterArActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteVoltstackClusterArActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -9764,13 +9764,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					VoltstackClusterArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			VoltstackClusterArMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			VoltstackClusterArMap["active_enhanced_firewall_policies"] = VoltstackClusterArActiveEnhancedFirewallPoliciesMap
 		}
 		if data.VoltstackClusterAr.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			VoltstackClusterArActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackClusterAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteVoltstackClusterArActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.VoltstackClusterAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -9790,13 +9790,13 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					VoltstackClusterArActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			VoltstackClusterArMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			VoltstackClusterArMap["active_forward_proxy_policies"] = VoltstackClusterArActiveForwardProxyPoliciesMap
 		}
 		if data.VoltstackClusterAr.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			VoltstackClusterArActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackClusterAr.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteVoltstackClusterArActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.VoltstackClusterAr.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -9816,26 +9816,26 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					VoltstackClusterArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			VoltstackClusterArMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			VoltstackClusterArMap["active_network_policies"] = VoltstackClusterArActiveNetworkPoliciesMap
 		}
 		if !data.VoltstackClusterAr.AzureCertifiedHw.IsNull() && !data.VoltstackClusterAr.AzureCertifiedHw.IsUnknown() {
 			VoltstackClusterArMap["azure_certified_hw"] = data.VoltstackClusterAr.AzureCertifiedHw.ValueString()
 		}
 		if data.VoltstackClusterAr.DcClusterGroup != nil {
-			DcClusterGroupMap := make(map[string]interface{})
+			VoltstackClusterArDcClusterGroupMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.DcClusterGroup.Name.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Name.IsUnknown() {
-				DcClusterGroupMap["name"] = data.VoltstackClusterAr.DcClusterGroup.Name.ValueString()
+				VoltstackClusterArDcClusterGroupMap["name"] = data.VoltstackClusterAr.DcClusterGroup.Name.ValueString()
 			}
 			if !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsUnknown() {
-				DcClusterGroupMap["namespace"] = data.VoltstackClusterAr.DcClusterGroup.Namespace.ValueString()
+				VoltstackClusterArDcClusterGroupMap["namespace"] = data.VoltstackClusterAr.DcClusterGroup.Namespace.ValueString()
 			}
 			if !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsUnknown() {
-				DcClusterGroupMap["tenant"] = data.VoltstackClusterAr.DcClusterGroup.Tenant.ValueString()
+				VoltstackClusterArDcClusterGroupMap["tenant"] = data.VoltstackClusterAr.DcClusterGroup.Tenant.ValueString()
 			}
-			VoltstackClusterArMap["dc_cluster_group"] = DcClusterGroupMap
+			VoltstackClusterArMap["dc_cluster_group"] = VoltstackClusterArDcClusterGroupMap
 		}
 		if data.VoltstackClusterAr.DefaultStorage != nil {
 			VoltstackClusterArMap["default_storage"] = map[string]interface{}{}
@@ -9844,7 +9844,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			VoltstackClusterArGlobalNetworkListMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackClusterAr.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteVoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.VoltstackClusterAr.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -9854,58 +9854,58 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					VoltstackClusterArGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			VoltstackClusterArMap["global_network_list"] = GlobalNetworkListMap
+			VoltstackClusterArMap["global_network_list"] = VoltstackClusterArGlobalNetworkListMap
 		}
 		if data.VoltstackClusterAr.K8SCluster != nil {
-			K8SClusterMap := make(map[string]interface{})
+			VoltstackClusterArK8SClusterMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.K8SCluster.Name.IsNull() && !data.VoltstackClusterAr.K8SCluster.Name.IsUnknown() {
-				K8SClusterMap["name"] = data.VoltstackClusterAr.K8SCluster.Name.ValueString()
+				VoltstackClusterArK8SClusterMap["name"] = data.VoltstackClusterAr.K8SCluster.Name.ValueString()
 			}
 			if !data.VoltstackClusterAr.K8SCluster.Namespace.IsNull() && !data.VoltstackClusterAr.K8SCluster.Namespace.IsUnknown() {
-				K8SClusterMap["namespace"] = data.VoltstackClusterAr.K8SCluster.Namespace.ValueString()
+				VoltstackClusterArK8SClusterMap["namespace"] = data.VoltstackClusterAr.K8SCluster.Namespace.ValueString()
 			}
 			if !data.VoltstackClusterAr.K8SCluster.Tenant.IsNull() && !data.VoltstackClusterAr.K8SCluster.Tenant.IsUnknown() {
-				K8SClusterMap["tenant"] = data.VoltstackClusterAr.K8SCluster.Tenant.ValueString()
+				VoltstackClusterArK8SClusterMap["tenant"] = data.VoltstackClusterAr.K8SCluster.Tenant.ValueString()
 			}
-			VoltstackClusterArMap["k8s_cluster"] = K8SClusterMap
+			VoltstackClusterArMap["k8s_cluster"] = VoltstackClusterArK8SClusterMap
 		}
 		if data.VoltstackClusterAr.NoDcClusterGroup != nil {
 			VoltstackClusterArMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -9926,44 +9926,44 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.Node != nil {
-			NodeMap := make(map[string]interface{})
+			VoltstackClusterArNodeMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.Node.FaultDomain.IsNull() && !data.VoltstackClusterAr.Node.FaultDomain.IsUnknown() {
-				NodeMap["fault_domain"] = data.VoltstackClusterAr.Node.FaultDomain.ValueInt64()
+				VoltstackClusterArNodeMap["fault_domain"] = data.VoltstackClusterAr.Node.FaultDomain.ValueInt64()
 			}
 			if data.VoltstackClusterAr.Node.LocalSubnet != nil {
-				LocalSubnetMap := make(map[string]interface{})
+				VoltstackClusterArNodeLocalSubnetMap := make(map[string]interface{})
 				if data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					VoltstackClusterArNodeLocalSubnetSubnetMap := make(map[string]interface{})
 					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
+						VoltstackClusterArNodeLocalSubnetSubnetMap["subnet_name"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+						VoltstackClusterArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						VoltstackClusterArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					LocalSubnetMap["subnet"] = SubnetMap
+					VoltstackClusterArNodeLocalSubnetMap["subnet"] = VoltstackClusterArNodeLocalSubnetSubnetMap
 				}
 				if data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					VoltstackClusterArNodeLocalSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
+						VoltstackClusterArNodeLocalSubnetSubnetParamMap["ipv4"] = data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					LocalSubnetMap["subnet_param"] = SubnetParamMap
+					VoltstackClusterArNodeLocalSubnetMap["subnet_param"] = VoltstackClusterArNodeLocalSubnetSubnetParamMap
 				}
-				NodeMap["local_subnet"] = LocalSubnetMap
+				VoltstackClusterArNodeMap["local_subnet"] = VoltstackClusterArNodeLocalSubnetMap
 			}
 			if !data.VoltstackClusterAr.Node.NodeNumber.IsNull() && !data.VoltstackClusterAr.Node.NodeNumber.IsUnknown() {
-				NodeMap["node_number"] = data.VoltstackClusterAr.Node.NodeNumber.ValueInt64()
+				VoltstackClusterArNodeMap["node_number"] = data.VoltstackClusterAr.Node.NodeNumber.ValueInt64()
 			}
 			if !data.VoltstackClusterAr.Node.UpdateDomain.IsNull() && !data.VoltstackClusterAr.Node.UpdateDomain.IsUnknown() {
-				NodeMap["update_domain"] = data.VoltstackClusterAr.Node.UpdateDomain.ValueInt64()
+				VoltstackClusterArNodeMap["update_domain"] = data.VoltstackClusterAr.Node.UpdateDomain.ValueInt64()
 			}
-			VoltstackClusterArMap["node"] = NodeMap
+			VoltstackClusterArMap["node"] = VoltstackClusterArNodeMap
 		}
 		if data.VoltstackClusterAr.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			VoltstackClusterArOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackClusterAr.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListModel
 				diags := data.VoltstackClusterAr.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -9973,19 +9973,19 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -10011,31 +10011,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -10046,41 +10046,41 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					VoltstackClusterArOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			VoltstackClusterArMap["outside_static_routes"] = OutsideStaticRoutesMap
+			VoltstackClusterArMap["outside_static_routes"] = VoltstackClusterArOutsideStaticRoutesMap
 		}
 		if data.VoltstackClusterAr.SmConnectionPublicIP != nil {
 			VoltstackClusterArMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -10089,7 +10089,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			VoltstackClusterArMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.StorageClassList != nil {
-			StorageClassListMap := make(map[string]interface{})
+			VoltstackClusterArStorageClassListMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.StorageClassList.StorageClasses.IsNull() && !data.VoltstackClusterAr.StorageClassList.StorageClasses.IsUnknown() {
 				var StorageClassesElems []AzureVNETSiteVoltstackClusterArStorageClassListStorageClassesModel
 				diags := data.VoltstackClusterAr.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
@@ -10106,10 +10106,10 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}
 						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					StorageClassListMap["storage_classes"] = StorageClassesList
+					VoltstackClusterArStorageClassListMap["storage_classes"] = StorageClassesList
 				}
 			}
-			VoltstackClusterArMap["storage_class_list"] = StorageClassListMap
+			VoltstackClusterArMap["storage_class_list"] = VoltstackClusterArStorageClassListMap
 		}
 		createReq.Spec["voltstack_cluster_ar"] = VoltstackClusterArMap
 	}
@@ -21768,69 +21768,69 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if data.AdminPassword != nil {
 		AdminPasswordMap := make(map[string]interface{})
 		if data.AdminPassword.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
 		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
 		}
 		if data.AdminPassword.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
+				AdminPasswordClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
+				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
-			AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
 		}
 		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
 			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
 		}
 		if data.AdminPassword.VaultSecretInfo != nil {
-			VaultSecretInfoMap := make(map[string]interface{})
+			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				VaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
+				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				VaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
+				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				VaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
+				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				VaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
+				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				VaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
+				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
 			}
-			AdminPasswordMap["vault_secret_info"] = VaultSecretInfoMap
+			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
 		}
 		if data.AdminPassword.WingmanSecretInfo != nil {
-			WingmanSecretInfoMap := make(map[string]interface{})
+			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				WingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
+				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
 			}
-			AdminPasswordMap["wingman_secret_info"] = WingmanSecretInfoMap
+			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		apiResource.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -21915,17 +21915,17 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if data.IngressEgressGw != nil {
 		IngressEgressGwMap := make(map[string]interface{})
 		if data.IngressEgressGw.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressEgressGwAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressEgressGw.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressEgressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGw.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressEgressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressEgressGwMap["accelerated_networking"] = IngressEgressGwAcceleratedNetworkingMap
 		}
 		if data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -21945,13 +21945,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			IngressEgressGwMap["active_enhanced_firewall_policies"] = IngressEgressGwActiveEnhancedFirewallPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -21971,13 +21971,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					IngressEgressGwActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			IngressEgressGwMap["active_forward_proxy_policies"] = IngressEgressGwActiveForwardProxyPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -21997,10 +21997,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					IngressEgressGwActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			IngressEgressGwMap["active_network_policies"] = IngressEgressGwActiveNetworkPoliciesMap
 		}
 		if !data.IngressEgressGw.AzNodes.IsNull() && !data.IngressEgressGw.AzNodes.IsUnknown() {
 			var AzNodesElems []AzureVNETSiteIngressEgressGwAzNodesModel
@@ -22014,52 +22014,52 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						AzNodesItemMap["azure_az"] = AzNodesItem.AzureAz.ValueString()
 					}
 					if AzNodesItem.InsideSubnet != nil {
-						InsideSubnetMap := make(map[string]interface{})
+						IngressEgressGwAzNodesInsideSubnetMap := make(map[string]interface{})
 						if AzNodesItem.InsideSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							IngressEgressGwAzNodesInsideSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.InsideSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.InsideSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.InsideSubnet.Subnet.SubnetName.ValueString()
+								IngressEgressGwAzNodesInsideSubnetSubnetMap["subnet_name"] = AzNodesItem.InsideSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+								IngressEgressGwAzNodesInsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.InsideSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								IngressEgressGwAzNodesInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							InsideSubnetMap["subnet"] = SubnetMap
+							IngressEgressGwAzNodesInsideSubnetMap["subnet"] = IngressEgressGwAzNodesInsideSubnetSubnetMap
 						}
 						if AzNodesItem.InsideSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							IngressEgressGwAzNodesInsideSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
+								IngressEgressGwAzNodesInsideSubnetSubnetParamMap["ipv4"] = AzNodesItem.InsideSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							InsideSubnetMap["subnet_param"] = SubnetParamMap
+							IngressEgressGwAzNodesInsideSubnetMap["subnet_param"] = IngressEgressGwAzNodesInsideSubnetSubnetParamMap
 						}
-						AzNodesItemMap["inside_subnet"] = InsideSubnetMap
+						AzNodesItemMap["inside_subnet"] = IngressEgressGwAzNodesInsideSubnetMap
 					}
 					if AzNodesItem.OutsideSubnet != nil {
-						OutsideSubnetMap := make(map[string]interface{})
+						IngressEgressGwAzNodesOutsideSubnetMap := make(map[string]interface{})
 						if AzNodesItem.OutsideSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							IngressEgressGwAzNodesOutsideSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.OutsideSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.OutsideSubnet.Subnet.SubnetName.ValueString()
+								IngressEgressGwAzNodesOutsideSubnetSubnetMap["subnet_name"] = AzNodesItem.OutsideSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+								IngressEgressGwAzNodesOutsideSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.OutsideSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								IngressEgressGwAzNodesOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							OutsideSubnetMap["subnet"] = SubnetMap
+							IngressEgressGwAzNodesOutsideSubnetMap["subnet"] = IngressEgressGwAzNodesOutsideSubnetSubnetMap
 						}
 						if AzNodesItem.OutsideSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							IngressEgressGwAzNodesOutsideSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+								IngressEgressGwAzNodesOutsideSubnetSubnetParamMap["ipv4"] = AzNodesItem.OutsideSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							OutsideSubnetMap["subnet_param"] = SubnetParamMap
+							IngressEgressGwAzNodesOutsideSubnetMap["subnet_param"] = IngressEgressGwAzNodesOutsideSubnetSubnetParamMap
 						}
-						AzNodesItemMap["outside_subnet"] = OutsideSubnetMap
+						AzNodesItemMap["outside_subnet"] = IngressEgressGwAzNodesOutsideSubnetMap
 					}
 					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
@@ -22070,36 +22070,36 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressEgressGwMap["azure_certified_hw"] = data.IngressEgressGw.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-			DcClusterGroupInsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupInsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsUnknown() {
-				DcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
-				DcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				DcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_inside_vn"] = DcClusterGroupInsideVnMap
+			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-			DcClusterGroupOutsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupOutsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsUnknown() {
-				DcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
-				DcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				DcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_outside_vn"] = DcClusterGroupOutsideVnMap
+			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
 		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			IngressEgressGwGlobalNetworkListMap := make(map[string]interface{})
 			if !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -22109,58 +22109,58 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					IngressEgressGwGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			IngressEgressGwMap["global_network_list"] = GlobalNetworkListMap
+			IngressEgressGwMap["global_network_list"] = IngressEgressGwGlobalNetworkListMap
 		}
 		if data.IngressEgressGw.Hub != nil {
-			HubMap := make(map[string]interface{})
+			IngressEgressGwHubMap := make(map[string]interface{})
 			if data.IngressEgressGw.Hub.ExpressRouteDisabled != nil {
-				HubMap["express_route_disabled"] = map[string]interface{}{}
+				IngressEgressGwHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGw.Hub.ExpressRouteEnabled != nil {
-				ExpressRouteEnabledMap := make(map[string]interface{})
+				IngressEgressGwHubExpressRouteEnabledMap := make(map[string]interface{})
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.AutoAsn != nil {
-					ExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
 					var ConnectionsElems []AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsModel
@@ -22174,176 +22174,176 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								ConnectionsItemMap["circuit_id"] = ConnectionsItem.CircuitID.ValueString()
 							}
 							if ConnectionsItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
+								IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap := make(map[string]interface{})
 								if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+									IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 								}
 								if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+									IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 								}
-								ConnectionsItemMap["metadata"] = MetadataMap
+								ConnectionsItemMap["metadata"] = IngressEgressGwHubExpressRouteEnabledConnectionsMetadataMap
 							}
 							if ConnectionsItem.OtherSubscription != nil {
-								OtherSubscriptionMap := make(map[string]interface{})
+								IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap := make(map[string]interface{})
 								if ConnectionsItem.OtherSubscription.AuthorizedKey != nil {
-									AuthorizedKeyMap := make(map[string]interface{})
+									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap := make(map[string]interface{})
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo != nil {
-										BlindfoldSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsUnknown() {
-											BlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
-										ClearSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
-											ClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsUnknown() {
-											ClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
-										AuthorizedKeyMap["clear_secret_info"] = ClearSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
 									}
 									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										AuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										VaultSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											VaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											VaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											VaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											VaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											VaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
 										}
-										AuthorizedKeyMap["vault_secret_info"] = VaultSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										WingmanSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											WingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
+											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
 										}
-										AuthorizedKeyMap["wingman_secret_info"] = WingmanSecretInfoMap
+										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
-									OtherSubscriptionMap["authorized_key"] = AuthorizedKeyMap
+									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
 								if !ConnectionsItem.OtherSubscription.CircuitID.IsNull() && !ConnectionsItem.OtherSubscription.CircuitID.IsUnknown() {
-									OtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
+									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
 								}
-								ConnectionsItemMap["other_subscription"] = OtherSubscriptionMap
+								ConnectionsItemMap["other_subscription"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap
 							}
 							if !ConnectionsItem.Weight.IsNull() && !ConnectionsItem.Weight.IsUnknown() {
 								ConnectionsItemMap["weight"] = ConnectionsItem.Weight.ValueInt64()
 							}
 							ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 						}
-						ExpressRouteEnabledMap["connections"] = ConnectionsList
+						IngressEgressGwHubExpressRouteEnabledMap["connections"] = ConnectionsList
 					}
 				}
 				if !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
-					ExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
+					IngressEgressGwHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
-					GatewaySubnetMap := make(map[string]interface{})
+					IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
-						GatewaySubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						GatewaySubnetMap["subnet"] = SubnetMap
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetMap
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
 						}
-						GatewaySubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap["subnet_param"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["gateway_subnet"] = GatewaySubnetMap
+					IngressEgressGwHubExpressRouteEnabledMap["gateway_subnet"] = IngressEgressGwHubExpressRouteEnabledGatewaySubnetMap
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
-					RouteServerSubnetMap := make(map[string]interface{})
+					IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
-						RouteServerSubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						RouteServerSubnetMap["subnet"] = SubnetMap
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetMap
 					}
 					if data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamMap["ipv4"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
 						}
-						RouteServerSubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap["subnet_param"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["route_server_subnet"] = RouteServerSubnetMap
+					IngressEgressGwHubExpressRouteEnabledMap["route_server_subnet"] = IngressEgressGwHubExpressRouteEnabledRouteServerSubnetMap
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute != nil {
-					SiteRegistrationOverExpressRouteMap := make(map[string]interface{})
+					IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap := make(map[string]interface{})
 					if !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsNull() && !data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsUnknown() {
-						SiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
+						IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
 					}
-					ExpressRouteEnabledMap["site_registration_over_express_route"] = SiteRegistrationOverExpressRouteMap
+					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
-					ExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
-					ExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
-					ExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
-					ExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.Hub.ExpressRouteEnabled.SkuStandard != nil {
-					ExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
+					IngressEgressGwHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
-				HubMap["express_route_enabled"] = ExpressRouteEnabledMap
+				IngressEgressGwHubMap["express_route_enabled"] = IngressEgressGwHubExpressRouteEnabledMap
 			}
 			if !data.IngressEgressGw.Hub.SpokeVnets.IsNull() && !data.IngressEgressGw.Hub.SpokeVnets.IsUnknown() {
 				var SpokeVnetsElems []AzureVNETSiteIngressEgressGwHubSpokeVnetsModel
@@ -22363,30 +22363,30 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
-							VNETMap := make(map[string]interface{})
+							IngressEgressGwHubSpokeVnetsVNETMap := make(map[string]interface{})
 							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
-								VNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
+								IngressEgressGwHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
 							if SpokeVnetsItem.VNET.ManualRouting != nil {
-								VNETMap["manual_routing"] = map[string]interface{}{}
+								IngressEgressGwHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
-								VNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
+								IngressEgressGwHubSpokeVnetsVNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
 							}
 							if !SpokeVnetsItem.VNET.VNETName.IsNull() && !SpokeVnetsItem.VNET.VNETName.IsUnknown() {
-								VNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
+								IngressEgressGwHubSpokeVnetsVNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
 							}
-							SpokeVnetsItemMap["vnet"] = VNETMap
+							SpokeVnetsItemMap["vnet"] = IngressEgressGwHubSpokeVnetsVNETMap
 						}
 						SpokeVnetsList = append(SpokeVnetsList, SpokeVnetsItemMap)
 					}
-					HubMap["spoke_vnets"] = SpokeVnetsList
+					IngressEgressGwHubMap["spoke_vnets"] = SpokeVnetsList
 				}
 			}
-			IngressEgressGwMap["hub"] = HubMap
+			IngressEgressGwMap["hub"] = IngressEgressGwHubMap
 		}
 		if data.IngressEgressGw.InsideStaticRoutes != nil {
-			InsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwInsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -22396,19 +22396,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -22434,31 +22434,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -22469,41 +22469,41 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					InsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwInsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["inside_static_routes"] = InsideStaticRoutesMap
+			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.NoDcClusterGroup != nil {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -22527,7 +22527,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressEgressGwMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -22537,19 +22537,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -22575,31 +22575,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -22610,58 +22610,58 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["outside_static_routes"] = OutsideStaticRoutesMap
+			IngressEgressGwMap["outside_static_routes"] = IngressEgressGwOutsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
 		if data.IngressEgressGw.SmConnectionPublicIP != nil {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -22674,17 +22674,17 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if data.IngressEgressGwAr != nil {
 		IngressEgressGwArMap := make(map[string]interface{})
 		if data.IngressEgressGwAr.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressEgressGwArAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressEgressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGwAr.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressEgressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressEgressGwArMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressEgressGwArMap["accelerated_networking"] = IngressEgressGwArAcceleratedNetworkingMap
 		}
 		if data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			IngressEgressGwArActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteIngressEgressGwArActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.IngressEgressGwAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -22704,13 +22704,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					IngressEgressGwArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			IngressEgressGwArMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			IngressEgressGwArMap["active_enhanced_firewall_policies"] = IngressEgressGwArActiveEnhancedFirewallPoliciesMap
 		}
 		if data.IngressEgressGwAr.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			IngressEgressGwArActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGwAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteIngressEgressGwArActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.IngressEgressGwAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -22730,13 +22730,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					IngressEgressGwArActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			IngressEgressGwArMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			IngressEgressGwArMap["active_forward_proxy_policies"] = IngressEgressGwArActiveForwardProxyPoliciesMap
 		}
 		if data.IngressEgressGwAr.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			IngressEgressGwArActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGwAr.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteIngressEgressGwArActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.IngressEgressGwAr.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -22756,45 +22756,45 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					IngressEgressGwArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			IngressEgressGwArMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			IngressEgressGwArMap["active_network_policies"] = IngressEgressGwArActiveNetworkPoliciesMap
 		}
 		if !data.IngressEgressGwAr.AzureCertifiedHw.IsNull() && !data.IngressEgressGwAr.AzureCertifiedHw.IsUnknown() {
 			IngressEgressGwArMap["azure_certified_hw"] = data.IngressEgressGwAr.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressEgressGwAr.DcClusterGroupInsideVn != nil {
-			DcClusterGroupInsideVnMap := make(map[string]interface{})
+			IngressEgressGwArDcClusterGroupInsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.IsUnknown() {
-				DcClusterGroupInsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.ValueString()
+				IngressEgressGwArDcClusterGroupInsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.IsUnknown() {
-				DcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.ValueString()
+				IngressEgressGwArDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				DcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.ValueString()
+				IngressEgressGwArDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupInsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwArMap["dc_cluster_group_inside_vn"] = DcClusterGroupInsideVnMap
+			IngressEgressGwArMap["dc_cluster_group_inside_vn"] = IngressEgressGwArDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGwAr.DcClusterGroupOutsideVn != nil {
-			DcClusterGroupOutsideVnMap := make(map[string]interface{})
+			IngressEgressGwArDcClusterGroupOutsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.IsUnknown() {
-				DcClusterGroupOutsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.ValueString()
+				IngressEgressGwArDcClusterGroupOutsideVnMap["name"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
-				DcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.ValueString()
+				IngressEgressGwArDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				DcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.ValueString()
+				IngressEgressGwArDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGwAr.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = DcClusterGroupOutsideVnMap
+			IngressEgressGwArMap["dc_cluster_group_outside_vn"] = IngressEgressGwArDcClusterGroupOutsideVnMap
 		}
 		if data.IngressEgressGwAr.ForwardProxyAllowAll != nil {
 			IngressEgressGwArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			IngressEgressGwArGlobalNetworkListMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGwAr.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteIngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.IngressEgressGwAr.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -22804,58 +22804,58 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = IngressEgressGwArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					IngressEgressGwArGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			IngressEgressGwArMap["global_network_list"] = GlobalNetworkListMap
+			IngressEgressGwArMap["global_network_list"] = IngressEgressGwArGlobalNetworkListMap
 		}
 		if data.IngressEgressGwAr.Hub != nil {
-			HubMap := make(map[string]interface{})
+			IngressEgressGwArHubMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.Hub.ExpressRouteDisabled != nil {
-				HubMap["express_route_disabled"] = map[string]interface{}{}
+				IngressEgressGwArHubMap["express_route_disabled"] = map[string]interface{}{}
 			}
 			if data.IngressEgressGwAr.Hub.ExpressRouteEnabled != nil {
-				ExpressRouteEnabledMap := make(map[string]interface{})
+				IngressEgressGwArHubExpressRouteEnabledMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.AutoAsn != nil {
-					ExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["auto_asn"] = map[string]interface{}{}
 				}
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.Connections.IsUnknown() {
 					var ConnectionsElems []AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsModel
@@ -22869,176 +22869,176 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 								ConnectionsItemMap["circuit_id"] = ConnectionsItem.CircuitID.ValueString()
 							}
 							if ConnectionsItem.Metadata != nil {
-								MetadataMap := make(map[string]interface{})
+								IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap := make(map[string]interface{})
 								if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-									MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+									IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 								}
 								if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-									MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+									IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 								}
-								ConnectionsItemMap["metadata"] = MetadataMap
+								ConnectionsItemMap["metadata"] = IngressEgressGwArHubExpressRouteEnabledConnectionsMetadataMap
 							}
 							if ConnectionsItem.OtherSubscription != nil {
-								OtherSubscriptionMap := make(map[string]interface{})
+								IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap := make(map[string]interface{})
 								if ConnectionsItem.OtherSubscription.AuthorizedKey != nil {
-									AuthorizedKeyMap := make(map[string]interface{})
+									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap := make(map[string]interface{})
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo != nil {
-										BlindfoldSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.IsUnknown() {
-											BlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											BlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 										}
-										AuthorizedKeyMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
-										ClearSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
-											ClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.IsUnknown() {
-											ClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
-										AuthorizedKeyMap["clear_secret_info"] = ClearSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
 									}
 									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										AuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										VaultSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											VaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											VaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											VaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											VaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
 										}
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											VaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
 										}
-										AuthorizedKeyMap["vault_secret_info"] = VaultSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
 									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										WingmanSecretInfoMap := make(map[string]interface{})
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											WingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
+											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
 										}
-										AuthorizedKeyMap["wingman_secret_info"] = WingmanSecretInfoMap
+										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
-									OtherSubscriptionMap["authorized_key"] = AuthorizedKeyMap
+									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
 								if !ConnectionsItem.OtherSubscription.CircuitID.IsNull() && !ConnectionsItem.OtherSubscription.CircuitID.IsUnknown() {
-									OtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
+									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap["circuit_id"] = ConnectionsItem.OtherSubscription.CircuitID.ValueString()
 								}
-								ConnectionsItemMap["other_subscription"] = OtherSubscriptionMap
+								ConnectionsItemMap["other_subscription"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap
 							}
 							if !ConnectionsItem.Weight.IsNull() && !ConnectionsItem.Weight.IsUnknown() {
 								ConnectionsItemMap["weight"] = ConnectionsItem.Weight.ValueInt64()
 							}
 							ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 						}
-						ExpressRouteEnabledMap["connections"] = ConnectionsList
+						IngressEgressGwArHubExpressRouteEnabledMap["connections"] = ConnectionsList
 					}
 				}
 				if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.IsUnknown() {
-					ExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
+					IngressEgressGwArHubExpressRouteEnabledMap["custom_asn"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.CustomAsn.ValueInt64()
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.DoNotAdvertiseToRouteServer != nil {
-					ExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["do_not_advertise_to_route_server"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet != nil {
-					GatewaySubnetMap := make(map[string]interface{})
+					IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap := make(map[string]interface{})
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Auto != nil {
-						GatewaySubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						GatewaySubnetMap["subnet"] = SubnetMap
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetMap
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.GatewaySubnet.SubnetParam.Ipv4.ValueString()
 						}
-						GatewaySubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap["subnet_param"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["gateway_subnet"] = GatewaySubnetMap
+					IngressEgressGwArHubExpressRouteEnabledMap["gateway_subnet"] = IngressEgressGwArHubExpressRouteEnabledGatewaySubnetMap
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet != nil {
-					RouteServerSubnetMap := make(map[string]interface{})
+					IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap := make(map[string]interface{})
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Auto != nil {
-						RouteServerSubnetMap["auto"] = map[string]interface{}{}
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["auto"] = map[string]interface{}{}
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet != nil {
-						SubnetMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-							SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.SubnetResourceGrp.ValueString()
 						}
 						if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.Subnet.VNETResourceGroup != nil {
-							SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 						}
-						RouteServerSubnetMap["subnet"] = SubnetMap
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["subnet"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetMap
 					}
 					if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam != nil {
-						SubnetParamMap := make(map[string]interface{})
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamMap := make(map[string]interface{})
 						if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.IsUnknown() {
-							SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
+							IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.RouteServerSubnet.SubnetParam.Ipv4.ValueString()
 						}
-						RouteServerSubnetMap["subnet_param"] = SubnetParamMap
+						IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap["subnet_param"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetSubnetParamMap
 					}
-					ExpressRouteEnabledMap["route_server_subnet"] = RouteServerSubnetMap
+					IngressEgressGwArHubExpressRouteEnabledMap["route_server_subnet"] = IngressEgressGwArHubExpressRouteEnabledRouteServerSubnetMap
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute != nil {
-					SiteRegistrationOverExpressRouteMap := make(map[string]interface{})
+					IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsNull() && !data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.IsUnknown() {
-						SiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
+						IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap["cloudlink_network_name"] = data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverExpressRoute.CloudlinkNetworkName.ValueString()
 					}
-					ExpressRouteEnabledMap["site_registration_over_express_route"] = SiteRegistrationOverExpressRouteMap
+					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_express_route"] = IngressEgressGwArHubExpressRouteEnabledSiteRegistrationOverExpressRouteMap
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SiteRegistrationOverInternet != nil {
-					ExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["site_registration_over_internet"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw1az != nil {
-					ExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw1az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuErgw2az != nil {
-					ExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_ergw2az"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuHighPerf != nil {
-					ExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_high_perf"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.Hub.ExpressRouteEnabled.SkuStandard != nil {
-					ExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
+					IngressEgressGwArHubExpressRouteEnabledMap["sku_standard"] = map[string]interface{}{}
 				}
-				HubMap["express_route_enabled"] = ExpressRouteEnabledMap
+				IngressEgressGwArHubMap["express_route_enabled"] = IngressEgressGwArHubExpressRouteEnabledMap
 			}
 			if !data.IngressEgressGwAr.Hub.SpokeVnets.IsNull() && !data.IngressEgressGwAr.Hub.SpokeVnets.IsUnknown() {
 				var SpokeVnetsElems []AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel
@@ -23058,30 +23058,30 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							SpokeVnetsItemMap["manual"] = map[string]interface{}{}
 						}
 						if SpokeVnetsItem.VNET != nil {
-							VNETMap := make(map[string]interface{})
+							IngressEgressGwArHubSpokeVnetsVNETMap := make(map[string]interface{})
 							if SpokeVnetsItem.VNET.F5OrchestratedRouting != nil {
-								VNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
+								IngressEgressGwArHubSpokeVnetsVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 							}
 							if SpokeVnetsItem.VNET.ManualRouting != nil {
-								VNETMap["manual_routing"] = map[string]interface{}{}
+								IngressEgressGwArHubSpokeVnetsVNETMap["manual_routing"] = map[string]interface{}{}
 							}
 							if !SpokeVnetsItem.VNET.ResourceGroup.IsNull() && !SpokeVnetsItem.VNET.ResourceGroup.IsUnknown() {
-								VNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
+								IngressEgressGwArHubSpokeVnetsVNETMap["resource_group"] = SpokeVnetsItem.VNET.ResourceGroup.ValueString()
 							}
 							if !SpokeVnetsItem.VNET.VNETName.IsNull() && !SpokeVnetsItem.VNET.VNETName.IsUnknown() {
-								VNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
+								IngressEgressGwArHubSpokeVnetsVNETMap["vnet_name"] = SpokeVnetsItem.VNET.VNETName.ValueString()
 							}
-							SpokeVnetsItemMap["vnet"] = VNETMap
+							SpokeVnetsItemMap["vnet"] = IngressEgressGwArHubSpokeVnetsVNETMap
 						}
 						SpokeVnetsList = append(SpokeVnetsList, SpokeVnetsItemMap)
 					}
-					HubMap["spoke_vnets"] = SpokeVnetsList
+					IngressEgressGwArHubMap["spoke_vnets"] = SpokeVnetsList
 				}
 			}
-			IngressEgressGwArMap["hub"] = HubMap
+			IngressEgressGwArMap["hub"] = IngressEgressGwArHubMap
 		}
 		if data.IngressEgressGwAr.InsideStaticRoutes != nil {
-			InsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwArInsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGwAr.InsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGwAr.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -23091,19 +23091,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -23129,31 +23129,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -23164,41 +23164,41 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwArInsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					InsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwArInsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwArMap["inside_static_routes"] = InsideStaticRoutesMap
+			IngressEgressGwArMap["inside_static_routes"] = IngressEgressGwArInsideStaticRoutesMap
 		}
 		if data.IngressEgressGwAr.NoDcClusterGroup != nil {
 			IngressEgressGwArMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -23219,71 +23219,71 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressEgressGwArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.Node != nil {
-			NodeMap := make(map[string]interface{})
+			IngressEgressGwArNodeMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.Node.FaultDomain.IsNull() && !data.IngressEgressGwAr.Node.FaultDomain.IsUnknown() {
-				NodeMap["fault_domain"] = data.IngressEgressGwAr.Node.FaultDomain.ValueInt64()
+				IngressEgressGwArNodeMap["fault_domain"] = data.IngressEgressGwAr.Node.FaultDomain.ValueInt64()
 			}
 			if data.IngressEgressGwAr.Node.InsideSubnet != nil {
-				InsideSubnetMap := make(map[string]interface{})
+				IngressEgressGwArNodeInsideSubnetMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.Node.InsideSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					IngressEgressGwArNodeInsideSubnetSubnetMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.ValueString()
+						IngressEgressGwArNodeInsideSubnetSubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+						IngressEgressGwArNodeInsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.InsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.IngressEgressGwAr.Node.InsideSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						IngressEgressGwArNodeInsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					InsideSubnetMap["subnet"] = SubnetMap
+					IngressEgressGwArNodeInsideSubnetMap["subnet"] = IngressEgressGwArNodeInsideSubnetSubnetMap
 				}
 				if data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					IngressEgressGwArNodeInsideSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.ValueString()
+						IngressEgressGwArNodeInsideSubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.InsideSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					InsideSubnetMap["subnet_param"] = SubnetParamMap
+					IngressEgressGwArNodeInsideSubnetMap["subnet_param"] = IngressEgressGwArNodeInsideSubnetSubnetParamMap
 				}
-				NodeMap["inside_subnet"] = InsideSubnetMap
+				IngressEgressGwArNodeMap["inside_subnet"] = IngressEgressGwArNodeInsideSubnetMap
 			}
 			if !data.IngressEgressGwAr.Node.NodeNumber.IsNull() && !data.IngressEgressGwAr.Node.NodeNumber.IsUnknown() {
-				NodeMap["node_number"] = data.IngressEgressGwAr.Node.NodeNumber.ValueInt64()
+				IngressEgressGwArNodeMap["node_number"] = data.IngressEgressGwAr.Node.NodeNumber.ValueInt64()
 			}
 			if data.IngressEgressGwAr.Node.OutsideSubnet != nil {
-				OutsideSubnetMap := make(map[string]interface{})
+				IngressEgressGwArNodeOutsideSubnetMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.Node.OutsideSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					IngressEgressGwArNodeOutsideSubnetSubnetMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.ValueString()
+						IngressEgressGwArNodeOutsideSubnetSubnetMap["subnet_name"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
+						IngressEgressGwArNodeOutsideSubnetSubnetMap["subnet_resource_grp"] = data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.IngressEgressGwAr.Node.OutsideSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						IngressEgressGwArNodeOutsideSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					OutsideSubnetMap["subnet"] = SubnetMap
+					IngressEgressGwArNodeOutsideSubnetMap["subnet"] = IngressEgressGwArNodeOutsideSubnetSubnetMap
 				}
 				if data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					IngressEgressGwArNodeOutsideSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.ValueString()
+						IngressEgressGwArNodeOutsideSubnetSubnetParamMap["ipv4"] = data.IngressEgressGwAr.Node.OutsideSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					OutsideSubnetMap["subnet_param"] = SubnetParamMap
+					IngressEgressGwArNodeOutsideSubnetMap["subnet_param"] = IngressEgressGwArNodeOutsideSubnetSubnetParamMap
 				}
-				NodeMap["outside_subnet"] = OutsideSubnetMap
+				IngressEgressGwArNodeMap["outside_subnet"] = IngressEgressGwArNodeOutsideSubnetMap
 			}
 			if !data.IngressEgressGwAr.Node.UpdateDomain.IsNull() && !data.IngressEgressGwAr.Node.UpdateDomain.IsUnknown() {
-				NodeMap["update_domain"] = data.IngressEgressGwAr.Node.UpdateDomain.ValueInt64()
+				IngressEgressGwArNodeMap["update_domain"] = data.IngressEgressGwAr.Node.UpdateDomain.ValueInt64()
 			}
-			IngressEgressGwArMap["node"] = NodeMap
+			IngressEgressGwArMap["node"] = IngressEgressGwArNodeMap
 		}
 		if data.IngressEgressGwAr.NotHub != nil {
 			IngressEgressGwArMap["not_hub"] = map[string]interface{}{}
 		}
 		if data.IngressEgressGwAr.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwArOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGwAr.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGwAr.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGwAr.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -23293,19 +23293,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -23331,31 +23331,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -23366,58 +23366,58 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwArOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwArMap["outside_static_routes"] = OutsideStaticRoutesMap
+			IngressEgressGwArMap["outside_static_routes"] = IngressEgressGwArOutsideStaticRoutesMap
 		}
 		if data.IngressEgressGwAr.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressEgressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressEgressGwArMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressEgressGwArMap["performance_enhancement_mode"] = IngressEgressGwArPerformanceEnhancementModeMap
 		}
 		if data.IngressEgressGwAr.SmConnectionPublicIP != nil {
 			IngressEgressGwArMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -23430,14 +23430,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if data.IngressGw != nil {
 		IngressGwMap := make(map[string]interface{})
 		if data.IngressGw.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressGwAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressGw.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressGwAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressGw.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressGwAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressGwMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressGwMap["accelerated_networking"] = IngressGwAcceleratedNetworkingMap
 		}
 		if !data.IngressGw.AzNodes.IsNull() && !data.IngressGw.AzNodes.IsUnknown() {
 			var AzNodesElems []AzureVNETSiteIngressGwAzNodesModel
@@ -23451,28 +23451,28 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						AzNodesItemMap["azure_az"] = AzNodesItem.AzureAz.ValueString()
 					}
 					if AzNodesItem.LocalSubnet != nil {
-						LocalSubnetMap := make(map[string]interface{})
+						IngressGwAzNodesLocalSubnetMap := make(map[string]interface{})
 						if AzNodesItem.LocalSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							IngressGwAzNodesLocalSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
+								IngressGwAzNodesLocalSubnetSubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+								IngressGwAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								IngressGwAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							LocalSubnetMap["subnet"] = SubnetMap
+							IngressGwAzNodesLocalSubnetMap["subnet"] = IngressGwAzNodesLocalSubnetSubnetMap
 						}
 						if AzNodesItem.LocalSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							IngressGwAzNodesLocalSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+								IngressGwAzNodesLocalSubnetSubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							LocalSubnetMap["subnet_param"] = SubnetParamMap
+							IngressGwAzNodesLocalSubnetMap["subnet_param"] = IngressGwAzNodesLocalSubnetSubnetParamMap
 						}
-						AzNodesItemMap["local_subnet"] = LocalSubnetMap
+						AzNodesItemMap["local_subnet"] = IngressGwAzNodesLocalSubnetMap
 					}
 					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
@@ -23483,92 +23483,92 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			IngressGwMap["azure_certified_hw"] = data.IngressGw.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
 		apiResource.Spec["ingress_gw"] = IngressGwMap
 	}
 	if data.IngressGwAr != nil {
 		IngressGwArMap := make(map[string]interface{})
 		if data.IngressGwAr.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			IngressGwArAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.IngressGwAr.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				IngressGwArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.IngressGwAr.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				IngressGwArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			IngressGwArMap["accelerated_networking"] = AcceleratedNetworkingMap
+			IngressGwArMap["accelerated_networking"] = IngressGwArAcceleratedNetworkingMap
 		}
 		if !data.IngressGwAr.AzureCertifiedHw.IsNull() && !data.IngressGwAr.AzureCertifiedHw.IsUnknown() {
 			IngressGwArMap["azure_certified_hw"] = data.IngressGwAr.AzureCertifiedHw.ValueString()
 		}
 		if data.IngressGwAr.Node != nil {
-			NodeMap := make(map[string]interface{})
+			IngressGwArNodeMap := make(map[string]interface{})
 			if !data.IngressGwAr.Node.FaultDomain.IsNull() && !data.IngressGwAr.Node.FaultDomain.IsUnknown() {
-				NodeMap["fault_domain"] = data.IngressGwAr.Node.FaultDomain.ValueInt64()
+				IngressGwArNodeMap["fault_domain"] = data.IngressGwAr.Node.FaultDomain.ValueInt64()
 			}
 			if data.IngressGwAr.Node.LocalSubnet != nil {
-				LocalSubnetMap := make(map[string]interface{})
+				IngressGwArNodeLocalSubnetMap := make(map[string]interface{})
 				if data.IngressGwAr.Node.LocalSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					IngressGwArNodeLocalSubnetSubnetMap := make(map[string]interface{})
 					if !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
+						IngressGwArNodeLocalSubnetSubnetMap["subnet_name"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+						IngressGwArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.IngressGwAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.IngressGwAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						IngressGwArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					LocalSubnetMap["subnet"] = SubnetMap
+					IngressGwArNodeLocalSubnetMap["subnet"] = IngressGwArNodeLocalSubnetSubnetMap
 				}
 				if data.IngressGwAr.Node.LocalSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					IngressGwArNodeLocalSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.IsNull() && !data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
+						IngressGwArNodeLocalSubnetSubnetParamMap["ipv4"] = data.IngressGwAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					LocalSubnetMap["subnet_param"] = SubnetParamMap
+					IngressGwArNodeLocalSubnetMap["subnet_param"] = IngressGwArNodeLocalSubnetSubnetParamMap
 				}
-				NodeMap["local_subnet"] = LocalSubnetMap
+				IngressGwArNodeMap["local_subnet"] = IngressGwArNodeLocalSubnetMap
 			}
 			if !data.IngressGwAr.Node.NodeNumber.IsNull() && !data.IngressGwAr.Node.NodeNumber.IsUnknown() {
-				NodeMap["node_number"] = data.IngressGwAr.Node.NodeNumber.ValueInt64()
+				IngressGwArNodeMap["node_number"] = data.IngressGwAr.Node.NodeNumber.ValueInt64()
 			}
 			if !data.IngressGwAr.Node.UpdateDomain.IsNull() && !data.IngressGwAr.Node.UpdateDomain.IsUnknown() {
-				NodeMap["update_domain"] = data.IngressGwAr.Node.UpdateDomain.ValueInt64()
+				IngressGwArNodeMap["update_domain"] = data.IngressGwAr.Node.UpdateDomain.ValueInt64()
 			}
-			IngressGwArMap["node"] = NodeMap
+			IngressGwArMap["node"] = IngressGwArNodeMap
 		}
 		if data.IngressGwAr.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressGwArPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressGwArMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressGwArMap["performance_enhancement_mode"] = IngressGwArPerformanceEnhancementModeMap
 		}
 		apiResource.Spec["ingress_gw_ar"] = IngressGwArMap
 	}
@@ -23578,20 +23578,20 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
-			EnableUpgradeDrainMap := make(map[string]interface{})
+			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
-				EnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
-				EnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
-			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = EnableUpgradeDrainMap
+			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
 		}
 		apiResource.Spec["kubernetes_upgrade_drain"] = KubernetesUpgradeDrainMap
 	}
@@ -23641,50 +23641,50 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 	if data.VNET != nil {
 		VNETMap := make(map[string]interface{})
 		if data.VNET.ExistingVNET != nil {
-			ExistingVNETMap := make(map[string]interface{})
+			VNETExistingVNETMap := make(map[string]interface{})
 			if data.VNET.ExistingVNET.F5OrchestratedRouting != nil {
-				ExistingVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
+				VNETExistingVNETMap["f5_orchestrated_routing"] = map[string]interface{}{}
 			}
 			if data.VNET.ExistingVNET.ManualRouting != nil {
-				ExistingVNETMap["manual_routing"] = map[string]interface{}{}
+				VNETExistingVNETMap["manual_routing"] = map[string]interface{}{}
 			}
 			if !data.VNET.ExistingVNET.ResourceGroup.IsNull() && !data.VNET.ExistingVNET.ResourceGroup.IsUnknown() {
-				ExistingVNETMap["resource_group"] = data.VNET.ExistingVNET.ResourceGroup.ValueString()
+				VNETExistingVNETMap["resource_group"] = data.VNET.ExistingVNET.ResourceGroup.ValueString()
 			}
 			if !data.VNET.ExistingVNET.VNETName.IsNull() && !data.VNET.ExistingVNET.VNETName.IsUnknown() {
-				ExistingVNETMap["vnet_name"] = data.VNET.ExistingVNET.VNETName.ValueString()
+				VNETExistingVNETMap["vnet_name"] = data.VNET.ExistingVNET.VNETName.ValueString()
 			}
-			VNETMap["existing_vnet"] = ExistingVNETMap
+			VNETMap["existing_vnet"] = VNETExistingVNETMap
 		}
 		if data.VNET.NewVNET != nil {
-			NewVNETMap := make(map[string]interface{})
+			VNETNewVNETMap := make(map[string]interface{})
 			if data.VNET.NewVNET.Autogenerate != nil {
-				NewVNETMap["autogenerate"] = map[string]interface{}{}
+				VNETNewVNETMap["autogenerate"] = map[string]interface{}{}
 			}
 			if !data.VNET.NewVNET.Name.IsNull() && !data.VNET.NewVNET.Name.IsUnknown() {
-				NewVNETMap["name"] = data.VNET.NewVNET.Name.ValueString()
+				VNETNewVNETMap["name"] = data.VNET.NewVNET.Name.ValueString()
 			}
 			if !data.VNET.NewVNET.PrimaryIpv4.IsNull() && !data.VNET.NewVNET.PrimaryIpv4.IsUnknown() {
-				NewVNETMap["primary_ipv4"] = data.VNET.NewVNET.PrimaryIpv4.ValueString()
+				VNETNewVNETMap["primary_ipv4"] = data.VNET.NewVNET.PrimaryIpv4.ValueString()
 			}
-			VNETMap["new_vnet"] = NewVNETMap
+			VNETMap["new_vnet"] = VNETNewVNETMap
 		}
 		apiResource.Spec["vnet"] = VNETMap
 	}
 	if data.VoltstackCluster != nil {
 		VoltstackClusterMap := make(map[string]interface{})
 		if data.VoltstackCluster.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			VoltstackClusterAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.VoltstackCluster.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				VoltstackClusterAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.VoltstackCluster.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				VoltstackClusterAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			VoltstackClusterMap["accelerated_networking"] = AcceleratedNetworkingMap
+			VoltstackClusterMap["accelerated_networking"] = VoltstackClusterAcceleratedNetworkingMap
 		}
 		if data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -23704,13 +23704,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			VoltstackClusterMap["active_enhanced_firewall_policies"] = VoltstackClusterActiveEnhancedFirewallPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -23730,13 +23730,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					VoltstackClusterActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			VoltstackClusterMap["active_forward_proxy_policies"] = VoltstackClusterActiveForwardProxyPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -23756,10 +23756,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					VoltstackClusterActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			VoltstackClusterMap["active_network_policies"] = VoltstackClusterActiveNetworkPoliciesMap
 		}
 		if !data.VoltstackCluster.AzNodes.IsNull() && !data.VoltstackCluster.AzNodes.IsUnknown() {
 			var AzNodesElems []AzureVNETSiteVoltstackClusterAzNodesModel
@@ -23773,28 +23773,28 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						AzNodesItemMap["azure_az"] = AzNodesItem.AzureAz.ValueString()
 					}
 					if AzNodesItem.LocalSubnet != nil {
-						LocalSubnetMap := make(map[string]interface{})
+						VoltstackClusterAzNodesLocalSubnetMap := make(map[string]interface{})
 						if AzNodesItem.LocalSubnet.Subnet != nil {
-							SubnetMap := make(map[string]interface{})
+							VoltstackClusterAzNodesLocalSubnetSubnetMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-								SubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
+								VoltstackClusterAzNodesLocalSubnetSubnetMap["subnet_name"] = AzNodesItem.LocalSubnet.Subnet.SubnetName.ValueString()
 							}
 							if !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-								SubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+								VoltstackClusterAzNodesLocalSubnetSubnetMap["subnet_resource_grp"] = AzNodesItem.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 							}
 							if AzNodesItem.LocalSubnet.Subnet.VNETResourceGroup != nil {
-								SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+								VoltstackClusterAzNodesLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 							}
-							LocalSubnetMap["subnet"] = SubnetMap
+							VoltstackClusterAzNodesLocalSubnetMap["subnet"] = VoltstackClusterAzNodesLocalSubnetSubnetMap
 						}
 						if AzNodesItem.LocalSubnet.SubnetParam != nil {
-							SubnetParamMap := make(map[string]interface{})
+							VoltstackClusterAzNodesLocalSubnetSubnetParamMap := make(map[string]interface{})
 							if !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsNull() && !AzNodesItem.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-								SubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
+								VoltstackClusterAzNodesLocalSubnetSubnetParamMap["ipv4"] = AzNodesItem.LocalSubnet.SubnetParam.Ipv4.ValueString()
 							}
-							LocalSubnetMap["subnet_param"] = SubnetParamMap
+							VoltstackClusterAzNodesLocalSubnetMap["subnet_param"] = VoltstackClusterAzNodesLocalSubnetSubnetParamMap
 						}
-						AzNodesItemMap["local_subnet"] = LocalSubnetMap
+						AzNodesItemMap["local_subnet"] = VoltstackClusterAzNodesLocalSubnetMap
 					}
 					AzNodesList = append(AzNodesList, AzNodesItemMap)
 				}
@@ -23805,17 +23805,17 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterMap["azure_certified_hw"] = data.VoltstackCluster.AzureCertifiedHw.ValueString()
 		}
 		if data.VoltstackCluster.DcClusterGroup != nil {
-			DcClusterGroupMap := make(map[string]interface{})
+			VoltstackClusterDcClusterGroupMap := make(map[string]interface{})
 			if !data.VoltstackCluster.DcClusterGroup.Name.IsNull() && !data.VoltstackCluster.DcClusterGroup.Name.IsUnknown() {
-				DcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
+				VoltstackClusterDcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
-				DcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
+				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				DcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
+				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
 			}
-			VoltstackClusterMap["dc_cluster_group"] = DcClusterGroupMap
+			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
 		if data.VoltstackCluster.DefaultStorage != nil {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
@@ -23824,7 +23824,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			VoltstackClusterGlobalNetworkListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -23834,58 +23834,58 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					VoltstackClusterGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			VoltstackClusterMap["global_network_list"] = GlobalNetworkListMap
+			VoltstackClusterMap["global_network_list"] = VoltstackClusterGlobalNetworkListMap
 		}
 		if data.VoltstackCluster.K8SCluster != nil {
-			K8SClusterMap := make(map[string]interface{})
+			VoltstackClusterK8SClusterMap := make(map[string]interface{})
 			if !data.VoltstackCluster.K8SCluster.Name.IsNull() && !data.VoltstackCluster.K8SCluster.Name.IsUnknown() {
-				K8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
+				VoltstackClusterK8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
-				K8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
+				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				K8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
+				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
-			VoltstackClusterMap["k8s_cluster"] = K8SClusterMap
+			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
 		if data.VoltstackCluster.NoDcClusterGroup != nil {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -23906,7 +23906,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			VoltstackClusterOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
 				diags := data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -23916,19 +23916,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -23954,31 +23954,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -23989,41 +23989,41 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					VoltstackClusterOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			VoltstackClusterMap["outside_static_routes"] = OutsideStaticRoutesMap
+			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
 		if data.VoltstackCluster.SmConnectionPublicIP != nil {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -24032,7 +24032,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
-			StorageClassListMap := make(map[string]interface{})
+			VoltstackClusterStorageClassListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
 				var StorageClassesElems []AzureVNETSiteVoltstackClusterStorageClassListStorageClassesModel
 				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
@@ -24049,27 +24049,27 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					StorageClassListMap["storage_classes"] = StorageClassesList
+					VoltstackClusterStorageClassListMap["storage_classes"] = StorageClassesList
 				}
 			}
-			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
+			VoltstackClusterMap["storage_class_list"] = VoltstackClusterStorageClassListMap
 		}
 		apiResource.Spec["voltstack_cluster"] = VoltstackClusterMap
 	}
 	if data.VoltstackClusterAr != nil {
 		VoltstackClusterArMap := make(map[string]interface{})
 		if data.VoltstackClusterAr.AcceleratedNetworking != nil {
-			AcceleratedNetworkingMap := make(map[string]interface{})
+			VoltstackClusterArAcceleratedNetworkingMap := make(map[string]interface{})
 			if data.VoltstackClusterAr.AcceleratedNetworking.DisableSpec != nil {
-				AcceleratedNetworkingMap["disable"] = map[string]interface{}{}
+				VoltstackClusterArAcceleratedNetworkingMap["disable"] = map[string]interface{}{}
 			}
 			if data.VoltstackClusterAr.AcceleratedNetworking.Enable != nil {
-				AcceleratedNetworkingMap["enable"] = map[string]interface{}{}
+				VoltstackClusterArAcceleratedNetworkingMap["enable"] = map[string]interface{}{}
 			}
-			VoltstackClusterArMap["accelerated_networking"] = AcceleratedNetworkingMap
+			VoltstackClusterArMap["accelerated_networking"] = VoltstackClusterArAcceleratedNetworkingMap
 		}
 		if data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			VoltstackClusterArActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []AzureVNETSiteVoltstackClusterArActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.VoltstackClusterAr.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -24089,13 +24089,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					VoltstackClusterArActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			VoltstackClusterArMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			VoltstackClusterArMap["active_enhanced_firewall_policies"] = VoltstackClusterArActiveEnhancedFirewallPoliciesMap
 		}
 		if data.VoltstackClusterAr.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			VoltstackClusterArActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackClusterAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []AzureVNETSiteVoltstackClusterArActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.VoltstackClusterAr.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -24115,13 +24115,13 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					VoltstackClusterArActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			VoltstackClusterArMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			VoltstackClusterArMap["active_forward_proxy_policies"] = VoltstackClusterArActiveForwardProxyPoliciesMap
 		}
 		if data.VoltstackClusterAr.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			VoltstackClusterArActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackClusterAr.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []AzureVNETSiteVoltstackClusterArActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.VoltstackClusterAr.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -24141,26 +24141,26 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					VoltstackClusterArActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			VoltstackClusterArMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			VoltstackClusterArMap["active_network_policies"] = VoltstackClusterArActiveNetworkPoliciesMap
 		}
 		if !data.VoltstackClusterAr.AzureCertifiedHw.IsNull() && !data.VoltstackClusterAr.AzureCertifiedHw.IsUnknown() {
 			VoltstackClusterArMap["azure_certified_hw"] = data.VoltstackClusterAr.AzureCertifiedHw.ValueString()
 		}
 		if data.VoltstackClusterAr.DcClusterGroup != nil {
-			DcClusterGroupMap := make(map[string]interface{})
+			VoltstackClusterArDcClusterGroupMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.DcClusterGroup.Name.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Name.IsUnknown() {
-				DcClusterGroupMap["name"] = data.VoltstackClusterAr.DcClusterGroup.Name.ValueString()
+				VoltstackClusterArDcClusterGroupMap["name"] = data.VoltstackClusterAr.DcClusterGroup.Name.ValueString()
 			}
 			if !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Namespace.IsUnknown() {
-				DcClusterGroupMap["namespace"] = data.VoltstackClusterAr.DcClusterGroup.Namespace.ValueString()
+				VoltstackClusterArDcClusterGroupMap["namespace"] = data.VoltstackClusterAr.DcClusterGroup.Namespace.ValueString()
 			}
 			if !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsNull() && !data.VoltstackClusterAr.DcClusterGroup.Tenant.IsUnknown() {
-				DcClusterGroupMap["tenant"] = data.VoltstackClusterAr.DcClusterGroup.Tenant.ValueString()
+				VoltstackClusterArDcClusterGroupMap["tenant"] = data.VoltstackClusterAr.DcClusterGroup.Tenant.ValueString()
 			}
-			VoltstackClusterArMap["dc_cluster_group"] = DcClusterGroupMap
+			VoltstackClusterArMap["dc_cluster_group"] = VoltstackClusterArDcClusterGroupMap
 		}
 		if data.VoltstackClusterAr.DefaultStorage != nil {
 			VoltstackClusterArMap["default_storage"] = map[string]interface{}{}
@@ -24169,7 +24169,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterArMap["forward_proxy_allow_all"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			VoltstackClusterArGlobalNetworkListMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackClusterAr.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []AzureVNETSiteVoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.VoltstackClusterAr.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -24179,58 +24179,58 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = VoltstackClusterArGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					VoltstackClusterArGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			VoltstackClusterArMap["global_network_list"] = GlobalNetworkListMap
+			VoltstackClusterArMap["global_network_list"] = VoltstackClusterArGlobalNetworkListMap
 		}
 		if data.VoltstackClusterAr.K8SCluster != nil {
-			K8SClusterMap := make(map[string]interface{})
+			VoltstackClusterArK8SClusterMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.K8SCluster.Name.IsNull() && !data.VoltstackClusterAr.K8SCluster.Name.IsUnknown() {
-				K8SClusterMap["name"] = data.VoltstackClusterAr.K8SCluster.Name.ValueString()
+				VoltstackClusterArK8SClusterMap["name"] = data.VoltstackClusterAr.K8SCluster.Name.ValueString()
 			}
 			if !data.VoltstackClusterAr.K8SCluster.Namespace.IsNull() && !data.VoltstackClusterAr.K8SCluster.Namespace.IsUnknown() {
-				K8SClusterMap["namespace"] = data.VoltstackClusterAr.K8SCluster.Namespace.ValueString()
+				VoltstackClusterArK8SClusterMap["namespace"] = data.VoltstackClusterAr.K8SCluster.Namespace.ValueString()
 			}
 			if !data.VoltstackClusterAr.K8SCluster.Tenant.IsNull() && !data.VoltstackClusterAr.K8SCluster.Tenant.IsUnknown() {
-				K8SClusterMap["tenant"] = data.VoltstackClusterAr.K8SCluster.Tenant.ValueString()
+				VoltstackClusterArK8SClusterMap["tenant"] = data.VoltstackClusterAr.K8SCluster.Tenant.ValueString()
 			}
-			VoltstackClusterArMap["k8s_cluster"] = K8SClusterMap
+			VoltstackClusterArMap["k8s_cluster"] = VoltstackClusterArK8SClusterMap
 		}
 		if data.VoltstackClusterAr.NoDcClusterGroup != nil {
 			VoltstackClusterArMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -24251,44 +24251,44 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterArMap["no_outside_static_routes"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.Node != nil {
-			NodeMap := make(map[string]interface{})
+			VoltstackClusterArNodeMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.Node.FaultDomain.IsNull() && !data.VoltstackClusterAr.Node.FaultDomain.IsUnknown() {
-				NodeMap["fault_domain"] = data.VoltstackClusterAr.Node.FaultDomain.ValueInt64()
+				VoltstackClusterArNodeMap["fault_domain"] = data.VoltstackClusterAr.Node.FaultDomain.ValueInt64()
 			}
 			if data.VoltstackClusterAr.Node.LocalSubnet != nil {
-				LocalSubnetMap := make(map[string]interface{})
+				VoltstackClusterArNodeLocalSubnetMap := make(map[string]interface{})
 				if data.VoltstackClusterAr.Node.LocalSubnet.Subnet != nil {
-					SubnetMap := make(map[string]interface{})
+					VoltstackClusterArNodeLocalSubnetSubnetMap := make(map[string]interface{})
 					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.IsUnknown() {
-						SubnetMap["subnet_name"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
+						VoltstackClusterArNodeLocalSubnetSubnetMap["subnet_name"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetName.ValueString()
 					}
 					if !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.IsUnknown() {
-						SubnetMap["subnet_resource_grp"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
+						VoltstackClusterArNodeLocalSubnetSubnetMap["subnet_resource_grp"] = data.VoltstackClusterAr.Node.LocalSubnet.Subnet.SubnetResourceGrp.ValueString()
 					}
 					if data.VoltstackClusterAr.Node.LocalSubnet.Subnet.VNETResourceGroup != nil {
-						SubnetMap["vnet_resource_group"] = map[string]interface{}{}
+						VoltstackClusterArNodeLocalSubnetSubnetMap["vnet_resource_group"] = map[string]interface{}{}
 					}
-					LocalSubnetMap["subnet"] = SubnetMap
+					VoltstackClusterArNodeLocalSubnetMap["subnet"] = VoltstackClusterArNodeLocalSubnetSubnetMap
 				}
 				if data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam != nil {
-					SubnetParamMap := make(map[string]interface{})
+					VoltstackClusterArNodeLocalSubnetSubnetParamMap := make(map[string]interface{})
 					if !data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.IsNull() && !data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.IsUnknown() {
-						SubnetParamMap["ipv4"] = data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
+						VoltstackClusterArNodeLocalSubnetSubnetParamMap["ipv4"] = data.VoltstackClusterAr.Node.LocalSubnet.SubnetParam.Ipv4.ValueString()
 					}
-					LocalSubnetMap["subnet_param"] = SubnetParamMap
+					VoltstackClusterArNodeLocalSubnetMap["subnet_param"] = VoltstackClusterArNodeLocalSubnetSubnetParamMap
 				}
-				NodeMap["local_subnet"] = LocalSubnetMap
+				VoltstackClusterArNodeMap["local_subnet"] = VoltstackClusterArNodeLocalSubnetMap
 			}
 			if !data.VoltstackClusterAr.Node.NodeNumber.IsNull() && !data.VoltstackClusterAr.Node.NodeNumber.IsUnknown() {
-				NodeMap["node_number"] = data.VoltstackClusterAr.Node.NodeNumber.ValueInt64()
+				VoltstackClusterArNodeMap["node_number"] = data.VoltstackClusterAr.Node.NodeNumber.ValueInt64()
 			}
 			if !data.VoltstackClusterAr.Node.UpdateDomain.IsNull() && !data.VoltstackClusterAr.Node.UpdateDomain.IsUnknown() {
-				NodeMap["update_domain"] = data.VoltstackClusterAr.Node.UpdateDomain.ValueInt64()
+				VoltstackClusterArNodeMap["update_domain"] = data.VoltstackClusterAr.Node.UpdateDomain.ValueInt64()
 			}
-			VoltstackClusterArMap["node"] = NodeMap
+			VoltstackClusterArMap["node"] = VoltstackClusterArNodeMap
 		}
 		if data.VoltstackClusterAr.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			VoltstackClusterArOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackClusterAr.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListModel
 				diags := data.VoltstackClusterAr.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -24298,19 +24298,19 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -24336,31 +24336,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []AzureVNETSiteVoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -24371,41 +24371,41 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = VoltstackClusterArOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					VoltstackClusterArOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			VoltstackClusterArMap["outside_static_routes"] = OutsideStaticRoutesMap
+			VoltstackClusterArMap["outside_static_routes"] = VoltstackClusterArOutsideStaticRoutesMap
 		}
 		if data.VoltstackClusterAr.SmConnectionPublicIP != nil {
 			VoltstackClusterArMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -24414,7 +24414,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			VoltstackClusterArMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackClusterAr.StorageClassList != nil {
-			StorageClassListMap := make(map[string]interface{})
+			VoltstackClusterArStorageClassListMap := make(map[string]interface{})
 			if !data.VoltstackClusterAr.StorageClassList.StorageClasses.IsNull() && !data.VoltstackClusterAr.StorageClassList.StorageClasses.IsUnknown() {
 				var StorageClassesElems []AzureVNETSiteVoltstackClusterArStorageClassListStorageClassesModel
 				diags := data.VoltstackClusterAr.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
@@ -24431,10 +24431,10 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					StorageClassListMap["storage_classes"] = StorageClassesList
+					VoltstackClusterArStorageClassListMap["storage_classes"] = StorageClassesList
 				}
 			}
-			VoltstackClusterArMap["storage_class_list"] = StorageClassListMap
+			VoltstackClusterArMap["storage_class_list"] = VoltstackClusterArStorageClassListMap
 		}
 		apiResource.Spec["voltstack_cluster_ar"] = VoltstackClusterArMap
 	}

@@ -739,17 +739,17 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			ResponseCacheMap["disable"] = map[string]interface{}{}
 		}
 		if data.ResponseCache.ResponseCacheParameters != nil {
-			ResponseCacheParametersMap := make(map[string]interface{})
+			ResponseCacheResponseCacheParametersMap := make(map[string]interface{})
 			if !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsNull() && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsUnknown() {
-				ResponseCacheParametersMap["cache_cidr_ipv4"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.ValueInt64()
+				ResponseCacheResponseCacheParametersMap["cache_cidr_ipv4"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.ValueInt64()
 			}
 			if !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsNull() && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsUnknown() {
-				ResponseCacheParametersMap["cache_cidr_ipv6"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.ValueInt64()
+				ResponseCacheResponseCacheParametersMap["cache_cidr_ipv6"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.ValueInt64()
 			}
 			if !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsNull() && !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsUnknown() {
-				ResponseCacheParametersMap["cache_ttl"] = data.ResponseCache.ResponseCacheParameters.CacheTTL.ValueInt64()
+				ResponseCacheResponseCacheParametersMap["cache_ttl"] = data.ResponseCache.ResponseCacheParameters.CacheTTL.ValueInt64()
 			}
-			ResponseCacheMap["response_cache_parameters"] = ResponseCacheParametersMap
+			ResponseCacheMap["response_cache_parameters"] = ResponseCacheResponseCacheParametersMap
 		}
 		createReq.Spec["response_cache"] = ResponseCacheMap
 	}
@@ -764,18 +764,18 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				for _, RulesItem := range RulesElems {
 					RulesItemMap := make(map[string]interface{})
 					if RulesItem.AsnList != nil {
-						AsnListMap := make(map[string]interface{})
+						RuleListRulesAsnListMap := make(map[string]interface{})
 						if !RulesItem.AsnList.AsNumbers.IsNull() && !RulesItem.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
 							if !diags.HasError() {
-								AsnListMap["as_numbers"] = AsNumbersItems
+								RuleListRulesAsnListMap["as_numbers"] = AsNumbersItems
 							}
 						}
-						RulesItemMap["asn_list"] = AsnListMap
+						RulesItemMap["asn_list"] = RuleListRulesAsnListMap
 					}
 					if RulesItem.AsnMatcher != nil {
-						AsnMatcherMap := make(map[string]interface{})
+						RuleListRulesAsnMatcherMap := make(map[string]interface{})
 						if !RulesItem.AsnMatcher.AsnSets.IsNull() && !RulesItem.AsnMatcher.AsnSets.IsUnknown() {
 							var AsnSetsElems []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
 							diags := RulesItem.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsElems, false)
@@ -801,53 +801,53 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									}
 									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 								}
-								AsnMatcherMap["asn_sets"] = AsnSetsList
+								RuleListRulesAsnMatcherMap["asn_sets"] = AsnSetsList
 							}
 						}
-						RulesItemMap["asn_matcher"] = AsnMatcherMap
+						RulesItemMap["asn_matcher"] = RuleListRulesAsnMatcherMap
 					}
 					if RulesItem.GeoLocationLabelSelector != nil {
-						GeoLocationLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesGeoLocationLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.GeoLocationLabelSelector.Expressions.IsNull() && !RulesItem.GeoLocationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.GeoLocationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								GeoLocationLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesGeoLocationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["geo_location_label_selector"] = GeoLocationLabelSelectorMap
+						RulesItemMap["geo_location_label_selector"] = RuleListRulesGeoLocationLabelSelectorMap
 					}
 					if RulesItem.GeoLocationSet != nil {
-						GeoLocationSetMap := make(map[string]interface{})
+						RuleListRulesGeoLocationSetMap := make(map[string]interface{})
 						if !RulesItem.GeoLocationSet.Name.IsNull() && !RulesItem.GeoLocationSet.Name.IsUnknown() {
-							GeoLocationSetMap["name"] = RulesItem.GeoLocationSet.Name.ValueString()
+							RuleListRulesGeoLocationSetMap["name"] = RulesItem.GeoLocationSet.Name.ValueString()
 						}
 						if !RulesItem.GeoLocationSet.Namespace.IsNull() && !RulesItem.GeoLocationSet.Namespace.IsUnknown() {
-							GeoLocationSetMap["namespace"] = RulesItem.GeoLocationSet.Namespace.ValueString()
+							RuleListRulesGeoLocationSetMap["namespace"] = RulesItem.GeoLocationSet.Namespace.ValueString()
 						}
 						if !RulesItem.GeoLocationSet.Tenant.IsNull() && !RulesItem.GeoLocationSet.Tenant.IsUnknown() {
-							GeoLocationSetMap["tenant"] = RulesItem.GeoLocationSet.Tenant.ValueString()
+							RuleListRulesGeoLocationSetMap["tenant"] = RulesItem.GeoLocationSet.Tenant.ValueString()
 						}
-						RulesItemMap["geo_location_set"] = GeoLocationSetMap
+						RulesItemMap["geo_location_set"] = RuleListRulesGeoLocationSetMap
 					}
 					if RulesItem.IPPrefixList != nil {
-						IPPrefixListMap := make(map[string]interface{})
+						RuleListRulesIPPrefixListMap := make(map[string]interface{})
 						if !RulesItem.IPPrefixList.InvertMatch.IsNull() && !RulesItem.IPPrefixList.InvertMatch.IsUnknown() {
-							IPPrefixListMap["invert_match"] = RulesItem.IPPrefixList.InvertMatch.ValueBool()
+							RuleListRulesIPPrefixListMap["invert_match"] = RulesItem.IPPrefixList.InvertMatch.ValueBool()
 						}
 						if !RulesItem.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
 							diags := RulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
 							if !diags.HasError() {
-								IPPrefixListMap["ip_prefixes"] = IPPrefixesItems
+								RuleListRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
 						}
-						RulesItemMap["ip_prefix_list"] = IPPrefixListMap
+						RulesItemMap["ip_prefix_list"] = RuleListRulesIPPrefixListMap
 					}
 					if RulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.IPPrefixSet.InvertMatcher.IsNull() && !RulesItem.IPPrefixSet.InvertMatcher.IsUnknown() {
-							IPPrefixSetMap["invert_matcher"] = RulesItem.IPPrefixSet.InvertMatcher.ValueBool()
+							RuleListRulesIPPrefixSetMap["invert_matcher"] = RulesItem.IPPrefixSet.InvertMatcher.ValueBool()
 						}
 						if !RulesItem.IPPrefixSet.PrefixSets.IsNull() && !RulesItem.IPPrefixSet.PrefixSets.IsUnknown() {
 							var PrefixSetsElems []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
@@ -874,23 +874,23 @@ func (r *DNSLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									}
 									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 								}
-								IPPrefixSetMap["prefix_sets"] = PrefixSetsList
+								RuleListRulesIPPrefixSetMap["prefix_sets"] = PrefixSetsList
 							}
 						}
-						RulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						RulesItemMap["ip_prefix_set"] = RuleListRulesIPPrefixSetMap
 					}
 					if RulesItem.Pool != nil {
-						PoolMap := make(map[string]interface{})
+						RuleListRulesPoolMap := make(map[string]interface{})
 						if !RulesItem.Pool.Name.IsNull() && !RulesItem.Pool.Name.IsUnknown() {
-							PoolMap["name"] = RulesItem.Pool.Name.ValueString()
+							RuleListRulesPoolMap["name"] = RulesItem.Pool.Name.ValueString()
 						}
 						if !RulesItem.Pool.Namespace.IsNull() && !RulesItem.Pool.Namespace.IsUnknown() {
-							PoolMap["namespace"] = RulesItem.Pool.Namespace.ValueString()
+							RuleListRulesPoolMap["namespace"] = RulesItem.Pool.Namespace.ValueString()
 						}
 						if !RulesItem.Pool.Tenant.IsNull() && !RulesItem.Pool.Tenant.IsUnknown() {
-							PoolMap["tenant"] = RulesItem.Pool.Tenant.ValueString()
+							RuleListRulesPoolMap["tenant"] = RulesItem.Pool.Tenant.ValueString()
 						}
-						RulesItemMap["pool"] = PoolMap
+						RulesItemMap["pool"] = RuleListRulesPoolMap
 					}
 					if !RulesItem.Score.IsNull() && !RulesItem.Score.IsUnknown() {
 						RulesItemMap["score"] = RulesItem.Score.ValueInt64()
@@ -1820,17 +1820,17 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			ResponseCacheMap["disable"] = map[string]interface{}{}
 		}
 		if data.ResponseCache.ResponseCacheParameters != nil {
-			ResponseCacheParametersMap := make(map[string]interface{})
+			ResponseCacheResponseCacheParametersMap := make(map[string]interface{})
 			if !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsNull() && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.IsUnknown() {
-				ResponseCacheParametersMap["cache_cidr_ipv4"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.ValueInt64()
+				ResponseCacheResponseCacheParametersMap["cache_cidr_ipv4"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv4.ValueInt64()
 			}
 			if !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsNull() && !data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.IsUnknown() {
-				ResponseCacheParametersMap["cache_cidr_ipv6"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.ValueInt64()
+				ResponseCacheResponseCacheParametersMap["cache_cidr_ipv6"] = data.ResponseCache.ResponseCacheParameters.CacheCIDRIpv6.ValueInt64()
 			}
 			if !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsNull() && !data.ResponseCache.ResponseCacheParameters.CacheTTL.IsUnknown() {
-				ResponseCacheParametersMap["cache_ttl"] = data.ResponseCache.ResponseCacheParameters.CacheTTL.ValueInt64()
+				ResponseCacheResponseCacheParametersMap["cache_ttl"] = data.ResponseCache.ResponseCacheParameters.CacheTTL.ValueInt64()
 			}
-			ResponseCacheMap["response_cache_parameters"] = ResponseCacheParametersMap
+			ResponseCacheMap["response_cache_parameters"] = ResponseCacheResponseCacheParametersMap
 		}
 		apiResource.Spec["response_cache"] = ResponseCacheMap
 	}
@@ -1845,18 +1845,18 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				for _, RulesItem := range RulesElems {
 					RulesItemMap := make(map[string]interface{})
 					if RulesItem.AsnList != nil {
-						AsnListMap := make(map[string]interface{})
+						RuleListRulesAsnListMap := make(map[string]interface{})
 						if !RulesItem.AsnList.AsNumbers.IsNull() && !RulesItem.AsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.AsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
 							if !diags.HasError() {
-								AsnListMap["as_numbers"] = AsNumbersItems
+								RuleListRulesAsnListMap["as_numbers"] = AsNumbersItems
 							}
 						}
-						RulesItemMap["asn_list"] = AsnListMap
+						RulesItemMap["asn_list"] = RuleListRulesAsnListMap
 					}
 					if RulesItem.AsnMatcher != nil {
-						AsnMatcherMap := make(map[string]interface{})
+						RuleListRulesAsnMatcherMap := make(map[string]interface{})
 						if !RulesItem.AsnMatcher.AsnSets.IsNull() && !RulesItem.AsnMatcher.AsnSets.IsUnknown() {
 							var AsnSetsElems []DNSLoadBalancerRuleListRulesAsnMatcherAsnSetsModel
 							diags := RulesItem.AsnMatcher.AsnSets.ElementsAs(ctx, &AsnSetsElems, false)
@@ -1882,53 +1882,53 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									}
 									AsnSetsList = append(AsnSetsList, AsnSetsItemMap)
 								}
-								AsnMatcherMap["asn_sets"] = AsnSetsList
+								RuleListRulesAsnMatcherMap["asn_sets"] = AsnSetsList
 							}
 						}
-						RulesItemMap["asn_matcher"] = AsnMatcherMap
+						RulesItemMap["asn_matcher"] = RuleListRulesAsnMatcherMap
 					}
 					if RulesItem.GeoLocationLabelSelector != nil {
-						GeoLocationLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesGeoLocationLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.GeoLocationLabelSelector.Expressions.IsNull() && !RulesItem.GeoLocationLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.GeoLocationLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								GeoLocationLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesGeoLocationLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["geo_location_label_selector"] = GeoLocationLabelSelectorMap
+						RulesItemMap["geo_location_label_selector"] = RuleListRulesGeoLocationLabelSelectorMap
 					}
 					if RulesItem.GeoLocationSet != nil {
-						GeoLocationSetMap := make(map[string]interface{})
+						RuleListRulesGeoLocationSetMap := make(map[string]interface{})
 						if !RulesItem.GeoLocationSet.Name.IsNull() && !RulesItem.GeoLocationSet.Name.IsUnknown() {
-							GeoLocationSetMap["name"] = RulesItem.GeoLocationSet.Name.ValueString()
+							RuleListRulesGeoLocationSetMap["name"] = RulesItem.GeoLocationSet.Name.ValueString()
 						}
 						if !RulesItem.GeoLocationSet.Namespace.IsNull() && !RulesItem.GeoLocationSet.Namespace.IsUnknown() {
-							GeoLocationSetMap["namespace"] = RulesItem.GeoLocationSet.Namespace.ValueString()
+							RuleListRulesGeoLocationSetMap["namespace"] = RulesItem.GeoLocationSet.Namespace.ValueString()
 						}
 						if !RulesItem.GeoLocationSet.Tenant.IsNull() && !RulesItem.GeoLocationSet.Tenant.IsUnknown() {
-							GeoLocationSetMap["tenant"] = RulesItem.GeoLocationSet.Tenant.ValueString()
+							RuleListRulesGeoLocationSetMap["tenant"] = RulesItem.GeoLocationSet.Tenant.ValueString()
 						}
-						RulesItemMap["geo_location_set"] = GeoLocationSetMap
+						RulesItemMap["geo_location_set"] = RuleListRulesGeoLocationSetMap
 					}
 					if RulesItem.IPPrefixList != nil {
-						IPPrefixListMap := make(map[string]interface{})
+						RuleListRulesIPPrefixListMap := make(map[string]interface{})
 						if !RulesItem.IPPrefixList.InvertMatch.IsNull() && !RulesItem.IPPrefixList.InvertMatch.IsUnknown() {
-							IPPrefixListMap["invert_match"] = RulesItem.IPPrefixList.InvertMatch.ValueBool()
+							RuleListRulesIPPrefixListMap["invert_match"] = RulesItem.IPPrefixList.InvertMatch.ValueBool()
 						}
 						if !RulesItem.IPPrefixList.IPPrefixes.IsNull() && !RulesItem.IPPrefixList.IPPrefixes.IsUnknown() {
 							var IPPrefixesItems []string
 							diags := RulesItem.IPPrefixList.IPPrefixes.ElementsAs(ctx, &IPPrefixesItems, false)
 							if !diags.HasError() {
-								IPPrefixListMap["ip_prefixes"] = IPPrefixesItems
+								RuleListRulesIPPrefixListMap["ip_prefixes"] = IPPrefixesItems
 							}
 						}
-						RulesItemMap["ip_prefix_list"] = IPPrefixListMap
+						RulesItemMap["ip_prefix_list"] = RuleListRulesIPPrefixListMap
 					}
 					if RulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.IPPrefixSet.InvertMatcher.IsNull() && !RulesItem.IPPrefixSet.InvertMatcher.IsUnknown() {
-							IPPrefixSetMap["invert_matcher"] = RulesItem.IPPrefixSet.InvertMatcher.ValueBool()
+							RuleListRulesIPPrefixSetMap["invert_matcher"] = RulesItem.IPPrefixSet.InvertMatcher.ValueBool()
 						}
 						if !RulesItem.IPPrefixSet.PrefixSets.IsNull() && !RulesItem.IPPrefixSet.PrefixSets.IsUnknown() {
 							var PrefixSetsElems []DNSLoadBalancerRuleListRulesIPPrefixSetPrefixSetsModel
@@ -1955,23 +1955,23 @@ func (r *DNSLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									}
 									PrefixSetsList = append(PrefixSetsList, PrefixSetsItemMap)
 								}
-								IPPrefixSetMap["prefix_sets"] = PrefixSetsList
+								RuleListRulesIPPrefixSetMap["prefix_sets"] = PrefixSetsList
 							}
 						}
-						RulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						RulesItemMap["ip_prefix_set"] = RuleListRulesIPPrefixSetMap
 					}
 					if RulesItem.Pool != nil {
-						PoolMap := make(map[string]interface{})
+						RuleListRulesPoolMap := make(map[string]interface{})
 						if !RulesItem.Pool.Name.IsNull() && !RulesItem.Pool.Name.IsUnknown() {
-							PoolMap["name"] = RulesItem.Pool.Name.ValueString()
+							RuleListRulesPoolMap["name"] = RulesItem.Pool.Name.ValueString()
 						}
 						if !RulesItem.Pool.Namespace.IsNull() && !RulesItem.Pool.Namespace.IsUnknown() {
-							PoolMap["namespace"] = RulesItem.Pool.Namespace.ValueString()
+							RuleListRulesPoolMap["namespace"] = RulesItem.Pool.Namespace.ValueString()
 						}
 						if !RulesItem.Pool.Tenant.IsNull() && !RulesItem.Pool.Tenant.IsUnknown() {
-							PoolMap["tenant"] = RulesItem.Pool.Tenant.ValueString()
+							RuleListRulesPoolMap["tenant"] = RulesItem.Pool.Tenant.ValueString()
 						}
-						RulesItemMap["pool"] = PoolMap
+						RulesItemMap["pool"] = RuleListRulesPoolMap
 					}
 					if !RulesItem.Score.IsNull() && !RulesItem.Score.IsUnknown() {
 						RulesItemMap["score"] = RulesItem.Score.ValueInt64()

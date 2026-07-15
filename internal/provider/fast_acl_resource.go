@@ -1167,9 +1167,9 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 				for _, FastACLRulesItem := range FastACLRulesElems {
 					FastACLRulesItemMap := make(map[string]interface{})
 					if FastACLRulesItem.Action != nil {
-						ActionMap := make(map[string]interface{})
+						REACLFastACLRulesActionMap := make(map[string]interface{})
 						if FastACLRulesItem.Action.PolicerAction != nil {
-							PolicerActionMap := make(map[string]interface{})
+							REACLFastACLRulesActionPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLREACLFastACLRulesActionPolicerActionRefModel
 								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1195,13 +1195,13 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									PolicerActionMap["ref"] = RefList
+									REACLFastACLRulesActionPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["policer_action"] = PolicerActionMap
+							REACLFastACLRulesActionMap["policer_action"] = REACLFastACLRulesActionPolicerActionMap
 						}
 						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
-							ProtocolPolicerActionMap := make(map[string]interface{})
+							REACLFastACLRulesActionProtocolPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
 								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1227,18 +1227,18 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									ProtocolPolicerActionMap["ref"] = RefList
+									REACLFastACLRulesActionProtocolPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+							REACLFastACLRulesActionMap["protocol_policer_action"] = REACLFastACLRulesActionProtocolPolicerActionMap
 						}
 						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
-							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+							REACLFastACLRulesActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
 						}
-						FastACLRulesItemMap["action"] = ActionMap
+						FastACLRulesItemMap["action"] = REACLFastACLRulesActionMap
 					}
 					if FastACLRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						REACLFastACLRulesIPPrefixSetMap := make(map[string]interface{})
 						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []FastACLREACLFastACLRulesIPPrefixSetRefModel
 							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1264,20 +1264,20 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								REACLFastACLRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						FastACLRulesItemMap["ip_prefix_set"] = REACLFastACLRulesIPPrefixSetMap
 					}
 					if FastACLRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						REACLFastACLRulesMetadataMap := make(map[string]interface{})
 						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+							REACLFastACLRulesMetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+							REACLFastACLRulesMetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
 						}
-						FastACLRulesItemMap["metadata"] = MetadataMap
+						FastACLRulesItemMap["metadata"] = REACLFastACLRulesMetadataMap
 					}
 					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
 						var PortElems []FastACLREACLFastACLRulesPortModel
@@ -1302,15 +1302,15 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						}
 					}
 					if FastACLRulesItem.Prefix != nil {
-						PrefixMap := make(map[string]interface{})
+						REACLFastACLRulesPrefixMap := make(map[string]interface{})
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
 							if !diags.HasError() {
-								PrefixMap["prefix"] = PrefixItems
+								REACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
 						}
-						FastACLRulesItemMap["prefix"] = PrefixMap
+						FastACLRulesItemMap["prefix"] = REACLFastACLRulesPrefixMap
 					}
 					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
@@ -1318,9 +1318,9 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 			}
 		}
 		if data.REACL.SelectedTenantVIP != nil {
-			SelectedTenantVIPMap := make(map[string]interface{})
+			REACLSelectedTenantVIPMap := make(map[string]interface{})
 			if !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsNull() && !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsUnknown() {
-				SelectedTenantVIPMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
+				REACLSelectedTenantVIPMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
 			}
 			if !data.REACL.SelectedTenantVIP.PublicIPRefs.IsNull() && !data.REACL.SelectedTenantVIP.PublicIPRefs.IsUnknown() {
 				var PublicIPRefsElems []FastACLREACLSelectedTenantVIPPublicIPRefsModel
@@ -1341,10 +1341,10 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						}
 						PublicIPRefsList = append(PublicIPRefsList, PublicIPRefsItemMap)
 					}
-					SelectedTenantVIPMap["public_ip_refs"] = PublicIPRefsList
+					REACLSelectedTenantVIPMap["public_ip_refs"] = PublicIPRefsList
 				}
 			}
-			REACLMap["selected_tenant_vip"] = SelectedTenantVIPMap
+			REACLMap["selected_tenant_vip"] = REACLSelectedTenantVIPMap
 		}
 		createReq.Spec["re_acl"] = REACLMap
 	}
@@ -1362,9 +1362,9 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 				for _, FastACLRulesItem := range FastACLRulesElems {
 					FastACLRulesItemMap := make(map[string]interface{})
 					if FastACLRulesItem.Action != nil {
-						ActionMap := make(map[string]interface{})
+						SiteACLFastACLRulesActionMap := make(map[string]interface{})
 						if FastACLRulesItem.Action.PolicerAction != nil {
-							PolicerActionMap := make(map[string]interface{})
+							SiteACLFastACLRulesActionPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
 								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1390,13 +1390,13 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									PolicerActionMap["ref"] = RefList
+									SiteACLFastACLRulesActionPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["policer_action"] = PolicerActionMap
+							SiteACLFastACLRulesActionMap["policer_action"] = SiteACLFastACLRulesActionPolicerActionMap
 						}
 						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
-							ProtocolPolicerActionMap := make(map[string]interface{})
+							SiteACLFastACLRulesActionProtocolPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
 								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1422,18 +1422,18 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									ProtocolPolicerActionMap["ref"] = RefList
+									SiteACLFastACLRulesActionProtocolPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+							SiteACLFastACLRulesActionMap["protocol_policer_action"] = SiteACLFastACLRulesActionProtocolPolicerActionMap
 						}
 						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
-							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+							SiteACLFastACLRulesActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
 						}
-						FastACLRulesItemMap["action"] = ActionMap
+						FastACLRulesItemMap["action"] = SiteACLFastACLRulesActionMap
 					}
 					if FastACLRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						SiteACLFastACLRulesIPPrefixSetMap := make(map[string]interface{})
 						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
 							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1459,20 +1459,20 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								SiteACLFastACLRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						FastACLRulesItemMap["ip_prefix_set"] = SiteACLFastACLRulesIPPrefixSetMap
 					}
 					if FastACLRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						SiteACLFastACLRulesMetadataMap := make(map[string]interface{})
 						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+							SiteACLFastACLRulesMetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+							SiteACLFastACLRulesMetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
 						}
-						FastACLRulesItemMap["metadata"] = MetadataMap
+						FastACLRulesItemMap["metadata"] = SiteACLFastACLRulesMetadataMap
 					}
 					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
 						var PortElems []FastACLSiteACLFastACLRulesPortModel
@@ -1497,15 +1497,15 @@ func (r *FastACLResource) Create(ctx context.Context, req resource.CreateRequest
 						}
 					}
 					if FastACLRulesItem.Prefix != nil {
-						PrefixMap := make(map[string]interface{})
+						SiteACLFastACLRulesPrefixMap := make(map[string]interface{})
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
 							if !diags.HasError() {
-								PrefixMap["prefix"] = PrefixItems
+								SiteACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
 						}
-						FastACLRulesItemMap["prefix"] = PrefixMap
+						FastACLRulesItemMap["prefix"] = SiteACLFastACLRulesPrefixMap
 					}
 					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
@@ -3207,9 +3207,9 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 				for _, FastACLRulesItem := range FastACLRulesElems {
 					FastACLRulesItemMap := make(map[string]interface{})
 					if FastACLRulesItem.Action != nil {
-						ActionMap := make(map[string]interface{})
+						REACLFastACLRulesActionMap := make(map[string]interface{})
 						if FastACLRulesItem.Action.PolicerAction != nil {
-							PolicerActionMap := make(map[string]interface{})
+							REACLFastACLRulesActionPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLREACLFastACLRulesActionPolicerActionRefModel
 								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3235,13 +3235,13 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									PolicerActionMap["ref"] = RefList
+									REACLFastACLRulesActionPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["policer_action"] = PolicerActionMap
+							REACLFastACLRulesActionMap["policer_action"] = REACLFastACLRulesActionPolicerActionMap
 						}
 						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
-							ProtocolPolicerActionMap := make(map[string]interface{})
+							REACLFastACLRulesActionProtocolPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLREACLFastACLRulesActionProtocolPolicerActionRefModel
 								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3267,18 +3267,18 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									ProtocolPolicerActionMap["ref"] = RefList
+									REACLFastACLRulesActionProtocolPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+							REACLFastACLRulesActionMap["protocol_policer_action"] = REACLFastACLRulesActionProtocolPolicerActionMap
 						}
 						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
-							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+							REACLFastACLRulesActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
 						}
-						FastACLRulesItemMap["action"] = ActionMap
+						FastACLRulesItemMap["action"] = REACLFastACLRulesActionMap
 					}
 					if FastACLRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						REACLFastACLRulesIPPrefixSetMap := make(map[string]interface{})
 						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []FastACLREACLFastACLRulesIPPrefixSetRefModel
 							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3304,20 +3304,20 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								REACLFastACLRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						FastACLRulesItemMap["ip_prefix_set"] = REACLFastACLRulesIPPrefixSetMap
 					}
 					if FastACLRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						REACLFastACLRulesMetadataMap := make(map[string]interface{})
 						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+							REACLFastACLRulesMetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+							REACLFastACLRulesMetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
 						}
-						FastACLRulesItemMap["metadata"] = MetadataMap
+						FastACLRulesItemMap["metadata"] = REACLFastACLRulesMetadataMap
 					}
 					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
 						var PortElems []FastACLREACLFastACLRulesPortModel
@@ -3342,15 +3342,15 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						}
 					}
 					if FastACLRulesItem.Prefix != nil {
-						PrefixMap := make(map[string]interface{})
+						REACLFastACLRulesPrefixMap := make(map[string]interface{})
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
 							if !diags.HasError() {
-								PrefixMap["prefix"] = PrefixItems
+								REACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
 						}
-						FastACLRulesItemMap["prefix"] = PrefixMap
+						FastACLRulesItemMap["prefix"] = REACLFastACLRulesPrefixMap
 					}
 					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}
@@ -3358,9 +3358,9 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 			}
 		}
 		if data.REACL.SelectedTenantVIP != nil {
-			SelectedTenantVIPMap := make(map[string]interface{})
+			REACLSelectedTenantVIPMap := make(map[string]interface{})
 			if !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsNull() && !data.REACL.SelectedTenantVIP.DefaultTenantVIP.IsUnknown() {
-				SelectedTenantVIPMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
+				REACLSelectedTenantVIPMap["default_tenant_vip"] = data.REACL.SelectedTenantVIP.DefaultTenantVIP.ValueBool()
 			}
 			if !data.REACL.SelectedTenantVIP.PublicIPRefs.IsNull() && !data.REACL.SelectedTenantVIP.PublicIPRefs.IsUnknown() {
 				var PublicIPRefsElems []FastACLREACLSelectedTenantVIPPublicIPRefsModel
@@ -3381,10 +3381,10 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						}
 						PublicIPRefsList = append(PublicIPRefsList, PublicIPRefsItemMap)
 					}
-					SelectedTenantVIPMap["public_ip_refs"] = PublicIPRefsList
+					REACLSelectedTenantVIPMap["public_ip_refs"] = PublicIPRefsList
 				}
 			}
-			REACLMap["selected_tenant_vip"] = SelectedTenantVIPMap
+			REACLMap["selected_tenant_vip"] = REACLSelectedTenantVIPMap
 		}
 		apiResource.Spec["re_acl"] = REACLMap
 	}
@@ -3402,9 +3402,9 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 				for _, FastACLRulesItem := range FastACLRulesElems {
 					FastACLRulesItemMap := make(map[string]interface{})
 					if FastACLRulesItem.Action != nil {
-						ActionMap := make(map[string]interface{})
+						SiteACLFastACLRulesActionMap := make(map[string]interface{})
 						if FastACLRulesItem.Action.PolicerAction != nil {
-							PolicerActionMap := make(map[string]interface{})
+							SiteACLFastACLRulesActionPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.PolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.PolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLSiteACLFastACLRulesActionPolicerActionRefModel
 								diags := FastACLRulesItem.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3430,13 +3430,13 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									PolicerActionMap["ref"] = RefList
+									SiteACLFastACLRulesActionPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["policer_action"] = PolicerActionMap
+							SiteACLFastACLRulesActionMap["policer_action"] = SiteACLFastACLRulesActionPolicerActionMap
 						}
 						if FastACLRulesItem.Action.ProtocolPolicerAction != nil {
-							ProtocolPolicerActionMap := make(map[string]interface{})
+							SiteACLFastACLRulesActionProtocolPolicerActionMap := make(map[string]interface{})
 							if !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsNull() && !FastACLRulesItem.Action.ProtocolPolicerAction.Ref.IsUnknown() {
 								var RefElems []FastACLSiteACLFastACLRulesActionProtocolPolicerActionRefModel
 								diags := FastACLRulesItem.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3462,18 +3462,18 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 										}
 										RefList = append(RefList, RefItemMap)
 									}
-									ProtocolPolicerActionMap["ref"] = RefList
+									SiteACLFastACLRulesActionProtocolPolicerActionMap["ref"] = RefList
 								}
 							}
-							ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+							SiteACLFastACLRulesActionMap["protocol_policer_action"] = SiteACLFastACLRulesActionProtocolPolicerActionMap
 						}
 						if !FastACLRulesItem.Action.SimpleAction.IsNull() && !FastACLRulesItem.Action.SimpleAction.IsUnknown() {
-							ActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
+							SiteACLFastACLRulesActionMap["simple_action"] = FastACLRulesItem.Action.SimpleAction.ValueString()
 						}
-						FastACLRulesItemMap["action"] = ActionMap
+						FastACLRulesItemMap["action"] = SiteACLFastACLRulesActionMap
 					}
 					if FastACLRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						SiteACLFastACLRulesIPPrefixSetMap := make(map[string]interface{})
 						if !FastACLRulesItem.IPPrefixSet.Ref.IsNull() && !FastACLRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []FastACLSiteACLFastACLRulesIPPrefixSetRefModel
 							diags := FastACLRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3499,20 +3499,20 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								SiteACLFastACLRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						FastACLRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						FastACLRulesItemMap["ip_prefix_set"] = SiteACLFastACLRulesIPPrefixSetMap
 					}
 					if FastACLRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						SiteACLFastACLRulesMetadataMap := make(map[string]interface{})
 						if !FastACLRulesItem.Metadata.DescriptionSpec.IsNull() && !FastACLRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
+							SiteACLFastACLRulesMetadataMap["description"] = FastACLRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !FastACLRulesItem.Metadata.Name.IsNull() && !FastACLRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
+							SiteACLFastACLRulesMetadataMap["name"] = FastACLRulesItem.Metadata.Name.ValueString()
 						}
-						FastACLRulesItemMap["metadata"] = MetadataMap
+						FastACLRulesItemMap["metadata"] = SiteACLFastACLRulesMetadataMap
 					}
 					if !FastACLRulesItem.Port.IsNull() && !FastACLRulesItem.Port.IsUnknown() {
 						var PortElems []FastACLSiteACLFastACLRulesPortModel
@@ -3537,15 +3537,15 @@ func (r *FastACLResource) Update(ctx context.Context, req resource.UpdateRequest
 						}
 					}
 					if FastACLRulesItem.Prefix != nil {
-						PrefixMap := make(map[string]interface{})
+						SiteACLFastACLRulesPrefixMap := make(map[string]interface{})
 						if !FastACLRulesItem.Prefix.Prefix.IsNull() && !FastACLRulesItem.Prefix.Prefix.IsUnknown() {
 							var PrefixItems []string
 							diags := FastACLRulesItem.Prefix.Prefix.ElementsAs(ctx, &PrefixItems, false)
 							if !diags.HasError() {
-								PrefixMap["prefix"] = PrefixItems
+								SiteACLFastACLRulesPrefixMap["prefix"] = PrefixItems
 							}
 						}
-						FastACLRulesItemMap["prefix"] = PrefixMap
+						FastACLRulesItemMap["prefix"] = SiteACLFastACLRulesPrefixMap
 					}
 					FastACLRulesList = append(FastACLRulesList, FastACLRulesItemMap)
 				}

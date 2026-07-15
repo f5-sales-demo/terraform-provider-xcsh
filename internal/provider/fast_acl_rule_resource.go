@@ -564,7 +564,7 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 	if data.Action != nil {
 		ActionMap := make(map[string]interface{})
 		if data.Action.PolicerAction != nil {
-			PolicerActionMap := make(map[string]interface{})
+			ActionPolicerActionMap := make(map[string]interface{})
 			if !data.Action.PolicerAction.Ref.IsNull() && !data.Action.PolicerAction.Ref.IsUnknown() {
 				var RefElems []FastACLRuleActionPolicerActionRefModel
 				diags := data.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -590,13 +590,13 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					PolicerActionMap["ref"] = RefList
+					ActionPolicerActionMap["ref"] = RefList
 				}
 			}
-			ActionMap["policer_action"] = PolicerActionMap
+			ActionMap["policer_action"] = ActionPolicerActionMap
 		}
 		if data.Action.ProtocolPolicerAction != nil {
-			ProtocolPolicerActionMap := make(map[string]interface{})
+			ActionProtocolPolicerActionMap := make(map[string]interface{})
 			if !data.Action.ProtocolPolicerAction.Ref.IsNull() && !data.Action.ProtocolPolicerAction.Ref.IsUnknown() {
 				var RefElems []FastACLRuleActionProtocolPolicerActionRefModel
 				diags := data.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -622,10 +622,10 @@ func (r *FastACLRuleResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					ProtocolPolicerActionMap["ref"] = RefList
+					ActionProtocolPolicerActionMap["ref"] = RefList
 				}
 			}
-			ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+			ActionMap["protocol_policer_action"] = ActionProtocolPolicerActionMap
 		}
 		if !data.Action.SimpleAction.IsNull() && !data.Action.SimpleAction.IsUnknown() {
 			ActionMap["simple_action"] = data.Action.SimpleAction.ValueString()
@@ -1361,7 +1361,7 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.Action != nil {
 		ActionMap := make(map[string]interface{})
 		if data.Action.PolicerAction != nil {
-			PolicerActionMap := make(map[string]interface{})
+			ActionPolicerActionMap := make(map[string]interface{})
 			if !data.Action.PolicerAction.Ref.IsNull() && !data.Action.PolicerAction.Ref.IsUnknown() {
 				var RefElems []FastACLRuleActionPolicerActionRefModel
 				diags := data.Action.PolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1387,13 +1387,13 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					PolicerActionMap["ref"] = RefList
+					ActionPolicerActionMap["ref"] = RefList
 				}
 			}
-			ActionMap["policer_action"] = PolicerActionMap
+			ActionMap["policer_action"] = ActionPolicerActionMap
 		}
 		if data.Action.ProtocolPolicerAction != nil {
-			ProtocolPolicerActionMap := make(map[string]interface{})
+			ActionProtocolPolicerActionMap := make(map[string]interface{})
 			if !data.Action.ProtocolPolicerAction.Ref.IsNull() && !data.Action.ProtocolPolicerAction.Ref.IsUnknown() {
 				var RefElems []FastACLRuleActionProtocolPolicerActionRefModel
 				diags := data.Action.ProtocolPolicerAction.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1419,10 +1419,10 @@ func (r *FastACLRuleResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					ProtocolPolicerActionMap["ref"] = RefList
+					ActionProtocolPolicerActionMap["ref"] = RefList
 				}
 			}
-			ActionMap["protocol_policer_action"] = ProtocolPolicerActionMap
+			ActionMap["protocol_policer_action"] = ActionProtocolPolicerActionMap
 		}
 		if !data.Action.SimpleAction.IsNull() && !data.Action.SimpleAction.IsUnknown() {
 			ActionMap["simple_action"] = data.Action.SimpleAction.ValueString()

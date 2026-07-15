@@ -777,34 +777,34 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 			CacheRulesMap["cache_bypass"] = map[string]interface{}{}
 		}
 		if data.CacheRules.EligibleForCache != nil {
-			EligibleForCacheMap := make(map[string]interface{})
+			CacheRulesEligibleForCacheMap := make(map[string]interface{})
 			if data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil {
-				SchemeProxyHostRequestURIMap := make(map[string]interface{})
+				CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap := make(map[string]interface{})
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsUnknown() {
-					SchemeProxyHostRequestURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.ValueBool()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.IsUnknown() {
-					SchemeProxyHostRequestURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.ValueString()
+					CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.ValueString()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsUnknown() {
-					SchemeProxyHostRequestURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.ValueBool()
 				}
-				EligibleForCacheMap["scheme_proxy_host_request_uri"] = SchemeProxyHostRequestURIMap
+				CacheRulesEligibleForCacheMap["scheme_proxy_host_request_uri"] = CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap
 			}
 			if data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil {
-				SchemeProxyHostURIMap := make(map[string]interface{})
+				CacheRulesEligibleForCacheSchemeProxyHostURIMap := make(map[string]interface{})
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsUnknown() {
-					SchemeProxyHostURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.ValueBool()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.IsUnknown() {
-					SchemeProxyHostURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.ValueString()
+					CacheRulesEligibleForCacheSchemeProxyHostURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.ValueString()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsUnknown() {
-					SchemeProxyHostURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.ValueBool()
 				}
-				EligibleForCacheMap["scheme_proxy_host_uri"] = SchemeProxyHostURIMap
+				CacheRulesEligibleForCacheMap["scheme_proxy_host_uri"] = CacheRulesEligibleForCacheSchemeProxyHostURIMap
 			}
-			CacheRulesMap["eligible_for_cache"] = EligibleForCacheMap
+			CacheRulesMap["eligible_for_cache"] = CacheRulesEligibleForCacheMap
 		}
 		if !data.CacheRules.RuleExpressionList.IsNull() && !data.CacheRules.RuleExpressionList.IsUnknown() {
 			var RuleExpressionListElems []CDNCacheRuleCacheRulesRuleExpressionListModel
@@ -834,35 +834,35 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 												CacheHeadersItemMap["name"] = CacheHeadersItem.Name.ValueString()
 											}
 											if CacheHeadersItem.Operator != nil {
-												OperatorMap := make(map[string]interface{})
+												CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap := make(map[string]interface{})
 												if !CacheHeadersItem.Operator.Contains.IsNull() && !CacheHeadersItem.Operator.Contains.IsUnknown() {
-													OperatorMap["Contains"] = CacheHeadersItem.Operator.Contains.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Contains"] = CacheHeadersItem.Operator.Contains.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotcontain.IsNull() && !CacheHeadersItem.Operator.Doesnotcontain.IsUnknown() {
-													OperatorMap["DoesNotContain"] = CacheHeadersItem.Operator.Doesnotcontain.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotContain"] = CacheHeadersItem.Operator.Doesnotcontain.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotendwith.IsNull() && !CacheHeadersItem.Operator.Doesnotendwith.IsUnknown() {
-													OperatorMap["DoesNotEndWith"] = CacheHeadersItem.Operator.Doesnotendwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotEndWith"] = CacheHeadersItem.Operator.Doesnotendwith.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotequal.IsNull() && !CacheHeadersItem.Operator.Doesnotequal.IsUnknown() {
-													OperatorMap["DoesNotEqual"] = CacheHeadersItem.Operator.Doesnotequal.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotEqual"] = CacheHeadersItem.Operator.Doesnotequal.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotstartwith.IsNull() && !CacheHeadersItem.Operator.Doesnotstartwith.IsUnknown() {
-													OperatorMap["DoesNotStartWith"] = CacheHeadersItem.Operator.Doesnotstartwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotStartWith"] = CacheHeadersItem.Operator.Doesnotstartwith.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Endswith.IsNull() && !CacheHeadersItem.Operator.Endswith.IsUnknown() {
-													OperatorMap["Endswith"] = CacheHeadersItem.Operator.Endswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Endswith"] = CacheHeadersItem.Operator.Endswith.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Equals.IsNull() && !CacheHeadersItem.Operator.Equals.IsUnknown() {
-													OperatorMap["Equals"] = CacheHeadersItem.Operator.Equals.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Equals"] = CacheHeadersItem.Operator.Equals.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Matchregex.IsNull() && !CacheHeadersItem.Operator.Matchregex.IsUnknown() {
-													OperatorMap["MatchRegex"] = CacheHeadersItem.Operator.Matchregex.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["MatchRegex"] = CacheHeadersItem.Operator.Matchregex.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Startswith.IsNull() && !CacheHeadersItem.Operator.Startswith.IsUnknown() {
-													OperatorMap["Startswith"] = CacheHeadersItem.Operator.Startswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Startswith"] = CacheHeadersItem.Operator.Startswith.ValueString()
 												}
-												CacheHeadersItemMap["operator"] = OperatorMap
+												CacheHeadersItemMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap
 											}
 											CacheHeadersList = append(CacheHeadersList, CacheHeadersItemMap)
 										}
@@ -881,35 +881,35 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 												CookieMatcherItemMap["name"] = CookieMatcherItem.Name.ValueString()
 											}
 											if CookieMatcherItem.Operator != nil {
-												OperatorMap := make(map[string]interface{})
+												CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap := make(map[string]interface{})
 												if !CookieMatcherItem.Operator.Contains.IsNull() && !CookieMatcherItem.Operator.Contains.IsUnknown() {
-													OperatorMap["Contains"] = CookieMatcherItem.Operator.Contains.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Contains"] = CookieMatcherItem.Operator.Contains.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotcontain.IsNull() && !CookieMatcherItem.Operator.Doesnotcontain.IsUnknown() {
-													OperatorMap["DoesNotContain"] = CookieMatcherItem.Operator.Doesnotcontain.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotContain"] = CookieMatcherItem.Operator.Doesnotcontain.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotendwith.IsNull() && !CookieMatcherItem.Operator.Doesnotendwith.IsUnknown() {
-													OperatorMap["DoesNotEndWith"] = CookieMatcherItem.Operator.Doesnotendwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotEndWith"] = CookieMatcherItem.Operator.Doesnotendwith.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotequal.IsNull() && !CookieMatcherItem.Operator.Doesnotequal.IsUnknown() {
-													OperatorMap["DoesNotEqual"] = CookieMatcherItem.Operator.Doesnotequal.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotEqual"] = CookieMatcherItem.Operator.Doesnotequal.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotstartwith.IsNull() && !CookieMatcherItem.Operator.Doesnotstartwith.IsUnknown() {
-													OperatorMap["DoesNotStartWith"] = CookieMatcherItem.Operator.Doesnotstartwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotStartWith"] = CookieMatcherItem.Operator.Doesnotstartwith.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Endswith.IsNull() && !CookieMatcherItem.Operator.Endswith.IsUnknown() {
-													OperatorMap["Endswith"] = CookieMatcherItem.Operator.Endswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Endswith"] = CookieMatcherItem.Operator.Endswith.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Equals.IsNull() && !CookieMatcherItem.Operator.Equals.IsUnknown() {
-													OperatorMap["Equals"] = CookieMatcherItem.Operator.Equals.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Equals"] = CookieMatcherItem.Operator.Equals.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Matchregex.IsNull() && !CookieMatcherItem.Operator.Matchregex.IsUnknown() {
-													OperatorMap["MatchRegex"] = CookieMatcherItem.Operator.Matchregex.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["MatchRegex"] = CookieMatcherItem.Operator.Matchregex.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Startswith.IsNull() && !CookieMatcherItem.Operator.Startswith.IsUnknown() {
-													OperatorMap["Startswith"] = CookieMatcherItem.Operator.Startswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Startswith"] = CookieMatcherItem.Operator.Startswith.ValueString()
 												}
-												CookieMatcherItemMap["operator"] = OperatorMap
+												CookieMatcherItemMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap
 											}
 											CookieMatcherList = append(CookieMatcherList, CookieMatcherItemMap)
 										}
@@ -917,39 +917,39 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 									}
 								}
 								if CacheRuleExpressionItem.PathMatch != nil {
-									PathMatchMap := make(map[string]interface{})
+									CacheRulesRuleExpressionListCacheRuleExpressionPathMatchMap := make(map[string]interface{})
 									if CacheRuleExpressionItem.PathMatch.Operator != nil {
-										OperatorMap := make(map[string]interface{})
+										CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap := make(map[string]interface{})
 										if !CacheRuleExpressionItem.PathMatch.Operator.Contains.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Contains.IsUnknown() {
-											OperatorMap["Contains"] = CacheRuleExpressionItem.PathMatch.Operator.Contains.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Contains"] = CacheRuleExpressionItem.PathMatch.Operator.Contains.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.IsUnknown() {
-											OperatorMap["DoesNotContain"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotContain"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.IsUnknown() {
-											OperatorMap["DoesNotEndWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotEndWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.IsUnknown() {
-											OperatorMap["DoesNotEqual"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotEqual"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.IsUnknown() {
-											OperatorMap["DoesNotStartWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotStartWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Endswith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Endswith.IsUnknown() {
-											OperatorMap["Endswith"] = CacheRuleExpressionItem.PathMatch.Operator.Endswith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Endswith"] = CacheRuleExpressionItem.PathMatch.Operator.Endswith.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Equals.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Equals.IsUnknown() {
-											OperatorMap["Equals"] = CacheRuleExpressionItem.PathMatch.Operator.Equals.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Equals"] = CacheRuleExpressionItem.PathMatch.Operator.Equals.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Matchregex.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Matchregex.IsUnknown() {
-											OperatorMap["MatchRegex"] = CacheRuleExpressionItem.PathMatch.Operator.Matchregex.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["MatchRegex"] = CacheRuleExpressionItem.PathMatch.Operator.Matchregex.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Startswith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Startswith.IsUnknown() {
-											OperatorMap["Startswith"] = CacheRuleExpressionItem.PathMatch.Operator.Startswith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Startswith"] = CacheRuleExpressionItem.PathMatch.Operator.Startswith.ValueString()
 										}
-										PathMatchMap["operator"] = OperatorMap
+										CacheRulesRuleExpressionListCacheRuleExpressionPathMatchMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap
 									}
-									CacheRuleExpressionItemMap["path_match"] = PathMatchMap
+									CacheRuleExpressionItemMap["path_match"] = CacheRulesRuleExpressionListCacheRuleExpressionPathMatchMap
 								}
 								if !CacheRuleExpressionItem.QueryParameters.IsNull() && !CacheRuleExpressionItem.QueryParameters.IsUnknown() {
 									var QueryParametersElems []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
@@ -963,35 +963,35 @@ func (r *CDNCacheRuleResource) Create(ctx context.Context, req resource.CreateRe
 												QueryParametersItemMap["key"] = QueryParametersItem.Key.ValueString()
 											}
 											if QueryParametersItem.Operator != nil {
-												OperatorMap := make(map[string]interface{})
+												CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap := make(map[string]interface{})
 												if !QueryParametersItem.Operator.Contains.IsNull() && !QueryParametersItem.Operator.Contains.IsUnknown() {
-													OperatorMap["Contains"] = QueryParametersItem.Operator.Contains.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Contains"] = QueryParametersItem.Operator.Contains.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotcontain.IsNull() && !QueryParametersItem.Operator.Doesnotcontain.IsUnknown() {
-													OperatorMap["DoesNotContain"] = QueryParametersItem.Operator.Doesnotcontain.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotContain"] = QueryParametersItem.Operator.Doesnotcontain.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotendwith.IsNull() && !QueryParametersItem.Operator.Doesnotendwith.IsUnknown() {
-													OperatorMap["DoesNotEndWith"] = QueryParametersItem.Operator.Doesnotendwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotEndWith"] = QueryParametersItem.Operator.Doesnotendwith.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotequal.IsNull() && !QueryParametersItem.Operator.Doesnotequal.IsUnknown() {
-													OperatorMap["DoesNotEqual"] = QueryParametersItem.Operator.Doesnotequal.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotEqual"] = QueryParametersItem.Operator.Doesnotequal.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotstartwith.IsNull() && !QueryParametersItem.Operator.Doesnotstartwith.IsUnknown() {
-													OperatorMap["DoesNotStartWith"] = QueryParametersItem.Operator.Doesnotstartwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotStartWith"] = QueryParametersItem.Operator.Doesnotstartwith.ValueString()
 												}
 												if !QueryParametersItem.Operator.Endswith.IsNull() && !QueryParametersItem.Operator.Endswith.IsUnknown() {
-													OperatorMap["Endswith"] = QueryParametersItem.Operator.Endswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Endswith"] = QueryParametersItem.Operator.Endswith.ValueString()
 												}
 												if !QueryParametersItem.Operator.Equals.IsNull() && !QueryParametersItem.Operator.Equals.IsUnknown() {
-													OperatorMap["Equals"] = QueryParametersItem.Operator.Equals.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Equals"] = QueryParametersItem.Operator.Equals.ValueString()
 												}
 												if !QueryParametersItem.Operator.Matchregex.IsNull() && !QueryParametersItem.Operator.Matchregex.IsUnknown() {
-													OperatorMap["MatchRegex"] = QueryParametersItem.Operator.Matchregex.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["MatchRegex"] = QueryParametersItem.Operator.Matchregex.ValueString()
 												}
 												if !QueryParametersItem.Operator.Startswith.IsNull() && !QueryParametersItem.Operator.Startswith.IsUnknown() {
-													OperatorMap["Startswith"] = QueryParametersItem.Operator.Startswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Startswith"] = QueryParametersItem.Operator.Startswith.ValueString()
 												}
-												QueryParametersItemMap["operator"] = OperatorMap
+												QueryParametersItemMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap
 											}
 											QueryParametersList = append(QueryParametersList, QueryParametersItemMap)
 										}
@@ -2157,34 +2157,34 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 			CacheRulesMap["cache_bypass"] = map[string]interface{}{}
 		}
 		if data.CacheRules.EligibleForCache != nil {
-			EligibleForCacheMap := make(map[string]interface{})
+			CacheRulesEligibleForCacheMap := make(map[string]interface{})
 			if data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI != nil {
-				SchemeProxyHostRequestURIMap := make(map[string]interface{})
+				CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap := make(map[string]interface{})
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.IsUnknown() {
-					SchemeProxyHostRequestURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheOverride.ValueBool()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.IsUnknown() {
-					SchemeProxyHostRequestURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.ValueString()
+					CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.CacheTTL.ValueString()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.IsUnknown() {
-					SchemeProxyHostRequestURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostRequestURI.IgnoreResponseCookie.ValueBool()
 				}
-				EligibleForCacheMap["scheme_proxy_host_request_uri"] = SchemeProxyHostRequestURIMap
+				CacheRulesEligibleForCacheMap["scheme_proxy_host_request_uri"] = CacheRulesEligibleForCacheSchemeProxyHostRequestURIMap
 			}
 			if data.CacheRules.EligibleForCache.SchemeProxyHostURI != nil {
-				SchemeProxyHostURIMap := make(map[string]interface{})
+				CacheRulesEligibleForCacheSchemeProxyHostURIMap := make(map[string]interface{})
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.IsUnknown() {
-					SchemeProxyHostURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostURIMap["cache_override"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheOverride.ValueBool()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.IsUnknown() {
-					SchemeProxyHostURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.ValueString()
+					CacheRulesEligibleForCacheSchemeProxyHostURIMap["cache_ttl"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.CacheTTL.ValueString()
 				}
 				if !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsNull() && !data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.IsUnknown() {
-					SchemeProxyHostURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.ValueBool()
+					CacheRulesEligibleForCacheSchemeProxyHostURIMap["ignore_response_cookie"] = data.CacheRules.EligibleForCache.SchemeProxyHostURI.IgnoreResponseCookie.ValueBool()
 				}
-				EligibleForCacheMap["scheme_proxy_host_uri"] = SchemeProxyHostURIMap
+				CacheRulesEligibleForCacheMap["scheme_proxy_host_uri"] = CacheRulesEligibleForCacheSchemeProxyHostURIMap
 			}
-			CacheRulesMap["eligible_for_cache"] = EligibleForCacheMap
+			CacheRulesMap["eligible_for_cache"] = CacheRulesEligibleForCacheMap
 		}
 		if !data.CacheRules.RuleExpressionList.IsNull() && !data.CacheRules.RuleExpressionList.IsUnknown() {
 			var RuleExpressionListElems []CDNCacheRuleCacheRulesRuleExpressionListModel
@@ -2214,35 +2214,35 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 												CacheHeadersItemMap["name"] = CacheHeadersItem.Name.ValueString()
 											}
 											if CacheHeadersItem.Operator != nil {
-												OperatorMap := make(map[string]interface{})
+												CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap := make(map[string]interface{})
 												if !CacheHeadersItem.Operator.Contains.IsNull() && !CacheHeadersItem.Operator.Contains.IsUnknown() {
-													OperatorMap["Contains"] = CacheHeadersItem.Operator.Contains.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Contains"] = CacheHeadersItem.Operator.Contains.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotcontain.IsNull() && !CacheHeadersItem.Operator.Doesnotcontain.IsUnknown() {
-													OperatorMap["DoesNotContain"] = CacheHeadersItem.Operator.Doesnotcontain.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotContain"] = CacheHeadersItem.Operator.Doesnotcontain.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotendwith.IsNull() && !CacheHeadersItem.Operator.Doesnotendwith.IsUnknown() {
-													OperatorMap["DoesNotEndWith"] = CacheHeadersItem.Operator.Doesnotendwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotEndWith"] = CacheHeadersItem.Operator.Doesnotendwith.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotequal.IsNull() && !CacheHeadersItem.Operator.Doesnotequal.IsUnknown() {
-													OperatorMap["DoesNotEqual"] = CacheHeadersItem.Operator.Doesnotequal.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotEqual"] = CacheHeadersItem.Operator.Doesnotequal.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Doesnotstartwith.IsNull() && !CacheHeadersItem.Operator.Doesnotstartwith.IsUnknown() {
-													OperatorMap["DoesNotStartWith"] = CacheHeadersItem.Operator.Doesnotstartwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["DoesNotStartWith"] = CacheHeadersItem.Operator.Doesnotstartwith.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Endswith.IsNull() && !CacheHeadersItem.Operator.Endswith.IsUnknown() {
-													OperatorMap["Endswith"] = CacheHeadersItem.Operator.Endswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Endswith"] = CacheHeadersItem.Operator.Endswith.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Equals.IsNull() && !CacheHeadersItem.Operator.Equals.IsUnknown() {
-													OperatorMap["Equals"] = CacheHeadersItem.Operator.Equals.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Equals"] = CacheHeadersItem.Operator.Equals.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Matchregex.IsNull() && !CacheHeadersItem.Operator.Matchregex.IsUnknown() {
-													OperatorMap["MatchRegex"] = CacheHeadersItem.Operator.Matchregex.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["MatchRegex"] = CacheHeadersItem.Operator.Matchregex.ValueString()
 												}
 												if !CacheHeadersItem.Operator.Startswith.IsNull() && !CacheHeadersItem.Operator.Startswith.IsUnknown() {
-													OperatorMap["Startswith"] = CacheHeadersItem.Operator.Startswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap["Startswith"] = CacheHeadersItem.Operator.Startswith.ValueString()
 												}
-												CacheHeadersItemMap["operator"] = OperatorMap
+												CacheHeadersItemMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionCacheHeadersOperatorMap
 											}
 											CacheHeadersList = append(CacheHeadersList, CacheHeadersItemMap)
 										}
@@ -2261,35 +2261,35 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 												CookieMatcherItemMap["name"] = CookieMatcherItem.Name.ValueString()
 											}
 											if CookieMatcherItem.Operator != nil {
-												OperatorMap := make(map[string]interface{})
+												CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap := make(map[string]interface{})
 												if !CookieMatcherItem.Operator.Contains.IsNull() && !CookieMatcherItem.Operator.Contains.IsUnknown() {
-													OperatorMap["Contains"] = CookieMatcherItem.Operator.Contains.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Contains"] = CookieMatcherItem.Operator.Contains.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotcontain.IsNull() && !CookieMatcherItem.Operator.Doesnotcontain.IsUnknown() {
-													OperatorMap["DoesNotContain"] = CookieMatcherItem.Operator.Doesnotcontain.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotContain"] = CookieMatcherItem.Operator.Doesnotcontain.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotendwith.IsNull() && !CookieMatcherItem.Operator.Doesnotendwith.IsUnknown() {
-													OperatorMap["DoesNotEndWith"] = CookieMatcherItem.Operator.Doesnotendwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotEndWith"] = CookieMatcherItem.Operator.Doesnotendwith.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotequal.IsNull() && !CookieMatcherItem.Operator.Doesnotequal.IsUnknown() {
-													OperatorMap["DoesNotEqual"] = CookieMatcherItem.Operator.Doesnotequal.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotEqual"] = CookieMatcherItem.Operator.Doesnotequal.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Doesnotstartwith.IsNull() && !CookieMatcherItem.Operator.Doesnotstartwith.IsUnknown() {
-													OperatorMap["DoesNotStartWith"] = CookieMatcherItem.Operator.Doesnotstartwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["DoesNotStartWith"] = CookieMatcherItem.Operator.Doesnotstartwith.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Endswith.IsNull() && !CookieMatcherItem.Operator.Endswith.IsUnknown() {
-													OperatorMap["Endswith"] = CookieMatcherItem.Operator.Endswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Endswith"] = CookieMatcherItem.Operator.Endswith.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Equals.IsNull() && !CookieMatcherItem.Operator.Equals.IsUnknown() {
-													OperatorMap["Equals"] = CookieMatcherItem.Operator.Equals.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Equals"] = CookieMatcherItem.Operator.Equals.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Matchregex.IsNull() && !CookieMatcherItem.Operator.Matchregex.IsUnknown() {
-													OperatorMap["MatchRegex"] = CookieMatcherItem.Operator.Matchregex.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["MatchRegex"] = CookieMatcherItem.Operator.Matchregex.ValueString()
 												}
 												if !CookieMatcherItem.Operator.Startswith.IsNull() && !CookieMatcherItem.Operator.Startswith.IsUnknown() {
-													OperatorMap["Startswith"] = CookieMatcherItem.Operator.Startswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap["Startswith"] = CookieMatcherItem.Operator.Startswith.ValueString()
 												}
-												CookieMatcherItemMap["operator"] = OperatorMap
+												CookieMatcherItemMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionCookieMatcherOperatorMap
 											}
 											CookieMatcherList = append(CookieMatcherList, CookieMatcherItemMap)
 										}
@@ -2297,39 +2297,39 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 									}
 								}
 								if CacheRuleExpressionItem.PathMatch != nil {
-									PathMatchMap := make(map[string]interface{})
+									CacheRulesRuleExpressionListCacheRuleExpressionPathMatchMap := make(map[string]interface{})
 									if CacheRuleExpressionItem.PathMatch.Operator != nil {
-										OperatorMap := make(map[string]interface{})
+										CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap := make(map[string]interface{})
 										if !CacheRuleExpressionItem.PathMatch.Operator.Contains.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Contains.IsUnknown() {
-											OperatorMap["Contains"] = CacheRuleExpressionItem.PathMatch.Operator.Contains.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Contains"] = CacheRuleExpressionItem.PathMatch.Operator.Contains.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.IsUnknown() {
-											OperatorMap["DoesNotContain"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotContain"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotcontain.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.IsUnknown() {
-											OperatorMap["DoesNotEndWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotEndWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotendwith.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.IsUnknown() {
-											OperatorMap["DoesNotEqual"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotEqual"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotequal.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.IsUnknown() {
-											OperatorMap["DoesNotStartWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["DoesNotStartWith"] = CacheRuleExpressionItem.PathMatch.Operator.Doesnotstartwith.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Endswith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Endswith.IsUnknown() {
-											OperatorMap["Endswith"] = CacheRuleExpressionItem.PathMatch.Operator.Endswith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Endswith"] = CacheRuleExpressionItem.PathMatch.Operator.Endswith.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Equals.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Equals.IsUnknown() {
-											OperatorMap["Equals"] = CacheRuleExpressionItem.PathMatch.Operator.Equals.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Equals"] = CacheRuleExpressionItem.PathMatch.Operator.Equals.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Matchregex.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Matchregex.IsUnknown() {
-											OperatorMap["MatchRegex"] = CacheRuleExpressionItem.PathMatch.Operator.Matchregex.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["MatchRegex"] = CacheRuleExpressionItem.PathMatch.Operator.Matchregex.ValueString()
 										}
 										if !CacheRuleExpressionItem.PathMatch.Operator.Startswith.IsNull() && !CacheRuleExpressionItem.PathMatch.Operator.Startswith.IsUnknown() {
-											OperatorMap["Startswith"] = CacheRuleExpressionItem.PathMatch.Operator.Startswith.ValueString()
+											CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap["Startswith"] = CacheRuleExpressionItem.PathMatch.Operator.Startswith.ValueString()
 										}
-										PathMatchMap["operator"] = OperatorMap
+										CacheRulesRuleExpressionListCacheRuleExpressionPathMatchMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionPathMatchOperatorMap
 									}
-									CacheRuleExpressionItemMap["path_match"] = PathMatchMap
+									CacheRuleExpressionItemMap["path_match"] = CacheRulesRuleExpressionListCacheRuleExpressionPathMatchMap
 								}
 								if !CacheRuleExpressionItem.QueryParameters.IsNull() && !CacheRuleExpressionItem.QueryParameters.IsUnknown() {
 									var QueryParametersElems []CDNCacheRuleCacheRulesRuleExpressionListCacheRuleExpressionQueryParametersModel
@@ -2343,35 +2343,35 @@ func (r *CDNCacheRuleResource) Update(ctx context.Context, req resource.UpdateRe
 												QueryParametersItemMap["key"] = QueryParametersItem.Key.ValueString()
 											}
 											if QueryParametersItem.Operator != nil {
-												OperatorMap := make(map[string]interface{})
+												CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap := make(map[string]interface{})
 												if !QueryParametersItem.Operator.Contains.IsNull() && !QueryParametersItem.Operator.Contains.IsUnknown() {
-													OperatorMap["Contains"] = QueryParametersItem.Operator.Contains.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Contains"] = QueryParametersItem.Operator.Contains.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotcontain.IsNull() && !QueryParametersItem.Operator.Doesnotcontain.IsUnknown() {
-													OperatorMap["DoesNotContain"] = QueryParametersItem.Operator.Doesnotcontain.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotContain"] = QueryParametersItem.Operator.Doesnotcontain.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotendwith.IsNull() && !QueryParametersItem.Operator.Doesnotendwith.IsUnknown() {
-													OperatorMap["DoesNotEndWith"] = QueryParametersItem.Operator.Doesnotendwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotEndWith"] = QueryParametersItem.Operator.Doesnotendwith.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotequal.IsNull() && !QueryParametersItem.Operator.Doesnotequal.IsUnknown() {
-													OperatorMap["DoesNotEqual"] = QueryParametersItem.Operator.Doesnotequal.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotEqual"] = QueryParametersItem.Operator.Doesnotequal.ValueString()
 												}
 												if !QueryParametersItem.Operator.Doesnotstartwith.IsNull() && !QueryParametersItem.Operator.Doesnotstartwith.IsUnknown() {
-													OperatorMap["DoesNotStartWith"] = QueryParametersItem.Operator.Doesnotstartwith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["DoesNotStartWith"] = QueryParametersItem.Operator.Doesnotstartwith.ValueString()
 												}
 												if !QueryParametersItem.Operator.Endswith.IsNull() && !QueryParametersItem.Operator.Endswith.IsUnknown() {
-													OperatorMap["Endswith"] = QueryParametersItem.Operator.Endswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Endswith"] = QueryParametersItem.Operator.Endswith.ValueString()
 												}
 												if !QueryParametersItem.Operator.Equals.IsNull() && !QueryParametersItem.Operator.Equals.IsUnknown() {
-													OperatorMap["Equals"] = QueryParametersItem.Operator.Equals.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Equals"] = QueryParametersItem.Operator.Equals.ValueString()
 												}
 												if !QueryParametersItem.Operator.Matchregex.IsNull() && !QueryParametersItem.Operator.Matchregex.IsUnknown() {
-													OperatorMap["MatchRegex"] = QueryParametersItem.Operator.Matchregex.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["MatchRegex"] = QueryParametersItem.Operator.Matchregex.ValueString()
 												}
 												if !QueryParametersItem.Operator.Startswith.IsNull() && !QueryParametersItem.Operator.Startswith.IsUnknown() {
-													OperatorMap["Startswith"] = QueryParametersItem.Operator.Startswith.ValueString()
+													CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap["Startswith"] = QueryParametersItem.Operator.Startswith.ValueString()
 												}
-												QueryParametersItemMap["operator"] = OperatorMap
+												QueryParametersItemMap["operator"] = CacheRulesRuleExpressionListCacheRuleExpressionQueryParametersOperatorMap
 											}
 											QueryParametersList = append(QueryParametersList, QueryParametersItemMap)
 										}

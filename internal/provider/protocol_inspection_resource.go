@@ -334,17 +334,17 @@ func (r *ProtocolInspectionResource) Create(ctx context.Context, req resource.Cr
 			EnableDisableComplianceChecksMap["disable_compliance_checks"] = map[string]interface{}{}
 		}
 		if data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-			EnableComplianceChecksMap := make(map[string]interface{})
+			EnableDisableComplianceChecksEnableComplianceChecksMap := make(map[string]interface{})
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsUnknown() {
-				EnableComplianceChecksMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
+				EnableDisableComplianceChecksEnableComplianceChecksMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsUnknown() {
-				EnableComplianceChecksMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
+				EnableDisableComplianceChecksEnableComplianceChecksMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsUnknown() {
-				EnableComplianceChecksMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
+				EnableDisableComplianceChecksEnableComplianceChecksMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
 			}
-			EnableDisableComplianceChecksMap["enable_compliance_checks"] = EnableComplianceChecksMap
+			EnableDisableComplianceChecksMap["enable_compliance_checks"] = EnableDisableComplianceChecksEnableComplianceChecksMap
 		}
 		createReq.Spec["enable_disable_compliance_checks"] = EnableDisableComplianceChecksMap
 	}
@@ -662,17 +662,17 @@ func (r *ProtocolInspectionResource) Update(ctx context.Context, req resource.Up
 			EnableDisableComplianceChecksMap["disable_compliance_checks"] = map[string]interface{}{}
 		}
 		if data.EnableDisableComplianceChecks.EnableComplianceChecks != nil {
-			EnableComplianceChecksMap := make(map[string]interface{})
+			EnableDisableComplianceChecksEnableComplianceChecksMap := make(map[string]interface{})
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.IsUnknown() {
-				EnableComplianceChecksMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
+				EnableDisableComplianceChecksEnableComplianceChecksMap["name"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Name.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.IsUnknown() {
-				EnableComplianceChecksMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
+				EnableDisableComplianceChecksEnableComplianceChecksMap["namespace"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Namespace.ValueString()
 			}
 			if !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsNull() && !data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.IsUnknown() {
-				EnableComplianceChecksMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
+				EnableDisableComplianceChecksEnableComplianceChecksMap["tenant"] = data.EnableDisableComplianceChecks.EnableComplianceChecks.Tenant.ValueString()
 			}
-			EnableDisableComplianceChecksMap["enable_compliance_checks"] = EnableComplianceChecksMap
+			EnableDisableComplianceChecksMap["enable_compliance_checks"] = EnableDisableComplianceChecksEnableComplianceChecksMap
 		}
 		apiResource.Spec["enable_disable_compliance_checks"] = EnableDisableComplianceChecksMap
 	}

@@ -740,15 +740,15 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			PspSpecMap["allow_privilege_escalation"] = data.PspSpec.AllowPrivilegeEscalation.ValueBool()
 		}
 		if data.PspSpec.AllowedCapabilities != nil {
-			AllowedCapabilitiesMap := make(map[string]interface{})
+			PspSpecAllowedCapabilitiesMap := make(map[string]interface{})
 			if !data.PspSpec.AllowedCapabilities.Capabilities.IsNull() && !data.PspSpec.AllowedCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.AllowedCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
 				if !diags.HasError() {
-					AllowedCapabilitiesMap["capabilities"] = CapabilitiesItems
+					PspSpecAllowedCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
 			}
-			PspSpecMap["allowed_capabilities"] = AllowedCapabilitiesMap
+			PspSpecMap["allowed_capabilities"] = PspSpecAllowedCapabilitiesMap
 		}
 		if !data.PspSpec.AllowedCsiDrivers.IsNull() && !data.PspSpec.AllowedCsiDrivers.IsUnknown() {
 			var AllowedCsiDriversItems []string
@@ -801,26 +801,26 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			PspSpecMap["default_allow_privilege_escalation"] = data.PspSpec.DefaultAllowPrivilegeEscalation.ValueBool()
 		}
 		if data.PspSpec.DefaultCapabilities != nil {
-			DefaultCapabilitiesMap := make(map[string]interface{})
+			PspSpecDefaultCapabilitiesMap := make(map[string]interface{})
 			if !data.PspSpec.DefaultCapabilities.Capabilities.IsNull() && !data.PspSpec.DefaultCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DefaultCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
 				if !diags.HasError() {
-					DefaultCapabilitiesMap["capabilities"] = CapabilitiesItems
+					PspSpecDefaultCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
 			}
-			PspSpecMap["default_capabilities"] = DefaultCapabilitiesMap
+			PspSpecMap["default_capabilities"] = PspSpecDefaultCapabilitiesMap
 		}
 		if data.PspSpec.DropCapabilities != nil {
-			DropCapabilitiesMap := make(map[string]interface{})
+			PspSpecDropCapabilitiesMap := make(map[string]interface{})
 			if !data.PspSpec.DropCapabilities.Capabilities.IsNull() && !data.PspSpec.DropCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DropCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
 				if !diags.HasError() {
-					DropCapabilitiesMap["capabilities"] = CapabilitiesItems
+					PspSpecDropCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
 			}
-			PspSpecMap["drop_capabilities"] = DropCapabilitiesMap
+			PspSpecMap["drop_capabilities"] = PspSpecDropCapabilitiesMap
 		}
 		if !data.PspSpec.ForbiddenSysctls.IsNull() && !data.PspSpec.ForbiddenSysctls.IsUnknown() {
 			var ForbiddenSysctlsItems []string
@@ -830,7 +830,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			}
 		}
 		if data.PspSpec.FsGroupStrategyOptions != nil {
-			FsGroupStrategyOptionsMap := make(map[string]interface{})
+			PspSpecFsGroupStrategyOptionsMap := make(map[string]interface{})
 			if !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
 				diags := data.PspSpec.FsGroupStrategyOptions.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -847,13 +847,13 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					FsGroupStrategyOptionsMap["id_ranges"] = IDRangesList
+					PspSpecFsGroupStrategyOptionsMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.FsGroupStrategyOptions.Rule.IsNull() && !data.PspSpec.FsGroupStrategyOptions.Rule.IsUnknown() {
-				FsGroupStrategyOptionsMap["rule"] = data.PspSpec.FsGroupStrategyOptions.Rule.ValueString()
+				PspSpecFsGroupStrategyOptionsMap["rule"] = data.PspSpec.FsGroupStrategyOptions.Rule.ValueString()
 			}
-			PspSpecMap["fs_group_strategy_options"] = FsGroupStrategyOptionsMap
+			PspSpecMap["fs_group_strategy_options"] = PspSpecFsGroupStrategyOptionsMap
 		}
 		if !data.PspSpec.HostIpc.IsNull() && !data.PspSpec.HostIpc.IsUnknown() {
 			PspSpecMap["host_ipc"] = data.PspSpec.HostIpc.ValueBool()
@@ -901,7 +901,7 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 			PspSpecMap["read_only_root_filesystem"] = data.PspSpec.ReadOnlyRootFilesystem.ValueBool()
 		}
 		if data.PspSpec.RunAsGroup != nil {
-			RunAsGroupMap := make(map[string]interface{})
+			PspSpecRunAsGroupMap := make(map[string]interface{})
 			if !data.PspSpec.RunAsGroup.IDRanges.IsNull() && !data.PspSpec.RunAsGroup.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
 				diags := data.PspSpec.RunAsGroup.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -918,16 +918,16 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					RunAsGroupMap["id_ranges"] = IDRangesList
+					PspSpecRunAsGroupMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.RunAsGroup.Rule.IsNull() && !data.PspSpec.RunAsGroup.Rule.IsUnknown() {
-				RunAsGroupMap["rule"] = data.PspSpec.RunAsGroup.Rule.ValueString()
+				PspSpecRunAsGroupMap["rule"] = data.PspSpec.RunAsGroup.Rule.ValueString()
 			}
-			PspSpecMap["run_as_group"] = RunAsGroupMap
+			PspSpecMap["run_as_group"] = PspSpecRunAsGroupMap
 		}
 		if data.PspSpec.RunAsUser != nil {
-			RunAsUserMap := make(map[string]interface{})
+			PspSpecRunAsUserMap := make(map[string]interface{})
 			if !data.PspSpec.RunAsUser.IDRanges.IsNull() && !data.PspSpec.RunAsUser.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
 				diags := data.PspSpec.RunAsUser.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -944,16 +944,16 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					RunAsUserMap["id_ranges"] = IDRangesList
+					PspSpecRunAsUserMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.RunAsUser.Rule.IsNull() && !data.PspSpec.RunAsUser.Rule.IsUnknown() {
-				RunAsUserMap["rule"] = data.PspSpec.RunAsUser.Rule.ValueString()
+				PspSpecRunAsUserMap["rule"] = data.PspSpec.RunAsUser.Rule.ValueString()
 			}
-			PspSpecMap["run_as_user"] = RunAsUserMap
+			PspSpecMap["run_as_user"] = PspSpecRunAsUserMap
 		}
 		if data.PspSpec.SupplementalGroups != nil {
-			SupplementalGroupsMap := make(map[string]interface{})
+			PspSpecSupplementalGroupsMap := make(map[string]interface{})
 			if !data.PspSpec.SupplementalGroups.IDRanges.IsNull() && !data.PspSpec.SupplementalGroups.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
 				diags := data.PspSpec.SupplementalGroups.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -970,13 +970,13 @@ func (r *K8SPodSecurityPolicyResource) Create(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					SupplementalGroupsMap["id_ranges"] = IDRangesList
+					PspSpecSupplementalGroupsMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.SupplementalGroups.Rule.IsNull() && !data.PspSpec.SupplementalGroups.Rule.IsUnknown() {
-				SupplementalGroupsMap["rule"] = data.PspSpec.SupplementalGroups.Rule.ValueString()
+				PspSpecSupplementalGroupsMap["rule"] = data.PspSpec.SupplementalGroups.Rule.ValueString()
 			}
-			PspSpecMap["supplemental_groups"] = SupplementalGroupsMap
+			PspSpecMap["supplemental_groups"] = PspSpecSupplementalGroupsMap
 		}
 		if !data.PspSpec.Volumes.IsNull() && !data.PspSpec.Volumes.IsUnknown() {
 			var VolumesItems []string
@@ -2241,15 +2241,15 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			PspSpecMap["allow_privilege_escalation"] = data.PspSpec.AllowPrivilegeEscalation.ValueBool()
 		}
 		if data.PspSpec.AllowedCapabilities != nil {
-			AllowedCapabilitiesMap := make(map[string]interface{})
+			PspSpecAllowedCapabilitiesMap := make(map[string]interface{})
 			if !data.PspSpec.AllowedCapabilities.Capabilities.IsNull() && !data.PspSpec.AllowedCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.AllowedCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
 				if !diags.HasError() {
-					AllowedCapabilitiesMap["capabilities"] = CapabilitiesItems
+					PspSpecAllowedCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
 			}
-			PspSpecMap["allowed_capabilities"] = AllowedCapabilitiesMap
+			PspSpecMap["allowed_capabilities"] = PspSpecAllowedCapabilitiesMap
 		}
 		if !data.PspSpec.AllowedCsiDrivers.IsNull() && !data.PspSpec.AllowedCsiDrivers.IsUnknown() {
 			var AllowedCsiDriversItems []string
@@ -2302,26 +2302,26 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			PspSpecMap["default_allow_privilege_escalation"] = data.PspSpec.DefaultAllowPrivilegeEscalation.ValueBool()
 		}
 		if data.PspSpec.DefaultCapabilities != nil {
-			DefaultCapabilitiesMap := make(map[string]interface{})
+			PspSpecDefaultCapabilitiesMap := make(map[string]interface{})
 			if !data.PspSpec.DefaultCapabilities.Capabilities.IsNull() && !data.PspSpec.DefaultCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DefaultCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
 				if !diags.HasError() {
-					DefaultCapabilitiesMap["capabilities"] = CapabilitiesItems
+					PspSpecDefaultCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
 			}
-			PspSpecMap["default_capabilities"] = DefaultCapabilitiesMap
+			PspSpecMap["default_capabilities"] = PspSpecDefaultCapabilitiesMap
 		}
 		if data.PspSpec.DropCapabilities != nil {
-			DropCapabilitiesMap := make(map[string]interface{})
+			PspSpecDropCapabilitiesMap := make(map[string]interface{})
 			if !data.PspSpec.DropCapabilities.Capabilities.IsNull() && !data.PspSpec.DropCapabilities.Capabilities.IsUnknown() {
 				var CapabilitiesItems []string
 				diags := data.PspSpec.DropCapabilities.Capabilities.ElementsAs(ctx, &CapabilitiesItems, false)
 				if !diags.HasError() {
-					DropCapabilitiesMap["capabilities"] = CapabilitiesItems
+					PspSpecDropCapabilitiesMap["capabilities"] = CapabilitiesItems
 				}
 			}
-			PspSpecMap["drop_capabilities"] = DropCapabilitiesMap
+			PspSpecMap["drop_capabilities"] = PspSpecDropCapabilitiesMap
 		}
 		if !data.PspSpec.ForbiddenSysctls.IsNull() && !data.PspSpec.ForbiddenSysctls.IsUnknown() {
 			var ForbiddenSysctlsItems []string
@@ -2331,7 +2331,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			}
 		}
 		if data.PspSpec.FsGroupStrategyOptions != nil {
-			FsGroupStrategyOptionsMap := make(map[string]interface{})
+			PspSpecFsGroupStrategyOptionsMap := make(map[string]interface{})
 			if !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsNull() && !data.PspSpec.FsGroupStrategyOptions.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecFsGroupStrategyOptionsIDRangesModel
 				diags := data.PspSpec.FsGroupStrategyOptions.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -2348,13 +2348,13 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					FsGroupStrategyOptionsMap["id_ranges"] = IDRangesList
+					PspSpecFsGroupStrategyOptionsMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.FsGroupStrategyOptions.Rule.IsNull() && !data.PspSpec.FsGroupStrategyOptions.Rule.IsUnknown() {
-				FsGroupStrategyOptionsMap["rule"] = data.PspSpec.FsGroupStrategyOptions.Rule.ValueString()
+				PspSpecFsGroupStrategyOptionsMap["rule"] = data.PspSpec.FsGroupStrategyOptions.Rule.ValueString()
 			}
-			PspSpecMap["fs_group_strategy_options"] = FsGroupStrategyOptionsMap
+			PspSpecMap["fs_group_strategy_options"] = PspSpecFsGroupStrategyOptionsMap
 		}
 		if !data.PspSpec.HostIpc.IsNull() && !data.PspSpec.HostIpc.IsUnknown() {
 			PspSpecMap["host_ipc"] = data.PspSpec.HostIpc.ValueBool()
@@ -2402,7 +2402,7 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 			PspSpecMap["read_only_root_filesystem"] = data.PspSpec.ReadOnlyRootFilesystem.ValueBool()
 		}
 		if data.PspSpec.RunAsGroup != nil {
-			RunAsGroupMap := make(map[string]interface{})
+			PspSpecRunAsGroupMap := make(map[string]interface{})
 			if !data.PspSpec.RunAsGroup.IDRanges.IsNull() && !data.PspSpec.RunAsGroup.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecRunAsGroupIDRangesModel
 				diags := data.PspSpec.RunAsGroup.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -2419,16 +2419,16 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					RunAsGroupMap["id_ranges"] = IDRangesList
+					PspSpecRunAsGroupMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.RunAsGroup.Rule.IsNull() && !data.PspSpec.RunAsGroup.Rule.IsUnknown() {
-				RunAsGroupMap["rule"] = data.PspSpec.RunAsGroup.Rule.ValueString()
+				PspSpecRunAsGroupMap["rule"] = data.PspSpec.RunAsGroup.Rule.ValueString()
 			}
-			PspSpecMap["run_as_group"] = RunAsGroupMap
+			PspSpecMap["run_as_group"] = PspSpecRunAsGroupMap
 		}
 		if data.PspSpec.RunAsUser != nil {
-			RunAsUserMap := make(map[string]interface{})
+			PspSpecRunAsUserMap := make(map[string]interface{})
 			if !data.PspSpec.RunAsUser.IDRanges.IsNull() && !data.PspSpec.RunAsUser.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecRunAsUserIDRangesModel
 				diags := data.PspSpec.RunAsUser.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -2445,16 +2445,16 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					RunAsUserMap["id_ranges"] = IDRangesList
+					PspSpecRunAsUserMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.RunAsUser.Rule.IsNull() && !data.PspSpec.RunAsUser.Rule.IsUnknown() {
-				RunAsUserMap["rule"] = data.PspSpec.RunAsUser.Rule.ValueString()
+				PspSpecRunAsUserMap["rule"] = data.PspSpec.RunAsUser.Rule.ValueString()
 			}
-			PspSpecMap["run_as_user"] = RunAsUserMap
+			PspSpecMap["run_as_user"] = PspSpecRunAsUserMap
 		}
 		if data.PspSpec.SupplementalGroups != nil {
-			SupplementalGroupsMap := make(map[string]interface{})
+			PspSpecSupplementalGroupsMap := make(map[string]interface{})
 			if !data.PspSpec.SupplementalGroups.IDRanges.IsNull() && !data.PspSpec.SupplementalGroups.IDRanges.IsUnknown() {
 				var IDRangesElems []K8SPodSecurityPolicyPspSpecSupplementalGroupsIDRangesModel
 				diags := data.PspSpec.SupplementalGroups.IDRanges.ElementsAs(ctx, &IDRangesElems, false)
@@ -2471,13 +2471,13 @@ func (r *K8SPodSecurityPolicyResource) Update(ctx context.Context, req resource.
 						}
 						IDRangesList = append(IDRangesList, IDRangesItemMap)
 					}
-					SupplementalGroupsMap["id_ranges"] = IDRangesList
+					PspSpecSupplementalGroupsMap["id_ranges"] = IDRangesList
 				}
 			}
 			if !data.PspSpec.SupplementalGroups.Rule.IsNull() && !data.PspSpec.SupplementalGroups.Rule.IsUnknown() {
-				SupplementalGroupsMap["rule"] = data.PspSpec.SupplementalGroups.Rule.ValueString()
+				PspSpecSupplementalGroupsMap["rule"] = data.PspSpec.SupplementalGroups.Rule.ValueString()
 			}
-			PspSpecMap["supplemental_groups"] = SupplementalGroupsMap
+			PspSpecMap["supplemental_groups"] = PspSpecSupplementalGroupsMap
 		}
 		if !data.PspSpec.Volumes.IsNull() && !data.PspSpec.Volumes.IsUnknown() {
 			var VolumesItems []string

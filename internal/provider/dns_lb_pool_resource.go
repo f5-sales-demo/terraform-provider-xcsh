@@ -727,17 +727,17 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 			APoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.APool.HealthCheck != nil {
-			HealthCheckMap := make(map[string]interface{})
+			APoolHealthCheckMap := make(map[string]interface{})
 			if !data.APool.HealthCheck.Name.IsNull() && !data.APool.HealthCheck.Name.IsUnknown() {
-				HealthCheckMap["name"] = data.APool.HealthCheck.Name.ValueString()
+				APoolHealthCheckMap["name"] = data.APool.HealthCheck.Name.ValueString()
 			}
 			if !data.APool.HealthCheck.Namespace.IsNull() && !data.APool.HealthCheck.Namespace.IsUnknown() {
-				HealthCheckMap["namespace"] = data.APool.HealthCheck.Namespace.ValueString()
+				APoolHealthCheckMap["namespace"] = data.APool.HealthCheck.Namespace.ValueString()
 			}
 			if !data.APool.HealthCheck.Tenant.IsNull() && !data.APool.HealthCheck.Tenant.IsUnknown() {
-				HealthCheckMap["tenant"] = data.APool.HealthCheck.Tenant.ValueString()
+				APoolHealthCheckMap["tenant"] = data.APool.HealthCheck.Tenant.ValueString()
 			}
-			APoolMap["health_check"] = HealthCheckMap
+			APoolMap["health_check"] = APoolHealthCheckMap
 		}
 		if !data.APool.MaxAnswers.IsNull() && !data.APool.MaxAnswers.IsUnknown() {
 			APoolMap["max_answers"] = data.APool.MaxAnswers.ValueInt64()
@@ -813,17 +813,17 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 			CnamePoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.CnamePool.HealthCheck != nil {
-			HealthCheckMap := make(map[string]interface{})
+			CnamePoolHealthCheckMap := make(map[string]interface{})
 			if !data.CnamePool.HealthCheck.Name.IsNull() && !data.CnamePool.HealthCheck.Name.IsUnknown() {
-				HealthCheckMap["name"] = data.CnamePool.HealthCheck.Name.ValueString()
+				CnamePoolHealthCheckMap["name"] = data.CnamePool.HealthCheck.Name.ValueString()
 			}
 			if !data.CnamePool.HealthCheck.Namespace.IsNull() && !data.CnamePool.HealthCheck.Namespace.IsUnknown() {
-				HealthCheckMap["namespace"] = data.CnamePool.HealthCheck.Namespace.ValueString()
+				CnamePoolHealthCheckMap["namespace"] = data.CnamePool.HealthCheck.Namespace.ValueString()
 			}
 			if !data.CnamePool.HealthCheck.Tenant.IsNull() && !data.CnamePool.HealthCheck.Tenant.IsUnknown() {
-				HealthCheckMap["tenant"] = data.CnamePool.HealthCheck.Tenant.ValueString()
+				CnamePoolHealthCheckMap["tenant"] = data.CnamePool.HealthCheck.Tenant.ValueString()
 			}
-			CnamePoolMap["health_check"] = HealthCheckMap
+			CnamePoolMap["health_check"] = CnamePoolHealthCheckMap
 		}
 		if !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
 			var MembersElems []DNSLBPoolCnamePoolMembersModel
@@ -1899,17 +1899,17 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 			APoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.APool.HealthCheck != nil {
-			HealthCheckMap := make(map[string]interface{})
+			APoolHealthCheckMap := make(map[string]interface{})
 			if !data.APool.HealthCheck.Name.IsNull() && !data.APool.HealthCheck.Name.IsUnknown() {
-				HealthCheckMap["name"] = data.APool.HealthCheck.Name.ValueString()
+				APoolHealthCheckMap["name"] = data.APool.HealthCheck.Name.ValueString()
 			}
 			if !data.APool.HealthCheck.Namespace.IsNull() && !data.APool.HealthCheck.Namespace.IsUnknown() {
-				HealthCheckMap["namespace"] = data.APool.HealthCheck.Namespace.ValueString()
+				APoolHealthCheckMap["namespace"] = data.APool.HealthCheck.Namespace.ValueString()
 			}
 			if !data.APool.HealthCheck.Tenant.IsNull() && !data.APool.HealthCheck.Tenant.IsUnknown() {
-				HealthCheckMap["tenant"] = data.APool.HealthCheck.Tenant.ValueString()
+				APoolHealthCheckMap["tenant"] = data.APool.HealthCheck.Tenant.ValueString()
 			}
-			APoolMap["health_check"] = HealthCheckMap
+			APoolMap["health_check"] = APoolHealthCheckMap
 		}
 		if !data.APool.MaxAnswers.IsNull() && !data.APool.MaxAnswers.IsUnknown() {
 			APoolMap["max_answers"] = data.APool.MaxAnswers.ValueInt64()
@@ -1985,17 +1985,17 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 			CnamePoolMap["disable_health_check"] = map[string]interface{}{}
 		}
 		if data.CnamePool.HealthCheck != nil {
-			HealthCheckMap := make(map[string]interface{})
+			CnamePoolHealthCheckMap := make(map[string]interface{})
 			if !data.CnamePool.HealthCheck.Name.IsNull() && !data.CnamePool.HealthCheck.Name.IsUnknown() {
-				HealthCheckMap["name"] = data.CnamePool.HealthCheck.Name.ValueString()
+				CnamePoolHealthCheckMap["name"] = data.CnamePool.HealthCheck.Name.ValueString()
 			}
 			if !data.CnamePool.HealthCheck.Namespace.IsNull() && !data.CnamePool.HealthCheck.Namespace.IsUnknown() {
-				HealthCheckMap["namespace"] = data.CnamePool.HealthCheck.Namespace.ValueString()
+				CnamePoolHealthCheckMap["namespace"] = data.CnamePool.HealthCheck.Namespace.ValueString()
 			}
 			if !data.CnamePool.HealthCheck.Tenant.IsNull() && !data.CnamePool.HealthCheck.Tenant.IsUnknown() {
-				HealthCheckMap["tenant"] = data.CnamePool.HealthCheck.Tenant.ValueString()
+				CnamePoolHealthCheckMap["tenant"] = data.CnamePool.HealthCheck.Tenant.ValueString()
 			}
-			CnamePoolMap["health_check"] = HealthCheckMap
+			CnamePoolMap["health_check"] = CnamePoolHealthCheckMap
 		}
 		if !data.CnamePool.Members.IsNull() && !data.CnamePool.Members.IsUnknown() {
 			var MembersElems []DNSLBPoolCnamePoolMembersModel

@@ -330,30 +330,30 @@ func (r *MaliciousUserMitigationResource) Create(ctx context.Context, req resour
 				for _, RulesItem := range RulesElems {
 					RulesItemMap := make(map[string]interface{})
 					if RulesItem.MitigationAction != nil {
-						MitigationActionMap := make(map[string]interface{})
+						MitigationTypeRulesMitigationActionMap := make(map[string]interface{})
 						if RulesItem.MitigationAction.BlockTemporarily != nil {
-							MitigationActionMap["block_temporarily"] = map[string]interface{}{}
+							MitigationTypeRulesMitigationActionMap["block_temporarily"] = map[string]interface{}{}
 						}
 						if RulesItem.MitigationAction.CaptchaChallenge != nil {
-							MitigationActionMap["captcha_challenge"] = map[string]interface{}{}
+							MitigationTypeRulesMitigationActionMap["captcha_challenge"] = map[string]interface{}{}
 						}
 						if RulesItem.MitigationAction.JavascriptChallenge != nil {
-							MitigationActionMap["javascript_challenge"] = map[string]interface{}{}
+							MitigationTypeRulesMitigationActionMap["javascript_challenge"] = map[string]interface{}{}
 						}
-						RulesItemMap["mitigation_action"] = MitigationActionMap
+						RulesItemMap["mitigation_action"] = MitigationTypeRulesMitigationActionMap
 					}
 					if RulesItem.ThreatLevel != nil {
-						ThreatLevelMap := make(map[string]interface{})
+						MitigationTypeRulesThreatLevelMap := make(map[string]interface{})
 						if RulesItem.ThreatLevel.High != nil {
-							ThreatLevelMap["high"] = map[string]interface{}{}
+							MitigationTypeRulesThreatLevelMap["high"] = map[string]interface{}{}
 						}
 						if RulesItem.ThreatLevel.Low != nil {
-							ThreatLevelMap["low"] = map[string]interface{}{}
+							MitigationTypeRulesThreatLevelMap["low"] = map[string]interface{}{}
 						}
 						if RulesItem.ThreatLevel.Medium != nil {
-							ThreatLevelMap["medium"] = map[string]interface{}{}
+							MitigationTypeRulesThreatLevelMap["medium"] = map[string]interface{}{}
 						}
-						RulesItemMap["threat_level"] = ThreatLevelMap
+						RulesItemMap["threat_level"] = MitigationTypeRulesThreatLevelMap
 					}
 					RulesList = append(RulesList, RulesItemMap)
 				}
@@ -726,30 +726,30 @@ func (r *MaliciousUserMitigationResource) Update(ctx context.Context, req resour
 				for _, RulesItem := range RulesElems {
 					RulesItemMap := make(map[string]interface{})
 					if RulesItem.MitigationAction != nil {
-						MitigationActionMap := make(map[string]interface{})
+						MitigationTypeRulesMitigationActionMap := make(map[string]interface{})
 						if RulesItem.MitigationAction.BlockTemporarily != nil {
-							MitigationActionMap["block_temporarily"] = map[string]interface{}{}
+							MitigationTypeRulesMitigationActionMap["block_temporarily"] = map[string]interface{}{}
 						}
 						if RulesItem.MitigationAction.CaptchaChallenge != nil {
-							MitigationActionMap["captcha_challenge"] = map[string]interface{}{}
+							MitigationTypeRulesMitigationActionMap["captcha_challenge"] = map[string]interface{}{}
 						}
 						if RulesItem.MitigationAction.JavascriptChallenge != nil {
-							MitigationActionMap["javascript_challenge"] = map[string]interface{}{}
+							MitigationTypeRulesMitigationActionMap["javascript_challenge"] = map[string]interface{}{}
 						}
-						RulesItemMap["mitigation_action"] = MitigationActionMap
+						RulesItemMap["mitigation_action"] = MitigationTypeRulesMitigationActionMap
 					}
 					if RulesItem.ThreatLevel != nil {
-						ThreatLevelMap := make(map[string]interface{})
+						MitigationTypeRulesThreatLevelMap := make(map[string]interface{})
 						if RulesItem.ThreatLevel.High != nil {
-							ThreatLevelMap["high"] = map[string]interface{}{}
+							MitigationTypeRulesThreatLevelMap["high"] = map[string]interface{}{}
 						}
 						if RulesItem.ThreatLevel.Low != nil {
-							ThreatLevelMap["low"] = map[string]interface{}{}
+							MitigationTypeRulesThreatLevelMap["low"] = map[string]interface{}{}
 						}
 						if RulesItem.ThreatLevel.Medium != nil {
-							ThreatLevelMap["medium"] = map[string]interface{}{}
+							MitigationTypeRulesThreatLevelMap["medium"] = map[string]interface{}{}
 						}
-						RulesItemMap["threat_level"] = ThreatLevelMap
+						RulesItemMap["threat_level"] = MitigationTypeRulesThreatLevelMap
 					}
 					RulesList = append(RulesList, RulesItemMap)
 				}

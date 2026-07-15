@@ -1313,12 +1313,12 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			EthernetInterfaceMap["dhcp_client"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.DHCPServer != nil {
-			DHCPServerMap := make(map[string]interface{})
+			EthernetInterfaceDHCPServerMap := make(map[string]interface{})
 			if data.EthernetInterface.DHCPServer.AutomaticFromEnd != nil {
-				DHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+				EthernetInterfaceDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
 			}
 			if data.EthernetInterface.DHCPServer.AutomaticFromStart != nil {
-				DHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+				EthernetInterfaceDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
 			}
 			if !data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
 				var DHCPNetworksElems []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
@@ -1370,66 +1370,66 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 						}
 						DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 					}
-					DHCPServerMap["dhcp_networks"] = DHCPNetworksList
+					EthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 				}
 			}
 			if data.EthernetInterface.DHCPServer.FixedIPMap != nil {
-				DHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
+				EthernetInterfaceDHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
 			}
 			if data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
-				InterfaceIPMapMap := make(map[string]interface{})
+				EthernetInterfaceDHCPServerInterfaceIPMapMap := make(map[string]interface{})
 				if data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap != nil {
-					InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+					EthernetInterfaceDHCPServerInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				DHCPServerMap["interface_ip_map"] = InterfaceIPMapMap
+				EthernetInterfaceDHCPServerMap["interface_ip_map"] = EthernetInterfaceDHCPServerInterfaceIPMapMap
 			}
-			EthernetInterfaceMap["dhcp_server"] = DHCPServerMap
+			EthernetInterfaceMap["dhcp_server"] = EthernetInterfaceDHCPServerMap
 		}
 		if data.EthernetInterface.Ipv6AutoConfig != nil {
-			Ipv6AutoConfigMap := make(map[string]interface{})
+			EthernetInterfaceIpv6AutoConfigMap := make(map[string]interface{})
 			if data.EthernetInterface.Ipv6AutoConfig.Host != nil {
-				Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+				EthernetInterfaceIpv6AutoConfigMap["host"] = map[string]interface{}{}
 			}
 			if data.EthernetInterface.Ipv6AutoConfig.Router != nil {
-				RouterMap := make(map[string]interface{})
+				EthernetInterfaceIpv6AutoConfigRouterMap := make(map[string]interface{})
 				if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
-					DNSConfigMap := make(map[string]interface{})
+					EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap := make(map[string]interface{})
 					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-						ConfiguredListMap := make(map[string]interface{})
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap := make(map[string]interface{})
 						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
 							var DNSListItems []string
 							diags := data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
 							if !diags.HasError() {
-								ConfiguredListMap["dns_list"] = DNSListItems
+								EthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap["dns_list"] = DNSListItems
 							}
 						}
-						DNSConfigMap["configured_list"] = ConfiguredListMap
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap["configured_list"] = EthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-						LocalDNSMap := make(map[string]interface{})
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap := make(map[string]interface{})
 						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-							LocalDNSMap["configured_address"] = data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+							EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap["configured_address"] = data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
 						}
 						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-							LocalDNSMap["first_address"] = map[string]interface{}{}
+							EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap["first_address"] = map[string]interface{}{}
 						}
 						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-							LocalDNSMap["last_address"] = map[string]interface{}{}
+							EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap["last_address"] = map[string]interface{}{}
 						}
-						DNSConfigMap["local_dns"] = LocalDNSMap
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap["local_dns"] = EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap
 					}
-					RouterMap["dns_config"] = DNSConfigMap
+					EthernetInterfaceIpv6AutoConfigRouterMap["dns_config"] = EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap
 				}
 				if !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-					RouterMap["network_prefix"] = data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+					EthernetInterfaceIpv6AutoConfigRouterMap["network_prefix"] = data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
 				}
 				if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
-					StatefulMap := make(map[string]interface{})
+					EthernetInterfaceIpv6AutoConfigRouterStatefulMap := make(map[string]interface{})
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-						StatefulMap["automatic_from_end"] = map[string]interface{}{}
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["automatic_from_end"] = map[string]interface{}{}
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-						StatefulMap["automatic_from_start"] = map[string]interface{}{}
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["automatic_from_start"] = map[string]interface{}{}
 					}
 					if !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
 						var DHCPNetworksElems []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -1466,24 +1466,24 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 								}
 								DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 							}
-							StatefulMap["dhcp_networks"] = DHCPNetworksList
+							EthernetInterfaceIpv6AutoConfigRouterStatefulMap["dhcp_networks"] = DHCPNetworksList
 						}
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-						StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["fixed_ip_map"] = map[string]interface{}{}
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-						InterfaceIPMapMap := make(map[string]interface{})
+						EthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap := make(map[string]interface{})
 						if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-							InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+							EthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
 						}
-						StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["interface_ip_map"] = EthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap
 					}
-					RouterMap["stateful"] = StatefulMap
+					EthernetInterfaceIpv6AutoConfigRouterMap["stateful"] = EthernetInterfaceIpv6AutoConfigRouterStatefulMap
 				}
-				Ipv6AutoConfigMap["router"] = RouterMap
+				EthernetInterfaceIpv6AutoConfigMap["router"] = EthernetInterfaceIpv6AutoConfigRouterMap
 			}
-			EthernetInterfaceMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+			EthernetInterfaceMap["ipv6_auto_config"] = EthernetInterfaceIpv6AutoConfigMap
 		}
 		if data.EthernetInterface.IsPrimary != nil {
 			EthernetInterfaceMap["is_primary"] = map[string]interface{}{}
@@ -1516,46 +1516,46 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			EthernetInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.StaticIP != nil {
-			StaticIPMap := make(map[string]interface{})
+			EthernetInterfaceStaticIPMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
-				ClusterStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
 				if data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+					EthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+				EthernetInterfaceStaticIPMap["cluster_static_ip"] = EthernetInterfaceStaticIPClusterStaticIPMap
 			}
 			if data.EthernetInterface.StaticIP.NodeStaticIP != nil {
-				NodeStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
-					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+					EthernetInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 				}
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
-					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+					EthernetInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 				}
-				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+				EthernetInterfaceStaticIPMap["node_static_ip"] = EthernetInterfaceStaticIPNodeStaticIPMap
 			}
-			EthernetInterfaceMap["static_ip"] = StaticIPMap
+			EthernetInterfaceMap["static_ip"] = EthernetInterfaceStaticIPMap
 		}
 		if data.EthernetInterface.StaticIpv6Address != nil {
-			StaticIpv6AddressMap := make(map[string]interface{})
+			EthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
-				ClusterStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
 				if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+					EthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+				EthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = EthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 			}
 			if data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
-				NodeStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
 				}
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
 				}
-				StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+				EthernetInterfaceStaticIpv6AddressMap["node_static_ip"] = EthernetInterfaceStaticIpv6AddressNodeStaticIPMap
 			}
-			EthernetInterfaceMap["static_ipv6_address"] = StaticIpv6AddressMap
+			EthernetInterfaceMap["static_ipv6_address"] = EthernetInterfaceStaticIpv6AddressMap
 		}
 		if data.EthernetInterface.StorageNetwork != nil {
 			EthernetInterfaceMap["storage_network"] = map[string]interface{}{}
@@ -1571,34 +1571,34 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 	if data.Layer2Interface != nil {
 		Layer2InterfaceMap := make(map[string]interface{})
 		if data.Layer2Interface.L2sriovInterface != nil {
-			L2sriovInterfaceMap := make(map[string]interface{})
+			Layer2InterfaceL2sriovInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2sriovInterface.Device.IsNull() && !data.Layer2Interface.L2sriovInterface.Device.IsUnknown() {
-				L2sriovInterfaceMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
+				Layer2InterfaceL2sriovInterfaceMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
 			}
 			if data.Layer2Interface.L2sriovInterface.Untagged != nil {
-				L2sriovInterfaceMap["untagged"] = map[string]interface{}{}
+				Layer2InterfaceL2sriovInterfaceMap["untagged"] = map[string]interface{}{}
 			}
 			if !data.Layer2Interface.L2sriovInterface.VLANID.IsNull() && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
-				L2sriovInterfaceMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
+				Layer2InterfaceL2sriovInterfaceMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
 			}
-			Layer2InterfaceMap["l2sriov_interface"] = L2sriovInterfaceMap
+			Layer2InterfaceMap["l2sriov_interface"] = Layer2InterfaceL2sriovInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanInterface != nil {
-			L2vlanInterfaceMap := make(map[string]interface{})
+			Layer2InterfaceL2vlanInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanInterface.Device.IsNull() && !data.Layer2Interface.L2vlanInterface.Device.IsUnknown() {
-				L2vlanInterfaceMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
+				Layer2InterfaceL2vlanInterfaceMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
 			}
 			if !data.Layer2Interface.L2vlanInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
-				L2vlanInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
+				Layer2InterfaceL2vlanInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
 			}
-			Layer2InterfaceMap["l2vlan_interface"] = L2vlanInterfaceMap
+			Layer2InterfaceMap["l2vlan_interface"] = Layer2InterfaceL2vlanInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanSloInterface != nil {
-			L2vlanSloInterfaceMap := make(map[string]interface{})
+			Layer2InterfaceL2vlanSloInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanSloInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
-				L2vlanSloInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
+				Layer2InterfaceL2vlanSloInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
 			}
-			Layer2InterfaceMap["l2vlan_slo_interface"] = L2vlanSloInterfaceMap
+			Layer2InterfaceMap["l2vlan_slo_interface"] = Layer2InterfaceL2vlanSloInterfaceMap
 		}
 		createReq.Spec["layer2_interface"] = Layer2InterfaceMap
 	}
@@ -1620,38 +1620,38 @@ func (r *NetworkInterfaceResource) Create(ctx context.Context, req resource.Crea
 			TunnelInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.TunnelInterface.StaticIP != nil {
-			StaticIPMap := make(map[string]interface{})
+			TunnelInterfaceStaticIPMap := make(map[string]interface{})
 			if data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
-				ClusterStaticIPMap := make(map[string]interface{})
+				TunnelInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
 				if data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+					TunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+				TunnelInterfaceStaticIPMap["cluster_static_ip"] = TunnelInterfaceStaticIPClusterStaticIPMap
 			}
 			if data.TunnelInterface.StaticIP.NodeStaticIP != nil {
-				NodeStaticIPMap := make(map[string]interface{})
+				TunnelInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
-					NodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+					TunnelInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 				}
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
-					NodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+					TunnelInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 				}
-				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+				TunnelInterfaceStaticIPMap["node_static_ip"] = TunnelInterfaceStaticIPNodeStaticIPMap
 			}
-			TunnelInterfaceMap["static_ip"] = StaticIPMap
+			TunnelInterfaceMap["static_ip"] = TunnelInterfaceStaticIPMap
 		}
 		if data.TunnelInterface.Tunnel != nil {
-			TunnelMap := make(map[string]interface{})
+			TunnelInterfaceTunnelMap := make(map[string]interface{})
 			if !data.TunnelInterface.Tunnel.Name.IsNull() && !data.TunnelInterface.Tunnel.Name.IsUnknown() {
-				TunnelMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
+				TunnelInterfaceTunnelMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Namespace.IsNull() && !data.TunnelInterface.Tunnel.Namespace.IsUnknown() {
-				TunnelMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
+				TunnelInterfaceTunnelMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Tenant.IsNull() && !data.TunnelInterface.Tunnel.Tenant.IsUnknown() {
-				TunnelMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
+				TunnelInterfaceTunnelMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
 			}
-			TunnelInterfaceMap["tunnel"] = TunnelMap
+			TunnelInterfaceMap["tunnel"] = TunnelInterfaceTunnelMap
 		}
 		createReq.Spec["tunnel_interface"] = TunnelInterfaceMap
 	}
@@ -3779,12 +3779,12 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			EthernetInterfaceMap["dhcp_client"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.DHCPServer != nil {
-			DHCPServerMap := make(map[string]interface{})
+			EthernetInterfaceDHCPServerMap := make(map[string]interface{})
 			if data.EthernetInterface.DHCPServer.AutomaticFromEnd != nil {
-				DHCPServerMap["automatic_from_end"] = map[string]interface{}{}
+				EthernetInterfaceDHCPServerMap["automatic_from_end"] = map[string]interface{}{}
 			}
 			if data.EthernetInterface.DHCPServer.AutomaticFromStart != nil {
-				DHCPServerMap["automatic_from_start"] = map[string]interface{}{}
+				EthernetInterfaceDHCPServerMap["automatic_from_start"] = map[string]interface{}{}
 			}
 			if !data.EthernetInterface.DHCPServer.DHCPNetworks.IsNull() && !data.EthernetInterface.DHCPServer.DHCPNetworks.IsUnknown() {
 				var DHCPNetworksElems []NetworkInterfaceEthernetInterfaceDHCPServerDHCPNetworksModel
@@ -3836,66 +3836,66 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 						}
 						DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 					}
-					DHCPServerMap["dhcp_networks"] = DHCPNetworksList
+					EthernetInterfaceDHCPServerMap["dhcp_networks"] = DHCPNetworksList
 				}
 			}
 			if data.EthernetInterface.DHCPServer.FixedIPMap != nil {
-				DHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
+				EthernetInterfaceDHCPServerMap["fixed_ip_map"] = map[string]interface{}{}
 			}
 			if data.EthernetInterface.DHCPServer.InterfaceIPMap != nil {
-				InterfaceIPMapMap := make(map[string]interface{})
+				EthernetInterfaceDHCPServerInterfaceIPMapMap := make(map[string]interface{})
 				if data.EthernetInterface.DHCPServer.InterfaceIPMap.InterfaceIPMap != nil {
-					InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+					EthernetInterfaceDHCPServerInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				DHCPServerMap["interface_ip_map"] = InterfaceIPMapMap
+				EthernetInterfaceDHCPServerMap["interface_ip_map"] = EthernetInterfaceDHCPServerInterfaceIPMapMap
 			}
-			EthernetInterfaceMap["dhcp_server"] = DHCPServerMap
+			EthernetInterfaceMap["dhcp_server"] = EthernetInterfaceDHCPServerMap
 		}
 		if data.EthernetInterface.Ipv6AutoConfig != nil {
-			Ipv6AutoConfigMap := make(map[string]interface{})
+			EthernetInterfaceIpv6AutoConfigMap := make(map[string]interface{})
 			if data.EthernetInterface.Ipv6AutoConfig.Host != nil {
-				Ipv6AutoConfigMap["host"] = map[string]interface{}{}
+				EthernetInterfaceIpv6AutoConfigMap["host"] = map[string]interface{}{}
 			}
 			if data.EthernetInterface.Ipv6AutoConfig.Router != nil {
-				RouterMap := make(map[string]interface{})
+				EthernetInterfaceIpv6AutoConfigRouterMap := make(map[string]interface{})
 				if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig != nil {
-					DNSConfigMap := make(map[string]interface{})
+					EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap := make(map[string]interface{})
 					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList != nil {
-						ConfiguredListMap := make(map[string]interface{})
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap := make(map[string]interface{})
 						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.IsUnknown() {
 							var DNSListItems []string
 							diags := data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.ConfiguredList.DNSList.ElementsAs(ctx, &DNSListItems, false)
 							if !diags.HasError() {
-								ConfiguredListMap["dns_list"] = DNSListItems
+								EthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap["dns_list"] = DNSListItems
 							}
 						}
-						DNSConfigMap["configured_list"] = ConfiguredListMap
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap["configured_list"] = EthernetInterfaceIpv6AutoConfigRouterDNSConfigConfiguredListMap
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS != nil {
-						LocalDNSMap := make(map[string]interface{})
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap := make(map[string]interface{})
 						if !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.IsUnknown() {
-							LocalDNSMap["configured_address"] = data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
+							EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap["configured_address"] = data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.ConfiguredAddress.ValueString()
 						}
 						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.FirstAddress != nil {
-							LocalDNSMap["first_address"] = map[string]interface{}{}
+							EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap["first_address"] = map[string]interface{}{}
 						}
 						if data.EthernetInterface.Ipv6AutoConfig.Router.DNSConfig.LocalDNS.LastAddress != nil {
-							LocalDNSMap["last_address"] = map[string]interface{}{}
+							EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap["last_address"] = map[string]interface{}{}
 						}
-						DNSConfigMap["local_dns"] = LocalDNSMap
+						EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap["local_dns"] = EthernetInterfaceIpv6AutoConfigRouterDNSConfigLocalDNSMap
 					}
-					RouterMap["dns_config"] = DNSConfigMap
+					EthernetInterfaceIpv6AutoConfigRouterMap["dns_config"] = EthernetInterfaceIpv6AutoConfigRouterDNSConfigMap
 				}
 				if !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.IsUnknown() {
-					RouterMap["network_prefix"] = data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
+					EthernetInterfaceIpv6AutoConfigRouterMap["network_prefix"] = data.EthernetInterface.Ipv6AutoConfig.Router.NetworkPrefix.ValueString()
 				}
 				if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful != nil {
-					StatefulMap := make(map[string]interface{})
+					EthernetInterfaceIpv6AutoConfigRouterStatefulMap := make(map[string]interface{})
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromEnd != nil {
-						StatefulMap["automatic_from_end"] = map[string]interface{}{}
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["automatic_from_end"] = map[string]interface{}{}
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.AutomaticFromStart != nil {
-						StatefulMap["automatic_from_start"] = map[string]interface{}{}
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["automatic_from_start"] = map[string]interface{}{}
 					}
 					if !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsNull() && !data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.DHCPNetworks.IsUnknown() {
 						var DHCPNetworksElems []NetworkInterfaceEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksModel
@@ -3932,24 +3932,24 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 								}
 								DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 							}
-							StatefulMap["dhcp_networks"] = DHCPNetworksList
+							EthernetInterfaceIpv6AutoConfigRouterStatefulMap["dhcp_networks"] = DHCPNetworksList
 						}
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.FixedIPMap != nil {
-						StatefulMap["fixed_ip_map"] = map[string]interface{}{}
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["fixed_ip_map"] = map[string]interface{}{}
 					}
 					if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap != nil {
-						InterfaceIPMapMap := make(map[string]interface{})
+						EthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap := make(map[string]interface{})
 						if data.EthernetInterface.Ipv6AutoConfig.Router.Stateful.InterfaceIPMap.InterfaceIPMap != nil {
-							InterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
+							EthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap["interface_ip_map"] = map[string]interface{}{}
 						}
-						StatefulMap["interface_ip_map"] = InterfaceIPMapMap
+						EthernetInterfaceIpv6AutoConfigRouterStatefulMap["interface_ip_map"] = EthernetInterfaceIpv6AutoConfigRouterStatefulInterfaceIPMapMap
 					}
-					RouterMap["stateful"] = StatefulMap
+					EthernetInterfaceIpv6AutoConfigRouterMap["stateful"] = EthernetInterfaceIpv6AutoConfigRouterStatefulMap
 				}
-				Ipv6AutoConfigMap["router"] = RouterMap
+				EthernetInterfaceIpv6AutoConfigMap["router"] = EthernetInterfaceIpv6AutoConfigRouterMap
 			}
-			EthernetInterfaceMap["ipv6_auto_config"] = Ipv6AutoConfigMap
+			EthernetInterfaceMap["ipv6_auto_config"] = EthernetInterfaceIpv6AutoConfigMap
 		}
 		if data.EthernetInterface.IsPrimary != nil {
 			EthernetInterfaceMap["is_primary"] = map[string]interface{}{}
@@ -3982,46 +3982,46 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			EthernetInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.EthernetInterface.StaticIP != nil {
-			StaticIPMap := make(map[string]interface{})
+			EthernetInterfaceStaticIPMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIP.ClusterStaticIP != nil {
-				ClusterStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
 				if data.EthernetInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+					EthernetInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+				EthernetInterfaceStaticIPMap["cluster_static_ip"] = EthernetInterfaceStaticIPClusterStaticIPMap
 			}
 			if data.EthernetInterface.StaticIP.NodeStaticIP != nil {
-				NodeStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
-					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+					EthernetInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 				}
 				if !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
-					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+					EthernetInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 				}
-				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+				EthernetInterfaceStaticIPMap["node_static_ip"] = EthernetInterfaceStaticIPNodeStaticIPMap
 			}
-			EthernetInterfaceMap["static_ip"] = StaticIPMap
+			EthernetInterfaceMap["static_ip"] = EthernetInterfaceStaticIPMap
 		}
 		if data.EthernetInterface.StaticIpv6Address != nil {
-			StaticIpv6AddressMap := make(map[string]interface{})
+			EthernetInterfaceStaticIpv6AddressMap := make(map[string]interface{})
 			if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP != nil {
-				ClusterStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIpv6AddressClusterStaticIPMap := make(map[string]interface{})
 				if data.EthernetInterface.StaticIpv6Address.ClusterStaticIP.InterfaceIPMap != nil {
-					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+					EthernetInterfaceStaticIpv6AddressClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				StaticIpv6AddressMap["cluster_static_ip"] = ClusterStaticIPMap
+				EthernetInterfaceStaticIpv6AddressMap["cluster_static_ip"] = EthernetInterfaceStaticIpv6AddressClusterStaticIPMap
 			}
 			if data.EthernetInterface.StaticIpv6Address.NodeStaticIP != nil {
-				NodeStaticIPMap := make(map[string]interface{})
+				EthernetInterfaceStaticIpv6AddressNodeStaticIPMap := make(map[string]interface{})
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.IsUnknown() {
-					NodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
+					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["default_gw"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.DefaultGw.ValueString()
 				}
 				if !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsNull() && !data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.IsUnknown() {
-					NodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
+					EthernetInterfaceStaticIpv6AddressNodeStaticIPMap["ip_address"] = data.EthernetInterface.StaticIpv6Address.NodeStaticIP.IPAddress.ValueString()
 				}
-				StaticIpv6AddressMap["node_static_ip"] = NodeStaticIPMap
+				EthernetInterfaceStaticIpv6AddressMap["node_static_ip"] = EthernetInterfaceStaticIpv6AddressNodeStaticIPMap
 			}
-			EthernetInterfaceMap["static_ipv6_address"] = StaticIpv6AddressMap
+			EthernetInterfaceMap["static_ipv6_address"] = EthernetInterfaceStaticIpv6AddressMap
 		}
 		if data.EthernetInterface.StorageNetwork != nil {
 			EthernetInterfaceMap["storage_network"] = map[string]interface{}{}
@@ -4037,34 +4037,34 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 	if data.Layer2Interface != nil {
 		Layer2InterfaceMap := make(map[string]interface{})
 		if data.Layer2Interface.L2sriovInterface != nil {
-			L2sriovInterfaceMap := make(map[string]interface{})
+			Layer2InterfaceL2sriovInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2sriovInterface.Device.IsNull() && !data.Layer2Interface.L2sriovInterface.Device.IsUnknown() {
-				L2sriovInterfaceMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
+				Layer2InterfaceL2sriovInterfaceMap["device"] = data.Layer2Interface.L2sriovInterface.Device.ValueString()
 			}
 			if data.Layer2Interface.L2sriovInterface.Untagged != nil {
-				L2sriovInterfaceMap["untagged"] = map[string]interface{}{}
+				Layer2InterfaceL2sriovInterfaceMap["untagged"] = map[string]interface{}{}
 			}
 			if !data.Layer2Interface.L2sriovInterface.VLANID.IsNull() && !data.Layer2Interface.L2sriovInterface.VLANID.IsUnknown() {
-				L2sriovInterfaceMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
+				Layer2InterfaceL2sriovInterfaceMap["vlan_id"] = data.Layer2Interface.L2sriovInterface.VLANID.ValueInt64()
 			}
-			Layer2InterfaceMap["l2sriov_interface"] = L2sriovInterfaceMap
+			Layer2InterfaceMap["l2sriov_interface"] = Layer2InterfaceL2sriovInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanInterface != nil {
-			L2vlanInterfaceMap := make(map[string]interface{})
+			Layer2InterfaceL2vlanInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanInterface.Device.IsNull() && !data.Layer2Interface.L2vlanInterface.Device.IsUnknown() {
-				L2vlanInterfaceMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
+				Layer2InterfaceL2vlanInterfaceMap["device"] = data.Layer2Interface.L2vlanInterface.Device.ValueString()
 			}
 			if !data.Layer2Interface.L2vlanInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanInterface.VLANID.IsUnknown() {
-				L2vlanInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
+				Layer2InterfaceL2vlanInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanInterface.VLANID.ValueInt64()
 			}
-			Layer2InterfaceMap["l2vlan_interface"] = L2vlanInterfaceMap
+			Layer2InterfaceMap["l2vlan_interface"] = Layer2InterfaceL2vlanInterfaceMap
 		}
 		if data.Layer2Interface.L2vlanSloInterface != nil {
-			L2vlanSloInterfaceMap := make(map[string]interface{})
+			Layer2InterfaceL2vlanSloInterfaceMap := make(map[string]interface{})
 			if !data.Layer2Interface.L2vlanSloInterface.VLANID.IsNull() && !data.Layer2Interface.L2vlanSloInterface.VLANID.IsUnknown() {
-				L2vlanSloInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
+				Layer2InterfaceL2vlanSloInterfaceMap["vlan_id"] = data.Layer2Interface.L2vlanSloInterface.VLANID.ValueInt64()
 			}
-			Layer2InterfaceMap["l2vlan_slo_interface"] = L2vlanSloInterfaceMap
+			Layer2InterfaceMap["l2vlan_slo_interface"] = Layer2InterfaceL2vlanSloInterfaceMap
 		}
 		apiResource.Spec["layer2_interface"] = Layer2InterfaceMap
 	}
@@ -4086,38 +4086,38 @@ func (r *NetworkInterfaceResource) Update(ctx context.Context, req resource.Upda
 			TunnelInterfaceMap["site_local_network"] = map[string]interface{}{}
 		}
 		if data.TunnelInterface.StaticIP != nil {
-			StaticIPMap := make(map[string]interface{})
+			TunnelInterfaceStaticIPMap := make(map[string]interface{})
 			if data.TunnelInterface.StaticIP.ClusterStaticIP != nil {
-				ClusterStaticIPMap := make(map[string]interface{})
+				TunnelInterfaceStaticIPClusterStaticIPMap := make(map[string]interface{})
 				if data.TunnelInterface.StaticIP.ClusterStaticIP.InterfaceIPMap != nil {
-					ClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
+					TunnelInterfaceStaticIPClusterStaticIPMap["interface_ip_map"] = map[string]interface{}{}
 				}
-				StaticIPMap["cluster_static_ip"] = ClusterStaticIPMap
+				TunnelInterfaceStaticIPMap["cluster_static_ip"] = TunnelInterfaceStaticIPClusterStaticIPMap
 			}
 			if data.TunnelInterface.StaticIP.NodeStaticIP != nil {
-				NodeStaticIPMap := make(map[string]interface{})
+				TunnelInterfaceStaticIPNodeStaticIPMap := make(map[string]interface{})
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.IsUnknown() {
-					NodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
+					TunnelInterfaceStaticIPNodeStaticIPMap["default_gw"] = data.TunnelInterface.StaticIP.NodeStaticIP.DefaultGw.ValueString()
 				}
 				if !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsNull() && !data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.IsUnknown() {
-					NodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
+					TunnelInterfaceStaticIPNodeStaticIPMap["ip_address"] = data.TunnelInterface.StaticIP.NodeStaticIP.IPAddress.ValueString()
 				}
-				StaticIPMap["node_static_ip"] = NodeStaticIPMap
+				TunnelInterfaceStaticIPMap["node_static_ip"] = TunnelInterfaceStaticIPNodeStaticIPMap
 			}
-			TunnelInterfaceMap["static_ip"] = StaticIPMap
+			TunnelInterfaceMap["static_ip"] = TunnelInterfaceStaticIPMap
 		}
 		if data.TunnelInterface.Tunnel != nil {
-			TunnelMap := make(map[string]interface{})
+			TunnelInterfaceTunnelMap := make(map[string]interface{})
 			if !data.TunnelInterface.Tunnel.Name.IsNull() && !data.TunnelInterface.Tunnel.Name.IsUnknown() {
-				TunnelMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
+				TunnelInterfaceTunnelMap["name"] = data.TunnelInterface.Tunnel.Name.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Namespace.IsNull() && !data.TunnelInterface.Tunnel.Namespace.IsUnknown() {
-				TunnelMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
+				TunnelInterfaceTunnelMap["namespace"] = data.TunnelInterface.Tunnel.Namespace.ValueString()
 			}
 			if !data.TunnelInterface.Tunnel.Tenant.IsNull() && !data.TunnelInterface.Tunnel.Tenant.IsUnknown() {
-				TunnelMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
+				TunnelInterfaceTunnelMap["tenant"] = data.TunnelInterface.Tunnel.Tenant.ValueString()
 			}
-			TunnelInterfaceMap["tunnel"] = TunnelMap
+			TunnelInterfaceMap["tunnel"] = TunnelInterfaceTunnelMap
 		}
 		apiResource.Spec["tunnel_interface"] = TunnelInterfaceMap
 	}

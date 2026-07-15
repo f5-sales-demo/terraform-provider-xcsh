@@ -1149,21 +1149,21 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-						AdvertiseOnPublicMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-							PublicIPMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-								PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-								PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 							}
-							AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
-						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -1172,132 +1172,132 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 					}
 					if AdvertiseWhereItem.Site != nil {
-						SiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 						}
 						if AdvertiseWhereItem.Site.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
-							SiteMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
-						AdvertiseWhereItemMap["site"] = SiteMap
+						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
 					if AdvertiseWhereItem.UseDefaultPort != nil {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-							VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-							VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-							VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-							VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-								VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-								VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 							}
-							VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
-						AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
 					}
 					if AdvertiseWhereItem.VirtualSite != nil {
-						VirtualSiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						AdvertiseWhereItemMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteMap
 					}
 					if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-						VirtualSiteWithVIPMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-							VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-							VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 					}
 					if AdvertiseWhereItem.Vk8sService != nil {
-						Vk8sServiceMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 						if AdvertiseWhereItem.Vk8sService.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 							}
-							Vk8sServiceMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
-							Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						AdvertiseWhereItemMap["vk8s_service"] = AdvertiseCustomAdvertiseWhereVk8sServiceMap
 					}
 					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
@@ -1309,17 +1309,17 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if data.AdvertiseOnPublic != nil {
 		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
-			PublicIPMap := make(map[string]interface{})
+			AdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 			if !data.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-				PublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				AdvertiseOnPublicPublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-				PublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				PublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
-			AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
 		createReq.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
@@ -1357,33 +1357,33 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			for _, OriginPoolsWeightsItem := range OriginPoolsWeightsElems {
 				OriginPoolsWeightsItemMap := make(map[string]interface{})
 				if OriginPoolsWeightsItem.Cluster != nil {
-					ClusterMap := make(map[string]interface{})
+					OriginPoolsWeightsClusterMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Cluster.Name.IsNull() && !OriginPoolsWeightsItem.Cluster.Name.IsUnknown() {
-						ClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
+						OriginPoolsWeightsClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
-						ClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
+						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						ClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
+						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["cluster"] = ClusterMap
+					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
 					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if OriginPoolsWeightsItem.Pool != nil {
-					PoolMap := make(map[string]interface{})
+					OriginPoolsWeightsPoolMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Pool.Name.IsNull() && !OriginPoolsWeightsItem.Pool.Name.IsUnknown() {
-						PoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
+						OriginPoolsWeightsPoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
-						PoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
+						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						PoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
+						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["pool"] = PoolMap
+					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
 				if !OriginPoolsWeightsItem.Priority.IsNull() && !OriginPoolsWeightsItem.Priority.IsUnknown() {
 					OriginPoolsWeightsItemMap["priority"] = OriginPoolsWeightsItem.Priority.ValueInt64()
@@ -2729,21 +2729,21 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-						AdvertiseOnPublicMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-							PublicIPMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-								PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-								PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 							}
-							AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
-						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -2752,132 +2752,132 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 					}
 					if AdvertiseWhereItem.Site != nil {
-						SiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 						}
 						if AdvertiseWhereItem.Site.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
-							SiteMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
-						AdvertiseWhereItemMap["site"] = SiteMap
+						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
 					if AdvertiseWhereItem.UseDefaultPort != nil {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-							VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-							VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-							VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-							VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-								VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-								VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 							}
-							VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
-						AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
 					}
 					if AdvertiseWhereItem.VirtualSite != nil {
-						VirtualSiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						AdvertiseWhereItemMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteMap
 					}
 					if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-						VirtualSiteWithVIPMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-							VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-							VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 					}
 					if AdvertiseWhereItem.Vk8sService != nil {
-						Vk8sServiceMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 						if AdvertiseWhereItem.Vk8sService.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 							}
-							Vk8sServiceMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
-							Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						AdvertiseWhereItemMap["vk8s_service"] = AdvertiseCustomAdvertiseWhereVk8sServiceMap
 					}
 					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
@@ -2889,17 +2889,17 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if data.AdvertiseOnPublic != nil {
 		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
-			PublicIPMap := make(map[string]interface{})
+			AdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 			if !data.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-				PublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				AdvertiseOnPublicPublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-				PublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				PublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
-			AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
 		apiResource.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
@@ -2937,33 +2937,33 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			for _, OriginPoolsWeightsItem := range OriginPoolsWeightsElems {
 				OriginPoolsWeightsItemMap := make(map[string]interface{})
 				if OriginPoolsWeightsItem.Cluster != nil {
-					ClusterMap := make(map[string]interface{})
+					OriginPoolsWeightsClusterMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Cluster.Name.IsNull() && !OriginPoolsWeightsItem.Cluster.Name.IsUnknown() {
-						ClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
+						OriginPoolsWeightsClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
-						ClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
+						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						ClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
+						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["cluster"] = ClusterMap
+					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
 					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if OriginPoolsWeightsItem.Pool != nil {
-					PoolMap := make(map[string]interface{})
+					OriginPoolsWeightsPoolMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Pool.Name.IsNull() && !OriginPoolsWeightsItem.Pool.Name.IsUnknown() {
-						PoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
+						OriginPoolsWeightsPoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
-						PoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
+						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						PoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
+						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["pool"] = PoolMap
+					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
 				if !OriginPoolsWeightsItem.Priority.IsNull() && !OriginPoolsWeightsItem.Priority.IsUnknown() {
 					OriginPoolsWeightsItemMap["priority"] = OriginPoolsWeightsItem.Priority.ValueInt64()

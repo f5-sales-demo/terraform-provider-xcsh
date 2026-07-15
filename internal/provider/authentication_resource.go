@@ -618,68 +618,68 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 	if data.CookieParams != nil {
 		CookieParamsMap := make(map[string]interface{})
 		if data.CookieParams.AuthHMAC != nil {
-			AuthHMACMap := make(map[string]interface{})
+			CookieParamsAuthHMACMap := make(map[string]interface{})
 			if data.CookieParams.AuthHMAC.PrimKey != nil {
-				PrimKeyMap := make(map[string]interface{})
+				CookieParamsAuthHMACPrimKeyMap := make(map[string]interface{})
 				if data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
+						CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PrimKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CookieParamsAuthHMACPrimKeyMap["blindfold_secret_info"] = CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap
 				}
 				if data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACPrimKeyClearSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
+						CookieParamsAuthHMACPrimKeyClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
+						CookieParamsAuthHMACPrimKeyClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
 					}
-					PrimKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					CookieParamsAuthHMACPrimKeyMap["clear_secret_info"] = CookieParamsAuthHMACPrimKeyClearSecretInfoMap
 				}
-				AuthHMACMap["prim_key"] = PrimKeyMap
+				CookieParamsAuthHMACMap["prim_key"] = CookieParamsAuthHMACPrimKeyMap
 			}
 			if !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsUnknown() {
-				AuthHMACMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+				CookieParamsAuthHMACMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
 			}
 			if data.CookieParams.AuthHMAC.SecKey != nil {
-				SecKeyMap := make(map[string]interface{})
+				CookieParamsAuthHMACSecKeyMap := make(map[string]interface{})
 				if data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
+						CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					SecKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CookieParamsAuthHMACSecKeyMap["blindfold_secret_info"] = CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap
 				}
 				if data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACSecKeyClearSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
+						CookieParamsAuthHMACSecKeyClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
+						CookieParamsAuthHMACSecKeyClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
 					}
-					SecKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					CookieParamsAuthHMACSecKeyMap["clear_secret_info"] = CookieParamsAuthHMACSecKeyClearSecretInfoMap
 				}
-				AuthHMACMap["sec_key"] = SecKeyMap
+				CookieParamsAuthHMACMap["sec_key"] = CookieParamsAuthHMACSecKeyMap
 			}
 			if !data.CookieParams.AuthHMAC.SecKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.SecKeyExpiry.IsUnknown() {
-				AuthHMACMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
+				CookieParamsAuthHMACMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
 			}
-			CookieParamsMap["auth_hmac"] = AuthHMACMap
+			CookieParamsMap["auth_hmac"] = CookieParamsAuthHMACMap
 		}
 		if !data.CookieParams.CookieExpiry.IsNull() && !data.CookieParams.CookieExpiry.IsUnknown() {
 			CookieParamsMap["cookie_expiry"] = data.CookieParams.CookieExpiry.ValueInt64()
@@ -698,44 +698,44 @@ func (r *AuthenticationResource) Create(ctx context.Context, req resource.Create
 	if data.OIDCAuth != nil {
 		OIDCAuthMap := make(map[string]interface{})
 		if data.OIDCAuth.ClientSecret != nil {
-			ClientSecretMap := make(map[string]interface{})
+			OIDCAuthClientSecretMap := make(map[string]interface{})
 			if data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				OIDCAuthClientSecretBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					OIDCAuthClientSecretBlindfoldSecretInfoMap["decryption_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+					OIDCAuthClientSecretBlindfoldSecretInfoMap["location"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+					OIDCAuthClientSecretBlindfoldSecretInfoMap["store_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				OIDCAuthClientSecretMap["blindfold_secret_info"] = OIDCAuthClientSecretBlindfoldSecretInfoMap
 			}
 			if data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				OIDCAuthClientSecretClearSecretInfoMap := make(map[string]interface{})
 				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.ValueString()
+					OIDCAuthClientSecretClearSecretInfoMap["provider"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.ValueString()
+					OIDCAuthClientSecretClearSecretInfoMap["url"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.ValueString()
 				}
-				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+				OIDCAuthClientSecretMap["clear_secret_info"] = OIDCAuthClientSecretClearSecretInfoMap
 			}
-			OIDCAuthMap["client_secret"] = ClientSecretMap
+			OIDCAuthMap["client_secret"] = OIDCAuthClientSecretMap
 		}
 		if data.OIDCAuth.OIDCAuthParams != nil {
-			OIDCAuthParamsMap := make(map[string]interface{})
+			OIDCAuthOIDCAuthParamsMap := make(map[string]interface{})
 			if !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsUnknown() {
-				OIDCAuthParamsMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
+				OIDCAuthOIDCAuthParamsMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsUnknown() {
-				OIDCAuthParamsMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
+				OIDCAuthOIDCAuthParamsMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsUnknown() {
-				OIDCAuthParamsMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
+				OIDCAuthOIDCAuthParamsMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
 			}
-			OIDCAuthMap["oidc_auth_params"] = OIDCAuthParamsMap
+			OIDCAuthMap["oidc_auth_params"] = OIDCAuthOIDCAuthParamsMap
 		}
 		if !data.OIDCAuth.OIDCClientID.IsNull() && !data.OIDCAuth.OIDCClientID.IsUnknown() {
 			OIDCAuthMap["oidc_client_id"] = data.OIDCAuth.OIDCClientID.ValueString()
@@ -1485,68 +1485,68 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 	if data.CookieParams != nil {
 		CookieParamsMap := make(map[string]interface{})
 		if data.CookieParams.AuthHMAC != nil {
-			AuthHMACMap := make(map[string]interface{})
+			CookieParamsAuthHMACMap := make(map[string]interface{})
 			if data.CookieParams.AuthHMAC.PrimKey != nil {
-				PrimKeyMap := make(map[string]interface{})
+				CookieParamsAuthHMACPrimKeyMap := make(map[string]interface{})
 				if data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
+						CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PrimKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CookieParamsAuthHMACPrimKeyMap["blindfold_secret_info"] = CookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap
 				}
 				if data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACPrimKeyClearSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
+						CookieParamsAuthHMACPrimKeyClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
+						CookieParamsAuthHMACPrimKeyClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
 					}
-					PrimKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					CookieParamsAuthHMACPrimKeyMap["clear_secret_info"] = CookieParamsAuthHMACPrimKeyClearSecretInfoMap
 				}
-				AuthHMACMap["prim_key"] = PrimKeyMap
+				CookieParamsAuthHMACMap["prim_key"] = CookieParamsAuthHMACPrimKeyMap
 			}
 			if !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.PrimKeyExpiry.IsUnknown() {
-				AuthHMACMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+				CookieParamsAuthHMACMap["prim_key_expiry"] = data.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
 			}
 			if data.CookieParams.AuthHMAC.SecKey != nil {
-				SecKeyMap := make(map[string]interface{})
+				CookieParamsAuthHMACSecKeyMap := make(map[string]interface{})
 				if data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["decryption_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
+						CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["location"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["store_provider"] = data.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					SecKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CookieParamsAuthHMACSecKeyMap["blindfold_secret_info"] = CookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap
 				}
 				if data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CookieParamsAuthHMACSecKeyClearSecretInfoMap := make(map[string]interface{})
 					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
+						CookieParamsAuthHMACSecKeyClearSecretInfoMap["provider"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsNull() && !data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
+						CookieParamsAuthHMACSecKeyClearSecretInfoMap["url"] = data.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
 					}
-					SecKeyMap["clear_secret_info"] = ClearSecretInfoMap
+					CookieParamsAuthHMACSecKeyMap["clear_secret_info"] = CookieParamsAuthHMACSecKeyClearSecretInfoMap
 				}
-				AuthHMACMap["sec_key"] = SecKeyMap
+				CookieParamsAuthHMACMap["sec_key"] = CookieParamsAuthHMACSecKeyMap
 			}
 			if !data.CookieParams.AuthHMAC.SecKeyExpiry.IsNull() && !data.CookieParams.AuthHMAC.SecKeyExpiry.IsUnknown() {
-				AuthHMACMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
+				CookieParamsAuthHMACMap["sec_key_expiry"] = data.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
 			}
-			CookieParamsMap["auth_hmac"] = AuthHMACMap
+			CookieParamsMap["auth_hmac"] = CookieParamsAuthHMACMap
 		}
 		if !data.CookieParams.CookieExpiry.IsNull() && !data.CookieParams.CookieExpiry.IsUnknown() {
 			CookieParamsMap["cookie_expiry"] = data.CookieParams.CookieExpiry.ValueInt64()
@@ -1565,44 +1565,44 @@ func (r *AuthenticationResource) Update(ctx context.Context, req resource.Update
 	if data.OIDCAuth != nil {
 		OIDCAuthMap := make(map[string]interface{})
 		if data.OIDCAuth.ClientSecret != nil {
-			ClientSecretMap := make(map[string]interface{})
+			OIDCAuthClientSecretMap := make(map[string]interface{})
 			if data.OIDCAuth.ClientSecret.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				OIDCAuthClientSecretBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					OIDCAuthClientSecretBlindfoldSecretInfoMap["decryption_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+					OIDCAuthClientSecretBlindfoldSecretInfoMap["location"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+					OIDCAuthClientSecretBlindfoldSecretInfoMap["store_provider"] = data.OIDCAuth.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				OIDCAuthClientSecretMap["blindfold_secret_info"] = OIDCAuthClientSecretBlindfoldSecretInfoMap
 			}
 			if data.OIDCAuth.ClientSecret.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				OIDCAuthClientSecretClearSecretInfoMap := make(map[string]interface{})
 				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.ValueString()
+					OIDCAuthClientSecretClearSecretInfoMap["provider"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.ValueString()
+					OIDCAuthClientSecretClearSecretInfoMap["url"] = data.OIDCAuth.ClientSecret.ClearSecretInfo.URL.ValueString()
 				}
-				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+				OIDCAuthClientSecretMap["clear_secret_info"] = OIDCAuthClientSecretClearSecretInfoMap
 			}
-			OIDCAuthMap["client_secret"] = ClientSecretMap
+			OIDCAuthMap["client_secret"] = OIDCAuthClientSecretMap
 		}
 		if data.OIDCAuth.OIDCAuthParams != nil {
-			OIDCAuthParamsMap := make(map[string]interface{})
+			OIDCAuthOIDCAuthParamsMap := make(map[string]interface{})
 			if !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.IsUnknown() {
-				OIDCAuthParamsMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
+				OIDCAuthOIDCAuthParamsMap["auth_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.AuthEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.IsUnknown() {
-				OIDCAuthParamsMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
+				OIDCAuthOIDCAuthParamsMap["end_session_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.EndSessionEndpointURL.ValueString()
 			}
 			if !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsNull() && !data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.IsUnknown() {
-				OIDCAuthParamsMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
+				OIDCAuthOIDCAuthParamsMap["token_endpoint_url"] = data.OIDCAuth.OIDCAuthParams.TokenEndpointURL.ValueString()
 			}
-			OIDCAuthMap["oidc_auth_params"] = OIDCAuthParamsMap
+			OIDCAuthMap["oidc_auth_params"] = OIDCAuthOIDCAuthParamsMap
 		}
 		if !data.OIDCAuth.OIDCClientID.IsNull() && !data.OIDCAuth.OIDCClientID.IsUnknown() {
 			OIDCAuthMap["oidc_client_id"] = data.OIDCAuth.OIDCClientID.ValueString()

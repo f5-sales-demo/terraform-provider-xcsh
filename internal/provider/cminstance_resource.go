@@ -436,27 +436,27 @@ func (r *CminstanceResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.APIToken != nil {
 		APITokenMap := make(map[string]interface{})
 		if data.APIToken.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			APITokenBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				APITokenBlindfoldSecretInfoMap["decryption_provider"] = data.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.APIToken.BlindfoldSecretInfo.Location.IsNull() && !data.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.APIToken.BlindfoldSecretInfo.Location.ValueString()
+				APITokenBlindfoldSecretInfoMap["location"] = data.APIToken.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+				APITokenBlindfoldSecretInfoMap["store_provider"] = data.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			APITokenMap["blindfold_secret_info"] = APITokenBlindfoldSecretInfoMap
 		}
 		if data.APIToken.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			APITokenClearSecretInfoMap := make(map[string]interface{})
 			if !data.APIToken.ClearSecretInfo.Provider.IsNull() && !data.APIToken.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.APIToken.ClearSecretInfo.Provider.ValueString()
+				APITokenClearSecretInfoMap["provider"] = data.APIToken.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.APIToken.ClearSecretInfo.URL.IsNull() && !data.APIToken.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.APIToken.ClearSecretInfo.URL.ValueString()
+				APITokenClearSecretInfoMap["url"] = data.APIToken.ClearSecretInfo.URL.ValueString()
 			}
-			APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+			APITokenMap["clear_secret_info"] = APITokenClearSecretInfoMap
 		}
 		createReq.Spec["api_token"] = APITokenMap
 	}
@@ -470,27 +470,27 @@ func (r *CminstanceResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.Password != nil {
 		PasswordMap := make(map[string]interface{})
 		if data.Password.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			PasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				PasswordBlindfoldSecretInfoMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
+				PasswordBlindfoldSecretInfoMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+				PasswordBlindfoldSecretInfoMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			PasswordMap["blindfold_secret_info"] = PasswordBlindfoldSecretInfoMap
 		}
 		if data.Password.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			PasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.Password.ClearSecretInfo.Provider.IsNull() && !data.Password.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
+				PasswordClearSecretInfoMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.Password.ClearSecretInfo.URL.IsNull() && !data.Password.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
+				PasswordClearSecretInfoMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
 			}
-			PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			PasswordMap["clear_secret_info"] = PasswordClearSecretInfoMap
 		}
 		createReq.Spec["password"] = PasswordMap
 	}
@@ -924,27 +924,27 @@ func (r *CminstanceResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.APIToken != nil {
 		APITokenMap := make(map[string]interface{})
 		if data.APIToken.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			APITokenBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.APIToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				APITokenBlindfoldSecretInfoMap["decryption_provider"] = data.APIToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.APIToken.BlindfoldSecretInfo.Location.IsNull() && !data.APIToken.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.APIToken.BlindfoldSecretInfo.Location.ValueString()
+				APITokenBlindfoldSecretInfoMap["location"] = data.APIToken.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.APIToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.APIToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+				APITokenBlindfoldSecretInfoMap["store_provider"] = data.APIToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			APITokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			APITokenMap["blindfold_secret_info"] = APITokenBlindfoldSecretInfoMap
 		}
 		if data.APIToken.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			APITokenClearSecretInfoMap := make(map[string]interface{})
 			if !data.APIToken.ClearSecretInfo.Provider.IsNull() && !data.APIToken.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.APIToken.ClearSecretInfo.Provider.ValueString()
+				APITokenClearSecretInfoMap["provider"] = data.APIToken.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.APIToken.ClearSecretInfo.URL.IsNull() && !data.APIToken.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.APIToken.ClearSecretInfo.URL.ValueString()
+				APITokenClearSecretInfoMap["url"] = data.APIToken.ClearSecretInfo.URL.ValueString()
 			}
-			APITokenMap["clear_secret_info"] = ClearSecretInfoMap
+			APITokenMap["clear_secret_info"] = APITokenClearSecretInfoMap
 		}
 		apiResource.Spec["api_token"] = APITokenMap
 	}
@@ -958,27 +958,27 @@ func (r *CminstanceResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.Password != nil {
 		PasswordMap := make(map[string]interface{})
 		if data.Password.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			PasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				PasswordBlindfoldSecretInfoMap["decryption_provider"] = data.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
+				PasswordBlindfoldSecretInfoMap["location"] = data.Password.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+				PasswordBlindfoldSecretInfoMap["store_provider"] = data.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			PasswordMap["blindfold_secret_info"] = PasswordBlindfoldSecretInfoMap
 		}
 		if data.Password.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			PasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.Password.ClearSecretInfo.Provider.IsNull() && !data.Password.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
+				PasswordClearSecretInfoMap["provider"] = data.Password.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.Password.ClearSecretInfo.URL.IsNull() && !data.Password.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
+				PasswordClearSecretInfoMap["url"] = data.Password.ClearSecretInfo.URL.ValueString()
 			}
-			PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			PasswordMap["clear_secret_info"] = PasswordClearSecretInfoMap
 		}
 		apiResource.Spec["password"] = PasswordMap
 	}

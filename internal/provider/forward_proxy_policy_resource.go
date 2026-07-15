@@ -1518,66 +1518,66 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						RulesItemMap["all_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.DstAsnList != nil {
-						DstAsnListMap := make(map[string]interface{})
+						RuleListRulesDstAsnListMap := make(map[string]interface{})
 						if !RulesItem.DstAsnList.AsNumbers.IsNull() && !RulesItem.DstAsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.DstAsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
 							if !diags.HasError() {
-								DstAsnListMap["as_numbers"] = AsNumbersItems
+								RuleListRulesDstAsnListMap["as_numbers"] = AsNumbersItems
 							}
 						}
-						RulesItemMap["dst_asn_list"] = DstAsnListMap
+						RulesItemMap["dst_asn_list"] = RuleListRulesDstAsnListMap
 					}
 					if RulesItem.DstAsnSet != nil {
-						DstAsnSetMap := make(map[string]interface{})
+						RuleListRulesDstAsnSetMap := make(map[string]interface{})
 						if !RulesItem.DstAsnSet.Name.IsNull() && !RulesItem.DstAsnSet.Name.IsUnknown() {
-							DstAsnSetMap["name"] = RulesItem.DstAsnSet.Name.ValueString()
+							RuleListRulesDstAsnSetMap["name"] = RulesItem.DstAsnSet.Name.ValueString()
 						}
 						if !RulesItem.DstAsnSet.Namespace.IsNull() && !RulesItem.DstAsnSet.Namespace.IsUnknown() {
-							DstAsnSetMap["namespace"] = RulesItem.DstAsnSet.Namespace.ValueString()
+							RuleListRulesDstAsnSetMap["namespace"] = RulesItem.DstAsnSet.Namespace.ValueString()
 						}
 						if !RulesItem.DstAsnSet.Tenant.IsNull() && !RulesItem.DstAsnSet.Tenant.IsUnknown() {
-							DstAsnSetMap["tenant"] = RulesItem.DstAsnSet.Tenant.ValueString()
+							RuleListRulesDstAsnSetMap["tenant"] = RulesItem.DstAsnSet.Tenant.ValueString()
 						}
-						RulesItemMap["dst_asn_set"] = DstAsnSetMap
+						RulesItemMap["dst_asn_set"] = RuleListRulesDstAsnSetMap
 					}
 					if RulesItem.DstIPPrefixSet != nil {
-						DstIPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesDstIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.DstIPPrefixSet.Name.IsNull() && !RulesItem.DstIPPrefixSet.Name.IsUnknown() {
-							DstIPPrefixSetMap["name"] = RulesItem.DstIPPrefixSet.Name.ValueString()
+							RuleListRulesDstIPPrefixSetMap["name"] = RulesItem.DstIPPrefixSet.Name.ValueString()
 						}
 						if !RulesItem.DstIPPrefixSet.Namespace.IsNull() && !RulesItem.DstIPPrefixSet.Namespace.IsUnknown() {
-							DstIPPrefixSetMap["namespace"] = RulesItem.DstIPPrefixSet.Namespace.ValueString()
+							RuleListRulesDstIPPrefixSetMap["namespace"] = RulesItem.DstIPPrefixSet.Namespace.ValueString()
 						}
 						if !RulesItem.DstIPPrefixSet.Tenant.IsNull() && !RulesItem.DstIPPrefixSet.Tenant.IsUnknown() {
-							DstIPPrefixSetMap["tenant"] = RulesItem.DstIPPrefixSet.Tenant.ValueString()
+							RuleListRulesDstIPPrefixSetMap["tenant"] = RulesItem.DstIPPrefixSet.Tenant.ValueString()
 						}
-						RulesItemMap["dst_ip_prefix_set"] = DstIPPrefixSetMap
+						RulesItemMap["dst_ip_prefix_set"] = RuleListRulesDstIPPrefixSetMap
 					}
 					if RulesItem.DstLabelSelector != nil {
-						DstLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesDstLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.DstLabelSelector.Expressions.IsNull() && !RulesItem.DstLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DstLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								DstLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesDstLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["dst_label_selector"] = DstLabelSelectorMap
+						RulesItemMap["dst_label_selector"] = RuleListRulesDstLabelSelectorMap
 					}
 					if RulesItem.DstPrefixList != nil {
-						DstPrefixListMap := make(map[string]interface{})
+						RuleListRulesDstPrefixListMap := make(map[string]interface{})
 						if !RulesItem.DstPrefixList.Prefixes.IsNull() && !RulesItem.DstPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DstPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								DstPrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesDstPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["dst_prefix_list"] = DstPrefixListMap
+						RulesItemMap["dst_prefix_list"] = RuleListRulesDstPrefixListMap
 					}
 					if RulesItem.HTTPList != nil {
-						HTTPListMap := make(map[string]interface{})
+						RuleListRulesHTTPListMap := make(map[string]interface{})
 						if !RulesItem.HTTPList.HTTPList.IsNull() && !RulesItem.HTTPList.HTTPList.IsUnknown() {
 							var HTTPListElems []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
 							diags := RulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
@@ -1609,75 +1609,75 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									}
 									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								HTTPListMap["http_list"] = HTTPListList
+								RuleListRulesHTTPListMap["http_list"] = HTTPListList
 							}
 						}
-						RulesItemMap["http_list"] = HTTPListMap
+						RulesItemMap["http_list"] = RuleListRulesHTTPListMap
 					}
 					if RulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.IPPrefixSet.Name.IsNull() && !RulesItem.IPPrefixSet.Name.IsUnknown() {
-							IPPrefixSetMap["name"] = RulesItem.IPPrefixSet.Name.ValueString()
+							RuleListRulesIPPrefixSetMap["name"] = RulesItem.IPPrefixSet.Name.ValueString()
 						}
 						if !RulesItem.IPPrefixSet.Namespace.IsNull() && !RulesItem.IPPrefixSet.Namespace.IsUnknown() {
-							IPPrefixSetMap["namespace"] = RulesItem.IPPrefixSet.Namespace.ValueString()
+							RuleListRulesIPPrefixSetMap["namespace"] = RulesItem.IPPrefixSet.Namespace.ValueString()
 						}
 						if !RulesItem.IPPrefixSet.Tenant.IsNull() && !RulesItem.IPPrefixSet.Tenant.IsUnknown() {
-							IPPrefixSetMap["tenant"] = RulesItem.IPPrefixSet.Tenant.ValueString()
+							RuleListRulesIPPrefixSetMap["tenant"] = RulesItem.IPPrefixSet.Tenant.ValueString()
 						}
-						RulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						RulesItemMap["ip_prefix_set"] = RuleListRulesIPPrefixSetMap
 					}
 					if RulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						RuleListRulesLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.LabelSelector.Expressions.IsNull() && !RulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["label_selector"] = LabelSelectorMap
+						RulesItemMap["label_selector"] = RuleListRulesLabelSelectorMap
 					}
 					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RuleListRulesMetadataMap := make(map[string]interface{})
 						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							RuleListRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							RuleListRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
 					if RulesItem.NoHTTPConnectPort != nil {
 						RulesItemMap["no_http_connect_port"] = map[string]interface{}{}
 					}
 					if RulesItem.PortMatcher != nil {
-						PortMatcherMap := make(map[string]interface{})
+						RuleListRulesPortMatcherMap := make(map[string]interface{})
 						if !RulesItem.PortMatcher.InvertMatcher.IsNull() && !RulesItem.PortMatcher.InvertMatcher.IsUnknown() {
-							PortMatcherMap["invert_matcher"] = RulesItem.PortMatcher.InvertMatcher.ValueBool()
+							RuleListRulesPortMatcherMap["invert_matcher"] = RulesItem.PortMatcher.InvertMatcher.ValueBool()
 						}
 						if !RulesItem.PortMatcher.Ports.IsNull() && !RulesItem.PortMatcher.Ports.IsUnknown() {
 							var PortsItems []string
 							diags := RulesItem.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
 							if !diags.HasError() {
-								PortMatcherMap["ports"] = PortsItems
+								RuleListRulesPortMatcherMap["ports"] = PortsItems
 							}
 						}
-						RulesItemMap["port_matcher"] = PortMatcherMap
+						RulesItemMap["port_matcher"] = RuleListRulesPortMatcherMap
 					}
 					if RulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						RuleListRulesPrefixListMap := make(map[string]interface{})
 						if !RulesItem.PrefixList.Prefixes.IsNull() && !RulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["prefix_list"] = PrefixListMap
+						RulesItemMap["prefix_list"] = RuleListRulesPrefixListMap
 					}
 					if RulesItem.TLSList != nil {
-						TLSListMap := make(map[string]interface{})
+						RuleListRulesTLSListMap := make(map[string]interface{})
 						if !RulesItem.TLSList.TLSList.IsNull() && !RulesItem.TLSList.TLSList.IsUnknown() {
 							var TLSListElems []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
 							diags := RulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
@@ -1697,21 +1697,21 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									}
 									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								TLSListMap["tls_list"] = TLSListList
+								RuleListRulesTLSListMap["tls_list"] = TLSListList
 							}
 						}
-						RulesItemMap["tls_list"] = TLSListMap
+						RulesItemMap["tls_list"] = RuleListRulesTLSListMap
 					}
 					if RulesItem.URLCategoryList != nil {
-						URLCategoryListMap := make(map[string]interface{})
+						RuleListRulesURLCategoryListMap := make(map[string]interface{})
 						if !RulesItem.URLCategoryList.URLCategories.IsNull() && !RulesItem.URLCategoryList.URLCategories.IsUnknown() {
 							var URLCategoriesItems []string
 							diags := RulesItem.URLCategoryList.URLCategories.ElementsAs(ctx, &URLCategoriesItems, false)
 							if !diags.HasError() {
-								URLCategoryListMap["url_categories"] = URLCategoriesItems
+								RuleListRulesURLCategoryListMap["url_categories"] = URLCategoriesItems
 							}
 						}
-						RulesItemMap["url_category_list"] = URLCategoryListMap
+						RulesItemMap["url_category_list"] = RuleListRulesURLCategoryListMap
 					}
 					RulesList = append(RulesList, RulesItemMap)
 				}
@@ -3846,66 +3846,66 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						RulesItemMap["all_sources"] = map[string]interface{}{}
 					}
 					if RulesItem.DstAsnList != nil {
-						DstAsnListMap := make(map[string]interface{})
+						RuleListRulesDstAsnListMap := make(map[string]interface{})
 						if !RulesItem.DstAsnList.AsNumbers.IsNull() && !RulesItem.DstAsnList.AsNumbers.IsUnknown() {
 							var AsNumbersItems []int64
 							diags := RulesItem.DstAsnList.AsNumbers.ElementsAs(ctx, &AsNumbersItems, false)
 							if !diags.HasError() {
-								DstAsnListMap["as_numbers"] = AsNumbersItems
+								RuleListRulesDstAsnListMap["as_numbers"] = AsNumbersItems
 							}
 						}
-						RulesItemMap["dst_asn_list"] = DstAsnListMap
+						RulesItemMap["dst_asn_list"] = RuleListRulesDstAsnListMap
 					}
 					if RulesItem.DstAsnSet != nil {
-						DstAsnSetMap := make(map[string]interface{})
+						RuleListRulesDstAsnSetMap := make(map[string]interface{})
 						if !RulesItem.DstAsnSet.Name.IsNull() && !RulesItem.DstAsnSet.Name.IsUnknown() {
-							DstAsnSetMap["name"] = RulesItem.DstAsnSet.Name.ValueString()
+							RuleListRulesDstAsnSetMap["name"] = RulesItem.DstAsnSet.Name.ValueString()
 						}
 						if !RulesItem.DstAsnSet.Namespace.IsNull() && !RulesItem.DstAsnSet.Namespace.IsUnknown() {
-							DstAsnSetMap["namespace"] = RulesItem.DstAsnSet.Namespace.ValueString()
+							RuleListRulesDstAsnSetMap["namespace"] = RulesItem.DstAsnSet.Namespace.ValueString()
 						}
 						if !RulesItem.DstAsnSet.Tenant.IsNull() && !RulesItem.DstAsnSet.Tenant.IsUnknown() {
-							DstAsnSetMap["tenant"] = RulesItem.DstAsnSet.Tenant.ValueString()
+							RuleListRulesDstAsnSetMap["tenant"] = RulesItem.DstAsnSet.Tenant.ValueString()
 						}
-						RulesItemMap["dst_asn_set"] = DstAsnSetMap
+						RulesItemMap["dst_asn_set"] = RuleListRulesDstAsnSetMap
 					}
 					if RulesItem.DstIPPrefixSet != nil {
-						DstIPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesDstIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.DstIPPrefixSet.Name.IsNull() && !RulesItem.DstIPPrefixSet.Name.IsUnknown() {
-							DstIPPrefixSetMap["name"] = RulesItem.DstIPPrefixSet.Name.ValueString()
+							RuleListRulesDstIPPrefixSetMap["name"] = RulesItem.DstIPPrefixSet.Name.ValueString()
 						}
 						if !RulesItem.DstIPPrefixSet.Namespace.IsNull() && !RulesItem.DstIPPrefixSet.Namespace.IsUnknown() {
-							DstIPPrefixSetMap["namespace"] = RulesItem.DstIPPrefixSet.Namespace.ValueString()
+							RuleListRulesDstIPPrefixSetMap["namespace"] = RulesItem.DstIPPrefixSet.Namespace.ValueString()
 						}
 						if !RulesItem.DstIPPrefixSet.Tenant.IsNull() && !RulesItem.DstIPPrefixSet.Tenant.IsUnknown() {
-							DstIPPrefixSetMap["tenant"] = RulesItem.DstIPPrefixSet.Tenant.ValueString()
+							RuleListRulesDstIPPrefixSetMap["tenant"] = RulesItem.DstIPPrefixSet.Tenant.ValueString()
 						}
-						RulesItemMap["dst_ip_prefix_set"] = DstIPPrefixSetMap
+						RulesItemMap["dst_ip_prefix_set"] = RuleListRulesDstIPPrefixSetMap
 					}
 					if RulesItem.DstLabelSelector != nil {
-						DstLabelSelectorMap := make(map[string]interface{})
+						RuleListRulesDstLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.DstLabelSelector.Expressions.IsNull() && !RulesItem.DstLabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.DstLabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								DstLabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesDstLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["dst_label_selector"] = DstLabelSelectorMap
+						RulesItemMap["dst_label_selector"] = RuleListRulesDstLabelSelectorMap
 					}
 					if RulesItem.DstPrefixList != nil {
-						DstPrefixListMap := make(map[string]interface{})
+						RuleListRulesDstPrefixListMap := make(map[string]interface{})
 						if !RulesItem.DstPrefixList.Prefixes.IsNull() && !RulesItem.DstPrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.DstPrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								DstPrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesDstPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["dst_prefix_list"] = DstPrefixListMap
+						RulesItemMap["dst_prefix_list"] = RuleListRulesDstPrefixListMap
 					}
 					if RulesItem.HTTPList != nil {
-						HTTPListMap := make(map[string]interface{})
+						RuleListRulesHTTPListMap := make(map[string]interface{})
 						if !RulesItem.HTTPList.HTTPList.IsNull() && !RulesItem.HTTPList.HTTPList.IsUnknown() {
 							var HTTPListElems []ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel
 							diags := RulesItem.HTTPList.HTTPList.ElementsAs(ctx, &HTTPListElems, false)
@@ -3937,75 +3937,75 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									}
 									HTTPListList = append(HTTPListList, HTTPListItemMap)
 								}
-								HTTPListMap["http_list"] = HTTPListList
+								RuleListRulesHTTPListMap["http_list"] = HTTPListList
 							}
 						}
-						RulesItemMap["http_list"] = HTTPListMap
+						RulesItemMap["http_list"] = RuleListRulesHTTPListMap
 					}
 					if RulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RuleListRulesIPPrefixSetMap := make(map[string]interface{})
 						if !RulesItem.IPPrefixSet.Name.IsNull() && !RulesItem.IPPrefixSet.Name.IsUnknown() {
-							IPPrefixSetMap["name"] = RulesItem.IPPrefixSet.Name.ValueString()
+							RuleListRulesIPPrefixSetMap["name"] = RulesItem.IPPrefixSet.Name.ValueString()
 						}
 						if !RulesItem.IPPrefixSet.Namespace.IsNull() && !RulesItem.IPPrefixSet.Namespace.IsUnknown() {
-							IPPrefixSetMap["namespace"] = RulesItem.IPPrefixSet.Namespace.ValueString()
+							RuleListRulesIPPrefixSetMap["namespace"] = RulesItem.IPPrefixSet.Namespace.ValueString()
 						}
 						if !RulesItem.IPPrefixSet.Tenant.IsNull() && !RulesItem.IPPrefixSet.Tenant.IsUnknown() {
-							IPPrefixSetMap["tenant"] = RulesItem.IPPrefixSet.Tenant.ValueString()
+							RuleListRulesIPPrefixSetMap["tenant"] = RulesItem.IPPrefixSet.Tenant.ValueString()
 						}
-						RulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						RulesItemMap["ip_prefix_set"] = RuleListRulesIPPrefixSetMap
 					}
 					if RulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						RuleListRulesLabelSelectorMap := make(map[string]interface{})
 						if !RulesItem.LabelSelector.Expressions.IsNull() && !RulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := RulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								RuleListRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						RulesItemMap["label_selector"] = LabelSelectorMap
+						RulesItemMap["label_selector"] = RuleListRulesLabelSelectorMap
 					}
 					if RulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RuleListRulesMetadataMap := make(map[string]interface{})
 						if !RulesItem.Metadata.DescriptionSpec.IsNull() && !RulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
+							RuleListRulesMetadataMap["description"] = RulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !RulesItem.Metadata.Name.IsNull() && !RulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
+							RuleListRulesMetadataMap["name"] = RulesItem.Metadata.Name.ValueString()
 						}
-						RulesItemMap["metadata"] = MetadataMap
+						RulesItemMap["metadata"] = RuleListRulesMetadataMap
 					}
 					if RulesItem.NoHTTPConnectPort != nil {
 						RulesItemMap["no_http_connect_port"] = map[string]interface{}{}
 					}
 					if RulesItem.PortMatcher != nil {
-						PortMatcherMap := make(map[string]interface{})
+						RuleListRulesPortMatcherMap := make(map[string]interface{})
 						if !RulesItem.PortMatcher.InvertMatcher.IsNull() && !RulesItem.PortMatcher.InvertMatcher.IsUnknown() {
-							PortMatcherMap["invert_matcher"] = RulesItem.PortMatcher.InvertMatcher.ValueBool()
+							RuleListRulesPortMatcherMap["invert_matcher"] = RulesItem.PortMatcher.InvertMatcher.ValueBool()
 						}
 						if !RulesItem.PortMatcher.Ports.IsNull() && !RulesItem.PortMatcher.Ports.IsUnknown() {
 							var PortsItems []string
 							diags := RulesItem.PortMatcher.Ports.ElementsAs(ctx, &PortsItems, false)
 							if !diags.HasError() {
-								PortMatcherMap["ports"] = PortsItems
+								RuleListRulesPortMatcherMap["ports"] = PortsItems
 							}
 						}
-						RulesItemMap["port_matcher"] = PortMatcherMap
+						RulesItemMap["port_matcher"] = RuleListRulesPortMatcherMap
 					}
 					if RulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						RuleListRulesPrefixListMap := make(map[string]interface{})
 						if !RulesItem.PrefixList.Prefixes.IsNull() && !RulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := RulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								RuleListRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						RulesItemMap["prefix_list"] = PrefixListMap
+						RulesItemMap["prefix_list"] = RuleListRulesPrefixListMap
 					}
 					if RulesItem.TLSList != nil {
-						TLSListMap := make(map[string]interface{})
+						RuleListRulesTLSListMap := make(map[string]interface{})
 						if !RulesItem.TLSList.TLSList.IsNull() && !RulesItem.TLSList.TLSList.IsUnknown() {
 							var TLSListElems []ForwardProxyPolicyRuleListRulesTLSListTLSListModel
 							diags := RulesItem.TLSList.TLSList.ElementsAs(ctx, &TLSListElems, false)
@@ -4025,21 +4025,21 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									}
 									TLSListList = append(TLSListList, TLSListItemMap)
 								}
-								TLSListMap["tls_list"] = TLSListList
+								RuleListRulesTLSListMap["tls_list"] = TLSListList
 							}
 						}
-						RulesItemMap["tls_list"] = TLSListMap
+						RulesItemMap["tls_list"] = RuleListRulesTLSListMap
 					}
 					if RulesItem.URLCategoryList != nil {
-						URLCategoryListMap := make(map[string]interface{})
+						RuleListRulesURLCategoryListMap := make(map[string]interface{})
 						if !RulesItem.URLCategoryList.URLCategories.IsNull() && !RulesItem.URLCategoryList.URLCategories.IsUnknown() {
 							var URLCategoriesItems []string
 							diags := RulesItem.URLCategoryList.URLCategories.ElementsAs(ctx, &URLCategoriesItems, false)
 							if !diags.HasError() {
-								URLCategoryListMap["url_categories"] = URLCategoriesItems
+								RuleListRulesURLCategoryListMap["url_categories"] = URLCategoriesItems
 							}
 						}
-						RulesItemMap["url_category_list"] = URLCategoryListMap
+						RulesItemMap["url_category_list"] = RuleListRulesURLCategoryListMap
 					}
 					RulesList = append(RulesList, RulesItemMap)
 				}

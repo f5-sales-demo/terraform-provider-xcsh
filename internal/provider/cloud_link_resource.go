@@ -713,20 +713,20 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 	if data.AWS != nil {
 		AWSMap := make(map[string]interface{})
 		if data.AWS.AWSCred != nil {
-			AWSCredMap := make(map[string]interface{})
+			AWSAWSCredMap := make(map[string]interface{})
 			if !data.AWS.AWSCred.Name.IsNull() && !data.AWS.AWSCred.Name.IsUnknown() {
-				AWSCredMap["name"] = data.AWS.AWSCred.Name.ValueString()
+				AWSAWSCredMap["name"] = data.AWS.AWSCred.Name.ValueString()
 			}
 			if !data.AWS.AWSCred.Namespace.IsNull() && !data.AWS.AWSCred.Namespace.IsUnknown() {
-				AWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
+				AWSAWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
 			}
 			if !data.AWS.AWSCred.Tenant.IsNull() && !data.AWS.AWSCred.Tenant.IsUnknown() {
-				AWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
+				AWSAWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
 			}
-			AWSMap["aws_cred"] = AWSCredMap
+			AWSMap["aws_cred"] = AWSAWSCredMap
 		}
 		if data.AWS.Byoc != nil {
-			ByocMap := make(map[string]interface{})
+			AWSByocMap := make(map[string]interface{})
 			if !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
 				var ConnectionsElems []CloudLinkAWSByocConnectionsModel
 				diags := data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
@@ -736,31 +736,31 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 					for _, ConnectionsItem := range ConnectionsElems {
 						ConnectionsItemMap := make(map[string]interface{})
 						if ConnectionsItem.AuthKey != nil {
-							AuthKeyMap := make(map[string]interface{})
+							AWSByocConnectionsAuthKeyMap := make(map[string]interface{})
 							if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+									AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								AWSByocConnectionsAuthKeyMap["blindfold_secret_info"] = AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap
 							}
 							if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								AWSByocConnectionsAuthKeyClearSecretInfoMap := make(map[string]interface{})
 								if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+									AWSByocConnectionsAuthKeyClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+									AWSByocConnectionsAuthKeyClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
 								}
-								AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								AWSByocConnectionsAuthKeyMap["clear_secret_info"] = AWSByocConnectionsAuthKeyClearSecretInfoMap
 							}
-							ConnectionsItemMap["auth_key"] = AuthKeyMap
+							ConnectionsItemMap["auth_key"] = AWSByocConnectionsAuthKeyMap
 						}
 						if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
 							ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
@@ -769,24 +769,24 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 							ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
 						}
 						if ConnectionsItem.Ipv4 != nil {
-							Ipv4Map := make(map[string]interface{})
+							AWSByocConnectionsIpv4Map := make(map[string]interface{})
 							if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
-								Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
+								AWSByocConnectionsIpv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
 							}
 							if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
-								Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
+								AWSByocConnectionsIpv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
 							}
-							ConnectionsItemMap["ipv4"] = Ipv4Map
+							ConnectionsItemMap["ipv4"] = AWSByocConnectionsIpv4Map
 						}
 						if ConnectionsItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
+							AWSByocConnectionsMetadataMap := make(map[string]interface{})
 							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+								AWSByocConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 							}
 							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+								AWSByocConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 							}
-							ConnectionsItemMap["metadata"] = MetadataMap
+							ConnectionsItemMap["metadata"] = AWSByocConnectionsMetadataMap
 						}
 						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
 							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
@@ -808,10 +808,10 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					ByocMap["connections"] = ConnectionsList
+					AWSByocMap["connections"] = ConnectionsList
 				}
 			}
-			AWSMap["byoc"] = ByocMap
+			AWSMap["byoc"] = AWSByocMap
 		}
 		if !data.AWS.CustomAsn.IsNull() && !data.AWS.CustomAsn.IsUnknown() {
 			AWSMap["custom_asn"] = data.AWS.CustomAsn.ValueInt64()
@@ -831,7 +831,7 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 	if data.GCP != nil {
 		GCPMap := make(map[string]interface{})
 		if data.GCP.Byoc != nil {
-			ByocMap := make(map[string]interface{})
+			GCPByocMap := make(map[string]interface{})
 			if !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
 				var ConnectionsElems []CloudLinkGCPByocConnectionsModel
 				diags := data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
@@ -844,14 +844,14 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 							ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
 						}
 						if ConnectionsItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
+							GCPByocConnectionsMetadataMap := make(map[string]interface{})
 							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+								GCPByocConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 							}
 							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+								GCPByocConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 							}
-							ConnectionsItemMap["metadata"] = MetadataMap
+							ConnectionsItemMap["metadata"] = GCPByocConnectionsMetadataMap
 						}
 						if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
 							ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
@@ -864,23 +864,23 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					ByocMap["connections"] = ConnectionsList
+					GCPByocMap["connections"] = ConnectionsList
 				}
 			}
-			GCPMap["byoc"] = ByocMap
+			GCPMap["byoc"] = GCPByocMap
 		}
 		if data.GCP.GCPCred != nil {
-			GCPCredMap := make(map[string]interface{})
+			GCPGCPCredMap := make(map[string]interface{})
 			if !data.GCP.GCPCred.Name.IsNull() && !data.GCP.GCPCred.Name.IsUnknown() {
-				GCPCredMap["name"] = data.GCP.GCPCred.Name.ValueString()
+				GCPGCPCredMap["name"] = data.GCP.GCPCred.Name.ValueString()
 			}
 			if !data.GCP.GCPCred.Namespace.IsNull() && !data.GCP.GCPCred.Namespace.IsUnknown() {
-				GCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
+				GCPGCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
 			}
 			if !data.GCP.GCPCred.Tenant.IsNull() && !data.GCP.GCPCred.Tenant.IsUnknown() {
-				GCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
+				GCPGCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
 			}
-			GCPMap["gcp_cred"] = GCPCredMap
+			GCPMap["gcp_cred"] = GCPGCPCredMap
 		}
 		createReq.Spec["gcp"] = GCPMap
 	}
@@ -1730,20 +1730,20 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 	if data.AWS != nil {
 		AWSMap := make(map[string]interface{})
 		if data.AWS.AWSCred != nil {
-			AWSCredMap := make(map[string]interface{})
+			AWSAWSCredMap := make(map[string]interface{})
 			if !data.AWS.AWSCred.Name.IsNull() && !data.AWS.AWSCred.Name.IsUnknown() {
-				AWSCredMap["name"] = data.AWS.AWSCred.Name.ValueString()
+				AWSAWSCredMap["name"] = data.AWS.AWSCred.Name.ValueString()
 			}
 			if !data.AWS.AWSCred.Namespace.IsNull() && !data.AWS.AWSCred.Namespace.IsUnknown() {
-				AWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
+				AWSAWSCredMap["namespace"] = data.AWS.AWSCred.Namespace.ValueString()
 			}
 			if !data.AWS.AWSCred.Tenant.IsNull() && !data.AWS.AWSCred.Tenant.IsUnknown() {
-				AWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
+				AWSAWSCredMap["tenant"] = data.AWS.AWSCred.Tenant.ValueString()
 			}
-			AWSMap["aws_cred"] = AWSCredMap
+			AWSMap["aws_cred"] = AWSAWSCredMap
 		}
 		if data.AWS.Byoc != nil {
-			ByocMap := make(map[string]interface{})
+			AWSByocMap := make(map[string]interface{})
 			if !data.AWS.Byoc.Connections.IsNull() && !data.AWS.Byoc.Connections.IsUnknown() {
 				var ConnectionsElems []CloudLinkAWSByocConnectionsModel
 				diags := data.AWS.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
@@ -1753,31 +1753,31 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 					for _, ConnectionsItem := range ConnectionsElems {
 						ConnectionsItemMap := make(map[string]interface{})
 						if ConnectionsItem.AuthKey != nil {
-							AuthKeyMap := make(map[string]interface{})
+							AWSByocConnectionsAuthKeyMap := make(map[string]interface{})
 							if ConnectionsItem.AuthKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap["decryption_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
+									AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap["location"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap["store_provider"] = ConnectionsItem.AuthKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								AuthKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								AWSByocConnectionsAuthKeyMap["blindfold_secret_info"] = AWSByocConnectionsAuthKeyBlindfoldSecretInfoMap
 							}
 							if ConnectionsItem.AuthKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								AWSByocConnectionsAuthKeyClearSecretInfoMap := make(map[string]interface{})
 								if !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
+									AWSByocConnectionsAuthKeyClearSecretInfoMap["provider"] = ConnectionsItem.AuthKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsNull() && !ConnectionsItem.AuthKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
+									AWSByocConnectionsAuthKeyClearSecretInfoMap["url"] = ConnectionsItem.AuthKey.ClearSecretInfo.URL.ValueString()
 								}
-								AuthKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								AWSByocConnectionsAuthKeyMap["clear_secret_info"] = AWSByocConnectionsAuthKeyClearSecretInfoMap
 							}
-							ConnectionsItemMap["auth_key"] = AuthKeyMap
+							ConnectionsItemMap["auth_key"] = AWSByocConnectionsAuthKeyMap
 						}
 						if !ConnectionsItem.BGPAsn.IsNull() && !ConnectionsItem.BGPAsn.IsUnknown() {
 							ConnectionsItemMap["bgp_asn"] = ConnectionsItem.BGPAsn.ValueInt64()
@@ -1786,24 +1786,24 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 							ConnectionsItemMap["connection_id"] = ConnectionsItem.ConnectionID.ValueString()
 						}
 						if ConnectionsItem.Ipv4 != nil {
-							Ipv4Map := make(map[string]interface{})
+							AWSByocConnectionsIpv4Map := make(map[string]interface{})
 							if !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.AWSRouterPeerAddress.IsUnknown() {
-								Ipv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
+								AWSByocConnectionsIpv4Map["aws_router_peer_address"] = ConnectionsItem.Ipv4.AWSRouterPeerAddress.ValueString()
 							}
 							if !ConnectionsItem.Ipv4.RouterPeerAddress.IsNull() && !ConnectionsItem.Ipv4.RouterPeerAddress.IsUnknown() {
-								Ipv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
+								AWSByocConnectionsIpv4Map["router_peer_address"] = ConnectionsItem.Ipv4.RouterPeerAddress.ValueString()
 							}
-							ConnectionsItemMap["ipv4"] = Ipv4Map
+							ConnectionsItemMap["ipv4"] = AWSByocConnectionsIpv4Map
 						}
 						if ConnectionsItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
+							AWSByocConnectionsMetadataMap := make(map[string]interface{})
 							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+								AWSByocConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 							}
 							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+								AWSByocConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 							}
-							ConnectionsItemMap["metadata"] = MetadataMap
+							ConnectionsItemMap["metadata"] = AWSByocConnectionsMetadataMap
 						}
 						if !ConnectionsItem.Region.IsNull() && !ConnectionsItem.Region.IsUnknown() {
 							ConnectionsItemMap["region"] = ConnectionsItem.Region.ValueString()
@@ -1825,10 +1825,10 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					ByocMap["connections"] = ConnectionsList
+					AWSByocMap["connections"] = ConnectionsList
 				}
 			}
-			AWSMap["byoc"] = ByocMap
+			AWSMap["byoc"] = AWSByocMap
 		}
 		if !data.AWS.CustomAsn.IsNull() && !data.AWS.CustomAsn.IsUnknown() {
 			AWSMap["custom_asn"] = data.AWS.CustomAsn.ValueInt64()
@@ -1848,7 +1848,7 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 	if data.GCP != nil {
 		GCPMap := make(map[string]interface{})
 		if data.GCP.Byoc != nil {
-			ByocMap := make(map[string]interface{})
+			GCPByocMap := make(map[string]interface{})
 			if !data.GCP.Byoc.Connections.IsNull() && !data.GCP.Byoc.Connections.IsUnknown() {
 				var ConnectionsElems []CloudLinkGCPByocConnectionsModel
 				diags := data.GCP.Byoc.Connections.ElementsAs(ctx, &ConnectionsElems, false)
@@ -1861,14 +1861,14 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 							ConnectionsItemMap["interconnect_attachment_name"] = ConnectionsItem.InterconnectAttachmentName.ValueString()
 						}
 						if ConnectionsItem.Metadata != nil {
-							MetadataMap := make(map[string]interface{})
+							GCPByocConnectionsMetadataMap := make(map[string]interface{})
 							if !ConnectionsItem.Metadata.DescriptionSpec.IsNull() && !ConnectionsItem.Metadata.DescriptionSpec.IsUnknown() {
-								MetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
+								GCPByocConnectionsMetadataMap["description"] = ConnectionsItem.Metadata.DescriptionSpec.ValueString()
 							}
 							if !ConnectionsItem.Metadata.Name.IsNull() && !ConnectionsItem.Metadata.Name.IsUnknown() {
-								MetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
+								GCPByocConnectionsMetadataMap["name"] = ConnectionsItem.Metadata.Name.ValueString()
 							}
-							ConnectionsItemMap["metadata"] = MetadataMap
+							ConnectionsItemMap["metadata"] = GCPByocConnectionsMetadataMap
 						}
 						if !ConnectionsItem.Project.IsNull() && !ConnectionsItem.Project.IsUnknown() {
 							ConnectionsItemMap["project"] = ConnectionsItem.Project.ValueString()
@@ -1881,23 +1881,23 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						ConnectionsList = append(ConnectionsList, ConnectionsItemMap)
 					}
-					ByocMap["connections"] = ConnectionsList
+					GCPByocMap["connections"] = ConnectionsList
 				}
 			}
-			GCPMap["byoc"] = ByocMap
+			GCPMap["byoc"] = GCPByocMap
 		}
 		if data.GCP.GCPCred != nil {
-			GCPCredMap := make(map[string]interface{})
+			GCPGCPCredMap := make(map[string]interface{})
 			if !data.GCP.GCPCred.Name.IsNull() && !data.GCP.GCPCred.Name.IsUnknown() {
-				GCPCredMap["name"] = data.GCP.GCPCred.Name.ValueString()
+				GCPGCPCredMap["name"] = data.GCP.GCPCred.Name.ValueString()
 			}
 			if !data.GCP.GCPCred.Namespace.IsNull() && !data.GCP.GCPCred.Namespace.IsUnknown() {
-				GCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
+				GCPGCPCredMap["namespace"] = data.GCP.GCPCred.Namespace.ValueString()
 			}
 			if !data.GCP.GCPCred.Tenant.IsNull() && !data.GCP.GCPCred.Tenant.IsUnknown() {
-				GCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
+				GCPGCPCredMap["tenant"] = data.GCP.GCPCred.Tenant.ValueString()
 			}
-			GCPMap["gcp_cred"] = GCPCredMap
+			GCPMap["gcp_cred"] = GCPGCPCredMap
 		}
 		apiResource.Spec["gcp"] = GCPMap
 	}

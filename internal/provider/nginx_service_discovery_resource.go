@@ -429,7 +429,7 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 	if data.DiscoveryTarget != nil {
 		DiscoveryTargetMap := make(map[string]interface{})
 		if data.DiscoveryTarget.ConfigSyncGroup != nil {
-			ConfigSyncGroupMap := make(map[string]interface{})
+			DiscoveryTargetConfigSyncGroupMap := make(map[string]interface{})
 			if !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
 				var ConfigSyncGroupElems []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
 				diags := data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupElems, false)
@@ -455,13 +455,13 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 						}
 						ConfigSyncGroupList = append(ConfigSyncGroupList, ConfigSyncGroupItemMap)
 					}
-					ConfigSyncGroupMap["config_sync_group"] = ConfigSyncGroupList
+					DiscoveryTargetConfigSyncGroupMap["config_sync_group"] = ConfigSyncGroupList
 				}
 			}
-			DiscoveryTargetMap["config_sync_group"] = ConfigSyncGroupMap
+			DiscoveryTargetMap["config_sync_group"] = DiscoveryTargetConfigSyncGroupMap
 		}
 		if data.DiscoveryTarget.NginxInstance != nil {
-			NginxInstanceMap := make(map[string]interface{})
+			DiscoveryTargetNginxInstanceMap := make(map[string]interface{})
 			if !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
 				var NginxInstanceElems []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
 				diags := data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceElems, false)
@@ -487,10 +487,10 @@ func (r *NginxServiceDiscoveryResource) Create(ctx context.Context, req resource
 						}
 						NginxInstanceList = append(NginxInstanceList, NginxInstanceItemMap)
 					}
-					NginxInstanceMap["nginx_instance"] = NginxInstanceList
+					DiscoveryTargetNginxInstanceMap["nginx_instance"] = NginxInstanceList
 				}
 			}
-			DiscoveryTargetMap["nginx_instance"] = NginxInstanceMap
+			DiscoveryTargetMap["nginx_instance"] = DiscoveryTargetNginxInstanceMap
 		}
 		createReq.Spec["discovery_target"] = DiscoveryTargetMap
 	}
@@ -995,7 +995,7 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 	if data.DiscoveryTarget != nil {
 		DiscoveryTargetMap := make(map[string]interface{})
 		if data.DiscoveryTarget.ConfigSyncGroup != nil {
-			ConfigSyncGroupMap := make(map[string]interface{})
+			DiscoveryTargetConfigSyncGroupMap := make(map[string]interface{})
 			if !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsNull() && !data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.IsUnknown() {
 				var ConfigSyncGroupElems []NginxServiceDiscoveryDiscoveryTargetConfigSyncGroupConfigSyncGroupModel
 				diags := data.DiscoveryTarget.ConfigSyncGroup.ConfigSyncGroup.ElementsAs(ctx, &ConfigSyncGroupElems, false)
@@ -1021,13 +1021,13 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 						}
 						ConfigSyncGroupList = append(ConfigSyncGroupList, ConfigSyncGroupItemMap)
 					}
-					ConfigSyncGroupMap["config_sync_group"] = ConfigSyncGroupList
+					DiscoveryTargetConfigSyncGroupMap["config_sync_group"] = ConfigSyncGroupList
 				}
 			}
-			DiscoveryTargetMap["config_sync_group"] = ConfigSyncGroupMap
+			DiscoveryTargetMap["config_sync_group"] = DiscoveryTargetConfigSyncGroupMap
 		}
 		if data.DiscoveryTarget.NginxInstance != nil {
-			NginxInstanceMap := make(map[string]interface{})
+			DiscoveryTargetNginxInstanceMap := make(map[string]interface{})
 			if !data.DiscoveryTarget.NginxInstance.NginxInstance.IsNull() && !data.DiscoveryTarget.NginxInstance.NginxInstance.IsUnknown() {
 				var NginxInstanceElems []NginxServiceDiscoveryDiscoveryTargetNginxInstanceNginxInstanceModel
 				diags := data.DiscoveryTarget.NginxInstance.NginxInstance.ElementsAs(ctx, &NginxInstanceElems, false)
@@ -1053,10 +1053,10 @@ func (r *NginxServiceDiscoveryResource) Update(ctx context.Context, req resource
 						}
 						NginxInstanceList = append(NginxInstanceList, NginxInstanceItemMap)
 					}
-					NginxInstanceMap["nginx_instance"] = NginxInstanceList
+					DiscoveryTargetNginxInstanceMap["nginx_instance"] = NginxInstanceList
 				}
 			}
-			DiscoveryTargetMap["nginx_instance"] = NginxInstanceMap
+			DiscoveryTargetMap["nginx_instance"] = DiscoveryTargetNginxInstanceMap
 		}
 		apiResource.Spec["discovery_target"] = DiscoveryTargetMap
 	}

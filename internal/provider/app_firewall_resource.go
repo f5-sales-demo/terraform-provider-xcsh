@@ -807,25 +807,25 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 				for _, AnonymizationConfigItem := range AnonymizationConfigElems {
 					AnonymizationConfigItemMap := make(map[string]interface{})
 					if AnonymizationConfigItem.Cookie != nil {
-						CookieMap := make(map[string]interface{})
+						CustomAnonymizationAnonymizationConfigCookieMap := make(map[string]interface{})
 						if !AnonymizationConfigItem.Cookie.CookieName.IsNull() && !AnonymizationConfigItem.Cookie.CookieName.IsUnknown() {
-							CookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
+							CustomAnonymizationAnonymizationConfigCookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
 						}
-						AnonymizationConfigItemMap["cookie"] = CookieMap
+						AnonymizationConfigItemMap["cookie"] = CustomAnonymizationAnonymizationConfigCookieMap
 					}
 					if AnonymizationConfigItem.HTTPHeader != nil {
-						HTTPHeaderMap := make(map[string]interface{})
+						CustomAnonymizationAnonymizationConfigHTTPHeaderMap := make(map[string]interface{})
 						if !AnonymizationConfigItem.HTTPHeader.HeaderName.IsNull() && !AnonymizationConfigItem.HTTPHeader.HeaderName.IsUnknown() {
-							HTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
+							CustomAnonymizationAnonymizationConfigHTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
 						}
-						AnonymizationConfigItemMap["http_header"] = HTTPHeaderMap
+						AnonymizationConfigItemMap["http_header"] = CustomAnonymizationAnonymizationConfigHTTPHeaderMap
 					}
 					if AnonymizationConfigItem.QueryParameter != nil {
-						QueryParameterMap := make(map[string]interface{})
+						CustomAnonymizationAnonymizationConfigQueryParameterMap := make(map[string]interface{})
 						if !AnonymizationConfigItem.QueryParameter.QueryParamName.IsNull() && !AnonymizationConfigItem.QueryParameter.QueryParamName.IsUnknown() {
-							QueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
+							CustomAnonymizationAnonymizationConfigQueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
 						}
-						AnonymizationConfigItemMap["query_parameter"] = QueryParameterMap
+						AnonymizationConfigItemMap["query_parameter"] = CustomAnonymizationAnonymizationConfigQueryParameterMap
 					}
 					AnonymizationConfigList = append(AnonymizationConfigList, AnonymizationConfigItemMap)
 				}
@@ -837,17 +837,17 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 	if data.DetectionSettings != nil {
 		DetectionSettingsMap := make(map[string]interface{})
 		if data.DetectionSettings.BotProtectionSetting != nil {
-			BotProtectionSettingMap := make(map[string]interface{})
+			DetectionSettingsBotProtectionSettingMap := make(map[string]interface{})
 			if !data.DetectionSettings.BotProtectionSetting.GoodBotAction.IsNull() && !data.DetectionSettings.BotProtectionSetting.GoodBotAction.IsUnknown() {
-				BotProtectionSettingMap["good_bot_action"] = data.DetectionSettings.BotProtectionSetting.GoodBotAction.ValueString()
+				DetectionSettingsBotProtectionSettingMap["good_bot_action"] = data.DetectionSettings.BotProtectionSetting.GoodBotAction.ValueString()
 			}
 			if !data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.IsNull() && !data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.IsUnknown() {
-				BotProtectionSettingMap["malicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.ValueString()
+				DetectionSettingsBotProtectionSettingMap["malicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.ValueString()
 			}
 			if !data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.IsNull() && !data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.IsUnknown() {
-				BotProtectionSettingMap["suspicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.ValueString()
+				DetectionSettingsBotProtectionSettingMap["suspicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.ValueString()
 			}
-			DetectionSettingsMap["bot_protection_setting"] = BotProtectionSettingMap
+			DetectionSettingsMap["bot_protection_setting"] = DetectionSettingsBotProtectionSettingMap
 		}
 		if data.DetectionSettings.DefaultBotSetting != nil {
 			DetectionSettingsMap["default_bot_setting"] = map[string]interface{}{}
@@ -871,56 +871,56 @@ func (r *AppFirewallResource) Create(ctx context.Context, req resource.CreateReq
 			DetectionSettingsMap["enable_threat_campaigns"] = map[string]interface{}{}
 		}
 		if data.DetectionSettings.SignatureSelectionSetting != nil {
-			SignatureSelectionSettingMap := make(map[string]interface{})
+			DetectionSettingsSignatureSelectionSettingMap := make(map[string]interface{})
 			if data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings != nil {
-				AttackTypeSettingsMap := make(map[string]interface{})
+				DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap := make(map[string]interface{})
 				if !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsUnknown() {
 					var DisabledAttackTypesItems []string
 					diags := data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.ElementsAs(ctx, &DisabledAttackTypesItems, false)
 					if !diags.HasError() {
-						AttackTypeSettingsMap["disabled_attack_types"] = DisabledAttackTypesItems
+						DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap["disabled_attack_types"] = DisabledAttackTypesItems
 					}
 				}
-				SignatureSelectionSettingMap["attack_type_settings"] = AttackTypeSettingsMap
+				DetectionSettingsSignatureSelectionSettingMap["attack_type_settings"] = DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings != nil {
-				SignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures != nil {
-				SignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures != nil {
-				SignatureSelectionSettingMap["high_medium_low_accuracy_signatures"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["high_medium_low_accuracy_signatures"] = map[string]interface{}{}
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures != nil {
-				SignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
 			}
-			DetectionSettingsMap["signature_selection_setting"] = SignatureSelectionSettingMap
+			DetectionSettingsMap["signature_selection_setting"] = DetectionSettingsSignatureSelectionSettingMap
 		}
 		if data.DetectionSettings.StageNewAndUpdatedSignatures != nil {
-			StageNewAndUpdatedSignaturesMap := make(map[string]interface{})
+			DetectionSettingsStageNewAndUpdatedSignaturesMap := make(map[string]interface{})
 			if !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsNull() && !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsUnknown() {
-				StageNewAndUpdatedSignaturesMap["staging_period"] = data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.ValueInt64()
+				DetectionSettingsStageNewAndUpdatedSignaturesMap["staging_period"] = data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.ValueInt64()
 			}
-			DetectionSettingsMap["stage_new_and_updated_signatures"] = StageNewAndUpdatedSignaturesMap
+			DetectionSettingsMap["stage_new_and_updated_signatures"] = DetectionSettingsStageNewAndUpdatedSignaturesMap
 		}
 		if data.DetectionSettings.StageNewSignatures != nil {
-			StageNewSignaturesMap := make(map[string]interface{})
+			DetectionSettingsStageNewSignaturesMap := make(map[string]interface{})
 			if !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsNull() && !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsUnknown() {
-				StageNewSignaturesMap["staging_period"] = data.DetectionSettings.StageNewSignatures.StagingPeriod.ValueInt64()
+				DetectionSettingsStageNewSignaturesMap["staging_period"] = data.DetectionSettings.StageNewSignatures.StagingPeriod.ValueInt64()
 			}
-			DetectionSettingsMap["stage_new_signatures"] = StageNewSignaturesMap
+			DetectionSettingsMap["stage_new_signatures"] = DetectionSettingsStageNewSignaturesMap
 		}
 		if data.DetectionSettings.ViolationSettings != nil {
-			ViolationSettingsMap := make(map[string]interface{})
+			DetectionSettingsViolationSettingsMap := make(map[string]interface{})
 			if !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsNull() && !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsUnknown() {
 				var DisabledViolationTypesItems []string
 				diags := data.DetectionSettings.ViolationSettings.DisabledViolationTypes.ElementsAs(ctx, &DisabledViolationTypesItems, false)
 				if !diags.HasError() {
-					ViolationSettingsMap["disabled_violation_types"] = DisabledViolationTypesItems
+					DetectionSettingsViolationSettingsMap["disabled_violation_types"] = DisabledViolationTypesItems
 				}
 			}
-			DetectionSettingsMap["violation_settings"] = ViolationSettingsMap
+			DetectionSettingsMap["violation_settings"] = DetectionSettingsViolationSettingsMap
 		}
 		if !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
 			var ViolationsViewElems []AppFirewallDetectionSettingsViolationsViewModel
@@ -2071,25 +2071,25 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 				for _, AnonymizationConfigItem := range AnonymizationConfigElems {
 					AnonymizationConfigItemMap := make(map[string]interface{})
 					if AnonymizationConfigItem.Cookie != nil {
-						CookieMap := make(map[string]interface{})
+						CustomAnonymizationAnonymizationConfigCookieMap := make(map[string]interface{})
 						if !AnonymizationConfigItem.Cookie.CookieName.IsNull() && !AnonymizationConfigItem.Cookie.CookieName.IsUnknown() {
-							CookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
+							CustomAnonymizationAnonymizationConfigCookieMap["cookie_name"] = AnonymizationConfigItem.Cookie.CookieName.ValueString()
 						}
-						AnonymizationConfigItemMap["cookie"] = CookieMap
+						AnonymizationConfigItemMap["cookie"] = CustomAnonymizationAnonymizationConfigCookieMap
 					}
 					if AnonymizationConfigItem.HTTPHeader != nil {
-						HTTPHeaderMap := make(map[string]interface{})
+						CustomAnonymizationAnonymizationConfigHTTPHeaderMap := make(map[string]interface{})
 						if !AnonymizationConfigItem.HTTPHeader.HeaderName.IsNull() && !AnonymizationConfigItem.HTTPHeader.HeaderName.IsUnknown() {
-							HTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
+							CustomAnonymizationAnonymizationConfigHTTPHeaderMap["header_name"] = AnonymizationConfigItem.HTTPHeader.HeaderName.ValueString()
 						}
-						AnonymizationConfigItemMap["http_header"] = HTTPHeaderMap
+						AnonymizationConfigItemMap["http_header"] = CustomAnonymizationAnonymizationConfigHTTPHeaderMap
 					}
 					if AnonymizationConfigItem.QueryParameter != nil {
-						QueryParameterMap := make(map[string]interface{})
+						CustomAnonymizationAnonymizationConfigQueryParameterMap := make(map[string]interface{})
 						if !AnonymizationConfigItem.QueryParameter.QueryParamName.IsNull() && !AnonymizationConfigItem.QueryParameter.QueryParamName.IsUnknown() {
-							QueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
+							CustomAnonymizationAnonymizationConfigQueryParameterMap["query_param_name"] = AnonymizationConfigItem.QueryParameter.QueryParamName.ValueString()
 						}
-						AnonymizationConfigItemMap["query_parameter"] = QueryParameterMap
+						AnonymizationConfigItemMap["query_parameter"] = CustomAnonymizationAnonymizationConfigQueryParameterMap
 					}
 					AnonymizationConfigList = append(AnonymizationConfigList, AnonymizationConfigItemMap)
 				}
@@ -2101,17 +2101,17 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.DetectionSettings != nil {
 		DetectionSettingsMap := make(map[string]interface{})
 		if data.DetectionSettings.BotProtectionSetting != nil {
-			BotProtectionSettingMap := make(map[string]interface{})
+			DetectionSettingsBotProtectionSettingMap := make(map[string]interface{})
 			if !data.DetectionSettings.BotProtectionSetting.GoodBotAction.IsNull() && !data.DetectionSettings.BotProtectionSetting.GoodBotAction.IsUnknown() {
-				BotProtectionSettingMap["good_bot_action"] = data.DetectionSettings.BotProtectionSetting.GoodBotAction.ValueString()
+				DetectionSettingsBotProtectionSettingMap["good_bot_action"] = data.DetectionSettings.BotProtectionSetting.GoodBotAction.ValueString()
 			}
 			if !data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.IsNull() && !data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.IsUnknown() {
-				BotProtectionSettingMap["malicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.ValueString()
+				DetectionSettingsBotProtectionSettingMap["malicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.MaliciousBotAction.ValueString()
 			}
 			if !data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.IsNull() && !data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.IsUnknown() {
-				BotProtectionSettingMap["suspicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.ValueString()
+				DetectionSettingsBotProtectionSettingMap["suspicious_bot_action"] = data.DetectionSettings.BotProtectionSetting.SuspiciousBotAction.ValueString()
 			}
-			DetectionSettingsMap["bot_protection_setting"] = BotProtectionSettingMap
+			DetectionSettingsMap["bot_protection_setting"] = DetectionSettingsBotProtectionSettingMap
 		}
 		if data.DetectionSettings.DefaultBotSetting != nil {
 			DetectionSettingsMap["default_bot_setting"] = map[string]interface{}{}
@@ -2135,56 +2135,56 @@ func (r *AppFirewallResource) Update(ctx context.Context, req resource.UpdateReq
 			DetectionSettingsMap["enable_threat_campaigns"] = map[string]interface{}{}
 		}
 		if data.DetectionSettings.SignatureSelectionSetting != nil {
-			SignatureSelectionSettingMap := make(map[string]interface{})
+			DetectionSettingsSignatureSelectionSettingMap := make(map[string]interface{})
 			if data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings != nil {
-				AttackTypeSettingsMap := make(map[string]interface{})
+				DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap := make(map[string]interface{})
 				if !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsNull() && !data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.IsUnknown() {
 					var DisabledAttackTypesItems []string
 					diags := data.DetectionSettings.SignatureSelectionSetting.AttackTypeSettings.DisabledAttackTypes.ElementsAs(ctx, &DisabledAttackTypesItems, false)
 					if !diags.HasError() {
-						AttackTypeSettingsMap["disabled_attack_types"] = DisabledAttackTypesItems
+						DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap["disabled_attack_types"] = DisabledAttackTypesItems
 					}
 				}
-				SignatureSelectionSettingMap["attack_type_settings"] = AttackTypeSettingsMap
+				DetectionSettingsSignatureSelectionSettingMap["attack_type_settings"] = DetectionSettingsSignatureSelectionSettingAttackTypeSettingsMap
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.DefaultAttackTypeSettings != nil {
-				SignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["default_attack_type_settings"] = map[string]interface{}{}
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.HighMediumAccuracySignatures != nil {
-				SignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["high_medium_accuracy_signatures"] = map[string]interface{}{}
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.HighMediumLowAccuracySignatures != nil {
-				SignatureSelectionSettingMap["high_medium_low_accuracy_signatures"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["high_medium_low_accuracy_signatures"] = map[string]interface{}{}
 			}
 			if data.DetectionSettings.SignatureSelectionSetting.OnlyHighAccuracySignatures != nil {
-				SignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
+				DetectionSettingsSignatureSelectionSettingMap["only_high_accuracy_signatures"] = map[string]interface{}{}
 			}
-			DetectionSettingsMap["signature_selection_setting"] = SignatureSelectionSettingMap
+			DetectionSettingsMap["signature_selection_setting"] = DetectionSettingsSignatureSelectionSettingMap
 		}
 		if data.DetectionSettings.StageNewAndUpdatedSignatures != nil {
-			StageNewAndUpdatedSignaturesMap := make(map[string]interface{})
+			DetectionSettingsStageNewAndUpdatedSignaturesMap := make(map[string]interface{})
 			if !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsNull() && !data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.IsUnknown() {
-				StageNewAndUpdatedSignaturesMap["staging_period"] = data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.ValueInt64()
+				DetectionSettingsStageNewAndUpdatedSignaturesMap["staging_period"] = data.DetectionSettings.StageNewAndUpdatedSignatures.StagingPeriod.ValueInt64()
 			}
-			DetectionSettingsMap["stage_new_and_updated_signatures"] = StageNewAndUpdatedSignaturesMap
+			DetectionSettingsMap["stage_new_and_updated_signatures"] = DetectionSettingsStageNewAndUpdatedSignaturesMap
 		}
 		if data.DetectionSettings.StageNewSignatures != nil {
-			StageNewSignaturesMap := make(map[string]interface{})
+			DetectionSettingsStageNewSignaturesMap := make(map[string]interface{})
 			if !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsNull() && !data.DetectionSettings.StageNewSignatures.StagingPeriod.IsUnknown() {
-				StageNewSignaturesMap["staging_period"] = data.DetectionSettings.StageNewSignatures.StagingPeriod.ValueInt64()
+				DetectionSettingsStageNewSignaturesMap["staging_period"] = data.DetectionSettings.StageNewSignatures.StagingPeriod.ValueInt64()
 			}
-			DetectionSettingsMap["stage_new_signatures"] = StageNewSignaturesMap
+			DetectionSettingsMap["stage_new_signatures"] = DetectionSettingsStageNewSignaturesMap
 		}
 		if data.DetectionSettings.ViolationSettings != nil {
-			ViolationSettingsMap := make(map[string]interface{})
+			DetectionSettingsViolationSettingsMap := make(map[string]interface{})
 			if !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsNull() && !data.DetectionSettings.ViolationSettings.DisabledViolationTypes.IsUnknown() {
 				var DisabledViolationTypesItems []string
 				diags := data.DetectionSettings.ViolationSettings.DisabledViolationTypes.ElementsAs(ctx, &DisabledViolationTypesItems, false)
 				if !diags.HasError() {
-					ViolationSettingsMap["disabled_violation_types"] = DisabledViolationTypesItems
+					DetectionSettingsViolationSettingsMap["disabled_violation_types"] = DisabledViolationTypesItems
 				}
 			}
-			DetectionSettingsMap["violation_settings"] = ViolationSettingsMap
+			DetectionSettingsMap["violation_settings"] = DetectionSettingsViolationSettingsMap
 		}
 		if !data.DetectionSettings.ViolationsView.IsNull() && !data.DetectionSettings.ViolationsView.IsUnknown() {
 			var ViolationsViewElems []AppFirewallDetectionSettingsViolationsViewModel

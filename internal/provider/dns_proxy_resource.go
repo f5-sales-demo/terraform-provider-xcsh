@@ -1611,7 +1611,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 	if data.OriginServers != nil {
 		OriginServersMap := make(map[string]interface{})
 		if data.OriginServers.HealthChecks != nil {
-			HealthChecksMap := make(map[string]interface{})
+			OriginServersHealthChecksMap := make(map[string]interface{})
 			if !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
 				var HealthCheckElems []DNSProxyOriginServersHealthChecksHealthCheckModel
 				diags := data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
@@ -1621,58 +1621,58 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 					for _, HealthCheckItem := range HealthCheckElems {
 						HealthCheckItemMap := make(map[string]interface{})
 						if HealthCheckItem.DNSHealthCheck != nil {
-							DNSHealthCheckMap := make(map[string]interface{})
+							OriginServersHealthChecksHealthCheckDNSHealthCheckMap := make(map[string]interface{})
 							if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
-								DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
-								DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
-								DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
-								DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
-								DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
-								DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
 							}
-							HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
+							HealthCheckItemMap["dns_health_check"] = OriginServersHealthChecksHealthCheckDNSHealthCheckMap
 						}
 						if HealthCheckItem.ICMPHealthCheck != nil {
 							HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 						}
 						if HealthCheckItem.TCPHealthCheck != nil {
-							TCPHealthCheckMap := make(map[string]interface{})
+							OriginServersHealthChecksHealthCheckTCPHealthCheckMap := make(map[string]interface{})
 							if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-								TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+								OriginServersHealthChecksHealthCheckTCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
 							}
 							if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-								TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+								OriginServersHealthChecksHealthCheckTCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
 							}
-							HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+							HealthCheckItemMap["tcp_health_check"] = OriginServersHealthChecksHealthCheckTCPHealthCheckMap
 						}
 						HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 					}
-					HealthChecksMap["health_check"] = HealthCheckList
+					OriginServersHealthChecksMap["health_check"] = HealthCheckList
 				}
 			}
 			if !data.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
-				HealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+				OriginServersHealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Interval.IsNull() && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
-				HealthChecksMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
+				OriginServersHealthChecksMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Timeout.IsNull() && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
-				HealthChecksMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
+				OriginServersHealthChecksMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
-				HealthChecksMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+				OriginServersHealthChecksMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
 			}
-			OriginServersMap["health_checks"] = HealthChecksMap
+			OriginServersMap["health_checks"] = OriginServersHealthChecksMap
 		}
 		if !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
 			var OriginServersElems []DNSProxyOriginServersOriginServersModel
@@ -1683,94 +1683,94 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 				for _, OriginServersItem := range OriginServersElems {
 					OriginServersItemMap := make(map[string]interface{})
 					if OriginServersItem.K8SService != nil {
-						K8SServiceMap := make(map[string]interface{})
+						OriginServersOriginServersK8SServiceMap := make(map[string]interface{})
 						if OriginServersItem.K8SService.InsideNetwork != nil {
-							K8SServiceMap["inside_network"] = map[string]interface{}{}
+							OriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 						}
 						if OriginServersItem.K8SService.OutsideNetwork != nil {
-							K8SServiceMap["outside_network"] = map[string]interface{}{}
+							OriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 						}
 						if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
-							K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+							OriginServersOriginServersK8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
 						}
 						if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
-							K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+							OriginServersOriginServersK8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
 						}
 						if OriginServersItem.K8SService.SiteLocator != nil {
-							SiteLocatorMap := make(map[string]interface{})
+							OriginServersOriginServersK8SServiceSiteLocatorMap := make(map[string]interface{})
 							if OriginServersItem.K8SService.SiteLocator.Site != nil {
-								SiteMap := make(map[string]interface{})
+								OriginServersOriginServersK8SServiceSiteLocatorSiteMap := make(map[string]interface{})
 								if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
-									SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
 								}
-								SiteLocatorMap["site"] = SiteMap
+								OriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginServersOriginServersK8SServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
-								SiteLocatorMap["virtual_site"] = VirtualSiteMap
+								OriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 							}
-							K8SServiceMap["site_locator"] = SiteLocatorMap
+							OriginServersOriginServersK8SServiceMap["site_locator"] = OriginServersOriginServersK8SServiceSiteLocatorMap
 						}
 						if OriginServersItem.K8SService.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
 							if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
-								SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+								OriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 							}
 							if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
-								SnatPoolMap := make(map[string]interface{})
+								OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 									if !diags.HasError() {
-										SnatPoolMap["prefixes"] = PrefixesItems
+										OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
 								}
-								SnatPoolMap["snat_pool"] = SnatPoolMap
+								OriginServersOriginServersK8SServiceSnatPoolMap["snat_pool"] = OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap
 							}
-							K8SServiceMap["snat_pool"] = SnatPoolMap
+							OriginServersOriginServersK8SServiceMap["snat_pool"] = OriginServersOriginServersK8SServiceSnatPoolMap
 						}
 						if OriginServersItem.K8SService.Vk8sNetworks != nil {
-							K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+							OriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 						}
-						OriginServersItemMap["k8s_service"] = K8SServiceMap
+						OriginServersItemMap["k8s_service"] = OriginServersOriginServersK8SServiceMap
 					}
 					if OriginServersItem.NoPreference != nil {
 						OriginServersItemMap["no_preference"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PublicIP != nil {
-						PublicIPMap := make(map[string]interface{})
+						OriginServersOriginServersPublicIPMap := make(map[string]interface{})
 						if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-							PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+							OriginServersOriginServersPublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
 						}
-						OriginServersItemMap["public_ip"] = PublicIPMap
+						OriginServersItemMap["public_ip"] = OriginServersOriginServersPublicIPMap
 					}
 					if OriginServersItem.PublicName != nil {
-						PublicNameMap := make(map[string]interface{})
+						OriginServersOriginServersPublicNameMap := make(map[string]interface{})
 						if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-							PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+							OriginServersOriginServersPublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
 						}
 						if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-							PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+							OriginServersOriginServersPublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
 						}
-						OriginServersItemMap["public_name"] = PublicNameMap
+						OriginServersItemMap["public_name"] = OriginServersOriginServersPublicNameMap
 					}
 					if OriginServersItem.SitePreferences != nil {
-						SitePreferencesMap := make(map[string]interface{})
+						OriginServersOriginServersSitePreferencesMap := make(map[string]interface{})
 						if !OriginServersItem.SitePreferences.Refs.IsNull() && !OriginServersItem.SitePreferences.Refs.IsUnknown() {
 							var RefsElems []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
 							diags := OriginServersItem.SitePreferences.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1790,10 +1790,10 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
-								SitePreferencesMap["refs"] = RefsList
+								OriginServersOriginServersSitePreferencesMap["refs"] = RefsList
 							}
 						}
-						OriginServersItemMap["site_preferences"] = SitePreferencesMap
+						OriginServersItemMap["site_preferences"] = OriginServersOriginServersSitePreferencesMap
 					}
 					OriginServersList = append(OriginServersList, OriginServersItemMap)
 				}
@@ -1818,7 +1818,7 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 	if data.ProxyAdvertisement != nil {
 		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			AdvertiseCustomMap := make(map[string]interface{})
+			ProxyAdvertisementAdvertiseCustomMap := make(map[string]interface{})
 			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
 				var AdvertiseWhereElems []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
 				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
@@ -1828,21 +1828,21 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 						AdvertiseWhereItemMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-							AdvertiseOnPublicMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-								PublicIPMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 								}
-								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
-							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 						}
 						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -1851,156 +1851,156 @@ func (r *DNSProxyResource) Create(ctx context.Context, req resource.CreateReques
 							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 						}
 						if AdvertiseWhereItem.Site != nil {
-							SiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 							}
 							if AdvertiseWhereItem.Site.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
-								SiteMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
-							AdvertiseWhereItemMap["site"] = SiteMap
+							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
 						if AdvertiseWhereItem.UseDefaultPort != nil {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
 							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-								VirtualNetworkMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 								}
-								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
-							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
 						}
 						if AdvertiseWhereItem.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+							AdvertiseWhereItemMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-							VirtualSiteWithVIPMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 						}
 						if AdvertiseWhereItem.Vk8sService != nil {
-							Vk8sServiceMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 							if AdvertiseWhereItem.Vk8sService.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 								}
-								Vk8sServiceMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
-								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+							AdvertiseWhereItemMap["vk8s_service"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap
 						}
 						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 					}
-					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+					ProxyAdvertisementAdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
 				}
 			}
-			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
+			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-			AdvertiseOnPublicMap := make(map[string]interface{})
+			ProxyAdvertisementAdvertiseOnPublicMap := make(map[string]interface{})
 			if data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP != nil {
-				PublicIPMap := make(map[string]interface{})
+				ProxyAdvertisementAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-					PublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.ValueString()
+					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.ValueString()
 				}
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-					PublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 				}
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-					PublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 				}
-				AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+				ProxyAdvertisementAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseOnPublicPublicIPMap
 			}
-			ProxyAdvertisementMap["advertise_on_public"] = AdvertiseOnPublicMap
+			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP != nil {
 			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}
@@ -4050,7 +4050,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 	if data.OriginServers != nil {
 		OriginServersMap := make(map[string]interface{})
 		if data.OriginServers.HealthChecks != nil {
-			HealthChecksMap := make(map[string]interface{})
+			OriginServersHealthChecksMap := make(map[string]interface{})
 			if !data.OriginServers.HealthChecks.HealthCheck.IsNull() && !data.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
 				var HealthCheckElems []DNSProxyOriginServersHealthChecksHealthCheckModel
 				diags := data.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
@@ -4060,58 +4060,58 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 					for _, HealthCheckItem := range HealthCheckElems {
 						HealthCheckItemMap := make(map[string]interface{})
 						if HealthCheckItem.DNSHealthCheck != nil {
-							DNSHealthCheckMap := make(map[string]interface{})
+							OriginServersHealthChecksHealthCheckDNSHealthCheckMap := make(map[string]interface{})
 							if !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRcode.IsUnknown() {
-								DNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["expected_rcode"] = HealthCheckItem.DNSHealthCheck.ExpectedRcode.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedRecordType.IsUnknown() {
-								DNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["expected_record_type"] = HealthCheckItem.DNSHealthCheck.ExpectedRecordType.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.DNSHealthCheck.ExpectedResponse.IsUnknown() {
-								DNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["expected_response"] = HealthCheckItem.DNSHealthCheck.ExpectedResponse.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.QueryName.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryName.IsUnknown() {
-								DNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["query_name"] = HealthCheckItem.DNSHealthCheck.QueryName.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.QueryType.IsNull() && !HealthCheckItem.DNSHealthCheck.QueryType.IsUnknown() {
-								DNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["query_type"] = HealthCheckItem.DNSHealthCheck.QueryType.ValueString()
 							}
 							if !HealthCheckItem.DNSHealthCheck.Reverse.IsNull() && !HealthCheckItem.DNSHealthCheck.Reverse.IsUnknown() {
-								DNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
+								OriginServersHealthChecksHealthCheckDNSHealthCheckMap["reverse"] = HealthCheckItem.DNSHealthCheck.Reverse.ValueBool()
 							}
-							HealthCheckItemMap["dns_health_check"] = DNSHealthCheckMap
+							HealthCheckItemMap["dns_health_check"] = OriginServersHealthChecksHealthCheckDNSHealthCheckMap
 						}
 						if HealthCheckItem.ICMPHealthCheck != nil {
 							HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 						}
 						if HealthCheckItem.TCPHealthCheck != nil {
-							TCPHealthCheckMap := make(map[string]interface{})
+							OriginServersHealthChecksHealthCheckTCPHealthCheckMap := make(map[string]interface{})
 							if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-								TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+								OriginServersHealthChecksHealthCheckTCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
 							}
 							if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-								TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+								OriginServersHealthChecksHealthCheckTCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
 							}
-							HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+							HealthCheckItemMap["tcp_health_check"] = OriginServersHealthChecksHealthCheckTCPHealthCheckMap
 						}
 						HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 					}
-					HealthChecksMap["health_check"] = HealthCheckList
+					OriginServersHealthChecksMap["health_check"] = HealthCheckList
 				}
 			}
 			if !data.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
-				HealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+				OriginServersHealthChecksMap["healthy_threshold"] = data.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Interval.IsNull() && !data.OriginServers.HealthChecks.Interval.IsUnknown() {
-				HealthChecksMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
+				OriginServersHealthChecksMap["interval"] = data.OriginServers.HealthChecks.Interval.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.Timeout.IsNull() && !data.OriginServers.HealthChecks.Timeout.IsUnknown() {
-				HealthChecksMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
+				OriginServersHealthChecksMap["timeout"] = data.OriginServers.HealthChecks.Timeout.ValueInt64()
 			}
 			if !data.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !data.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
-				HealthChecksMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+				OriginServersHealthChecksMap["unhealthy_threshold"] = data.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
 			}
-			OriginServersMap["health_checks"] = HealthChecksMap
+			OriginServersMap["health_checks"] = OriginServersHealthChecksMap
 		}
 		if !data.OriginServers.OriginServers.IsNull() && !data.OriginServers.OriginServers.IsUnknown() {
 			var OriginServersElems []DNSProxyOriginServersOriginServersModel
@@ -4122,94 +4122,94 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 				for _, OriginServersItem := range OriginServersElems {
 					OriginServersItemMap := make(map[string]interface{})
 					if OriginServersItem.K8SService != nil {
-						K8SServiceMap := make(map[string]interface{})
+						OriginServersOriginServersK8SServiceMap := make(map[string]interface{})
 						if OriginServersItem.K8SService.InsideNetwork != nil {
-							K8SServiceMap["inside_network"] = map[string]interface{}{}
+							OriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 						}
 						if OriginServersItem.K8SService.OutsideNetwork != nil {
-							K8SServiceMap["outside_network"] = map[string]interface{}{}
+							OriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 						}
 						if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
-							K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+							OriginServersOriginServersK8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
 						}
 						if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
-							K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+							OriginServersOriginServersK8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
 						}
 						if OriginServersItem.K8SService.SiteLocator != nil {
-							SiteLocatorMap := make(map[string]interface{})
+							OriginServersOriginServersK8SServiceSiteLocatorMap := make(map[string]interface{})
 							if OriginServersItem.K8SService.SiteLocator.Site != nil {
-								SiteMap := make(map[string]interface{})
+								OriginServersOriginServersK8SServiceSiteLocatorSiteMap := make(map[string]interface{})
 								if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
-									SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
 								}
-								SiteLocatorMap["site"] = SiteMap
+								OriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginServersOriginServersK8SServiceSiteLocatorSiteMap
 							}
 							if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
 								}
 								if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+									OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 								}
-								SiteLocatorMap["virtual_site"] = VirtualSiteMap
+								OriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 							}
-							K8SServiceMap["site_locator"] = SiteLocatorMap
+							OriginServersOriginServersK8SServiceMap["site_locator"] = OriginServersOriginServersK8SServiceSiteLocatorMap
 						}
 						if OriginServersItem.K8SService.SnatPool != nil {
-							SnatPoolMap := make(map[string]interface{})
+							OriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
 							if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
-								SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+								OriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 							}
 							if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
-								SnatPoolMap := make(map[string]interface{})
+								OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 								if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 									var PrefixesItems []string
 									diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 									if !diags.HasError() {
-										SnatPoolMap["prefixes"] = PrefixesItems
+										OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 									}
 								}
-								SnatPoolMap["snat_pool"] = SnatPoolMap
+								OriginServersOriginServersK8SServiceSnatPoolMap["snat_pool"] = OriginServersOriginServersK8SServiceSnatPoolSnatPoolMap
 							}
-							K8SServiceMap["snat_pool"] = SnatPoolMap
+							OriginServersOriginServersK8SServiceMap["snat_pool"] = OriginServersOriginServersK8SServiceSnatPoolMap
 						}
 						if OriginServersItem.K8SService.Vk8sNetworks != nil {
-							K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+							OriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 						}
-						OriginServersItemMap["k8s_service"] = K8SServiceMap
+						OriginServersItemMap["k8s_service"] = OriginServersOriginServersK8SServiceMap
 					}
 					if OriginServersItem.NoPreference != nil {
 						OriginServersItemMap["no_preference"] = map[string]interface{}{}
 					}
 					if OriginServersItem.PublicIP != nil {
-						PublicIPMap := make(map[string]interface{})
+						OriginServersOriginServersPublicIPMap := make(map[string]interface{})
 						if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-							PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+							OriginServersOriginServersPublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
 						}
-						OriginServersItemMap["public_ip"] = PublicIPMap
+						OriginServersItemMap["public_ip"] = OriginServersOriginServersPublicIPMap
 					}
 					if OriginServersItem.PublicName != nil {
-						PublicNameMap := make(map[string]interface{})
+						OriginServersOriginServersPublicNameMap := make(map[string]interface{})
 						if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-							PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+							OriginServersOriginServersPublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
 						}
 						if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-							PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+							OriginServersOriginServersPublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
 						}
-						OriginServersItemMap["public_name"] = PublicNameMap
+						OriginServersItemMap["public_name"] = OriginServersOriginServersPublicNameMap
 					}
 					if OriginServersItem.SitePreferences != nil {
-						SitePreferencesMap := make(map[string]interface{})
+						OriginServersOriginServersSitePreferencesMap := make(map[string]interface{})
 						if !OriginServersItem.SitePreferences.Refs.IsNull() && !OriginServersItem.SitePreferences.Refs.IsUnknown() {
 							var RefsElems []DNSProxyOriginServersOriginServersSitePreferencesRefsModel
 							diags := OriginServersItem.SitePreferences.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -4229,10 +4229,10 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
-								SitePreferencesMap["refs"] = RefsList
+								OriginServersOriginServersSitePreferencesMap["refs"] = RefsList
 							}
 						}
-						OriginServersItemMap["site_preferences"] = SitePreferencesMap
+						OriginServersItemMap["site_preferences"] = OriginServersOriginServersSitePreferencesMap
 					}
 					OriginServersList = append(OriginServersList, OriginServersItemMap)
 				}
@@ -4257,7 +4257,7 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 	if data.ProxyAdvertisement != nil {
 		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			AdvertiseCustomMap := make(map[string]interface{})
+			ProxyAdvertisementAdvertiseCustomMap := make(map[string]interface{})
 			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
 				var AdvertiseWhereElems []DNSProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
 				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
@@ -4267,21 +4267,21 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 						AdvertiseWhereItemMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-							AdvertiseOnPublicMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-								PublicIPMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 								}
-								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
-							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 						}
 						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -4290,156 +4290,156 @@ func (r *DNSProxyResource) Update(ctx context.Context, req resource.UpdateReques
 							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 						}
 						if AdvertiseWhereItem.Site != nil {
-							SiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 							}
 							if AdvertiseWhereItem.Site.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
-								SiteMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
-							AdvertiseWhereItemMap["site"] = SiteMap
+							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
 						if AdvertiseWhereItem.UseDefaultPort != nil {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
 							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-								VirtualNetworkMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 								}
-								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
-							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
 						}
 						if AdvertiseWhereItem.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+							AdvertiseWhereItemMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-							VirtualSiteWithVIPMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 						}
 						if AdvertiseWhereItem.Vk8sService != nil {
-							Vk8sServiceMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 							if AdvertiseWhereItem.Vk8sService.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 								}
-								Vk8sServiceMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
-								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+							AdvertiseWhereItemMap["vk8s_service"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap
 						}
 						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 					}
-					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+					ProxyAdvertisementAdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
 				}
 			}
-			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
+			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublic != nil {
-			AdvertiseOnPublicMap := make(map[string]interface{})
+			ProxyAdvertisementAdvertiseOnPublicMap := make(map[string]interface{})
 			if data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP != nil {
-				PublicIPMap := make(map[string]interface{})
+				ProxyAdvertisementAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-					PublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.ValueString()
+					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["name"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Name.ValueString()
 				}
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-					PublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["namespace"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 				}
 				if !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-					PublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+					ProxyAdvertisementAdvertiseOnPublicPublicIPMap["tenant"] = data.ProxyAdvertisement.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 				}
-				AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+				ProxyAdvertisementAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseOnPublicPublicIPMap
 			}
-			ProxyAdvertisementMap["advertise_on_public"] = AdvertiseOnPublicMap
+			ProxyAdvertisementMap["advertise_on_public"] = ProxyAdvertisementAdvertiseOnPublicMap
 		}
 		if data.ProxyAdvertisement.AdvertiseOnPublicDefaultVIP != nil {
 			ProxyAdvertisementMap["advertise_on_public_default_vip"] = map[string]interface{}{}

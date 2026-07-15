@@ -372,38 +372,38 @@ func (r *APICrawlerResource) Create(ctx context.Context, req resource.CreateRequ
 					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 				}
 				if DomainsItem.SimpleLogin != nil {
-					SimpleLoginMap := make(map[string]interface{})
+					DomainsSimpleLoginMap := make(map[string]interface{})
 					if DomainsItem.SimpleLogin.Password != nil {
-						PasswordMap := make(map[string]interface{})
+						DomainsSimpleLoginPasswordMap := make(map[string]interface{})
 						if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
+							DomainsSimpleLoginPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								DomainsSimpleLoginPasswordBlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 							}
 							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
+								DomainsSimpleLoginPasswordBlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
 							}
 							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								DomainsSimpleLoginPasswordBlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 							}
-							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							DomainsSimpleLoginPasswordMap["blindfold_secret_info"] = DomainsSimpleLoginPasswordBlindfoldSecretInfoMap
 						}
 						if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
+							DomainsSimpleLoginPasswordClearSecretInfoMap := make(map[string]interface{})
 							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
+								DomainsSimpleLoginPasswordClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
 							}
 							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
+								DomainsSimpleLoginPasswordClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
 							}
-							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							DomainsSimpleLoginPasswordMap["clear_secret_info"] = DomainsSimpleLoginPasswordClearSecretInfoMap
 						}
-						SimpleLoginMap["password"] = PasswordMap
+						DomainsSimpleLoginMap["password"] = DomainsSimpleLoginPasswordMap
 					}
 					if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
-						SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
+						DomainsSimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
 					}
-					DomainsItemMap["simple_login"] = SimpleLoginMap
+					DomainsItemMap["simple_login"] = DomainsSimpleLoginMap
 				}
 				DomainsList = append(DomainsList, DomainsItemMap)
 			}
@@ -791,38 +791,38 @@ func (r *APICrawlerResource) Update(ctx context.Context, req resource.UpdateRequ
 					DomainsItemMap["domain"] = DomainsItem.Domain.ValueString()
 				}
 				if DomainsItem.SimpleLogin != nil {
-					SimpleLoginMap := make(map[string]interface{})
+					DomainsSimpleLoginMap := make(map[string]interface{})
 					if DomainsItem.SimpleLogin.Password != nil {
-						PasswordMap := make(map[string]interface{})
+						DomainsSimpleLoginPasswordMap := make(map[string]interface{})
 						if DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
+							DomainsSimpleLoginPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								DomainsSimpleLoginPasswordBlindfoldSecretInfoMap["decryption_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 							}
 							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
+								DomainsSimpleLoginPasswordBlindfoldSecretInfoMap["location"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.Location.ValueString()
 							}
 							if !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+								DomainsSimpleLoginPasswordBlindfoldSecretInfoMap["store_provider"] = DomainsItem.SimpleLogin.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 							}
-							PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							DomainsSimpleLoginPasswordMap["blindfold_secret_info"] = DomainsSimpleLoginPasswordBlindfoldSecretInfoMap
 						}
 						if DomainsItem.SimpleLogin.Password.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
+							DomainsSimpleLoginPasswordClearSecretInfoMap := make(map[string]interface{})
 							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
+								DomainsSimpleLoginPasswordClearSecretInfoMap["provider"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.Provider.ValueString()
 							}
 							if !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsNull() && !DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
+								DomainsSimpleLoginPasswordClearSecretInfoMap["url"] = DomainsItem.SimpleLogin.Password.ClearSecretInfo.URL.ValueString()
 							}
-							PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+							DomainsSimpleLoginPasswordMap["clear_secret_info"] = DomainsSimpleLoginPasswordClearSecretInfoMap
 						}
-						SimpleLoginMap["password"] = PasswordMap
+						DomainsSimpleLoginMap["password"] = DomainsSimpleLoginPasswordMap
 					}
 					if !DomainsItem.SimpleLogin.User.IsNull() && !DomainsItem.SimpleLogin.User.IsUnknown() {
-						SimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
+						DomainsSimpleLoginMap["user"] = DomainsItem.SimpleLogin.User.ValueString()
 					}
-					DomainsItemMap["simple_login"] = SimpleLoginMap
+					DomainsItemMap["simple_login"] = DomainsSimpleLoginMap
 				}
 				DomainsList = append(DomainsList, DomainsItemMap)
 			}

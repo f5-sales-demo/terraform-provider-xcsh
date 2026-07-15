@@ -711,15 +711,15 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			ServiceInfoMap["service_name"] = data.ServiceInfo.ServiceName.ValueString()
 		}
 		if data.ServiceInfo.ServiceSelector != nil {
-			ServiceSelectorMap := make(map[string]interface{})
+			ServiceInfoServiceSelectorMap := make(map[string]interface{})
 			if !data.ServiceInfo.ServiceSelector.Expressions.IsNull() && !data.ServiceInfo.ServiceSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.ServiceInfo.ServiceSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 				if !diags.HasError() {
-					ServiceSelectorMap["expressions"] = ExpressionsItems
+					ServiceInfoServiceSelectorMap["expressions"] = ExpressionsItems
 				}
 			}
-			ServiceInfoMap["service_selector"] = ServiceSelectorMap
+			ServiceInfoMap["service_selector"] = ServiceInfoServiceSelectorMap
 		}
 		createReq.Spec["service_info"] = ServiceInfoMap
 	}
@@ -729,30 +729,30 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 			SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 		}
 		if data.SnatPool.SnatPool != nil {
-			SnatPoolMap := make(map[string]interface{})
+			SnatPoolSnatPoolMap := make(map[string]interface{})
 			if !data.SnatPool.SnatPool.Prefixes.IsNull() && !data.SnatPool.SnatPool.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 				if !diags.HasError() {
-					SnatPoolMap["prefixes"] = PrefixesItems
+					SnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 				}
 			}
-			SnatPoolMap["snat_pool"] = SnatPoolMap
+			SnatPoolMap["snat_pool"] = SnatPoolSnatPoolMap
 		}
 		createReq.Spec["snat_pool"] = SnatPoolMap
 	}
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []EndpointWhereSiteRefModel
@@ -779,13 +779,13 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []EndpointWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -811,21 +811,21 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []EndpointWhereVirtualSiteRefModel
@@ -852,10 +852,10 @@ func (r *EndpointResource) Create(ctx context.Context, req resource.CreateReques
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		createReq.Spec["where"] = WhereMap
 	}
@@ -1754,15 +1754,15 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			ServiceInfoMap["service_name"] = data.ServiceInfo.ServiceName.ValueString()
 		}
 		if data.ServiceInfo.ServiceSelector != nil {
-			ServiceSelectorMap := make(map[string]interface{})
+			ServiceInfoServiceSelectorMap := make(map[string]interface{})
 			if !data.ServiceInfo.ServiceSelector.Expressions.IsNull() && !data.ServiceInfo.ServiceSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.ServiceInfo.ServiceSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 				if !diags.HasError() {
-					ServiceSelectorMap["expressions"] = ExpressionsItems
+					ServiceInfoServiceSelectorMap["expressions"] = ExpressionsItems
 				}
 			}
-			ServiceInfoMap["service_selector"] = ServiceSelectorMap
+			ServiceInfoMap["service_selector"] = ServiceInfoServiceSelectorMap
 		}
 		apiResource.Spec["service_info"] = ServiceInfoMap
 	}
@@ -1772,30 +1772,30 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 			SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 		}
 		if data.SnatPool.SnatPool != nil {
-			SnatPoolMap := make(map[string]interface{})
+			SnatPoolSnatPoolMap := make(map[string]interface{})
 			if !data.SnatPool.SnatPool.Prefixes.IsNull() && !data.SnatPool.SnatPool.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 				if !diags.HasError() {
-					SnatPoolMap["prefixes"] = PrefixesItems
+					SnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 				}
 			}
-			SnatPoolMap["snat_pool"] = SnatPoolMap
+			SnatPoolMap["snat_pool"] = SnatPoolSnatPoolMap
 		}
 		apiResource.Spec["snat_pool"] = SnatPoolMap
 	}
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []EndpointWhereSiteRefModel
@@ -1822,13 +1822,13 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []EndpointWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1854,21 +1854,21 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []EndpointWhereVirtualSiteRefModel
@@ -1895,10 +1895,10 @@ func (r *EndpointResource) Update(ctx context.Context, req resource.UpdateReques
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		apiResource.Spec["where"] = WhereMap
 	}

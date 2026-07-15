@@ -434,56 +434,56 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 			for _, RulesItem := range RulesElems {
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.Action != nil {
-					ActionMap := make(map[string]interface{})
+					RulesActionMap := make(map[string]interface{})
 					if RulesItem.Action.Aggregate != nil {
-						ActionMap["aggregate"] = map[string]interface{}{}
+						RulesActionMap["aggregate"] = map[string]interface{}{}
 					}
 					if RulesItem.Action.Allow != nil {
-						ActionMap["allow"] = map[string]interface{}{}
+						RulesActionMap["allow"] = map[string]interface{}{}
 					}
 					if !RulesItem.Action.AsPath.IsNull() && !RulesItem.Action.AsPath.IsUnknown() {
-						ActionMap["as_path"] = RulesItem.Action.AsPath.ValueString()
+						RulesActionMap["as_path"] = RulesItem.Action.AsPath.ValueString()
 					}
 					if RulesItem.Action.Community != nil {
-						CommunityMap := make(map[string]interface{})
+						RulesActionCommunityMap := make(map[string]interface{})
 						if !RulesItem.Action.Community.Community.IsNull() && !RulesItem.Action.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Action.Community.Community.ElementsAs(ctx, &CommunityItems, false)
 							if !diags.HasError() {
-								CommunityMap["community"] = CommunityItems
+								RulesActionCommunityMap["community"] = CommunityItems
 							}
 						}
-						ActionMap["community"] = CommunityMap
+						RulesActionMap["community"] = RulesActionCommunityMap
 					}
 					if RulesItem.Action.Deny != nil {
-						ActionMap["deny"] = map[string]interface{}{}
+						RulesActionMap["deny"] = map[string]interface{}{}
 					}
 					if !RulesItem.Action.LocalPreference.IsNull() && !RulesItem.Action.LocalPreference.IsUnknown() {
-						ActionMap["local_preference"] = RulesItem.Action.LocalPreference.ValueInt64()
+						RulesActionMap["local_preference"] = RulesItem.Action.LocalPreference.ValueInt64()
 					}
 					if !RulesItem.Action.Metric.IsNull() && !RulesItem.Action.Metric.IsUnknown() {
-						ActionMap["metric"] = RulesItem.Action.Metric.ValueInt64()
+						RulesActionMap["metric"] = RulesItem.Action.Metric.ValueInt64()
 					}
-					RulesItemMap["action"] = ActionMap
+					RulesItemMap["action"] = RulesActionMap
 				}
 				if RulesItem.Match != nil {
-					MatchMap := make(map[string]interface{})
+					RulesMatchMap := make(map[string]interface{})
 					if !RulesItem.Match.AsPath.IsNull() && !RulesItem.Match.AsPath.IsUnknown() {
-						MatchMap["as_path"] = RulesItem.Match.AsPath.ValueString()
+						RulesMatchMap["as_path"] = RulesItem.Match.AsPath.ValueString()
 					}
 					if RulesItem.Match.Community != nil {
-						CommunityMap := make(map[string]interface{})
+						RulesMatchCommunityMap := make(map[string]interface{})
 						if !RulesItem.Match.Community.Community.IsNull() && !RulesItem.Match.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Match.Community.Community.ElementsAs(ctx, &CommunityItems, false)
 							if !diags.HasError() {
-								CommunityMap["community"] = CommunityItems
+								RulesMatchCommunityMap["community"] = CommunityItems
 							}
 						}
-						MatchMap["community"] = CommunityMap
+						RulesMatchMap["community"] = RulesMatchCommunityMap
 					}
 					if RulesItem.Match.IPPrefixes != nil {
-						IPPrefixesMap := make(map[string]interface{})
+						RulesMatchIPPrefixesMap := make(map[string]interface{})
 						if !RulesItem.Match.IPPrefixes.Prefixes.IsNull() && !RulesItem.Match.IPPrefixes.Prefixes.IsUnknown() {
 							var PrefixesElems []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
 							diags := RulesItem.Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesElems, false)
@@ -506,12 +506,12 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 									}
 									PrefixesList = append(PrefixesList, PrefixesItemMap)
 								}
-								IPPrefixesMap["prefixes"] = PrefixesList
+								RulesMatchIPPrefixesMap["prefixes"] = PrefixesList
 							}
 						}
-						MatchMap["ip_prefixes"] = IPPrefixesMap
+						RulesMatchMap["ip_prefixes"] = RulesMatchIPPrefixesMap
 					}
-					RulesItemMap["match"] = MatchMap
+					RulesItemMap["match"] = RulesMatchMap
 				}
 				RulesList = append(RulesList, RulesItemMap)
 			}
@@ -1102,56 +1102,56 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 			for _, RulesItem := range RulesElems {
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.Action != nil {
-					ActionMap := make(map[string]interface{})
+					RulesActionMap := make(map[string]interface{})
 					if RulesItem.Action.Aggregate != nil {
-						ActionMap["aggregate"] = map[string]interface{}{}
+						RulesActionMap["aggregate"] = map[string]interface{}{}
 					}
 					if RulesItem.Action.Allow != nil {
-						ActionMap["allow"] = map[string]interface{}{}
+						RulesActionMap["allow"] = map[string]interface{}{}
 					}
 					if !RulesItem.Action.AsPath.IsNull() && !RulesItem.Action.AsPath.IsUnknown() {
-						ActionMap["as_path"] = RulesItem.Action.AsPath.ValueString()
+						RulesActionMap["as_path"] = RulesItem.Action.AsPath.ValueString()
 					}
 					if RulesItem.Action.Community != nil {
-						CommunityMap := make(map[string]interface{})
+						RulesActionCommunityMap := make(map[string]interface{})
 						if !RulesItem.Action.Community.Community.IsNull() && !RulesItem.Action.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Action.Community.Community.ElementsAs(ctx, &CommunityItems, false)
 							if !diags.HasError() {
-								CommunityMap["community"] = CommunityItems
+								RulesActionCommunityMap["community"] = CommunityItems
 							}
 						}
-						ActionMap["community"] = CommunityMap
+						RulesActionMap["community"] = RulesActionCommunityMap
 					}
 					if RulesItem.Action.Deny != nil {
-						ActionMap["deny"] = map[string]interface{}{}
+						RulesActionMap["deny"] = map[string]interface{}{}
 					}
 					if !RulesItem.Action.LocalPreference.IsNull() && !RulesItem.Action.LocalPreference.IsUnknown() {
-						ActionMap["local_preference"] = RulesItem.Action.LocalPreference.ValueInt64()
+						RulesActionMap["local_preference"] = RulesItem.Action.LocalPreference.ValueInt64()
 					}
 					if !RulesItem.Action.Metric.IsNull() && !RulesItem.Action.Metric.IsUnknown() {
-						ActionMap["metric"] = RulesItem.Action.Metric.ValueInt64()
+						RulesActionMap["metric"] = RulesItem.Action.Metric.ValueInt64()
 					}
-					RulesItemMap["action"] = ActionMap
+					RulesItemMap["action"] = RulesActionMap
 				}
 				if RulesItem.Match != nil {
-					MatchMap := make(map[string]interface{})
+					RulesMatchMap := make(map[string]interface{})
 					if !RulesItem.Match.AsPath.IsNull() && !RulesItem.Match.AsPath.IsUnknown() {
-						MatchMap["as_path"] = RulesItem.Match.AsPath.ValueString()
+						RulesMatchMap["as_path"] = RulesItem.Match.AsPath.ValueString()
 					}
 					if RulesItem.Match.Community != nil {
-						CommunityMap := make(map[string]interface{})
+						RulesMatchCommunityMap := make(map[string]interface{})
 						if !RulesItem.Match.Community.Community.IsNull() && !RulesItem.Match.Community.Community.IsUnknown() {
 							var CommunityItems []string
 							diags := RulesItem.Match.Community.Community.ElementsAs(ctx, &CommunityItems, false)
 							if !diags.HasError() {
-								CommunityMap["community"] = CommunityItems
+								RulesMatchCommunityMap["community"] = CommunityItems
 							}
 						}
-						MatchMap["community"] = CommunityMap
+						RulesMatchMap["community"] = RulesMatchCommunityMap
 					}
 					if RulesItem.Match.IPPrefixes != nil {
-						IPPrefixesMap := make(map[string]interface{})
+						RulesMatchIPPrefixesMap := make(map[string]interface{})
 						if !RulesItem.Match.IPPrefixes.Prefixes.IsNull() && !RulesItem.Match.IPPrefixes.Prefixes.IsUnknown() {
 							var PrefixesElems []BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel
 							diags := RulesItem.Match.IPPrefixes.Prefixes.ElementsAs(ctx, &PrefixesElems, false)
@@ -1174,12 +1174,12 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 									}
 									PrefixesList = append(PrefixesList, PrefixesItemMap)
 								}
-								IPPrefixesMap["prefixes"] = PrefixesList
+								RulesMatchIPPrefixesMap["prefixes"] = PrefixesList
 							}
 						}
-						MatchMap["ip_prefixes"] = IPPrefixesMap
+						RulesMatchMap["ip_prefixes"] = RulesMatchIPPrefixesMap
 					}
-					RulesItemMap["match"] = MatchMap
+					RulesItemMap["match"] = RulesMatchMap
 				}
 				RulesList = append(RulesList, RulesItemMap)
 			}

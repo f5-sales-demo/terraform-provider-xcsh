@@ -414,36 +414,36 @@ func (r *ProtocolPolicerResource) Create(ctx context.Context, req resource.Creat
 					}
 				}
 				if ProtocolPolicerItem.Protocol != nil {
-					ProtocolMap := make(map[string]interface{})
+					ProtocolPolicerProtocolMap := make(map[string]interface{})
 					if ProtocolPolicerItem.Protocol.DNS != nil {
-						ProtocolMap["dns"] = map[string]interface{}{}
+						ProtocolPolicerProtocolMap["dns"] = map[string]interface{}{}
 					}
 					if ProtocolPolicerItem.Protocol.ICMP != nil {
-						ICMPMap := make(map[string]interface{})
+						ProtocolPolicerProtocolICMPMap := make(map[string]interface{})
 						if !ProtocolPolicerItem.Protocol.ICMP.Type.IsNull() && !ProtocolPolicerItem.Protocol.ICMP.Type.IsUnknown() {
 							var TypeItems []string
 							diags := ProtocolPolicerItem.Protocol.ICMP.Type.ElementsAs(ctx, &TypeItems, false)
 							if !diags.HasError() {
-								ICMPMap["type"] = TypeItems
+								ProtocolPolicerProtocolICMPMap["type"] = TypeItems
 							}
 						}
-						ProtocolMap["icmp"] = ICMPMap
+						ProtocolPolicerProtocolMap["icmp"] = ProtocolPolicerProtocolICMPMap
 					}
 					if ProtocolPolicerItem.Protocol.TCP != nil {
-						TCPMap := make(map[string]interface{})
+						ProtocolPolicerProtocolTCPMap := make(map[string]interface{})
 						if !ProtocolPolicerItem.Protocol.TCP.Flags.IsNull() && !ProtocolPolicerItem.Protocol.TCP.Flags.IsUnknown() {
 							var FlagsItems []string
 							diags := ProtocolPolicerItem.Protocol.TCP.Flags.ElementsAs(ctx, &FlagsItems, false)
 							if !diags.HasError() {
-								TCPMap["flags"] = FlagsItems
+								ProtocolPolicerProtocolTCPMap["flags"] = FlagsItems
 							}
 						}
-						ProtocolMap["tcp"] = TCPMap
+						ProtocolPolicerProtocolMap["tcp"] = ProtocolPolicerProtocolTCPMap
 					}
 					if ProtocolPolicerItem.Protocol.UDP != nil {
-						ProtocolMap["udp"] = map[string]interface{}{}
+						ProtocolPolicerProtocolMap["udp"] = map[string]interface{}{}
 					}
-					ProtocolPolicerItemMap["protocol"] = ProtocolMap
+					ProtocolPolicerItemMap["protocol"] = ProtocolPolicerProtocolMap
 				}
 				ProtocolPolicerList = append(ProtocolPolicerList, ProtocolPolicerItemMap)
 			}
@@ -944,36 +944,36 @@ func (r *ProtocolPolicerResource) Update(ctx context.Context, req resource.Updat
 					}
 				}
 				if ProtocolPolicerItem.Protocol != nil {
-					ProtocolMap := make(map[string]interface{})
+					ProtocolPolicerProtocolMap := make(map[string]interface{})
 					if ProtocolPolicerItem.Protocol.DNS != nil {
-						ProtocolMap["dns"] = map[string]interface{}{}
+						ProtocolPolicerProtocolMap["dns"] = map[string]interface{}{}
 					}
 					if ProtocolPolicerItem.Protocol.ICMP != nil {
-						ICMPMap := make(map[string]interface{})
+						ProtocolPolicerProtocolICMPMap := make(map[string]interface{})
 						if !ProtocolPolicerItem.Protocol.ICMP.Type.IsNull() && !ProtocolPolicerItem.Protocol.ICMP.Type.IsUnknown() {
 							var TypeItems []string
 							diags := ProtocolPolicerItem.Protocol.ICMP.Type.ElementsAs(ctx, &TypeItems, false)
 							if !diags.HasError() {
-								ICMPMap["type"] = TypeItems
+								ProtocolPolicerProtocolICMPMap["type"] = TypeItems
 							}
 						}
-						ProtocolMap["icmp"] = ICMPMap
+						ProtocolPolicerProtocolMap["icmp"] = ProtocolPolicerProtocolICMPMap
 					}
 					if ProtocolPolicerItem.Protocol.TCP != nil {
-						TCPMap := make(map[string]interface{})
+						ProtocolPolicerProtocolTCPMap := make(map[string]interface{})
 						if !ProtocolPolicerItem.Protocol.TCP.Flags.IsNull() && !ProtocolPolicerItem.Protocol.TCP.Flags.IsUnknown() {
 							var FlagsItems []string
 							diags := ProtocolPolicerItem.Protocol.TCP.Flags.ElementsAs(ctx, &FlagsItems, false)
 							if !diags.HasError() {
-								TCPMap["flags"] = FlagsItems
+								ProtocolPolicerProtocolTCPMap["flags"] = FlagsItems
 							}
 						}
-						ProtocolMap["tcp"] = TCPMap
+						ProtocolPolicerProtocolMap["tcp"] = ProtocolPolicerProtocolTCPMap
 					}
 					if ProtocolPolicerItem.Protocol.UDP != nil {
-						ProtocolMap["udp"] = map[string]interface{}{}
+						ProtocolPolicerProtocolMap["udp"] = map[string]interface{}{}
 					}
-					ProtocolPolicerItemMap["protocol"] = ProtocolMap
+					ProtocolPolicerItemMap["protocol"] = ProtocolPolicerProtocolMap
 				}
 				ProtocolPolicerList = append(ProtocolPolicerList, ProtocolPolicerItemMap)
 			}

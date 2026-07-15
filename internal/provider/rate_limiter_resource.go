@@ -433,29 +433,29 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 			for _, LimitsItem := range LimitsElems {
 				LimitsItemMap := make(map[string]interface{})
 				if LimitsItem.ActionBlock != nil {
-					ActionBlockMap := make(map[string]interface{})
+					LimitsActionBlockMap := make(map[string]interface{})
 					if LimitsItem.ActionBlock.Hours != nil {
-						HoursMap := make(map[string]interface{})
+						LimitsActionBlockHoursMap := make(map[string]interface{})
 						if !LimitsItem.ActionBlock.Hours.Duration.IsNull() && !LimitsItem.ActionBlock.Hours.Duration.IsUnknown() {
-							HoursMap["duration"] = LimitsItem.ActionBlock.Hours.Duration.ValueInt64()
+							LimitsActionBlockHoursMap["duration"] = LimitsItem.ActionBlock.Hours.Duration.ValueInt64()
 						}
-						ActionBlockMap["hours"] = HoursMap
+						LimitsActionBlockMap["hours"] = LimitsActionBlockHoursMap
 					}
 					if LimitsItem.ActionBlock.Minutes != nil {
-						MinutesMap := make(map[string]interface{})
+						LimitsActionBlockMinutesMap := make(map[string]interface{})
 						if !LimitsItem.ActionBlock.Minutes.Duration.IsNull() && !LimitsItem.ActionBlock.Minutes.Duration.IsUnknown() {
-							MinutesMap["duration"] = LimitsItem.ActionBlock.Minutes.Duration.ValueInt64()
+							LimitsActionBlockMinutesMap["duration"] = LimitsItem.ActionBlock.Minutes.Duration.ValueInt64()
 						}
-						ActionBlockMap["minutes"] = MinutesMap
+						LimitsActionBlockMap["minutes"] = LimitsActionBlockMinutesMap
 					}
 					if LimitsItem.ActionBlock.Seconds != nil {
-						SecondsMap := make(map[string]interface{})
+						LimitsActionBlockSecondsMap := make(map[string]interface{})
 						if !LimitsItem.ActionBlock.Seconds.Duration.IsNull() && !LimitsItem.ActionBlock.Seconds.Duration.IsUnknown() {
-							SecondsMap["duration"] = LimitsItem.ActionBlock.Seconds.Duration.ValueInt64()
+							LimitsActionBlockSecondsMap["duration"] = LimitsItem.ActionBlock.Seconds.Duration.ValueInt64()
 						}
-						ActionBlockMap["seconds"] = SecondsMap
+						LimitsActionBlockMap["seconds"] = LimitsActionBlockSecondsMap
 					}
-					LimitsItemMap["action_block"] = ActionBlockMap
+					LimitsItemMap["action_block"] = LimitsActionBlockMap
 				}
 				if !LimitsItem.BurstMultiplier.IsNull() && !LimitsItem.BurstMultiplier.IsUnknown() {
 					LimitsItemMap["burst_multiplier"] = LimitsItem.BurstMultiplier.ValueInt64()
@@ -1067,29 +1067,29 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 			for _, LimitsItem := range LimitsElems {
 				LimitsItemMap := make(map[string]interface{})
 				if LimitsItem.ActionBlock != nil {
-					ActionBlockMap := make(map[string]interface{})
+					LimitsActionBlockMap := make(map[string]interface{})
 					if LimitsItem.ActionBlock.Hours != nil {
-						HoursMap := make(map[string]interface{})
+						LimitsActionBlockHoursMap := make(map[string]interface{})
 						if !LimitsItem.ActionBlock.Hours.Duration.IsNull() && !LimitsItem.ActionBlock.Hours.Duration.IsUnknown() {
-							HoursMap["duration"] = LimitsItem.ActionBlock.Hours.Duration.ValueInt64()
+							LimitsActionBlockHoursMap["duration"] = LimitsItem.ActionBlock.Hours.Duration.ValueInt64()
 						}
-						ActionBlockMap["hours"] = HoursMap
+						LimitsActionBlockMap["hours"] = LimitsActionBlockHoursMap
 					}
 					if LimitsItem.ActionBlock.Minutes != nil {
-						MinutesMap := make(map[string]interface{})
+						LimitsActionBlockMinutesMap := make(map[string]interface{})
 						if !LimitsItem.ActionBlock.Minutes.Duration.IsNull() && !LimitsItem.ActionBlock.Minutes.Duration.IsUnknown() {
-							MinutesMap["duration"] = LimitsItem.ActionBlock.Minutes.Duration.ValueInt64()
+							LimitsActionBlockMinutesMap["duration"] = LimitsItem.ActionBlock.Minutes.Duration.ValueInt64()
 						}
-						ActionBlockMap["minutes"] = MinutesMap
+						LimitsActionBlockMap["minutes"] = LimitsActionBlockMinutesMap
 					}
 					if LimitsItem.ActionBlock.Seconds != nil {
-						SecondsMap := make(map[string]interface{})
+						LimitsActionBlockSecondsMap := make(map[string]interface{})
 						if !LimitsItem.ActionBlock.Seconds.Duration.IsNull() && !LimitsItem.ActionBlock.Seconds.Duration.IsUnknown() {
-							SecondsMap["duration"] = LimitsItem.ActionBlock.Seconds.Duration.ValueInt64()
+							LimitsActionBlockSecondsMap["duration"] = LimitsItem.ActionBlock.Seconds.Duration.ValueInt64()
 						}
-						ActionBlockMap["seconds"] = SecondsMap
+						LimitsActionBlockMap["seconds"] = LimitsActionBlockSecondsMap
 					}
-					LimitsItemMap["action_block"] = ActionBlockMap
+					LimitsItemMap["action_block"] = LimitsActionBlockMap
 				}
 				if !LimitsItem.BurstMultiplier.IsNull() && !LimitsItem.BurstMultiplier.IsUnknown() {
 					LimitsItemMap["burst_multiplier"] = LimitsItem.BurstMultiplier.ValueInt64()

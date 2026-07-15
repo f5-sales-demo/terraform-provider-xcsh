@@ -3086,12 +3086,12 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 						PoolsItemMap["name"] = PoolsItem.Name.ValueString()
 					}
 					if PoolsItem.OriginServers != nil {
-						OriginServersMap := make(map[string]interface{})
+						OriginPoolsPoolsOriginServersMap := make(map[string]interface{})
 						if PoolsItem.OriginServers.AutomaticPort != nil {
-							OriginServersMap["automatic_port"] = map[string]interface{}{}
+							OriginPoolsPoolsOriginServersMap["automatic_port"] = map[string]interface{}{}
 						}
 						if PoolsItem.OriginServers.HealthChecks != nil {
-							HealthChecksMap := make(map[string]interface{})
+							OriginPoolsPoolsOriginServersHealthChecksMap := make(map[string]interface{})
 							if !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
 								var HealthCheckElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
 								diags := PoolsItem.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
@@ -3104,36 +3104,36 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 											HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 										}
 										if HealthCheckItem.TCPHealthCheck != nil {
-											TCPHealthCheckMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap := make(map[string]interface{})
 											if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-												TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+												OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
 											}
 											if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-												TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+												OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
 											}
-											HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+											HealthCheckItemMap["tcp_health_check"] = OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap
 										}
 										HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 									}
-									HealthChecksMap["health_check"] = HealthCheckList
+									OriginPoolsPoolsOriginServersHealthChecksMap["health_check"] = HealthCheckList
 								}
 							}
 							if !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
-								HealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
 							}
 							if !PoolsItem.OriginServers.HealthChecks.Interval.IsNull() && !PoolsItem.OriginServers.HealthChecks.Interval.IsUnknown() {
-								HealthChecksMap["interval"] = PoolsItem.OriginServers.HealthChecks.Interval.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["interval"] = PoolsItem.OriginServers.HealthChecks.Interval.ValueInt64()
 							}
 							if !PoolsItem.OriginServers.HealthChecks.Timeout.IsNull() && !PoolsItem.OriginServers.HealthChecks.Timeout.IsUnknown() {
-								HealthChecksMap["timeout"] = PoolsItem.OriginServers.HealthChecks.Timeout.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["timeout"] = PoolsItem.OriginServers.HealthChecks.Timeout.ValueInt64()
 							}
 							if !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
-								HealthChecksMap["unhealthy_threshold"] = PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["unhealthy_threshold"] = PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
 							}
-							OriginServersMap["health_checks"] = HealthChecksMap
+							OriginPoolsPoolsOriginServersMap["health_checks"] = OriginPoolsPoolsOriginServersHealthChecksMap
 						}
 						if PoolsItem.OriginServers.LBPort != nil {
-							OriginServersMap["lb_port"] = map[string]interface{}{}
+							OriginPoolsPoolsOriginServersMap["lb_port"] = map[string]interface{}{}
 						}
 						if !PoolsItem.OriginServers.OriginServers.IsNull() && !PoolsItem.OriginServers.OriginServers.IsUnknown() {
 							var OriginServersElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
@@ -3144,172 +3144,172 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								for _, OriginServersItem := range OriginServersElems {
 									OriginServersItemMap := make(map[string]interface{})
 									if OriginServersItem.K8SService != nil {
-										K8SServiceMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersK8SServiceMap := make(map[string]interface{})
 										if OriginServersItem.K8SService.InsideNetwork != nil {
-											K8SServiceMap["inside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 										}
 										if OriginServersItem.K8SService.OutsideNetwork != nil {
-											K8SServiceMap["outside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
-											K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
 										}
 										if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
-											K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
 										}
 										if OriginServersItem.K8SService.SiteLocator != nil {
-											SiteLocatorMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap := make(map[string]interface{})
 											if OriginServersItem.K8SService.SiteLocator.Site != nil {
-												SiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap := make(map[string]interface{})
 												if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
-													SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
-													SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-													SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
 												}
-												SiteLocatorMap["site"] = SiteMap
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap
 											}
 											if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
-												VirtualSiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
-													VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-													VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
-												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 											}
-											K8SServiceMap["site_locator"] = SiteLocatorMap
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["site_locator"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap
 										}
 										if OriginServersItem.K8SService.SnatPool != nil {
-											SnatPoolMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
 											if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
-												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
-												SnatPoolMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 												if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 													if !diags.HasError() {
-														SnatPoolMap["prefixes"] = PrefixesItems
+														OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
 												}
-												SnatPoolMap["snat_pool"] = SnatPoolMap
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap
 											}
-											K8SServiceMap["snat_pool"] = SnatPoolMap
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap
 										}
 										if OriginServersItem.K8SService.Vk8sNetworks != nil {
-											K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 										}
-										OriginServersItemMap["k8s_service"] = K8SServiceMap
+										OriginServersItemMap["k8s_service"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceMap
 									}
 									if OriginServersItem.PrivateIP != nil {
-										PrivateIPMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersPrivateIPMap := make(map[string]interface{})
 										if OriginServersItem.PrivateIP.InsideNetwork != nil {
-											PrivateIPMap["inside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
-											PrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 										}
 										if OriginServersItem.PrivateIP.OutsideNetwork != nil {
-											PrivateIPMap["outside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 										}
 										if OriginServersItem.PrivateIP.Segment != nil {
-											SegmentMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap := make(map[string]interface{})
 											if !OriginServersItem.PrivateIP.Segment.Name.IsNull() && !OriginServersItem.PrivateIP.Segment.Name.IsUnknown() {
-												SegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
 											}
 											if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
-												SegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 											}
 											if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-												SegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
 											}
-											PrivateIPMap["segment"] = SegmentMap
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["segment"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap
 										}
 										if OriginServersItem.PrivateIP.SiteLocator != nil {
-											SiteLocatorMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap := make(map[string]interface{})
 											if OriginServersItem.PrivateIP.SiteLocator.Site != nil {
-												SiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap := make(map[string]interface{})
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsUnknown() {
-													SiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
-													SiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-													SiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
 												}
-												SiteLocatorMap["site"] = SiteMap
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap
 											}
 											if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
-												VirtualSiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap := make(map[string]interface{})
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsUnknown() {
-													VirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-													VirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													VirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
-												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap
 											}
-											PrivateIPMap["site_locator"] = SiteLocatorMap
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["site_locator"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap
 										}
 										if OriginServersItem.PrivateIP.SnatPool != nil {
-											SnatPoolMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
 											if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
-												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
-												SnatPoolMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap := make(map[string]interface{})
 												if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 													if !diags.HasError() {
-														SnatPoolMap["prefixes"] = PrefixesItems
+														OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
 												}
-												SnatPoolMap["snat_pool"] = SnatPoolMap
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap
 											}
-											PrivateIPMap["snat_pool"] = SnatPoolMap
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap
 										}
-										OriginServersItemMap["private_ip"] = PrivateIPMap
+										OriginServersItemMap["private_ip"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPMap
 									}
 									if OriginServersItem.PublicIP != nil {
-										PublicIPMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersPublicIPMap := make(map[string]interface{})
 										if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-											PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersPublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
 										}
-										OriginServersItemMap["public_ip"] = PublicIPMap
+										OriginServersItemMap["public_ip"] = OriginPoolsPoolsOriginServersOriginServersPublicIPMap
 									}
 									if OriginServersItem.PublicName != nil {
-										PublicNameMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersPublicNameMap := make(map[string]interface{})
 										if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-											PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersPublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
 										}
 										if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-											PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+											OriginPoolsPoolsOriginServersOriginServersPublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
 										}
-										OriginServersItemMap["public_name"] = PublicNameMap
+										OriginServersItemMap["public_name"] = OriginPoolsPoolsOriginServersOriginServersPublicNameMap
 									}
 									OriginServersList = append(OriginServersList, OriginServersItemMap)
 								}
-								OriginServersMap["origin_servers"] = OriginServersList
+								OriginPoolsPoolsOriginServersMap["origin_servers"] = OriginServersList
 							}
 						}
 						if !PoolsItem.OriginServers.Port.IsNull() && !PoolsItem.OriginServers.Port.IsUnknown() {
-							OriginServersMap["port"] = PoolsItem.OriginServers.Port.ValueInt64()
+							OriginPoolsPoolsOriginServersMap["port"] = PoolsItem.OriginServers.Port.ValueInt64()
 						}
-						PoolsItemMap["origin_servers"] = OriginServersMap
+						PoolsItemMap["origin_servers"] = OriginPoolsPoolsOriginServersMap
 					}
 					if !PoolsItem.Priority.IsNull() && !PoolsItem.Priority.IsUnknown() {
 						PoolsItemMap["priority"] = PoolsItem.Priority.ValueInt64()
@@ -3327,7 +3327,7 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 	if data.ProxyAdvertisement != nil {
 		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			AdvertiseCustomMap := make(map[string]interface{})
+			ProxyAdvertisementAdvertiseCustomMap := make(map[string]interface{})
 			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
 				var AdvertiseWhereElems []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
 				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
@@ -3337,21 +3337,21 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 						AdvertiseWhereItemMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-							AdvertiseOnPublicMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-								PublicIPMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 								}
-								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
-							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 						}
 						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -3360,139 +3360,139 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 						}
 						if AdvertiseWhereItem.Site != nil {
-							SiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 							}
 							if AdvertiseWhereItem.Site.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
-								SiteMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
-							AdvertiseWhereItemMap["site"] = SiteMap
+							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
 						if AdvertiseWhereItem.UseDefaultPort != nil {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
 							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-								VirtualNetworkMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 								}
-								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
-							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
 						}
 						if AdvertiseWhereItem.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+							AdvertiseWhereItemMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-							VirtualSiteWithVIPMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 						}
 						if AdvertiseWhereItem.Vk8sService != nil {
-							Vk8sServiceMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 							if AdvertiseWhereItem.Vk8sService.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 								}
-								Vk8sServiceMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
-								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+							AdvertiseWhereItemMap["vk8s_service"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap
 						}
 						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 					}
-					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+					ProxyAdvertisementAdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
 				}
 			}
-			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
+			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.DoNotAdvertise != nil {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
@@ -3509,101 +3509,101 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 			}
 		}
 		if data.ProxyConfig.HTTP != nil {
-			HTTPMap := make(map[string]interface{})
+			ProxyConfigHTTPMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTP.DNSVolterraManaged.IsNull() && !data.ProxyConfig.HTTP.DNSVolterraManaged.IsUnknown() {
-				HTTPMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
+				ProxyConfigHTTPMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
 			}
 			if !data.ProxyConfig.HTTP.Port.IsNull() && !data.ProxyConfig.HTTP.Port.IsUnknown() {
-				HTTPMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
+				ProxyConfigHTTPMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTP.PortRanges.IsNull() && !data.ProxyConfig.HTTP.PortRanges.IsUnknown() {
-				HTTPMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
+				ProxyConfigHTTPMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
 			}
-			ProxyConfigMap["http"] = HTTPMap
+			ProxyConfigMap["http"] = ProxyConfigHTTPMap
 		}
 		if data.ProxyConfig.HTTPS != nil {
-			HTTPSMap := make(map[string]interface{})
+			ProxyConfigHTTPSMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPS.AddHsts.IsNull() && !data.ProxyConfig.HTTPS.AddHsts.IsUnknown() {
-				HTTPSMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
+				ProxyConfigHTTPSMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPS.AppendServerName.IsNull() && !data.ProxyConfig.HTTPS.AppendServerName.IsUnknown() {
-				HTTPSMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
+				ProxyConfigHTTPSMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPS.CoalescingOptions != nil {
-				CoalescingOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSCoalescingOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing != nil {
-					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing != nil {
-					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
-				HTTPSMap["coalescing_options"] = CoalescingOptionsMap
+				ProxyConfigHTTPSMap["coalescing_options"] = ProxyConfigHTTPSCoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsUnknown() {
-				HTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
+				ProxyConfigHTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
 			}
 			if data.ProxyConfig.HTTPS.DefaultHeader != nil {
-				HTTPSMap["default_header"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["default_header"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.DefaultLoadBalancer != nil {
-				HTTPSMap["default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.DisablePathNormalize != nil {
-				HTTPSMap["disable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["disable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.EnablePathNormalize != nil {
-				HTTPSMap["enable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
-				HTTPProtocolOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSHTTPProtocolOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
-					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-						HeaderTransformationMap := make(map[string]interface{})
+						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
-							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
-						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
 				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
-				HTTPSMap["http_protocol_options"] = HTTPProtocolOptionsMap
+				ProxyConfigHTTPSMap["http_protocol_options"] = ProxyConfigHTTPSHTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPS.HTTPRedirect.IsUnknown() {
-				HTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
+				ProxyConfigHTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
 			}
 			if data.ProxyConfig.HTTPS.NonDefaultLoadBalancer != nil {
-				HTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.PassThrough != nil {
-				HTTPSMap["pass_through"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPS.Port.IsNull() && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
-				HTTPSMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
+				ProxyConfigHTTPSMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPS.PortRanges.IsNull() && !data.ProxyConfig.HTTPS.PortRanges.IsUnknown() {
-				HTTPSMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
+				ProxyConfigHTTPSMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPS.ServerName.IsNull() && !data.ProxyConfig.HTTPS.ServerName.IsUnknown() {
-				HTTPSMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
+				ProxyConfigHTTPSMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPS.TLSCertParams != nil {
-				TLSCertParamsMap := make(map[string]interface{})
+				ProxyConfigHTTPSTLSCertParamsMap := make(map[string]interface{})
 				if !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsUnknown() {
 					var CertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
 					diags := data.ProxyConfig.HTTPS.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
@@ -3623,101 +3623,101 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
-						TLSCertParamsMap["certificates"] = CertificatesList
+						ProxyConfigHTTPSTLSCertParamsMap["certificates"] = CertificatesList
 					}
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.NoMtls != nil {
-					TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+					ProxyConfigHTTPSTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
-					TLSConfigMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSCertParamsTLSConfigMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity != nil {
-						CustomSecurityMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 							if !diags.HasError() {
-								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+								ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+							ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+							ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
 						}
-						TLSConfigMap["custom_security"] = CustomSecurityMap
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity != nil {
-						TLSConfigMap["default_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity != nil {
-						TLSConfigMap["low_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity != nil {
-						TLSConfigMap["medium_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
-					TLSCertParamsMap["tls_config"] = TLSConfigMap
+					ProxyConfigHTTPSTLSCertParamsMap["tls_config"] = ProxyConfigHTTPSTLSCertParamsTLSConfigMap
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
-					UseMtlsMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSCertParamsUseMtlsMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
-						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL != nil {
-						CRLMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
-							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
-							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
 						}
-						UseMtlsMap["crl"] = CRLMap
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["crl"] = ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
-						UseMtlsMap["no_crl"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
-							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
-							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
-						UseMtlsMap["trusted_ca"] = TrustedCAMap
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap
 					}
 					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
-						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled != nil {
-						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
-						XfccOptionsMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 							if !diags.HasError() {
-								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+								ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
 						}
-						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["xfcc_options"] = ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap
 					}
-					TLSCertParamsMap["use_mtls"] = UseMtlsMap
+					ProxyConfigHTTPSTLSCertParamsMap["use_mtls"] = ProxyConfigHTTPSTLSCertParamsUseMtlsMap
 				}
-				HTTPSMap["tls_cert_params"] = TLSCertParamsMap
+				ProxyConfigHTTPSMap["tls_cert_params"] = ProxyConfigHTTPSTLSCertParamsMap
 			}
 			if data.ProxyConfig.HTTPS.TLSParameters != nil {
-				TLSParametersMap := make(map[string]interface{})
+				ProxyConfigHTTPSTLSParametersMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
-					TLSParametersMap["no_mtls"] = map[string]interface{}{}
+					ProxyConfigHTTPSTLSParametersMap["no_mtls"] = map[string]interface{}{}
 				}
 				if !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsUnknown() {
 					var TLSCertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
@@ -3731,15 +3731,15 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
 							if TLSCertificatesItem.CustomHashAlgorithms != nil {
-								CustomHashAlgorithmsMap := make(map[string]interface{})
+								ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 									if !diags.HasError() {
-										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+										ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
 								}
-								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap
 							}
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -3748,295 +3748,295 @@ func (r *BigIPHTTPProxyResource) Create(ctx context.Context, req resource.Create
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
-								PrivateKeyMap := make(map[string]interface{})
+								ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 								}
 								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 									}
-									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap["clear_secret_info"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap
 								}
-								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+								TLSCertificatesItemMap["private_key"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap
 							}
 							if TLSCertificatesItem.UseSystemDefaults != nil {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						TLSParametersMap["tls_certificates"] = TLSCertificatesList
+						ProxyConfigHTTPSTLSParametersMap["tls_certificates"] = TLSCertificatesList
 					}
 				}
 				if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
-					TLSConfigMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSParametersTLSConfigMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity != nil {
-						CustomSecurityMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 							if !diags.HasError() {
-								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+								ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+							ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+							ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
 						}
-						TLSConfigMap["custom_security"] = CustomSecurityMap
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity != nil {
-						TLSConfigMap["default_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity != nil {
-						TLSConfigMap["low_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity != nil {
-						TLSConfigMap["medium_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
-					TLSParametersMap["tls_config"] = TLSConfigMap
+					ProxyConfigHTTPSTLSParametersMap["tls_config"] = ProxyConfigHTTPSTLSParametersTLSConfigMap
 				}
 				if data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
-					UseMtlsMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSParametersUseMtlsMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
-						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL != nil {
-						CRLMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersUseMtlsCRLMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
-							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
-							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
 						}
-						UseMtlsMap["crl"] = CRLMap
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["crl"] = ProxyConfigHTTPSTLSParametersUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
-						UseMtlsMap["no_crl"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
-							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
-							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 						}
-						UseMtlsMap["trusted_ca"] = TrustedCAMap
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap
 					}
 					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
-						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled != nil {
-						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
-						XfccOptionsMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 							if !diags.HasError() {
-								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+								ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
 						}
-						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["xfcc_options"] = ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap
 					}
-					TLSParametersMap["use_mtls"] = UseMtlsMap
+					ProxyConfigHTTPSTLSParametersMap["use_mtls"] = ProxyConfigHTTPSTLSParametersUseMtlsMap
 				}
-				HTTPSMap["tls_parameters"] = TLSParametersMap
+				ProxyConfigHTTPSMap["tls_parameters"] = ProxyConfigHTTPSTLSParametersMap
 			}
-			ProxyConfigMap["https"] = HTTPSMap
+			ProxyConfigMap["https"] = ProxyConfigHTTPSMap
 		}
 		if data.ProxyConfig.HTTPSAutoCert != nil {
-			HTTPSAutoCertMap := make(map[string]interface{})
+			ProxyConfigHTTPSAutoCertMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsUnknown() {
-				HTTPSAutoCertMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
+				ProxyConfigHTTPSAutoCertMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsUnknown() {
-				HTTPSAutoCertMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
+				ProxyConfigHTTPSAutoCertMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
-				CoalescingOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertCoalescingOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing != nil {
-					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing != nil {
-					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
-				HTTPSAutoCertMap["coalescing_options"] = CoalescingOptionsMap
+				ProxyConfigHTTPSAutoCertMap["coalescing_options"] = ProxyConfigHTTPSAutoCertCoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsUnknown() {
-				HTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
+				ProxyConfigHTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.DefaultHeader != nil {
-				HTTPSAutoCertMap["default_header"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["default_header"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer != nil {
-				HTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize != nil {
-				HTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize != nil {
-				HTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
-				HTTPProtocolOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
-					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-						HeaderTransformationMap := make(map[string]interface{})
+						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
-							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
-						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
-				HTTPSAutoCertMap["http_protocol_options"] = HTTPProtocolOptionsMap
+				ProxyConfigHTTPSAutoCertMap["http_protocol_options"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
-				HTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
+				ProxyConfigHTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.NoMtls != nil {
-				HTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer != nil {
-				HTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.PassThrough != nil {
-				HTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.Port.IsNull() && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
-				HTTPSAutoCertMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
+				ProxyConfigHTTPSAutoCertMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsNull() && !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsUnknown() {
-				HTTPSAutoCertMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
+				ProxyConfigHTTPSAutoCertMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ServerName.IsUnknown() {
-				HTTPSAutoCertMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
+				ProxyConfigHTTPSAutoCertMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertTLSConfigMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["max_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["min_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					ProxyConfigHTTPSAutoCertTLSConfigMap["custom_security"] = ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				HTTPSAutoCertMap["tls_config"] = TLSConfigMap
+				ProxyConfigHTTPSAutoCertMap["tls_config"] = ProxyConfigHTTPSAutoCertTLSConfigMap
 			}
 			if data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertUseMtlsMap := make(map[string]interface{})
 				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+					ProxyConfigHTTPSAutoCertUseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertUseMtlsCRLMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					ProxyConfigHTTPSAutoCertUseMtlsMap["crl"] = ProxyConfigHTTPSAutoCertUseMtlsCRLMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap
 				}
 				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
+					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					ProxyConfigHTTPSAutoCertUseMtlsMap["xfcc_options"] = ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap
 				}
-				HTTPSAutoCertMap["use_mtls"] = UseMtlsMap
+				ProxyConfigHTTPSAutoCertMap["use_mtls"] = ProxyConfigHTTPSAutoCertUseMtlsMap
 			}
-			ProxyConfigMap["https_auto_cert"] = HTTPSAutoCertMap
+			ProxyConfigMap["https_auto_cert"] = ProxyConfigHTTPSAutoCertMap
 		}
 		createReq.Spec["proxy_config"] = ProxyConfigMap
 	}
@@ -8756,12 +8756,12 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 						PoolsItemMap["name"] = PoolsItem.Name.ValueString()
 					}
 					if PoolsItem.OriginServers != nil {
-						OriginServersMap := make(map[string]interface{})
+						OriginPoolsPoolsOriginServersMap := make(map[string]interface{})
 						if PoolsItem.OriginServers.AutomaticPort != nil {
-							OriginServersMap["automatic_port"] = map[string]interface{}{}
+							OriginPoolsPoolsOriginServersMap["automatic_port"] = map[string]interface{}{}
 						}
 						if PoolsItem.OriginServers.HealthChecks != nil {
-							HealthChecksMap := make(map[string]interface{})
+							OriginPoolsPoolsOriginServersHealthChecksMap := make(map[string]interface{})
 							if !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthCheck.IsUnknown() {
 								var HealthCheckElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersHealthChecksHealthCheckModel
 								diags := PoolsItem.OriginServers.HealthChecks.HealthCheck.ElementsAs(ctx, &HealthCheckElems, false)
@@ -8774,36 +8774,36 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 											HealthCheckItemMap["icmp_health_check"] = map[string]interface{}{}
 										}
 										if HealthCheckItem.TCPHealthCheck != nil {
-											TCPHealthCheckMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap := make(map[string]interface{})
 											if !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsNull() && !HealthCheckItem.TCPHealthCheck.ExpectedResponse.IsUnknown() {
-												TCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
+												OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap["expected_response"] = HealthCheckItem.TCPHealthCheck.ExpectedResponse.ValueString()
 											}
 											if !HealthCheckItem.TCPHealthCheck.SendPayload.IsNull() && !HealthCheckItem.TCPHealthCheck.SendPayload.IsUnknown() {
-												TCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
+												OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap["send_payload"] = HealthCheckItem.TCPHealthCheck.SendPayload.ValueString()
 											}
-											HealthCheckItemMap["tcp_health_check"] = TCPHealthCheckMap
+											HealthCheckItemMap["tcp_health_check"] = OriginPoolsPoolsOriginServersHealthChecksHealthCheckTCPHealthCheckMap
 										}
 										HealthCheckList = append(HealthCheckList, HealthCheckItemMap)
 									}
-									HealthChecksMap["health_check"] = HealthCheckList
+									OriginPoolsPoolsOriginServersHealthChecksMap["health_check"] = HealthCheckList
 								}
 							}
 							if !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.HealthyThreshold.IsUnknown() {
-								HealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["healthy_threshold"] = PoolsItem.OriginServers.HealthChecks.HealthyThreshold.ValueInt64()
 							}
 							if !PoolsItem.OriginServers.HealthChecks.Interval.IsNull() && !PoolsItem.OriginServers.HealthChecks.Interval.IsUnknown() {
-								HealthChecksMap["interval"] = PoolsItem.OriginServers.HealthChecks.Interval.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["interval"] = PoolsItem.OriginServers.HealthChecks.Interval.ValueInt64()
 							}
 							if !PoolsItem.OriginServers.HealthChecks.Timeout.IsNull() && !PoolsItem.OriginServers.HealthChecks.Timeout.IsUnknown() {
-								HealthChecksMap["timeout"] = PoolsItem.OriginServers.HealthChecks.Timeout.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["timeout"] = PoolsItem.OriginServers.HealthChecks.Timeout.ValueInt64()
 							}
 							if !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsNull() && !PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.IsUnknown() {
-								HealthChecksMap["unhealthy_threshold"] = PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
+								OriginPoolsPoolsOriginServersHealthChecksMap["unhealthy_threshold"] = PoolsItem.OriginServers.HealthChecks.UnhealthyThreshold.ValueInt64()
 							}
-							OriginServersMap["health_checks"] = HealthChecksMap
+							OriginPoolsPoolsOriginServersMap["health_checks"] = OriginPoolsPoolsOriginServersHealthChecksMap
 						}
 						if PoolsItem.OriginServers.LBPort != nil {
-							OriginServersMap["lb_port"] = map[string]interface{}{}
+							OriginPoolsPoolsOriginServersMap["lb_port"] = map[string]interface{}{}
 						}
 						if !PoolsItem.OriginServers.OriginServers.IsNull() && !PoolsItem.OriginServers.OriginServers.IsUnknown() {
 							var OriginServersElems []BigIPHTTPProxyOriginPoolsPoolsOriginServersOriginServersModel
@@ -8814,172 +8814,172 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								for _, OriginServersItem := range OriginServersElems {
 									OriginServersItemMap := make(map[string]interface{})
 									if OriginServersItem.K8SService != nil {
-										K8SServiceMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersK8SServiceMap := make(map[string]interface{})
 										if OriginServersItem.K8SService.InsideNetwork != nil {
-											K8SServiceMap["inside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["inside_network"] = map[string]interface{}{}
 										}
 										if OriginServersItem.K8SService.OutsideNetwork != nil {
-											K8SServiceMap["outside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["outside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.K8SService.Protocol.IsNull() && !OriginServersItem.K8SService.Protocol.IsUnknown() {
-											K8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["protocol"] = OriginServersItem.K8SService.Protocol.ValueString()
 										}
 										if !OriginServersItem.K8SService.ServiceName.IsNull() && !OriginServersItem.K8SService.ServiceName.IsUnknown() {
-											K8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["service_name"] = OriginServersItem.K8SService.ServiceName.ValueString()
 										}
 										if OriginServersItem.K8SService.SiteLocator != nil {
-											SiteLocatorMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap := make(map[string]interface{})
 											if OriginServersItem.K8SService.SiteLocator.Site != nil {
-												SiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap := make(map[string]interface{})
 												if !OriginServersItem.K8SService.SiteLocator.Site.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Name.IsUnknown() {
-													SiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.Site.Name.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Namespace.IsUnknown() {
-													SiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.Site.Namespace.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.Site.Tenant.IsUnknown() {
-													SiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.Site.Tenant.ValueString()
 												}
-												SiteLocatorMap["site"] = SiteMap
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorSiteMap
 											}
 											if OriginServersItem.K8SService.SiteLocator.VirtualSite != nil {
-												VirtualSiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap := make(map[string]interface{})
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.IsUnknown() {
-													VirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["name"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Name.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-													VirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Namespace.ValueString()
 												}
 												if !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													VirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.K8SService.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
-												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorVirtualSiteMap
 											}
-											K8SServiceMap["site_locator"] = SiteLocatorMap
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["site_locator"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSiteLocatorMap
 										}
 										if OriginServersItem.K8SService.SnatPool != nil {
-											SnatPoolMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap := make(map[string]interface{})
 											if OriginServersItem.K8SService.SnatPool.NoSnatPool != nil {
-												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.K8SService.SnatPool.SnatPool != nil {
-												SnatPoolMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap := make(map[string]interface{})
 												if !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.K8SService.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 													if !diags.HasError() {
-														SnatPoolMap["prefixes"] = PrefixesItems
+														OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
 												}
-												SnatPoolMap["snat_pool"] = SnatPoolMap
+												OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolSnatPoolMap
 											}
-											K8SServiceMap["snat_pool"] = SnatPoolMap
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceSnatPoolMap
 										}
 										if OriginServersItem.K8SService.Vk8sNetworks != nil {
-											K8SServiceMap["vk8s_networks"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersK8SServiceMap["vk8s_networks"] = map[string]interface{}{}
 										}
-										OriginServersItemMap["k8s_service"] = K8SServiceMap
+										OriginServersItemMap["k8s_service"] = OriginPoolsPoolsOriginServersOriginServersK8SServiceMap
 									}
 									if OriginServersItem.PrivateIP != nil {
-										PrivateIPMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersPrivateIPMap := make(map[string]interface{})
 										if OriginServersItem.PrivateIP.InsideNetwork != nil {
-											PrivateIPMap["inside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["inside_network"] = map[string]interface{}{}
 										}
 										if !OriginServersItem.PrivateIP.IP.IsNull() && !OriginServersItem.PrivateIP.IP.IsUnknown() {
-											PrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["ip"] = OriginServersItem.PrivateIP.IP.ValueString()
 										}
 										if OriginServersItem.PrivateIP.OutsideNetwork != nil {
-											PrivateIPMap["outside_network"] = map[string]interface{}{}
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["outside_network"] = map[string]interface{}{}
 										}
 										if OriginServersItem.PrivateIP.Segment != nil {
-											SegmentMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap := make(map[string]interface{})
 											if !OriginServersItem.PrivateIP.Segment.Name.IsNull() && !OriginServersItem.PrivateIP.Segment.Name.IsUnknown() {
-												SegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["name"] = OriginServersItem.PrivateIP.Segment.Name.ValueString()
 											}
 											if !OriginServersItem.PrivateIP.Segment.Namespace.IsNull() && !OriginServersItem.PrivateIP.Segment.Namespace.IsUnknown() {
-												SegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["namespace"] = OriginServersItem.PrivateIP.Segment.Namespace.ValueString()
 											}
 											if !OriginServersItem.PrivateIP.Segment.Tenant.IsNull() && !OriginServersItem.PrivateIP.Segment.Tenant.IsUnknown() {
-												SegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap["tenant"] = OriginServersItem.PrivateIP.Segment.Tenant.ValueString()
 											}
-											PrivateIPMap["segment"] = SegmentMap
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["segment"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSegmentMap
 										}
 										if OriginServersItem.PrivateIP.SiteLocator != nil {
-											SiteLocatorMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap := make(map[string]interface{})
 											if OriginServersItem.PrivateIP.SiteLocator.Site != nil {
-												SiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap := make(map[string]interface{})
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Name.IsUnknown() {
-													SiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.Site.Name.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.IsUnknown() {
-													SiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.Site.Namespace.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.IsUnknown() {
-													SiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.Site.Tenant.ValueString()
 												}
-												SiteLocatorMap["site"] = SiteMap
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorSiteMap
 											}
 											if OriginServersItem.PrivateIP.SiteLocator.VirtualSite != nil {
-												VirtualSiteMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap := make(map[string]interface{})
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.IsUnknown() {
-													VirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["name"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Name.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.IsUnknown() {
-													VirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["namespace"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Namespace.ValueString()
 												}
 												if !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsNull() && !OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.IsUnknown() {
-													VirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
+													OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap["tenant"] = OriginServersItem.PrivateIP.SiteLocator.VirtualSite.Tenant.ValueString()
 												}
-												SiteLocatorMap["virtual_site"] = VirtualSiteMap
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap["virtual_site"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorVirtualSiteMap
 											}
-											PrivateIPMap["site_locator"] = SiteLocatorMap
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["site_locator"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSiteLocatorMap
 										}
 										if OriginServersItem.PrivateIP.SnatPool != nil {
-											SnatPoolMap := make(map[string]interface{})
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap := make(map[string]interface{})
 											if OriginServersItem.PrivateIP.SnatPool.NoSnatPool != nil {
-												SnatPoolMap["no_snat_pool"] = map[string]interface{}{}
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap["no_snat_pool"] = map[string]interface{}{}
 											}
 											if OriginServersItem.PrivateIP.SnatPool.SnatPool != nil {
-												SnatPoolMap := make(map[string]interface{})
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap := make(map[string]interface{})
 												if !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsNull() && !OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.IsUnknown() {
 													var PrefixesItems []string
 													diags := OriginServersItem.PrivateIP.SnatPool.SnatPool.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 													if !diags.HasError() {
-														SnatPoolMap["prefixes"] = PrefixesItems
+														OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap["prefixes"] = PrefixesItems
 													}
 												}
-												SnatPoolMap["snat_pool"] = SnatPoolMap
+												OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolSnatPoolMap
 											}
-											PrivateIPMap["snat_pool"] = SnatPoolMap
+											OriginPoolsPoolsOriginServersOriginServersPrivateIPMap["snat_pool"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPSnatPoolMap
 										}
-										OriginServersItemMap["private_ip"] = PrivateIPMap
+										OriginServersItemMap["private_ip"] = OriginPoolsPoolsOriginServersOriginServersPrivateIPMap
 									}
 									if OriginServersItem.PublicIP != nil {
-										PublicIPMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersPublicIPMap := make(map[string]interface{})
 										if !OriginServersItem.PublicIP.IP.IsNull() && !OriginServersItem.PublicIP.IP.IsUnknown() {
-											PublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersPublicIPMap["ip"] = OriginServersItem.PublicIP.IP.ValueString()
 										}
-										OriginServersItemMap["public_ip"] = PublicIPMap
+										OriginServersItemMap["public_ip"] = OriginPoolsPoolsOriginServersOriginServersPublicIPMap
 									}
 									if OriginServersItem.PublicName != nil {
-										PublicNameMap := make(map[string]interface{})
+										OriginPoolsPoolsOriginServersOriginServersPublicNameMap := make(map[string]interface{})
 										if !OriginServersItem.PublicName.DNSName.IsNull() && !OriginServersItem.PublicName.DNSName.IsUnknown() {
-											PublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
+											OriginPoolsPoolsOriginServersOriginServersPublicNameMap["dns_name"] = OriginServersItem.PublicName.DNSName.ValueString()
 										}
 										if !OriginServersItem.PublicName.RefreshInterval.IsNull() && !OriginServersItem.PublicName.RefreshInterval.IsUnknown() {
-											PublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
+											OriginPoolsPoolsOriginServersOriginServersPublicNameMap["refresh_interval"] = OriginServersItem.PublicName.RefreshInterval.ValueInt64()
 										}
-										OriginServersItemMap["public_name"] = PublicNameMap
+										OriginServersItemMap["public_name"] = OriginPoolsPoolsOriginServersOriginServersPublicNameMap
 									}
 									OriginServersList = append(OriginServersList, OriginServersItemMap)
 								}
-								OriginServersMap["origin_servers"] = OriginServersList
+								OriginPoolsPoolsOriginServersMap["origin_servers"] = OriginServersList
 							}
 						}
 						if !PoolsItem.OriginServers.Port.IsNull() && !PoolsItem.OriginServers.Port.IsUnknown() {
-							OriginServersMap["port"] = PoolsItem.OriginServers.Port.ValueInt64()
+							OriginPoolsPoolsOriginServersMap["port"] = PoolsItem.OriginServers.Port.ValueInt64()
 						}
-						PoolsItemMap["origin_servers"] = OriginServersMap
+						PoolsItemMap["origin_servers"] = OriginPoolsPoolsOriginServersMap
 					}
 					if !PoolsItem.Priority.IsNull() && !PoolsItem.Priority.IsUnknown() {
 						PoolsItemMap["priority"] = PoolsItem.Priority.ValueInt64()
@@ -8997,7 +8997,7 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 	if data.ProxyAdvertisement != nil {
 		ProxyAdvertisementMap := make(map[string]interface{})
 		if data.ProxyAdvertisement.AdvertiseCustom != nil {
-			AdvertiseCustomMap := make(map[string]interface{})
+			ProxyAdvertisementAdvertiseCustomMap := make(map[string]interface{})
 			if !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsNull() && !data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.IsUnknown() {
 				var AdvertiseWhereElems []BigIPHTTPProxyProxyAdvertisementAdvertiseCustomAdvertiseWhereModel
 				diags := data.ProxyAdvertisement.AdvertiseCustom.AdvertiseWhere.ElementsAs(ctx, &AdvertiseWhereElems, false)
@@ -9007,21 +9007,21 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 					for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 						AdvertiseWhereItemMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-							AdvertiseOnPublicMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 							if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-								PublicIPMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-									PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-									PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-									PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 								}
-								AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 							}
-							AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+							AdvertiseWhereItemMap["advertise_on_public"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 						}
 						if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 							AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -9030,139 +9030,139 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 						}
 						if AdvertiseWhereItem.Site != nil {
-							SiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-								SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-								SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 							}
 							if AdvertiseWhereItem.Site.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 								}
-								SiteMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteSiteMap
 							}
-							AdvertiseWhereItemMap["site"] = SiteMap
+							AdvertiseWhereItemMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereSiteMap
 						}
 						if AdvertiseWhereItem.UseDefaultPort != nil {
 							AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 							if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-								VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 							}
 							if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-								VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-								VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-								VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-								VirtualNetworkMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-									VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-									VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-									VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 								}
-								VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 							}
-							AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseWhereItemMap["virtual_network"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualNetworkMap
 						}
 						if AdvertiseWhereItem.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-								VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+							AdvertiseWhereItemMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteMap
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-							VirtualSiteWithVIPMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-								VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-								VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 							}
 							if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 								}
-								VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+							AdvertiseWhereItemMap["virtual_site_with_vip"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 						}
 						if AdvertiseWhereItem.Vk8sService != nil {
-							Vk8sServiceMap := make(map[string]interface{})
+							ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 							if AdvertiseWhereItem.Vk8sService.Site != nil {
-								SiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-									SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-									SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-									SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 								}
-								Vk8sServiceMap["site"] = SiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 							}
 							if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-								VirtualSiteMap := make(map[string]interface{})
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-									VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-									VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 								}
 								if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-									VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+									ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 								}
-								Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+								ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 							}
-							AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+							AdvertiseWhereItemMap["vk8s_service"] = ProxyAdvertisementAdvertiseCustomAdvertiseWhereVk8sServiceMap
 						}
 						AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 					}
-					AdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
+					ProxyAdvertisementAdvertiseCustomMap["advertise_where"] = AdvertiseWhereList
 				}
 			}
-			ProxyAdvertisementMap["advertise_custom"] = AdvertiseCustomMap
+			ProxyAdvertisementMap["advertise_custom"] = ProxyAdvertisementAdvertiseCustomMap
 		}
 		if data.ProxyAdvertisement.DoNotAdvertise != nil {
 			ProxyAdvertisementMap["do_not_advertise"] = map[string]interface{}{}
@@ -9179,101 +9179,101 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 			}
 		}
 		if data.ProxyConfig.HTTP != nil {
-			HTTPMap := make(map[string]interface{})
+			ProxyConfigHTTPMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTP.DNSVolterraManaged.IsNull() && !data.ProxyConfig.HTTP.DNSVolterraManaged.IsUnknown() {
-				HTTPMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
+				ProxyConfigHTTPMap["dns_volterra_managed"] = data.ProxyConfig.HTTP.DNSVolterraManaged.ValueBool()
 			}
 			if !data.ProxyConfig.HTTP.Port.IsNull() && !data.ProxyConfig.HTTP.Port.IsUnknown() {
-				HTTPMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
+				ProxyConfigHTTPMap["port"] = data.ProxyConfig.HTTP.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTP.PortRanges.IsNull() && !data.ProxyConfig.HTTP.PortRanges.IsUnknown() {
-				HTTPMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
+				ProxyConfigHTTPMap["port_ranges"] = data.ProxyConfig.HTTP.PortRanges.ValueString()
 			}
-			ProxyConfigMap["http"] = HTTPMap
+			ProxyConfigMap["http"] = ProxyConfigHTTPMap
 		}
 		if data.ProxyConfig.HTTPS != nil {
-			HTTPSMap := make(map[string]interface{})
+			ProxyConfigHTTPSMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPS.AddHsts.IsNull() && !data.ProxyConfig.HTTPS.AddHsts.IsUnknown() {
-				HTTPSMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
+				ProxyConfigHTTPSMap["add_hsts"] = data.ProxyConfig.HTTPS.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPS.AppendServerName.IsNull() && !data.ProxyConfig.HTTPS.AppendServerName.IsUnknown() {
-				HTTPSMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
+				ProxyConfigHTTPSMap["append_server_name"] = data.ProxyConfig.HTTPS.AppendServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPS.CoalescingOptions != nil {
-				CoalescingOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSCoalescingOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPS.CoalescingOptions.DefaultCoalescing != nil {
-					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.CoalescingOptions.StrictCoalescing != nil {
-					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
-				HTTPSMap["coalescing_options"] = CoalescingOptionsMap
+				ProxyConfigHTTPSMap["coalescing_options"] = ProxyConfigHTTPSCoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPS.ConnectionIdleTimeout.IsUnknown() {
-				HTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
+				ProxyConfigHTTPSMap["connection_idle_timeout"] = data.ProxyConfig.HTTPS.ConnectionIdleTimeout.ValueInt64()
 			}
 			if data.ProxyConfig.HTTPS.DefaultHeader != nil {
-				HTTPSMap["default_header"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["default_header"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.DefaultLoadBalancer != nil {
-				HTTPSMap["default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.DisablePathNormalize != nil {
-				HTTPSMap["disable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["disable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.EnablePathNormalize != nil {
-				HTTPSMap["enable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.HTTPProtocolOptions != nil {
-				HTTPProtocolOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSHTTPProtocolOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
-					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-						HeaderTransformationMap := make(map[string]interface{})
+						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
-							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
-						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+						ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
 				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+					ProxyConfigHTTPSHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
-				HTTPSMap["http_protocol_options"] = HTTPProtocolOptionsMap
+				ProxyConfigHTTPSMap["http_protocol_options"] = ProxyConfigHTTPSHTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPS.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPS.HTTPRedirect.IsUnknown() {
-				HTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
+				ProxyConfigHTTPSMap["http_redirect"] = data.ProxyConfig.HTTPS.HTTPRedirect.ValueBool()
 			}
 			if data.ProxyConfig.HTTPS.NonDefaultLoadBalancer != nil {
-				HTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPS.PassThrough != nil {
-				HTTPSMap["pass_through"] = map[string]interface{}{}
+				ProxyConfigHTTPSMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPS.Port.IsNull() && !data.ProxyConfig.HTTPS.Port.IsUnknown() {
-				HTTPSMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
+				ProxyConfigHTTPSMap["port"] = data.ProxyConfig.HTTPS.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPS.PortRanges.IsNull() && !data.ProxyConfig.HTTPS.PortRanges.IsUnknown() {
-				HTTPSMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
+				ProxyConfigHTTPSMap["port_ranges"] = data.ProxyConfig.HTTPS.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPS.ServerName.IsNull() && !data.ProxyConfig.HTTPS.ServerName.IsUnknown() {
-				HTTPSMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
+				ProxyConfigHTTPSMap["server_name"] = data.ProxyConfig.HTTPS.ServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPS.TLSCertParams != nil {
-				TLSCertParamsMap := make(map[string]interface{})
+				ProxyConfigHTTPSTLSCertParamsMap := make(map[string]interface{})
 				if !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.Certificates.IsUnknown() {
 					var CertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSCertParamsCertificatesModel
 					diags := data.ProxyConfig.HTTPS.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
@@ -9293,101 +9293,101 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
-						TLSCertParamsMap["certificates"] = CertificatesList
+						ProxyConfigHTTPSTLSCertParamsMap["certificates"] = CertificatesList
 					}
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.NoMtls != nil {
-					TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+					ProxyConfigHTTPSTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig != nil {
-					TLSConfigMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSCertParamsTLSConfigMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity != nil {
-						CustomSecurityMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 							if !diags.HasError() {
-								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+								ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+							ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+							ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
 						}
-						TLSConfigMap["custom_security"] = CustomSecurityMap
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSCertParamsTLSConfigCustomSecurityMap
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.DefaultSecurity != nil {
-						TLSConfigMap["default_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.LowSecurity != nil {
-						TLSConfigMap["low_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.TLSConfig.MediumSecurity != nil {
-						TLSConfigMap["medium_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
-					TLSCertParamsMap["tls_config"] = TLSConfigMap
+					ProxyConfigHTTPSTLSCertParamsMap["tls_config"] = ProxyConfigHTTPSTLSCertParamsTLSConfigMap
 				}
 				if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls != nil {
-					UseMtlsMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSCertParamsUseMtlsMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
-						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL != nil {
-						CRLMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
-							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
-							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
 						}
-						UseMtlsMap["crl"] = CRLMap
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["crl"] = ProxyConfigHTTPSTLSCertParamsUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.NoCRL != nil {
-						UseMtlsMap["no_crl"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
-							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
-							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+							ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 						}
-						UseMtlsMap["trusted_ca"] = TrustedCAMap
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSCertParamsUseMtlsTrustedCAMap
 					}
 					if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
-						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccDisabled != nil {
-						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions != nil {
-						XfccOptionsMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 							if !diags.HasError() {
-								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+								ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
 						}
-						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+						ProxyConfigHTTPSTLSCertParamsUseMtlsMap["xfcc_options"] = ProxyConfigHTTPSTLSCertParamsUseMtlsXfccOptionsMap
 					}
-					TLSCertParamsMap["use_mtls"] = UseMtlsMap
+					ProxyConfigHTTPSTLSCertParamsMap["use_mtls"] = ProxyConfigHTTPSTLSCertParamsUseMtlsMap
 				}
-				HTTPSMap["tls_cert_params"] = TLSCertParamsMap
+				ProxyConfigHTTPSMap["tls_cert_params"] = ProxyConfigHTTPSTLSCertParamsMap
 			}
 			if data.ProxyConfig.HTTPS.TLSParameters != nil {
-				TLSParametersMap := make(map[string]interface{})
+				ProxyConfigHTTPSTLSParametersMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPS.TLSParameters.NoMtls != nil {
-					TLSParametersMap["no_mtls"] = map[string]interface{}{}
+					ProxyConfigHTTPSTLSParametersMap["no_mtls"] = map[string]interface{}{}
 				}
 				if !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSCertificates.IsUnknown() {
 					var TLSCertificatesElems []BigIPHTTPProxyProxyConfigHTTPSTLSParametersTLSCertificatesModel
@@ -9401,15 +9401,15 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
 							if TLSCertificatesItem.CustomHashAlgorithms != nil {
-								CustomHashAlgorithmsMap := make(map[string]interface{})
+								ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 									if !diags.HasError() {
-										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+										ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
 								}
-								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = ProxyConfigHTTPSTLSParametersTLSCertificatesCustomHashAlgorithmsMap
 							}
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -9418,295 +9418,295 @@ func (r *BigIPHTTPProxyResource) Update(ctx context.Context, req resource.Update
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
-								PrivateKeyMap := make(map[string]interface{})
+								ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 								}
 								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+										ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 									}
-									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+									ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap["clear_secret_info"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap
 								}
-								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+								TLSCertificatesItemMap["private_key"] = ProxyConfigHTTPSTLSParametersTLSCertificatesPrivateKeyMap
 							}
 							if TLSCertificatesItem.UseSystemDefaults != nil {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						TLSParametersMap["tls_certificates"] = TLSCertificatesList
+						ProxyConfigHTTPSTLSParametersMap["tls_certificates"] = TLSCertificatesList
 					}
 				}
 				if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig != nil {
-					TLSConfigMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSParametersTLSConfigMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity != nil {
-						CustomSecurityMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 							var CipherSuitesItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 							if !diags.HasError() {
-								CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+								ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 							}
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-							CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+							ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["max_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-							CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+							ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap["min_version"] = data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
 						}
-						TLSConfigMap["custom_security"] = CustomSecurityMap
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["custom_security"] = ProxyConfigHTTPSTLSParametersTLSConfigCustomSecurityMap
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.DefaultSecurity != nil {
-						TLSConfigMap["default_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.LowSecurity != nil {
-						TLSConfigMap["low_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.TLSConfig.MediumSecurity != nil {
-						TLSConfigMap["medium_security"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 					}
-					TLSParametersMap["tls_config"] = TLSConfigMap
+					ProxyConfigHTTPSTLSParametersMap["tls_config"] = ProxyConfigHTTPSTLSParametersTLSConfigMap
 				}
 				if data.ProxyConfig.HTTPS.TLSParameters.UseMtls != nil {
-					UseMtlsMap := make(map[string]interface{})
+					ProxyConfigHTTPSTLSParametersUseMtlsMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
-						UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL != nil {
-						CRLMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersUseMtlsCRLMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
-							CRLMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
-							CRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-							CRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.CRL.Tenant.ValueString()
 						}
-						UseMtlsMap["crl"] = CRLMap
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["crl"] = ProxyConfigHTTPSTLSParametersUseMtlsCRLMap
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.NoCRL != nil {
-						UseMtlsMap["no_crl"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
-							TrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["name"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
-							TrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
 						}
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-							TrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+							ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 						}
-						UseMtlsMap["trusted_ca"] = TrustedCAMap
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSTLSParametersUseMtlsTrustedCAMap
 					}
 					if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
-						UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPS.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccDisabled != nil {
-						UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 					}
 					if data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions != nil {
-						XfccOptionsMap := make(map[string]interface{})
+						ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap := make(map[string]interface{})
 						if !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 							var XfccHeaderElementsItems []string
 							diags := data.ProxyConfig.HTTPS.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 							if !diags.HasError() {
-								XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+								ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 							}
 						}
-						UseMtlsMap["xfcc_options"] = XfccOptionsMap
+						ProxyConfigHTTPSTLSParametersUseMtlsMap["xfcc_options"] = ProxyConfigHTTPSTLSParametersUseMtlsXfccOptionsMap
 					}
-					TLSParametersMap["use_mtls"] = UseMtlsMap
+					ProxyConfigHTTPSTLSParametersMap["use_mtls"] = ProxyConfigHTTPSTLSParametersUseMtlsMap
 				}
-				HTTPSMap["tls_parameters"] = TLSParametersMap
+				ProxyConfigHTTPSMap["tls_parameters"] = ProxyConfigHTTPSTLSParametersMap
 			}
-			ProxyConfigMap["https"] = HTTPSMap
+			ProxyConfigMap["https"] = ProxyConfigHTTPSMap
 		}
 		if data.ProxyConfig.HTTPSAutoCert != nil {
-			HTTPSAutoCertMap := make(map[string]interface{})
+			ProxyConfigHTTPSAutoCertMap := make(map[string]interface{})
 			if !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AddHsts.IsUnknown() {
-				HTTPSAutoCertMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
+				ProxyConfigHTTPSAutoCertMap["add_hsts"] = data.ProxyConfig.HTTPSAutoCert.AddHsts.ValueBool()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.AppendServerName.IsUnknown() {
-				HTTPSAutoCertMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
+				ProxyConfigHTTPSAutoCertMap["append_server_name"] = data.ProxyConfig.HTTPSAutoCert.AppendServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions != nil {
-				CoalescingOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertCoalescingOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.DefaultCoalescing != nil {
-					CoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["default_coalescing"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.CoalescingOptions.StrictCoalescing != nil {
-					CoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertCoalescingOptionsMap["strict_coalescing"] = map[string]interface{}{}
 				}
-				HTTPSAutoCertMap["coalescing_options"] = CoalescingOptionsMap
+				ProxyConfigHTTPSAutoCertMap["coalescing_options"] = ProxyConfigHTTPSAutoCertCoalescingOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.IsUnknown() {
-				HTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
+				ProxyConfigHTTPSAutoCertMap["connection_idle_timeout"] = data.ProxyConfig.HTTPSAutoCert.ConnectionIdleTimeout.ValueInt64()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.DefaultHeader != nil {
-				HTTPSAutoCertMap["default_header"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["default_header"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.DefaultLoadBalancer != nil {
-				HTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.DisablePathNormalize != nil {
-				HTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["disable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.EnablePathNormalize != nil {
-				HTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["enable_path_normalize"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions != nil {
-				HTTPProtocolOptionsMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
-					HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 					if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-						HeaderTransformationMap := make(map[string]interface{})
+						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
-							HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-							HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-							HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 						}
 						if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-							HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+							ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 						}
-						HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+						ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 					}
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.HTTPProtocolOptions.HTTPProtocolEnableV2Only != nil {
-					HTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap["http_protocol_enable_v2_only"] = map[string]interface{}{}
 				}
-				HTTPSAutoCertMap["http_protocol_options"] = HTTPProtocolOptionsMap
+				ProxyConfigHTTPSAutoCertMap["http_protocol_options"] = ProxyConfigHTTPSAutoCertHTTPProtocolOptionsMap
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsNull() && !data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.IsUnknown() {
-				HTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
+				ProxyConfigHTTPSAutoCertMap["http_redirect"] = data.ProxyConfig.HTTPSAutoCert.HTTPRedirect.ValueBool()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.NoMtls != nil {
-				HTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["no_mtls"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.NonDefaultLoadBalancer != nil {
-				HTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["non_default_loadbalancer"] = map[string]interface{}{}
 			}
 			if data.ProxyConfig.HTTPSAutoCert.PassThrough != nil {
-				HTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
+				ProxyConfigHTTPSAutoCertMap["pass_through"] = map[string]interface{}{}
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.Port.IsNull() && !data.ProxyConfig.HTTPSAutoCert.Port.IsUnknown() {
-				HTTPSAutoCertMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
+				ProxyConfigHTTPSAutoCertMap["port"] = data.ProxyConfig.HTTPSAutoCert.Port.ValueInt64()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsNull() && !data.ProxyConfig.HTTPSAutoCert.PortRanges.IsUnknown() {
-				HTTPSAutoCertMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
+				ProxyConfigHTTPSAutoCertMap["port_ranges"] = data.ProxyConfig.HTTPSAutoCert.PortRanges.ValueString()
 			}
 			if !data.ProxyConfig.HTTPSAutoCert.ServerName.IsNull() && !data.ProxyConfig.HTTPSAutoCert.ServerName.IsUnknown() {
-				HTTPSAutoCertMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
+				ProxyConfigHTTPSAutoCertMap["server_name"] = data.ProxyConfig.HTTPSAutoCert.ServerName.ValueString()
 			}
 			if data.ProxyConfig.HTTPSAutoCert.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertTLSConfigMap := make(map[string]interface{})
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["max_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap["min_version"] = data.ProxyConfig.HTTPSAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					ProxyConfigHTTPSAutoCertTLSConfigMap["custom_security"] = ProxyConfigHTTPSAutoCertTLSConfigCustomSecurityMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				HTTPSAutoCertMap["tls_config"] = TLSConfigMap
+				ProxyConfigHTTPSAutoCertMap["tls_config"] = ProxyConfigHTTPSAutoCertTLSConfigMap
 			}
 			if data.ProxyConfig.HTTPSAutoCert.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				ProxyConfigHTTPSAutoCertUseMtlsMap := make(map[string]interface{})
 				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+					ProxyConfigHTTPSAutoCertUseMtlsMap["client_certificate_optional"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertUseMtlsCRLMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsCRLMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					ProxyConfigHTTPSAutoCertUseMtlsMap["crl"] = ProxyConfigHTTPSAutoCertUseMtlsCRLMap
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["name"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["namespace"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+						ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap["tenant"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca"] = ProxyConfigHTTPSAutoCertUseMtlsTrustedCAMap
 				}
 				if !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
+					ProxyConfigHTTPSAutoCertUseMtlsMap["trusted_ca_url"] = data.ProxyConfig.HTTPSAutoCert.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					ProxyConfigHTTPSAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.ProxyConfig.HTTPSAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					ProxyConfigHTTPSAutoCertUseMtlsMap["xfcc_options"] = ProxyConfigHTTPSAutoCertUseMtlsXfccOptionsMap
 				}
-				HTTPSAutoCertMap["use_mtls"] = UseMtlsMap
+				ProxyConfigHTTPSAutoCertMap["use_mtls"] = ProxyConfigHTTPSAutoCertUseMtlsMap
 			}
-			ProxyConfigMap["https_auto_cert"] = HTTPSAutoCertMap
+			ProxyConfigMap["https_auto_cert"] = ProxyConfigHTTPSAutoCertMap
 		}
 		apiResource.Spec["proxy_config"] = ProxyConfigMap
 	}

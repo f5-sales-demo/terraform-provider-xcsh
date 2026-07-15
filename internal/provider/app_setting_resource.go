@@ -628,17 +628,17 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 				}
 				if AppTypeSettingsItem.BusinessLogicMarkupSetting != nil {
-					BusinessLogicMarkupSettingMap := make(map[string]interface{})
+					AppTypeSettingsBusinessLogicMarkupSettingMap := make(map[string]interface{})
 					if AppTypeSettingsItem.BusinessLogicMarkupSetting.DisableSpec != nil {
-						BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
+						AppTypeSettingsBusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 					}
 					if AppTypeSettingsItem.BusinessLogicMarkupSetting.Enable != nil {
-						BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
+						AppTypeSettingsBusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
 					}
-					AppTypeSettingsItemMap["business_logic_markup_setting"] = BusinessLogicMarkupSettingMap
+					AppTypeSettingsItemMap["business_logic_markup_setting"] = AppTypeSettingsBusinessLogicMarkupSettingMap
 				}
 				if AppTypeSettingsItem.TimeseriesAnalysesSetting != nil {
-					TimeseriesAnalysesSettingMap := make(map[string]interface{})
+					AppTypeSettingsTimeseriesAnalysesSettingMap := make(map[string]interface{})
 					if !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
 						var MetricSelectorsElems []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
 						diags := AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsElems, false)
@@ -659,103 +659,103 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 								}
 								MetricSelectorsList = append(MetricSelectorsList, MetricSelectorsItemMap)
 							}
-							TimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
+							AppTypeSettingsTimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
 						}
 					}
-					AppTypeSettingsItemMap["timeseries_analyses_setting"] = TimeseriesAnalysesSettingMap
+					AppTypeSettingsItemMap["timeseries_analyses_setting"] = AppTypeSettingsTimeseriesAnalysesSettingMap
 				}
 				if AppTypeSettingsItem.UserBehaviorAnalysisSetting != nil {
-					UserBehaviorAnalysisSettingMap := make(map[string]interface{})
+					AppTypeSettingsUserBehaviorAnalysisSettingMap := make(map[string]interface{})
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.DisableDetection != nil {
-						UserBehaviorAnalysisSettingMap["disable_detection"] = map[string]interface{}{}
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["disable_detection"] = map[string]interface{}{}
 					}
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.DisableLearning != nil {
-						UserBehaviorAnalysisSettingMap["disable_learning"] = map[string]interface{}{}
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["disable_learning"] = map[string]interface{}{}
 					}
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection != nil {
-						EnableDetectionMap := make(map[string]interface{})
+						AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap := make(map[string]interface{})
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic != nil {
-							EnableDetectionMap["bola_detection_automatic"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["bola_detection_automatic"] = map[string]interface{}{}
 						}
 						if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsUnknown() {
-							EnableDetectionMap["cooling_off_period"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.ValueInt64()
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["cooling_off_period"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.ValueInt64()
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection != nil {
-							EnableDetectionMap["exclude_bola_detection"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_bola_detection"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity != nil {
-							EnableDetectionMap["exclude_bot_defense_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_bot_defense_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity != nil {
-							EnableDetectionMap["exclude_failed_login_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_failed_login_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity != nil {
-							EnableDetectionMap["exclude_forbidden_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_forbidden_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation != nil {
-							EnableDetectionMap["exclude_ip_reputation"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_ip_reputation"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity != nil {
-							EnableDetectionMap["exclude_non_existent_url_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_non_existent_url_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit != nil {
-							EnableDetectionMap["exclude_rate_limit"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_rate_limit"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity != nil {
-							EnableDetectionMap["exclude_waf_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_waf_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity != nil {
-							EnableDetectionMap["include_bot_defense_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_bot_defense_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil {
-							IncludeFailedLoginActivityMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityMap := make(map[string]interface{})
 							if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsUnknown() {
-								IncludeFailedLoginActivityMap["login_failures_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.ValueInt64()
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityMap["login_failures_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.ValueInt64()
 							}
-							EnableDetectionMap["include_failed_login_activity"] = IncludeFailedLoginActivityMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_failed_login_activity"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil {
-							IncludeForbiddenActivityMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityMap := make(map[string]interface{})
 							if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsUnknown() {
-								IncludeForbiddenActivityMap["forbidden_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.ValueInt64()
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityMap["forbidden_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.ValueInt64()
 							}
-							EnableDetectionMap["include_forbidden_activity"] = IncludeForbiddenActivityMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_forbidden_activity"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation != nil {
-							EnableDetectionMap["include_ip_reputation"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_ip_reputation"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
-							IncludeNonExistentURLActivityAutomaticMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap := make(map[string]interface{})
 							if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High != nil {
-								IncludeNonExistentURLActivityAutomaticMap["high"] = map[string]interface{}{}
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap["high"] = map[string]interface{}{}
 							}
 							if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low != nil {
-								IncludeNonExistentURLActivityAutomaticMap["low"] = map[string]interface{}{}
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap["low"] = map[string]interface{}{}
 							}
 							if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium != nil {
-								IncludeNonExistentURLActivityAutomaticMap["medium"] = map[string]interface{}{}
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap["medium"] = map[string]interface{}{}
 							}
-							EnableDetectionMap["include_non_existent_url_activity_automatic"] = IncludeNonExistentURLActivityAutomaticMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_non_existent_url_activity_automatic"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil {
-							IncludeNonExistentURLActivityCustomMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomMap := make(map[string]interface{})
 							if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsUnknown() {
-								IncludeNonExistentURLActivityCustomMap["nonexistent_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.ValueInt64()
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomMap["nonexistent_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.ValueInt64()
 							}
-							EnableDetectionMap["include_non_existent_url_activity_custom"] = IncludeNonExistentURLActivityCustomMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_non_existent_url_activity_custom"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit != nil {
-							EnableDetectionMap["include_rate_limit"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_rate_limit"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity != nil {
-							EnableDetectionMap["include_waf_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_waf_activity"] = map[string]interface{}{}
 						}
-						UserBehaviorAnalysisSettingMap["enable_detection"] = EnableDetectionMap
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["enable_detection"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap
 					}
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableLearning != nil {
-						UserBehaviorAnalysisSettingMap["enable_learning"] = map[string]interface{}{}
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["enable_learning"] = map[string]interface{}{}
 					}
-					AppTypeSettingsItemMap["user_behavior_analysis_setting"] = UserBehaviorAnalysisSettingMap
+					AppTypeSettingsItemMap["user_behavior_analysis_setting"] = AppTypeSettingsUserBehaviorAnalysisSettingMap
 				}
 				AppTypeSettingsList = append(AppTypeSettingsList, AppTypeSettingsItemMap)
 			}
@@ -1788,17 +1788,17 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 				}
 				if AppTypeSettingsItem.BusinessLogicMarkupSetting != nil {
-					BusinessLogicMarkupSettingMap := make(map[string]interface{})
+					AppTypeSettingsBusinessLogicMarkupSettingMap := make(map[string]interface{})
 					if AppTypeSettingsItem.BusinessLogicMarkupSetting.DisableSpec != nil {
-						BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
+						AppTypeSettingsBusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 					}
 					if AppTypeSettingsItem.BusinessLogicMarkupSetting.Enable != nil {
-						BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
+						AppTypeSettingsBusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
 					}
-					AppTypeSettingsItemMap["business_logic_markup_setting"] = BusinessLogicMarkupSettingMap
+					AppTypeSettingsItemMap["business_logic_markup_setting"] = AppTypeSettingsBusinessLogicMarkupSettingMap
 				}
 				if AppTypeSettingsItem.TimeseriesAnalysesSetting != nil {
-					TimeseriesAnalysesSettingMap := make(map[string]interface{})
+					AppTypeSettingsTimeseriesAnalysesSettingMap := make(map[string]interface{})
 					if !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsNull() && !AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.IsUnknown() {
 						var MetricSelectorsElems []AppSettingAppTypeSettingsTimeseriesAnalysesSettingMetricSelectorsModel
 						diags := AppTypeSettingsItem.TimeseriesAnalysesSetting.MetricSelectors.ElementsAs(ctx, &MetricSelectorsElems, false)
@@ -1819,103 +1819,103 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 								}
 								MetricSelectorsList = append(MetricSelectorsList, MetricSelectorsItemMap)
 							}
-							TimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
+							AppTypeSettingsTimeseriesAnalysesSettingMap["metric_selectors"] = MetricSelectorsList
 						}
 					}
-					AppTypeSettingsItemMap["timeseries_analyses_setting"] = TimeseriesAnalysesSettingMap
+					AppTypeSettingsItemMap["timeseries_analyses_setting"] = AppTypeSettingsTimeseriesAnalysesSettingMap
 				}
 				if AppTypeSettingsItem.UserBehaviorAnalysisSetting != nil {
-					UserBehaviorAnalysisSettingMap := make(map[string]interface{})
+					AppTypeSettingsUserBehaviorAnalysisSettingMap := make(map[string]interface{})
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.DisableDetection != nil {
-						UserBehaviorAnalysisSettingMap["disable_detection"] = map[string]interface{}{}
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["disable_detection"] = map[string]interface{}{}
 					}
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.DisableLearning != nil {
-						UserBehaviorAnalysisSettingMap["disable_learning"] = map[string]interface{}{}
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["disable_learning"] = map[string]interface{}{}
 					}
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection != nil {
-						EnableDetectionMap := make(map[string]interface{})
+						AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap := make(map[string]interface{})
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.BolaDetectionAutomatic != nil {
-							EnableDetectionMap["bola_detection_automatic"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["bola_detection_automatic"] = map[string]interface{}{}
 						}
 						if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.IsUnknown() {
-							EnableDetectionMap["cooling_off_period"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.ValueInt64()
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["cooling_off_period"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.CoolingOffPeriod.ValueInt64()
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeBolaDetection != nil {
-							EnableDetectionMap["exclude_bola_detection"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_bola_detection"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeBotDefenseActivity != nil {
-							EnableDetectionMap["exclude_bot_defense_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_bot_defense_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeFailedLoginActivity != nil {
-							EnableDetectionMap["exclude_failed_login_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_failed_login_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeForbiddenActivity != nil {
-							EnableDetectionMap["exclude_forbidden_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_forbidden_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeIPReputation != nil {
-							EnableDetectionMap["exclude_ip_reputation"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_ip_reputation"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeNonExistentURLActivity != nil {
-							EnableDetectionMap["exclude_non_existent_url_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_non_existent_url_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeRateLimit != nil {
-							EnableDetectionMap["exclude_rate_limit"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_rate_limit"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.ExcludeWAFActivity != nil {
-							EnableDetectionMap["exclude_waf_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["exclude_waf_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeBotDefenseActivity != nil {
-							EnableDetectionMap["include_bot_defense_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_bot_defense_activity"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity != nil {
-							IncludeFailedLoginActivityMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityMap := make(map[string]interface{})
 							if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.IsUnknown() {
-								IncludeFailedLoginActivityMap["login_failures_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.ValueInt64()
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityMap["login_failures_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeFailedLoginActivity.LoginFailuresThreshold.ValueInt64()
 							}
-							EnableDetectionMap["include_failed_login_activity"] = IncludeFailedLoginActivityMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_failed_login_activity"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeFailedLoginActivityMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity != nil {
-							IncludeForbiddenActivityMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityMap := make(map[string]interface{})
 							if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.IsUnknown() {
-								IncludeForbiddenActivityMap["forbidden_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.ValueInt64()
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityMap["forbidden_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeForbiddenActivity.ForbiddenRequestsThreshold.ValueInt64()
 							}
-							EnableDetectionMap["include_forbidden_activity"] = IncludeForbiddenActivityMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_forbidden_activity"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeForbiddenActivityMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeIPReputation != nil {
-							EnableDetectionMap["include_ip_reputation"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_ip_reputation"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic != nil {
-							IncludeNonExistentURLActivityAutomaticMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap := make(map[string]interface{})
 							if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.High != nil {
-								IncludeNonExistentURLActivityAutomaticMap["high"] = map[string]interface{}{}
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap["high"] = map[string]interface{}{}
 							}
 							if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Low != nil {
-								IncludeNonExistentURLActivityAutomaticMap["low"] = map[string]interface{}{}
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap["low"] = map[string]interface{}{}
 							}
 							if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityAutomatic.Medium != nil {
-								IncludeNonExistentURLActivityAutomaticMap["medium"] = map[string]interface{}{}
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap["medium"] = map[string]interface{}{}
 							}
-							EnableDetectionMap["include_non_existent_url_activity_automatic"] = IncludeNonExistentURLActivityAutomaticMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_non_existent_url_activity_automatic"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityAutomaticMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom != nil {
-							IncludeNonExistentURLActivityCustomMap := make(map[string]interface{})
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomMap := make(map[string]interface{})
 							if !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsNull() && !AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.IsUnknown() {
-								IncludeNonExistentURLActivityCustomMap["nonexistent_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.ValueInt64()
+								AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomMap["nonexistent_requests_threshold"] = AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeNonExistentURLActivityCustom.NonexistentRequestsThreshold.ValueInt64()
 							}
-							EnableDetectionMap["include_non_existent_url_activity_custom"] = IncludeNonExistentURLActivityCustomMap
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_non_existent_url_activity_custom"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionIncludeNonExistentURLActivityCustomMap
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeRateLimit != nil {
-							EnableDetectionMap["include_rate_limit"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_rate_limit"] = map[string]interface{}{}
 						}
 						if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableDetection.IncludeWAFActivity != nil {
-							EnableDetectionMap["include_waf_activity"] = map[string]interface{}{}
+							AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap["include_waf_activity"] = map[string]interface{}{}
 						}
-						UserBehaviorAnalysisSettingMap["enable_detection"] = EnableDetectionMap
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["enable_detection"] = AppTypeSettingsUserBehaviorAnalysisSettingEnableDetectionMap
 					}
 					if AppTypeSettingsItem.UserBehaviorAnalysisSetting.EnableLearning != nil {
-						UserBehaviorAnalysisSettingMap["enable_learning"] = map[string]interface{}{}
+						AppTypeSettingsUserBehaviorAnalysisSettingMap["enable_learning"] = map[string]interface{}{}
 					}
-					AppTypeSettingsItemMap["user_behavior_analysis_setting"] = UserBehaviorAnalysisSettingMap
+					AppTypeSettingsItemMap["user_behavior_analysis_setting"] = AppTypeSettingsUserBehaviorAnalysisSettingMap
 				}
 				AppTypeSettingsList = append(AppTypeSettingsList, AppTypeSettingsItemMap)
 			}
