@@ -5510,8 +5510,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -5525,8 +5525,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -5534,8 +5534,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								WebUserInterface: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -5684,8 +5684,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											SameAsSiteRegion: func() *AWSVPCSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx && VifListExisting[VifListIdx].SameAsSiteRegion != nil {
-													return &AWSVPCSiteEmptyModel{}
+												if !isImport && len(VifListExisting) > VifListIdx {
+													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
 													return &AWSVPCSiteEmptyModel{}
@@ -6121,8 +6121,8 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								ReservedInsideSubnet: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].ReservedInsideSubnet != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -8440,8 +8440,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -8455,8 +8455,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return types.StringNull()
 								}(),
 								SSH: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -8464,8 +8464,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								WebUserInterface: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -8614,8 +8614,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											SameAsSiteRegion: func() *AWSVPCSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx && VifListExisting[VifListIdx].SameAsSiteRegion != nil {
-													return &AWSVPCSiteEmptyModel{}
+												if !isImport && len(VifListExisting) > VifListIdx {
+													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
 													return &AWSVPCSiteEmptyModel{}
@@ -9051,8 +9051,8 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								ReservedInsideSubnet: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].ReservedInsideSubnet != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -12775,8 +12775,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AWSVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -12790,8 +12790,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -12799,8 +12799,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								WebUserInterface: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}
@@ -12949,8 +12949,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											SameAsSiteRegion: func() *AWSVPCSiteEmptyModel {
-												if !isImport && len(VifListExisting) > VifListIdx && VifListExisting[VifListIdx].SameAsSiteRegion != nil {
-													return &AWSVPCSiteEmptyModel{}
+												if !isImport && len(VifListExisting) > VifListIdx {
+													return VifListExisting[VifListIdx].SameAsSiteRegion
 												}
 												if _, ok := VifListItemMap["same_as_site_region"].(map[string]interface{}); ok {
 													return &AWSVPCSiteEmptyModel{}
@@ -13386,8 +13386,8 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								ReservedInsideSubnet: func() *AWSVPCSiteEmptyModel {
-									if !isImport && len(AzNodesExisting) > AzNodesIdx && AzNodesExisting[AzNodesIdx].ReservedInsideSubnet != nil {
-										return &AWSVPCSiteEmptyModel{}
+									if !isImport && len(AzNodesExisting) > AzNodesIdx {
+										return AzNodesExisting[AzNodesIdx].ReservedInsideSubnet
 									}
 									if _, ok := AzNodesItemMap["reserved_inside_subnet"].(map[string]interface{}); ok {
 										return &AWSVPCSiteEmptyModel{}

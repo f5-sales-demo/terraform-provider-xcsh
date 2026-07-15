@@ -507,8 +507,8 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
 					DHCP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].DHCP != nil {
-							return &SubnetEmptyModel{}
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+							return existingSiteSubnetParamsItems[listIdx].DHCP
 						}
 						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
@@ -541,8 +541,8 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 						return nil
 					}(),
 					StaticIP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].StaticIP != nil {
-							return &SubnetEmptyModel{}
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+							return existingSiteSubnetParamsItems[listIdx].StaticIP
 						}
 						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
@@ -736,8 +736,8 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
 					DHCP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].DHCP != nil {
-							return &SubnetEmptyModel{}
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+							return existingSiteSubnetParamsItems[listIdx].DHCP
 						}
 						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
@@ -770,8 +770,8 @@ func (r *SubnetResource) Read(ctx context.Context, req resource.ReadRequest, res
 						return nil
 					}(),
 					StaticIP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].StaticIP != nil {
-							return &SubnetEmptyModel{}
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+							return existingSiteSubnetParamsItems[listIdx].StaticIP
 						}
 						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
@@ -1030,8 +1030,8 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SubnetSiteSubnetParamsModel{
 					DHCP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].DHCP != nil {
-							return &SubnetEmptyModel{}
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+							return existingSiteSubnetParamsItems[listIdx].DHCP
 						}
 						if _, ok := itemMap["dhcp"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}
@@ -1064,8 +1064,8 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 						return nil
 					}(),
 					StaticIP: func() *SubnetEmptyModel {
-						if !isImport && len(existingSiteSubnetParamsItems) > listIdx && existingSiteSubnetParamsItems[listIdx].StaticIP != nil {
-							return &SubnetEmptyModel{}
+						if !isImport && len(existingSiteSubnetParamsItems) > listIdx {
+							return existingSiteSubnetParamsItems[listIdx].StaticIP
 						}
 						if _, ok := itemMap["static_ip"].(map[string]interface{}); ok {
 							return &SubnetEmptyModel{}

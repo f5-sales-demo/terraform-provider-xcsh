@@ -3107,9 +3107,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return types.StringNull()
 													}(),
 													TagAttributes: func() types.List {
+														if !isImport && len(JavascriptTagsExisting) > JavascriptTagsIdx && (JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsNull() || len(JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes})
+														}
+														var TagAttributesExisting []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+														if !isImport && len(JavascriptTagsExisting) > JavascriptTagsIdx && !JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsNull() && !JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsUnknown() {
+															JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.ElementsAs(ctx, &TagAttributesExisting, false)
+														}
 														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
 															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
-															for _, TagAttributesItem := range rawList {
+															for TagAttributesIdx, TagAttributesItem := range rawList {
+																_ = TagAttributesIdx
 																if TagAttributesItemMap, ok := TagAttributesItem.(map[string]interface{}); ok {
 																	TagAttributesResult = append(TagAttributesResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel{
 																		JavascriptTag: func() types.String {
@@ -3151,8 +3159,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.BoolNull()
 					}(),
 					InheritedBotDefenseJavascriptInjection: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection != nil {
-							return &RouteEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection
 						}
 						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
 							return &RouteEmptyModel{}
@@ -3160,8 +3168,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					InheritedWAFExclusion: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedWAFExclusion != nil {
-							return &RouteEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].InheritedWAFExclusion
 						}
 						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
 							return &RouteEmptyModel{}
@@ -3169,15 +3177,31 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return nil
 					}(),
 					Match: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].Match.IsNull() || len(existingRoutesItems[listIdx].Match.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
+						}
+						var MatchExisting []RouteRoutesMatchModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Match.IsNull() && !existingRoutesItems[listIdx].Match.IsUnknown() {
+							existingRoutesItems[listIdx].Match.ElementsAs(ctx, &MatchExisting, false)
+						}
 						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
 							var MatchResult []RouteRoutesMatchModel
-							for _, MatchItem := range rawList {
+							for MatchIdx, MatchItem := range rawList {
+								_ = MatchIdx
 								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
 									MatchResult = append(MatchResult, RouteRoutesMatchModel{
 										Headers: func() types.List {
+											if !isImport && len(MatchExisting) > MatchIdx && (MatchExisting[MatchIdx].Headers.IsNull() || len(MatchExisting[MatchIdx].Headers.Elements()) == 0) {
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes})
+											}
+											var HeadersExisting []RouteRoutesMatchHeadersModel
+											if !isImport && len(MatchExisting) > MatchIdx && !MatchExisting[MatchIdx].Headers.IsNull() && !MatchExisting[MatchIdx].Headers.IsUnknown() {
+												MatchExisting[MatchIdx].Headers.ElementsAs(ctx, &HeadersExisting, false)
+											}
 											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 												var HeadersResult []RouteRoutesMatchHeadersModel
-												for _, HeadersItem := range rawList {
+												for HeadersIdx, HeadersItem := range rawList {
+													_ = HeadersIdx
 													if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 														HeadersResult = append(HeadersResult, RouteRoutesMatchHeadersModel{
 															Exact: func() types.String {
@@ -3228,12 +3252,18 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
 												return &RouteRoutesMatchIncomingPortModel{
 													NoPortMatch: func() *RouteEmptyModel {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil {
+															return MatchExisting[MatchIdx].IncomingPort.NoPortMatch
+														}
 														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
 														}
 														return nil
 													}(),
 													Port: func() types.Int64 {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.Port.IsUnknown() {
+															return MatchExisting[MatchIdx].IncomingPort.Port
+														}
 														if v, ok := IncomingPortData["port"].(float64); ok && v != 0 {
 															return types.Int64Value(int64(v))
 														}
@@ -3275,9 +3305,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											return nil
 										}(),
 										QueryParams: func() types.List {
+											if !isImport && len(MatchExisting) > MatchIdx && (MatchExisting[MatchIdx].QueryParams.IsNull() || len(MatchExisting[MatchIdx].QueryParams.Elements()) == 0) {
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes})
+											}
+											var QueryParamsExisting []RouteRoutesMatchQueryParamsModel
+											if !isImport && len(MatchExisting) > MatchIdx && !MatchExisting[MatchIdx].QueryParams.IsNull() && !MatchExisting[MatchIdx].QueryParams.IsUnknown() {
+												MatchExisting[MatchIdx].QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+											}
 											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
-												for _, QueryParamsItem := range rawList {
+												for QueryParamsIdx, QueryParamsItem := range rawList {
+													_ = QueryParamsIdx
 													if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 														QueryParamsResult = append(QueryParamsResult, RouteRoutesMatchQueryParamsModel{
 															Exact: func() types.String {
@@ -3315,9 +3353,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
 					}(),
 					RequestCookiesToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].RequestCookiesToAdd.IsNull() || len(existingRoutesItems[listIdx].RequestCookiesToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes})
+						}
+						var RequestCookiesToAddExisting []RouteRoutesRequestCookiesToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].RequestCookiesToAdd.IsNull() && !existingRoutesItems[listIdx].RequestCookiesToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+						}
 						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
-							for _, RequestCookiesToAddItem := range rawList {
+							for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+								_ = RequestCookiesToAddIdx
 								if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 									RequestCookiesToAddResult = append(RequestCookiesToAddResult, RouteRoutesRequestCookiesToAddModel{
 										Name: func() types.String {
@@ -3336,6 +3382,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesRequestCookiesToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -3361,6 +3410,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -3411,9 +3463,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					RequestHeadersToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].RequestHeadersToAdd.IsNull() || len(existingRoutesItems[listIdx].RequestHeadersToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes})
+						}
+						var RequestHeadersToAddExisting []RouteRoutesRequestHeadersToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].RequestHeadersToAdd.IsNull() && !existingRoutesItems[listIdx].RequestHeadersToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+						}
 						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
-							for _, RequestHeadersToAddItem := range rawList {
+							for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+								_ = RequestHeadersToAddIdx
 								if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 									RequestHeadersToAddResult = append(RequestHeadersToAddResult, RouteRoutesRequestHeadersToAddModel{
 										Append: func() types.Bool {
@@ -3432,6 +3492,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesRequestHeadersToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -3457,6 +3520,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -3507,9 +3573,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseCookiesToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].ResponseCookiesToAdd.IsNull() || len(existingRoutesItems[listIdx].ResponseCookiesToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes})
+						}
+						var ResponseCookiesToAddExisting []RouteRoutesResponseCookiesToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].ResponseCookiesToAdd.IsNull() && !existingRoutesItems[listIdx].ResponseCookiesToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+						}
 						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
-							for _, ResponseCookiesToAddItem := range rawList {
+							for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+								_ = ResponseCookiesToAddIdx
 								if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 									ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, RouteRoutesResponseCookiesToAddModel{
 										AddDomain: func() types.String {
@@ -3525,12 +3599,18 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											return types.StringNull()
 										}(),
 										AddHttponly: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										AddPartitioned: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -3543,60 +3623,90 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											return types.StringNull()
 										}(),
 										AddSecure: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreDomain: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreExpiry: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreHttponly: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreMaxAge: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnorePartitioned: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnorePath: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreSamesite: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreSecure: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreValue: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -3621,18 +3731,27 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											return types.BoolNull()
 										}(),
 										SamesiteLax: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										SamesiteNone: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										SamesiteStrict: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -3642,6 +3761,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesResponseCookiesToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -3667,6 +3789,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -3717,9 +3842,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseHeadersToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].ResponseHeadersToAdd.IsNull() || len(existingRoutesItems[listIdx].ResponseHeadersToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes})
+						}
+						var ResponseHeadersToAddExisting []RouteRoutesResponseHeadersToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].ResponseHeadersToAdd.IsNull() && !existingRoutesItems[listIdx].ResponseHeadersToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+						}
 						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
-							for _, ResponseHeadersToAddItem := range rawList {
+							for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+								_ = ResponseHeadersToAddIdx
 								if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 									ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, RouteRoutesResponseHeadersToAddModel{
 										Append: func() types.Bool {
@@ -3738,6 +3871,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesResponseHeadersToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -3763,6 +3899,9 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -3999,9 +4138,17 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
 												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
 													Cluster: func() types.List {
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && (DestinationsExisting[DestinationsIdx].Cluster.IsNull() || len(DestinationsExisting[DestinationsIdx].Cluster.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
+														}
+														var ClusterExisting []RouteRoutesRouteDestinationDestinationsClusterModel
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && !DestinationsExisting[DestinationsIdx].Cluster.IsNull() && !DestinationsExisting[DestinationsIdx].Cluster.IsUnknown() {
+															DestinationsExisting[DestinationsIdx].Cluster.ElementsAs(ctx, &ClusterExisting, false)
+														}
 														if rawList, ok := DestinationsItemMap["cluster"].([]interface{}); ok && len(rawList) > 0 {
 															var ClusterResult []RouteRoutesRouteDestinationDestinationsClusterModel
-															for _, ClusterItem := range rawList {
+															for ClusterIdx, ClusterItem := range rawList {
+																_ = ClusterIdx
 																if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
 																	ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationDestinationsClusterModel{
 																		Kind: func() types.String {
@@ -4043,8 +4190,8 @@ func (r *RouteResource) Create(ctx context.Context, req resource.CreateRequest, 
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
 													EndpointSubsets: func() *RouteEmptyModel {
-														if !isImport && len(DestinationsExisting) > DestinationsIdx && DestinationsExisting[DestinationsIdx].EndpointSubsets != nil {
-															return &RouteEmptyModel{}
+														if !isImport && len(DestinationsExisting) > DestinationsIdx {
+															return DestinationsExisting[DestinationsIdx].EndpointSubsets
 														}
 														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
@@ -4886,9 +5033,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return types.StringNull()
 													}(),
 													TagAttributes: func() types.List {
+														if !isImport && len(JavascriptTagsExisting) > JavascriptTagsIdx && (JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsNull() || len(JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes})
+														}
+														var TagAttributesExisting []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+														if !isImport && len(JavascriptTagsExisting) > JavascriptTagsIdx && !JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsNull() && !JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsUnknown() {
+															JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.ElementsAs(ctx, &TagAttributesExisting, false)
+														}
 														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
 															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
-															for _, TagAttributesItem := range rawList {
+															for TagAttributesIdx, TagAttributesItem := range rawList {
+																_ = TagAttributesIdx
 																if TagAttributesItemMap, ok := TagAttributesItem.(map[string]interface{}); ok {
 																	TagAttributesResult = append(TagAttributesResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel{
 																		JavascriptTag: func() types.String {
@@ -4930,8 +5085,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.BoolNull()
 					}(),
 					InheritedBotDefenseJavascriptInjection: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection != nil {
-							return &RouteEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection
 						}
 						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
 							return &RouteEmptyModel{}
@@ -4939,8 +5094,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					InheritedWAFExclusion: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedWAFExclusion != nil {
-							return &RouteEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].InheritedWAFExclusion
 						}
 						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
 							return &RouteEmptyModel{}
@@ -4948,15 +5103,31 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return nil
 					}(),
 					Match: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].Match.IsNull() || len(existingRoutesItems[listIdx].Match.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
+						}
+						var MatchExisting []RouteRoutesMatchModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Match.IsNull() && !existingRoutesItems[listIdx].Match.IsUnknown() {
+							existingRoutesItems[listIdx].Match.ElementsAs(ctx, &MatchExisting, false)
+						}
 						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
 							var MatchResult []RouteRoutesMatchModel
-							for _, MatchItem := range rawList {
+							for MatchIdx, MatchItem := range rawList {
+								_ = MatchIdx
 								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
 									MatchResult = append(MatchResult, RouteRoutesMatchModel{
 										Headers: func() types.List {
+											if !isImport && len(MatchExisting) > MatchIdx && (MatchExisting[MatchIdx].Headers.IsNull() || len(MatchExisting[MatchIdx].Headers.Elements()) == 0) {
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes})
+											}
+											var HeadersExisting []RouteRoutesMatchHeadersModel
+											if !isImport && len(MatchExisting) > MatchIdx && !MatchExisting[MatchIdx].Headers.IsNull() && !MatchExisting[MatchIdx].Headers.IsUnknown() {
+												MatchExisting[MatchIdx].Headers.ElementsAs(ctx, &HeadersExisting, false)
+											}
 											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 												var HeadersResult []RouteRoutesMatchHeadersModel
-												for _, HeadersItem := range rawList {
+												for HeadersIdx, HeadersItem := range rawList {
+													_ = HeadersIdx
 													if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 														HeadersResult = append(HeadersResult, RouteRoutesMatchHeadersModel{
 															Exact: func() types.String {
@@ -5007,12 +5178,18 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
 												return &RouteRoutesMatchIncomingPortModel{
 													NoPortMatch: func() *RouteEmptyModel {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil {
+															return MatchExisting[MatchIdx].IncomingPort.NoPortMatch
+														}
 														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
 														}
 														return nil
 													}(),
 													Port: func() types.Int64 {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.Port.IsUnknown() {
+															return MatchExisting[MatchIdx].IncomingPort.Port
+														}
 														if v, ok := IncomingPortData["port"].(float64); ok && v != 0 {
 															return types.Int64Value(int64(v))
 														}
@@ -5054,9 +5231,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											return nil
 										}(),
 										QueryParams: func() types.List {
+											if !isImport && len(MatchExisting) > MatchIdx && (MatchExisting[MatchIdx].QueryParams.IsNull() || len(MatchExisting[MatchIdx].QueryParams.Elements()) == 0) {
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes})
+											}
+											var QueryParamsExisting []RouteRoutesMatchQueryParamsModel
+											if !isImport && len(MatchExisting) > MatchIdx && !MatchExisting[MatchIdx].QueryParams.IsNull() && !MatchExisting[MatchIdx].QueryParams.IsUnknown() {
+												MatchExisting[MatchIdx].QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+											}
 											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
-												for _, QueryParamsItem := range rawList {
+												for QueryParamsIdx, QueryParamsItem := range rawList {
+													_ = QueryParamsIdx
 													if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 														QueryParamsResult = append(QueryParamsResult, RouteRoutesMatchQueryParamsModel{
 															Exact: func() types.String {
@@ -5094,9 +5279,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
 					}(),
 					RequestCookiesToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].RequestCookiesToAdd.IsNull() || len(existingRoutesItems[listIdx].RequestCookiesToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes})
+						}
+						var RequestCookiesToAddExisting []RouteRoutesRequestCookiesToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].RequestCookiesToAdd.IsNull() && !existingRoutesItems[listIdx].RequestCookiesToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+						}
 						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
-							for _, RequestCookiesToAddItem := range rawList {
+							for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+								_ = RequestCookiesToAddIdx
 								if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 									RequestCookiesToAddResult = append(RequestCookiesToAddResult, RouteRoutesRequestCookiesToAddModel{
 										Name: func() types.String {
@@ -5115,6 +5308,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesRequestCookiesToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -5140,6 +5336,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -5190,9 +5389,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					RequestHeadersToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].RequestHeadersToAdd.IsNull() || len(existingRoutesItems[listIdx].RequestHeadersToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes})
+						}
+						var RequestHeadersToAddExisting []RouteRoutesRequestHeadersToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].RequestHeadersToAdd.IsNull() && !existingRoutesItems[listIdx].RequestHeadersToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+						}
 						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
-							for _, RequestHeadersToAddItem := range rawList {
+							for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+								_ = RequestHeadersToAddIdx
 								if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 									RequestHeadersToAddResult = append(RequestHeadersToAddResult, RouteRoutesRequestHeadersToAddModel{
 										Append: func() types.Bool {
@@ -5211,6 +5418,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesRequestHeadersToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -5236,6 +5446,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -5286,9 +5499,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseCookiesToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].ResponseCookiesToAdd.IsNull() || len(existingRoutesItems[listIdx].ResponseCookiesToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes})
+						}
+						var ResponseCookiesToAddExisting []RouteRoutesResponseCookiesToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].ResponseCookiesToAdd.IsNull() && !existingRoutesItems[listIdx].ResponseCookiesToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+						}
 						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
-							for _, ResponseCookiesToAddItem := range rawList {
+							for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+								_ = ResponseCookiesToAddIdx
 								if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 									ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, RouteRoutesResponseCookiesToAddModel{
 										AddDomain: func() types.String {
@@ -5304,12 +5525,18 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											return types.StringNull()
 										}(),
 										AddHttponly: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										AddPartitioned: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -5322,60 +5549,90 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											return types.StringNull()
 										}(),
 										AddSecure: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreDomain: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreExpiry: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreHttponly: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreMaxAge: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnorePartitioned: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnorePath: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreSamesite: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreSecure: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreValue: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -5400,18 +5657,27 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											return types.BoolNull()
 										}(),
 										SamesiteLax: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										SamesiteNone: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										SamesiteStrict: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -5421,6 +5687,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesResponseCookiesToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -5446,6 +5715,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -5496,9 +5768,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseHeadersToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].ResponseHeadersToAdd.IsNull() || len(existingRoutesItems[listIdx].ResponseHeadersToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes})
+						}
+						var ResponseHeadersToAddExisting []RouteRoutesResponseHeadersToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].ResponseHeadersToAdd.IsNull() && !existingRoutesItems[listIdx].ResponseHeadersToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+						}
 						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
-							for _, ResponseHeadersToAddItem := range rawList {
+							for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+								_ = ResponseHeadersToAddIdx
 								if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 									ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, RouteRoutesResponseHeadersToAddModel{
 										Append: func() types.Bool {
@@ -5517,6 +5797,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesResponseHeadersToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -5542,6 +5825,9 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -5778,9 +6064,17 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
 												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
 													Cluster: func() types.List {
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && (DestinationsExisting[DestinationsIdx].Cluster.IsNull() || len(DestinationsExisting[DestinationsIdx].Cluster.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
+														}
+														var ClusterExisting []RouteRoutesRouteDestinationDestinationsClusterModel
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && !DestinationsExisting[DestinationsIdx].Cluster.IsNull() && !DestinationsExisting[DestinationsIdx].Cluster.IsUnknown() {
+															DestinationsExisting[DestinationsIdx].Cluster.ElementsAs(ctx, &ClusterExisting, false)
+														}
 														if rawList, ok := DestinationsItemMap["cluster"].([]interface{}); ok && len(rawList) > 0 {
 															var ClusterResult []RouteRoutesRouteDestinationDestinationsClusterModel
-															for _, ClusterItem := range rawList {
+															for ClusterIdx, ClusterItem := range rawList {
+																_ = ClusterIdx
 																if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
 																	ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationDestinationsClusterModel{
 																		Kind: func() types.String {
@@ -5822,8 +6116,8 @@ func (r *RouteResource) Read(ctx context.Context, req resource.ReadRequest, resp
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
 													EndpointSubsets: func() *RouteEmptyModel {
-														if !isImport && len(DestinationsExisting) > DestinationsIdx && DestinationsExisting[DestinationsIdx].EndpointSubsets != nil {
-															return &RouteEmptyModel{}
+														if !isImport && len(DestinationsExisting) > DestinationsIdx {
+															return DestinationsExisting[DestinationsIdx].EndpointSubsets
 														}
 														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
@@ -7509,9 +7803,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return types.StringNull()
 													}(),
 													TagAttributes: func() types.List {
+														if !isImport && len(JavascriptTagsExisting) > JavascriptTagsIdx && (JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsNull() || len(JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModelAttrTypes})
+														}
+														var TagAttributesExisting []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
+														if !isImport && len(JavascriptTagsExisting) > JavascriptTagsIdx && !JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsNull() && !JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.IsUnknown() {
+															JavascriptTagsExisting[JavascriptTagsIdx].TagAttributes.ElementsAs(ctx, &TagAttributesExisting, false)
+														}
 														if rawList, ok := JavascriptTagsItemMap["tag_attributes"].([]interface{}); ok && len(rawList) > 0 {
 															var TagAttributesResult []RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel
-															for _, TagAttributesItem := range rawList {
+															for TagAttributesIdx, TagAttributesItem := range rawList {
+																_ = TagAttributesIdx
 																if TagAttributesItemMap, ok := TagAttributesItem.(map[string]interface{}); ok {
 																	TagAttributesResult = append(TagAttributesResult, RouteRoutesBotDefenseJavascriptInjectionJavascriptTagsTagAttributesModel{
 																		JavascriptTag: func() types.String {
@@ -7553,8 +7855,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.BoolNull()
 					}(),
 					InheritedBotDefenseJavascriptInjection: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection != nil {
-							return &RouteEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].InheritedBotDefenseJavascriptInjection
 						}
 						if _, ok := itemMap["inherited_bot_defense_javascript_injection"].(map[string]interface{}); ok {
 							return &RouteEmptyModel{}
@@ -7562,8 +7864,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					InheritedWAFExclusion: func() *RouteEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].InheritedWAFExclusion != nil {
-							return &RouteEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].InheritedWAFExclusion
 						}
 						if _, ok := itemMap["inherited_waf_exclusion"].(map[string]interface{}); ok {
 							return &RouteEmptyModel{}
@@ -7571,15 +7873,31 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return nil
 					}(),
 					Match: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].Match.IsNull() || len(existingRoutesItems[listIdx].Match.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
+						}
+						var MatchExisting []RouteRoutesMatchModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].Match.IsNull() && !existingRoutesItems[listIdx].Match.IsUnknown() {
+							existingRoutesItems[listIdx].Match.ElementsAs(ctx, &MatchExisting, false)
+						}
 						if rawList, ok := itemMap["match"].([]interface{}); ok && len(rawList) > 0 {
 							var MatchResult []RouteRoutesMatchModel
-							for _, MatchItem := range rawList {
+							for MatchIdx, MatchItem := range rawList {
+								_ = MatchIdx
 								if MatchItemMap, ok := MatchItem.(map[string]interface{}); ok {
 									MatchResult = append(MatchResult, RouteRoutesMatchModel{
 										Headers: func() types.List {
+											if !isImport && len(MatchExisting) > MatchIdx && (MatchExisting[MatchIdx].Headers.IsNull() || len(MatchExisting[MatchIdx].Headers.Elements()) == 0) {
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchHeadersModelAttrTypes})
+											}
+											var HeadersExisting []RouteRoutesMatchHeadersModel
+											if !isImport && len(MatchExisting) > MatchIdx && !MatchExisting[MatchIdx].Headers.IsNull() && !MatchExisting[MatchIdx].Headers.IsUnknown() {
+												MatchExisting[MatchIdx].Headers.ElementsAs(ctx, &HeadersExisting, false)
+											}
 											if rawList, ok := MatchItemMap["headers"].([]interface{}); ok && len(rawList) > 0 {
 												var HeadersResult []RouteRoutesMatchHeadersModel
-												for _, HeadersItem := range rawList {
+												for HeadersIdx, HeadersItem := range rawList {
+													_ = HeadersIdx
 													if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 														HeadersResult = append(HeadersResult, RouteRoutesMatchHeadersModel{
 															Exact: func() types.String {
@@ -7630,12 +7948,18 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if IncomingPortData, ok := MatchItemMap["incoming_port"].(map[string]interface{}); ok {
 												return &RouteRoutesMatchIncomingPortModel{
 													NoPortMatch: func() *RouteEmptyModel {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil {
+															return MatchExisting[MatchIdx].IncomingPort.NoPortMatch
+														}
 														if _, ok := IncomingPortData["no_port_match"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}
 														}
 														return nil
 													}(),
 													Port: func() types.Int64 {
+														if !isImport && len(MatchExisting) > MatchIdx && MatchExisting[MatchIdx].IncomingPort != nil && !MatchExisting[MatchIdx].IncomingPort.Port.IsUnknown() {
+															return MatchExisting[MatchIdx].IncomingPort.Port
+														}
 														if v, ok := IncomingPortData["port"].(float64); ok && v != 0 {
 															return types.Int64Value(int64(v))
 														}
@@ -7677,9 +8001,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											return nil
 										}(),
 										QueryParams: func() types.List {
+											if !isImport && len(MatchExisting) > MatchIdx && (MatchExisting[MatchIdx].QueryParams.IsNull() || len(MatchExisting[MatchIdx].QueryParams.Elements()) == 0) {
+												return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchQueryParamsModelAttrTypes})
+											}
+											var QueryParamsExisting []RouteRoutesMatchQueryParamsModel
+											if !isImport && len(MatchExisting) > MatchIdx && !MatchExisting[MatchIdx].QueryParams.IsNull() && !MatchExisting[MatchIdx].QueryParams.IsUnknown() {
+												MatchExisting[MatchIdx].QueryParams.ElementsAs(ctx, &QueryParamsExisting, false)
+											}
 											if rawList, ok := MatchItemMap["query_params"].([]interface{}); ok && len(rawList) > 0 {
 												var QueryParamsResult []RouteRoutesMatchQueryParamsModel
-												for _, QueryParamsItem := range rawList {
+												for QueryParamsIdx, QueryParamsItem := range rawList {
+													_ = QueryParamsIdx
 													if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 														QueryParamsResult = append(QueryParamsResult, RouteRoutesMatchQueryParamsModel{
 															Exact: func() types.String {
@@ -7717,9 +8049,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesMatchModelAttrTypes})
 					}(),
 					RequestCookiesToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].RequestCookiesToAdd.IsNull() || len(existingRoutesItems[listIdx].RequestCookiesToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestCookiesToAddModelAttrTypes})
+						}
+						var RequestCookiesToAddExisting []RouteRoutesRequestCookiesToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].RequestCookiesToAdd.IsNull() && !existingRoutesItems[listIdx].RequestCookiesToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].RequestCookiesToAdd.ElementsAs(ctx, &RequestCookiesToAddExisting, false)
+						}
 						if rawList, ok := itemMap["request_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestCookiesToAddResult []RouteRoutesRequestCookiesToAddModel
-							for _, RequestCookiesToAddItem := range rawList {
+							for RequestCookiesToAddIdx, RequestCookiesToAddItem := range rawList {
+								_ = RequestCookiesToAddIdx
 								if RequestCookiesToAddItemMap, ok := RequestCookiesToAddItem.(map[string]interface{}); ok {
 									RequestCookiesToAddResult = append(RequestCookiesToAddResult, RouteRoutesRequestCookiesToAddModel{
 										Name: func() types.String {
@@ -7738,6 +8078,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if SecretValueData, ok := RequestCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesRequestCookiesToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -7763,6 +8106,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(RequestCookiesToAddExisting) > RequestCookiesToAddIdx && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue != nil && RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return RequestCookiesToAddExisting[RequestCookiesToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestCookiesToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -7813,9 +8159,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					RequestHeadersToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].RequestHeadersToAdd.IsNull() || len(existingRoutesItems[listIdx].RequestHeadersToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRequestHeadersToAddModelAttrTypes})
+						}
+						var RequestHeadersToAddExisting []RouteRoutesRequestHeadersToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].RequestHeadersToAdd.IsNull() && !existingRoutesItems[listIdx].RequestHeadersToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].RequestHeadersToAdd.ElementsAs(ctx, &RequestHeadersToAddExisting, false)
+						}
 						if rawList, ok := itemMap["request_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var RequestHeadersToAddResult []RouteRoutesRequestHeadersToAddModel
-							for _, RequestHeadersToAddItem := range rawList {
+							for RequestHeadersToAddIdx, RequestHeadersToAddItem := range rawList {
+								_ = RequestHeadersToAddIdx
 								if RequestHeadersToAddItemMap, ok := RequestHeadersToAddItem.(map[string]interface{}); ok {
 									RequestHeadersToAddResult = append(RequestHeadersToAddResult, RouteRoutesRequestHeadersToAddModel{
 										Append: func() types.Bool {
@@ -7834,6 +8188,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if SecretValueData, ok := RequestHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesRequestHeadersToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -7859,6 +8216,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(RequestHeadersToAddExisting) > RequestHeadersToAddIdx && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue != nil && RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return RequestHeadersToAddExisting[RequestHeadersToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesRequestHeadersToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -7909,9 +8269,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseCookiesToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].ResponseCookiesToAdd.IsNull() || len(existingRoutesItems[listIdx].ResponseCookiesToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseCookiesToAddModelAttrTypes})
+						}
+						var ResponseCookiesToAddExisting []RouteRoutesResponseCookiesToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].ResponseCookiesToAdd.IsNull() && !existingRoutesItems[listIdx].ResponseCookiesToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].ResponseCookiesToAdd.ElementsAs(ctx, &ResponseCookiesToAddExisting, false)
+						}
 						if rawList, ok := itemMap["response_cookies_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseCookiesToAddResult []RouteRoutesResponseCookiesToAddModel
-							for _, ResponseCookiesToAddItem := range rawList {
+							for ResponseCookiesToAddIdx, ResponseCookiesToAddItem := range rawList {
+								_ = ResponseCookiesToAddIdx
 								if ResponseCookiesToAddItemMap, ok := ResponseCookiesToAddItem.(map[string]interface{}); ok {
 									ResponseCookiesToAddResult = append(ResponseCookiesToAddResult, RouteRoutesResponseCookiesToAddModel{
 										AddDomain: func() types.String {
@@ -7927,12 +8295,18 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											return types.StringNull()
 										}(),
 										AddHttponly: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										AddPartitioned: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -7945,60 +8319,90 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											return types.StringNull()
 										}(),
 										AddSecure: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
+											}
 											if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreDomain: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreExpiry: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreHttponly: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreMaxAge: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnorePartitioned: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnorePath: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreSamesite: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreSecure: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										IgnoreValue: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
+											}
 											if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -8023,18 +8427,27 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											return types.BoolNull()
 										}(),
 										SamesiteLax: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										SamesiteNone: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
 											return nil
 										}(),
 										SamesiteStrict: func() *RouteEmptyModel {
+											if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+												return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
+											}
 											if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 												return &RouteEmptyModel{}
 											}
@@ -8044,6 +8457,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if SecretValueData, ok := ResponseCookiesToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesResponseCookiesToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseCookiesToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -8069,6 +8485,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue != nil && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseCookiesToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -8119,9 +8538,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						return types.ListNull(types.StringType)
 					}(),
 					ResponseHeadersToAdd: func() types.List {
+						if !isImport && len(existingRoutesItems) > listIdx && (existingRoutesItems[listIdx].ResponseHeadersToAdd.IsNull() || len(existingRoutesItems[listIdx].ResponseHeadersToAdd.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesResponseHeadersToAddModelAttrTypes})
+						}
+						var ResponseHeadersToAddExisting []RouteRoutesResponseHeadersToAddModel
+						if !isImport && len(existingRoutesItems) > listIdx && !existingRoutesItems[listIdx].ResponseHeadersToAdd.IsNull() && !existingRoutesItems[listIdx].ResponseHeadersToAdd.IsUnknown() {
+							existingRoutesItems[listIdx].ResponseHeadersToAdd.ElementsAs(ctx, &ResponseHeadersToAddExisting, false)
+						}
 						if rawList, ok := itemMap["response_headers_to_add"].([]interface{}); ok && len(rawList) > 0 {
 							var ResponseHeadersToAddResult []RouteRoutesResponseHeadersToAddModel
-							for _, ResponseHeadersToAddItem := range rawList {
+							for ResponseHeadersToAddIdx, ResponseHeadersToAddItem := range rawList {
+								_ = ResponseHeadersToAddIdx
 								if ResponseHeadersToAddItemMap, ok := ResponseHeadersToAddItem.(map[string]interface{}); ok {
 									ResponseHeadersToAddResult = append(ResponseHeadersToAddResult, RouteRoutesResponseHeadersToAddModel{
 										Append: func() types.Bool {
@@ -8140,6 +8567,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if SecretValueData, ok := ResponseHeadersToAddItemMap["secret_value"].(map[string]interface{}); ok {
 												return &RouteRoutesResponseHeadersToAddSecretValueModel{
 													BlindfoldSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel {
+														if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo != nil {
+															return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.BlindfoldSecretInfo
+														}
 														if BlindfoldSecretInfoData, ok := SecretValueData["blindfold_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseHeadersToAddSecretValueBlindfoldSecretInfoModel{
 																DecryptionProvider: func() types.String {
@@ -8165,6 +8595,9 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return nil
 													}(),
 													ClearSecretInfo: func() *RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel {
+														if !isImport && len(ResponseHeadersToAddExisting) > ResponseHeadersToAddIdx && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue != nil && ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo != nil {
+															return ResponseHeadersToAddExisting[ResponseHeadersToAddIdx].SecretValue.ClearSecretInfo
+														}
 														if ClearSecretInfoData, ok := SecretValueData["clear_secret_info"].(map[string]interface{}); ok {
 															return &RouteRoutesResponseHeadersToAddSecretValueClearSecretInfoModel{
 																Provider: func() types.String {
@@ -8401,9 +8834,17 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 											if DestinationsItemMap, ok := DestinationsItem.(map[string]interface{}); ok {
 												DestinationsResult = append(DestinationsResult, RouteRoutesRouteDestinationDestinationsModel{
 													Cluster: func() types.List {
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && (DestinationsExisting[DestinationsIdx].Cluster.IsNull() || len(DestinationsExisting[DestinationsIdx].Cluster.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
+														}
+														var ClusterExisting []RouteRoutesRouteDestinationDestinationsClusterModel
+														if !isImport && len(DestinationsExisting) > DestinationsIdx && !DestinationsExisting[DestinationsIdx].Cluster.IsNull() && !DestinationsExisting[DestinationsIdx].Cluster.IsUnknown() {
+															DestinationsExisting[DestinationsIdx].Cluster.ElementsAs(ctx, &ClusterExisting, false)
+														}
 														if rawList, ok := DestinationsItemMap["cluster"].([]interface{}); ok && len(rawList) > 0 {
 															var ClusterResult []RouteRoutesRouteDestinationDestinationsClusterModel
-															for _, ClusterItem := range rawList {
+															for ClusterIdx, ClusterItem := range rawList {
+																_ = ClusterIdx
 																if ClusterItemMap, ok := ClusterItem.(map[string]interface{}); ok {
 																	ClusterResult = append(ClusterResult, RouteRoutesRouteDestinationDestinationsClusterModel{
 																		Kind: func() types.String {
@@ -8445,8 +8886,8 @@ func (r *RouteResource) Update(ctx context.Context, req resource.UpdateRequest, 
 														return types.ListNull(types.ObjectType{AttrTypes: RouteRoutesRouteDestinationDestinationsClusterModelAttrTypes})
 													}(),
 													EndpointSubsets: func() *RouteEmptyModel {
-														if !isImport && len(DestinationsExisting) > DestinationsIdx && DestinationsExisting[DestinationsIdx].EndpointSubsets != nil {
-															return &RouteEmptyModel{}
+														if !isImport && len(DestinationsExisting) > DestinationsIdx {
+															return DestinationsExisting[DestinationsIdx].EndpointSubsets
 														}
 														if _, ok := DestinationsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
 															return &RouteEmptyModel{}

@@ -1090,8 +1090,8 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
 														DisableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
-																return &NetworkConnectorEmptyModel{}
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+																return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
@@ -1124,8 +1124,8 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 															return nil
 														}(),
 														EnableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
-																return &NetworkConnectorEmptyModel{}
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+																return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
@@ -1564,8 +1564,8 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
 														DisableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
-																return &NetworkConnectorEmptyModel{}
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+																return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
@@ -1598,8 +1598,8 @@ func (r *NetworkConnectorResource) Read(ctx context.Context, req resource.ReadRe
 															return nil
 														}(),
 														EnableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
-																return &NetworkConnectorEmptyModel{}
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+																return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
@@ -2208,8 +2208,8 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 												if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 													InterceptionRulesResult = append(InterceptionRulesResult, NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel{
 														DisableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
-																return &NetworkConnectorEmptyModel{}
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+																return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}
@@ -2242,8 +2242,8 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 															return nil
 														}(),
 														EnableInterception: func() *NetworkConnectorEmptyModel {
-															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
-																return &NetworkConnectorEmptyModel{}
+															if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+																return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 															}
 															if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 																return &NetworkConnectorEmptyModel{}

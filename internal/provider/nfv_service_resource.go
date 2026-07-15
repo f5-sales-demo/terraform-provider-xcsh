@@ -4401,8 +4401,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 						if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 							NodesResult = append(NodesResult, NfvServiceF5BigIPAWSServiceNodesModel{
 								AutomaticPrefix: func() *NfvServiceEmptyModel {
-									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
-										return &NfvServiceEmptyModel{}
+									if !isImport && len(NodesExisting) > NodesIdx {
+										return NodesExisting[NodesIdx].AutomaticPrefix
 									}
 									if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
@@ -4451,8 +4451,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 									return types.StringNull()
 								}(),
 								ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
-									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-										return &NfvServiceEmptyModel{}
+									if !isImport && len(NodesExisting) > NodesIdx {
+										return NodesExisting[NodesIdx].ReservedMgmtSubnet
 									}
 									if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
@@ -4592,8 +4592,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -4658,8 +4658,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -4922,8 +4922,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -4988,8 +4988,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -5252,8 +5252,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -5318,8 +5318,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -5582,8 +5582,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -5648,8 +5648,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -6241,8 +6241,8 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].ReservedMgmtSubnet
 												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -6740,8 +6740,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 						if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 							NodesResult = append(NodesResult, NfvServiceF5BigIPAWSServiceNodesModel{
 								AutomaticPrefix: func() *NfvServiceEmptyModel {
-									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
-										return &NfvServiceEmptyModel{}
+									if !isImport && len(NodesExisting) > NodesIdx {
+										return NodesExisting[NodesIdx].AutomaticPrefix
 									}
 									if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
@@ -6790,8 +6790,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 									return types.StringNull()
 								}(),
 								ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
-									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-										return &NfvServiceEmptyModel{}
+									if !isImport && len(NodesExisting) > NodesIdx {
+										return NodesExisting[NodesIdx].ReservedMgmtSubnet
 									}
 									if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
@@ -6931,8 +6931,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -6997,8 +6997,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -7261,8 +7261,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -7327,8 +7327,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -7591,8 +7591,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -7657,8 +7657,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -7921,8 +7921,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -7987,8 +7987,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -8580,8 +8580,8 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].ReservedMgmtSubnet
 												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -10106,8 +10106,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 						if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 							NodesResult = append(NodesResult, NfvServiceF5BigIPAWSServiceNodesModel{
 								AutomaticPrefix: func() *NfvServiceEmptyModel {
-									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
-										return &NfvServiceEmptyModel{}
+									if !isImport && len(NodesExisting) > NodesIdx {
+										return NodesExisting[NodesIdx].AutomaticPrefix
 									}
 									if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
@@ -10156,8 +10156,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 									return types.StringNull()
 								}(),
 								ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
-									if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-										return &NfvServiceEmptyModel{}
+									if !isImport && len(NodesExisting) > NodesIdx {
+										return NodesExisting[NodesIdx].ReservedMgmtSubnet
 									}
 									if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 										return &NfvServiceEmptyModel{}
@@ -10297,8 +10297,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -10363,8 +10363,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -10627,8 +10627,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -10693,8 +10693,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -10957,8 +10957,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -11023,8 +11023,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -11287,8 +11287,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -11353,8 +11353,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *NfvServiceEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}
@@ -11946,8 +11946,8 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *NfvServiceEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-													return &NfvServiceEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].ReservedMgmtSubnet
 												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &NfvServiceEmptyModel{}

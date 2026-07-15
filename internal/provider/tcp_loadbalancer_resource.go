@@ -2938,8 +2938,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &TCPLoadBalancerEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
@@ -3263,8 +3263,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						return nil
 					}(),
 					EndpointSubsets: func() *TCPLoadBalancerEmptyModel {
-						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
-							return &TCPLoadBalancerEmptyModel{}
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
 						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerEmptyModel{}
@@ -3624,8 +3624,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &TCPLoadBalancerEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
@@ -3690,8 +3690,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &TCPLoadBalancerEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
@@ -4368,8 +4368,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &TCPLoadBalancerEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
@@ -4693,8 +4693,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						return nil
 					}(),
 					EndpointSubsets: func() *TCPLoadBalancerEmptyModel {
-						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
-							return &TCPLoadBalancerEmptyModel{}
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
 						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerEmptyModel{}
@@ -5054,8 +5054,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &TCPLoadBalancerEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
@@ -5120,8 +5120,8 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &TCPLoadBalancerEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
@@ -6495,8 +6495,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								UseDefaultPort: func() *TCPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &TCPLoadBalancerEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &TCPLoadBalancerEmptyModel{}
@@ -6820,8 +6820,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						return nil
 					}(),
 					EndpointSubsets: func() *TCPLoadBalancerEmptyModel {
-						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
-							return &TCPLoadBalancerEmptyModel{}
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
 						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
 							return &TCPLoadBalancerEmptyModel{}
@@ -7181,8 +7181,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &TCPLoadBalancerEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}
@@ -7247,8 +7247,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											UseSystemDefaults: func() *TCPLoadBalancerEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &TCPLoadBalancerEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &TCPLoadBalancerEmptyModel{}

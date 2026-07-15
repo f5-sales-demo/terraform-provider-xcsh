@@ -10357,8 +10357,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AzureVNETSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -10372,8 +10372,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									return types.StringNull()
 								}(),
 								SSH: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -10381,8 +10381,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								WebUserInterface: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -11400,8 +11400,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwHubSpokeVnetsModel{
 											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Auto != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -11409,8 +11409,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Labels != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
 												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -11418,8 +11418,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Manual != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -12884,8 +12884,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel{
 											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Auto != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -12893,8 +12893,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Labels != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
 												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -12902,8 +12902,8 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 												return nil
 											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Manual != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -16174,8 +16174,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AzureVNETSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -16189,8 +16189,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									return types.StringNull()
 								}(),
 								SSH: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -16198,8 +16198,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								WebUserInterface: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -17217,8 +17217,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwHubSpokeVnetsModel{
 											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Auto != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -17226,8 +17226,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Labels != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
 												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -17235,8 +17235,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Manual != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -18701,8 +18701,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel{
 											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Auto != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -18710,8 +18710,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Labels != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
 												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -18719,8 +18719,8 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 												return nil
 											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Manual != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -24735,8 +24735,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, AzureVNETSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -24750,8 +24750,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									return types.StringNull()
 								}(),
 								SSH: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -24759,8 +24759,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								WebUserInterface: func() *AzureVNETSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &AzureVNETSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &AzureVNETSiteEmptyModel{}
@@ -25778,8 +25778,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwHubSpokeVnetsModel{
 											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Auto != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -25787,8 +25787,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Labels != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
 												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -25796,8 +25796,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Manual != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -27262,8 +27262,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 									if SpokeVnetsItemMap, ok := SpokeVnetsItem.(map[string]interface{}); ok {
 										SpokeVnetsResult = append(SpokeVnetsResult, AzureVNETSiteIngressEgressGwArHubSpokeVnetsModel{
 											Auto: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Auto != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Auto
 												}
 												if _, ok := SpokeVnetsItemMap["auto"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -27271,8 +27271,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Labels: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Labels != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Labels
 												}
 												if _, ok := SpokeVnetsItemMap["labels"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}
@@ -27280,8 +27280,8 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 												return nil
 											}(),
 											Manual: func() *AzureVNETSiteEmptyModel {
-												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx && SpokeVnetsExisting[SpokeVnetsIdx].Manual != nil {
-													return &AzureVNETSiteEmptyModel{}
+												if !isImport && len(SpokeVnetsExisting) > SpokeVnetsIdx {
+													return SpokeVnetsExisting[SpokeVnetsIdx].Manual
 												}
 												if _, ok := SpokeVnetsItemMap["manual"].(map[string]interface{}); ok {
 													return &AzureVNETSiteEmptyModel{}

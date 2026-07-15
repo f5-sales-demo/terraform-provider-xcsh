@@ -1579,8 +1579,8 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 									return nil
 								}(),
 								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &UDPLoadBalancerEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerEmptyModel{}
@@ -1898,8 +1898,8 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						return nil
 					}(),
 					EndpointSubsets: func() *UDPLoadBalancerEmptyModel {
-						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
-							return &UDPLoadBalancerEmptyModel{}
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
 						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
 							return &UDPLoadBalancerEmptyModel{}
@@ -2227,8 +2227,8 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 									return nil
 								}(),
 								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &UDPLoadBalancerEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerEmptyModel{}
@@ -2546,8 +2546,8 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						return nil
 					}(),
 					EndpointSubsets: func() *UDPLoadBalancerEmptyModel {
-						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
-							return &UDPLoadBalancerEmptyModel{}
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
 						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
 							return &UDPLoadBalancerEmptyModel{}
@@ -3184,8 +3184,8 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 									return nil
 								}(),
 								UseDefaultPort: func() *UDPLoadBalancerEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &UDPLoadBalancerEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &UDPLoadBalancerEmptyModel{}
@@ -3503,8 +3503,8 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						return nil
 					}(),
 					EndpointSubsets: func() *UDPLoadBalancerEmptyModel {
-						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx && existingOriginPoolsWeightsItems[listIdx].EndpointSubsets != nil {
-							return &UDPLoadBalancerEmptyModel{}
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
+							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
 						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
 							return &UDPLoadBalancerEmptyModel{}

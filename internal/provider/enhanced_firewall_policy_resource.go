@@ -1347,8 +1347,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1356,8 +1356,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSLIVips != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSLIVips
 									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1365,8 +1365,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSloVips != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSloVips
 									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1374,8 +1374,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1383,8 +1383,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTCPTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllTCPTraffic
 									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1392,8 +1392,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllTraffic
 									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1401,8 +1401,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllUDPTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllUDPTraffic
 									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1410,8 +1410,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Allow != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].Allow
 									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1439,8 +1439,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Deny != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].Deny
 									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1599,8 +1599,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].InsideDestinations
 									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1608,8 +1608,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].InsideSources
 									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1656,8 +1656,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].OutsideDestinations
 									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -1665,8 +1665,8 @@ func (r *EnhancedFirewallPolicyResource) Create(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].OutsideSources
 									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2025,8 +2025,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2034,8 +2034,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSLIVips != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSLIVips
 									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2043,8 +2043,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSloVips != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSloVips
 									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2052,8 +2052,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2061,8 +2061,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTCPTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllTCPTraffic
 									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2070,8 +2070,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllTraffic
 									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2079,8 +2079,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllUDPTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllUDPTraffic
 									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2088,8 +2088,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Allow != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].Allow
 									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2117,8 +2117,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Deny != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].Deny
 									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2277,8 +2277,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].InsideDestinations
 									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2286,8 +2286,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].InsideSources
 									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2334,8 +2334,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].OutsideDestinations
 									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2343,8 +2343,8 @@ func (r *EnhancedFirewallPolicyResource) Read(ctx context.Context, req resource.
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].OutsideSources
 									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -2999,8 +2999,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3008,8 +3008,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllSLIVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSLIVips != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSLIVips
 									}
 									if _, ok := RulesItemMap["all_sli_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3017,8 +3017,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllSloVips: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSloVips != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSloVips
 									}
 									if _, ok := RulesItemMap["all_slo_vips"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3026,8 +3026,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3035,8 +3035,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllTCPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTCPTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllTCPTraffic
 									}
 									if _, ok := RulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3044,8 +3044,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllTraffic
 									}
 									if _, ok := RulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3053,8 +3053,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								AllUDPTraffic: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllUDPTraffic != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllUDPTraffic
 									}
 									if _, ok := RulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3062,8 +3062,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								Allow: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Allow != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].Allow
 									}
 									if _, ok := RulesItemMap["allow"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3091,8 +3091,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								Deny: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Deny != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].Deny
 									}
 									if _, ok := RulesItemMap["deny"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3251,8 +3251,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								InsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].InsideDestinations
 									}
 									if _, ok := RulesItemMap["inside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3260,8 +3260,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								InsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].InsideSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].InsideSources
 									}
 									if _, ok := RulesItemMap["inside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3308,8 +3308,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideDestinations: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideDestinations != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].OutsideDestinations
 									}
 									if _, ok := RulesItemMap["outside_destinations"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}
@@ -3317,8 +3317,8 @@ func (r *EnhancedFirewallPolicyResource) Update(ctx context.Context, req resourc
 									return nil
 								}(),
 								OutsideSources: func() *EnhancedFirewallPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].OutsideSources != nil {
-										return &EnhancedFirewallPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].OutsideSources
 									}
 									if _, ok := RulesItemMap["outside_sources"].(map[string]interface{}); ok {
 										return &EnhancedFirewallPolicyEmptyModel{}

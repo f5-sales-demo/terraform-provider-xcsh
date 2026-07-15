@@ -1058,8 +1058,8 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												return types.StringNull()
 											}(),
 											SystemGeneratedName: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SystemGeneratedName != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].SystemGeneratedName
 												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -1067,8 +1067,8 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												return nil
 											}(),
 											Tags: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].Tags != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -1189,8 +1189,8 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												return types.StringNull()
 											}(),
 											SameAsCredential: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SameAsCredential != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].SameAsCredential
 												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -1490,8 +1490,8 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return types.StringNull()
 											}(),
 											SystemGeneratedName: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SystemGeneratedName != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].SystemGeneratedName
 												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -1499,8 +1499,8 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return nil
 											}(),
 											Tags: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].Tags != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -1621,8 +1621,8 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												return types.StringNull()
 											}(),
 											SameAsCredential: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SameAsCredential != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].SameAsCredential
 												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -2086,8 +2086,8 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												return types.StringNull()
 											}(),
 											SystemGeneratedName: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SystemGeneratedName != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].SystemGeneratedName
 												}
 												if _, ok := ConnectionsItemMap["system_generated_name"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -2095,8 +2095,8 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												return nil
 											}(),
 											Tags: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].Tags != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												if _, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}
@@ -2217,8 +2217,8 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												return types.StringNull()
 											}(),
 											SameAsCredential: func() *CloudLinkEmptyModel {
-												if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].SameAsCredential != nil {
-													return &CloudLinkEmptyModel{}
+												if !isImport && len(ConnectionsExisting) > ConnectionsIdx {
+													return ConnectionsExisting[ConnectionsIdx].SameAsCredential
 												}
 												if _, ok := ConnectionsItemMap["same_as_credential"].(map[string]interface{}); ok {
 													return &CloudLinkEmptyModel{}

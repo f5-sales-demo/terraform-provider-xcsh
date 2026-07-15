@@ -1369,8 +1369,8 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								Dashboard: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard
 									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -1378,8 +1378,8 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								MetricsServer: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer
 									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -1387,8 +1387,8 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								Prometheus: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus
 									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -1947,8 +1947,8 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								Dashboard: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard
 									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -1956,8 +1956,8 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								MetricsServer: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer
 									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -1965,8 +1965,8 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								Prometheus: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus
 									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -2781,8 +2781,8 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								Dashboard: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].Dashboard
 									}
 									if _, ok := ClusterWideAppsItemMap["dashboard"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -2790,8 +2790,8 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								MetricsServer: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].MetricsServer
 									}
 									if _, ok := ClusterWideAppsItemMap["metrics_server"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}
@@ -2799,8 +2799,8 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								Prometheus: func() *K8SClusterEmptyModel {
-									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus != nil {
-										return &K8SClusterEmptyModel{}
+									if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx {
+										return ClusterWideAppsExisting[ClusterWideAppsIdx].Prometheus
 									}
 									if _, ok := ClusterWideAppsItemMap["prometheus"].(map[string]interface{}); ok {
 										return &K8SClusterEmptyModel{}

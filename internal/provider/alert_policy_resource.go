@@ -901,8 +901,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						return types.StringNull()
 					}(),
 					Any: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Any != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].Any
 						}
 						if _, ok := itemMap["any"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -992,8 +992,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					DontSend: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].DontSend != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].DontSend
 						}
 						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -1096,8 +1096,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					Send: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Send != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].Send
 						}
 						if _, ok := itemMap["send"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -1378,8 +1378,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						return types.StringNull()
 					}(),
 					Any: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Any != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].Any
 						}
 						if _, ok := itemMap["any"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -1469,8 +1469,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					DontSend: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].DontSend != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].DontSend
 						}
 						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -1573,8 +1573,8 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					Send: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Send != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].Send
 						}
 						if _, ok := itemMap["send"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -2026,8 +2026,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						return types.StringNull()
 					}(),
 					Any: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Any != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].Any
 						}
 						if _, ok := itemMap["any"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -2117,8 +2117,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					DontSend: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].DontSend != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].DontSend
 						}
 						if _, ok := itemMap["dont_send"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}
@@ -2221,8 +2221,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					Send: func() *AlertPolicyEmptyModel {
-						if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Send != nil {
-							return &AlertPolicyEmptyModel{}
+						if !isImport && len(existingRoutesItems) > listIdx {
+							return existingRoutesItems[listIdx].Send
 						}
 						if _, ok := itemMap["send"].(map[string]interface{}); ok {
 							return &AlertPolicyEmptyModel{}

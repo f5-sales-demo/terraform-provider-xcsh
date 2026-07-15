@@ -5094,8 +5094,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -5109,8 +5109,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -5118,8 +5118,8 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									return nil
 								}(),
 								WebUserInterface: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -7780,8 +7780,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -7795,8 +7795,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return types.StringNull()
 								}(),
 								SSH: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -7804,8 +7804,8 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									return nil
 								}(),
 								WebUserInterface: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -11722,8 +11722,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, GCPVPCSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -11737,8 +11737,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}
@@ -11746,8 +11746,8 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									return nil
 								}(),
 								WebUserInterface: func() *GCPVPCSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &GCPVPCSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &GCPVPCSiteEmptyModel{}

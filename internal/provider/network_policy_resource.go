@@ -1406,8 +1406,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTCPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1415,8 +1415,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1424,8 +1424,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllUDPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1433,8 +1433,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].Any != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].Any
 									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1462,8 +1462,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].InsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1589,8 +1589,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].OutsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1685,8 +1685,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTCPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1694,8 +1694,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1703,8 +1703,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllUDPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1712,8 +1712,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].Any != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].Any
 									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1741,8 +1741,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].InsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -1868,8 +1868,8 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].OutsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2138,8 +2138,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTCPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2147,8 +2147,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2156,8 +2156,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllUDPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2165,8 +2165,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].Any != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].Any
 									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2194,8 +2194,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].InsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2321,8 +2321,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].OutsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2417,8 +2417,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTCPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2426,8 +2426,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2435,8 +2435,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllUDPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2444,8 +2444,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].Any != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].Any
 									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2473,8 +2473,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].InsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -2600,8 +2600,8 @@ func (r *NetworkPolicyResource) Read(ctx context.Context, req resource.ReadReque
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].OutsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3181,8 +3181,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTCPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3190,8 +3190,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3199,8 +3199,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].AllUDPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := EgressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3208,8 +3208,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].Any != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].Any
 									}
 									if _, ok := EgressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3237,8 +3237,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].InsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].InsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3364,8 +3364,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(EgressRulesExisting) > EgressRulesIdx && EgressRulesExisting[EgressRulesIdx].OutsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(EgressRulesExisting) > EgressRulesIdx {
+										return EgressRulesExisting[EgressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := EgressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3460,8 +3460,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTCPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTCPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllTCPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_tcp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3469,8 +3469,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3478,8 +3478,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								AllUDPTraffic: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].AllUDPTraffic != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].AllUDPTraffic
 									}
 									if _, ok := IngressRulesItemMap["all_udp_traffic"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3487,8 +3487,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								Any: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].Any != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].Any
 									}
 									if _, ok := IngressRulesItemMap["any"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3516,8 +3516,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								InsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].InsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].InsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["inside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}
@@ -3643,8 +3643,8 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									return nil
 								}(),
 								OutsideEndpoints: func() *NetworkPolicyEmptyModel {
-									if !isImport && len(IngressRulesExisting) > IngressRulesIdx && IngressRulesExisting[IngressRulesIdx].OutsideEndpoints != nil {
-										return &NetworkPolicyEmptyModel{}
+									if !isImport && len(IngressRulesExisting) > IngressRulesIdx {
+										return IngressRulesExisting[IngressRulesIdx].OutsideEndpoints
 									}
 									if _, ok := IngressRulesItemMap["outside_endpoints"].(map[string]interface{}); ok {
 										return &NetworkPolicyEmptyModel{}

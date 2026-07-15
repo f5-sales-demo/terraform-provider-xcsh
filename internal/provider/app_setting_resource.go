@@ -788,9 +788,17 @@ func (r *AppSettingResource) Create(ctx context.Context, req resource.CreateRequ
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				AppTypeSettingsList = append(AppTypeSettingsList, AppSettingAppTypeSettingsModel{
 					AppTypeRef: func() types.List {
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && (existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() || len(existingAppTypeSettingsItems[listIdx].AppTypeRef.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsAppTypeRefModelAttrTypes})
+						}
+						var AppTypeRefExisting []AppSettingAppTypeSettingsAppTypeRefModel
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsUnknown() {
+							existingAppTypeSettingsItems[listIdx].AppTypeRef.ElementsAs(ctx, &AppTypeRefExisting, false)
+						}
 						if rawList, ok := itemMap["app_type_ref"].([]interface{}); ok && len(rawList) > 0 {
 							var AppTypeRefResult []AppSettingAppTypeSettingsAppTypeRefModel
-							for _, AppTypeRefItem := range rawList {
+							for AppTypeRefIdx, AppTypeRefItem := range rawList {
+								_ = AppTypeRefIdx
 								if AppTypeRefItemMap, ok := AppTypeRefItem.(map[string]interface{}); ok {
 									AppTypeRefResult = append(AppTypeRefResult, AppSettingAppTypeSettingsAppTypeRefModel{
 										Kind: func() types.String {
@@ -1285,9 +1293,17 @@ func (r *AppSettingResource) Read(ctx context.Context, req resource.ReadRequest,
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				AppTypeSettingsList = append(AppTypeSettingsList, AppSettingAppTypeSettingsModel{
 					AppTypeRef: func() types.List {
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && (existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() || len(existingAppTypeSettingsItems[listIdx].AppTypeRef.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsAppTypeRefModelAttrTypes})
+						}
+						var AppTypeRefExisting []AppSettingAppTypeSettingsAppTypeRefModel
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsUnknown() {
+							existingAppTypeSettingsItems[listIdx].AppTypeRef.ElementsAs(ctx, &AppTypeRefExisting, false)
+						}
 						if rawList, ok := itemMap["app_type_ref"].([]interface{}); ok && len(rawList) > 0 {
 							var AppTypeRefResult []AppSettingAppTypeSettingsAppTypeRefModel
-							for _, AppTypeRefItem := range rawList {
+							for AppTypeRefIdx, AppTypeRefItem := range rawList {
+								_ = AppTypeRefIdx
 								if AppTypeRefItemMap, ok := AppTypeRefItem.(map[string]interface{}); ok {
 									AppTypeRefResult = append(AppTypeRefResult, AppSettingAppTypeSettingsAppTypeRefModel{
 										Kind: func() types.String {
@@ -1943,9 +1959,17 @@ func (r *AppSettingResource) Update(ctx context.Context, req resource.UpdateRequ
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				AppTypeSettingsList = append(AppTypeSettingsList, AppSettingAppTypeSettingsModel{
 					AppTypeRef: func() types.List {
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && (existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() || len(existingAppTypeSettingsItems[listIdx].AppTypeRef.Elements()) == 0) {
+							return types.ListNull(types.ObjectType{AttrTypes: AppSettingAppTypeSettingsAppTypeRefModelAttrTypes})
+						}
+						var AppTypeRefExisting []AppSettingAppTypeSettingsAppTypeRefModel
+						if !isImport && len(existingAppTypeSettingsItems) > listIdx && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsNull() && !existingAppTypeSettingsItems[listIdx].AppTypeRef.IsUnknown() {
+							existingAppTypeSettingsItems[listIdx].AppTypeRef.ElementsAs(ctx, &AppTypeRefExisting, false)
+						}
 						if rawList, ok := itemMap["app_type_ref"].([]interface{}); ok && len(rawList) > 0 {
 							var AppTypeRefResult []AppSettingAppTypeSettingsAppTypeRefModel
-							for _, AppTypeRefItem := range rawList {
+							for AppTypeRefIdx, AppTypeRefItem := range rawList {
+								_ = AppTypeRefIdx
 								if AppTypeRefItemMap, ok := AppTypeRefItem.(map[string]interface{}); ok {
 									AppTypeRefResult = append(AppTypeRefResult, AppSettingAppTypeSettingsAppTypeRefModel{
 										Kind: func() types.String {

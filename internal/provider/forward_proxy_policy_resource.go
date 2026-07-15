@@ -1834,8 +1834,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyAllowListHTTPListModel{
 								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -2029,8 +2029,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyDenyListHTTPListModel{
 								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -2188,8 +2188,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									return types.StringNull()
 								}(),
 								AllDestinations: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -2197,8 +2197,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									return nil
 								}(),
 								AllSources: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -2333,8 +2333,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel{
 																AnyPath: func() *ForwardProxyPolicyEmptyModel {
-																	if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-																		return &ForwardProxyPolicyEmptyModel{}
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx {
+																		return HTTPListExisting[HTTPListIdx].AnyPath
 																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 																		return &ForwardProxyPolicyEmptyModel{}
@@ -2454,8 +2454,8 @@ func (r *ForwardProxyPolicyResource) Create(ctx context.Context, req resource.Cr
 									return nil
 								}(),
 								NoHTTPConnectPort: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].NoHTTPConnectPort != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].NoHTTPConnectPort
 									}
 									if _, ok := RulesItemMap["no_http_connect_port"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -2782,8 +2782,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyAllowListHTTPListModel{
 								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -2977,8 +2977,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyDenyListHTTPListModel{
 								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -3136,8 +3136,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 									return types.StringNull()
 								}(),
 								AllDestinations: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -3145,8 +3145,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 									return nil
 								}(),
 								AllSources: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -3281,8 +3281,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel{
 																AnyPath: func() *ForwardProxyPolicyEmptyModel {
-																	if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-																		return &ForwardProxyPolicyEmptyModel{}
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx {
+																		return HTTPListExisting[HTTPListIdx].AnyPath
 																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 																		return &ForwardProxyPolicyEmptyModel{}
@@ -3402,8 +3402,8 @@ func (r *ForwardProxyPolicyResource) Read(ctx context.Context, req resource.Read
 									return nil
 								}(),
 								NoHTTPConnectPort: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].NoHTTPConnectPort != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].NoHTTPConnectPort
 									}
 									if _, ok := RulesItemMap["no_http_connect_port"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -4173,8 +4173,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyAllowListHTTPListModel{
 								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -4368,8 +4368,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 						if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 							HTTPListResult = append(HTTPListResult, ForwardProxyPolicyDenyListHTTPListModel{
 								AnyPath: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(HTTPListExisting) > HTTPListIdx {
+										return HTTPListExisting[HTTPListIdx].AnyPath
 									}
 									if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -4527,8 +4527,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									return types.StringNull()
 								}(),
 								AllDestinations: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllDestinations != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllDestinations
 									}
 									if _, ok := RulesItemMap["all_destinations"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -4536,8 +4536,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									return nil
 								}(),
 								AllSources: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].AllSources != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].AllSources
 									}
 									if _, ok := RulesItemMap["all_sources"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}
@@ -4672,8 +4672,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 														if HTTPListItemMap, ok := HTTPListItem.(map[string]interface{}); ok {
 															HTTPListResult = append(HTTPListResult, ForwardProxyPolicyRuleListRulesHTTPListHTTPListModel{
 																AnyPath: func() *ForwardProxyPolicyEmptyModel {
-																	if !isImport && len(HTTPListExisting) > HTTPListIdx && HTTPListExisting[HTTPListIdx].AnyPath != nil {
-																		return &ForwardProxyPolicyEmptyModel{}
+																	if !isImport && len(HTTPListExisting) > HTTPListIdx {
+																		return HTTPListExisting[HTTPListIdx].AnyPath
 																	}
 																	if _, ok := HTTPListItemMap["any_path"].(map[string]interface{}); ok {
 																		return &ForwardProxyPolicyEmptyModel{}
@@ -4793,8 +4793,8 @@ func (r *ForwardProxyPolicyResource) Update(ctx context.Context, req resource.Up
 									return nil
 								}(),
 								NoHTTPConnectPort: func() *ForwardProxyPolicyEmptyModel {
-									if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].NoHTTPConnectPort != nil {
-										return &ForwardProxyPolicyEmptyModel{}
+									if !isImport && len(RulesExisting) > RulesIdx {
+										return RulesExisting[RulesIdx].NoHTTPConnectPort
 									}
 									if _, ok := RulesItemMap["no_http_connect_port"].(map[string]interface{}); ok {
 										return &ForwardProxyPolicyEmptyModel{}

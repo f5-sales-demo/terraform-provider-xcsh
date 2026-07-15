@@ -4149,8 +4149,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -4164,8 +4164,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -4173,8 +4173,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -4208,8 +4208,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, SecuremeshSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -4585,8 +4585,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -4594,8 +4594,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -4802,8 +4802,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -4811,8 +4811,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																							return nil
 																						}(),
 																						LastAddress: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -4857,9 +4857,17 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -4889,8 +4897,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -5082,9 +5090,17 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -5376,8 +5392,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 												return nil
 											}(),
 											Labels: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].Labels
 												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -5524,8 +5540,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -5569,9 +5585,17 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -5673,8 +5697,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -5718,9 +5742,17 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -5902,8 +5934,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -5947,9 +5979,17 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -6051,8 +6091,8 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -6096,9 +6136,17 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -6578,8 +6626,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -6593,8 +6641,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -6602,8 +6650,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -6637,8 +6685,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, SecuremeshSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -7014,8 +7062,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -7023,8 +7071,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -7231,8 +7279,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -7240,8 +7288,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																							return nil
 																						}(),
 																						LastAddress: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -7286,9 +7334,17 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -7318,8 +7374,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -7511,9 +7567,17 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -7805,8 +7869,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 												return nil
 											}(),
 											Labels: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].Labels
 												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -7953,8 +8017,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -7998,9 +8062,17 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -8102,8 +8174,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -8147,9 +8219,17 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -8331,8 +8411,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -8376,9 +8456,17 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -8480,8 +8568,8 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -8525,9 +8613,17 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -10141,8 +10237,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
 							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteBlockedServicesBlockedServiceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].DNS != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].DNS
 									}
 									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -10156,8 +10252,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].SSH != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].SSH
 									}
 									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -10165,8 +10261,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx && BlockedServiceExisting[BlockedServiceIdx].WebUserInterface != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
+										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
 									}
 									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -10200,8 +10296,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 						if BondDevicesItemMap, ok := BondDevicesItem.(map[string]interface{}); ok {
 							BondDevicesResult = append(BondDevicesResult, SecuremeshSiteBondDeviceListBondDevicesModel{
 								ActiveBackup: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BondDevicesExisting) > BondDevicesIdx && BondDevicesExisting[BondDevicesIdx].ActiveBackup != nil {
-										return &SecuremeshSiteEmptyModel{}
+									if !isImport && len(BondDevicesExisting) > BondDevicesIdx {
+										return BondDevicesExisting[BondDevicesIdx].ActiveBackup
 									}
 									if _, ok := BondDevicesItemMap["active_backup"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
@@ -10577,8 +10673,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 									if InterfacesItemMap, ok := InterfacesItem.(map[string]interface{}); ok {
 										InterfacesResult = append(InterfacesResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesModel{
 											DcClusterGroupConnectivityInterfaceDisabled: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceDisabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_disabled"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -10586,8 +10682,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 												return nil
 											}(),
 											DcClusterGroupConnectivityInterfaceEnabled: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].DcClusterGroupConnectivityInterfaceEnabled
 												}
 												if _, ok := InterfacesItemMap["dc_cluster_group_connectivity_interface_enabled"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -10794,8 +10890,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																							return types.StringNull()
 																						}(),
 																						FirstAddress: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].FirstAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["first_address"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -10803,8 +10899,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																							return nil
 																						}(),
 																						LastAddress: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].LastAddress != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].LastAddress
 																							}
 																							if _, ok := DHCPNetworksItemMap["last_address"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -10849,9 +10945,17 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																							return types.StringNull()
 																						}(),
 																						Pools: func() types.List {
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
+																							}
+																							var PoolsExisting []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																								DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																							}
 																							if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																								var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
-																								for _, PoolsItem := range rawList {
+																								for PoolsIdx, PoolsItem := range rawList {
+																									_ = PoolsIdx
 																									if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																										PoolsResult = append(PoolsResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel{
 																											EndIP: func() types.String {
@@ -10881,8 +10985,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																							return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes})
 																						}(),
 																						SameAsDgw: func() *SecuremeshSiteEmptyModel {
-																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw != nil {
-																								return &SecuremeshSiteEmptyModel{}
+																							if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx {
+																								return DHCPNetworksExisting[DHCPNetworksIdx].SameAsDgw
 																							}
 																							if _, ok := DHCPNetworksItemMap["same_as_dgw"].(map[string]interface{}); ok {
 																								return &SecuremeshSiteEmptyModel{}
@@ -11074,9 +11178,17 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																													return types.StringNull()
 																												}(),
 																												Pools: func() types.List {
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && (DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() || len(DHCPNetworksExisting[DHCPNetworksIdx].Pools.Elements()) == 0) {
+																														return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModelAttrTypes})
+																													}
+																													var PoolsExisting []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
+																													if !isImport && len(DHCPNetworksExisting) > DHCPNetworksIdx && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsNull() && !DHCPNetworksExisting[DHCPNetworksIdx].Pools.IsUnknown() {
+																														DHCPNetworksExisting[DHCPNetworksIdx].Pools.ElementsAs(ctx, &PoolsExisting, false)
+																													}
 																													if rawList, ok := DHCPNetworksItemMap["pools"].([]interface{}); ok && len(rawList) > 0 {
 																														var PoolsResult []SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel
-																														for _, PoolsItem := range rawList {
+																														for PoolsIdx, PoolsItem := range rawList {
+																															_ = PoolsIdx
 																															if PoolsItemMap, ok := PoolsItem.(map[string]interface{}); ok {
 																																PoolsResult = append(PoolsResult, SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceIpv6AutoConfigRouterStatefulDHCPNetworksPoolsModel{
 																																	EndIP: func() types.String {
@@ -11368,8 +11480,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 												return nil
 											}(),
 											Labels: func() *SecuremeshSiteEmptyModel {
-												if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].Labels != nil {
-													return &SecuremeshSiteEmptyModel{}
+												if !isImport && len(InterfacesExisting) > InterfacesIdx {
+													return InterfacesExisting[InterfacesIdx].Labels
 												}
 												if _, ok := InterfacesItemMap["labels"].(map[string]interface{}); ok {
 													return &SecuremeshSiteEmptyModel{}
@@ -11516,8 +11628,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -11561,9 +11673,17 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -11665,8 +11785,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -11710,9 +11830,17 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSLIConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -11894,8 +12022,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -11939,9 +12067,17 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticRoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {
@@ -12043,8 +12179,8 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 															return types.ListNull(types.StringType)
 														}(),
 														DefaultGateway: func() *SecuremeshSiteEmptyModel {
-															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx && StaticRoutesExisting[StaticRoutesIdx].DefaultGateway != nil {
-																return &SecuremeshSiteEmptyModel{}
+															if !isImport && len(StaticRoutesExisting) > StaticRoutesIdx {
+																return StaticRoutesExisting[StaticRoutesIdx].DefaultGateway
 															}
 															if _, ok := StaticRoutesItemMap["default_gateway"].(map[string]interface{}); ok {
 																return &SecuremeshSiteEmptyModel{}
@@ -12088,9 +12224,17 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																				if ListItemMap, ok := ListItem.(map[string]interface{}); ok {
 																					ListResult = append(ListResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListModel{
 																						Interface: func() types.List {
+																							if !isImport && len(ListExisting) > ListIdx && (ListExisting[ListIdx].Interface.IsNull() || len(ListExisting[ListIdx].Interface.Elements()) == 0) {
+																								return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModelAttrTypes})
+																							}
+																							var InterfaceExisting []SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
+																							if !isImport && len(ListExisting) > ListIdx && !ListExisting[ListIdx].Interface.IsNull() && !ListExisting[ListIdx].Interface.IsUnknown() {
+																								ListExisting[ListIdx].Interface.ElementsAs(ctx, &InterfaceExisting, false)
+																							}
 																							if rawList, ok := ListItemMap["interface"].([]interface{}); ok && len(rawList) > 0 {
 																								var InterfaceResult []SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel
-																								for _, InterfaceItem := range rawList {
+																								for InterfaceIdx, InterfaceItem := range rawList {
+																									_ = InterfaceIdx
 																									if InterfaceItemMap, ok := InterfaceItem.(map[string]interface{}); ok {
 																										InterfaceResult = append(InterfaceResult, SecuremeshSiteCustomNetworkConfigSloConfigStaticV6RoutesStaticRoutesNodeInterfaceListInterfaceModel{
 																											Kind: func() types.String {

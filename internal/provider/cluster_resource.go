@@ -2238,8 +2238,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &ClusterEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
@@ -2304,8 +2304,8 @@ func (r *ClusterResource) Create(ctx context.Context, req resource.CreateRequest
 												return nil
 											}(),
 											UseSystemDefaults: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &ClusterEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
@@ -3197,8 +3197,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &ClusterEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
@@ -3263,8 +3263,8 @@ func (r *ClusterResource) Read(ctx context.Context, req resource.ReadRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &ClusterEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
@@ -4598,8 +4598,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &ClusterEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}
@@ -4664,8 +4664,8 @@ func (r *ClusterResource) Update(ctx context.Context, req resource.UpdateRequest
 												return nil
 											}(),
 											UseSystemDefaults: func() *ClusterEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &ClusterEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &ClusterEmptyModel{}

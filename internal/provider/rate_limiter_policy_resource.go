@@ -1561,8 +1561,8 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
 													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
-															return &RateLimiterPolicyEmptyModel{}
+														if !isImport && len(HeadersExisting) > HeadersIdx {
+															return HeadersExisting[HeadersIdx].CheckNotPresent
 														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
@@ -1570,8 +1570,8 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 														return nil
 													}(),
 													CheckPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
-															return &RateLimiterPolicyEmptyModel{}
+														if !isImport && len(HeadersExisting) > HeadersIdx {
+															return HeadersExisting[HeadersIdx].CheckPresent
 														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
@@ -2292,8 +2292,8 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
 													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
-															return &RateLimiterPolicyEmptyModel{}
+														if !isImport && len(HeadersExisting) > HeadersIdx {
+															return HeadersExisting[HeadersIdx].CheckNotPresent
 														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
@@ -2301,8 +2301,8 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 														return nil
 													}(),
 													CheckPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
-															return &RateLimiterPolicyEmptyModel{}
+														if !isImport && len(HeadersExisting) > HeadersIdx {
+															return HeadersExisting[HeadersIdx].CheckPresent
 														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
@@ -3340,8 +3340,8 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 											if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 												HeadersResult = append(HeadersResult, RateLimiterPolicyRulesSpecHeadersModel{
 													CheckNotPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
-															return &RateLimiterPolicyEmptyModel{}
+														if !isImport && len(HeadersExisting) > HeadersIdx {
+															return HeadersExisting[HeadersIdx].CheckNotPresent
 														}
 														if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}
@@ -3349,8 +3349,8 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 														return nil
 													}(),
 													CheckPresent: func() *RateLimiterPolicyEmptyModel {
-														if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
-															return &RateLimiterPolicyEmptyModel{}
+														if !isImport && len(HeadersExisting) > HeadersIdx {
+															return HeadersExisting[HeadersIdx].CheckPresent
 														}
 														if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 															return &RateLimiterPolicyEmptyModel{}

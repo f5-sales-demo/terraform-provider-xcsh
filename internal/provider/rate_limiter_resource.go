@@ -607,8 +607,8 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 						return types.Int64Null()
 					}(),
 					Disabled: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].Disabled != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].Disabled
 						}
 						if _, ok := itemMap["disabled"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -616,8 +616,8 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 						return nil
 					}(),
 					LeakyBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].LeakyBucket != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].LeakyBucket
 						}
 						if _, ok := itemMap["leaky_bucket"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -631,8 +631,8 @@ func (r *RateLimiterResource) Create(ctx context.Context, req resource.CreateReq
 						return types.Int64Null()
 					}(),
 					TokenBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].TokenBucket != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].TokenBucket
 						}
 						if _, ok := itemMap["token_bucket"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -891,8 +891,8 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 						return types.Int64Null()
 					}(),
 					Disabled: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].Disabled != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].Disabled
 						}
 						if _, ok := itemMap["disabled"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -900,8 +900,8 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 						return nil
 					}(),
 					LeakyBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].LeakyBucket != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].LeakyBucket
 						}
 						if _, ok := itemMap["leaky_bucket"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -915,8 +915,8 @@ func (r *RateLimiterResource) Read(ctx context.Context, req resource.ReadRequest
 						return types.Int64Null()
 					}(),
 					TokenBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].TokenBucket != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].TokenBucket
 						}
 						if _, ok := itemMap["token_bucket"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -1252,8 +1252,8 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 						return types.Int64Null()
 					}(),
 					Disabled: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].Disabled != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].Disabled
 						}
 						if _, ok := itemMap["disabled"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -1261,8 +1261,8 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 						return nil
 					}(),
 					LeakyBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].LeakyBucket != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].LeakyBucket
 						}
 						if _, ok := itemMap["leaky_bucket"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}
@@ -1276,8 +1276,8 @@ func (r *RateLimiterResource) Update(ctx context.Context, req resource.UpdateReq
 						return types.Int64Null()
 					}(),
 					TokenBucket: func() *RateLimiterEmptyModel {
-						if !isImport && len(existingLimitsItems) > listIdx && existingLimitsItems[listIdx].TokenBucket != nil {
-							return &RateLimiterEmptyModel{}
+						if !isImport && len(existingLimitsItems) > listIdx {
+							return existingLimitsItems[listIdx].TokenBucket
 						}
 						if _, ok := itemMap["token_bucket"].(map[string]interface{}); ok {
 							return &RateLimiterEmptyModel{}

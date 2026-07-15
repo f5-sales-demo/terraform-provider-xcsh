@@ -4151,8 +4151,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
 											AutomaticPrefix: func() *APMEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].AutomaticPrefix
 												}
 												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -4201,8 +4201,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *APMEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].ReservedMgmtSubnet
 												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -4710,8 +4710,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -4776,8 +4776,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -5040,8 +5040,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -5106,8 +5106,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -5370,8 +5370,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -5436,8 +5436,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -5700,8 +5700,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -5766,8 +5766,8 @@ func (r *APMResource) Create(ctx context.Context, req resource.CreateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -6351,8 +6351,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
 											AutomaticPrefix: func() *APMEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].AutomaticPrefix
 												}
 												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -6401,8 +6401,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *APMEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].ReservedMgmtSubnet
 												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -6910,8 +6910,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -6976,8 +6976,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -7240,8 +7240,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -7306,8 +7306,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -7570,8 +7570,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -7636,8 +7636,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -7900,8 +7900,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -7966,8 +7966,8 @@ func (r *APMResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -9523,8 +9523,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 									if NodesItemMap, ok := NodesItem.(map[string]interface{}); ok {
 										NodesResult = append(NodesResult, APMAWSSiteTypeChoiceAPMAWSSiteNodesModel{
 											AutomaticPrefix: func() *APMEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].AutomaticPrefix != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].AutomaticPrefix
 												}
 												if _, ok := NodesItemMap["automatic_prefix"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -9573,8 +9573,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											ReservedMgmtSubnet: func() *APMEmptyModel {
-												if !isImport && len(NodesExisting) > NodesIdx && NodesExisting[NodesIdx].ReservedMgmtSubnet != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(NodesExisting) > NodesIdx {
+													return NodesExisting[NodesIdx].ReservedMgmtSubnet
 												}
 												if _, ok := NodesItemMap["reserved_mgmt_subnet"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -10082,8 +10082,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -10148,8 +10148,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -10412,8 +10412,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -10478,8 +10478,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -10742,8 +10742,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -10808,8 +10808,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -11072,8 +11072,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}
@@ -11138,8 +11138,8 @@ func (r *APMResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												return nil
 											}(),
 											UseSystemDefaults: func() *APMEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &APMEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &APMEmptyModel{}

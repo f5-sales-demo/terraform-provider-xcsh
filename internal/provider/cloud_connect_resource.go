@@ -1504,8 +1504,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 															return nil
 														}(),
 														Labels: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-																return &CloudConnectEmptyModel{}
+															if !isImport && len(VPCListExisting) > VPCListIdx {
+																return VPCListExisting[VPCListIdx].Labels
 															}
 															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 																return &CloudConnectEmptyModel{}
@@ -1513,8 +1513,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 															return nil
 														}(),
 														ManualRouting: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].ManualRouting != nil {
-																return &CloudConnectEmptyModel{}
+															if !isImport && len(VPCListExisting) > VPCListIdx {
+																return VPCListExisting[VPCListIdx].ManualRouting
 															}
 															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
 																return &CloudConnectEmptyModel{}
@@ -1705,8 +1705,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 												return nil
 											}(),
 											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VPCListExisting) > VPCListIdx {
+													return VPCListExisting[VPCListIdx].Labels
 												}
 												if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -1714,8 +1714,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 												return nil
 											}(),
 											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].ManualRouting != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VPCListExisting) > VPCListIdx {
+													return VPCListExisting[VPCListIdx].ManualRouting
 												}
 												if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -1877,8 +1877,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 												return nil
 											}(),
 											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].Labels != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VNETListExisting) > VNETListIdx {
+													return VNETListExisting[VNETListIdx].Labels
 												}
 												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -1886,8 +1886,8 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 												return nil
 											}(),
 											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].ManualRouting != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VNETListExisting) > VNETListIdx {
+													return VNETListExisting[VNETListIdx].ManualRouting
 												}
 												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -2198,8 +2198,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 															return nil
 														}(),
 														Labels: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-																return &CloudConnectEmptyModel{}
+															if !isImport && len(VPCListExisting) > VPCListIdx {
+																return VPCListExisting[VPCListIdx].Labels
 															}
 															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 																return &CloudConnectEmptyModel{}
@@ -2207,8 +2207,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 															return nil
 														}(),
 														ManualRouting: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].ManualRouting != nil {
-																return &CloudConnectEmptyModel{}
+															if !isImport && len(VPCListExisting) > VPCListIdx {
+																return VPCListExisting[VPCListIdx].ManualRouting
 															}
 															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
 																return &CloudConnectEmptyModel{}
@@ -2399,8 +2399,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 												return nil
 											}(),
 											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VPCListExisting) > VPCListIdx {
+													return VPCListExisting[VPCListIdx].Labels
 												}
 												if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -2408,8 +2408,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 												return nil
 											}(),
 											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].ManualRouting != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VPCListExisting) > VPCListIdx {
+													return VPCListExisting[VPCListIdx].ManualRouting
 												}
 												if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -2571,8 +2571,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 												return nil
 											}(),
 											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].Labels != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VNETListExisting) > VNETListIdx {
+													return VNETListExisting[VNETListIdx].Labels
 												}
 												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -2580,8 +2580,8 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 												return nil
 											}(),
 											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].ManualRouting != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VNETListExisting) > VNETListIdx {
+													return VNETListExisting[VNETListIdx].ManualRouting
 												}
 												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -3192,8 +3192,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 															return nil
 														}(),
 														Labels: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-																return &CloudConnectEmptyModel{}
+															if !isImport && len(VPCListExisting) > VPCListIdx {
+																return VPCListExisting[VPCListIdx].Labels
 															}
 															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 																return &CloudConnectEmptyModel{}
@@ -3201,8 +3201,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 															return nil
 														}(),
 														ManualRouting: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].ManualRouting != nil {
-																return &CloudConnectEmptyModel{}
+															if !isImport && len(VPCListExisting) > VPCListIdx {
+																return VPCListExisting[VPCListIdx].ManualRouting
 															}
 															if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
 																return &CloudConnectEmptyModel{}
@@ -3393,8 +3393,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 												return nil
 											}(),
 											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].Labels != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VPCListExisting) > VPCListIdx {
+													return VPCListExisting[VPCListIdx].Labels
 												}
 												if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -3402,8 +3402,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 												return nil
 											}(),
 											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VPCListExisting) > VPCListIdx && VPCListExisting[VPCListIdx].ManualRouting != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VPCListExisting) > VPCListIdx {
+													return VPCListExisting[VPCListIdx].ManualRouting
 												}
 												if _, ok := VPCListItemMap["manual_routing"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -3565,8 +3565,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 												return nil
 											}(),
 											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].Labels != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VNETListExisting) > VNETListIdx {
+													return VNETListExisting[VNETListIdx].Labels
 												}
 												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}
@@ -3574,8 +3574,8 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 												return nil
 											}(),
 											ManualRouting: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx && VNETListExisting[VNETListIdx].ManualRouting != nil {
-													return &CloudConnectEmptyModel{}
+												if !isImport && len(VNETListExisting) > VNETListIdx {
+													return VNETListExisting[VNETListIdx].ManualRouting
 												}
 												if _, ok := VNETListItemMap["manual_routing"].(map[string]interface{}); ok {
 													return &CloudConnectEmptyModel{}

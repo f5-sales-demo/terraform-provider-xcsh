@@ -328,8 +328,8 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
 					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Audit != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
 						}
 						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -337,8 +337,8 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						return nil
 					}(),
 					Baseline: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Baseline != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
 						}
 						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -346,8 +346,8 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						return nil
 					}(),
 					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Enforce != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
 						}
 						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -355,8 +355,8 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						return nil
 					}(),
 					Privileged: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Privileged != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
 						}
 						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -364,8 +364,8 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						return nil
 					}(),
 					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Restricted != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
 						}
 						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -373,8 +373,8 @@ func (r *K8SPodSecurityAdmissionResource) Create(ctx context.Context, req resour
 						return nil
 					}(),
 					Warn: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Warn != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
 						}
 						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -498,8 +498,8 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
 					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Audit != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
 						}
 						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -507,8 +507,8 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						return nil
 					}(),
 					Baseline: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Baseline != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
 						}
 						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -516,8 +516,8 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						return nil
 					}(),
 					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Enforce != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
 						}
 						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -525,8 +525,8 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						return nil
 					}(),
 					Privileged: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Privileged != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
 						}
 						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -534,8 +534,8 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						return nil
 					}(),
 					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Restricted != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
 						}
 						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -543,8 +543,8 @@ func (r *K8SPodSecurityAdmissionResource) Read(ctx context.Context, req resource
 						return nil
 					}(),
 					Warn: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Warn != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
 						}
 						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -689,8 +689,8 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PodSecurityAdmissionSpecsList = append(PodSecurityAdmissionSpecsList, K8SPodSecurityAdmissionPodSecurityAdmissionSpecsModel{
 					Audit: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Audit != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Audit
 						}
 						if _, ok := itemMap["audit"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -698,8 +698,8 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						return nil
 					}(),
 					Baseline: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Baseline != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Baseline
 						}
 						if _, ok := itemMap["baseline"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -707,8 +707,8 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						return nil
 					}(),
 					Enforce: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Enforce != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Enforce
 						}
 						if _, ok := itemMap["enforce"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -716,8 +716,8 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						return nil
 					}(),
 					Privileged: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Privileged != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Privileged
 						}
 						if _, ok := itemMap["privileged"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -725,8 +725,8 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						return nil
 					}(),
 					Restricted: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Restricted != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Restricted
 						}
 						if _, ok := itemMap["restricted"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}
@@ -734,8 +734,8 @@ func (r *K8SPodSecurityAdmissionResource) Update(ctx context.Context, req resour
 						return nil
 					}(),
 					Warn: func() *K8SPodSecurityAdmissionEmptyModel {
-						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx && existingPodSecurityAdmissionSpecsItems[listIdx].Warn != nil {
-							return &K8SPodSecurityAdmissionEmptyModel{}
+						if !isImport && len(existingPodSecurityAdmissionSpecsItems) > listIdx {
+							return existingPodSecurityAdmissionSpecsItems[listIdx].Warn
 						}
 						if _, ok := itemMap["warn"].(map[string]interface{}); ok {
 							return &K8SPodSecurityAdmissionEmptyModel{}

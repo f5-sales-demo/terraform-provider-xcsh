@@ -1314,8 +1314,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PeersList = append(PeersList, BGPPeersModel{
 					BfdDisabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdDisabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].BfdDisabled
 						}
 						if _, ok := itemMap["bfd_disabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -1357,8 +1357,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						return nil
 					}(),
 					DisableSpec: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].DisableSpec != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -1642,8 +1642,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						return nil
 					}(),
 					PassiveModeDisabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].PassiveModeDisabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].PassiveModeDisabled
 						}
 						if _, ok := itemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -1651,8 +1651,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 						return nil
 					}(),
 					PassiveModeEnabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].PassiveModeEnabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].PassiveModeEnabled
 						}
 						if _, ok := itemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -1677,8 +1677,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 											if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 												RoutePolicyResult = append(RoutePolicyResult, BGPPeersRoutingPoliciesRoutePolicyModel{
 													AllNodes: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].AllNodes
 														}
 														if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -1686,8 +1686,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 														return nil
 													}(),
 													Inbound: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].Inbound
 														}
 														if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -1715,9 +1715,17 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 														return nil
 													}(),
 													ObjectRefs: func() types.List {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && (RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() || len(RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
+														}
+														var ObjectRefsExisting []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsUnknown() {
+															RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.ElementsAs(ctx, &ObjectRefsExisting, false)
+														}
 														if rawList, ok := RoutePolicyItemMap["object_refs"].([]interface{}); ok && len(rawList) > 0 {
 															var ObjectRefsResult []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
-															for _, ObjectRefsItem := range rawList {
+															for ObjectRefsIdx, ObjectRefsItem := range rawList {
+																_ = ObjectRefsIdx
 																if ObjectRefsItemMap, ok := ObjectRefsItem.(map[string]interface{}); ok {
 																	ObjectRefsResult = append(ObjectRefsResult, BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel{
 																		Kind: func() types.String {
@@ -1759,8 +1767,8 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 														return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 													}(),
 													Outbound: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].Outbound
 														}
 														if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -2103,8 +2111,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PeersList = append(PeersList, BGPPeersModel{
 					BfdDisabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdDisabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].BfdDisabled
 						}
 						if _, ok := itemMap["bfd_disabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -2146,8 +2154,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 						return nil
 					}(),
 					DisableSpec: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].DisableSpec != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -2431,8 +2439,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 						return nil
 					}(),
 					PassiveModeDisabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].PassiveModeDisabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].PassiveModeDisabled
 						}
 						if _, ok := itemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -2440,8 +2448,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 						return nil
 					}(),
 					PassiveModeEnabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].PassiveModeEnabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].PassiveModeEnabled
 						}
 						if _, ok := itemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -2466,8 +2474,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 											if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 												RoutePolicyResult = append(RoutePolicyResult, BGPPeersRoutingPoliciesRoutePolicyModel{
 													AllNodes: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].AllNodes
 														}
 														if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -2475,8 +2483,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 														return nil
 													}(),
 													Inbound: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].Inbound
 														}
 														if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -2504,9 +2512,17 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 														return nil
 													}(),
 													ObjectRefs: func() types.List {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && (RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() || len(RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
+														}
+														var ObjectRefsExisting []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsUnknown() {
+															RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.ElementsAs(ctx, &ObjectRefsExisting, false)
+														}
 														if rawList, ok := RoutePolicyItemMap["object_refs"].([]interface{}); ok && len(rawList) > 0 {
 															var ObjectRefsResult []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
-															for _, ObjectRefsItem := range rawList {
+															for ObjectRefsIdx, ObjectRefsItem := range rawList {
+																_ = ObjectRefsIdx
 																if ObjectRefsItemMap, ok := ObjectRefsItem.(map[string]interface{}); ok {
 																	ObjectRefsResult = append(ObjectRefsResult, BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel{
 																		Kind: func() types.String {
@@ -2548,8 +2564,8 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 														return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 													}(),
 													Outbound: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].Outbound
 														}
 														if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -3204,8 +3220,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 			if itemMap, ok := item.(map[string]interface{}); ok {
 				PeersList = append(PeersList, BGPPeersModel{
 					BfdDisabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].BfdDisabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].BfdDisabled
 						}
 						if _, ok := itemMap["bfd_disabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -3247,8 +3263,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						return nil
 					}(),
 					DisableSpec: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].DisableSpec != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].DisableSpec
 						}
 						if _, ok := itemMap["disable"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -3532,8 +3548,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						return nil
 					}(),
 					PassiveModeDisabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].PassiveModeDisabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].PassiveModeDisabled
 						}
 						if _, ok := itemMap["passive_mode_disabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -3541,8 +3557,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 						return nil
 					}(),
 					PassiveModeEnabled: func() *BGPEmptyModel {
-						if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].PassiveModeEnabled != nil {
-							return &BGPEmptyModel{}
+						if !isImport && len(existingPeersItems) > listIdx {
+							return existingPeersItems[listIdx].PassiveModeEnabled
 						}
 						if _, ok := itemMap["passive_mode_enabled"].(map[string]interface{}); ok {
 							return &BGPEmptyModel{}
@@ -3567,8 +3583,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 											if RoutePolicyItemMap, ok := RoutePolicyItem.(map[string]interface{}); ok {
 												RoutePolicyResult = append(RoutePolicyResult, BGPPeersRoutingPoliciesRoutePolicyModel{
 													AllNodes: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].AllNodes != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].AllNodes
 														}
 														if _, ok := RoutePolicyItemMap["all_nodes"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -3576,8 +3592,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 														return nil
 													}(),
 													Inbound: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Inbound != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].Inbound
 														}
 														if _, ok := RoutePolicyItemMap["inbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}
@@ -3605,9 +3621,17 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 														return nil
 													}(),
 													ObjectRefs: func() types.List {
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && (RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() || len(RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.Elements()) == 0) {
+															return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
+														}
+														var ObjectRefsExisting []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsNull() && !RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.IsUnknown() {
+															RoutePolicyExisting[RoutePolicyIdx].ObjectRefs.ElementsAs(ctx, &ObjectRefsExisting, false)
+														}
 														if rawList, ok := RoutePolicyItemMap["object_refs"].([]interface{}); ok && len(rawList) > 0 {
 															var ObjectRefsResult []BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel
-															for _, ObjectRefsItem := range rawList {
+															for ObjectRefsIdx, ObjectRefsItem := range rawList {
+																_ = ObjectRefsIdx
 																if ObjectRefsItemMap, ok := ObjectRefsItem.(map[string]interface{}); ok {
 																	ObjectRefsResult = append(ObjectRefsResult, BGPPeersRoutingPoliciesRoutePolicyObjectRefsModel{
 																		Kind: func() types.String {
@@ -3649,8 +3673,8 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 														return types.ListNull(types.ObjectType{AttrTypes: BGPPeersRoutingPoliciesRoutePolicyObjectRefsModelAttrTypes})
 													}(),
 													Outbound: func() *BGPEmptyModel {
-														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx && RoutePolicyExisting[RoutePolicyIdx].Outbound != nil {
-															return &BGPEmptyModel{}
+														if !isImport && len(RoutePolicyExisting) > RoutePolicyIdx {
+															return RoutePolicyExisting[RoutePolicyIdx].Outbound
 														}
 														if _, ok := RoutePolicyItemMap["outbound"].(map[string]interface{}); ok {
 															return &BGPEmptyModel{}

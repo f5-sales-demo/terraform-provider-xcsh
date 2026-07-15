@@ -4218,8 +4218,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4227,8 +4227,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4553,8 +4553,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4562,8 +4562,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4706,8 +4706,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																		return HeadersExisting[HeadersIdx].CheckNotPresent
 																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4715,8 +4715,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																		return HeadersExisting[HeadersIdx].CheckPresent
 																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4982,8 +4982,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -4991,8 +4991,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -5247,8 +5247,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -5256,8 +5256,8 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -6651,8 +6651,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -6660,8 +6660,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -6986,8 +6986,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -6995,8 +6995,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -7139,8 +7139,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																		return HeadersExisting[HeadersIdx].CheckNotPresent
 																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -7148,8 +7148,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																		return HeadersExisting[HeadersIdx].CheckPresent
 																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -7415,8 +7415,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -7424,8 +7424,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -7680,8 +7680,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -7689,8 +7689,8 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10222,8 +10222,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														if ArgMatchersItemMap, ok := ArgMatchersItem.(map[string]interface{}); ok {
 															ArgMatchersResult = append(ArgMatchersResult, ServicePolicyRuleListRulesSpecArgMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10231,8 +10231,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx && ArgMatchersExisting[ArgMatchersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(ArgMatchersExisting) > ArgMatchersIdx {
+																		return ArgMatchersExisting[ArgMatchersIdx].CheckPresent
 																	}
 																	if _, ok := ArgMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10557,8 +10557,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														if CookieMatchersItemMap, ok := CookieMatchersItem.(map[string]interface{}); ok {
 															CookieMatchersResult = append(CookieMatchersResult, ServicePolicyRuleListRulesSpecCookieMatchersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckNotPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10566,8 +10566,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx && CookieMatchersExisting[CookieMatchersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(CookieMatchersExisting) > CookieMatchersIdx {
+																		return CookieMatchersExisting[CookieMatchersIdx].CheckPresent
 																	}
 																	if _, ok := CookieMatchersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10710,8 +10710,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														if HeadersItemMap, ok := HeadersItem.(map[string]interface{}); ok {
 															HeadersResult = append(HeadersResult, ServicePolicyRuleListRulesSpecHeadersModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																		return HeadersExisting[HeadersIdx].CheckNotPresent
 																	}
 																	if _, ok := HeadersItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10719,8 +10719,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(HeadersExisting) > HeadersIdx && HeadersExisting[HeadersIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(HeadersExisting) > HeadersIdx {
+																		return HeadersExisting[HeadersIdx].CheckPresent
 																	}
 																	if _, ok := HeadersItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10986,8 +10986,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														if JWTClaimsItemMap, ok := JWTClaimsItem.(map[string]interface{}); ok {
 															JWTClaimsResult = append(JWTClaimsResult, ServicePolicyRuleListRulesSpecJWTClaimsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckNotPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -10995,8 +10995,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx && JWTClaimsExisting[JWTClaimsIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(JWTClaimsExisting) > JWTClaimsIdx {
+																		return JWTClaimsExisting[JWTClaimsIdx].CheckPresent
 																	}
 																	if _, ok := JWTClaimsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -11251,8 +11251,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 														if QueryParamsItemMap, ok := QueryParamsItem.(map[string]interface{}); ok {
 															QueryParamsResult = append(QueryParamsResult, ServicePolicyRuleListRulesSpecQueryParamsModel{
 																CheckNotPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckNotPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																		return QueryParamsExisting[QueryParamsIdx].CheckNotPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_not_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}
@@ -11260,8 +11260,8 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 																	return nil
 																}(),
 																CheckPresent: func() *ServicePolicyEmptyModel {
-																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx && QueryParamsExisting[QueryParamsIdx].CheckPresent != nil {
-																		return &ServicePolicyEmptyModel{}
+																	if !isImport && len(QueryParamsExisting) > QueryParamsIdx {
+																		return QueryParamsExisting[QueryParamsIdx].CheckPresent
 																	}
 																	if _, ok := QueryParamsItemMap["check_present"].(map[string]interface{}); ok {
 																		return &ServicePolicyEmptyModel{}

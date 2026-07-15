@@ -3400,8 +3400,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						return nil
 					}(),
 					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].Labels != nil {
-							return &OriginPoolEmptyModel{}
+						if !isImport && len(existingOriginServersItems) > listIdx {
+							return existingOriginServersItems[listIdx].Labels
 						}
 						if _, ok := itemMap["labels"].(map[string]interface{}); ok {
 							return &OriginPoolEmptyModel{}
@@ -4485,8 +4485,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &OriginPoolEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &OriginPoolEmptyModel{}
@@ -4551,8 +4551,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &OriginPoolEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &OriginPoolEmptyModel{}
@@ -5138,8 +5138,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 						return nil
 					}(),
 					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].Labels != nil {
-							return &OriginPoolEmptyModel{}
+						if !isImport && len(existingOriginServersItems) > listIdx {
+							return existingOriginServersItems[listIdx].Labels
 						}
 						if _, ok := itemMap["labels"].(map[string]interface{}); ok {
 							return &OriginPoolEmptyModel{}
@@ -6223,8 +6223,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &OriginPoolEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &OriginPoolEmptyModel{}
@@ -6289,8 +6289,8 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 												return nil
 											}(),
 											UseSystemDefaults: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &OriginPoolEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &OriginPoolEmptyModel{}
@@ -7641,8 +7641,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						return nil
 					}(),
 					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx && existingOriginServersItems[listIdx].Labels != nil {
-							return &OriginPoolEmptyModel{}
+						if !isImport && len(existingOriginServersItems) > listIdx {
+							return existingOriginServersItems[listIdx].Labels
 						}
 						if _, ok := itemMap["labels"].(map[string]interface{}); ok {
 							return &OriginPoolEmptyModel{}
@@ -8726,8 +8726,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &OriginPoolEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &OriginPoolEmptyModel{}
@@ -8792,8 +8792,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 												return nil
 											}(),
 											UseSystemDefaults: func() *OriginPoolEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &OriginPoolEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &OriginPoolEmptyModel{}

@@ -677,8 +677,8 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 														if PrefixesItemMap, ok := PrefixesItem.(map[string]interface{}); ok {
 															PrefixesResult = append(PrefixesResult, BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel{
 																EqualOrLongerThan: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].EqualOrLongerThan != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].EqualOrLongerThan
 																	}
 																	if _, ok := PrefixesItemMap["equal_or_longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -686,8 +686,8 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 																	return nil
 																}(),
 																ExactMatch: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].ExactMatch != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].ExactMatch
 																	}
 																	if _, ok := PrefixesItemMap["exact_match"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -701,8 +701,8 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 																	return types.StringNull()
 																}(),
 																LongerThan: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].LongerThan != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].LongerThan
 																	}
 																	if _, ok := PrefixesItemMap["longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -975,8 +975,8 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 														if PrefixesItemMap, ok := PrefixesItem.(map[string]interface{}); ok {
 															PrefixesResult = append(PrefixesResult, BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel{
 																EqualOrLongerThan: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].EqualOrLongerThan != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].EqualOrLongerThan
 																	}
 																	if _, ok := PrefixesItemMap["equal_or_longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -984,8 +984,8 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 																	return nil
 																}(),
 																ExactMatch: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].ExactMatch != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].ExactMatch
 																	}
 																	if _, ok := PrefixesItemMap["exact_match"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -999,8 +999,8 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 																	return types.StringNull()
 																}(),
 																LongerThan: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].LongerThan != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].LongerThan
 																	}
 																	if _, ok := PrefixesItemMap["longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -1356,8 +1356,8 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 														if PrefixesItemMap, ok := PrefixesItem.(map[string]interface{}); ok {
 															PrefixesResult = append(PrefixesResult, BGPRoutingPolicyRulesMatchIPPrefixesPrefixesModel{
 																EqualOrLongerThan: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].EqualOrLongerThan != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].EqualOrLongerThan
 																	}
 																	if _, ok := PrefixesItemMap["equal_or_longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -1365,8 +1365,8 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 																	return nil
 																}(),
 																ExactMatch: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].ExactMatch != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].ExactMatch
 																	}
 																	if _, ok := PrefixesItemMap["exact_match"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}
@@ -1380,8 +1380,8 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 																	return types.StringNull()
 																}(),
 																LongerThan: func() *BGPRoutingPolicyEmptyModel {
-																	if !isImport && len(PrefixesExisting) > PrefixesIdx && PrefixesExisting[PrefixesIdx].LongerThan != nil {
-																		return &BGPRoutingPolicyEmptyModel{}
+																	if !isImport && len(PrefixesExisting) > PrefixesIdx {
+																		return PrefixesExisting[PrefixesIdx].LongerThan
 																	}
 																	if _, ok := PrefixesItemMap["longer_than"].(map[string]interface{}); ok {
 																		return &BGPRoutingPolicyEmptyModel{}

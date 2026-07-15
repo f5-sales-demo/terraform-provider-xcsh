@@ -2395,8 +2395,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &SecretManagementAccessEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
@@ -2461,8 +2461,8 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 															return nil
 														}(),
 														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &SecretManagementAccessEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
@@ -3499,8 +3499,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &SecretManagementAccessEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
@@ -3565,8 +3565,8 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 															return nil
 														}(),
 														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &SecretManagementAccessEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
@@ -5086,8 +5086,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &SecretManagementAccessEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}
@@ -5152,8 +5152,8 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 															return nil
 														}(),
 														UseSystemDefaults: func() *SecretManagementAccessEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &SecretManagementAccessEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &SecretManagementAccessEmptyModel{}

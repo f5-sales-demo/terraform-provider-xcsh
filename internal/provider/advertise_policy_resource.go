@@ -1434,8 +1434,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &AdvertisePolicyEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &AdvertisePolicyEmptyModel{}
@@ -1500,8 +1500,8 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 												return nil
 											}(),
 											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &AdvertisePolicyEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &AdvertisePolicyEmptyModel{}
@@ -2133,8 +2133,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &AdvertisePolicyEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &AdvertisePolicyEmptyModel{}
@@ -2199,8 +2199,8 @@ func (r *AdvertisePolicyResource) Read(ctx context.Context, req resource.ReadReq
 												return nil
 											}(),
 											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &AdvertisePolicyEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &AdvertisePolicyEmptyModel{}
@@ -3146,8 +3146,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 												return types.StringNull()
 											}(),
 											DisableOCSPStapling: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-													return &AdvertisePolicyEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 												}
 												if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 													return &AdvertisePolicyEmptyModel{}
@@ -3212,8 +3212,8 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 												return nil
 											}(),
 											UseSystemDefaults: func() *AdvertisePolicyEmptyModel {
-												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-													return &AdvertisePolicyEmptyModel{}
+												if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+													return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 												}
 												if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 													return &AdvertisePolicyEmptyModel{}

@@ -5559,8 +5559,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5568,8 +5568,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5583,8 +5583,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5592,8 +5592,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5601,8 +5601,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5610,8 +5610,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5619,8 +5619,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5628,8 +5628,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5637,8 +5637,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5646,8 +5646,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5655,8 +5655,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5664,8 +5664,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5691,8 +5691,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5700,8 +5700,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -5709,8 +5709,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6325,8 +6325,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6334,8 +6334,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6349,8 +6349,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6358,8 +6358,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6367,8 +6367,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6376,8 +6376,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6385,8 +6385,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6394,8 +6394,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6403,8 +6403,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6412,8 +6412,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6421,8 +6421,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6430,8 +6430,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6457,8 +6457,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6466,8 +6466,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6475,8 +6475,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6740,8 +6740,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -6806,8 +6806,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 															return nil
 														}(),
 														UseSystemDefaults: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -7450,8 +7450,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											AddHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7459,8 +7459,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											AddPartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7474,8 +7474,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.StringNull()
 											}(),
 											AddSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7483,8 +7483,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreDomain: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7492,8 +7492,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreExpiry: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7501,8 +7501,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7510,8 +7510,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreMaxAge: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7519,8 +7519,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnorePartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7528,8 +7528,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnorePath: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7537,8 +7537,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreSamesite: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7546,8 +7546,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7555,8 +7555,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											IgnoreValue: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7582,8 +7582,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return types.BoolNull()
 											}(),
 											SamesiteLax: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7591,8 +7591,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											SamesiteNone: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7600,8 +7600,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											SamesiteStrict: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -7887,8 +7887,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &ProxyEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
@@ -8098,8 +8098,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
 											DisableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+													return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -8132,8 +8132,8 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 												return nil
 											}(),
 											EnableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+													return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -8765,8 +8765,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8774,8 +8774,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8789,8 +8789,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8798,8 +8798,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8807,8 +8807,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8816,8 +8816,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8825,8 +8825,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8834,8 +8834,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8843,8 +8843,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8852,8 +8852,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8861,8 +8861,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8870,8 +8870,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8897,8 +8897,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8906,8 +8906,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -8915,8 +8915,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9531,8 +9531,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9540,8 +9540,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9555,8 +9555,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9564,8 +9564,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9573,8 +9573,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9582,8 +9582,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9591,8 +9591,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9600,8 +9600,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9609,8 +9609,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9618,8 +9618,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9627,8 +9627,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9636,8 +9636,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9663,8 +9663,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9672,8 +9672,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9681,8 +9681,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -9946,8 +9946,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -10012,8 +10012,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															return nil
 														}(),
 														UseSystemDefaults: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -10656,8 +10656,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											AddHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10665,8 +10665,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											AddPartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10680,8 +10680,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.StringNull()
 											}(),
 											AddSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10689,8 +10689,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreDomain: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10698,8 +10698,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreExpiry: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10707,8 +10707,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10716,8 +10716,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreMaxAge: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10725,8 +10725,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnorePartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10734,8 +10734,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnorePath: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10743,8 +10743,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreSamesite: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10752,8 +10752,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10761,8 +10761,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											IgnoreValue: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10788,8 +10788,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return types.BoolNull()
 											}(),
 											SamesiteLax: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10797,8 +10797,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											SamesiteNone: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -10806,8 +10806,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											SamesiteStrict: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -11093,8 +11093,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &ProxyEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
@@ -11304,8 +11304,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
 											DisableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+													return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -11338,8 +11338,8 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 												return nil
 											}(),
 											EnableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+													return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -13386,8 +13386,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13395,8 +13395,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13410,8 +13410,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13419,8 +13419,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13428,8 +13428,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13437,8 +13437,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13446,8 +13446,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13455,8 +13455,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13464,8 +13464,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13473,8 +13473,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13482,8 +13482,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13491,8 +13491,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13518,8 +13518,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13527,8 +13527,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -13536,8 +13536,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14152,8 +14152,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14161,8 +14161,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														AddPartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14176,8 +14176,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														AddSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14185,8 +14185,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreDomain: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14194,8 +14194,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreExpiry: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14203,8 +14203,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreHttponly: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14212,8 +14212,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreMaxAge: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14221,8 +14221,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnorePartitioned: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14230,8 +14230,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnorePath: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14239,8 +14239,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreSamesite: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14248,8 +14248,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreSecure: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14257,8 +14257,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														IgnoreValue: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 															}
 															if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14284,8 +14284,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.BoolNull()
 														}(),
 														SamesiteLax: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14293,8 +14293,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														SamesiteNone: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14302,8 +14302,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														SamesiteStrict: func() *ProxyEmptyModel {
-															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+																return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 															}
 															if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14567,8 +14567,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return types.StringNull()
 														}(),
 														DisableOCSPStapling: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].DisableOCSPStapling
 															}
 															if _, ok := TLSCertificatesItemMap["disable_ocsp_stapling"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -14633,8 +14633,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															return nil
 														}(),
 														UseSystemDefaults: func() *ProxyEmptyModel {
-															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx && TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults != nil {
-																return &ProxyEmptyModel{}
+															if !isImport && len(TLSCertificatesExisting) > TLSCertificatesIdx {
+																return TLSCertificatesExisting[TLSCertificatesIdx].UseSystemDefaults
 															}
 															if _, ok := TLSCertificatesItemMap["use_system_defaults"].(map[string]interface{}); ok {
 																return &ProxyEmptyModel{}
@@ -15277,8 +15277,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											AddHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15286,8 +15286,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											AddPartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddPartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15301,8 +15301,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.StringNull()
 											}(),
 											AddSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].AddSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["add_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15310,8 +15310,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreDomain: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreDomain
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_domain"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15319,8 +15319,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreExpiry: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreExpiry
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_expiry"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15328,8 +15328,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreHttponly: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreHttponly
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_httponly"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15337,8 +15337,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreMaxAge: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreMaxAge
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_max_age"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15346,8 +15346,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnorePartitioned: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePartitioned
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_partitioned"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15355,8 +15355,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnorePath: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnorePath
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_path"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15364,8 +15364,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreSamesite: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSamesite
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_samesite"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15373,8 +15373,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreSecure: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreSecure
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_secure"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15382,8 +15382,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											IgnoreValue: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].IgnoreValue
 												}
 												if _, ok := ResponseCookiesToAddItemMap["ignore_value"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15409,8 +15409,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return types.BoolNull()
 											}(),
 											SamesiteLax: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteLax
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_lax"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15418,8 +15418,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											SamesiteNone: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteNone
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_none"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15427,8 +15427,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											SamesiteStrict: func() *ProxyEmptyModel {
-												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx && ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(ResponseCookiesToAddExisting) > ResponseCookiesToAddIdx {
+													return ResponseCookiesToAddExisting[ResponseCookiesToAddIdx].SamesiteStrict
 												}
 												if _, ok := ResponseCookiesToAddItemMap["samesite_strict"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15714,8 +15714,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									return nil
 								}(),
 								UseDefaultPort: func() *ProxyEmptyModel {
-									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx && AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort != nil {
-										return &ProxyEmptyModel{}
+									if !isImport && len(AdvertiseWhereExisting) > AdvertiseWhereIdx {
+										return AdvertiseWhereExisting[AdvertiseWhereIdx].UseDefaultPort
 									}
 									if _, ok := AdvertiseWhereItemMap["use_default_port"].(map[string]interface{}); ok {
 										return &ProxyEmptyModel{}
@@ -15925,8 +15925,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									if InterceptionRulesItemMap, ok := InterceptionRulesItem.(map[string]interface{}); ok {
 										InterceptionRulesResult = append(InterceptionRulesResult, ProxyTLSInterceptPolicyInterceptionRulesModel{
 											DisableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+													return InterceptionRulesExisting[InterceptionRulesIdx].DisableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["disable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
@@ -15959,8 +15959,8 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 												return nil
 											}(),
 											EnableInterception: func() *ProxyEmptyModel {
-												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx && InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception != nil {
-													return &ProxyEmptyModel{}
+												if !isImport && len(InterceptionRulesExisting) > InterceptionRulesIdx {
+													return InterceptionRulesExisting[InterceptionRulesIdx].EnableInterception
 												}
 												if _, ok := InterceptionRulesItemMap["enable_interception"].(map[string]interface{}); ok {
 													return &ProxyEmptyModel{}
