@@ -15,5 +15,5 @@ terraform {
 # Basic ProtocolPolicer configuration
 resource "xcsh_protocol_policer" "example" {
   name      = "example-protocol-policer"
-  namespace = "staging"
+  namespace = "system"
 }

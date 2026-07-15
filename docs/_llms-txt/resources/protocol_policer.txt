@@ -6,14 +6,13 @@ Protocol_policer object, protocol_policer object contains list of L4 protocol ma
 ## Required
 
 - name
-- namespace
 
 ## Minimal Valid Config
 
 ```terraform
 resource "xcsh_protocol_policer" "example" {
   name      = "example-protocol-policer"
-  namespace = "staging"
+  namespace = "system"
 }
 ```
 

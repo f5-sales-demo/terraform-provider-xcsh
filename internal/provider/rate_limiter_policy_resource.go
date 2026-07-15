@@ -1330,8 +1330,10 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyAsn
 									}
-									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -1339,8 +1341,10 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyCountry
 									}
-									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -1348,8 +1352,10 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyIP
 									}
-									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -2061,8 +2067,10 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyAsn
 									}
-									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -2070,8 +2078,10 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyCountry
 									}
-									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -2079,8 +2089,10 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyIP
 									}
-									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -3109,8 +3121,10 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyAsn
 									}
-									if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_asn"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -3118,8 +3132,10 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyCountry
 									}
-									if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_country"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),
@@ -3127,8 +3143,10 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil {
 										return existingRulesItems[listIdx].Spec.AnyIP
 									}
-									if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
-										return &RateLimiterPolicyEmptyModel{}
+									if !isImport {
+										if _, ok := SpecData["any_ip"].(map[string]interface{}); ok {
+											return &RateLimiterPolicyEmptyModel{}
+										}
 									}
 									return nil
 								}(),

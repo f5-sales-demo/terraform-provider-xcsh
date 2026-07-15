@@ -707,8 +707,8 @@
     "dc_cluster_group": {
       "category": "networking",
       "description": "DC Cluster group in given namespace",
-      "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_dc_cluster_group\" \"example\" {\n  name      = \"example-dc-cluster-group\"\n  namespace = \"staging\"\n}",
+      "required": ["name"],
+      "minimal_config": "resource \"xcsh_dc_cluster_group\" \"example\" {\n  name      = \"example-dc-cluster-group\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -827,8 +827,8 @@
     "fast_acl": {
       "category": "security",
       "description": "Object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to",
-      "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_fast_acl\" \"example\" {\n  name      = \"example-fast-acl\"\n  namespace = \"staging\"\n}",
+      "required": ["name"],
+      "minimal_config": "resource \"xcsh_fast_acl\" \"example\" {\n  name      = \"example-fast-acl\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -837,8 +837,8 @@
     "fast_acl_rule": {
       "category": "security",
       "description": "New Fast ACL rule, has specification to match source IP, source port and action to apply",
-      "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_fast_acl_rule\" \"example\" {\n  name      = \"example-fast-acl-rule\"\n  namespace = \"staging\"\n}",
+      "required": ["name"],
+      "minimal_config": "resource \"xcsh_fast_acl_rule\" \"example\" {\n  name      = \"example-fast-acl-rule\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -904,8 +904,8 @@
     "geo_location_set": {
       "category": "cloud-resources",
       "description": "Geolocation Set",
-      "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_geo_location_set\" \"example\" {\n  name      = \"example-geo-location-set\"\n  namespace = \"staging\"\n}",
+      "required": ["name"],
+      "minimal_config": "resource \"xcsh_geo_location_set\" \"example\" {\n  name      = \"example-geo-location-set\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -1009,7 +1009,7 @@
       "category": "kubernetes",
       "description": "K8s_cluster will create the object in the storage backend for namespace metadata.namespace",
       "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_k8s_cluster\" \"example\" {\n  name      = \"example-k8s-cluster\"\n  namespace = \"staging\"\n}",
+      "minimal_config": "resource \"xcsh_k8s_cluster\" \"example\" {\n  name      = \"example-k8s-cluster\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -1263,8 +1263,8 @@
     "protocol_policer": {
       "category": "security",
       "description": "Protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits",
-      "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_protocol_policer\" \"example\" {\n  name      = \"example-protocol-policer\"\n  namespace = \"staging\"\n}",
+      "required": ["name"],
+      "minimal_config": "resource \"xcsh_protocol_policer\" \"example\" {\n  name      = \"example-protocol-policer\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
       },
