@@ -359,14 +359,14 @@ func (r *K8SClusterRoleBindingResource) Create(ctx context.Context, req resource
 					SubjectsItemMap["group"] = SubjectsItem.Group.ValueString()
 				}
 				if SubjectsItem.ServiceAccount != nil {
-					ServiceAccountMap := make(map[string]interface{})
+					SubjectsServiceAccountMap := make(map[string]interface{})
 					if !SubjectsItem.ServiceAccount.Name.IsNull() && !SubjectsItem.ServiceAccount.Name.IsUnknown() {
-						ServiceAccountMap["name"] = SubjectsItem.ServiceAccount.Name.ValueString()
+						SubjectsServiceAccountMap["name"] = SubjectsItem.ServiceAccount.Name.ValueString()
 					}
 					if !SubjectsItem.ServiceAccount.Namespace.IsNull() && !SubjectsItem.ServiceAccount.Namespace.IsUnknown() {
-						ServiceAccountMap["namespace"] = SubjectsItem.ServiceAccount.Namespace.ValueString()
+						SubjectsServiceAccountMap["namespace"] = SubjectsItem.ServiceAccount.Namespace.ValueString()
 					}
-					SubjectsItemMap["service_account"] = ServiceAccountMap
+					SubjectsItemMap["service_account"] = SubjectsServiceAccountMap
 				}
 				if !SubjectsItem.User.IsNull() && !SubjectsItem.User.IsUnknown() {
 					SubjectsItemMap["user"] = SubjectsItem.User.ValueString()
@@ -718,14 +718,14 @@ func (r *K8SClusterRoleBindingResource) Update(ctx context.Context, req resource
 					SubjectsItemMap["group"] = SubjectsItem.Group.ValueString()
 				}
 				if SubjectsItem.ServiceAccount != nil {
-					ServiceAccountMap := make(map[string]interface{})
+					SubjectsServiceAccountMap := make(map[string]interface{})
 					if !SubjectsItem.ServiceAccount.Name.IsNull() && !SubjectsItem.ServiceAccount.Name.IsUnknown() {
-						ServiceAccountMap["name"] = SubjectsItem.ServiceAccount.Name.ValueString()
+						SubjectsServiceAccountMap["name"] = SubjectsItem.ServiceAccount.Name.ValueString()
 					}
 					if !SubjectsItem.ServiceAccount.Namespace.IsNull() && !SubjectsItem.ServiceAccount.Namespace.IsUnknown() {
-						ServiceAccountMap["namespace"] = SubjectsItem.ServiceAccount.Namespace.ValueString()
+						SubjectsServiceAccountMap["namespace"] = SubjectsItem.ServiceAccount.Namespace.ValueString()
 					}
-					SubjectsItemMap["service_account"] = ServiceAccountMap
+					SubjectsItemMap["service_account"] = SubjectsServiceAccountMap
 				}
 				if !SubjectsItem.User.IsNull() && !SubjectsItem.User.IsUnknown() {
 					SubjectsItemMap["user"] = SubjectsItem.User.ValueString()

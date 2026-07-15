@@ -721,66 +721,66 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 			EnableForwardProxyMap["no_interception"] = map[string]interface{}{}
 		}
 		if data.EnableForwardProxy.TLSIntercept != nil {
-			TLSInterceptMap := make(map[string]interface{})
+			EnableForwardProxyTLSInterceptMap := make(map[string]interface{})
 			if data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
-				CustomCertificateMap := make(map[string]interface{})
+				EnableForwardProxyTLSInterceptCustomCertificateMap := make(map[string]interface{})
 				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsUnknown() {
-					CustomCertificateMap["certificate_url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+					EnableForwardProxyTLSInterceptCustomCertificateMap["certificate_url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
-					CustomHashAlgorithmsMap := make(map[string]interface{})
+					EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap := make(map[string]interface{})
 					if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 						var HashAlgorithmsItems []string
 						diags := data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 						if !diags.HasError() {
-							CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 						}
 					}
-					CustomCertificateMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					EnableForwardProxyTLSInterceptCustomCertificateMap["custom_hash_algorithms"] = EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap
 				}
 				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
-					CustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
+					EnableForwardProxyTLSInterceptCustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
-					CustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					EnableForwardProxyTLSInterceptCustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
-					PrivateKeyMap := make(map[string]interface{})
+					EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap := make(map[string]interface{})
 					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap["location"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap["store_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap["blindfold_secret_info"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap
 					}
 					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap["provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap["url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
 						}
-						PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap["clear_secret_info"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap
 					}
-					CustomCertificateMap["private_key"] = PrivateKeyMap
+					EnableForwardProxyTLSInterceptCustomCertificateMap["private_key"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
-					CustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
+					EnableForwardProxyTLSInterceptCustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
 				}
-				TLSInterceptMap["custom_certificate"] = CustomCertificateMap
+				EnableForwardProxyTLSInterceptMap["custom_certificate"] = EnableForwardProxyTLSInterceptCustomCertificateMap
 			}
 			if data.EnableForwardProxy.TLSIntercept.EnableForAllDomains != nil {
-				TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
+				EnableForwardProxyTLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 			}
 			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
-				PolicyMap := make(map[string]interface{})
+				EnableForwardProxyTLSInterceptPolicyMap := make(map[string]interface{})
 				if !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
 					var InterceptionRulesElems []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
 					diags := data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesElems, false)
@@ -793,38 +793,38 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 								InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 							}
 							if InterceptionRulesItem.DomainMatch != nil {
-								DomainMatchMap := make(map[string]interface{})
+								EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap := make(map[string]interface{})
 								if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
-									DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+									EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
 								}
 								if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
-									DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+									EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
 								}
 								if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
-									DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+									EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
 								}
-								InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+								InterceptionRulesItemMap["domain_match"] = EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap
 							}
 							if InterceptionRulesItem.EnableInterception != nil {
 								InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 							}
 							InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
 						}
-						PolicyMap["interception_rules"] = InterceptionRulesList
+						EnableForwardProxyTLSInterceptPolicyMap["interception_rules"] = InterceptionRulesList
 					}
 				}
-				TLSInterceptMap["policy"] = PolicyMap
+				EnableForwardProxyTLSInterceptMap["policy"] = EnableForwardProxyTLSInterceptPolicyMap
 			}
 			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
-				TLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
+				EnableForwardProxyTLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
 			}
 			if data.EnableForwardProxy.TLSIntercept.VolterraCertificate != nil {
-				TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
+				EnableForwardProxyTLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 			}
 			if data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA != nil {
-				TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
+				EnableForwardProxyTLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 			}
-			EnableForwardProxyMap["tls_intercept"] = TLSInterceptMap
+			EnableForwardProxyMap["tls_intercept"] = EnableForwardProxyTLSInterceptMap
 		}
 		if !data.EnableForwardProxy.WhiteListedPorts.IsNull() && !data.EnableForwardProxy.WhiteListedPorts.IsUnknown() {
 			var WhiteListedPortsItems []int64
@@ -845,17 +845,17 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	if data.SLIToGlobalDR != nil {
 		SLIToGlobalDRMap := make(map[string]interface{})
 		if data.SLIToGlobalDR.GlobalVn != nil {
-			GlobalVnMap := make(map[string]interface{})
+			SLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 			if !data.SLIToGlobalDR.GlobalVn.Name.IsNull() && !data.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-				GlobalVnMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
+				SLIToGlobalDRGlobalVnMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				GlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+				SLIToGlobalDRGlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				GlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+				SLIToGlobalDRGlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+			SLIToGlobalDRMap["global_vn"] = SLIToGlobalDRGlobalVnMap
 		}
 		createReq.Spec["sli_to_global_dr"] = SLIToGlobalDRMap
 	}
@@ -872,17 +872,17 @@ func (r *NetworkConnectorResource) Create(ctx context.Context, req resource.Crea
 	if data.SloToGlobalDR != nil {
 		SloToGlobalDRMap := make(map[string]interface{})
 		if data.SloToGlobalDR.GlobalVn != nil {
-			GlobalVnMap := make(map[string]interface{})
+			SloToGlobalDRGlobalVnMap := make(map[string]interface{})
 			if !data.SloToGlobalDR.GlobalVn.Name.IsNull() && !data.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-				GlobalVnMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
+				SloToGlobalDRGlobalVnMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				GlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+				SloToGlobalDRGlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				GlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+				SloToGlobalDRGlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			SloToGlobalDRMap["global_vn"] = GlobalVnMap
+			SloToGlobalDRMap["global_vn"] = SloToGlobalDRGlobalVnMap
 		}
 		createReq.Spec["slo_to_global_dr"] = SloToGlobalDRMap
 	}
@@ -1828,66 +1828,66 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 			EnableForwardProxyMap["no_interception"] = map[string]interface{}{}
 		}
 		if data.EnableForwardProxy.TLSIntercept != nil {
-			TLSInterceptMap := make(map[string]interface{})
+			EnableForwardProxyTLSInterceptMap := make(map[string]interface{})
 			if data.EnableForwardProxy.TLSIntercept.CustomCertificate != nil {
-				CustomCertificateMap := make(map[string]interface{})
+				EnableForwardProxyTLSInterceptCustomCertificateMap := make(map[string]interface{})
 				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.IsUnknown() {
-					CustomCertificateMap["certificate_url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
+					EnableForwardProxyTLSInterceptCustomCertificateMap["certificate_url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.CertificateURL.ValueString()
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms != nil {
-					CustomHashAlgorithmsMap := make(map[string]interface{})
+					EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap := make(map[string]interface{})
 					if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 						var HashAlgorithmsItems []string
 						diags := data.EnableForwardProxy.TLSIntercept.CustomCertificate.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 						if !diags.HasError() {
-							CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+							EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 						}
 					}
-					CustomCertificateMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+					EnableForwardProxyTLSInterceptCustomCertificateMap["custom_hash_algorithms"] = EnableForwardProxyTLSInterceptCustomCertificateCustomHashAlgorithmsMap
 				}
 				if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.IsUnknown() {
-					CustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
+					EnableForwardProxyTLSInterceptCustomCertificateMap["description"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.DescriptionSpec.ValueString()
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.DisableOCSPStapling != nil {
-					CustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
+					EnableForwardProxyTLSInterceptCustomCertificateMap["disable_ocsp_stapling"] = map[string]interface{}{}
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey != nil {
-					PrivateKeyMap := make(map[string]interface{})
+					EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap := make(map[string]interface{})
 					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap["location"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap["store_provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap["blindfold_secret_info"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyBlindfoldSecretInfoMap
 					}
 					if data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap["provider"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsNull() && !data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
+							EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap["url"] = data.EnableForwardProxy.TLSIntercept.CustomCertificate.PrivateKey.ClearSecretInfo.URL.ValueString()
 						}
-						PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap["clear_secret_info"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyClearSecretInfoMap
 					}
-					CustomCertificateMap["private_key"] = PrivateKeyMap
+					EnableForwardProxyTLSInterceptCustomCertificateMap["private_key"] = EnableForwardProxyTLSInterceptCustomCertificatePrivateKeyMap
 				}
 				if data.EnableForwardProxy.TLSIntercept.CustomCertificate.UseSystemDefaults != nil {
-					CustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
+					EnableForwardProxyTLSInterceptCustomCertificateMap["use_system_defaults"] = map[string]interface{}{}
 				}
-				TLSInterceptMap["custom_certificate"] = CustomCertificateMap
+				EnableForwardProxyTLSInterceptMap["custom_certificate"] = EnableForwardProxyTLSInterceptCustomCertificateMap
 			}
 			if data.EnableForwardProxy.TLSIntercept.EnableForAllDomains != nil {
-				TLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
+				EnableForwardProxyTLSInterceptMap["enable_for_all_domains"] = map[string]interface{}{}
 			}
 			if data.EnableForwardProxy.TLSIntercept.Policy != nil {
-				PolicyMap := make(map[string]interface{})
+				EnableForwardProxyTLSInterceptPolicyMap := make(map[string]interface{})
 				if !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsNull() && !data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.IsUnknown() {
 					var InterceptionRulesElems []NetworkConnectorEnableForwardProxyTLSInterceptPolicyInterceptionRulesModel
 					diags := data.EnableForwardProxy.TLSIntercept.Policy.InterceptionRules.ElementsAs(ctx, &InterceptionRulesElems, false)
@@ -1900,38 +1900,38 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 								InterceptionRulesItemMap["disable_interception"] = map[string]interface{}{}
 							}
 							if InterceptionRulesItem.DomainMatch != nil {
-								DomainMatchMap := make(map[string]interface{})
+								EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap := make(map[string]interface{})
 								if !InterceptionRulesItem.DomainMatch.ExactValue.IsNull() && !InterceptionRulesItem.DomainMatch.ExactValue.IsUnknown() {
-									DomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
+									EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap["exact_value"] = InterceptionRulesItem.DomainMatch.ExactValue.ValueString()
 								}
 								if !InterceptionRulesItem.DomainMatch.RegexValue.IsNull() && !InterceptionRulesItem.DomainMatch.RegexValue.IsUnknown() {
-									DomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
+									EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap["regex_value"] = InterceptionRulesItem.DomainMatch.RegexValue.ValueString()
 								}
 								if !InterceptionRulesItem.DomainMatch.SuffixValue.IsNull() && !InterceptionRulesItem.DomainMatch.SuffixValue.IsUnknown() {
-									DomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
+									EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap["suffix_value"] = InterceptionRulesItem.DomainMatch.SuffixValue.ValueString()
 								}
-								InterceptionRulesItemMap["domain_match"] = DomainMatchMap
+								InterceptionRulesItemMap["domain_match"] = EnableForwardProxyTLSInterceptPolicyInterceptionRulesDomainMatchMap
 							}
 							if InterceptionRulesItem.EnableInterception != nil {
 								InterceptionRulesItemMap["enable_interception"] = map[string]interface{}{}
 							}
 							InterceptionRulesList = append(InterceptionRulesList, InterceptionRulesItemMap)
 						}
-						PolicyMap["interception_rules"] = InterceptionRulesList
+						EnableForwardProxyTLSInterceptPolicyMap["interception_rules"] = InterceptionRulesList
 					}
 				}
-				TLSInterceptMap["policy"] = PolicyMap
+				EnableForwardProxyTLSInterceptMap["policy"] = EnableForwardProxyTLSInterceptPolicyMap
 			}
 			if !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsNull() && !data.EnableForwardProxy.TLSIntercept.TrustedCAURL.IsUnknown() {
-				TLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
+				EnableForwardProxyTLSInterceptMap["trusted_ca_url"] = data.EnableForwardProxy.TLSIntercept.TrustedCAURL.ValueString()
 			}
 			if data.EnableForwardProxy.TLSIntercept.VolterraCertificate != nil {
-				TLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
+				EnableForwardProxyTLSInterceptMap["volterra_certificate"] = map[string]interface{}{}
 			}
 			if data.EnableForwardProxy.TLSIntercept.VolterraTrustedCA != nil {
-				TLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
+				EnableForwardProxyTLSInterceptMap["volterra_trusted_ca"] = map[string]interface{}{}
 			}
-			EnableForwardProxyMap["tls_intercept"] = TLSInterceptMap
+			EnableForwardProxyMap["tls_intercept"] = EnableForwardProxyTLSInterceptMap
 		}
 		if !data.EnableForwardProxy.WhiteListedPorts.IsNull() && !data.EnableForwardProxy.WhiteListedPorts.IsUnknown() {
 			var WhiteListedPortsItems []int64
@@ -1952,17 +1952,17 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	if data.SLIToGlobalDR != nil {
 		SLIToGlobalDRMap := make(map[string]interface{})
 		if data.SLIToGlobalDR.GlobalVn != nil {
-			GlobalVnMap := make(map[string]interface{})
+			SLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 			if !data.SLIToGlobalDR.GlobalVn.Name.IsNull() && !data.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-				GlobalVnMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
+				SLIToGlobalDRGlobalVnMap["name"] = data.SLIToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				GlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+				SLIToGlobalDRGlobalVnMap["namespace"] = data.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				GlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+				SLIToGlobalDRGlobalVnMap["tenant"] = data.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+			SLIToGlobalDRMap["global_vn"] = SLIToGlobalDRGlobalVnMap
 		}
 		apiResource.Spec["sli_to_global_dr"] = SLIToGlobalDRMap
 	}
@@ -1979,17 +1979,17 @@ func (r *NetworkConnectorResource) Update(ctx context.Context, req resource.Upda
 	if data.SloToGlobalDR != nil {
 		SloToGlobalDRMap := make(map[string]interface{})
 		if data.SloToGlobalDR.GlobalVn != nil {
-			GlobalVnMap := make(map[string]interface{})
+			SloToGlobalDRGlobalVnMap := make(map[string]interface{})
 			if !data.SloToGlobalDR.GlobalVn.Name.IsNull() && !data.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-				GlobalVnMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
+				SloToGlobalDRGlobalVnMap["name"] = data.SloToGlobalDR.GlobalVn.Name.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !data.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-				GlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+				SloToGlobalDRGlobalVnMap["namespace"] = data.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 			}
 			if !data.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !data.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-				GlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+				SloToGlobalDRGlobalVnMap["tenant"] = data.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 			}
-			SloToGlobalDRMap["global_vn"] = GlobalVnMap
+			SloToGlobalDRMap["global_vn"] = SloToGlobalDRGlobalVnMap
 		}
 		apiResource.Spec["slo_to_global_dr"] = SloToGlobalDRMap
 	}

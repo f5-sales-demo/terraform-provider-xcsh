@@ -968,29 +968,29 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 			EndpointMap["inside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.LabelSelector != nil {
-			LabelSelectorMap := make(map[string]interface{})
+			EndpointLabelSelectorMap := make(map[string]interface{})
 			if !data.Endpoint.LabelSelector.Expressions.IsNull() && !data.Endpoint.LabelSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.Endpoint.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 				if !diags.HasError() {
-					LabelSelectorMap["expressions"] = ExpressionsItems
+					EndpointLabelSelectorMap["expressions"] = ExpressionsItems
 				}
 			}
-			EndpointMap["label_selector"] = LabelSelectorMap
+			EndpointMap["label_selector"] = EndpointLabelSelectorMap
 		}
 		if data.Endpoint.OutsideEndpoints != nil {
 			EndpointMap["outside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.PrefixList != nil {
-			PrefixListMap := make(map[string]interface{})
+			EndpointPrefixListMap := make(map[string]interface{})
 			if !data.Endpoint.PrefixList.Prefixes.IsNull() && !data.Endpoint.PrefixList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.Endpoint.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 				if !diags.HasError() {
-					PrefixListMap["prefixes"] = PrefixesItems
+					EndpointPrefixListMap["prefixes"] = PrefixesItems
 				}
 			}
-			EndpointMap["prefix_list"] = PrefixListMap
+			EndpointMap["prefix_list"] = EndpointPrefixListMap
 		}
 		createReq.Spec["endpoint"] = EndpointMap
 	}
@@ -1008,11 +1008,11 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						EgressRulesItemMap["action"] = EgressRulesItem.Action.ValueString()
 					}
 					if EgressRulesItem.AdvAction != nil {
-						AdvActionMap := make(map[string]interface{})
+						RulesEgressRulesAdvActionMap := make(map[string]interface{})
 						if !EgressRulesItem.AdvAction.Action.IsNull() && !EgressRulesItem.AdvAction.Action.IsUnknown() {
-							AdvActionMap["action"] = EgressRulesItem.AdvAction.Action.ValueString()
+							RulesEgressRulesAdvActionMap["action"] = EgressRulesItem.AdvAction.Action.ValueString()
 						}
-						EgressRulesItemMap["adv_action"] = AdvActionMap
+						EgressRulesItemMap["adv_action"] = RulesEgressRulesAdvActionMap
 					}
 					if EgressRulesItem.AllTCPTraffic != nil {
 						EgressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
@@ -1027,21 +1027,21 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						EgressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						RulesEgressRulesApplicationsMap := make(map[string]interface{})
 						if !EgressRulesItem.Applications.Applications.IsNull() && !EgressRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := EgressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								RulesEgressRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						EgressRulesItemMap["applications"] = ApplicationsMap
+						EgressRulesItemMap["applications"] = RulesEgressRulesApplicationsMap
 					}
 					if EgressRulesItem.InsideEndpoints != nil {
 						EgressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RulesEgressRulesIPPrefixSetMap := make(map[string]interface{})
 						if !EgressRulesItem.IPPrefixSet.Ref.IsNull() && !EgressRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
 							diags := EgressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1067,70 +1067,70 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								RulesEgressRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						EgressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						EgressRulesItemMap["ip_prefix_set"] = RulesEgressRulesIPPrefixSetMap
 					}
 					if EgressRulesItem.LabelMatcher != nil {
-						LabelMatcherMap := make(map[string]interface{})
+						RulesEgressRulesLabelMatcherMap := make(map[string]interface{})
 						if !EgressRulesItem.LabelMatcher.Keys.IsNull() && !EgressRulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := EgressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 							if !diags.HasError() {
-								LabelMatcherMap["keys"] = KeysItems
+								RulesEgressRulesLabelMatcherMap["keys"] = KeysItems
 							}
 						}
-						EgressRulesItemMap["label_matcher"] = LabelMatcherMap
+						EgressRulesItemMap["label_matcher"] = RulesEgressRulesLabelMatcherMap
 					}
 					if EgressRulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						RulesEgressRulesLabelSelectorMap := make(map[string]interface{})
 						if !EgressRulesItem.LabelSelector.Expressions.IsNull() && !EgressRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := EgressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								RulesEgressRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						EgressRulesItemMap["label_selector"] = LabelSelectorMap
+						EgressRulesItemMap["label_selector"] = RulesEgressRulesLabelSelectorMap
 					}
 					if EgressRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RulesEgressRulesMetadataMap := make(map[string]interface{})
 						if !EgressRulesItem.Metadata.DescriptionSpec.IsNull() && !EgressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = EgressRulesItem.Metadata.DescriptionSpec.ValueString()
+							RulesEgressRulesMetadataMap["description"] = EgressRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !EgressRulesItem.Metadata.Name.IsNull() && !EgressRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = EgressRulesItem.Metadata.Name.ValueString()
+							RulesEgressRulesMetadataMap["name"] = EgressRulesItem.Metadata.Name.ValueString()
 						}
-						EgressRulesItemMap["metadata"] = MetadataMap
+						EgressRulesItemMap["metadata"] = RulesEgressRulesMetadataMap
 					}
 					if EgressRulesItem.OutsideEndpoints != nil {
 						EgressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						RulesEgressRulesPrefixListMap := make(map[string]interface{})
 						if !EgressRulesItem.PrefixList.Prefixes.IsNull() && !EgressRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := EgressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								RulesEgressRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						EgressRulesItemMap["prefix_list"] = PrefixListMap
+						EgressRulesItemMap["prefix_list"] = RulesEgressRulesPrefixListMap
 					}
 					if EgressRulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						RulesEgressRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !EgressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !EgressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := EgressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								RulesEgressRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !EgressRulesItem.ProtocolPortRange.Protocol.IsNull() && !EgressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = EgressRulesItem.ProtocolPortRange.Protocol.ValueString()
+							RulesEgressRulesProtocolPortRangeMap["protocol"] = EgressRulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						EgressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						EgressRulesItemMap["protocol_port_range"] = RulesEgressRulesProtocolPortRangeMap
 					}
 					EgressRulesList = append(EgressRulesList, EgressRulesItemMap)
 				}
@@ -1149,11 +1149,11 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						IngressRulesItemMap["action"] = IngressRulesItem.Action.ValueString()
 					}
 					if IngressRulesItem.AdvAction != nil {
-						AdvActionMap := make(map[string]interface{})
+						RulesIngressRulesAdvActionMap := make(map[string]interface{})
 						if !IngressRulesItem.AdvAction.Action.IsNull() && !IngressRulesItem.AdvAction.Action.IsUnknown() {
-							AdvActionMap["action"] = IngressRulesItem.AdvAction.Action.ValueString()
+							RulesIngressRulesAdvActionMap["action"] = IngressRulesItem.AdvAction.Action.ValueString()
 						}
-						IngressRulesItemMap["adv_action"] = AdvActionMap
+						IngressRulesItemMap["adv_action"] = RulesIngressRulesAdvActionMap
 					}
 					if IngressRulesItem.AllTCPTraffic != nil {
 						IngressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
@@ -1168,21 +1168,21 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 						IngressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						RulesIngressRulesApplicationsMap := make(map[string]interface{})
 						if !IngressRulesItem.Applications.Applications.IsNull() && !IngressRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := IngressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								RulesIngressRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						IngressRulesItemMap["applications"] = ApplicationsMap
+						IngressRulesItemMap["applications"] = RulesIngressRulesApplicationsMap
 					}
 					if IngressRulesItem.InsideEndpoints != nil {
 						IngressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RulesIngressRulesIPPrefixSetMap := make(map[string]interface{})
 						if !IngressRulesItem.IPPrefixSet.Ref.IsNull() && !IngressRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
 							diags := IngressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1208,70 +1208,70 @@ func (r *NetworkPolicyResource) Create(ctx context.Context, req resource.CreateR
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								RulesIngressRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						IngressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						IngressRulesItemMap["ip_prefix_set"] = RulesIngressRulesIPPrefixSetMap
 					}
 					if IngressRulesItem.LabelMatcher != nil {
-						LabelMatcherMap := make(map[string]interface{})
+						RulesIngressRulesLabelMatcherMap := make(map[string]interface{})
 						if !IngressRulesItem.LabelMatcher.Keys.IsNull() && !IngressRulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := IngressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 							if !diags.HasError() {
-								LabelMatcherMap["keys"] = KeysItems
+								RulesIngressRulesLabelMatcherMap["keys"] = KeysItems
 							}
 						}
-						IngressRulesItemMap["label_matcher"] = LabelMatcherMap
+						IngressRulesItemMap["label_matcher"] = RulesIngressRulesLabelMatcherMap
 					}
 					if IngressRulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						RulesIngressRulesLabelSelectorMap := make(map[string]interface{})
 						if !IngressRulesItem.LabelSelector.Expressions.IsNull() && !IngressRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := IngressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								RulesIngressRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						IngressRulesItemMap["label_selector"] = LabelSelectorMap
+						IngressRulesItemMap["label_selector"] = RulesIngressRulesLabelSelectorMap
 					}
 					if IngressRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RulesIngressRulesMetadataMap := make(map[string]interface{})
 						if !IngressRulesItem.Metadata.DescriptionSpec.IsNull() && !IngressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = IngressRulesItem.Metadata.DescriptionSpec.ValueString()
+							RulesIngressRulesMetadataMap["description"] = IngressRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !IngressRulesItem.Metadata.Name.IsNull() && !IngressRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = IngressRulesItem.Metadata.Name.ValueString()
+							RulesIngressRulesMetadataMap["name"] = IngressRulesItem.Metadata.Name.ValueString()
 						}
-						IngressRulesItemMap["metadata"] = MetadataMap
+						IngressRulesItemMap["metadata"] = RulesIngressRulesMetadataMap
 					}
 					if IngressRulesItem.OutsideEndpoints != nil {
 						IngressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						RulesIngressRulesPrefixListMap := make(map[string]interface{})
 						if !IngressRulesItem.PrefixList.Prefixes.IsNull() && !IngressRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := IngressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								RulesIngressRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						IngressRulesItemMap["prefix_list"] = PrefixListMap
+						IngressRulesItemMap["prefix_list"] = RulesIngressRulesPrefixListMap
 					}
 					if IngressRulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						RulesIngressRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !IngressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !IngressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := IngressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								RulesIngressRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !IngressRulesItem.ProtocolPortRange.Protocol.IsNull() && !IngressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = IngressRulesItem.ProtocolPortRange.Protocol.ValueString()
+							RulesIngressRulesProtocolPortRangeMap["protocol"] = IngressRulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						IngressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						IngressRulesItemMap["protocol_port_range"] = RulesIngressRulesProtocolPortRangeMap
 					}
 					IngressRulesList = append(IngressRulesList, IngressRulesItemMap)
 				}
@@ -2732,29 +2732,29 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 			EndpointMap["inside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.LabelSelector != nil {
-			LabelSelectorMap := make(map[string]interface{})
+			EndpointLabelSelectorMap := make(map[string]interface{})
 			if !data.Endpoint.LabelSelector.Expressions.IsNull() && !data.Endpoint.LabelSelector.Expressions.IsUnknown() {
 				var ExpressionsItems []string
 				diags := data.Endpoint.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 				if !diags.HasError() {
-					LabelSelectorMap["expressions"] = ExpressionsItems
+					EndpointLabelSelectorMap["expressions"] = ExpressionsItems
 				}
 			}
-			EndpointMap["label_selector"] = LabelSelectorMap
+			EndpointMap["label_selector"] = EndpointLabelSelectorMap
 		}
 		if data.Endpoint.OutsideEndpoints != nil {
 			EndpointMap["outside_endpoints"] = map[string]interface{}{}
 		}
 		if data.Endpoint.PrefixList != nil {
-			PrefixListMap := make(map[string]interface{})
+			EndpointPrefixListMap := make(map[string]interface{})
 			if !data.Endpoint.PrefixList.Prefixes.IsNull() && !data.Endpoint.PrefixList.Prefixes.IsUnknown() {
 				var PrefixesItems []string
 				diags := data.Endpoint.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 				if !diags.HasError() {
-					PrefixListMap["prefixes"] = PrefixesItems
+					EndpointPrefixListMap["prefixes"] = PrefixesItems
 				}
 			}
-			EndpointMap["prefix_list"] = PrefixListMap
+			EndpointMap["prefix_list"] = EndpointPrefixListMap
 		}
 		apiResource.Spec["endpoint"] = EndpointMap
 	}
@@ -2772,11 +2772,11 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						EgressRulesItemMap["action"] = EgressRulesItem.Action.ValueString()
 					}
 					if EgressRulesItem.AdvAction != nil {
-						AdvActionMap := make(map[string]interface{})
+						RulesEgressRulesAdvActionMap := make(map[string]interface{})
 						if !EgressRulesItem.AdvAction.Action.IsNull() && !EgressRulesItem.AdvAction.Action.IsUnknown() {
-							AdvActionMap["action"] = EgressRulesItem.AdvAction.Action.ValueString()
+							RulesEgressRulesAdvActionMap["action"] = EgressRulesItem.AdvAction.Action.ValueString()
 						}
-						EgressRulesItemMap["adv_action"] = AdvActionMap
+						EgressRulesItemMap["adv_action"] = RulesEgressRulesAdvActionMap
 					}
 					if EgressRulesItem.AllTCPTraffic != nil {
 						EgressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
@@ -2791,21 +2791,21 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						EgressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						RulesEgressRulesApplicationsMap := make(map[string]interface{})
 						if !EgressRulesItem.Applications.Applications.IsNull() && !EgressRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := EgressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								RulesEgressRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						EgressRulesItemMap["applications"] = ApplicationsMap
+						EgressRulesItemMap["applications"] = RulesEgressRulesApplicationsMap
 					}
 					if EgressRulesItem.InsideEndpoints != nil {
 						EgressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RulesEgressRulesIPPrefixSetMap := make(map[string]interface{})
 						if !EgressRulesItem.IPPrefixSet.Ref.IsNull() && !EgressRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []NetworkPolicyRulesEgressRulesIPPrefixSetRefModel
 							diags := EgressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -2831,70 +2831,70 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								RulesEgressRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						EgressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						EgressRulesItemMap["ip_prefix_set"] = RulesEgressRulesIPPrefixSetMap
 					}
 					if EgressRulesItem.LabelMatcher != nil {
-						LabelMatcherMap := make(map[string]interface{})
+						RulesEgressRulesLabelMatcherMap := make(map[string]interface{})
 						if !EgressRulesItem.LabelMatcher.Keys.IsNull() && !EgressRulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := EgressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 							if !diags.HasError() {
-								LabelMatcherMap["keys"] = KeysItems
+								RulesEgressRulesLabelMatcherMap["keys"] = KeysItems
 							}
 						}
-						EgressRulesItemMap["label_matcher"] = LabelMatcherMap
+						EgressRulesItemMap["label_matcher"] = RulesEgressRulesLabelMatcherMap
 					}
 					if EgressRulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						RulesEgressRulesLabelSelectorMap := make(map[string]interface{})
 						if !EgressRulesItem.LabelSelector.Expressions.IsNull() && !EgressRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := EgressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								RulesEgressRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						EgressRulesItemMap["label_selector"] = LabelSelectorMap
+						EgressRulesItemMap["label_selector"] = RulesEgressRulesLabelSelectorMap
 					}
 					if EgressRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RulesEgressRulesMetadataMap := make(map[string]interface{})
 						if !EgressRulesItem.Metadata.DescriptionSpec.IsNull() && !EgressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = EgressRulesItem.Metadata.DescriptionSpec.ValueString()
+							RulesEgressRulesMetadataMap["description"] = EgressRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !EgressRulesItem.Metadata.Name.IsNull() && !EgressRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = EgressRulesItem.Metadata.Name.ValueString()
+							RulesEgressRulesMetadataMap["name"] = EgressRulesItem.Metadata.Name.ValueString()
 						}
-						EgressRulesItemMap["metadata"] = MetadataMap
+						EgressRulesItemMap["metadata"] = RulesEgressRulesMetadataMap
 					}
 					if EgressRulesItem.OutsideEndpoints != nil {
 						EgressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if EgressRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						RulesEgressRulesPrefixListMap := make(map[string]interface{})
 						if !EgressRulesItem.PrefixList.Prefixes.IsNull() && !EgressRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := EgressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								RulesEgressRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						EgressRulesItemMap["prefix_list"] = PrefixListMap
+						EgressRulesItemMap["prefix_list"] = RulesEgressRulesPrefixListMap
 					}
 					if EgressRulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						RulesEgressRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !EgressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !EgressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := EgressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								RulesEgressRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !EgressRulesItem.ProtocolPortRange.Protocol.IsNull() && !EgressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = EgressRulesItem.ProtocolPortRange.Protocol.ValueString()
+							RulesEgressRulesProtocolPortRangeMap["protocol"] = EgressRulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						EgressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						EgressRulesItemMap["protocol_port_range"] = RulesEgressRulesProtocolPortRangeMap
 					}
 					EgressRulesList = append(EgressRulesList, EgressRulesItemMap)
 				}
@@ -2913,11 +2913,11 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						IngressRulesItemMap["action"] = IngressRulesItem.Action.ValueString()
 					}
 					if IngressRulesItem.AdvAction != nil {
-						AdvActionMap := make(map[string]interface{})
+						RulesIngressRulesAdvActionMap := make(map[string]interface{})
 						if !IngressRulesItem.AdvAction.Action.IsNull() && !IngressRulesItem.AdvAction.Action.IsUnknown() {
-							AdvActionMap["action"] = IngressRulesItem.AdvAction.Action.ValueString()
+							RulesIngressRulesAdvActionMap["action"] = IngressRulesItem.AdvAction.Action.ValueString()
 						}
-						IngressRulesItemMap["adv_action"] = AdvActionMap
+						IngressRulesItemMap["adv_action"] = RulesIngressRulesAdvActionMap
 					}
 					if IngressRulesItem.AllTCPTraffic != nil {
 						IngressRulesItemMap["all_tcp_traffic"] = map[string]interface{}{}
@@ -2932,21 +2932,21 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 						IngressRulesItemMap["any"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.Applications != nil {
-						ApplicationsMap := make(map[string]interface{})
+						RulesIngressRulesApplicationsMap := make(map[string]interface{})
 						if !IngressRulesItem.Applications.Applications.IsNull() && !IngressRulesItem.Applications.Applications.IsUnknown() {
 							var ApplicationsItems []string
 							diags := IngressRulesItem.Applications.Applications.ElementsAs(ctx, &ApplicationsItems, false)
 							if !diags.HasError() {
-								ApplicationsMap["applications"] = ApplicationsItems
+								RulesIngressRulesApplicationsMap["applications"] = ApplicationsItems
 							}
 						}
-						IngressRulesItemMap["applications"] = ApplicationsMap
+						IngressRulesItemMap["applications"] = RulesIngressRulesApplicationsMap
 					}
 					if IngressRulesItem.InsideEndpoints != nil {
 						IngressRulesItemMap["inside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.IPPrefixSet != nil {
-						IPPrefixSetMap := make(map[string]interface{})
+						RulesIngressRulesIPPrefixSetMap := make(map[string]interface{})
 						if !IngressRulesItem.IPPrefixSet.Ref.IsNull() && !IngressRulesItem.IPPrefixSet.Ref.IsUnknown() {
 							var RefElems []NetworkPolicyRulesIngressRulesIPPrefixSetRefModel
 							diags := IngressRulesItem.IPPrefixSet.Ref.ElementsAs(ctx, &RefElems, false)
@@ -2972,70 +2972,70 @@ func (r *NetworkPolicyResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									RefList = append(RefList, RefItemMap)
 								}
-								IPPrefixSetMap["ref"] = RefList
+								RulesIngressRulesIPPrefixSetMap["ref"] = RefList
 							}
 						}
-						IngressRulesItemMap["ip_prefix_set"] = IPPrefixSetMap
+						IngressRulesItemMap["ip_prefix_set"] = RulesIngressRulesIPPrefixSetMap
 					}
 					if IngressRulesItem.LabelMatcher != nil {
-						LabelMatcherMap := make(map[string]interface{})
+						RulesIngressRulesLabelMatcherMap := make(map[string]interface{})
 						if !IngressRulesItem.LabelMatcher.Keys.IsNull() && !IngressRulesItem.LabelMatcher.Keys.IsUnknown() {
 							var KeysItems []string
 							diags := IngressRulesItem.LabelMatcher.Keys.ElementsAs(ctx, &KeysItems, false)
 							if !diags.HasError() {
-								LabelMatcherMap["keys"] = KeysItems
+								RulesIngressRulesLabelMatcherMap["keys"] = KeysItems
 							}
 						}
-						IngressRulesItemMap["label_matcher"] = LabelMatcherMap
+						IngressRulesItemMap["label_matcher"] = RulesIngressRulesLabelMatcherMap
 					}
 					if IngressRulesItem.LabelSelector != nil {
-						LabelSelectorMap := make(map[string]interface{})
+						RulesIngressRulesLabelSelectorMap := make(map[string]interface{})
 						if !IngressRulesItem.LabelSelector.Expressions.IsNull() && !IngressRulesItem.LabelSelector.Expressions.IsUnknown() {
 							var ExpressionsItems []string
 							diags := IngressRulesItem.LabelSelector.Expressions.ElementsAs(ctx, &ExpressionsItems, false)
 							if !diags.HasError() {
-								LabelSelectorMap["expressions"] = ExpressionsItems
+								RulesIngressRulesLabelSelectorMap["expressions"] = ExpressionsItems
 							}
 						}
-						IngressRulesItemMap["label_selector"] = LabelSelectorMap
+						IngressRulesItemMap["label_selector"] = RulesIngressRulesLabelSelectorMap
 					}
 					if IngressRulesItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						RulesIngressRulesMetadataMap := make(map[string]interface{})
 						if !IngressRulesItem.Metadata.DescriptionSpec.IsNull() && !IngressRulesItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = IngressRulesItem.Metadata.DescriptionSpec.ValueString()
+							RulesIngressRulesMetadataMap["description"] = IngressRulesItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !IngressRulesItem.Metadata.Name.IsNull() && !IngressRulesItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = IngressRulesItem.Metadata.Name.ValueString()
+							RulesIngressRulesMetadataMap["name"] = IngressRulesItem.Metadata.Name.ValueString()
 						}
-						IngressRulesItemMap["metadata"] = MetadataMap
+						IngressRulesItemMap["metadata"] = RulesIngressRulesMetadataMap
 					}
 					if IngressRulesItem.OutsideEndpoints != nil {
 						IngressRulesItemMap["outside_endpoints"] = map[string]interface{}{}
 					}
 					if IngressRulesItem.PrefixList != nil {
-						PrefixListMap := make(map[string]interface{})
+						RulesIngressRulesPrefixListMap := make(map[string]interface{})
 						if !IngressRulesItem.PrefixList.Prefixes.IsNull() && !IngressRulesItem.PrefixList.Prefixes.IsUnknown() {
 							var PrefixesItems []string
 							diags := IngressRulesItem.PrefixList.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 							if !diags.HasError() {
-								PrefixListMap["prefixes"] = PrefixesItems
+								RulesIngressRulesPrefixListMap["prefixes"] = PrefixesItems
 							}
 						}
-						IngressRulesItemMap["prefix_list"] = PrefixListMap
+						IngressRulesItemMap["prefix_list"] = RulesIngressRulesPrefixListMap
 					}
 					if IngressRulesItem.ProtocolPortRange != nil {
-						ProtocolPortRangeMap := make(map[string]interface{})
+						RulesIngressRulesProtocolPortRangeMap := make(map[string]interface{})
 						if !IngressRulesItem.ProtocolPortRange.PortRanges.IsNull() && !IngressRulesItem.ProtocolPortRange.PortRanges.IsUnknown() {
 							var PortRangesItems []string
 							diags := IngressRulesItem.ProtocolPortRange.PortRanges.ElementsAs(ctx, &PortRangesItems, false)
 							if !diags.HasError() {
-								ProtocolPortRangeMap["port_ranges"] = PortRangesItems
+								RulesIngressRulesProtocolPortRangeMap["port_ranges"] = PortRangesItems
 							}
 						}
 						if !IngressRulesItem.ProtocolPortRange.Protocol.IsNull() && !IngressRulesItem.ProtocolPortRange.Protocol.IsUnknown() {
-							ProtocolPortRangeMap["protocol"] = IngressRulesItem.ProtocolPortRange.Protocol.ValueString()
+							RulesIngressRulesProtocolPortRangeMap["protocol"] = IngressRulesItem.ProtocolPortRange.Protocol.ValueString()
 						}
-						IngressRulesItemMap["protocol_port_range"] = ProtocolPortRangeMap
+						IngressRulesItemMap["protocol_port_range"] = RulesIngressRulesProtocolPortRangeMap
 					}
 					IngressRulesList = append(IngressRulesList, IngressRulesItemMap)
 				}

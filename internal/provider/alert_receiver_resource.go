@@ -1163,31 +1163,31 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 	if data.Opsgenie != nil {
 		OpsgenieMap := make(map[string]interface{})
 		if data.Opsgenie.APIKey != nil {
-			APIKeyMap := make(map[string]interface{})
+			OpsgenieAPIKeyMap := make(map[string]interface{})
 			if data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				OpsgenieAPIKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					OpsgenieAPIKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.ValueString()
+					OpsgenieAPIKeyBlindfoldSecretInfoMap["location"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					OpsgenieAPIKeyBlindfoldSecretInfoMap["store_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				APIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				OpsgenieAPIKeyMap["blindfold_secret_info"] = OpsgenieAPIKeyBlindfoldSecretInfoMap
 			}
 			if data.Opsgenie.APIKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				OpsgenieAPIKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Opsgenie.APIKey.ClearSecretInfo.Provider.ValueString()
+					OpsgenieAPIKeyClearSecretInfoMap["provider"] = data.Opsgenie.APIKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Opsgenie.APIKey.ClearSecretInfo.URL.ValueString()
+					OpsgenieAPIKeyClearSecretInfoMap["url"] = data.Opsgenie.APIKey.ClearSecretInfo.URL.ValueString()
 				}
-				APIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				OpsgenieAPIKeyMap["clear_secret_info"] = OpsgenieAPIKeyClearSecretInfoMap
 			}
-			OpsgenieMap["api_key"] = APIKeyMap
+			OpsgenieMap["api_key"] = OpsgenieAPIKeyMap
 		}
 		if !data.Opsgenie.URL.IsNull() && !data.Opsgenie.URL.IsUnknown() {
 			OpsgenieMap["url"] = data.Opsgenie.URL.ValueString()
@@ -1197,31 +1197,31 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 	if data.Pagerduty != nil {
 		PagerdutyMap := make(map[string]interface{})
 		if data.Pagerduty.RoutingKey != nil {
-			RoutingKeyMap := make(map[string]interface{})
+			PagerdutyRoutingKeyMap := make(map[string]interface{})
 			if data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				PagerdutyRoutingKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					PagerdutyRoutingKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.ValueString()
+					PagerdutyRoutingKeyBlindfoldSecretInfoMap["location"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					PagerdutyRoutingKeyBlindfoldSecretInfoMap["store_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				RoutingKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				PagerdutyRoutingKeyMap["blindfold_secret_info"] = PagerdutyRoutingKeyBlindfoldSecretInfoMap
 			}
 			if data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				PagerdutyRoutingKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.ValueString()
+					PagerdutyRoutingKeyClearSecretInfoMap["provider"] = data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Pagerduty.RoutingKey.ClearSecretInfo.URL.ValueString()
+					PagerdutyRoutingKeyClearSecretInfoMap["url"] = data.Pagerduty.RoutingKey.ClearSecretInfo.URL.ValueString()
 				}
-				RoutingKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				PagerdutyRoutingKeyMap["clear_secret_info"] = PagerdutyRoutingKeyClearSecretInfoMap
 			}
-			PagerdutyMap["routing_key"] = RoutingKeyMap
+			PagerdutyMap["routing_key"] = PagerdutyRoutingKeyMap
 		}
 		if !data.Pagerduty.URL.IsNull() && !data.Pagerduty.URL.IsUnknown() {
 			PagerdutyMap["url"] = data.Pagerduty.URL.ValueString()
@@ -1234,31 +1234,31 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 			SlackMap["channel"] = data.Slack.Channel.ValueString()
 		}
 		if data.Slack.URL != nil {
-			URLMap := make(map[string]interface{})
+			SlackURLMap := make(map[string]interface{})
 			if data.Slack.URL.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SlackURLBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SlackURLBlindfoldSecretInfoMap["decryption_provider"] = data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Slack.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Slack.URL.BlindfoldSecretInfo.Location.ValueString()
+					SlackURLBlindfoldSecretInfoMap["location"] = data.Slack.URL.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Slack.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SlackURLBlindfoldSecretInfoMap["store_provider"] = data.Slack.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SlackURLMap["blindfold_secret_info"] = SlackURLBlindfoldSecretInfoMap
 			}
 			if data.Slack.URL.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SlackURLClearSecretInfoMap := make(map[string]interface{})
 				if !data.Slack.URL.ClearSecretInfo.Provider.IsNull() && !data.Slack.URL.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Slack.URL.ClearSecretInfo.Provider.ValueString()
+					SlackURLClearSecretInfoMap["provider"] = data.Slack.URL.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Slack.URL.ClearSecretInfo.URL.IsNull() && !data.Slack.URL.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Slack.URL.ClearSecretInfo.URL.ValueString()
+					SlackURLClearSecretInfoMap["url"] = data.Slack.URL.ClearSecretInfo.URL.ValueString()
 				}
-				URLMap["clear_secret_info"] = ClearSecretInfoMap
+				SlackURLMap["clear_secret_info"] = SlackURLClearSecretInfoMap
 			}
-			SlackMap["url"] = URLMap
+			SlackMap["url"] = SlackURLMap
 		}
 		createReq.Spec["slack"] = SlackMap
 	}
@@ -1272,74 +1272,74 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 	if data.Webhook != nil {
 		WebhookMap := make(map[string]interface{})
 		if data.Webhook.HTTPConfig != nil {
-			HTTPConfigMap := make(map[string]interface{})
+			WebhookHTTPConfigMap := make(map[string]interface{})
 			if data.Webhook.HTTPConfig.AuthToken != nil {
-				AuthTokenMap := make(map[string]interface{})
+				WebhookHTTPConfigAuthTokenMap := make(map[string]interface{})
 				if data.Webhook.HTTPConfig.AuthToken.Token != nil {
-					TokenMap := make(map[string]interface{})
+					WebhookHTTPConfigAuthTokenTokenMap := make(map[string]interface{})
 					if data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
+							WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+							WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						WebhookHTTPConfigAuthTokenTokenMap["blindfold_secret_info"] = WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap
 					}
 					if data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
+							WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.ValueString()
+							WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.ValueString()
 						}
-						TokenMap["clear_secret_info"] = ClearSecretInfoMap
+						WebhookHTTPConfigAuthTokenTokenMap["clear_secret_info"] = WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap
 					}
-					AuthTokenMap["token"] = TokenMap
+					WebhookHTTPConfigAuthTokenMap["token"] = WebhookHTTPConfigAuthTokenTokenMap
 				}
-				HTTPConfigMap["auth_token"] = AuthTokenMap
+				WebhookHTTPConfigMap["auth_token"] = WebhookHTTPConfigAuthTokenMap
 			}
 			if data.Webhook.HTTPConfig.BasicAuth != nil {
-				BasicAuthMap := make(map[string]interface{})
+				WebhookHTTPConfigBasicAuthMap := make(map[string]interface{})
 				if data.Webhook.HTTPConfig.BasicAuth.Password != nil {
-					PasswordMap := make(map[string]interface{})
+					WebhookHTTPConfigBasicAuthPasswordMap := make(map[string]interface{})
 					if data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						WebhookHTTPConfigBasicAuthPasswordMap["blindfold_secret_info"] = WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap
 					}
 					if data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
 						}
-						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						WebhookHTTPConfigBasicAuthPasswordMap["clear_secret_info"] = WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap
 					}
-					BasicAuthMap["password"] = PasswordMap
+					WebhookHTTPConfigBasicAuthMap["password"] = WebhookHTTPConfigBasicAuthPasswordMap
 				}
 				if !data.Webhook.HTTPConfig.BasicAuth.UserName.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.UserName.IsUnknown() {
-					BasicAuthMap["user_name"] = data.Webhook.HTTPConfig.BasicAuth.UserName.ValueString()
+					WebhookHTTPConfigBasicAuthMap["user_name"] = data.Webhook.HTTPConfig.BasicAuth.UserName.ValueString()
 				}
-				HTTPConfigMap["basic_auth"] = BasicAuthMap
+				WebhookHTTPConfigMap["basic_auth"] = WebhookHTTPConfigBasicAuthMap
 			}
 			if data.Webhook.HTTPConfig.ClientCertObj != nil {
-				ClientCertObjMap := make(map[string]interface{})
+				WebhookHTTPConfigClientCertObjMap := make(map[string]interface{})
 				if !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
 					var UseTLSObjElems []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
 					diags := data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjElems, false)
@@ -1365,41 +1365,41 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 							}
 							UseTLSObjList = append(UseTLSObjList, UseTLSObjItemMap)
 						}
-						ClientCertObjMap["use_tls_obj"] = UseTLSObjList
+						WebhookHTTPConfigClientCertObjMap["use_tls_obj"] = UseTLSObjList
 					}
 				}
-				HTTPConfigMap["client_cert_obj"] = ClientCertObjMap
+				WebhookHTTPConfigMap["client_cert_obj"] = WebhookHTTPConfigClientCertObjMap
 			}
 			if !data.Webhook.HTTPConfig.EnableHttp2.IsNull() && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
-				HTTPConfigMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
+				WebhookHTTPConfigMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
 			}
 			if !data.Webhook.HTTPConfig.FollowRedirects.IsNull() && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
-				HTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
+				WebhookHTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
 			}
 			if data.Webhook.HTTPConfig.NoAuthorization != nil {
-				HTTPConfigMap["no_authorization"] = map[string]interface{}{}
+				WebhookHTTPConfigMap["no_authorization"] = map[string]interface{}{}
 			}
 			if data.Webhook.HTTPConfig.NoTLS != nil {
-				HTTPConfigMap["no_tls"] = map[string]interface{}{}
+				WebhookHTTPConfigMap["no_tls"] = map[string]interface{}{}
 			}
 			if data.Webhook.HTTPConfig.UseTLS != nil {
-				UseTLSMap := make(map[string]interface{})
+				WebhookHTTPConfigUseTLSMap := make(map[string]interface{})
 				if data.Webhook.HTTPConfig.UseTLS.DisableSni != nil {
-					UseTLSMap["disable_sni"] = map[string]interface{}{}
+					WebhookHTTPConfigUseTLSMap["disable_sni"] = map[string]interface{}{}
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsUnknown() {
-					UseTLSMap["max_version"] = data.Webhook.HTTPConfig.UseTLS.MaxVersion.ValueString()
+					WebhookHTTPConfigUseTLSMap["max_version"] = data.Webhook.HTTPConfig.UseTLS.MaxVersion.ValueString()
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsUnknown() {
-					UseTLSMap["min_version"] = data.Webhook.HTTPConfig.UseTLS.MinVersion.ValueString()
+					WebhookHTTPConfigUseTLSMap["min_version"] = data.Webhook.HTTPConfig.UseTLS.MinVersion.ValueString()
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.Sni.IsNull() && !data.Webhook.HTTPConfig.UseTLS.Sni.IsUnknown() {
-					UseTLSMap["sni"] = data.Webhook.HTTPConfig.UseTLS.Sni.ValueString()
+					WebhookHTTPConfigUseTLSMap["sni"] = data.Webhook.HTTPConfig.UseTLS.Sni.ValueString()
 				}
 				if data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil {
-					UseServerVerificationMap := make(map[string]interface{})
+					WebhookHTTPConfigUseTLSUseServerVerificationMap := make(map[string]interface{})
 					if data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil {
-						CACertObjMap := make(map[string]interface{})
+						WebhookHTTPConfigUseTLSUseServerVerificationCACertObjMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
 							var TrustedCAElems []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
 							diags := data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAElems, false)
@@ -1425,46 +1425,46 @@ func (r *AlertReceiverResource) Create(ctx context.Context, req resource.CreateR
 									}
 									TrustedCAList = append(TrustedCAList, TrustedCAItemMap)
 								}
-								CACertObjMap["trusted_ca"] = TrustedCAList
+								WebhookHTTPConfigUseTLSUseServerVerificationCACertObjMap["trusted_ca"] = TrustedCAList
 							}
 						}
-						UseServerVerificationMap["ca_cert_obj"] = CACertObjMap
+						WebhookHTTPConfigUseTLSUseServerVerificationMap["ca_cert_obj"] = WebhookHTTPConfigUseTLSUseServerVerificationCACertObjMap
 					}
-					UseTLSMap["use_server_verification"] = UseServerVerificationMap
+					WebhookHTTPConfigUseTLSMap["use_server_verification"] = WebhookHTTPConfigUseTLSUseServerVerificationMap
 				}
 				if data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA != nil {
-					UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
+					WebhookHTTPConfigUseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
 				}
-				HTTPConfigMap["use_tls"] = UseTLSMap
+				WebhookHTTPConfigMap["use_tls"] = WebhookHTTPConfigUseTLSMap
 			}
-			WebhookMap["http_config"] = HTTPConfigMap
+			WebhookMap["http_config"] = WebhookHTTPConfigMap
 		}
 		if data.Webhook.URL != nil {
-			URLMap := make(map[string]interface{})
+			WebhookURLMap := make(map[string]interface{})
 			if data.Webhook.URL.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				WebhookURLBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					WebhookURLBlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Webhook.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Webhook.URL.BlindfoldSecretInfo.Location.ValueString()
+					WebhookURLBlindfoldSecretInfoMap["location"] = data.Webhook.URL.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					WebhookURLBlindfoldSecretInfoMap["store_provider"] = data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				WebhookURLMap["blindfold_secret_info"] = WebhookURLBlindfoldSecretInfoMap
 			}
 			if data.Webhook.URL.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				WebhookURLClearSecretInfoMap := make(map[string]interface{})
 				if !data.Webhook.URL.ClearSecretInfo.Provider.IsNull() && !data.Webhook.URL.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Webhook.URL.ClearSecretInfo.Provider.ValueString()
+					WebhookURLClearSecretInfoMap["provider"] = data.Webhook.URL.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Webhook.URL.ClearSecretInfo.URL.IsNull() && !data.Webhook.URL.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Webhook.URL.ClearSecretInfo.URL.ValueString()
+					WebhookURLClearSecretInfoMap["url"] = data.Webhook.URL.ClearSecretInfo.URL.ValueString()
 				}
-				URLMap["clear_secret_info"] = ClearSecretInfoMap
+				WebhookURLMap["clear_secret_info"] = WebhookURLClearSecretInfoMap
 			}
-			WebhookMap["url"] = URLMap
+			WebhookMap["url"] = WebhookURLMap
 		}
 		createReq.Spec["webhook"] = WebhookMap
 	}
@@ -2945,31 +2945,31 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 	if data.Opsgenie != nil {
 		OpsgenieMap := make(map[string]interface{})
 		if data.Opsgenie.APIKey != nil {
-			APIKeyMap := make(map[string]interface{})
+			OpsgenieAPIKeyMap := make(map[string]interface{})
 			if data.Opsgenie.APIKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				OpsgenieAPIKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					OpsgenieAPIKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.ValueString()
+					OpsgenieAPIKeyBlindfoldSecretInfoMap["location"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					OpsgenieAPIKeyBlindfoldSecretInfoMap["store_provider"] = data.Opsgenie.APIKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				APIKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				OpsgenieAPIKeyMap["blindfold_secret_info"] = OpsgenieAPIKeyBlindfoldSecretInfoMap
 			}
 			if data.Opsgenie.APIKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				OpsgenieAPIKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Opsgenie.APIKey.ClearSecretInfo.Provider.ValueString()
+					OpsgenieAPIKeyClearSecretInfoMap["provider"] = data.Opsgenie.APIKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsNull() && !data.Opsgenie.APIKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Opsgenie.APIKey.ClearSecretInfo.URL.ValueString()
+					OpsgenieAPIKeyClearSecretInfoMap["url"] = data.Opsgenie.APIKey.ClearSecretInfo.URL.ValueString()
 				}
-				APIKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				OpsgenieAPIKeyMap["clear_secret_info"] = OpsgenieAPIKeyClearSecretInfoMap
 			}
-			OpsgenieMap["api_key"] = APIKeyMap
+			OpsgenieMap["api_key"] = OpsgenieAPIKeyMap
 		}
 		if !data.Opsgenie.URL.IsNull() && !data.Opsgenie.URL.IsUnknown() {
 			OpsgenieMap["url"] = data.Opsgenie.URL.ValueString()
@@ -2979,31 +2979,31 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 	if data.Pagerduty != nil {
 		PagerdutyMap := make(map[string]interface{})
 		if data.Pagerduty.RoutingKey != nil {
-			RoutingKeyMap := make(map[string]interface{})
+			PagerdutyRoutingKeyMap := make(map[string]interface{})
 			if data.Pagerduty.RoutingKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				PagerdutyRoutingKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					PagerdutyRoutingKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.ValueString()
+					PagerdutyRoutingKeyBlindfoldSecretInfoMap["location"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					PagerdutyRoutingKeyBlindfoldSecretInfoMap["store_provider"] = data.Pagerduty.RoutingKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				RoutingKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				PagerdutyRoutingKeyMap["blindfold_secret_info"] = PagerdutyRoutingKeyBlindfoldSecretInfoMap
 			}
 			if data.Pagerduty.RoutingKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				PagerdutyRoutingKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.ValueString()
+					PagerdutyRoutingKeyClearSecretInfoMap["provider"] = data.Pagerduty.RoutingKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsNull() && !data.Pagerduty.RoutingKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Pagerduty.RoutingKey.ClearSecretInfo.URL.ValueString()
+					PagerdutyRoutingKeyClearSecretInfoMap["url"] = data.Pagerduty.RoutingKey.ClearSecretInfo.URL.ValueString()
 				}
-				RoutingKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				PagerdutyRoutingKeyMap["clear_secret_info"] = PagerdutyRoutingKeyClearSecretInfoMap
 			}
-			PagerdutyMap["routing_key"] = RoutingKeyMap
+			PagerdutyMap["routing_key"] = PagerdutyRoutingKeyMap
 		}
 		if !data.Pagerduty.URL.IsNull() && !data.Pagerduty.URL.IsUnknown() {
 			PagerdutyMap["url"] = data.Pagerduty.URL.ValueString()
@@ -3016,31 +3016,31 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 			SlackMap["channel"] = data.Slack.Channel.ValueString()
 		}
 		if data.Slack.URL != nil {
-			URLMap := make(map[string]interface{})
+			SlackURLMap := make(map[string]interface{})
 			if data.Slack.URL.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SlackURLBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SlackURLBlindfoldSecretInfoMap["decryption_provider"] = data.Slack.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Slack.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Slack.URL.BlindfoldSecretInfo.Location.ValueString()
+					SlackURLBlindfoldSecretInfoMap["location"] = data.Slack.URL.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Slack.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Slack.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SlackURLBlindfoldSecretInfoMap["store_provider"] = data.Slack.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SlackURLMap["blindfold_secret_info"] = SlackURLBlindfoldSecretInfoMap
 			}
 			if data.Slack.URL.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SlackURLClearSecretInfoMap := make(map[string]interface{})
 				if !data.Slack.URL.ClearSecretInfo.Provider.IsNull() && !data.Slack.URL.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Slack.URL.ClearSecretInfo.Provider.ValueString()
+					SlackURLClearSecretInfoMap["provider"] = data.Slack.URL.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Slack.URL.ClearSecretInfo.URL.IsNull() && !data.Slack.URL.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Slack.URL.ClearSecretInfo.URL.ValueString()
+					SlackURLClearSecretInfoMap["url"] = data.Slack.URL.ClearSecretInfo.URL.ValueString()
 				}
-				URLMap["clear_secret_info"] = ClearSecretInfoMap
+				SlackURLMap["clear_secret_info"] = SlackURLClearSecretInfoMap
 			}
-			SlackMap["url"] = URLMap
+			SlackMap["url"] = SlackURLMap
 		}
 		apiResource.Spec["slack"] = SlackMap
 	}
@@ -3054,74 +3054,74 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 	if data.Webhook != nil {
 		WebhookMap := make(map[string]interface{})
 		if data.Webhook.HTTPConfig != nil {
-			HTTPConfigMap := make(map[string]interface{})
+			WebhookHTTPConfigMap := make(map[string]interface{})
 			if data.Webhook.HTTPConfig.AuthToken != nil {
-				AuthTokenMap := make(map[string]interface{})
+				WebhookHTTPConfigAuthTokenMap := make(map[string]interface{})
 				if data.Webhook.HTTPConfig.AuthToken.Token != nil {
-					TokenMap := make(map[string]interface{})
+					WebhookHTTPConfigAuthTokenTokenMap := make(map[string]interface{})
 					if data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
+							WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+							WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.AuthToken.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						WebhookHTTPConfigAuthTokenTokenMap["blindfold_secret_info"] = WebhookHTTPConfigAuthTokenTokenBlindfoldSecretInfoMap
 					}
 					if data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
+							WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.ValueString()
+							WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.AuthToken.Token.ClearSecretInfo.URL.ValueString()
 						}
-						TokenMap["clear_secret_info"] = ClearSecretInfoMap
+						WebhookHTTPConfigAuthTokenTokenMap["clear_secret_info"] = WebhookHTTPConfigAuthTokenTokenClearSecretInfoMap
 					}
-					AuthTokenMap["token"] = TokenMap
+					WebhookHTTPConfigAuthTokenMap["token"] = WebhookHTTPConfigAuthTokenTokenMap
 				}
-				HTTPConfigMap["auth_token"] = AuthTokenMap
+				WebhookHTTPConfigMap["auth_token"] = WebhookHTTPConfigAuthTokenMap
 			}
 			if data.Webhook.HTTPConfig.BasicAuth != nil {
-				BasicAuthMap := make(map[string]interface{})
+				WebhookHTTPConfigBasicAuthMap := make(map[string]interface{})
 				if data.Webhook.HTTPConfig.BasicAuth.Password != nil {
-					PasswordMap := make(map[string]interface{})
+					WebhookHTTPConfigBasicAuthPasswordMap := make(map[string]interface{})
 					if data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap["location"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap["store_provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						WebhookHTTPConfigBasicAuthPasswordMap["blindfold_secret_info"] = WebhookHTTPConfigBasicAuthPasswordBlindfoldSecretInfoMap
 					}
 					if data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap["provider"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+							WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap["url"] = data.Webhook.HTTPConfig.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
 						}
-						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						WebhookHTTPConfigBasicAuthPasswordMap["clear_secret_info"] = WebhookHTTPConfigBasicAuthPasswordClearSecretInfoMap
 					}
-					BasicAuthMap["password"] = PasswordMap
+					WebhookHTTPConfigBasicAuthMap["password"] = WebhookHTTPConfigBasicAuthPasswordMap
 				}
 				if !data.Webhook.HTTPConfig.BasicAuth.UserName.IsNull() && !data.Webhook.HTTPConfig.BasicAuth.UserName.IsUnknown() {
-					BasicAuthMap["user_name"] = data.Webhook.HTTPConfig.BasicAuth.UserName.ValueString()
+					WebhookHTTPConfigBasicAuthMap["user_name"] = data.Webhook.HTTPConfig.BasicAuth.UserName.ValueString()
 				}
-				HTTPConfigMap["basic_auth"] = BasicAuthMap
+				WebhookHTTPConfigMap["basic_auth"] = WebhookHTTPConfigBasicAuthMap
 			}
 			if data.Webhook.HTTPConfig.ClientCertObj != nil {
-				ClientCertObjMap := make(map[string]interface{})
+				WebhookHTTPConfigClientCertObjMap := make(map[string]interface{})
 				if !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsNull() && !data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.IsUnknown() {
 					var UseTLSObjElems []AlertReceiverWebhookHTTPConfigClientCertObjUseTLSObjModel
 					diags := data.Webhook.HTTPConfig.ClientCertObj.UseTLSObj.ElementsAs(ctx, &UseTLSObjElems, false)
@@ -3147,41 +3147,41 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							UseTLSObjList = append(UseTLSObjList, UseTLSObjItemMap)
 						}
-						ClientCertObjMap["use_tls_obj"] = UseTLSObjList
+						WebhookHTTPConfigClientCertObjMap["use_tls_obj"] = UseTLSObjList
 					}
 				}
-				HTTPConfigMap["client_cert_obj"] = ClientCertObjMap
+				WebhookHTTPConfigMap["client_cert_obj"] = WebhookHTTPConfigClientCertObjMap
 			}
 			if !data.Webhook.HTTPConfig.EnableHttp2.IsNull() && !data.Webhook.HTTPConfig.EnableHttp2.IsUnknown() {
-				HTTPConfigMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
+				WebhookHTTPConfigMap["enable_http2"] = data.Webhook.HTTPConfig.EnableHttp2.ValueBool()
 			}
 			if !data.Webhook.HTTPConfig.FollowRedirects.IsNull() && !data.Webhook.HTTPConfig.FollowRedirects.IsUnknown() {
-				HTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
+				WebhookHTTPConfigMap["follow_redirects"] = data.Webhook.HTTPConfig.FollowRedirects.ValueBool()
 			}
 			if data.Webhook.HTTPConfig.NoAuthorization != nil {
-				HTTPConfigMap["no_authorization"] = map[string]interface{}{}
+				WebhookHTTPConfigMap["no_authorization"] = map[string]interface{}{}
 			}
 			if data.Webhook.HTTPConfig.NoTLS != nil {
-				HTTPConfigMap["no_tls"] = map[string]interface{}{}
+				WebhookHTTPConfigMap["no_tls"] = map[string]interface{}{}
 			}
 			if data.Webhook.HTTPConfig.UseTLS != nil {
-				UseTLSMap := make(map[string]interface{})
+				WebhookHTTPConfigUseTLSMap := make(map[string]interface{})
 				if data.Webhook.HTTPConfig.UseTLS.DisableSni != nil {
-					UseTLSMap["disable_sni"] = map[string]interface{}{}
+					WebhookHTTPConfigUseTLSMap["disable_sni"] = map[string]interface{}{}
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MaxVersion.IsUnknown() {
-					UseTLSMap["max_version"] = data.Webhook.HTTPConfig.UseTLS.MaxVersion.ValueString()
+					WebhookHTTPConfigUseTLSMap["max_version"] = data.Webhook.HTTPConfig.UseTLS.MaxVersion.ValueString()
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsNull() && !data.Webhook.HTTPConfig.UseTLS.MinVersion.IsUnknown() {
-					UseTLSMap["min_version"] = data.Webhook.HTTPConfig.UseTLS.MinVersion.ValueString()
+					WebhookHTTPConfigUseTLSMap["min_version"] = data.Webhook.HTTPConfig.UseTLS.MinVersion.ValueString()
 				}
 				if !data.Webhook.HTTPConfig.UseTLS.Sni.IsNull() && !data.Webhook.HTTPConfig.UseTLS.Sni.IsUnknown() {
-					UseTLSMap["sni"] = data.Webhook.HTTPConfig.UseTLS.Sni.ValueString()
+					WebhookHTTPConfigUseTLSMap["sni"] = data.Webhook.HTTPConfig.UseTLS.Sni.ValueString()
 				}
 				if data.Webhook.HTTPConfig.UseTLS.UseServerVerification != nil {
-					UseServerVerificationMap := make(map[string]interface{})
+					WebhookHTTPConfigUseTLSUseServerVerificationMap := make(map[string]interface{})
 					if data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj != nil {
-						CACertObjMap := make(map[string]interface{})
+						WebhookHTTPConfigUseTLSUseServerVerificationCACertObjMap := make(map[string]interface{})
 						if !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsNull() && !data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.IsUnknown() {
 							var TrustedCAElems []AlertReceiverWebhookHTTPConfigUseTLSUseServerVerificationCACertObjTrustedCAModel
 							diags := data.Webhook.HTTPConfig.UseTLS.UseServerVerification.CACertObj.TrustedCA.ElementsAs(ctx, &TrustedCAElems, false)
@@ -3207,46 +3207,46 @@ func (r *AlertReceiverResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									TrustedCAList = append(TrustedCAList, TrustedCAItemMap)
 								}
-								CACertObjMap["trusted_ca"] = TrustedCAList
+								WebhookHTTPConfigUseTLSUseServerVerificationCACertObjMap["trusted_ca"] = TrustedCAList
 							}
 						}
-						UseServerVerificationMap["ca_cert_obj"] = CACertObjMap
+						WebhookHTTPConfigUseTLSUseServerVerificationMap["ca_cert_obj"] = WebhookHTTPConfigUseTLSUseServerVerificationCACertObjMap
 					}
-					UseTLSMap["use_server_verification"] = UseServerVerificationMap
+					WebhookHTTPConfigUseTLSMap["use_server_verification"] = WebhookHTTPConfigUseTLSUseServerVerificationMap
 				}
 				if data.Webhook.HTTPConfig.UseTLS.VolterraTrustedCA != nil {
-					UseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
+					WebhookHTTPConfigUseTLSMap["volterra_trusted_ca"] = map[string]interface{}{}
 				}
-				HTTPConfigMap["use_tls"] = UseTLSMap
+				WebhookHTTPConfigMap["use_tls"] = WebhookHTTPConfigUseTLSMap
 			}
-			WebhookMap["http_config"] = HTTPConfigMap
+			WebhookMap["http_config"] = WebhookHTTPConfigMap
 		}
 		if data.Webhook.URL != nil {
-			URLMap := make(map[string]interface{})
+			WebhookURLMap := make(map[string]interface{})
 			if data.Webhook.URL.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				WebhookURLBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					WebhookURLBlindfoldSecretInfoMap["decryption_provider"] = data.Webhook.URL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Webhook.URL.BlindfoldSecretInfo.Location.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Webhook.URL.BlindfoldSecretInfo.Location.ValueString()
+					WebhookURLBlindfoldSecretInfoMap["location"] = data.Webhook.URL.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
+					WebhookURLBlindfoldSecretInfoMap["store_provider"] = data.Webhook.URL.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				URLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				WebhookURLMap["blindfold_secret_info"] = WebhookURLBlindfoldSecretInfoMap
 			}
 			if data.Webhook.URL.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				WebhookURLClearSecretInfoMap := make(map[string]interface{})
 				if !data.Webhook.URL.ClearSecretInfo.Provider.IsNull() && !data.Webhook.URL.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Webhook.URL.ClearSecretInfo.Provider.ValueString()
+					WebhookURLClearSecretInfoMap["provider"] = data.Webhook.URL.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Webhook.URL.ClearSecretInfo.URL.IsNull() && !data.Webhook.URL.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Webhook.URL.ClearSecretInfo.URL.ValueString()
+					WebhookURLClearSecretInfoMap["url"] = data.Webhook.URL.ClearSecretInfo.URL.ValueString()
 				}
-				URLMap["clear_secret_info"] = ClearSecretInfoMap
+				WebhookURLMap["clear_secret_info"] = WebhookURLClearSecretInfoMap
 			}
-			WebhookMap["url"] = URLMap
+			WebhookMap["url"] = WebhookURLMap
 		}
 		apiResource.Spec["webhook"] = WebhookMap
 	}

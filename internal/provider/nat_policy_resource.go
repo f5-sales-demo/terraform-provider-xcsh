@@ -1355,11 +1355,11 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 			for _, RulesItem := range RulesElems {
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.Action != nil {
-					ActionMap := make(map[string]interface{})
+					RulesActionMap := make(map[string]interface{})
 					if RulesItem.Action.Dynamic != nil {
-						DynamicMap := make(map[string]interface{})
+						RulesActionDynamicMap := make(map[string]interface{})
 						if RulesItem.Action.Dynamic.ElasticIps != nil {
-							ElasticIpsMap := make(map[string]interface{})
+							RulesActionDynamicElasticIpsMap := make(map[string]interface{})
 							if !RulesItem.Action.Dynamic.ElasticIps.Refs.IsNull() && !RulesItem.Action.Dynamic.ElasticIps.Refs.IsUnknown() {
 								var RefsElems []NATPolicyRulesActionDynamicElasticIpsRefsModel
 								diags := RulesItem.Action.Dynamic.ElasticIps.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1385,31 +1385,31 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 										}
 										RefsList = append(RefsList, RefsItemMap)
 									}
-									ElasticIpsMap["refs"] = RefsList
+									RulesActionDynamicElasticIpsMap["refs"] = RefsList
 								}
 							}
-							DynamicMap["elastic_ips"] = ElasticIpsMap
+							RulesActionDynamicMap["elastic_ips"] = RulesActionDynamicElasticIpsMap
 						}
 						if RulesItem.Action.Dynamic.Pools != nil {
-							PoolsMap := make(map[string]interface{})
+							RulesActionDynamicPoolsMap := make(map[string]interface{})
 							if !RulesItem.Action.Dynamic.Pools.Prefixes.IsNull() && !RulesItem.Action.Dynamic.Pools.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := RulesItem.Action.Dynamic.Pools.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									PoolsMap["prefixes"] = PrefixesItems
+									RulesActionDynamicPoolsMap["prefixes"] = PrefixesItems
 								}
 							}
-							DynamicMap["pools"] = PoolsMap
+							RulesActionDynamicMap["pools"] = RulesActionDynamicPoolsMap
 						}
-						ActionMap["dynamic"] = DynamicMap
+						RulesActionMap["dynamic"] = RulesActionDynamicMap
 					}
 					if !RulesItem.Action.VirtualCIDR.IsNull() && !RulesItem.Action.VirtualCIDR.IsUnknown() {
-						ActionMap["virtual_cidr"] = RulesItem.Action.VirtualCIDR.ValueString()
+						RulesActionMap["virtual_cidr"] = RulesItem.Action.VirtualCIDR.ValueString()
 					}
-					RulesItemMap["action"] = ActionMap
+					RulesItemMap["action"] = RulesActionMap
 				}
 				if RulesItem.CloudConnect != nil {
-					CloudConnectMap := make(map[string]interface{})
+					RulesCloudConnectMap := make(map[string]interface{})
 					if !RulesItem.CloudConnect.Refs.IsNull() && !RulesItem.CloudConnect.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesCloudConnectRefsModel
 						diags := RulesItem.CloudConnect.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1435,44 +1435,44 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							CloudConnectMap["refs"] = RefsList
+							RulesCloudConnectMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["cloud_connect"] = CloudConnectMap
+					RulesItemMap["cloud_connect"] = RulesCloudConnectMap
 				}
 				if RulesItem.Criteria != nil {
-					CriteriaMap := make(map[string]interface{})
+					RulesCriteriaMap := make(map[string]interface{})
 					if RulesItem.Criteria.Any != nil {
-						CriteriaMap["any"] = map[string]interface{}{}
+						RulesCriteriaMap["any"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.DestinationCIDR.IsNull() && !RulesItem.Criteria.DestinationCIDR.IsUnknown() {
 						var DestinationCIDRItems []string
 						diags := RulesItem.Criteria.DestinationCIDR.ElementsAs(ctx, &DestinationCIDRItems, false)
 						if !diags.HasError() {
-							CriteriaMap["destination_cidr"] = DestinationCIDRItems
+							RulesCriteriaMap["destination_cidr"] = DestinationCIDRItems
 						}
 					}
 					if RulesItem.Criteria.DestinationPort != nil {
-						DestinationPortMap := make(map[string]interface{})
+						RulesCriteriaDestinationPortMap := make(map[string]interface{})
 						if RulesItem.Criteria.DestinationPort.NoPortMatch != nil {
-							DestinationPortMap["no_port_match"] = map[string]interface{}{}
+							RulesCriteriaDestinationPortMap["no_port_match"] = map[string]interface{}{}
 						}
 						if !RulesItem.Criteria.DestinationPort.Port.IsNull() && !RulesItem.Criteria.DestinationPort.Port.IsUnknown() {
-							DestinationPortMap["port"] = RulesItem.Criteria.DestinationPort.Port.ValueInt64()
+							RulesCriteriaDestinationPortMap["port"] = RulesItem.Criteria.DestinationPort.Port.ValueInt64()
 						}
 						if !RulesItem.Criteria.DestinationPort.PortRanges.IsNull() && !RulesItem.Criteria.DestinationPort.PortRanges.IsUnknown() {
-							DestinationPortMap["port_ranges"] = RulesItem.Criteria.DestinationPort.PortRanges.ValueString()
+							RulesCriteriaDestinationPortMap["port_ranges"] = RulesItem.Criteria.DestinationPort.PortRanges.ValueString()
 						}
-						CriteriaMap["destination_port"] = DestinationPortMap
+						RulesCriteriaMap["destination_port"] = RulesCriteriaDestinationPortMap
 					}
 					if RulesItem.Criteria.ICMP != nil {
-						CriteriaMap["icmp"] = map[string]interface{}{}
+						RulesCriteriaMap["icmp"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.Protocol.IsNull() && !RulesItem.Criteria.Protocol.IsUnknown() {
-						CriteriaMap["protocol"] = RulesItem.Criteria.Protocol.ValueString()
+						RulesCriteriaMap["protocol"] = RulesItem.Criteria.Protocol.ValueString()
 					}
 					if RulesItem.Criteria.Segment != nil {
-						SegmentMap := make(map[string]interface{})
+						RulesCriteriaSegmentMap := make(map[string]interface{})
 						if !RulesItem.Criteria.Segment.Refs.IsNull() && !RulesItem.Criteria.Segment.Refs.IsUnknown() {
 							var RefsElems []NATPolicyRulesCriteriaSegmentRefsModel
 							diags := RulesItem.Criteria.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1498,99 +1498,99 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
-								SegmentMap["refs"] = RefsList
+								RulesCriteriaSegmentMap["refs"] = RefsList
 							}
 						}
-						CriteriaMap["segment"] = SegmentMap
+						RulesCriteriaMap["segment"] = RulesCriteriaSegmentMap
 					}
 					if RulesItem.Criteria.SiteLocalInsideNetwork != nil {
-						CriteriaMap["site_local_inside_network"] = map[string]interface{}{}
+						RulesCriteriaMap["site_local_inside_network"] = map[string]interface{}{}
 					}
 					if RulesItem.Criteria.SiteLocalNetwork != nil {
-						CriteriaMap["site_local_network"] = map[string]interface{}{}
+						RulesCriteriaMap["site_local_network"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.SourceCIDR.IsNull() && !RulesItem.Criteria.SourceCIDR.IsUnknown() {
 						var SourceCIDRItems []string
 						diags := RulesItem.Criteria.SourceCIDR.ElementsAs(ctx, &SourceCIDRItems, false)
 						if !diags.HasError() {
-							CriteriaMap["source_cidr"] = SourceCIDRItems
+							RulesCriteriaMap["source_cidr"] = SourceCIDRItems
 						}
 					}
 					if RulesItem.Criteria.SourcePort != nil {
-						SourcePortMap := make(map[string]interface{})
+						RulesCriteriaSourcePortMap := make(map[string]interface{})
 						if RulesItem.Criteria.SourcePort.NoPortMatch != nil {
-							SourcePortMap["no_port_match"] = map[string]interface{}{}
+							RulesCriteriaSourcePortMap["no_port_match"] = map[string]interface{}{}
 						}
 						if !RulesItem.Criteria.SourcePort.Port.IsNull() && !RulesItem.Criteria.SourcePort.Port.IsUnknown() {
-							SourcePortMap["port"] = RulesItem.Criteria.SourcePort.Port.ValueInt64()
+							RulesCriteriaSourcePortMap["port"] = RulesItem.Criteria.SourcePort.Port.ValueInt64()
 						}
 						if !RulesItem.Criteria.SourcePort.PortRanges.IsNull() && !RulesItem.Criteria.SourcePort.PortRanges.IsUnknown() {
-							SourcePortMap["port_ranges"] = RulesItem.Criteria.SourcePort.PortRanges.ValueString()
+							RulesCriteriaSourcePortMap["port_ranges"] = RulesItem.Criteria.SourcePort.PortRanges.ValueString()
 						}
-						CriteriaMap["source_port"] = SourcePortMap
+						RulesCriteriaMap["source_port"] = RulesCriteriaSourcePortMap
 					}
 					if RulesItem.Criteria.TCP != nil {
-						TCPMap := make(map[string]interface{})
+						RulesCriteriaTCPMap := make(map[string]interface{})
 						if RulesItem.Criteria.TCP.DestinationPort != nil {
-							DestinationPortMap := make(map[string]interface{})
+							RulesCriteriaTCPDestinationPortMap := make(map[string]interface{})
 							if RulesItem.Criteria.TCP.DestinationPort.NoPortMatch != nil {
-								DestinationPortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaTCPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.Port.IsUnknown() {
-								DestinationPortMap["port"] = RulesItem.Criteria.TCP.DestinationPort.Port.ValueInt64()
+								RulesCriteriaTCPDestinationPortMap["port"] = RulesItem.Criteria.TCP.DestinationPort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.TCP.DestinationPort.PortRanges.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.PortRanges.IsUnknown() {
-								DestinationPortMap["port_ranges"] = RulesItem.Criteria.TCP.DestinationPort.PortRanges.ValueString()
+								RulesCriteriaTCPDestinationPortMap["port_ranges"] = RulesItem.Criteria.TCP.DestinationPort.PortRanges.ValueString()
 							}
-							TCPMap["destination_port"] = DestinationPortMap
+							RulesCriteriaTCPMap["destination_port"] = RulesCriteriaTCPDestinationPortMap
 						}
 						if RulesItem.Criteria.TCP.SourcePort != nil {
-							SourcePortMap := make(map[string]interface{})
+							RulesCriteriaTCPSourcePortMap := make(map[string]interface{})
 							if RulesItem.Criteria.TCP.SourcePort.NoPortMatch != nil {
-								SourcePortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaTCPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.SourcePort.Port.IsNull() && !RulesItem.Criteria.TCP.SourcePort.Port.IsUnknown() {
-								SourcePortMap["port"] = RulesItem.Criteria.TCP.SourcePort.Port.ValueInt64()
+								RulesCriteriaTCPSourcePortMap["port"] = RulesItem.Criteria.TCP.SourcePort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.TCP.SourcePort.PortRanges.IsNull() && !RulesItem.Criteria.TCP.SourcePort.PortRanges.IsUnknown() {
-								SourcePortMap["port_ranges"] = RulesItem.Criteria.TCP.SourcePort.PortRanges.ValueString()
+								RulesCriteriaTCPSourcePortMap["port_ranges"] = RulesItem.Criteria.TCP.SourcePort.PortRanges.ValueString()
 							}
-							TCPMap["source_port"] = SourcePortMap
+							RulesCriteriaTCPMap["source_port"] = RulesCriteriaTCPSourcePortMap
 						}
-						CriteriaMap["tcp"] = TCPMap
+						RulesCriteriaMap["tcp"] = RulesCriteriaTCPMap
 					}
 					if RulesItem.Criteria.UDP != nil {
-						UDPMap := make(map[string]interface{})
+						RulesCriteriaUDPMap := make(map[string]interface{})
 						if RulesItem.Criteria.UDP.DestinationPort != nil {
-							DestinationPortMap := make(map[string]interface{})
+							RulesCriteriaUDPDestinationPortMap := make(map[string]interface{})
 							if RulesItem.Criteria.UDP.DestinationPort.NoPortMatch != nil {
-								DestinationPortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaUDPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.Port.IsUnknown() {
-								DestinationPortMap["port"] = RulesItem.Criteria.UDP.DestinationPort.Port.ValueInt64()
+								RulesCriteriaUDPDestinationPortMap["port"] = RulesItem.Criteria.UDP.DestinationPort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.UDP.DestinationPort.PortRanges.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.PortRanges.IsUnknown() {
-								DestinationPortMap["port_ranges"] = RulesItem.Criteria.UDP.DestinationPort.PortRanges.ValueString()
+								RulesCriteriaUDPDestinationPortMap["port_ranges"] = RulesItem.Criteria.UDP.DestinationPort.PortRanges.ValueString()
 							}
-							UDPMap["destination_port"] = DestinationPortMap
+							RulesCriteriaUDPMap["destination_port"] = RulesCriteriaUDPDestinationPortMap
 						}
 						if RulesItem.Criteria.UDP.SourcePort != nil {
-							SourcePortMap := make(map[string]interface{})
+							RulesCriteriaUDPSourcePortMap := make(map[string]interface{})
 							if RulesItem.Criteria.UDP.SourcePort.NoPortMatch != nil {
-								SourcePortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaUDPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.SourcePort.Port.IsNull() && !RulesItem.Criteria.UDP.SourcePort.Port.IsUnknown() {
-								SourcePortMap["port"] = RulesItem.Criteria.UDP.SourcePort.Port.ValueInt64()
+								RulesCriteriaUDPSourcePortMap["port"] = RulesItem.Criteria.UDP.SourcePort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.UDP.SourcePort.PortRanges.IsNull() && !RulesItem.Criteria.UDP.SourcePort.PortRanges.IsUnknown() {
-								SourcePortMap["port_ranges"] = RulesItem.Criteria.UDP.SourcePort.PortRanges.ValueString()
+								RulesCriteriaUDPSourcePortMap["port_ranges"] = RulesItem.Criteria.UDP.SourcePort.PortRanges.ValueString()
 							}
-							UDPMap["source_port"] = SourcePortMap
+							RulesCriteriaUDPMap["source_port"] = RulesCriteriaUDPSourcePortMap
 						}
-						CriteriaMap["udp"] = UDPMap
+						RulesCriteriaMap["udp"] = RulesCriteriaUDPMap
 					}
 					if RulesItem.Criteria.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						RulesCriteriaVirtualNetworkMap := make(map[string]interface{})
 						if !RulesItem.Criteria.VirtualNetwork.Refs.IsNull() && !RulesItem.Criteria.VirtualNetwork.Refs.IsUnknown() {
 							var RefsElems []NATPolicyRulesCriteriaVirtualNetworkRefsModel
 							diags := RulesItem.Criteria.VirtualNetwork.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1616,12 +1616,12 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
-								VirtualNetworkMap["refs"] = RefsList
+								RulesCriteriaVirtualNetworkMap["refs"] = RefsList
 							}
 						}
-						CriteriaMap["virtual_network"] = VirtualNetworkMap
+						RulesCriteriaMap["virtual_network"] = RulesCriteriaVirtualNetworkMap
 					}
-					RulesItemMap["criteria"] = CriteriaMap
+					RulesItemMap["criteria"] = RulesCriteriaMap
 				}
 				if RulesItem.DisableSpec != nil {
 					RulesItemMap["disable"] = map[string]interface{}{}
@@ -1633,7 +1633,7 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 					RulesItemMap["name"] = RulesItem.Name.ValueString()
 				}
 				if RulesItem.NetworkInterface != nil {
-					NetworkInterfaceMap := make(map[string]interface{})
+					RulesNetworkInterfaceMap := make(map[string]interface{})
 					if !RulesItem.NetworkInterface.Refs.IsNull() && !RulesItem.NetworkInterface.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesNetworkInterfaceRefsModel
 						diags := RulesItem.NetworkInterface.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1659,13 +1659,13 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							NetworkInterfaceMap["refs"] = RefsList
+							RulesNetworkInterfaceMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["network_interface"] = NetworkInterfaceMap
+					RulesItemMap["network_interface"] = RulesNetworkInterfaceMap
 				}
 				if RulesItem.NodeInterface != nil {
-					NodeInterfaceMap := make(map[string]interface{})
+					RulesNodeInterfaceMap := make(map[string]interface{})
 					if !RulesItem.NodeInterface.List.IsNull() && !RulesItem.NodeInterface.List.IsUnknown() {
 						var ListElems []NATPolicyRulesNodeInterfaceListModel
 						diags := RulesItem.NodeInterface.List.ElementsAs(ctx, &ListElems, false)
@@ -1707,13 +1707,13 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 								}
 								ListList = append(ListList, ListItemMap)
 							}
-							NodeInterfaceMap["list"] = ListList
+							RulesNodeInterfaceMap["list"] = ListList
 						}
 					}
-					RulesItemMap["node_interface"] = NodeInterfaceMap
+					RulesItemMap["node_interface"] = RulesNodeInterfaceMap
 				}
 				if RulesItem.Segment != nil {
-					SegmentMap := make(map[string]interface{})
+					RulesSegmentMap := make(map[string]interface{})
 					if !RulesItem.Segment.Refs.IsNull() && !RulesItem.Segment.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesSegmentRefsModel
 						diags := RulesItem.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1739,13 +1739,13 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							SegmentMap["refs"] = RefsList
+							RulesSegmentMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["segment"] = SegmentMap
+					RulesItemMap["segment"] = RulesSegmentMap
 				}
 				if RulesItem.VirtualNetwork != nil {
-					VirtualNetworkMap := make(map[string]interface{})
+					RulesVirtualNetworkMap := make(map[string]interface{})
 					if !RulesItem.VirtualNetwork.Refs.IsNull() && !RulesItem.VirtualNetwork.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesVirtualNetworkRefsModel
 						diags := RulesItem.VirtualNetwork.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1771,10 +1771,10 @@ func (r *NATPolicyResource) Create(ctx context.Context, req resource.CreateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							VirtualNetworkMap["refs"] = RefsList
+							RulesVirtualNetworkMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["virtual_network"] = VirtualNetworkMap
+					RulesItemMap["virtual_network"] = RulesVirtualNetworkMap
 				}
 				RulesList = append(RulesList, RulesItemMap)
 			}
@@ -3877,11 +3877,11 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 			for _, RulesItem := range RulesElems {
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.Action != nil {
-					ActionMap := make(map[string]interface{})
+					RulesActionMap := make(map[string]interface{})
 					if RulesItem.Action.Dynamic != nil {
-						DynamicMap := make(map[string]interface{})
+						RulesActionDynamicMap := make(map[string]interface{})
 						if RulesItem.Action.Dynamic.ElasticIps != nil {
-							ElasticIpsMap := make(map[string]interface{})
+							RulesActionDynamicElasticIpsMap := make(map[string]interface{})
 							if !RulesItem.Action.Dynamic.ElasticIps.Refs.IsNull() && !RulesItem.Action.Dynamic.ElasticIps.Refs.IsUnknown() {
 								var RefsElems []NATPolicyRulesActionDynamicElasticIpsRefsModel
 								diags := RulesItem.Action.Dynamic.ElasticIps.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -3907,31 +3907,31 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 										}
 										RefsList = append(RefsList, RefsItemMap)
 									}
-									ElasticIpsMap["refs"] = RefsList
+									RulesActionDynamicElasticIpsMap["refs"] = RefsList
 								}
 							}
-							DynamicMap["elastic_ips"] = ElasticIpsMap
+							RulesActionDynamicMap["elastic_ips"] = RulesActionDynamicElasticIpsMap
 						}
 						if RulesItem.Action.Dynamic.Pools != nil {
-							PoolsMap := make(map[string]interface{})
+							RulesActionDynamicPoolsMap := make(map[string]interface{})
 							if !RulesItem.Action.Dynamic.Pools.Prefixes.IsNull() && !RulesItem.Action.Dynamic.Pools.Prefixes.IsUnknown() {
 								var PrefixesItems []string
 								diags := RulesItem.Action.Dynamic.Pools.Prefixes.ElementsAs(ctx, &PrefixesItems, false)
 								if !diags.HasError() {
-									PoolsMap["prefixes"] = PrefixesItems
+									RulesActionDynamicPoolsMap["prefixes"] = PrefixesItems
 								}
 							}
-							DynamicMap["pools"] = PoolsMap
+							RulesActionDynamicMap["pools"] = RulesActionDynamicPoolsMap
 						}
-						ActionMap["dynamic"] = DynamicMap
+						RulesActionMap["dynamic"] = RulesActionDynamicMap
 					}
 					if !RulesItem.Action.VirtualCIDR.IsNull() && !RulesItem.Action.VirtualCIDR.IsUnknown() {
-						ActionMap["virtual_cidr"] = RulesItem.Action.VirtualCIDR.ValueString()
+						RulesActionMap["virtual_cidr"] = RulesItem.Action.VirtualCIDR.ValueString()
 					}
-					RulesItemMap["action"] = ActionMap
+					RulesItemMap["action"] = RulesActionMap
 				}
 				if RulesItem.CloudConnect != nil {
-					CloudConnectMap := make(map[string]interface{})
+					RulesCloudConnectMap := make(map[string]interface{})
 					if !RulesItem.CloudConnect.Refs.IsNull() && !RulesItem.CloudConnect.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesCloudConnectRefsModel
 						diags := RulesItem.CloudConnect.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -3957,44 +3957,44 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							CloudConnectMap["refs"] = RefsList
+							RulesCloudConnectMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["cloud_connect"] = CloudConnectMap
+					RulesItemMap["cloud_connect"] = RulesCloudConnectMap
 				}
 				if RulesItem.Criteria != nil {
-					CriteriaMap := make(map[string]interface{})
+					RulesCriteriaMap := make(map[string]interface{})
 					if RulesItem.Criteria.Any != nil {
-						CriteriaMap["any"] = map[string]interface{}{}
+						RulesCriteriaMap["any"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.DestinationCIDR.IsNull() && !RulesItem.Criteria.DestinationCIDR.IsUnknown() {
 						var DestinationCIDRItems []string
 						diags := RulesItem.Criteria.DestinationCIDR.ElementsAs(ctx, &DestinationCIDRItems, false)
 						if !diags.HasError() {
-							CriteriaMap["destination_cidr"] = DestinationCIDRItems
+							RulesCriteriaMap["destination_cidr"] = DestinationCIDRItems
 						}
 					}
 					if RulesItem.Criteria.DestinationPort != nil {
-						DestinationPortMap := make(map[string]interface{})
+						RulesCriteriaDestinationPortMap := make(map[string]interface{})
 						if RulesItem.Criteria.DestinationPort.NoPortMatch != nil {
-							DestinationPortMap["no_port_match"] = map[string]interface{}{}
+							RulesCriteriaDestinationPortMap["no_port_match"] = map[string]interface{}{}
 						}
 						if !RulesItem.Criteria.DestinationPort.Port.IsNull() && !RulesItem.Criteria.DestinationPort.Port.IsUnknown() {
-							DestinationPortMap["port"] = RulesItem.Criteria.DestinationPort.Port.ValueInt64()
+							RulesCriteriaDestinationPortMap["port"] = RulesItem.Criteria.DestinationPort.Port.ValueInt64()
 						}
 						if !RulesItem.Criteria.DestinationPort.PortRanges.IsNull() && !RulesItem.Criteria.DestinationPort.PortRanges.IsUnknown() {
-							DestinationPortMap["port_ranges"] = RulesItem.Criteria.DestinationPort.PortRanges.ValueString()
+							RulesCriteriaDestinationPortMap["port_ranges"] = RulesItem.Criteria.DestinationPort.PortRanges.ValueString()
 						}
-						CriteriaMap["destination_port"] = DestinationPortMap
+						RulesCriteriaMap["destination_port"] = RulesCriteriaDestinationPortMap
 					}
 					if RulesItem.Criteria.ICMP != nil {
-						CriteriaMap["icmp"] = map[string]interface{}{}
+						RulesCriteriaMap["icmp"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.Protocol.IsNull() && !RulesItem.Criteria.Protocol.IsUnknown() {
-						CriteriaMap["protocol"] = RulesItem.Criteria.Protocol.ValueString()
+						RulesCriteriaMap["protocol"] = RulesItem.Criteria.Protocol.ValueString()
 					}
 					if RulesItem.Criteria.Segment != nil {
-						SegmentMap := make(map[string]interface{})
+						RulesCriteriaSegmentMap := make(map[string]interface{})
 						if !RulesItem.Criteria.Segment.Refs.IsNull() && !RulesItem.Criteria.Segment.Refs.IsUnknown() {
 							var RefsElems []NATPolicyRulesCriteriaSegmentRefsModel
 							diags := RulesItem.Criteria.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -4020,99 +4020,99 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
-								SegmentMap["refs"] = RefsList
+								RulesCriteriaSegmentMap["refs"] = RefsList
 							}
 						}
-						CriteriaMap["segment"] = SegmentMap
+						RulesCriteriaMap["segment"] = RulesCriteriaSegmentMap
 					}
 					if RulesItem.Criteria.SiteLocalInsideNetwork != nil {
-						CriteriaMap["site_local_inside_network"] = map[string]interface{}{}
+						RulesCriteriaMap["site_local_inside_network"] = map[string]interface{}{}
 					}
 					if RulesItem.Criteria.SiteLocalNetwork != nil {
-						CriteriaMap["site_local_network"] = map[string]interface{}{}
+						RulesCriteriaMap["site_local_network"] = map[string]interface{}{}
 					}
 					if !RulesItem.Criteria.SourceCIDR.IsNull() && !RulesItem.Criteria.SourceCIDR.IsUnknown() {
 						var SourceCIDRItems []string
 						diags := RulesItem.Criteria.SourceCIDR.ElementsAs(ctx, &SourceCIDRItems, false)
 						if !diags.HasError() {
-							CriteriaMap["source_cidr"] = SourceCIDRItems
+							RulesCriteriaMap["source_cidr"] = SourceCIDRItems
 						}
 					}
 					if RulesItem.Criteria.SourcePort != nil {
-						SourcePortMap := make(map[string]interface{})
+						RulesCriteriaSourcePortMap := make(map[string]interface{})
 						if RulesItem.Criteria.SourcePort.NoPortMatch != nil {
-							SourcePortMap["no_port_match"] = map[string]interface{}{}
+							RulesCriteriaSourcePortMap["no_port_match"] = map[string]interface{}{}
 						}
 						if !RulesItem.Criteria.SourcePort.Port.IsNull() && !RulesItem.Criteria.SourcePort.Port.IsUnknown() {
-							SourcePortMap["port"] = RulesItem.Criteria.SourcePort.Port.ValueInt64()
+							RulesCriteriaSourcePortMap["port"] = RulesItem.Criteria.SourcePort.Port.ValueInt64()
 						}
 						if !RulesItem.Criteria.SourcePort.PortRanges.IsNull() && !RulesItem.Criteria.SourcePort.PortRanges.IsUnknown() {
-							SourcePortMap["port_ranges"] = RulesItem.Criteria.SourcePort.PortRanges.ValueString()
+							RulesCriteriaSourcePortMap["port_ranges"] = RulesItem.Criteria.SourcePort.PortRanges.ValueString()
 						}
-						CriteriaMap["source_port"] = SourcePortMap
+						RulesCriteriaMap["source_port"] = RulesCriteriaSourcePortMap
 					}
 					if RulesItem.Criteria.TCP != nil {
-						TCPMap := make(map[string]interface{})
+						RulesCriteriaTCPMap := make(map[string]interface{})
 						if RulesItem.Criteria.TCP.DestinationPort != nil {
-							DestinationPortMap := make(map[string]interface{})
+							RulesCriteriaTCPDestinationPortMap := make(map[string]interface{})
 							if RulesItem.Criteria.TCP.DestinationPort.NoPortMatch != nil {
-								DestinationPortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaTCPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.Port.IsUnknown() {
-								DestinationPortMap["port"] = RulesItem.Criteria.TCP.DestinationPort.Port.ValueInt64()
+								RulesCriteriaTCPDestinationPortMap["port"] = RulesItem.Criteria.TCP.DestinationPort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.TCP.DestinationPort.PortRanges.IsNull() && !RulesItem.Criteria.TCP.DestinationPort.PortRanges.IsUnknown() {
-								DestinationPortMap["port_ranges"] = RulesItem.Criteria.TCP.DestinationPort.PortRanges.ValueString()
+								RulesCriteriaTCPDestinationPortMap["port_ranges"] = RulesItem.Criteria.TCP.DestinationPort.PortRanges.ValueString()
 							}
-							TCPMap["destination_port"] = DestinationPortMap
+							RulesCriteriaTCPMap["destination_port"] = RulesCriteriaTCPDestinationPortMap
 						}
 						if RulesItem.Criteria.TCP.SourcePort != nil {
-							SourcePortMap := make(map[string]interface{})
+							RulesCriteriaTCPSourcePortMap := make(map[string]interface{})
 							if RulesItem.Criteria.TCP.SourcePort.NoPortMatch != nil {
-								SourcePortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaTCPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.TCP.SourcePort.Port.IsNull() && !RulesItem.Criteria.TCP.SourcePort.Port.IsUnknown() {
-								SourcePortMap["port"] = RulesItem.Criteria.TCP.SourcePort.Port.ValueInt64()
+								RulesCriteriaTCPSourcePortMap["port"] = RulesItem.Criteria.TCP.SourcePort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.TCP.SourcePort.PortRanges.IsNull() && !RulesItem.Criteria.TCP.SourcePort.PortRanges.IsUnknown() {
-								SourcePortMap["port_ranges"] = RulesItem.Criteria.TCP.SourcePort.PortRanges.ValueString()
+								RulesCriteriaTCPSourcePortMap["port_ranges"] = RulesItem.Criteria.TCP.SourcePort.PortRanges.ValueString()
 							}
-							TCPMap["source_port"] = SourcePortMap
+							RulesCriteriaTCPMap["source_port"] = RulesCriteriaTCPSourcePortMap
 						}
-						CriteriaMap["tcp"] = TCPMap
+						RulesCriteriaMap["tcp"] = RulesCriteriaTCPMap
 					}
 					if RulesItem.Criteria.UDP != nil {
-						UDPMap := make(map[string]interface{})
+						RulesCriteriaUDPMap := make(map[string]interface{})
 						if RulesItem.Criteria.UDP.DestinationPort != nil {
-							DestinationPortMap := make(map[string]interface{})
+							RulesCriteriaUDPDestinationPortMap := make(map[string]interface{})
 							if RulesItem.Criteria.UDP.DestinationPort.NoPortMatch != nil {
-								DestinationPortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaUDPDestinationPortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.DestinationPort.Port.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.Port.IsUnknown() {
-								DestinationPortMap["port"] = RulesItem.Criteria.UDP.DestinationPort.Port.ValueInt64()
+								RulesCriteriaUDPDestinationPortMap["port"] = RulesItem.Criteria.UDP.DestinationPort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.UDP.DestinationPort.PortRanges.IsNull() && !RulesItem.Criteria.UDP.DestinationPort.PortRanges.IsUnknown() {
-								DestinationPortMap["port_ranges"] = RulesItem.Criteria.UDP.DestinationPort.PortRanges.ValueString()
+								RulesCriteriaUDPDestinationPortMap["port_ranges"] = RulesItem.Criteria.UDP.DestinationPort.PortRanges.ValueString()
 							}
-							UDPMap["destination_port"] = DestinationPortMap
+							RulesCriteriaUDPMap["destination_port"] = RulesCriteriaUDPDestinationPortMap
 						}
 						if RulesItem.Criteria.UDP.SourcePort != nil {
-							SourcePortMap := make(map[string]interface{})
+							RulesCriteriaUDPSourcePortMap := make(map[string]interface{})
 							if RulesItem.Criteria.UDP.SourcePort.NoPortMatch != nil {
-								SourcePortMap["no_port_match"] = map[string]interface{}{}
+								RulesCriteriaUDPSourcePortMap["no_port_match"] = map[string]interface{}{}
 							}
 							if !RulesItem.Criteria.UDP.SourcePort.Port.IsNull() && !RulesItem.Criteria.UDP.SourcePort.Port.IsUnknown() {
-								SourcePortMap["port"] = RulesItem.Criteria.UDP.SourcePort.Port.ValueInt64()
+								RulesCriteriaUDPSourcePortMap["port"] = RulesItem.Criteria.UDP.SourcePort.Port.ValueInt64()
 							}
 							if !RulesItem.Criteria.UDP.SourcePort.PortRanges.IsNull() && !RulesItem.Criteria.UDP.SourcePort.PortRanges.IsUnknown() {
-								SourcePortMap["port_ranges"] = RulesItem.Criteria.UDP.SourcePort.PortRanges.ValueString()
+								RulesCriteriaUDPSourcePortMap["port_ranges"] = RulesItem.Criteria.UDP.SourcePort.PortRanges.ValueString()
 							}
-							UDPMap["source_port"] = SourcePortMap
+							RulesCriteriaUDPMap["source_port"] = RulesCriteriaUDPSourcePortMap
 						}
-						CriteriaMap["udp"] = UDPMap
+						RulesCriteriaMap["udp"] = RulesCriteriaUDPMap
 					}
 					if RulesItem.Criteria.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						RulesCriteriaVirtualNetworkMap := make(map[string]interface{})
 						if !RulesItem.Criteria.VirtualNetwork.Refs.IsNull() && !RulesItem.Criteria.VirtualNetwork.Refs.IsUnknown() {
 							var RefsElems []NATPolicyRulesCriteriaVirtualNetworkRefsModel
 							diags := RulesItem.Criteria.VirtualNetwork.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -4138,12 +4138,12 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 									}
 									RefsList = append(RefsList, RefsItemMap)
 								}
-								VirtualNetworkMap["refs"] = RefsList
+								RulesCriteriaVirtualNetworkMap["refs"] = RefsList
 							}
 						}
-						CriteriaMap["virtual_network"] = VirtualNetworkMap
+						RulesCriteriaMap["virtual_network"] = RulesCriteriaVirtualNetworkMap
 					}
-					RulesItemMap["criteria"] = CriteriaMap
+					RulesItemMap["criteria"] = RulesCriteriaMap
 				}
 				if RulesItem.DisableSpec != nil {
 					RulesItemMap["disable"] = map[string]interface{}{}
@@ -4155,7 +4155,7 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 					RulesItemMap["name"] = RulesItem.Name.ValueString()
 				}
 				if RulesItem.NetworkInterface != nil {
-					NetworkInterfaceMap := make(map[string]interface{})
+					RulesNetworkInterfaceMap := make(map[string]interface{})
 					if !RulesItem.NetworkInterface.Refs.IsNull() && !RulesItem.NetworkInterface.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesNetworkInterfaceRefsModel
 						diags := RulesItem.NetworkInterface.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -4181,13 +4181,13 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							NetworkInterfaceMap["refs"] = RefsList
+							RulesNetworkInterfaceMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["network_interface"] = NetworkInterfaceMap
+					RulesItemMap["network_interface"] = RulesNetworkInterfaceMap
 				}
 				if RulesItem.NodeInterface != nil {
-					NodeInterfaceMap := make(map[string]interface{})
+					RulesNodeInterfaceMap := make(map[string]interface{})
 					if !RulesItem.NodeInterface.List.IsNull() && !RulesItem.NodeInterface.List.IsUnknown() {
 						var ListElems []NATPolicyRulesNodeInterfaceListModel
 						diags := RulesItem.NodeInterface.List.ElementsAs(ctx, &ListElems, false)
@@ -4229,13 +4229,13 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 								}
 								ListList = append(ListList, ListItemMap)
 							}
-							NodeInterfaceMap["list"] = ListList
+							RulesNodeInterfaceMap["list"] = ListList
 						}
 					}
-					RulesItemMap["node_interface"] = NodeInterfaceMap
+					RulesItemMap["node_interface"] = RulesNodeInterfaceMap
 				}
 				if RulesItem.Segment != nil {
-					SegmentMap := make(map[string]interface{})
+					RulesSegmentMap := make(map[string]interface{})
 					if !RulesItem.Segment.Refs.IsNull() && !RulesItem.Segment.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesSegmentRefsModel
 						diags := RulesItem.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -4261,13 +4261,13 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							SegmentMap["refs"] = RefsList
+							RulesSegmentMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["segment"] = SegmentMap
+					RulesItemMap["segment"] = RulesSegmentMap
 				}
 				if RulesItem.VirtualNetwork != nil {
-					VirtualNetworkMap := make(map[string]interface{})
+					RulesVirtualNetworkMap := make(map[string]interface{})
 					if !RulesItem.VirtualNetwork.Refs.IsNull() && !RulesItem.VirtualNetwork.Refs.IsUnknown() {
 						var RefsElems []NATPolicyRulesVirtualNetworkRefsModel
 						diags := RulesItem.VirtualNetwork.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -4293,10 +4293,10 @@ func (r *NATPolicyResource) Update(ctx context.Context, req resource.UpdateReque
 								}
 								RefsList = append(RefsList, RefsItemMap)
 							}
-							VirtualNetworkMap["refs"] = RefsList
+							RulesVirtualNetworkMap["refs"] = RefsList
 						}
 					}
-					RulesItemMap["virtual_network"] = VirtualNetworkMap
+					RulesItemMap["virtual_network"] = RulesVirtualNetworkMap
 				}
 				RulesList = append(RulesList, RulesItemMap)
 			}

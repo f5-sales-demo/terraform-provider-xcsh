@@ -895,16 +895,16 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 	if data.Gre != nil {
 		GreMap := make(map[string]interface{})
 		if data.Gre.GreParameters != nil {
-			GreParametersMap := make(map[string]interface{})
+			GreGreParametersMap := make(map[string]interface{})
 			if data.Gre.GreParameters.PeerIPAddress != nil {
-				PeerIPAddressMap := make(map[string]interface{})
+				GreGreParametersPeerIPAddressMap := make(map[string]interface{})
 				if !data.Gre.GreParameters.PeerIPAddress.Addr.IsNull() && !data.Gre.GreParameters.PeerIPAddress.Addr.IsUnknown() {
-					PeerIPAddressMap["addr"] = data.Gre.GreParameters.PeerIPAddress.Addr.ValueString()
+					GreGreParametersPeerIPAddressMap["addr"] = data.Gre.GreParameters.PeerIPAddress.Addr.ValueString()
 				}
-				GreParametersMap["peer_ip_address"] = PeerIPAddressMap
+				GreGreParametersMap["peer_ip_address"] = GreGreParametersPeerIPAddressMap
 			}
 			if data.Gre.GreParameters.Segment != nil {
-				SegmentMap := make(map[string]interface{})
+				GreGreParametersSegmentMap := make(map[string]interface{})
 				if !data.Gre.GreParameters.Segment.Refs.IsNull() && !data.Gre.GreParameters.Segment.Refs.IsUnknown() {
 					var RefsElems []ExternalConnectorGreGreParametersSegmentRefsModel
 					diags := data.Gre.GreParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -930,16 +930,16 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
-						SegmentMap["refs"] = RefsList
+						GreGreParametersSegmentMap["refs"] = RefsList
 					}
 				}
-				GreParametersMap["segment"] = SegmentMap
+				GreGreParametersMap["segment"] = GreGreParametersSegmentMap
 			}
 			if data.Gre.GreParameters.SiteLocalInsideNetwork != nil {
-				GreParametersMap["site_local_inside_network"] = map[string]interface{}{}
+				GreGreParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
 			if data.Gre.GreParameters.SiteLocalNetwork != nil {
-				GreParametersMap["site_local_network"] = map[string]interface{}{}
+				GreGreParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Gre.GreParameters.TunnelEps.IsNull() && !data.Gre.GreParameters.TunnelEps.IsUnknown() {
 				var TunnelEpsElems []ExternalConnectorGreGreParametersTunnelEpsModel
@@ -963,105 +963,105 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 						}
 						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					GreParametersMap["tunnel_eps"] = TunnelEpsList
+					GreGreParametersMap["tunnel_eps"] = TunnelEpsList
 				}
 			}
 			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
-				GreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
+				GreGreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
 			}
-			GreMap["gre_parameters"] = GreParametersMap
+			GreMap["gre_parameters"] = GreGreParametersMap
 		}
 		createReq.Spec["gre"] = GreMap
 	}
 	if data.Ipsec != nil {
 		IpsecMap := make(map[string]interface{})
 		if data.Ipsec.IKEParameters != nil {
-			IKEParametersMap := make(map[string]interface{})
+			IpsecIKEParametersMap := make(map[string]interface{})
 			if data.Ipsec.IKEParameters.DpdDisabled != nil {
-				IKEParametersMap["dpd_disabled"] = map[string]interface{}{}
+				IpsecIKEParametersMap["dpd_disabled"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
-				DpdKeepAliveTimerMap := make(map[string]interface{})
+				IpsecIKEParametersDpdKeepAliveTimerMap := make(map[string]interface{})
 				if !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsNull() && !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsUnknown() {
-					DpdKeepAliveTimerMap["timeout"] = data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.ValueInt64()
+					IpsecIKEParametersDpdKeepAliveTimerMap["timeout"] = data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.ValueInt64()
 				}
-				IKEParametersMap["dpd_keep_alive_timer"] = DpdKeepAliveTimerMap
+				IpsecIKEParametersMap["dpd_keep_alive_timer"] = IpsecIKEParametersDpdKeepAliveTimerMap
 			}
 			if data.Ipsec.IKEParameters.IKEPhase1Profile != nil {
-				IKEPhase1ProfileMap := make(map[string]interface{})
+				IpsecIKEParametersIKEPhase1ProfileMap := make(map[string]interface{})
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsUnknown() {
-					IKEPhase1ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Name.ValueString()
+					IpsecIKEParametersIKEPhase1ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Name.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsUnknown() {
-					IKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
+					IpsecIKEParametersIKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsUnknown() {
-					IKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
+					IpsecIKEParametersIKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
 				}
-				IKEParametersMap["ike_phase1_profile"] = IKEPhase1ProfileMap
+				IpsecIKEParametersMap["ike_phase1_profile"] = IpsecIKEParametersIKEPhase1ProfileMap
 			}
 			if data.Ipsec.IKEParameters.IKEPhase2Profile != nil {
-				IKEPhase2ProfileMap := make(map[string]interface{})
+				IpsecIKEParametersIKEPhase2ProfileMap := make(map[string]interface{})
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsUnknown() {
-					IKEPhase2ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Name.ValueString()
+					IpsecIKEParametersIKEPhase2ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Name.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsUnknown() {
-					IKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
+					IpsecIKEParametersIKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsUnknown() {
-					IKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
+					IpsecIKEParametersIKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
 				}
-				IKEParametersMap["ike_phase2_profile"] = IKEPhase2ProfileMap
+				IpsecIKEParametersMap["ike_phase2_profile"] = IpsecIKEParametersIKEPhase2ProfileMap
 			}
 			if data.Ipsec.IKEParameters.Initiator != nil {
-				IKEParametersMap["initiator"] = map[string]interface{}{}
+				IpsecIKEParametersMap["initiator"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.Responder != nil {
-				IKEParametersMap["responder"] = map[string]interface{}{}
+				IpsecIKEParametersMap["responder"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
-				IKEParametersMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
+				IpsecIKEParametersMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
 			}
 			if data.Ipsec.IKEParameters.RmIPAddress != nil {
-				RmIPAddressMap := make(map[string]interface{})
+				IpsecIKEParametersRmIPAddressMap := make(map[string]interface{})
 				if data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
-					Ipv4Map := make(map[string]interface{})
+					IpsecIKEParametersRmIPAddressIpv4Map := make(map[string]interface{})
 					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsUnknown() {
-						Ipv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.ValueString()
+						IpsecIKEParametersRmIPAddressIpv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.ValueString()
 					}
-					RmIPAddressMap["ipv4"] = Ipv4Map
+					IpsecIKEParametersRmIPAddressMap["ipv4"] = IpsecIKEParametersRmIPAddressIpv4Map
 				}
 				if data.Ipsec.IKEParameters.RmIPAddress.Ipv6 != nil {
-					Ipv6Map := make(map[string]interface{})
+					IpsecIKEParametersRmIPAddressIpv6Map := make(map[string]interface{})
 					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsUnknown() {
-						Ipv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.ValueString()
+						IpsecIKEParametersRmIPAddressIpv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.ValueString()
 					}
-					RmIPAddressMap["ipv6"] = Ipv6Map
+					IpsecIKEParametersRmIPAddressMap["ipv6"] = IpsecIKEParametersRmIPAddressIpv6Map
 				}
-				IKEParametersMap["rm_ip_address"] = RmIPAddressMap
+				IpsecIKEParametersMap["rm_ip_address"] = IpsecIKEParametersRmIPAddressMap
 			}
 			if data.Ipsec.IKEParameters.UseDefaultLocalIKEID != nil {
-				IKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
+				IpsecIKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.UseDefaultRemoteIKEID != nil {
-				IKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
+				IpsecIKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
 			}
-			IpsecMap["ike_parameters"] = IKEParametersMap
+			IpsecMap["ike_parameters"] = IpsecIKEParametersMap
 		}
 		if data.Ipsec.IpsecTunnelParameters != nil {
-			IpsecTunnelParametersMap := make(map[string]interface{})
+			IpsecIpsecTunnelParametersMap := make(map[string]interface{})
 			if data.Ipsec.IpsecTunnelParameters.PeerIPAddress != nil {
-				PeerIPAddressMap := make(map[string]interface{})
+				IpsecIpsecTunnelParametersPeerIPAddressMap := make(map[string]interface{})
 				if !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsNull() && !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsUnknown() {
-					PeerIPAddressMap["addr"] = data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.ValueString()
+					IpsecIpsecTunnelParametersPeerIPAddressMap["addr"] = data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.ValueString()
 				}
-				IpsecTunnelParametersMap["peer_ip_address"] = PeerIPAddressMap
+				IpsecIpsecTunnelParametersMap["peer_ip_address"] = IpsecIpsecTunnelParametersPeerIPAddressMap
 			}
 			if !data.Ipsec.IpsecTunnelParameters.Psk.IsNull() && !data.Ipsec.IpsecTunnelParameters.Psk.IsUnknown() {
-				IpsecTunnelParametersMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
+				IpsecIpsecTunnelParametersMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
 			}
 			if data.Ipsec.IpsecTunnelParameters.Segment != nil {
-				SegmentMap := make(map[string]interface{})
+				IpsecIpsecTunnelParametersSegmentMap := make(map[string]interface{})
 				if !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsNull() && !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsUnknown() {
 					var RefsElems []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
 					diags := data.Ipsec.IpsecTunnelParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -1087,16 +1087,16 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
-						SegmentMap["refs"] = RefsList
+						IpsecIpsecTunnelParametersSegmentMap["refs"] = RefsList
 					}
 				}
-				IpsecTunnelParametersMap["segment"] = SegmentMap
+				IpsecIpsecTunnelParametersMap["segment"] = IpsecIpsecTunnelParametersSegmentMap
 			}
 			if data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork != nil {
-				IpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
+				IpsecIpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
-				IpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
+				IpsecIpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsUnknown() {
 				var TunnelEpsElems []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
@@ -1120,13 +1120,13 @@ func (r *ExternalConnectorResource) Create(ctx context.Context, req resource.Cre
 						}
 						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
+					IpsecIpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 				}
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsUnknown() {
-				IpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
+				IpsecIpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
 			}
-			IpsecMap["ipsec_tunnel_parameters"] = IpsecTunnelParametersMap
+			IpsecMap["ipsec_tunnel_parameters"] = IpsecIpsecTunnelParametersMap
 		}
 		createReq.Spec["ipsec"] = IpsecMap
 	}
@@ -2341,16 +2341,16 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 	if data.Gre != nil {
 		GreMap := make(map[string]interface{})
 		if data.Gre.GreParameters != nil {
-			GreParametersMap := make(map[string]interface{})
+			GreGreParametersMap := make(map[string]interface{})
 			if data.Gre.GreParameters.PeerIPAddress != nil {
-				PeerIPAddressMap := make(map[string]interface{})
+				GreGreParametersPeerIPAddressMap := make(map[string]interface{})
 				if !data.Gre.GreParameters.PeerIPAddress.Addr.IsNull() && !data.Gre.GreParameters.PeerIPAddress.Addr.IsUnknown() {
-					PeerIPAddressMap["addr"] = data.Gre.GreParameters.PeerIPAddress.Addr.ValueString()
+					GreGreParametersPeerIPAddressMap["addr"] = data.Gre.GreParameters.PeerIPAddress.Addr.ValueString()
 				}
-				GreParametersMap["peer_ip_address"] = PeerIPAddressMap
+				GreGreParametersMap["peer_ip_address"] = GreGreParametersPeerIPAddressMap
 			}
 			if data.Gre.GreParameters.Segment != nil {
-				SegmentMap := make(map[string]interface{})
+				GreGreParametersSegmentMap := make(map[string]interface{})
 				if !data.Gre.GreParameters.Segment.Refs.IsNull() && !data.Gre.GreParameters.Segment.Refs.IsUnknown() {
 					var RefsElems []ExternalConnectorGreGreParametersSegmentRefsModel
 					diags := data.Gre.GreParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -2376,16 +2376,16 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
-						SegmentMap["refs"] = RefsList
+						GreGreParametersSegmentMap["refs"] = RefsList
 					}
 				}
-				GreParametersMap["segment"] = SegmentMap
+				GreGreParametersMap["segment"] = GreGreParametersSegmentMap
 			}
 			if data.Gre.GreParameters.SiteLocalInsideNetwork != nil {
-				GreParametersMap["site_local_inside_network"] = map[string]interface{}{}
+				GreGreParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
 			if data.Gre.GreParameters.SiteLocalNetwork != nil {
-				GreParametersMap["site_local_network"] = map[string]interface{}{}
+				GreGreParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Gre.GreParameters.TunnelEps.IsNull() && !data.Gre.GreParameters.TunnelEps.IsUnknown() {
 				var TunnelEpsElems []ExternalConnectorGreGreParametersTunnelEpsModel
@@ -2409,105 +2409,105 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 						}
 						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					GreParametersMap["tunnel_eps"] = TunnelEpsList
+					GreGreParametersMap["tunnel_eps"] = TunnelEpsList
 				}
 			}
 			if !data.Gre.GreParameters.TunnelMTU.IsNull() && !data.Gre.GreParameters.TunnelMTU.IsUnknown() {
-				GreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
+				GreGreParametersMap["tunnel_mtu"] = data.Gre.GreParameters.TunnelMTU.ValueInt64()
 			}
-			GreMap["gre_parameters"] = GreParametersMap
+			GreMap["gre_parameters"] = GreGreParametersMap
 		}
 		apiResource.Spec["gre"] = GreMap
 	}
 	if data.Ipsec != nil {
 		IpsecMap := make(map[string]interface{})
 		if data.Ipsec.IKEParameters != nil {
-			IKEParametersMap := make(map[string]interface{})
+			IpsecIKEParametersMap := make(map[string]interface{})
 			if data.Ipsec.IKEParameters.DpdDisabled != nil {
-				IKEParametersMap["dpd_disabled"] = map[string]interface{}{}
+				IpsecIKEParametersMap["dpd_disabled"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.DpdKeepAliveTimer != nil {
-				DpdKeepAliveTimerMap := make(map[string]interface{})
+				IpsecIKEParametersDpdKeepAliveTimerMap := make(map[string]interface{})
 				if !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsNull() && !data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.IsUnknown() {
-					DpdKeepAliveTimerMap["timeout"] = data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.ValueInt64()
+					IpsecIKEParametersDpdKeepAliveTimerMap["timeout"] = data.Ipsec.IKEParameters.DpdKeepAliveTimer.Timeout.ValueInt64()
 				}
-				IKEParametersMap["dpd_keep_alive_timer"] = DpdKeepAliveTimerMap
+				IpsecIKEParametersMap["dpd_keep_alive_timer"] = IpsecIKEParametersDpdKeepAliveTimerMap
 			}
 			if data.Ipsec.IKEParameters.IKEPhase1Profile != nil {
-				IKEPhase1ProfileMap := make(map[string]interface{})
+				IpsecIKEParametersIKEPhase1ProfileMap := make(map[string]interface{})
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Name.IsUnknown() {
-					IKEPhase1ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Name.ValueString()
+					IpsecIKEParametersIKEPhase1ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Name.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.IsUnknown() {
-					IKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
+					IpsecIKEParametersIKEPhase1ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Namespace.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.IsUnknown() {
-					IKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
+					IpsecIKEParametersIKEPhase1ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase1Profile.Tenant.ValueString()
 				}
-				IKEParametersMap["ike_phase1_profile"] = IKEPhase1ProfileMap
+				IpsecIKEParametersMap["ike_phase1_profile"] = IpsecIKEParametersIKEPhase1ProfileMap
 			}
 			if data.Ipsec.IKEParameters.IKEPhase2Profile != nil {
-				IKEPhase2ProfileMap := make(map[string]interface{})
+				IpsecIKEParametersIKEPhase2ProfileMap := make(map[string]interface{})
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Name.IsUnknown() {
-					IKEPhase2ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Name.ValueString()
+					IpsecIKEParametersIKEPhase2ProfileMap["name"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Name.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.IsUnknown() {
-					IKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
+					IpsecIKEParametersIKEPhase2ProfileMap["namespace"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Namespace.ValueString()
 				}
 				if !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsNull() && !data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.IsUnknown() {
-					IKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
+					IpsecIKEParametersIKEPhase2ProfileMap["tenant"] = data.Ipsec.IKEParameters.IKEPhase2Profile.Tenant.ValueString()
 				}
-				IKEParametersMap["ike_phase2_profile"] = IKEPhase2ProfileMap
+				IpsecIKEParametersMap["ike_phase2_profile"] = IpsecIKEParametersIKEPhase2ProfileMap
 			}
 			if data.Ipsec.IKEParameters.Initiator != nil {
-				IKEParametersMap["initiator"] = map[string]interface{}{}
+				IpsecIKEParametersMap["initiator"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.Responder != nil {
-				IKEParametersMap["responder"] = map[string]interface{}{}
+				IpsecIKEParametersMap["responder"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IKEParameters.RmHostname.IsNull() && !data.Ipsec.IKEParameters.RmHostname.IsUnknown() {
-				IKEParametersMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
+				IpsecIKEParametersMap["rm_hostname"] = data.Ipsec.IKEParameters.RmHostname.ValueString()
 			}
 			if data.Ipsec.IKEParameters.RmIPAddress != nil {
-				RmIPAddressMap := make(map[string]interface{})
+				IpsecIKEParametersRmIPAddressMap := make(map[string]interface{})
 				if data.Ipsec.IKEParameters.RmIPAddress.Ipv4 != nil {
-					Ipv4Map := make(map[string]interface{})
+					IpsecIKEParametersRmIPAddressIpv4Map := make(map[string]interface{})
 					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.IsUnknown() {
-						Ipv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.ValueString()
+						IpsecIKEParametersRmIPAddressIpv4Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv4.Addr.ValueString()
 					}
-					RmIPAddressMap["ipv4"] = Ipv4Map
+					IpsecIKEParametersRmIPAddressMap["ipv4"] = IpsecIKEParametersRmIPAddressIpv4Map
 				}
 				if data.Ipsec.IKEParameters.RmIPAddress.Ipv6 != nil {
-					Ipv6Map := make(map[string]interface{})
+					IpsecIKEParametersRmIPAddressIpv6Map := make(map[string]interface{})
 					if !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsNull() && !data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.IsUnknown() {
-						Ipv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.ValueString()
+						IpsecIKEParametersRmIPAddressIpv6Map["addr"] = data.Ipsec.IKEParameters.RmIPAddress.Ipv6.Addr.ValueString()
 					}
-					RmIPAddressMap["ipv6"] = Ipv6Map
+					IpsecIKEParametersRmIPAddressMap["ipv6"] = IpsecIKEParametersRmIPAddressIpv6Map
 				}
-				IKEParametersMap["rm_ip_address"] = RmIPAddressMap
+				IpsecIKEParametersMap["rm_ip_address"] = IpsecIKEParametersRmIPAddressMap
 			}
 			if data.Ipsec.IKEParameters.UseDefaultLocalIKEID != nil {
-				IKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
+				IpsecIKEParametersMap["use_default_local_ike_id"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IKEParameters.UseDefaultRemoteIKEID != nil {
-				IKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
+				IpsecIKEParametersMap["use_default_remote_ike_id"] = map[string]interface{}{}
 			}
-			IpsecMap["ike_parameters"] = IKEParametersMap
+			IpsecMap["ike_parameters"] = IpsecIKEParametersMap
 		}
 		if data.Ipsec.IpsecTunnelParameters != nil {
-			IpsecTunnelParametersMap := make(map[string]interface{})
+			IpsecIpsecTunnelParametersMap := make(map[string]interface{})
 			if data.Ipsec.IpsecTunnelParameters.PeerIPAddress != nil {
-				PeerIPAddressMap := make(map[string]interface{})
+				IpsecIpsecTunnelParametersPeerIPAddressMap := make(map[string]interface{})
 				if !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsNull() && !data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.IsUnknown() {
-					PeerIPAddressMap["addr"] = data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.ValueString()
+					IpsecIpsecTunnelParametersPeerIPAddressMap["addr"] = data.Ipsec.IpsecTunnelParameters.PeerIPAddress.Addr.ValueString()
 				}
-				IpsecTunnelParametersMap["peer_ip_address"] = PeerIPAddressMap
+				IpsecIpsecTunnelParametersMap["peer_ip_address"] = IpsecIpsecTunnelParametersPeerIPAddressMap
 			}
 			if !data.Ipsec.IpsecTunnelParameters.Psk.IsNull() && !data.Ipsec.IpsecTunnelParameters.Psk.IsUnknown() {
-				IpsecTunnelParametersMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
+				IpsecIpsecTunnelParametersMap["psk"] = data.Ipsec.IpsecTunnelParameters.Psk.ValueString()
 			}
 			if data.Ipsec.IpsecTunnelParameters.Segment != nil {
-				SegmentMap := make(map[string]interface{})
+				IpsecIpsecTunnelParametersSegmentMap := make(map[string]interface{})
 				if !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsNull() && !data.Ipsec.IpsecTunnelParameters.Segment.Refs.IsUnknown() {
 					var RefsElems []ExternalConnectorIpsecIpsecTunnelParametersSegmentRefsModel
 					diags := data.Ipsec.IpsecTunnelParameters.Segment.Refs.ElementsAs(ctx, &RefsElems, false)
@@ -2533,16 +2533,16 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 							}
 							RefsList = append(RefsList, RefsItemMap)
 						}
-						SegmentMap["refs"] = RefsList
+						IpsecIpsecTunnelParametersSegmentMap["refs"] = RefsList
 					}
 				}
-				IpsecTunnelParametersMap["segment"] = SegmentMap
+				IpsecIpsecTunnelParametersMap["segment"] = IpsecIpsecTunnelParametersSegmentMap
 			}
 			if data.Ipsec.IpsecTunnelParameters.SiteLocalInsideNetwork != nil {
-				IpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
+				IpsecIpsecTunnelParametersMap["site_local_inside_network"] = map[string]interface{}{}
 			}
 			if data.Ipsec.IpsecTunnelParameters.SiteLocalNetwork != nil {
-				IpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
+				IpsecIpsecTunnelParametersMap["site_local_network"] = map[string]interface{}{}
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelEps.IsUnknown() {
 				var TunnelEpsElems []ExternalConnectorIpsecIpsecTunnelParametersTunnelEpsModel
@@ -2566,13 +2566,13 @@ func (r *ExternalConnectorResource) Update(ctx context.Context, req resource.Upd
 						}
 						TunnelEpsList = append(TunnelEpsList, TunnelEpsItemMap)
 					}
-					IpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
+					IpsecIpsecTunnelParametersMap["tunnel_eps"] = TunnelEpsList
 				}
 			}
 			if !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsNull() && !data.Ipsec.IpsecTunnelParameters.TunnelMTU.IsUnknown() {
-				IpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
+				IpsecIpsecTunnelParametersMap["tunnel_mtu"] = data.Ipsec.IpsecTunnelParameters.TunnelMTU.ValueInt64()
 			}
-			IpsecMap["ipsec_tunnel_parameters"] = IpsecTunnelParametersMap
+			IpsecMap["ipsec_tunnel_parameters"] = IpsecIpsecTunnelParametersMap
 		}
 		apiResource.Spec["ipsec"] = IpsecMap
 	}

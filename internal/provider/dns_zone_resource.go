@@ -3277,37 +3277,37 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				for _, DefaultRrSetGroupItem := range DefaultRrSetGroupElems {
 					DefaultRrSetGroupItemMap := make(map[string]interface{})
 					if DefaultRrSetGroupItem.ARecord != nil {
-						ARecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupARecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.ARecord.Name.IsNull() && !DefaultRrSetGroupItem.ARecord.Name.IsUnknown() {
-							ARecordMap["name"] = DefaultRrSetGroupItem.ARecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupARecordMap["name"] = DefaultRrSetGroupItem.ARecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.ARecord.Values.IsNull() && !DefaultRrSetGroupItem.ARecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								ARecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupARecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["a_record"] = ARecordMap
+						DefaultRrSetGroupItemMap["a_record"] = PrimaryDefaultRrSetGroupARecordMap
 					}
 					if DefaultRrSetGroupItem.AaaaRecord != nil {
-						AaaaRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupAaaaRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.AaaaRecord.Name.IsNull() && !DefaultRrSetGroupItem.AaaaRecord.Name.IsUnknown() {
-							AaaaRecordMap["name"] = DefaultRrSetGroupItem.AaaaRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupAaaaRecordMap["name"] = DefaultRrSetGroupItem.AaaaRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.AaaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.AaaaRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								AaaaRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupAaaaRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["aaaa_record"] = AaaaRecordMap
+						DefaultRrSetGroupItemMap["aaaa_record"] = PrimaryDefaultRrSetGroupAaaaRecordMap
 					}
 					if DefaultRrSetGroupItem.AfsdbRecord != nil {
-						AfsdbRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupAfsdbRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.AfsdbRecord.Name.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Name.IsUnknown() {
-							AfsdbRecordMap["name"] = DefaultRrSetGroupItem.AfsdbRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupAfsdbRecordMap["name"] = DefaultRrSetGroupItem.AfsdbRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
@@ -3325,22 +3325,22 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								AfsdbRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupAfsdbRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["afsdb_record"] = AfsdbRecordMap
+						DefaultRrSetGroupItemMap["afsdb_record"] = PrimaryDefaultRrSetGroupAfsdbRecordMap
 					}
 					if DefaultRrSetGroupItem.AliasRecord != nil {
-						AliasRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupAliasRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.AliasRecord.Value.IsNull() && !DefaultRrSetGroupItem.AliasRecord.Value.IsUnknown() {
-							AliasRecordMap["value"] = DefaultRrSetGroupItem.AliasRecord.Value.ValueString()
+							PrimaryDefaultRrSetGroupAliasRecordMap["value"] = DefaultRrSetGroupItem.AliasRecord.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["alias_record"] = AliasRecordMap
+						DefaultRrSetGroupItemMap["alias_record"] = PrimaryDefaultRrSetGroupAliasRecordMap
 					}
 					if DefaultRrSetGroupItem.CaaRecord != nil {
-						CaaRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCaaRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CaaRecord.Name.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Name.IsUnknown() {
-							CaaRecordMap["name"] = DefaultRrSetGroupItem.CaaRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCaaRecordMap["name"] = DefaultRrSetGroupItem.CaaRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
@@ -3361,15 +3361,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								CaaRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupCaaRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["caa_record"] = CaaRecordMap
+						DefaultRrSetGroupItemMap["caa_record"] = PrimaryDefaultRrSetGroupCaaRecordMap
 					}
 					if DefaultRrSetGroupItem.CdsRecord != nil {
-						CdsRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCdsRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CdsRecord.Name.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Name.IsUnknown() {
-							CdsRecordMap["name"] = DefaultRrSetGroupItem.CdsRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCdsRecordMap["name"] = DefaultRrSetGroupItem.CdsRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CdsRecord.Values.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
@@ -3386,37 +3386,37 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
 									if ValuesItem.Sha1Digest != nil {
-										Sha1DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupCdsRecordValuesSha1DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupCdsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha1_digest"] = Sha1DigestMap
+										ValuesItemMap["sha1_digest"] = PrimaryDefaultRrSetGroupCdsRecordValuesSha1DigestMap
 									}
 									if ValuesItem.Sha256Digest != nil {
-										Sha256DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupCdsRecordValuesSha256DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupCdsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+										ValuesItemMap["sha256_digest"] = PrimaryDefaultRrSetGroupCdsRecordValuesSha256DigestMap
 									}
 									if ValuesItem.Sha384Digest != nil {
-										Sha384DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+										ValuesItemMap["sha384_digest"] = PrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestMap
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								CdsRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupCdsRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["cds_record"] = CdsRecordMap
+						DefaultRrSetGroupItemMap["cds_record"] = PrimaryDefaultRrSetGroupCdsRecordMap
 					}
 					if DefaultRrSetGroupItem.CertRecord != nil {
-						CertRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCertRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CertRecord.Name.IsNull() && !DefaultRrSetGroupItem.CertRecord.Name.IsUnknown() {
-							CertRecordMap["name"] = DefaultRrSetGroupItem.CertRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCertRecordMap["name"] = DefaultRrSetGroupItem.CertRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CertRecord.Values.IsNull() && !DefaultRrSetGroupItem.CertRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
@@ -3440,28 +3440,28 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								CertRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupCertRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["cert_record"] = CertRecordMap
+						DefaultRrSetGroupItemMap["cert_record"] = PrimaryDefaultRrSetGroupCertRecordMap
 					}
 					if DefaultRrSetGroupItem.CnameRecord != nil {
-						CnameRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCnameRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CnameRecord.Name.IsNull() && !DefaultRrSetGroupItem.CnameRecord.Name.IsUnknown() {
-							CnameRecordMap["name"] = DefaultRrSetGroupItem.CnameRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCnameRecordMap["name"] = DefaultRrSetGroupItem.CnameRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CnameRecord.Value.IsNull() && !DefaultRrSetGroupItem.CnameRecord.Value.IsUnknown() {
-							CnameRecordMap["value"] = DefaultRrSetGroupItem.CnameRecord.Value.ValueString()
+							PrimaryDefaultRrSetGroupCnameRecordMap["value"] = DefaultRrSetGroupItem.CnameRecord.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["cname_record"] = CnameRecordMap
+						DefaultRrSetGroupItemMap["cname_record"] = PrimaryDefaultRrSetGroupCnameRecordMap
 					}
 					if !DefaultRrSetGroupItem.DescriptionSpec.IsNull() && !DefaultRrSetGroupItem.DescriptionSpec.IsUnknown() {
 						DefaultRrSetGroupItemMap["description"] = DefaultRrSetGroupItem.DescriptionSpec.ValueString()
 					}
 					if DefaultRrSetGroupItem.DsRecord != nil {
-						DsRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupDsRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.DsRecord.Name.IsNull() && !DefaultRrSetGroupItem.DsRecord.Name.IsUnknown() {
-							DsRecordMap["name"] = DefaultRrSetGroupItem.DsRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupDsRecordMap["name"] = DefaultRrSetGroupItem.DsRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.DsRecord.Values.IsNull() && !DefaultRrSetGroupItem.DsRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
@@ -3478,77 +3478,77 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
 									if ValuesItem.Sha1Digest != nil {
-										Sha1DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupDsRecordValuesSha1DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupDsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha1_digest"] = Sha1DigestMap
+										ValuesItemMap["sha1_digest"] = PrimaryDefaultRrSetGroupDsRecordValuesSha1DigestMap
 									}
 									if ValuesItem.Sha256Digest != nil {
-										Sha256DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupDsRecordValuesSha256DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupDsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+										ValuesItemMap["sha256_digest"] = PrimaryDefaultRrSetGroupDsRecordValuesSha256DigestMap
 									}
 									if ValuesItem.Sha384Digest != nil {
-										Sha384DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupDsRecordValuesSha384DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupDsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+										ValuesItemMap["sha384_digest"] = PrimaryDefaultRrSetGroupDsRecordValuesSha384DigestMap
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								DsRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupDsRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["ds_record"] = DsRecordMap
+						DefaultRrSetGroupItemMap["ds_record"] = PrimaryDefaultRrSetGroupDsRecordMap
 					}
 					if DefaultRrSetGroupItem.Eui48Record != nil {
-						Eui48RecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupEui48RecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.Eui48Record.Name.IsNull() && !DefaultRrSetGroupItem.Eui48Record.Name.IsUnknown() {
-							Eui48RecordMap["name"] = DefaultRrSetGroupItem.Eui48Record.Name.ValueString()
+							PrimaryDefaultRrSetGroupEui48RecordMap["name"] = DefaultRrSetGroupItem.Eui48Record.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.Eui48Record.Value.IsNull() && !DefaultRrSetGroupItem.Eui48Record.Value.IsUnknown() {
-							Eui48RecordMap["value"] = DefaultRrSetGroupItem.Eui48Record.Value.ValueString()
+							PrimaryDefaultRrSetGroupEui48RecordMap["value"] = DefaultRrSetGroupItem.Eui48Record.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["eui48_record"] = Eui48RecordMap
+						DefaultRrSetGroupItemMap["eui48_record"] = PrimaryDefaultRrSetGroupEui48RecordMap
 					}
 					if DefaultRrSetGroupItem.Eui64Record != nil {
-						Eui64RecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupEui64RecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.Eui64Record.Name.IsNull() && !DefaultRrSetGroupItem.Eui64Record.Name.IsUnknown() {
-							Eui64RecordMap["name"] = DefaultRrSetGroupItem.Eui64Record.Name.ValueString()
+							PrimaryDefaultRrSetGroupEui64RecordMap["name"] = DefaultRrSetGroupItem.Eui64Record.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.Eui64Record.Value.IsNull() && !DefaultRrSetGroupItem.Eui64Record.Value.IsUnknown() {
-							Eui64RecordMap["value"] = DefaultRrSetGroupItem.Eui64Record.Value.ValueString()
+							PrimaryDefaultRrSetGroupEui64RecordMap["value"] = DefaultRrSetGroupItem.Eui64Record.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["eui64_record"] = Eui64RecordMap
+						DefaultRrSetGroupItemMap["eui64_record"] = PrimaryDefaultRrSetGroupEui64RecordMap
 					}
 					if DefaultRrSetGroupItem.LBRecord != nil {
-						LBRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupLBRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.LBRecord.Name.IsNull() && !DefaultRrSetGroupItem.LBRecord.Name.IsUnknown() {
-							LBRecordMap["name"] = DefaultRrSetGroupItem.LBRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupLBRecordMap["name"] = DefaultRrSetGroupItem.LBRecord.Name.ValueString()
 						}
 						if DefaultRrSetGroupItem.LBRecord.Value != nil {
-							ValueMap := make(map[string]interface{})
+							PrimaryDefaultRrSetGroupLBRecordValueMap := make(map[string]interface{})
 							if !DefaultRrSetGroupItem.LBRecord.Value.Name.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Name.IsUnknown() {
-								ValueMap["name"] = DefaultRrSetGroupItem.LBRecord.Value.Name.ValueString()
+								PrimaryDefaultRrSetGroupLBRecordValueMap["name"] = DefaultRrSetGroupItem.LBRecord.Value.Name.ValueString()
 							}
 							if !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsUnknown() {
-								ValueMap["namespace"] = DefaultRrSetGroupItem.LBRecord.Value.Namespace.ValueString()
+								PrimaryDefaultRrSetGroupLBRecordValueMap["namespace"] = DefaultRrSetGroupItem.LBRecord.Value.Namespace.ValueString()
 							}
 							if !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsUnknown() {
-								ValueMap["tenant"] = DefaultRrSetGroupItem.LBRecord.Value.Tenant.ValueString()
+								PrimaryDefaultRrSetGroupLBRecordValueMap["tenant"] = DefaultRrSetGroupItem.LBRecord.Value.Tenant.ValueString()
 							}
-							LBRecordMap["value"] = ValueMap
+							PrimaryDefaultRrSetGroupLBRecordMap["value"] = PrimaryDefaultRrSetGroupLBRecordValueMap
 						}
-						DefaultRrSetGroupItemMap["lb_record"] = LBRecordMap
+						DefaultRrSetGroupItemMap["lb_record"] = PrimaryDefaultRrSetGroupLBRecordMap
 					}
 					if DefaultRrSetGroupItem.LocRecord != nil {
-						LocRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupLocRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.LocRecord.Name.IsNull() && !DefaultRrSetGroupItem.LocRecord.Name.IsUnknown() {
-							LocRecordMap["name"] = DefaultRrSetGroupItem.LocRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupLocRecordMap["name"] = DefaultRrSetGroupItem.LocRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.LocRecord.Values.IsNull() && !DefaultRrSetGroupItem.LocRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
@@ -3596,15 +3596,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								LocRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupLocRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["loc_record"] = LocRecordMap
+						DefaultRrSetGroupItemMap["loc_record"] = PrimaryDefaultRrSetGroupLocRecordMap
 					}
 					if DefaultRrSetGroupItem.MxRecord != nil {
-						MxRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupMxRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.MxRecord.Name.IsNull() && !DefaultRrSetGroupItem.MxRecord.Name.IsUnknown() {
-							MxRecordMap["name"] = DefaultRrSetGroupItem.MxRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupMxRecordMap["name"] = DefaultRrSetGroupItem.MxRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.MxRecord.Values.IsNull() && !DefaultRrSetGroupItem.MxRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
@@ -3622,15 +3622,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								MxRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupMxRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["mx_record"] = MxRecordMap
+						DefaultRrSetGroupItemMap["mx_record"] = PrimaryDefaultRrSetGroupMxRecordMap
 					}
 					if DefaultRrSetGroupItem.NaptrRecord != nil {
-						NaptrRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupNaptrRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.NaptrRecord.Name.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Name.IsUnknown() {
-							NaptrRecordMap["name"] = DefaultRrSetGroupItem.NaptrRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupNaptrRecordMap["name"] = DefaultRrSetGroupItem.NaptrRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.NaptrRecord.Values.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
@@ -3660,43 +3660,43 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								NaptrRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupNaptrRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["naptr_record"] = NaptrRecordMap
+						DefaultRrSetGroupItemMap["naptr_record"] = PrimaryDefaultRrSetGroupNaptrRecordMap
 					}
 					if DefaultRrSetGroupItem.NsRecord != nil {
-						NsRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupNsRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.NsRecord.Name.IsNull() && !DefaultRrSetGroupItem.NsRecord.Name.IsUnknown() {
-							NsRecordMap["name"] = DefaultRrSetGroupItem.NsRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupNsRecordMap["name"] = DefaultRrSetGroupItem.NsRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.NsRecord.Values.IsNull() && !DefaultRrSetGroupItem.NsRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								NsRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupNsRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["ns_record"] = NsRecordMap
+						DefaultRrSetGroupItemMap["ns_record"] = PrimaryDefaultRrSetGroupNsRecordMap
 					}
 					if DefaultRrSetGroupItem.PtrRecord != nil {
-						PtrRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupPtrRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.PtrRecord.Name.IsNull() && !DefaultRrSetGroupItem.PtrRecord.Name.IsUnknown() {
-							PtrRecordMap["name"] = DefaultRrSetGroupItem.PtrRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupPtrRecordMap["name"] = DefaultRrSetGroupItem.PtrRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.PtrRecord.Values.IsNull() && !DefaultRrSetGroupItem.PtrRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								PtrRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupPtrRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["ptr_record"] = PtrRecordMap
+						DefaultRrSetGroupItemMap["ptr_record"] = PrimaryDefaultRrSetGroupPtrRecordMap
 					}
 					if DefaultRrSetGroupItem.SrvRecord != nil {
-						SrvRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupSrvRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.SrvRecord.Name.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Name.IsUnknown() {
-							SrvRecordMap["name"] = DefaultRrSetGroupItem.SrvRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupSrvRecordMap["name"] = DefaultRrSetGroupItem.SrvRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.SrvRecord.Values.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
@@ -3720,15 +3720,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								SrvRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupSrvRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["srv_record"] = SrvRecordMap
+						DefaultRrSetGroupItemMap["srv_record"] = PrimaryDefaultRrSetGroupSrvRecordMap
 					}
 					if DefaultRrSetGroupItem.SshfpRecord != nil {
-						SshfpRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupSshfpRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.SshfpRecord.Name.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Name.IsUnknown() {
-							SshfpRecordMap["name"] = DefaultRrSetGroupItem.SshfpRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupSshfpRecordMap["name"] = DefaultRrSetGroupItem.SshfpRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.SshfpRecord.Values.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
@@ -3742,30 +3742,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 										ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 									}
 									if ValuesItem.Sha1Fingerprint != nil {
-										Sha1FingerprintMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupSshfpRecordValuesSha1FingerprintMap := make(map[string]interface{})
 										if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-											Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+											PrimaryDefaultRrSetGroupSshfpRecordValuesSha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
 										}
-										ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
+										ValuesItemMap["sha1_fingerprint"] = PrimaryDefaultRrSetGroupSshfpRecordValuesSha1FingerprintMap
 									}
 									if ValuesItem.Sha256Fingerprint != nil {
-										Sha256FingerprintMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintMap := make(map[string]interface{})
 										if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-											Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+											PrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
 										}
-										ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+										ValuesItemMap["sha256_fingerprint"] = PrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintMap
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								SshfpRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupSshfpRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["sshfp_record"] = SshfpRecordMap
+						DefaultRrSetGroupItemMap["sshfp_record"] = PrimaryDefaultRrSetGroupSshfpRecordMap
 					}
 					if DefaultRrSetGroupItem.TlsaRecord != nil {
-						TlsaRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupTlsaRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.TlsaRecord.Name.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Name.IsUnknown() {
-							TlsaRecordMap["name"] = DefaultRrSetGroupItem.TlsaRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupTlsaRecordMap["name"] = DefaultRrSetGroupItem.TlsaRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.TlsaRecord.Values.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
@@ -3789,27 +3789,27 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								TlsaRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupTlsaRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["tlsa_record"] = TlsaRecordMap
+						DefaultRrSetGroupItemMap["tlsa_record"] = PrimaryDefaultRrSetGroupTlsaRecordMap
 					}
 					if !DefaultRrSetGroupItem.TTL.IsNull() && !DefaultRrSetGroupItem.TTL.IsUnknown() {
 						DefaultRrSetGroupItemMap["ttl"] = DefaultRrSetGroupItem.TTL.ValueInt64()
 					}
 					if DefaultRrSetGroupItem.TxtRecord != nil {
-						TxtRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupTxtRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.TxtRecord.Name.IsNull() && !DefaultRrSetGroupItem.TxtRecord.Name.IsUnknown() {
-							TxtRecordMap["name"] = DefaultRrSetGroupItem.TxtRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupTxtRecordMap["name"] = DefaultRrSetGroupItem.TxtRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.TxtRecord.Values.IsNull() && !DefaultRrSetGroupItem.TxtRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								TxtRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupTxtRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["txt_record"] = TxtRecordMap
+						DefaultRrSetGroupItemMap["txt_record"] = PrimaryDefaultRrSetGroupTxtRecordMap
 					}
 					DefaultRrSetGroupList = append(DefaultRrSetGroupList, DefaultRrSetGroupItemMap)
 				}
@@ -3820,14 +3820,14 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 			PrimaryMap["default_soa_parameters"] = map[string]interface{}{}
 		}
 		if data.Primary.DnssecMode != nil {
-			DnssecModeMap := make(map[string]interface{})
+			PrimaryDnssecModeMap := make(map[string]interface{})
 			if data.Primary.DnssecMode.DisableSpec != nil {
-				DnssecModeMap["disable"] = map[string]interface{}{}
+				PrimaryDnssecModeMap["disable"] = map[string]interface{}{}
 			}
 			if data.Primary.DnssecMode.Enable != nil {
-				DnssecModeMap["enable"] = map[string]interface{}{}
+				PrimaryDnssecModeMap["enable"] = map[string]interface{}{}
 			}
-			PrimaryMap["dnssec_mode"] = DnssecModeMap
+			PrimaryMap["dnssec_mode"] = PrimaryDnssecModeMap
 		}
 		if !data.Primary.RrSetGroup.IsNull() && !data.Primary.RrSetGroup.IsUnknown() {
 			var RrSetGroupElems []DNSZonePrimaryRrSetGroupModel
@@ -3838,14 +3838,14 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 				for _, RrSetGroupItem := range RrSetGroupElems {
 					RrSetGroupItemMap := make(map[string]interface{})
 					if RrSetGroupItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						PrimaryRrSetGroupMetadataMap := make(map[string]interface{})
 						if !RrSetGroupItem.Metadata.DescriptionSpec.IsNull() && !RrSetGroupItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RrSetGroupItem.Metadata.DescriptionSpec.ValueString()
+							PrimaryRrSetGroupMetadataMap["description"] = RrSetGroupItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !RrSetGroupItem.Metadata.Name.IsNull() && !RrSetGroupItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RrSetGroupItem.Metadata.Name.ValueString()
+							PrimaryRrSetGroupMetadataMap["name"] = RrSetGroupItem.Metadata.Name.ValueString()
 						}
-						RrSetGroupItemMap["metadata"] = MetadataMap
+						RrSetGroupItemMap["metadata"] = PrimaryRrSetGroupMetadataMap
 					}
 					if !RrSetGroupItem.RrSet.IsNull() && !RrSetGroupItem.RrSet.IsUnknown() {
 						var RrSetElems []DNSZonePrimaryRrSetGroupRrSetModel
@@ -3856,37 +3856,37 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 							for _, RrSetItem := range RrSetElems {
 								RrSetItemMap := make(map[string]interface{})
 								if RrSetItem.ARecord != nil {
-									ARecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetARecordMap := make(map[string]interface{})
 									if !RrSetItem.ARecord.Name.IsNull() && !RrSetItem.ARecord.Name.IsUnknown() {
-										ARecordMap["name"] = RrSetItem.ARecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetARecordMap["name"] = RrSetItem.ARecord.Name.ValueString()
 									}
 									if !RrSetItem.ARecord.Values.IsNull() && !RrSetItem.ARecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											ARecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetARecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["a_record"] = ARecordMap
+									RrSetItemMap["a_record"] = PrimaryRrSetGroupRrSetARecordMap
 								}
 								if RrSetItem.AaaaRecord != nil {
-									AaaaRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetAaaaRecordMap := make(map[string]interface{})
 									if !RrSetItem.AaaaRecord.Name.IsNull() && !RrSetItem.AaaaRecord.Name.IsUnknown() {
-										AaaaRecordMap["name"] = RrSetItem.AaaaRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetAaaaRecordMap["name"] = RrSetItem.AaaaRecord.Name.ValueString()
 									}
 									if !RrSetItem.AaaaRecord.Values.IsNull() && !RrSetItem.AaaaRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											AaaaRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetAaaaRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["aaaa_record"] = AaaaRecordMap
+									RrSetItemMap["aaaa_record"] = PrimaryRrSetGroupRrSetAaaaRecordMap
 								}
 								if RrSetItem.AfsdbRecord != nil {
-									AfsdbRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetAfsdbRecordMap := make(map[string]interface{})
 									if !RrSetItem.AfsdbRecord.Name.IsNull() && !RrSetItem.AfsdbRecord.Name.IsUnknown() {
-										AfsdbRecordMap["name"] = RrSetItem.AfsdbRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetAfsdbRecordMap["name"] = RrSetItem.AfsdbRecord.Name.ValueString()
 									}
 									if !RrSetItem.AfsdbRecord.Values.IsNull() && !RrSetItem.AfsdbRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
@@ -3904,22 +3904,22 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											AfsdbRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetAfsdbRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["afsdb_record"] = AfsdbRecordMap
+									RrSetItemMap["afsdb_record"] = PrimaryRrSetGroupRrSetAfsdbRecordMap
 								}
 								if RrSetItem.AliasRecord != nil {
-									AliasRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetAliasRecordMap := make(map[string]interface{})
 									if !RrSetItem.AliasRecord.Value.IsNull() && !RrSetItem.AliasRecord.Value.IsUnknown() {
-										AliasRecordMap["value"] = RrSetItem.AliasRecord.Value.ValueString()
+										PrimaryRrSetGroupRrSetAliasRecordMap["value"] = RrSetItem.AliasRecord.Value.ValueString()
 									}
-									RrSetItemMap["alias_record"] = AliasRecordMap
+									RrSetItemMap["alias_record"] = PrimaryRrSetGroupRrSetAliasRecordMap
 								}
 								if RrSetItem.CaaRecord != nil {
-									CaaRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCaaRecordMap := make(map[string]interface{})
 									if !RrSetItem.CaaRecord.Name.IsNull() && !RrSetItem.CaaRecord.Name.IsUnknown() {
-										CaaRecordMap["name"] = RrSetItem.CaaRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCaaRecordMap["name"] = RrSetItem.CaaRecord.Name.ValueString()
 									}
 									if !RrSetItem.CaaRecord.Values.IsNull() && !RrSetItem.CaaRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
@@ -3940,15 +3940,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											CaaRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetCaaRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["caa_record"] = CaaRecordMap
+									RrSetItemMap["caa_record"] = PrimaryRrSetGroupRrSetCaaRecordMap
 								}
 								if RrSetItem.CdsRecord != nil {
-									CdsRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCdsRecordMap := make(map[string]interface{})
 									if !RrSetItem.CdsRecord.Name.IsNull() && !RrSetItem.CdsRecord.Name.IsUnknown() {
-										CdsRecordMap["name"] = RrSetItem.CdsRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCdsRecordMap["name"] = RrSetItem.CdsRecord.Name.ValueString()
 									}
 									if !RrSetItem.CdsRecord.Values.IsNull() && !RrSetItem.CdsRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
@@ -3965,37 +3965,37 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
 												if ValuesItem.Sha1Digest != nil {
-													Sha1DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetCdsRecordValuesSha1DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetCdsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha1_digest"] = Sha1DigestMap
+													ValuesItemMap["sha1_digest"] = PrimaryRrSetGroupRrSetCdsRecordValuesSha1DigestMap
 												}
 												if ValuesItem.Sha256Digest != nil {
-													Sha256DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetCdsRecordValuesSha256DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetCdsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+													ValuesItemMap["sha256_digest"] = PrimaryRrSetGroupRrSetCdsRecordValuesSha256DigestMap
 												}
 												if ValuesItem.Sha384Digest != nil {
-													Sha384DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+													ValuesItemMap["sha384_digest"] = PrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestMap
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											CdsRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetCdsRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["cds_record"] = CdsRecordMap
+									RrSetItemMap["cds_record"] = PrimaryRrSetGroupRrSetCdsRecordMap
 								}
 								if RrSetItem.CertRecord != nil {
-									CertRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCertRecordMap := make(map[string]interface{})
 									if !RrSetItem.CertRecord.Name.IsNull() && !RrSetItem.CertRecord.Name.IsUnknown() {
-										CertRecordMap["name"] = RrSetItem.CertRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCertRecordMap["name"] = RrSetItem.CertRecord.Name.ValueString()
 									}
 									if !RrSetItem.CertRecord.Values.IsNull() && !RrSetItem.CertRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
@@ -4019,28 +4019,28 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											CertRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetCertRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["cert_record"] = CertRecordMap
+									RrSetItemMap["cert_record"] = PrimaryRrSetGroupRrSetCertRecordMap
 								}
 								if RrSetItem.CnameRecord != nil {
-									CnameRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCnameRecordMap := make(map[string]interface{})
 									if !RrSetItem.CnameRecord.Name.IsNull() && !RrSetItem.CnameRecord.Name.IsUnknown() {
-										CnameRecordMap["name"] = RrSetItem.CnameRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCnameRecordMap["name"] = RrSetItem.CnameRecord.Name.ValueString()
 									}
 									if !RrSetItem.CnameRecord.Value.IsNull() && !RrSetItem.CnameRecord.Value.IsUnknown() {
-										CnameRecordMap["value"] = RrSetItem.CnameRecord.Value.ValueString()
+										PrimaryRrSetGroupRrSetCnameRecordMap["value"] = RrSetItem.CnameRecord.Value.ValueString()
 									}
-									RrSetItemMap["cname_record"] = CnameRecordMap
+									RrSetItemMap["cname_record"] = PrimaryRrSetGroupRrSetCnameRecordMap
 								}
 								if !RrSetItem.DescriptionSpec.IsNull() && !RrSetItem.DescriptionSpec.IsUnknown() {
 									RrSetItemMap["description"] = RrSetItem.DescriptionSpec.ValueString()
 								}
 								if RrSetItem.DsRecord != nil {
-									DsRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetDsRecordMap := make(map[string]interface{})
 									if !RrSetItem.DsRecord.Name.IsNull() && !RrSetItem.DsRecord.Name.IsUnknown() {
-										DsRecordMap["name"] = RrSetItem.DsRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetDsRecordMap["name"] = RrSetItem.DsRecord.Name.ValueString()
 									}
 									if !RrSetItem.DsRecord.Values.IsNull() && !RrSetItem.DsRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
@@ -4057,77 +4057,77 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
 												if ValuesItem.Sha1Digest != nil {
-													Sha1DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetDsRecordValuesSha1DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetDsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha1_digest"] = Sha1DigestMap
+													ValuesItemMap["sha1_digest"] = PrimaryRrSetGroupRrSetDsRecordValuesSha1DigestMap
 												}
 												if ValuesItem.Sha256Digest != nil {
-													Sha256DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetDsRecordValuesSha256DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetDsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+													ValuesItemMap["sha256_digest"] = PrimaryRrSetGroupRrSetDsRecordValuesSha256DigestMap
 												}
 												if ValuesItem.Sha384Digest != nil {
-													Sha384DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetDsRecordValuesSha384DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetDsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+													ValuesItemMap["sha384_digest"] = PrimaryRrSetGroupRrSetDsRecordValuesSha384DigestMap
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											DsRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetDsRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["ds_record"] = DsRecordMap
+									RrSetItemMap["ds_record"] = PrimaryRrSetGroupRrSetDsRecordMap
 								}
 								if RrSetItem.Eui48Record != nil {
-									Eui48RecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetEui48RecordMap := make(map[string]interface{})
 									if !RrSetItem.Eui48Record.Name.IsNull() && !RrSetItem.Eui48Record.Name.IsUnknown() {
-										Eui48RecordMap["name"] = RrSetItem.Eui48Record.Name.ValueString()
+										PrimaryRrSetGroupRrSetEui48RecordMap["name"] = RrSetItem.Eui48Record.Name.ValueString()
 									}
 									if !RrSetItem.Eui48Record.Value.IsNull() && !RrSetItem.Eui48Record.Value.IsUnknown() {
-										Eui48RecordMap["value"] = RrSetItem.Eui48Record.Value.ValueString()
+										PrimaryRrSetGroupRrSetEui48RecordMap["value"] = RrSetItem.Eui48Record.Value.ValueString()
 									}
-									RrSetItemMap["eui48_record"] = Eui48RecordMap
+									RrSetItemMap["eui48_record"] = PrimaryRrSetGroupRrSetEui48RecordMap
 								}
 								if RrSetItem.Eui64Record != nil {
-									Eui64RecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetEui64RecordMap := make(map[string]interface{})
 									if !RrSetItem.Eui64Record.Name.IsNull() && !RrSetItem.Eui64Record.Name.IsUnknown() {
-										Eui64RecordMap["name"] = RrSetItem.Eui64Record.Name.ValueString()
+										PrimaryRrSetGroupRrSetEui64RecordMap["name"] = RrSetItem.Eui64Record.Name.ValueString()
 									}
 									if !RrSetItem.Eui64Record.Value.IsNull() && !RrSetItem.Eui64Record.Value.IsUnknown() {
-										Eui64RecordMap["value"] = RrSetItem.Eui64Record.Value.ValueString()
+										PrimaryRrSetGroupRrSetEui64RecordMap["value"] = RrSetItem.Eui64Record.Value.ValueString()
 									}
-									RrSetItemMap["eui64_record"] = Eui64RecordMap
+									RrSetItemMap["eui64_record"] = PrimaryRrSetGroupRrSetEui64RecordMap
 								}
 								if RrSetItem.LBRecord != nil {
-									LBRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetLBRecordMap := make(map[string]interface{})
 									if !RrSetItem.LBRecord.Name.IsNull() && !RrSetItem.LBRecord.Name.IsUnknown() {
-										LBRecordMap["name"] = RrSetItem.LBRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetLBRecordMap["name"] = RrSetItem.LBRecord.Name.ValueString()
 									}
 									if RrSetItem.LBRecord.Value != nil {
-										ValueMap := make(map[string]interface{})
+										PrimaryRrSetGroupRrSetLBRecordValueMap := make(map[string]interface{})
 										if !RrSetItem.LBRecord.Value.Name.IsNull() && !RrSetItem.LBRecord.Value.Name.IsUnknown() {
-											ValueMap["name"] = RrSetItem.LBRecord.Value.Name.ValueString()
+											PrimaryRrSetGroupRrSetLBRecordValueMap["name"] = RrSetItem.LBRecord.Value.Name.ValueString()
 										}
 										if !RrSetItem.LBRecord.Value.Namespace.IsNull() && !RrSetItem.LBRecord.Value.Namespace.IsUnknown() {
-											ValueMap["namespace"] = RrSetItem.LBRecord.Value.Namespace.ValueString()
+											PrimaryRrSetGroupRrSetLBRecordValueMap["namespace"] = RrSetItem.LBRecord.Value.Namespace.ValueString()
 										}
 										if !RrSetItem.LBRecord.Value.Tenant.IsNull() && !RrSetItem.LBRecord.Value.Tenant.IsUnknown() {
-											ValueMap["tenant"] = RrSetItem.LBRecord.Value.Tenant.ValueString()
+											PrimaryRrSetGroupRrSetLBRecordValueMap["tenant"] = RrSetItem.LBRecord.Value.Tenant.ValueString()
 										}
-										LBRecordMap["value"] = ValueMap
+										PrimaryRrSetGroupRrSetLBRecordMap["value"] = PrimaryRrSetGroupRrSetLBRecordValueMap
 									}
-									RrSetItemMap["lb_record"] = LBRecordMap
+									RrSetItemMap["lb_record"] = PrimaryRrSetGroupRrSetLBRecordMap
 								}
 								if RrSetItem.LocRecord != nil {
-									LocRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetLocRecordMap := make(map[string]interface{})
 									if !RrSetItem.LocRecord.Name.IsNull() && !RrSetItem.LocRecord.Name.IsUnknown() {
-										LocRecordMap["name"] = RrSetItem.LocRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetLocRecordMap["name"] = RrSetItem.LocRecord.Name.ValueString()
 									}
 									if !RrSetItem.LocRecord.Values.IsNull() && !RrSetItem.LocRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
@@ -4175,15 +4175,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											LocRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetLocRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["loc_record"] = LocRecordMap
+									RrSetItemMap["loc_record"] = PrimaryRrSetGroupRrSetLocRecordMap
 								}
 								if RrSetItem.MxRecord != nil {
-									MxRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetMxRecordMap := make(map[string]interface{})
 									if !RrSetItem.MxRecord.Name.IsNull() && !RrSetItem.MxRecord.Name.IsUnknown() {
-										MxRecordMap["name"] = RrSetItem.MxRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetMxRecordMap["name"] = RrSetItem.MxRecord.Name.ValueString()
 									}
 									if !RrSetItem.MxRecord.Values.IsNull() && !RrSetItem.MxRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
@@ -4201,15 +4201,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											MxRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetMxRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["mx_record"] = MxRecordMap
+									RrSetItemMap["mx_record"] = PrimaryRrSetGroupRrSetMxRecordMap
 								}
 								if RrSetItem.NaptrRecord != nil {
-									NaptrRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetNaptrRecordMap := make(map[string]interface{})
 									if !RrSetItem.NaptrRecord.Name.IsNull() && !RrSetItem.NaptrRecord.Name.IsUnknown() {
-										NaptrRecordMap["name"] = RrSetItem.NaptrRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetNaptrRecordMap["name"] = RrSetItem.NaptrRecord.Name.ValueString()
 									}
 									if !RrSetItem.NaptrRecord.Values.IsNull() && !RrSetItem.NaptrRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
@@ -4239,43 +4239,43 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											NaptrRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetNaptrRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["naptr_record"] = NaptrRecordMap
+									RrSetItemMap["naptr_record"] = PrimaryRrSetGroupRrSetNaptrRecordMap
 								}
 								if RrSetItem.NsRecord != nil {
-									NsRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetNsRecordMap := make(map[string]interface{})
 									if !RrSetItem.NsRecord.Name.IsNull() && !RrSetItem.NsRecord.Name.IsUnknown() {
-										NsRecordMap["name"] = RrSetItem.NsRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetNsRecordMap["name"] = RrSetItem.NsRecord.Name.ValueString()
 									}
 									if !RrSetItem.NsRecord.Values.IsNull() && !RrSetItem.NsRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											NsRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetNsRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["ns_record"] = NsRecordMap
+									RrSetItemMap["ns_record"] = PrimaryRrSetGroupRrSetNsRecordMap
 								}
 								if RrSetItem.PtrRecord != nil {
-									PtrRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetPtrRecordMap := make(map[string]interface{})
 									if !RrSetItem.PtrRecord.Name.IsNull() && !RrSetItem.PtrRecord.Name.IsUnknown() {
-										PtrRecordMap["name"] = RrSetItem.PtrRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetPtrRecordMap["name"] = RrSetItem.PtrRecord.Name.ValueString()
 									}
 									if !RrSetItem.PtrRecord.Values.IsNull() && !RrSetItem.PtrRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											PtrRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetPtrRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["ptr_record"] = PtrRecordMap
+									RrSetItemMap["ptr_record"] = PrimaryRrSetGroupRrSetPtrRecordMap
 								}
 								if RrSetItem.SrvRecord != nil {
-									SrvRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetSrvRecordMap := make(map[string]interface{})
 									if !RrSetItem.SrvRecord.Name.IsNull() && !RrSetItem.SrvRecord.Name.IsUnknown() {
-										SrvRecordMap["name"] = RrSetItem.SrvRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetSrvRecordMap["name"] = RrSetItem.SrvRecord.Name.ValueString()
 									}
 									if !RrSetItem.SrvRecord.Values.IsNull() && !RrSetItem.SrvRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
@@ -4299,15 +4299,15 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											SrvRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetSrvRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["srv_record"] = SrvRecordMap
+									RrSetItemMap["srv_record"] = PrimaryRrSetGroupRrSetSrvRecordMap
 								}
 								if RrSetItem.SshfpRecord != nil {
-									SshfpRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetSshfpRecordMap := make(map[string]interface{})
 									if !RrSetItem.SshfpRecord.Name.IsNull() && !RrSetItem.SshfpRecord.Name.IsUnknown() {
-										SshfpRecordMap["name"] = RrSetItem.SshfpRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetSshfpRecordMap["name"] = RrSetItem.SshfpRecord.Name.ValueString()
 									}
 									if !RrSetItem.SshfpRecord.Values.IsNull() && !RrSetItem.SshfpRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
@@ -4321,30 +4321,30 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 													ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 												}
 												if ValuesItem.Sha1Fingerprint != nil {
-													Sha1FingerprintMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetSshfpRecordValuesSha1FingerprintMap := make(map[string]interface{})
 													if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-														Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+														PrimaryRrSetGroupRrSetSshfpRecordValuesSha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
 													}
-													ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
+													ValuesItemMap["sha1_fingerprint"] = PrimaryRrSetGroupRrSetSshfpRecordValuesSha1FingerprintMap
 												}
 												if ValuesItem.Sha256Fingerprint != nil {
-													Sha256FingerprintMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintMap := make(map[string]interface{})
 													if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-														Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+														PrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
 													}
-													ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+													ValuesItemMap["sha256_fingerprint"] = PrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintMap
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											SshfpRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetSshfpRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["sshfp_record"] = SshfpRecordMap
+									RrSetItemMap["sshfp_record"] = PrimaryRrSetGroupRrSetSshfpRecordMap
 								}
 								if RrSetItem.TlsaRecord != nil {
-									TlsaRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetTlsaRecordMap := make(map[string]interface{})
 									if !RrSetItem.TlsaRecord.Name.IsNull() && !RrSetItem.TlsaRecord.Name.IsUnknown() {
-										TlsaRecordMap["name"] = RrSetItem.TlsaRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetTlsaRecordMap["name"] = RrSetItem.TlsaRecord.Name.ValueString()
 									}
 									if !RrSetItem.TlsaRecord.Values.IsNull() && !RrSetItem.TlsaRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
@@ -4368,27 +4368,27 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											TlsaRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetTlsaRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["tlsa_record"] = TlsaRecordMap
+									RrSetItemMap["tlsa_record"] = PrimaryRrSetGroupRrSetTlsaRecordMap
 								}
 								if !RrSetItem.TTL.IsNull() && !RrSetItem.TTL.IsUnknown() {
 									RrSetItemMap["ttl"] = RrSetItem.TTL.ValueInt64()
 								}
 								if RrSetItem.TxtRecord != nil {
-									TxtRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetTxtRecordMap := make(map[string]interface{})
 									if !RrSetItem.TxtRecord.Name.IsNull() && !RrSetItem.TxtRecord.Name.IsUnknown() {
-										TxtRecordMap["name"] = RrSetItem.TxtRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetTxtRecordMap["name"] = RrSetItem.TxtRecord.Name.ValueString()
 									}
 									if !RrSetItem.TxtRecord.Values.IsNull() && !RrSetItem.TxtRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											TxtRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetTxtRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["txt_record"] = TxtRecordMap
+									RrSetItemMap["txt_record"] = PrimaryRrSetGroupRrSetTxtRecordMap
 								}
 								RrSetList = append(RrSetList, RrSetItemMap)
 							}
@@ -4401,23 +4401,23 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 			}
 		}
 		if data.Primary.SoaParameters != nil {
-			SoaParametersMap := make(map[string]interface{})
+			PrimarySoaParametersMap := make(map[string]interface{})
 			if !data.Primary.SoaParameters.Expire.IsNull() && !data.Primary.SoaParameters.Expire.IsUnknown() {
-				SoaParametersMap["expire"] = data.Primary.SoaParameters.Expire.ValueInt64()
+				PrimarySoaParametersMap["expire"] = data.Primary.SoaParameters.Expire.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.NegativeTTL.IsNull() && !data.Primary.SoaParameters.NegativeTTL.IsUnknown() {
-				SoaParametersMap["negative_ttl"] = data.Primary.SoaParameters.NegativeTTL.ValueInt64()
+				PrimarySoaParametersMap["negative_ttl"] = data.Primary.SoaParameters.NegativeTTL.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.Refresh.IsNull() && !data.Primary.SoaParameters.Refresh.IsUnknown() {
-				SoaParametersMap["refresh"] = data.Primary.SoaParameters.Refresh.ValueInt64()
+				PrimarySoaParametersMap["refresh"] = data.Primary.SoaParameters.Refresh.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.Retry.IsNull() && !data.Primary.SoaParameters.Retry.IsUnknown() {
-				SoaParametersMap["retry"] = data.Primary.SoaParameters.Retry.ValueInt64()
+				PrimarySoaParametersMap["retry"] = data.Primary.SoaParameters.Retry.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.TTL.IsNull() && !data.Primary.SoaParameters.TTL.IsUnknown() {
-				SoaParametersMap["ttl"] = data.Primary.SoaParameters.TTL.ValueInt64()
+				PrimarySoaParametersMap["ttl"] = data.Primary.SoaParameters.TTL.ValueInt64()
 			}
-			PrimaryMap["soa_parameters"] = SoaParametersMap
+			PrimaryMap["soa_parameters"] = PrimarySoaParametersMap
 		}
 		createReq.Spec["primary"] = PrimaryMap
 	}
@@ -4437,31 +4437,31 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 			SecondaryMap["tsig_key_name"] = data.Secondary.TsigKeyName.ValueString()
 		}
 		if data.Secondary.TsigKeyValue != nil {
-			TsigKeyValueMap := make(map[string]interface{})
+			SecondaryTsigKeyValueMap := make(map[string]interface{})
 			if data.Secondary.TsigKeyValue.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SecondaryTsigKeyValueBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SecondaryTsigKeyValueBlindfoldSecretInfoMap["decryption_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.IsNull() && !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.ValueString()
+					SecondaryTsigKeyValueBlindfoldSecretInfoMap["location"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SecondaryTsigKeyValueBlindfoldSecretInfoMap["store_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				TsigKeyValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SecondaryTsigKeyValueMap["blindfold_secret_info"] = SecondaryTsigKeyValueBlindfoldSecretInfoMap
 			}
 			if data.Secondary.TsigKeyValue.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SecondaryTsigKeyValueClearSecretInfoMap := make(map[string]interface{})
 				if !data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.IsNull() && !data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.ValueString()
+					SecondaryTsigKeyValueClearSecretInfoMap["provider"] = data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Secondary.TsigKeyValue.ClearSecretInfo.URL.IsNull() && !data.Secondary.TsigKeyValue.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Secondary.TsigKeyValue.ClearSecretInfo.URL.ValueString()
+					SecondaryTsigKeyValueClearSecretInfoMap["url"] = data.Secondary.TsigKeyValue.ClearSecretInfo.URL.ValueString()
 				}
-				TsigKeyValueMap["clear_secret_info"] = ClearSecretInfoMap
+				SecondaryTsigKeyValueMap["clear_secret_info"] = SecondaryTsigKeyValueClearSecretInfoMap
 			}
-			SecondaryMap["tsig_key_value"] = TsigKeyValueMap
+			SecondaryMap["tsig_key_value"] = SecondaryTsigKeyValueMap
 		}
 		createReq.Spec["secondary"] = SecondaryMap
 	}
@@ -9166,37 +9166,37 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				for _, DefaultRrSetGroupItem := range DefaultRrSetGroupElems {
 					DefaultRrSetGroupItemMap := make(map[string]interface{})
 					if DefaultRrSetGroupItem.ARecord != nil {
-						ARecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupARecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.ARecord.Name.IsNull() && !DefaultRrSetGroupItem.ARecord.Name.IsUnknown() {
-							ARecordMap["name"] = DefaultRrSetGroupItem.ARecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupARecordMap["name"] = DefaultRrSetGroupItem.ARecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.ARecord.Values.IsNull() && !DefaultRrSetGroupItem.ARecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								ARecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupARecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["a_record"] = ARecordMap
+						DefaultRrSetGroupItemMap["a_record"] = PrimaryDefaultRrSetGroupARecordMap
 					}
 					if DefaultRrSetGroupItem.AaaaRecord != nil {
-						AaaaRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupAaaaRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.AaaaRecord.Name.IsNull() && !DefaultRrSetGroupItem.AaaaRecord.Name.IsUnknown() {
-							AaaaRecordMap["name"] = DefaultRrSetGroupItem.AaaaRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupAaaaRecordMap["name"] = DefaultRrSetGroupItem.AaaaRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.AaaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.AaaaRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								AaaaRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupAaaaRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["aaaa_record"] = AaaaRecordMap
+						DefaultRrSetGroupItemMap["aaaa_record"] = PrimaryDefaultRrSetGroupAaaaRecordMap
 					}
 					if DefaultRrSetGroupItem.AfsdbRecord != nil {
-						AfsdbRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupAfsdbRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.AfsdbRecord.Name.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Name.IsUnknown() {
-							AfsdbRecordMap["name"] = DefaultRrSetGroupItem.AfsdbRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupAfsdbRecordMap["name"] = DefaultRrSetGroupItem.AfsdbRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.AfsdbRecord.Values.IsNull() && !DefaultRrSetGroupItem.AfsdbRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupAfsdbRecordValuesModel
@@ -9214,22 +9214,22 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								AfsdbRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupAfsdbRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["afsdb_record"] = AfsdbRecordMap
+						DefaultRrSetGroupItemMap["afsdb_record"] = PrimaryDefaultRrSetGroupAfsdbRecordMap
 					}
 					if DefaultRrSetGroupItem.AliasRecord != nil {
-						AliasRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupAliasRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.AliasRecord.Value.IsNull() && !DefaultRrSetGroupItem.AliasRecord.Value.IsUnknown() {
-							AliasRecordMap["value"] = DefaultRrSetGroupItem.AliasRecord.Value.ValueString()
+							PrimaryDefaultRrSetGroupAliasRecordMap["value"] = DefaultRrSetGroupItem.AliasRecord.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["alias_record"] = AliasRecordMap
+						DefaultRrSetGroupItemMap["alias_record"] = PrimaryDefaultRrSetGroupAliasRecordMap
 					}
 					if DefaultRrSetGroupItem.CaaRecord != nil {
-						CaaRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCaaRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CaaRecord.Name.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Name.IsUnknown() {
-							CaaRecordMap["name"] = DefaultRrSetGroupItem.CaaRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCaaRecordMap["name"] = DefaultRrSetGroupItem.CaaRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CaaRecord.Values.IsNull() && !DefaultRrSetGroupItem.CaaRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCaaRecordValuesModel
@@ -9250,15 +9250,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								CaaRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupCaaRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["caa_record"] = CaaRecordMap
+						DefaultRrSetGroupItemMap["caa_record"] = PrimaryDefaultRrSetGroupCaaRecordMap
 					}
 					if DefaultRrSetGroupItem.CdsRecord != nil {
-						CdsRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCdsRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CdsRecord.Name.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Name.IsUnknown() {
-							CdsRecordMap["name"] = DefaultRrSetGroupItem.CdsRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCdsRecordMap["name"] = DefaultRrSetGroupItem.CdsRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CdsRecord.Values.IsNull() && !DefaultRrSetGroupItem.CdsRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCdsRecordValuesModel
@@ -9275,37 +9275,37 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
 									if ValuesItem.Sha1Digest != nil {
-										Sha1DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupCdsRecordValuesSha1DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupCdsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha1_digest"] = Sha1DigestMap
+										ValuesItemMap["sha1_digest"] = PrimaryDefaultRrSetGroupCdsRecordValuesSha1DigestMap
 									}
 									if ValuesItem.Sha256Digest != nil {
-										Sha256DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupCdsRecordValuesSha256DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupCdsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+										ValuesItemMap["sha256_digest"] = PrimaryDefaultRrSetGroupCdsRecordValuesSha256DigestMap
 									}
 									if ValuesItem.Sha384Digest != nil {
-										Sha384DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+										ValuesItemMap["sha384_digest"] = PrimaryDefaultRrSetGroupCdsRecordValuesSha384DigestMap
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								CdsRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupCdsRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["cds_record"] = CdsRecordMap
+						DefaultRrSetGroupItemMap["cds_record"] = PrimaryDefaultRrSetGroupCdsRecordMap
 					}
 					if DefaultRrSetGroupItem.CertRecord != nil {
-						CertRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCertRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CertRecord.Name.IsNull() && !DefaultRrSetGroupItem.CertRecord.Name.IsUnknown() {
-							CertRecordMap["name"] = DefaultRrSetGroupItem.CertRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCertRecordMap["name"] = DefaultRrSetGroupItem.CertRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CertRecord.Values.IsNull() && !DefaultRrSetGroupItem.CertRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupCertRecordValuesModel
@@ -9329,28 +9329,28 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								CertRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupCertRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["cert_record"] = CertRecordMap
+						DefaultRrSetGroupItemMap["cert_record"] = PrimaryDefaultRrSetGroupCertRecordMap
 					}
 					if DefaultRrSetGroupItem.CnameRecord != nil {
-						CnameRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupCnameRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.CnameRecord.Name.IsNull() && !DefaultRrSetGroupItem.CnameRecord.Name.IsUnknown() {
-							CnameRecordMap["name"] = DefaultRrSetGroupItem.CnameRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupCnameRecordMap["name"] = DefaultRrSetGroupItem.CnameRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.CnameRecord.Value.IsNull() && !DefaultRrSetGroupItem.CnameRecord.Value.IsUnknown() {
-							CnameRecordMap["value"] = DefaultRrSetGroupItem.CnameRecord.Value.ValueString()
+							PrimaryDefaultRrSetGroupCnameRecordMap["value"] = DefaultRrSetGroupItem.CnameRecord.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["cname_record"] = CnameRecordMap
+						DefaultRrSetGroupItemMap["cname_record"] = PrimaryDefaultRrSetGroupCnameRecordMap
 					}
 					if !DefaultRrSetGroupItem.DescriptionSpec.IsNull() && !DefaultRrSetGroupItem.DescriptionSpec.IsUnknown() {
 						DefaultRrSetGroupItemMap["description"] = DefaultRrSetGroupItem.DescriptionSpec.ValueString()
 					}
 					if DefaultRrSetGroupItem.DsRecord != nil {
-						DsRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupDsRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.DsRecord.Name.IsNull() && !DefaultRrSetGroupItem.DsRecord.Name.IsUnknown() {
-							DsRecordMap["name"] = DefaultRrSetGroupItem.DsRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupDsRecordMap["name"] = DefaultRrSetGroupItem.DsRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.DsRecord.Values.IsNull() && !DefaultRrSetGroupItem.DsRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupDsRecordValuesModel
@@ -9367,77 +9367,77 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 										ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 									}
 									if ValuesItem.Sha1Digest != nil {
-										Sha1DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupDsRecordValuesSha1DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-											Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupDsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha1_digest"] = Sha1DigestMap
+										ValuesItemMap["sha1_digest"] = PrimaryDefaultRrSetGroupDsRecordValuesSha1DigestMap
 									}
 									if ValuesItem.Sha256Digest != nil {
-										Sha256DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupDsRecordValuesSha256DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-											Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupDsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha256_digest"] = Sha256DigestMap
+										ValuesItemMap["sha256_digest"] = PrimaryDefaultRrSetGroupDsRecordValuesSha256DigestMap
 									}
 									if ValuesItem.Sha384Digest != nil {
-										Sha384DigestMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupDsRecordValuesSha384DigestMap := make(map[string]interface{})
 										if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-											Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+											PrimaryDefaultRrSetGroupDsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 										}
-										ValuesItemMap["sha384_digest"] = Sha384DigestMap
+										ValuesItemMap["sha384_digest"] = PrimaryDefaultRrSetGroupDsRecordValuesSha384DigestMap
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								DsRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupDsRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["ds_record"] = DsRecordMap
+						DefaultRrSetGroupItemMap["ds_record"] = PrimaryDefaultRrSetGroupDsRecordMap
 					}
 					if DefaultRrSetGroupItem.Eui48Record != nil {
-						Eui48RecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupEui48RecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.Eui48Record.Name.IsNull() && !DefaultRrSetGroupItem.Eui48Record.Name.IsUnknown() {
-							Eui48RecordMap["name"] = DefaultRrSetGroupItem.Eui48Record.Name.ValueString()
+							PrimaryDefaultRrSetGroupEui48RecordMap["name"] = DefaultRrSetGroupItem.Eui48Record.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.Eui48Record.Value.IsNull() && !DefaultRrSetGroupItem.Eui48Record.Value.IsUnknown() {
-							Eui48RecordMap["value"] = DefaultRrSetGroupItem.Eui48Record.Value.ValueString()
+							PrimaryDefaultRrSetGroupEui48RecordMap["value"] = DefaultRrSetGroupItem.Eui48Record.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["eui48_record"] = Eui48RecordMap
+						DefaultRrSetGroupItemMap["eui48_record"] = PrimaryDefaultRrSetGroupEui48RecordMap
 					}
 					if DefaultRrSetGroupItem.Eui64Record != nil {
-						Eui64RecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupEui64RecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.Eui64Record.Name.IsNull() && !DefaultRrSetGroupItem.Eui64Record.Name.IsUnknown() {
-							Eui64RecordMap["name"] = DefaultRrSetGroupItem.Eui64Record.Name.ValueString()
+							PrimaryDefaultRrSetGroupEui64RecordMap["name"] = DefaultRrSetGroupItem.Eui64Record.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.Eui64Record.Value.IsNull() && !DefaultRrSetGroupItem.Eui64Record.Value.IsUnknown() {
-							Eui64RecordMap["value"] = DefaultRrSetGroupItem.Eui64Record.Value.ValueString()
+							PrimaryDefaultRrSetGroupEui64RecordMap["value"] = DefaultRrSetGroupItem.Eui64Record.Value.ValueString()
 						}
-						DefaultRrSetGroupItemMap["eui64_record"] = Eui64RecordMap
+						DefaultRrSetGroupItemMap["eui64_record"] = PrimaryDefaultRrSetGroupEui64RecordMap
 					}
 					if DefaultRrSetGroupItem.LBRecord != nil {
-						LBRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupLBRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.LBRecord.Name.IsNull() && !DefaultRrSetGroupItem.LBRecord.Name.IsUnknown() {
-							LBRecordMap["name"] = DefaultRrSetGroupItem.LBRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupLBRecordMap["name"] = DefaultRrSetGroupItem.LBRecord.Name.ValueString()
 						}
 						if DefaultRrSetGroupItem.LBRecord.Value != nil {
-							ValueMap := make(map[string]interface{})
+							PrimaryDefaultRrSetGroupLBRecordValueMap := make(map[string]interface{})
 							if !DefaultRrSetGroupItem.LBRecord.Value.Name.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Name.IsUnknown() {
-								ValueMap["name"] = DefaultRrSetGroupItem.LBRecord.Value.Name.ValueString()
+								PrimaryDefaultRrSetGroupLBRecordValueMap["name"] = DefaultRrSetGroupItem.LBRecord.Value.Name.ValueString()
 							}
 							if !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Namespace.IsUnknown() {
-								ValueMap["namespace"] = DefaultRrSetGroupItem.LBRecord.Value.Namespace.ValueString()
+								PrimaryDefaultRrSetGroupLBRecordValueMap["namespace"] = DefaultRrSetGroupItem.LBRecord.Value.Namespace.ValueString()
 							}
 							if !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsNull() && !DefaultRrSetGroupItem.LBRecord.Value.Tenant.IsUnknown() {
-								ValueMap["tenant"] = DefaultRrSetGroupItem.LBRecord.Value.Tenant.ValueString()
+								PrimaryDefaultRrSetGroupLBRecordValueMap["tenant"] = DefaultRrSetGroupItem.LBRecord.Value.Tenant.ValueString()
 							}
-							LBRecordMap["value"] = ValueMap
+							PrimaryDefaultRrSetGroupLBRecordMap["value"] = PrimaryDefaultRrSetGroupLBRecordValueMap
 						}
-						DefaultRrSetGroupItemMap["lb_record"] = LBRecordMap
+						DefaultRrSetGroupItemMap["lb_record"] = PrimaryDefaultRrSetGroupLBRecordMap
 					}
 					if DefaultRrSetGroupItem.LocRecord != nil {
-						LocRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupLocRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.LocRecord.Name.IsNull() && !DefaultRrSetGroupItem.LocRecord.Name.IsUnknown() {
-							LocRecordMap["name"] = DefaultRrSetGroupItem.LocRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupLocRecordMap["name"] = DefaultRrSetGroupItem.LocRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.LocRecord.Values.IsNull() && !DefaultRrSetGroupItem.LocRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupLocRecordValuesModel
@@ -9485,15 +9485,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								LocRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupLocRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["loc_record"] = LocRecordMap
+						DefaultRrSetGroupItemMap["loc_record"] = PrimaryDefaultRrSetGroupLocRecordMap
 					}
 					if DefaultRrSetGroupItem.MxRecord != nil {
-						MxRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupMxRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.MxRecord.Name.IsNull() && !DefaultRrSetGroupItem.MxRecord.Name.IsUnknown() {
-							MxRecordMap["name"] = DefaultRrSetGroupItem.MxRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupMxRecordMap["name"] = DefaultRrSetGroupItem.MxRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.MxRecord.Values.IsNull() && !DefaultRrSetGroupItem.MxRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupMxRecordValuesModel
@@ -9511,15 +9511,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								MxRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupMxRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["mx_record"] = MxRecordMap
+						DefaultRrSetGroupItemMap["mx_record"] = PrimaryDefaultRrSetGroupMxRecordMap
 					}
 					if DefaultRrSetGroupItem.NaptrRecord != nil {
-						NaptrRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupNaptrRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.NaptrRecord.Name.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Name.IsUnknown() {
-							NaptrRecordMap["name"] = DefaultRrSetGroupItem.NaptrRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupNaptrRecordMap["name"] = DefaultRrSetGroupItem.NaptrRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.NaptrRecord.Values.IsNull() && !DefaultRrSetGroupItem.NaptrRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupNaptrRecordValuesModel
@@ -9549,43 +9549,43 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								NaptrRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupNaptrRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["naptr_record"] = NaptrRecordMap
+						DefaultRrSetGroupItemMap["naptr_record"] = PrimaryDefaultRrSetGroupNaptrRecordMap
 					}
 					if DefaultRrSetGroupItem.NsRecord != nil {
-						NsRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupNsRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.NsRecord.Name.IsNull() && !DefaultRrSetGroupItem.NsRecord.Name.IsUnknown() {
-							NsRecordMap["name"] = DefaultRrSetGroupItem.NsRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupNsRecordMap["name"] = DefaultRrSetGroupItem.NsRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.NsRecord.Values.IsNull() && !DefaultRrSetGroupItem.NsRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								NsRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupNsRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["ns_record"] = NsRecordMap
+						DefaultRrSetGroupItemMap["ns_record"] = PrimaryDefaultRrSetGroupNsRecordMap
 					}
 					if DefaultRrSetGroupItem.PtrRecord != nil {
-						PtrRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupPtrRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.PtrRecord.Name.IsNull() && !DefaultRrSetGroupItem.PtrRecord.Name.IsUnknown() {
-							PtrRecordMap["name"] = DefaultRrSetGroupItem.PtrRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupPtrRecordMap["name"] = DefaultRrSetGroupItem.PtrRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.PtrRecord.Values.IsNull() && !DefaultRrSetGroupItem.PtrRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								PtrRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupPtrRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["ptr_record"] = PtrRecordMap
+						DefaultRrSetGroupItemMap["ptr_record"] = PrimaryDefaultRrSetGroupPtrRecordMap
 					}
 					if DefaultRrSetGroupItem.SrvRecord != nil {
-						SrvRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupSrvRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.SrvRecord.Name.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Name.IsUnknown() {
-							SrvRecordMap["name"] = DefaultRrSetGroupItem.SrvRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupSrvRecordMap["name"] = DefaultRrSetGroupItem.SrvRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.SrvRecord.Values.IsNull() && !DefaultRrSetGroupItem.SrvRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSrvRecordValuesModel
@@ -9609,15 +9609,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								SrvRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupSrvRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["srv_record"] = SrvRecordMap
+						DefaultRrSetGroupItemMap["srv_record"] = PrimaryDefaultRrSetGroupSrvRecordMap
 					}
 					if DefaultRrSetGroupItem.SshfpRecord != nil {
-						SshfpRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupSshfpRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.SshfpRecord.Name.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Name.IsUnknown() {
-							SshfpRecordMap["name"] = DefaultRrSetGroupItem.SshfpRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupSshfpRecordMap["name"] = DefaultRrSetGroupItem.SshfpRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.SshfpRecord.Values.IsNull() && !DefaultRrSetGroupItem.SshfpRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupSshfpRecordValuesModel
@@ -9631,30 +9631,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 										ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 									}
 									if ValuesItem.Sha1Fingerprint != nil {
-										Sha1FingerprintMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupSshfpRecordValuesSha1FingerprintMap := make(map[string]interface{})
 										if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-											Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+											PrimaryDefaultRrSetGroupSshfpRecordValuesSha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
 										}
-										ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
+										ValuesItemMap["sha1_fingerprint"] = PrimaryDefaultRrSetGroupSshfpRecordValuesSha1FingerprintMap
 									}
 									if ValuesItem.Sha256Fingerprint != nil {
-										Sha256FingerprintMap := make(map[string]interface{})
+										PrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintMap := make(map[string]interface{})
 										if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-											Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+											PrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
 										}
-										ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+										ValuesItemMap["sha256_fingerprint"] = PrimaryDefaultRrSetGroupSshfpRecordValuesSha256FingerprintMap
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								SshfpRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupSshfpRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["sshfp_record"] = SshfpRecordMap
+						DefaultRrSetGroupItemMap["sshfp_record"] = PrimaryDefaultRrSetGroupSshfpRecordMap
 					}
 					if DefaultRrSetGroupItem.TlsaRecord != nil {
-						TlsaRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupTlsaRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.TlsaRecord.Name.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Name.IsUnknown() {
-							TlsaRecordMap["name"] = DefaultRrSetGroupItem.TlsaRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupTlsaRecordMap["name"] = DefaultRrSetGroupItem.TlsaRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.TlsaRecord.Values.IsNull() && !DefaultRrSetGroupItem.TlsaRecord.Values.IsUnknown() {
 							var ValuesElems []DNSZonePrimaryDefaultRrSetGroupTlsaRecordValuesModel
@@ -9678,27 +9678,27 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 									}
 									ValuesList = append(ValuesList, ValuesItemMap)
 								}
-								TlsaRecordMap["values"] = ValuesList
+								PrimaryDefaultRrSetGroupTlsaRecordMap["values"] = ValuesList
 							}
 						}
-						DefaultRrSetGroupItemMap["tlsa_record"] = TlsaRecordMap
+						DefaultRrSetGroupItemMap["tlsa_record"] = PrimaryDefaultRrSetGroupTlsaRecordMap
 					}
 					if !DefaultRrSetGroupItem.TTL.IsNull() && !DefaultRrSetGroupItem.TTL.IsUnknown() {
 						DefaultRrSetGroupItemMap["ttl"] = DefaultRrSetGroupItem.TTL.ValueInt64()
 					}
 					if DefaultRrSetGroupItem.TxtRecord != nil {
-						TxtRecordMap := make(map[string]interface{})
+						PrimaryDefaultRrSetGroupTxtRecordMap := make(map[string]interface{})
 						if !DefaultRrSetGroupItem.TxtRecord.Name.IsNull() && !DefaultRrSetGroupItem.TxtRecord.Name.IsUnknown() {
-							TxtRecordMap["name"] = DefaultRrSetGroupItem.TxtRecord.Name.ValueString()
+							PrimaryDefaultRrSetGroupTxtRecordMap["name"] = DefaultRrSetGroupItem.TxtRecord.Name.ValueString()
 						}
 						if !DefaultRrSetGroupItem.TxtRecord.Values.IsNull() && !DefaultRrSetGroupItem.TxtRecord.Values.IsUnknown() {
 							var ValuesItems []string
 							diags := DefaultRrSetGroupItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 							if !diags.HasError() {
-								TxtRecordMap["values"] = ValuesItems
+								PrimaryDefaultRrSetGroupTxtRecordMap["values"] = ValuesItems
 							}
 						}
-						DefaultRrSetGroupItemMap["txt_record"] = TxtRecordMap
+						DefaultRrSetGroupItemMap["txt_record"] = PrimaryDefaultRrSetGroupTxtRecordMap
 					}
 					DefaultRrSetGroupList = append(DefaultRrSetGroupList, DefaultRrSetGroupItemMap)
 				}
@@ -9709,14 +9709,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 			PrimaryMap["default_soa_parameters"] = map[string]interface{}{}
 		}
 		if data.Primary.DnssecMode != nil {
-			DnssecModeMap := make(map[string]interface{})
+			PrimaryDnssecModeMap := make(map[string]interface{})
 			if data.Primary.DnssecMode.DisableSpec != nil {
-				DnssecModeMap["disable"] = map[string]interface{}{}
+				PrimaryDnssecModeMap["disable"] = map[string]interface{}{}
 			}
 			if data.Primary.DnssecMode.Enable != nil {
-				DnssecModeMap["enable"] = map[string]interface{}{}
+				PrimaryDnssecModeMap["enable"] = map[string]interface{}{}
 			}
-			PrimaryMap["dnssec_mode"] = DnssecModeMap
+			PrimaryMap["dnssec_mode"] = PrimaryDnssecModeMap
 		}
 		if !data.Primary.RrSetGroup.IsNull() && !data.Primary.RrSetGroup.IsUnknown() {
 			var RrSetGroupElems []DNSZonePrimaryRrSetGroupModel
@@ -9727,14 +9727,14 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 				for _, RrSetGroupItem := range RrSetGroupElems {
 					RrSetGroupItemMap := make(map[string]interface{})
 					if RrSetGroupItem.Metadata != nil {
-						MetadataMap := make(map[string]interface{})
+						PrimaryRrSetGroupMetadataMap := make(map[string]interface{})
 						if !RrSetGroupItem.Metadata.DescriptionSpec.IsNull() && !RrSetGroupItem.Metadata.DescriptionSpec.IsUnknown() {
-							MetadataMap["description"] = RrSetGroupItem.Metadata.DescriptionSpec.ValueString()
+							PrimaryRrSetGroupMetadataMap["description"] = RrSetGroupItem.Metadata.DescriptionSpec.ValueString()
 						}
 						if !RrSetGroupItem.Metadata.Name.IsNull() && !RrSetGroupItem.Metadata.Name.IsUnknown() {
-							MetadataMap["name"] = RrSetGroupItem.Metadata.Name.ValueString()
+							PrimaryRrSetGroupMetadataMap["name"] = RrSetGroupItem.Metadata.Name.ValueString()
 						}
-						RrSetGroupItemMap["metadata"] = MetadataMap
+						RrSetGroupItemMap["metadata"] = PrimaryRrSetGroupMetadataMap
 					}
 					if !RrSetGroupItem.RrSet.IsNull() && !RrSetGroupItem.RrSet.IsUnknown() {
 						var RrSetElems []DNSZonePrimaryRrSetGroupRrSetModel
@@ -9745,37 +9745,37 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 							for _, RrSetItem := range RrSetElems {
 								RrSetItemMap := make(map[string]interface{})
 								if RrSetItem.ARecord != nil {
-									ARecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetARecordMap := make(map[string]interface{})
 									if !RrSetItem.ARecord.Name.IsNull() && !RrSetItem.ARecord.Name.IsUnknown() {
-										ARecordMap["name"] = RrSetItem.ARecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetARecordMap["name"] = RrSetItem.ARecord.Name.ValueString()
 									}
 									if !RrSetItem.ARecord.Values.IsNull() && !RrSetItem.ARecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.ARecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											ARecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetARecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["a_record"] = ARecordMap
+									RrSetItemMap["a_record"] = PrimaryRrSetGroupRrSetARecordMap
 								}
 								if RrSetItem.AaaaRecord != nil {
-									AaaaRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetAaaaRecordMap := make(map[string]interface{})
 									if !RrSetItem.AaaaRecord.Name.IsNull() && !RrSetItem.AaaaRecord.Name.IsUnknown() {
-										AaaaRecordMap["name"] = RrSetItem.AaaaRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetAaaaRecordMap["name"] = RrSetItem.AaaaRecord.Name.ValueString()
 									}
 									if !RrSetItem.AaaaRecord.Values.IsNull() && !RrSetItem.AaaaRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.AaaaRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											AaaaRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetAaaaRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["aaaa_record"] = AaaaRecordMap
+									RrSetItemMap["aaaa_record"] = PrimaryRrSetGroupRrSetAaaaRecordMap
 								}
 								if RrSetItem.AfsdbRecord != nil {
-									AfsdbRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetAfsdbRecordMap := make(map[string]interface{})
 									if !RrSetItem.AfsdbRecord.Name.IsNull() && !RrSetItem.AfsdbRecord.Name.IsUnknown() {
-										AfsdbRecordMap["name"] = RrSetItem.AfsdbRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetAfsdbRecordMap["name"] = RrSetItem.AfsdbRecord.Name.ValueString()
 									}
 									if !RrSetItem.AfsdbRecord.Values.IsNull() && !RrSetItem.AfsdbRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetAfsdbRecordValuesModel
@@ -9793,22 +9793,22 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											AfsdbRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetAfsdbRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["afsdb_record"] = AfsdbRecordMap
+									RrSetItemMap["afsdb_record"] = PrimaryRrSetGroupRrSetAfsdbRecordMap
 								}
 								if RrSetItem.AliasRecord != nil {
-									AliasRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetAliasRecordMap := make(map[string]interface{})
 									if !RrSetItem.AliasRecord.Value.IsNull() && !RrSetItem.AliasRecord.Value.IsUnknown() {
-										AliasRecordMap["value"] = RrSetItem.AliasRecord.Value.ValueString()
+										PrimaryRrSetGroupRrSetAliasRecordMap["value"] = RrSetItem.AliasRecord.Value.ValueString()
 									}
-									RrSetItemMap["alias_record"] = AliasRecordMap
+									RrSetItemMap["alias_record"] = PrimaryRrSetGroupRrSetAliasRecordMap
 								}
 								if RrSetItem.CaaRecord != nil {
-									CaaRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCaaRecordMap := make(map[string]interface{})
 									if !RrSetItem.CaaRecord.Name.IsNull() && !RrSetItem.CaaRecord.Name.IsUnknown() {
-										CaaRecordMap["name"] = RrSetItem.CaaRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCaaRecordMap["name"] = RrSetItem.CaaRecord.Name.ValueString()
 									}
 									if !RrSetItem.CaaRecord.Values.IsNull() && !RrSetItem.CaaRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCaaRecordValuesModel
@@ -9829,15 +9829,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											CaaRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetCaaRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["caa_record"] = CaaRecordMap
+									RrSetItemMap["caa_record"] = PrimaryRrSetGroupRrSetCaaRecordMap
 								}
 								if RrSetItem.CdsRecord != nil {
-									CdsRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCdsRecordMap := make(map[string]interface{})
 									if !RrSetItem.CdsRecord.Name.IsNull() && !RrSetItem.CdsRecord.Name.IsUnknown() {
-										CdsRecordMap["name"] = RrSetItem.CdsRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCdsRecordMap["name"] = RrSetItem.CdsRecord.Name.ValueString()
 									}
 									if !RrSetItem.CdsRecord.Values.IsNull() && !RrSetItem.CdsRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCdsRecordValuesModel
@@ -9854,37 +9854,37 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
 												if ValuesItem.Sha1Digest != nil {
-													Sha1DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetCdsRecordValuesSha1DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetCdsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha1_digest"] = Sha1DigestMap
+													ValuesItemMap["sha1_digest"] = PrimaryRrSetGroupRrSetCdsRecordValuesSha1DigestMap
 												}
 												if ValuesItem.Sha256Digest != nil {
-													Sha256DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetCdsRecordValuesSha256DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetCdsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+													ValuesItemMap["sha256_digest"] = PrimaryRrSetGroupRrSetCdsRecordValuesSha256DigestMap
 												}
 												if ValuesItem.Sha384Digest != nil {
-													Sha384DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+													ValuesItemMap["sha384_digest"] = PrimaryRrSetGroupRrSetCdsRecordValuesSha384DigestMap
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											CdsRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetCdsRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["cds_record"] = CdsRecordMap
+									RrSetItemMap["cds_record"] = PrimaryRrSetGroupRrSetCdsRecordMap
 								}
 								if RrSetItem.CertRecord != nil {
-									CertRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCertRecordMap := make(map[string]interface{})
 									if !RrSetItem.CertRecord.Name.IsNull() && !RrSetItem.CertRecord.Name.IsUnknown() {
-										CertRecordMap["name"] = RrSetItem.CertRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCertRecordMap["name"] = RrSetItem.CertRecord.Name.ValueString()
 									}
 									if !RrSetItem.CertRecord.Values.IsNull() && !RrSetItem.CertRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetCertRecordValuesModel
@@ -9908,28 +9908,28 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											CertRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetCertRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["cert_record"] = CertRecordMap
+									RrSetItemMap["cert_record"] = PrimaryRrSetGroupRrSetCertRecordMap
 								}
 								if RrSetItem.CnameRecord != nil {
-									CnameRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetCnameRecordMap := make(map[string]interface{})
 									if !RrSetItem.CnameRecord.Name.IsNull() && !RrSetItem.CnameRecord.Name.IsUnknown() {
-										CnameRecordMap["name"] = RrSetItem.CnameRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetCnameRecordMap["name"] = RrSetItem.CnameRecord.Name.ValueString()
 									}
 									if !RrSetItem.CnameRecord.Value.IsNull() && !RrSetItem.CnameRecord.Value.IsUnknown() {
-										CnameRecordMap["value"] = RrSetItem.CnameRecord.Value.ValueString()
+										PrimaryRrSetGroupRrSetCnameRecordMap["value"] = RrSetItem.CnameRecord.Value.ValueString()
 									}
-									RrSetItemMap["cname_record"] = CnameRecordMap
+									RrSetItemMap["cname_record"] = PrimaryRrSetGroupRrSetCnameRecordMap
 								}
 								if !RrSetItem.DescriptionSpec.IsNull() && !RrSetItem.DescriptionSpec.IsUnknown() {
 									RrSetItemMap["description"] = RrSetItem.DescriptionSpec.ValueString()
 								}
 								if RrSetItem.DsRecord != nil {
-									DsRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetDsRecordMap := make(map[string]interface{})
 									if !RrSetItem.DsRecord.Name.IsNull() && !RrSetItem.DsRecord.Name.IsUnknown() {
-										DsRecordMap["name"] = RrSetItem.DsRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetDsRecordMap["name"] = RrSetItem.DsRecord.Name.ValueString()
 									}
 									if !RrSetItem.DsRecord.Values.IsNull() && !RrSetItem.DsRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetDsRecordValuesModel
@@ -9946,77 +9946,77 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 													ValuesItemMap["key_tag"] = ValuesItem.KeyTag.ValueInt64()
 												}
 												if ValuesItem.Sha1Digest != nil {
-													Sha1DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetDsRecordValuesSha1DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha1Digest.Digest.IsNull() && !ValuesItem.Sha1Digest.Digest.IsUnknown() {
-														Sha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetDsRecordValuesSha1DigestMap["digest"] = ValuesItem.Sha1Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha1_digest"] = Sha1DigestMap
+													ValuesItemMap["sha1_digest"] = PrimaryRrSetGroupRrSetDsRecordValuesSha1DigestMap
 												}
 												if ValuesItem.Sha256Digest != nil {
-													Sha256DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetDsRecordValuesSha256DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha256Digest.Digest.IsNull() && !ValuesItem.Sha256Digest.Digest.IsUnknown() {
-														Sha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetDsRecordValuesSha256DigestMap["digest"] = ValuesItem.Sha256Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha256_digest"] = Sha256DigestMap
+													ValuesItemMap["sha256_digest"] = PrimaryRrSetGroupRrSetDsRecordValuesSha256DigestMap
 												}
 												if ValuesItem.Sha384Digest != nil {
-													Sha384DigestMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetDsRecordValuesSha384DigestMap := make(map[string]interface{})
 													if !ValuesItem.Sha384Digest.Digest.IsNull() && !ValuesItem.Sha384Digest.Digest.IsUnknown() {
-														Sha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
+														PrimaryRrSetGroupRrSetDsRecordValuesSha384DigestMap["digest"] = ValuesItem.Sha384Digest.Digest.ValueString()
 													}
-													ValuesItemMap["sha384_digest"] = Sha384DigestMap
+													ValuesItemMap["sha384_digest"] = PrimaryRrSetGroupRrSetDsRecordValuesSha384DigestMap
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											DsRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetDsRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["ds_record"] = DsRecordMap
+									RrSetItemMap["ds_record"] = PrimaryRrSetGroupRrSetDsRecordMap
 								}
 								if RrSetItem.Eui48Record != nil {
-									Eui48RecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetEui48RecordMap := make(map[string]interface{})
 									if !RrSetItem.Eui48Record.Name.IsNull() && !RrSetItem.Eui48Record.Name.IsUnknown() {
-										Eui48RecordMap["name"] = RrSetItem.Eui48Record.Name.ValueString()
+										PrimaryRrSetGroupRrSetEui48RecordMap["name"] = RrSetItem.Eui48Record.Name.ValueString()
 									}
 									if !RrSetItem.Eui48Record.Value.IsNull() && !RrSetItem.Eui48Record.Value.IsUnknown() {
-										Eui48RecordMap["value"] = RrSetItem.Eui48Record.Value.ValueString()
+										PrimaryRrSetGroupRrSetEui48RecordMap["value"] = RrSetItem.Eui48Record.Value.ValueString()
 									}
-									RrSetItemMap["eui48_record"] = Eui48RecordMap
+									RrSetItemMap["eui48_record"] = PrimaryRrSetGroupRrSetEui48RecordMap
 								}
 								if RrSetItem.Eui64Record != nil {
-									Eui64RecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetEui64RecordMap := make(map[string]interface{})
 									if !RrSetItem.Eui64Record.Name.IsNull() && !RrSetItem.Eui64Record.Name.IsUnknown() {
-										Eui64RecordMap["name"] = RrSetItem.Eui64Record.Name.ValueString()
+										PrimaryRrSetGroupRrSetEui64RecordMap["name"] = RrSetItem.Eui64Record.Name.ValueString()
 									}
 									if !RrSetItem.Eui64Record.Value.IsNull() && !RrSetItem.Eui64Record.Value.IsUnknown() {
-										Eui64RecordMap["value"] = RrSetItem.Eui64Record.Value.ValueString()
+										PrimaryRrSetGroupRrSetEui64RecordMap["value"] = RrSetItem.Eui64Record.Value.ValueString()
 									}
-									RrSetItemMap["eui64_record"] = Eui64RecordMap
+									RrSetItemMap["eui64_record"] = PrimaryRrSetGroupRrSetEui64RecordMap
 								}
 								if RrSetItem.LBRecord != nil {
-									LBRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetLBRecordMap := make(map[string]interface{})
 									if !RrSetItem.LBRecord.Name.IsNull() && !RrSetItem.LBRecord.Name.IsUnknown() {
-										LBRecordMap["name"] = RrSetItem.LBRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetLBRecordMap["name"] = RrSetItem.LBRecord.Name.ValueString()
 									}
 									if RrSetItem.LBRecord.Value != nil {
-										ValueMap := make(map[string]interface{})
+										PrimaryRrSetGroupRrSetLBRecordValueMap := make(map[string]interface{})
 										if !RrSetItem.LBRecord.Value.Name.IsNull() && !RrSetItem.LBRecord.Value.Name.IsUnknown() {
-											ValueMap["name"] = RrSetItem.LBRecord.Value.Name.ValueString()
+											PrimaryRrSetGroupRrSetLBRecordValueMap["name"] = RrSetItem.LBRecord.Value.Name.ValueString()
 										}
 										if !RrSetItem.LBRecord.Value.Namespace.IsNull() && !RrSetItem.LBRecord.Value.Namespace.IsUnknown() {
-											ValueMap["namespace"] = RrSetItem.LBRecord.Value.Namespace.ValueString()
+											PrimaryRrSetGroupRrSetLBRecordValueMap["namespace"] = RrSetItem.LBRecord.Value.Namespace.ValueString()
 										}
 										if !RrSetItem.LBRecord.Value.Tenant.IsNull() && !RrSetItem.LBRecord.Value.Tenant.IsUnknown() {
-											ValueMap["tenant"] = RrSetItem.LBRecord.Value.Tenant.ValueString()
+											PrimaryRrSetGroupRrSetLBRecordValueMap["tenant"] = RrSetItem.LBRecord.Value.Tenant.ValueString()
 										}
-										LBRecordMap["value"] = ValueMap
+										PrimaryRrSetGroupRrSetLBRecordMap["value"] = PrimaryRrSetGroupRrSetLBRecordValueMap
 									}
-									RrSetItemMap["lb_record"] = LBRecordMap
+									RrSetItemMap["lb_record"] = PrimaryRrSetGroupRrSetLBRecordMap
 								}
 								if RrSetItem.LocRecord != nil {
-									LocRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetLocRecordMap := make(map[string]interface{})
 									if !RrSetItem.LocRecord.Name.IsNull() && !RrSetItem.LocRecord.Name.IsUnknown() {
-										LocRecordMap["name"] = RrSetItem.LocRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetLocRecordMap["name"] = RrSetItem.LocRecord.Name.ValueString()
 									}
 									if !RrSetItem.LocRecord.Values.IsNull() && !RrSetItem.LocRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetLocRecordValuesModel
@@ -10064,15 +10064,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											LocRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetLocRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["loc_record"] = LocRecordMap
+									RrSetItemMap["loc_record"] = PrimaryRrSetGroupRrSetLocRecordMap
 								}
 								if RrSetItem.MxRecord != nil {
-									MxRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetMxRecordMap := make(map[string]interface{})
 									if !RrSetItem.MxRecord.Name.IsNull() && !RrSetItem.MxRecord.Name.IsUnknown() {
-										MxRecordMap["name"] = RrSetItem.MxRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetMxRecordMap["name"] = RrSetItem.MxRecord.Name.ValueString()
 									}
 									if !RrSetItem.MxRecord.Values.IsNull() && !RrSetItem.MxRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetMxRecordValuesModel
@@ -10090,15 +10090,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											MxRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetMxRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["mx_record"] = MxRecordMap
+									RrSetItemMap["mx_record"] = PrimaryRrSetGroupRrSetMxRecordMap
 								}
 								if RrSetItem.NaptrRecord != nil {
-									NaptrRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetNaptrRecordMap := make(map[string]interface{})
 									if !RrSetItem.NaptrRecord.Name.IsNull() && !RrSetItem.NaptrRecord.Name.IsUnknown() {
-										NaptrRecordMap["name"] = RrSetItem.NaptrRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetNaptrRecordMap["name"] = RrSetItem.NaptrRecord.Name.ValueString()
 									}
 									if !RrSetItem.NaptrRecord.Values.IsNull() && !RrSetItem.NaptrRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetNaptrRecordValuesModel
@@ -10128,43 +10128,43 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											NaptrRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetNaptrRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["naptr_record"] = NaptrRecordMap
+									RrSetItemMap["naptr_record"] = PrimaryRrSetGroupRrSetNaptrRecordMap
 								}
 								if RrSetItem.NsRecord != nil {
-									NsRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetNsRecordMap := make(map[string]interface{})
 									if !RrSetItem.NsRecord.Name.IsNull() && !RrSetItem.NsRecord.Name.IsUnknown() {
-										NsRecordMap["name"] = RrSetItem.NsRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetNsRecordMap["name"] = RrSetItem.NsRecord.Name.ValueString()
 									}
 									if !RrSetItem.NsRecord.Values.IsNull() && !RrSetItem.NsRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.NsRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											NsRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetNsRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["ns_record"] = NsRecordMap
+									RrSetItemMap["ns_record"] = PrimaryRrSetGroupRrSetNsRecordMap
 								}
 								if RrSetItem.PtrRecord != nil {
-									PtrRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetPtrRecordMap := make(map[string]interface{})
 									if !RrSetItem.PtrRecord.Name.IsNull() && !RrSetItem.PtrRecord.Name.IsUnknown() {
-										PtrRecordMap["name"] = RrSetItem.PtrRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetPtrRecordMap["name"] = RrSetItem.PtrRecord.Name.ValueString()
 									}
 									if !RrSetItem.PtrRecord.Values.IsNull() && !RrSetItem.PtrRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.PtrRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											PtrRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetPtrRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["ptr_record"] = PtrRecordMap
+									RrSetItemMap["ptr_record"] = PrimaryRrSetGroupRrSetPtrRecordMap
 								}
 								if RrSetItem.SrvRecord != nil {
-									SrvRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetSrvRecordMap := make(map[string]interface{})
 									if !RrSetItem.SrvRecord.Name.IsNull() && !RrSetItem.SrvRecord.Name.IsUnknown() {
-										SrvRecordMap["name"] = RrSetItem.SrvRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetSrvRecordMap["name"] = RrSetItem.SrvRecord.Name.ValueString()
 									}
 									if !RrSetItem.SrvRecord.Values.IsNull() && !RrSetItem.SrvRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSrvRecordValuesModel
@@ -10188,15 +10188,15 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											SrvRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetSrvRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["srv_record"] = SrvRecordMap
+									RrSetItemMap["srv_record"] = PrimaryRrSetGroupRrSetSrvRecordMap
 								}
 								if RrSetItem.SshfpRecord != nil {
-									SshfpRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetSshfpRecordMap := make(map[string]interface{})
 									if !RrSetItem.SshfpRecord.Name.IsNull() && !RrSetItem.SshfpRecord.Name.IsUnknown() {
-										SshfpRecordMap["name"] = RrSetItem.SshfpRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetSshfpRecordMap["name"] = RrSetItem.SshfpRecord.Name.ValueString()
 									}
 									if !RrSetItem.SshfpRecord.Values.IsNull() && !RrSetItem.SshfpRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetSshfpRecordValuesModel
@@ -10210,30 +10210,30 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 													ValuesItemMap["algorithm"] = ValuesItem.Algorithm.ValueString()
 												}
 												if ValuesItem.Sha1Fingerprint != nil {
-													Sha1FingerprintMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetSshfpRecordValuesSha1FingerprintMap := make(map[string]interface{})
 													if !ValuesItem.Sha1Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha1Fingerprint.Fingerprint.IsUnknown() {
-														Sha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
+														PrimaryRrSetGroupRrSetSshfpRecordValuesSha1FingerprintMap["fingerprint"] = ValuesItem.Sha1Fingerprint.Fingerprint.ValueString()
 													}
-													ValuesItemMap["sha1_fingerprint"] = Sha1FingerprintMap
+													ValuesItemMap["sha1_fingerprint"] = PrimaryRrSetGroupRrSetSshfpRecordValuesSha1FingerprintMap
 												}
 												if ValuesItem.Sha256Fingerprint != nil {
-													Sha256FingerprintMap := make(map[string]interface{})
+													PrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintMap := make(map[string]interface{})
 													if !ValuesItem.Sha256Fingerprint.Fingerprint.IsNull() && !ValuesItem.Sha256Fingerprint.Fingerprint.IsUnknown() {
-														Sha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
+														PrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintMap["fingerprint"] = ValuesItem.Sha256Fingerprint.Fingerprint.ValueString()
 													}
-													ValuesItemMap["sha256_fingerprint"] = Sha256FingerprintMap
+													ValuesItemMap["sha256_fingerprint"] = PrimaryRrSetGroupRrSetSshfpRecordValuesSha256FingerprintMap
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											SshfpRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetSshfpRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["sshfp_record"] = SshfpRecordMap
+									RrSetItemMap["sshfp_record"] = PrimaryRrSetGroupRrSetSshfpRecordMap
 								}
 								if RrSetItem.TlsaRecord != nil {
-									TlsaRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetTlsaRecordMap := make(map[string]interface{})
 									if !RrSetItem.TlsaRecord.Name.IsNull() && !RrSetItem.TlsaRecord.Name.IsUnknown() {
-										TlsaRecordMap["name"] = RrSetItem.TlsaRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetTlsaRecordMap["name"] = RrSetItem.TlsaRecord.Name.ValueString()
 									}
 									if !RrSetItem.TlsaRecord.Values.IsNull() && !RrSetItem.TlsaRecord.Values.IsUnknown() {
 										var ValuesElems []DNSZonePrimaryRrSetGroupRrSetTlsaRecordValuesModel
@@ -10257,27 +10257,27 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 												}
 												ValuesList = append(ValuesList, ValuesItemMap)
 											}
-											TlsaRecordMap["values"] = ValuesList
+											PrimaryRrSetGroupRrSetTlsaRecordMap["values"] = ValuesList
 										}
 									}
-									RrSetItemMap["tlsa_record"] = TlsaRecordMap
+									RrSetItemMap["tlsa_record"] = PrimaryRrSetGroupRrSetTlsaRecordMap
 								}
 								if !RrSetItem.TTL.IsNull() && !RrSetItem.TTL.IsUnknown() {
 									RrSetItemMap["ttl"] = RrSetItem.TTL.ValueInt64()
 								}
 								if RrSetItem.TxtRecord != nil {
-									TxtRecordMap := make(map[string]interface{})
+									PrimaryRrSetGroupRrSetTxtRecordMap := make(map[string]interface{})
 									if !RrSetItem.TxtRecord.Name.IsNull() && !RrSetItem.TxtRecord.Name.IsUnknown() {
-										TxtRecordMap["name"] = RrSetItem.TxtRecord.Name.ValueString()
+										PrimaryRrSetGroupRrSetTxtRecordMap["name"] = RrSetItem.TxtRecord.Name.ValueString()
 									}
 									if !RrSetItem.TxtRecord.Values.IsNull() && !RrSetItem.TxtRecord.Values.IsUnknown() {
 										var ValuesItems []string
 										diags := RrSetItem.TxtRecord.Values.ElementsAs(ctx, &ValuesItems, false)
 										if !diags.HasError() {
-											TxtRecordMap["values"] = ValuesItems
+											PrimaryRrSetGroupRrSetTxtRecordMap["values"] = ValuesItems
 										}
 									}
-									RrSetItemMap["txt_record"] = TxtRecordMap
+									RrSetItemMap["txt_record"] = PrimaryRrSetGroupRrSetTxtRecordMap
 								}
 								RrSetList = append(RrSetList, RrSetItemMap)
 							}
@@ -10290,23 +10290,23 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 			}
 		}
 		if data.Primary.SoaParameters != nil {
-			SoaParametersMap := make(map[string]interface{})
+			PrimarySoaParametersMap := make(map[string]interface{})
 			if !data.Primary.SoaParameters.Expire.IsNull() && !data.Primary.SoaParameters.Expire.IsUnknown() {
-				SoaParametersMap["expire"] = data.Primary.SoaParameters.Expire.ValueInt64()
+				PrimarySoaParametersMap["expire"] = data.Primary.SoaParameters.Expire.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.NegativeTTL.IsNull() && !data.Primary.SoaParameters.NegativeTTL.IsUnknown() {
-				SoaParametersMap["negative_ttl"] = data.Primary.SoaParameters.NegativeTTL.ValueInt64()
+				PrimarySoaParametersMap["negative_ttl"] = data.Primary.SoaParameters.NegativeTTL.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.Refresh.IsNull() && !data.Primary.SoaParameters.Refresh.IsUnknown() {
-				SoaParametersMap["refresh"] = data.Primary.SoaParameters.Refresh.ValueInt64()
+				PrimarySoaParametersMap["refresh"] = data.Primary.SoaParameters.Refresh.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.Retry.IsNull() && !data.Primary.SoaParameters.Retry.IsUnknown() {
-				SoaParametersMap["retry"] = data.Primary.SoaParameters.Retry.ValueInt64()
+				PrimarySoaParametersMap["retry"] = data.Primary.SoaParameters.Retry.ValueInt64()
 			}
 			if !data.Primary.SoaParameters.TTL.IsNull() && !data.Primary.SoaParameters.TTL.IsUnknown() {
-				SoaParametersMap["ttl"] = data.Primary.SoaParameters.TTL.ValueInt64()
+				PrimarySoaParametersMap["ttl"] = data.Primary.SoaParameters.TTL.ValueInt64()
 			}
-			PrimaryMap["soa_parameters"] = SoaParametersMap
+			PrimaryMap["soa_parameters"] = PrimarySoaParametersMap
 		}
 		apiResource.Spec["primary"] = PrimaryMap
 	}
@@ -10326,31 +10326,31 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 			SecondaryMap["tsig_key_name"] = data.Secondary.TsigKeyName.ValueString()
 		}
 		if data.Secondary.TsigKeyValue != nil {
-			TsigKeyValueMap := make(map[string]interface{})
+			SecondaryTsigKeyValueMap := make(map[string]interface{})
 			if data.Secondary.TsigKeyValue.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				SecondaryTsigKeyValueBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					SecondaryTsigKeyValueBlindfoldSecretInfoMap["decryption_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.IsNull() && !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.ValueString()
+					SecondaryTsigKeyValueBlindfoldSecretInfoMap["location"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+					SecondaryTsigKeyValueBlindfoldSecretInfoMap["store_provider"] = data.Secondary.TsigKeyValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				TsigKeyValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				SecondaryTsigKeyValueMap["blindfold_secret_info"] = SecondaryTsigKeyValueBlindfoldSecretInfoMap
 			}
 			if data.Secondary.TsigKeyValue.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				SecondaryTsigKeyValueClearSecretInfoMap := make(map[string]interface{})
 				if !data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.IsNull() && !data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.ValueString()
+					SecondaryTsigKeyValueClearSecretInfoMap["provider"] = data.Secondary.TsigKeyValue.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.Secondary.TsigKeyValue.ClearSecretInfo.URL.IsNull() && !data.Secondary.TsigKeyValue.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.Secondary.TsigKeyValue.ClearSecretInfo.URL.ValueString()
+					SecondaryTsigKeyValueClearSecretInfoMap["url"] = data.Secondary.TsigKeyValue.ClearSecretInfo.URL.ValueString()
 				}
-				TsigKeyValueMap["clear_secret_info"] = ClearSecretInfoMap
+				SecondaryTsigKeyValueMap["clear_secret_info"] = SecondaryTsigKeyValueClearSecretInfoMap
 			}
-			SecondaryMap["tsig_key_value"] = TsigKeyValueMap
+			SecondaryMap["tsig_key_value"] = SecondaryTsigKeyValueMap
 		}
 		apiResource.Spec["secondary"] = SecondaryMap
 	}

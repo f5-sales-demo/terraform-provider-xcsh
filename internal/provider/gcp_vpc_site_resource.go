@@ -3645,69 +3645,69 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.AdminPassword != nil {
 		AdminPasswordMap := make(map[string]interface{})
 		if data.AdminPassword.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
 		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
 		}
 		if data.AdminPassword.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
+				AdminPasswordClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
+				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
-			AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
 		}
 		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
 			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
 		}
 		if data.AdminPassword.VaultSecretInfo != nil {
-			VaultSecretInfoMap := make(map[string]interface{})
+			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				VaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
+				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				VaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
+				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				VaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
+				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				VaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
+				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				VaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
+				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
 			}
-			AdminPasswordMap["vault_secret_info"] = VaultSecretInfoMap
+			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
 		}
 		if data.AdminPassword.WingmanSecretInfo != nil {
-			WingmanSecretInfoMap := make(map[string]interface{})
+			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				WingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
+				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
 			}
-			AdminPasswordMap["wingman_secret_info"] = WingmanSecretInfoMap
+			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		createReq.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -3798,7 +3798,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.IngressEgressGw != nil {
 		IngressEgressGwMap := make(map[string]interface{})
 		if data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -3818,13 +3818,13 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			IngressEgressGwMap["active_enhanced_firewall_policies"] = IngressEgressGwActiveEnhancedFirewallPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -3844,13 +3844,13 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					IngressEgressGwActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			IngressEgressGwMap["active_forward_proxy_policies"] = IngressEgressGwActiveForwardProxyPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -3870,36 +3870,36 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					IngressEgressGwActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			IngressEgressGwMap["active_network_policies"] = IngressEgressGwActiveNetworkPoliciesMap
 		}
 		if data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-			DcClusterGroupInsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupInsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsUnknown() {
-				DcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
-				DcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				DcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_inside_vn"] = DcClusterGroupInsideVnMap
+			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-			DcClusterGroupOutsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupOutsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsUnknown() {
-				DcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
-				DcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				DcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_outside_vn"] = DcClusterGroupOutsideVnMap
+			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
 		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
@@ -3915,7 +3915,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			IngressEgressGwGlobalNetworkListMap := make(map[string]interface{})
 			if !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -3925,69 +3925,69 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					IngressEgressGwGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			IngressEgressGwMap["global_network_list"] = GlobalNetworkListMap
+			IngressEgressGwMap["global_network_list"] = IngressEgressGwGlobalNetworkListMap
 		}
 		if data.IngressEgressGw.InsideNetwork != nil {
-			InsideNetworkMap := make(map[string]interface{})
+			IngressEgressGwInsideNetworkMap := make(map[string]interface{})
 			if data.IngressEgressGw.InsideNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				IngressEgressGwInsideNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.IsNull() && !data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.ValueString()
+					IngressEgressGwInsideNetworkExistingNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.ValueString()
 				}
-				InsideNetworkMap["existing_network"] = ExistingNetworkMap
+				IngressEgressGwInsideNetworkMap["existing_network"] = IngressEgressGwInsideNetworkExistingNetworkMap
 			}
 			if data.IngressEgressGw.InsideNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				IngressEgressGwInsideNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideNetwork.NewNetwork.Name.IsNull() && !data.IngressEgressGw.InsideNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.NewNetwork.Name.ValueString()
+					IngressEgressGwInsideNetworkNewNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.NewNetwork.Name.ValueString()
 				}
-				InsideNetworkMap["new_network"] = NewNetworkMap
+				IngressEgressGwInsideNetworkMap["new_network"] = IngressEgressGwInsideNetworkNewNetworkMap
 			}
 			if data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate != nil {
-				InsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				IngressEgressGwInsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["inside_network"] = InsideNetworkMap
+			IngressEgressGwMap["inside_network"] = IngressEgressGwInsideNetworkMap
 		}
 		if data.IngressEgressGw.InsideStaticRoutes != nil {
-			InsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwInsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -3997,19 +3997,19 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -4035,31 +4035,31 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -4070,62 +4070,62 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					InsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwInsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["inside_static_routes"] = InsideStaticRoutesMap
+			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.InsideSubnet != nil {
-			InsideSubnetMap := make(map[string]interface{})
+			IngressEgressGwInsideSubnetMap := make(map[string]interface{})
 			if data.IngressEgressGw.InsideSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				IngressEgressGwInsideSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.IsNull() && !data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.ValueString()
+					IngressEgressGwInsideSubnetExistingSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				InsideSubnetMap["existing_subnet"] = ExistingSubnetMap
+				IngressEgressGwInsideSubnetMap["existing_subnet"] = IngressEgressGwInsideSubnetExistingSubnetMap
 			}
 			if data.IngressEgressGw.InsideSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				IngressEgressGwInsideSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					IngressEgressGwInsideSubnetNewSubnetMap["primary_ipv4"] = data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.IsNull() && !data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.ValueString()
+					IngressEgressGwInsideSubnetNewSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				InsideSubnetMap["new_subnet"] = NewSubnetMap
+				IngressEgressGwInsideSubnetMap["new_subnet"] = IngressEgressGwInsideSubnetNewSubnetMap
 			}
-			IngressEgressGwMap["inside_subnet"] = InsideSubnetMap
+			IngressEgressGwMap["inside_subnet"] = IngressEgressGwInsideSubnetMap
 		}
 		if data.IngressEgressGw.NoDcClusterGroup != nil {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -4149,28 +4149,28 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			IngressEgressGwMap["node_number"] = data.IngressEgressGw.NodeNumber.ValueInt64()
 		}
 		if data.IngressEgressGw.OutsideNetwork != nil {
-			OutsideNetworkMap := make(map[string]interface{})
+			IngressEgressGwOutsideNetworkMap := make(map[string]interface{})
 			if data.IngressEgressGw.OutsideNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				IngressEgressGwOutsideNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.IsNull() && !data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.ValueString()
+					IngressEgressGwOutsideNetworkExistingNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.ValueString()
 				}
-				OutsideNetworkMap["existing_network"] = ExistingNetworkMap
+				IngressEgressGwOutsideNetworkMap["existing_network"] = IngressEgressGwOutsideNetworkExistingNetworkMap
 			}
 			if data.IngressEgressGw.OutsideNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				IngressEgressGwOutsideNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.IsNull() && !data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.ValueString()
+					IngressEgressGwOutsideNetworkNewNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.ValueString()
 				}
-				OutsideNetworkMap["new_network"] = NewNetworkMap
+				IngressEgressGwOutsideNetworkMap["new_network"] = IngressEgressGwOutsideNetworkNewNetworkMap
 			}
 			if data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate != nil {
-				OutsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				IngressEgressGwOutsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["outside_network"] = OutsideNetworkMap
+			IngressEgressGwMap["outside_network"] = IngressEgressGwOutsideNetworkMap
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -4180,19 +4180,19 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -4218,31 +4218,31 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -4253,79 +4253,79 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["outside_static_routes"] = OutsideStaticRoutesMap
+			IngressEgressGwMap["outside_static_routes"] = IngressEgressGwOutsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.OutsideSubnet != nil {
-			OutsideSubnetMap := make(map[string]interface{})
+			IngressEgressGwOutsideSubnetMap := make(map[string]interface{})
 			if data.IngressEgressGw.OutsideSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				IngressEgressGwOutsideSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.IsNull() && !data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.ValueString()
+					IngressEgressGwOutsideSubnetExistingSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				OutsideSubnetMap["existing_subnet"] = ExistingSubnetMap
+				IngressEgressGwOutsideSubnetMap["existing_subnet"] = IngressEgressGwOutsideSubnetExistingSubnetMap
 			}
 			if data.IngressEgressGw.OutsideSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				IngressEgressGwOutsideSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					IngressEgressGwOutsideSubnetNewSubnetMap["primary_ipv4"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.IsNull() && !data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.ValueString()
+					IngressEgressGwOutsideSubnetNewSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				OutsideSubnetMap["new_subnet"] = NewSubnetMap
+				IngressEgressGwOutsideSubnetMap["new_subnet"] = IngressEgressGwOutsideSubnetNewSubnetMap
 			}
-			IngressEgressGwMap["outside_subnet"] = OutsideSubnetMap
+			IngressEgressGwMap["outside_subnet"] = IngressEgressGwOutsideSubnetMap
 		}
 		if data.IngressEgressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
 		if data.IngressEgressGw.SmConnectionPublicIP != nil {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -4348,66 +4348,66 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 		}
 		if data.IngressGw.LocalNetwork != nil {
-			LocalNetworkMap := make(map[string]interface{})
+			IngressGwLocalNetworkMap := make(map[string]interface{})
 			if data.IngressGw.LocalNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				IngressGwLocalNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.IngressGw.LocalNetwork.ExistingNetwork.Name.IsNull() && !data.IngressGw.LocalNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.IngressGw.LocalNetwork.ExistingNetwork.Name.ValueString()
+					IngressGwLocalNetworkExistingNetworkMap["name"] = data.IngressGw.LocalNetwork.ExistingNetwork.Name.ValueString()
 				}
-				LocalNetworkMap["existing_network"] = ExistingNetworkMap
+				IngressGwLocalNetworkMap["existing_network"] = IngressGwLocalNetworkExistingNetworkMap
 			}
 			if data.IngressGw.LocalNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				IngressGwLocalNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.IngressGw.LocalNetwork.NewNetwork.Name.IsNull() && !data.IngressGw.LocalNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.IngressGw.LocalNetwork.NewNetwork.Name.ValueString()
+					IngressGwLocalNetworkNewNetworkMap["name"] = data.IngressGw.LocalNetwork.NewNetwork.Name.ValueString()
 				}
-				LocalNetworkMap["new_network"] = NewNetworkMap
+				IngressGwLocalNetworkMap["new_network"] = IngressGwLocalNetworkNewNetworkMap
 			}
 			if data.IngressGw.LocalNetwork.NewNetworkAutogenerate != nil {
-				LocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				IngressGwLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			IngressGwMap["local_network"] = LocalNetworkMap
+			IngressGwMap["local_network"] = IngressGwLocalNetworkMap
 		}
 		if data.IngressGw.LocalSubnet != nil {
-			LocalSubnetMap := make(map[string]interface{})
+			IngressGwLocalSubnetMap := make(map[string]interface{})
 			if data.IngressGw.LocalSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				IngressGwLocalSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.IsNull() && !data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.ValueString()
+					IngressGwLocalSubnetExistingSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				LocalSubnetMap["existing_subnet"] = ExistingSubnetMap
+				IngressGwLocalSubnetMap["existing_subnet"] = IngressGwLocalSubnetExistingSubnetMap
 			}
 			if data.IngressGw.LocalSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				IngressGwLocalSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					IngressGwLocalSubnetNewSubnetMap["primary_ipv4"] = data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.IngressGw.LocalSubnet.NewSubnet.SubnetName.IsNull() && !data.IngressGw.LocalSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.NewSubnet.SubnetName.ValueString()
+					IngressGwLocalSubnetNewSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				LocalSubnetMap["new_subnet"] = NewSubnetMap
+				IngressGwLocalSubnetMap["new_subnet"] = IngressGwLocalSubnetNewSubnetMap
 			}
-			IngressGwMap["local_subnet"] = LocalSubnetMap
+			IngressGwMap["local_subnet"] = IngressGwLocalSubnetMap
 		}
 		if !data.IngressGw.NodeNumber.IsNull() && !data.IngressGw.NodeNumber.IsUnknown() {
 			IngressGwMap["node_number"] = data.IngressGw.NodeNumber.ValueInt64()
 		}
 		if data.IngressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
 		createReq.Spec["ingress_gw"] = IngressGwMap
 	}
@@ -4417,20 +4417,20 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
-			EnableUpgradeDrainMap := make(map[string]interface{})
+			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
-				EnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
-				EnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
-			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = EnableUpgradeDrainMap
+			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
 		}
 		createReq.Spec["kubernetes_upgrade_drain"] = KubernetesUpgradeDrainMap
 	}
@@ -4476,17 +4476,17 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.PrivateConnectivity != nil {
 		PrivateConnectivityMap := make(map[string]interface{})
 		if data.PrivateConnectivity.CloudLink != nil {
-			CloudLinkMap := make(map[string]interface{})
+			PrivateConnectivityCloudLinkMap := make(map[string]interface{})
 			if !data.PrivateConnectivity.CloudLink.Name.IsNull() && !data.PrivateConnectivity.CloudLink.Name.IsUnknown() {
-				CloudLinkMap["name"] = data.PrivateConnectivity.CloudLink.Name.ValueString()
+				PrivateConnectivityCloudLinkMap["name"] = data.PrivateConnectivity.CloudLink.Name.ValueString()
 			}
 			if !data.PrivateConnectivity.CloudLink.Namespace.IsNull() && !data.PrivateConnectivity.CloudLink.Namespace.IsUnknown() {
-				CloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
+				PrivateConnectivityCloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
 			}
 			if !data.PrivateConnectivity.CloudLink.Tenant.IsNull() && !data.PrivateConnectivity.CloudLink.Tenant.IsUnknown() {
-				CloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
+				PrivateConnectivityCloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
 			}
-			PrivateConnectivityMap["cloud_link"] = CloudLinkMap
+			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
 		if data.PrivateConnectivity.Inside != nil {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
@@ -4509,7 +4509,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 	if data.VoltstackCluster != nil {
 		VoltstackClusterMap := make(map[string]interface{})
 		if data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -4529,13 +4529,13 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			VoltstackClusterMap["active_enhanced_firewall_policies"] = VoltstackClusterActiveEnhancedFirewallPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -4555,13 +4555,13 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					VoltstackClusterActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			VoltstackClusterMap["active_forward_proxy_policies"] = VoltstackClusterActiveForwardProxyPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -4581,23 +4581,23 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					VoltstackClusterActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			VoltstackClusterMap["active_network_policies"] = VoltstackClusterActiveNetworkPoliciesMap
 		}
 		if data.VoltstackCluster.DcClusterGroup != nil {
-			DcClusterGroupMap := make(map[string]interface{})
+			VoltstackClusterDcClusterGroupMap := make(map[string]interface{})
 			if !data.VoltstackCluster.DcClusterGroup.Name.IsNull() && !data.VoltstackCluster.DcClusterGroup.Name.IsUnknown() {
-				DcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
+				VoltstackClusterDcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
-				DcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
+				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				DcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
+				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
 			}
-			VoltstackClusterMap["dc_cluster_group"] = DcClusterGroupMap
+			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
 		if data.VoltstackCluster.DefaultStorage != nil {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
@@ -4616,7 +4616,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			VoltstackClusterGlobalNetworkListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -4626,58 +4626,58 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					VoltstackClusterGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			VoltstackClusterMap["global_network_list"] = GlobalNetworkListMap
+			VoltstackClusterMap["global_network_list"] = VoltstackClusterGlobalNetworkListMap
 		}
 		if data.VoltstackCluster.K8SCluster != nil {
-			K8SClusterMap := make(map[string]interface{})
+			VoltstackClusterK8SClusterMap := make(map[string]interface{})
 			if !data.VoltstackCluster.K8SCluster.Name.IsNull() && !data.VoltstackCluster.K8SCluster.Name.IsUnknown() {
-				K8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
+				VoltstackClusterK8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
-				K8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
+				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				K8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
+				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
-			VoltstackClusterMap["k8s_cluster"] = K8SClusterMap
+			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
 		if data.VoltstackCluster.NoDcClusterGroup != nil {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -4701,7 +4701,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			VoltstackClusterMap["node_number"] = data.VoltstackCluster.NodeNumber.ValueInt64()
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			VoltstackClusterOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
 				diags := data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -4711,19 +4711,19 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -4749,31 +4749,31 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -4784,83 +4784,83 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					VoltstackClusterOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			VoltstackClusterMap["outside_static_routes"] = OutsideStaticRoutesMap
+			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
 		if data.VoltstackCluster.SiteLocalNetwork != nil {
-			SiteLocalNetworkMap := make(map[string]interface{})
+			VoltstackClusterSiteLocalNetworkMap := make(map[string]interface{})
 			if data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.IsNull() && !data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.ValueString()
+					VoltstackClusterSiteLocalNetworkExistingNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.ValueString()
 				}
-				SiteLocalNetworkMap["existing_network"] = ExistingNetworkMap
+				VoltstackClusterSiteLocalNetworkMap["existing_network"] = VoltstackClusterSiteLocalNetworkExistingNetworkMap
 			}
 			if data.VoltstackCluster.SiteLocalNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.IsNull() && !data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.ValueString()
+					VoltstackClusterSiteLocalNetworkNewNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.ValueString()
 				}
-				SiteLocalNetworkMap["new_network"] = NewNetworkMap
+				VoltstackClusterSiteLocalNetworkMap["new_network"] = VoltstackClusterSiteLocalNetworkNewNetworkMap
 			}
 			if data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate != nil {
-				SiteLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				VoltstackClusterSiteLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			VoltstackClusterMap["site_local_network"] = SiteLocalNetworkMap
+			VoltstackClusterMap["site_local_network"] = VoltstackClusterSiteLocalNetworkMap
 		}
 		if data.VoltstackCluster.SiteLocalSubnet != nil {
-			SiteLocalSubnetMap := make(map[string]interface{})
+			VoltstackClusterSiteLocalSubnetMap := make(map[string]interface{})
 			if data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.IsNull() && !data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.ValueString()
+					VoltstackClusterSiteLocalSubnetExistingSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				SiteLocalSubnetMap["existing_subnet"] = ExistingSubnetMap
+				VoltstackClusterSiteLocalSubnetMap["existing_subnet"] = VoltstackClusterSiteLocalSubnetExistingSubnetMap
 			}
 			if data.VoltstackCluster.SiteLocalSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					VoltstackClusterSiteLocalSubnetNewSubnetMap["primary_ipv4"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.IsNull() && !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.ValueString()
+					VoltstackClusterSiteLocalSubnetNewSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				SiteLocalSubnetMap["new_subnet"] = NewSubnetMap
+				VoltstackClusterSiteLocalSubnetMap["new_subnet"] = VoltstackClusterSiteLocalSubnetNewSubnetMap
 			}
-			VoltstackClusterMap["site_local_subnet"] = SiteLocalSubnetMap
+			VoltstackClusterMap["site_local_subnet"] = VoltstackClusterSiteLocalSubnetMap
 		}
 		if data.VoltstackCluster.SmConnectionPublicIP != nil {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -4869,7 +4869,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
-			StorageClassListMap := make(map[string]interface{})
+			VoltstackClusterStorageClassListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
 				var StorageClassesElems []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
@@ -4886,10 +4886,10 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					StorageClassListMap["storage_classes"] = StorageClassesList
+					VoltstackClusterStorageClassListMap["storage_classes"] = StorageClassesList
 				}
 			}
-			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
+			VoltstackClusterMap["storage_class_list"] = VoltstackClusterStorageClassListMap
 		}
 		createReq.Spec["voltstack_cluster"] = VoltstackClusterMap
 	}
@@ -10262,69 +10262,69 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.AdminPassword != nil {
 		AdminPasswordMap := make(map[string]interface{})
 		if data.AdminPassword.BlindfoldSecretInfo != nil {
-			BlindfoldSecretInfoMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.Location.IsUnknown() {
-				BlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["location"] = data.AdminPassword.BlindfoldSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfo.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
 		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			BlindfoldSecretInfoInternalMap := make(map[string]interface{})
+			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
 			}
 			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				BlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
+				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
 			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = BlindfoldSecretInfoInternalMap
+			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
 		}
 		if data.AdminPassword.ClearSecretInfo != nil {
-			ClearSecretInfoMap := make(map[string]interface{})
+			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
-				ClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
+				AdminPasswordClearSecretInfoMap["provider"] = data.AdminPassword.ClearSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.ClearSecretInfo.URL.IsNull() && !data.AdminPassword.ClearSecretInfo.URL.IsUnknown() {
-				ClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
+				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
-			AdminPasswordMap["clear_secret_info"] = ClearSecretInfoMap
+			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
 		}
 		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
 			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
 		}
 		if data.AdminPassword.VaultSecretInfo != nil {
-			VaultSecretInfoMap := make(map[string]interface{})
+			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				VaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
+				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				VaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
+				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				VaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
+				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				VaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
+				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
 			}
 			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				VaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
+				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
 			}
-			AdminPasswordMap["vault_secret_info"] = VaultSecretInfoMap
+			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
 		}
 		if data.AdminPassword.WingmanSecretInfo != nil {
-			WingmanSecretInfoMap := make(map[string]interface{})
+			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				WingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
+				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
 			}
-			AdminPasswordMap["wingman_secret_info"] = WingmanSecretInfoMap
+			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		apiResource.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -10415,7 +10415,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.IngressEgressGw != nil {
 		IngressEgressGwMap := make(map[string]interface{})
 		if data.IngressEgressGw.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []GCPVPCSiteIngressEgressGwActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.IngressEgressGw.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -10435,13 +10435,13 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					IngressEgressGwActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			IngressEgressGwMap["active_enhanced_firewall_policies"] = IngressEgressGwActiveEnhancedFirewallPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []GCPVPCSiteIngressEgressGwActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.IngressEgressGw.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -10461,13 +10461,13 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					IngressEgressGwActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			IngressEgressGwMap["active_forward_proxy_policies"] = IngressEgressGwActiveForwardProxyPoliciesMap
 		}
 		if data.IngressEgressGw.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			IngressEgressGwActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []GCPVPCSiteIngressEgressGwActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.IngressEgressGw.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -10487,36 +10487,36 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					IngressEgressGwActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			IngressEgressGwMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			IngressEgressGwMap["active_network_policies"] = IngressEgressGwActiveNetworkPoliciesMap
 		}
 		if data.IngressEgressGw.DcClusterGroupInsideVn != nil {
-			DcClusterGroupInsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupInsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Name.IsUnknown() {
-				DcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupInsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.IsUnknown() {
-				DcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupInsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.IsUnknown() {
-				DcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupInsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupInsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_inside_vn"] = DcClusterGroupInsideVnMap
+			IngressEgressGwMap["dc_cluster_group_inside_vn"] = IngressEgressGwDcClusterGroupInsideVnMap
 		}
 		if data.IngressEgressGw.DcClusterGroupOutsideVn != nil {
-			DcClusterGroupOutsideVnMap := make(map[string]interface{})
+			IngressEgressGwDcClusterGroupOutsideVnMap := make(map[string]interface{})
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Name.IsUnknown() {
-				DcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["name"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Name.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.IsUnknown() {
-				DcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["namespace"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Namespace.ValueString()
 			}
 			if !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsNull() && !data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.IsUnknown() {
-				DcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
+				IngressEgressGwDcClusterGroupOutsideVnMap["tenant"] = data.IngressEgressGw.DcClusterGroupOutsideVn.Tenant.ValueString()
 			}
-			IngressEgressGwMap["dc_cluster_group_outside_vn"] = DcClusterGroupOutsideVnMap
+			IngressEgressGwMap["dc_cluster_group_outside_vn"] = IngressEgressGwDcClusterGroupOutsideVnMap
 		}
 		if data.IngressEgressGw.ForwardProxyAllowAll != nil {
 			IngressEgressGwMap["forward_proxy_allow_all"] = map[string]interface{}{}
@@ -10532,7 +10532,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 		}
 		if data.IngressEgressGw.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			IngressEgressGwGlobalNetworkListMap := make(map[string]interface{})
 			if !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []GCPVPCSiteIngressEgressGwGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.IngressEgressGw.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -10542,69 +10542,69 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = IngressEgressGwGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					IngressEgressGwGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			IngressEgressGwMap["global_network_list"] = GlobalNetworkListMap
+			IngressEgressGwMap["global_network_list"] = IngressEgressGwGlobalNetworkListMap
 		}
 		if data.IngressEgressGw.InsideNetwork != nil {
-			InsideNetworkMap := make(map[string]interface{})
+			IngressEgressGwInsideNetworkMap := make(map[string]interface{})
 			if data.IngressEgressGw.InsideNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				IngressEgressGwInsideNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.IsNull() && !data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.ValueString()
+					IngressEgressGwInsideNetworkExistingNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.ExistingNetwork.Name.ValueString()
 				}
-				InsideNetworkMap["existing_network"] = ExistingNetworkMap
+				IngressEgressGwInsideNetworkMap["existing_network"] = IngressEgressGwInsideNetworkExistingNetworkMap
 			}
 			if data.IngressEgressGw.InsideNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				IngressEgressGwInsideNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideNetwork.NewNetwork.Name.IsNull() && !data.IngressEgressGw.InsideNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.NewNetwork.Name.ValueString()
+					IngressEgressGwInsideNetworkNewNetworkMap["name"] = data.IngressEgressGw.InsideNetwork.NewNetwork.Name.ValueString()
 				}
-				InsideNetworkMap["new_network"] = NewNetworkMap
+				IngressEgressGwInsideNetworkMap["new_network"] = IngressEgressGwInsideNetworkNewNetworkMap
 			}
 			if data.IngressEgressGw.InsideNetwork.NewNetworkAutogenerate != nil {
-				InsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				IngressEgressGwInsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["inside_network"] = InsideNetworkMap
+			IngressEgressGwMap["inside_network"] = IngressEgressGwInsideNetworkMap
 		}
 		if data.IngressEgressGw.InsideStaticRoutes != nil {
-			InsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwInsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.InsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -10614,19 +10614,19 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -10652,31 +10652,31 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []GCPVPCSiteIngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -10687,62 +10687,62 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwInsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					InsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwInsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["inside_static_routes"] = InsideStaticRoutesMap
+			IngressEgressGwMap["inside_static_routes"] = IngressEgressGwInsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.InsideSubnet != nil {
-			InsideSubnetMap := make(map[string]interface{})
+			IngressEgressGwInsideSubnetMap := make(map[string]interface{})
 			if data.IngressEgressGw.InsideSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				IngressEgressGwInsideSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.IsNull() && !data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.ValueString()
+					IngressEgressGwInsideSubnetExistingSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				InsideSubnetMap["existing_subnet"] = ExistingSubnetMap
+				IngressEgressGwInsideSubnetMap["existing_subnet"] = IngressEgressGwInsideSubnetExistingSubnetMap
 			}
 			if data.IngressEgressGw.InsideSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				IngressEgressGwInsideSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					IngressEgressGwInsideSubnetNewSubnetMap["primary_ipv4"] = data.IngressEgressGw.InsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.IsNull() && !data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.ValueString()
+					IngressEgressGwInsideSubnetNewSubnetMap["subnet_name"] = data.IngressEgressGw.InsideSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				InsideSubnetMap["new_subnet"] = NewSubnetMap
+				IngressEgressGwInsideSubnetMap["new_subnet"] = IngressEgressGwInsideSubnetNewSubnetMap
 			}
-			IngressEgressGwMap["inside_subnet"] = InsideSubnetMap
+			IngressEgressGwMap["inside_subnet"] = IngressEgressGwInsideSubnetMap
 		}
 		if data.IngressEgressGw.NoDcClusterGroup != nil {
 			IngressEgressGwMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -10766,28 +10766,28 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			IngressEgressGwMap["node_number"] = data.IngressEgressGw.NodeNumber.ValueInt64()
 		}
 		if data.IngressEgressGw.OutsideNetwork != nil {
-			OutsideNetworkMap := make(map[string]interface{})
+			IngressEgressGwOutsideNetworkMap := make(map[string]interface{})
 			if data.IngressEgressGw.OutsideNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				IngressEgressGwOutsideNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.IsNull() && !data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.ValueString()
+					IngressEgressGwOutsideNetworkExistingNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.ExistingNetwork.Name.ValueString()
 				}
-				OutsideNetworkMap["existing_network"] = ExistingNetworkMap
+				IngressEgressGwOutsideNetworkMap["existing_network"] = IngressEgressGwOutsideNetworkExistingNetworkMap
 			}
 			if data.IngressEgressGw.OutsideNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				IngressEgressGwOutsideNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.IsNull() && !data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.ValueString()
+					IngressEgressGwOutsideNetworkNewNetworkMap["name"] = data.IngressEgressGw.OutsideNetwork.NewNetwork.Name.ValueString()
 				}
-				OutsideNetworkMap["new_network"] = NewNetworkMap
+				IngressEgressGwOutsideNetworkMap["new_network"] = IngressEgressGwOutsideNetworkNewNetworkMap
 			}
 			if data.IngressEgressGw.OutsideNetwork.NewNetworkAutogenerate != nil {
-				OutsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				IngressEgressGwOutsideNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["outside_network"] = OutsideNetworkMap
+			IngressEgressGwMap["outside_network"] = IngressEgressGwOutsideNetworkMap
 		}
 		if data.IngressEgressGw.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			IngressEgressGwOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListModel
 				diags := data.IngressEgressGw.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -10797,19 +10797,19 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -10835,31 +10835,31 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []GCPVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -10870,79 +10870,79 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = IngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					IngressEgressGwOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			IngressEgressGwMap["outside_static_routes"] = OutsideStaticRoutesMap
+			IngressEgressGwMap["outside_static_routes"] = IngressEgressGwOutsideStaticRoutesMap
 		}
 		if data.IngressEgressGw.OutsideSubnet != nil {
-			OutsideSubnetMap := make(map[string]interface{})
+			IngressEgressGwOutsideSubnetMap := make(map[string]interface{})
 			if data.IngressEgressGw.OutsideSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				IngressEgressGwOutsideSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.IsNull() && !data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.ValueString()
+					IngressEgressGwOutsideSubnetExistingSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				OutsideSubnetMap["existing_subnet"] = ExistingSubnetMap
+				IngressEgressGwOutsideSubnetMap["existing_subnet"] = IngressEgressGwOutsideSubnetExistingSubnetMap
 			}
 			if data.IngressEgressGw.OutsideSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				IngressEgressGwOutsideSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					IngressEgressGwOutsideSubnetNewSubnetMap["primary_ipv4"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.IsNull() && !data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.ValueString()
+					IngressEgressGwOutsideSubnetNewSubnetMap["subnet_name"] = data.IngressEgressGw.OutsideSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				OutsideSubnetMap["new_subnet"] = NewSubnetMap
+				IngressEgressGwOutsideSubnetMap["new_subnet"] = IngressEgressGwOutsideSubnetNewSubnetMap
 			}
-			IngressEgressGwMap["outside_subnet"] = OutsideSubnetMap
+			IngressEgressGwMap["outside_subnet"] = IngressEgressGwOutsideSubnetMap
 		}
 		if data.IngressEgressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressEgressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressEgressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
 		if data.IngressEgressGw.SmConnectionPublicIP != nil {
 			IngressEgressGwMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -10965,66 +10965,66 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 		}
 		if data.IngressGw.LocalNetwork != nil {
-			LocalNetworkMap := make(map[string]interface{})
+			IngressGwLocalNetworkMap := make(map[string]interface{})
 			if data.IngressGw.LocalNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				IngressGwLocalNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.IngressGw.LocalNetwork.ExistingNetwork.Name.IsNull() && !data.IngressGw.LocalNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.IngressGw.LocalNetwork.ExistingNetwork.Name.ValueString()
+					IngressGwLocalNetworkExistingNetworkMap["name"] = data.IngressGw.LocalNetwork.ExistingNetwork.Name.ValueString()
 				}
-				LocalNetworkMap["existing_network"] = ExistingNetworkMap
+				IngressGwLocalNetworkMap["existing_network"] = IngressGwLocalNetworkExistingNetworkMap
 			}
 			if data.IngressGw.LocalNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				IngressGwLocalNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.IngressGw.LocalNetwork.NewNetwork.Name.IsNull() && !data.IngressGw.LocalNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.IngressGw.LocalNetwork.NewNetwork.Name.ValueString()
+					IngressGwLocalNetworkNewNetworkMap["name"] = data.IngressGw.LocalNetwork.NewNetwork.Name.ValueString()
 				}
-				LocalNetworkMap["new_network"] = NewNetworkMap
+				IngressGwLocalNetworkMap["new_network"] = IngressGwLocalNetworkNewNetworkMap
 			}
 			if data.IngressGw.LocalNetwork.NewNetworkAutogenerate != nil {
-				LocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				IngressGwLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			IngressGwMap["local_network"] = LocalNetworkMap
+			IngressGwMap["local_network"] = IngressGwLocalNetworkMap
 		}
 		if data.IngressGw.LocalSubnet != nil {
-			LocalSubnetMap := make(map[string]interface{})
+			IngressGwLocalSubnetMap := make(map[string]interface{})
 			if data.IngressGw.LocalSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				IngressGwLocalSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.IsNull() && !data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.ValueString()
+					IngressGwLocalSubnetExistingSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				LocalSubnetMap["existing_subnet"] = ExistingSubnetMap
+				IngressGwLocalSubnetMap["existing_subnet"] = IngressGwLocalSubnetExistingSubnetMap
 			}
 			if data.IngressGw.LocalSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				IngressGwLocalSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					IngressGwLocalSubnetNewSubnetMap["primary_ipv4"] = data.IngressGw.LocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.IngressGw.LocalSubnet.NewSubnet.SubnetName.IsNull() && !data.IngressGw.LocalSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.NewSubnet.SubnetName.ValueString()
+					IngressGwLocalSubnetNewSubnetMap["subnet_name"] = data.IngressGw.LocalSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				LocalSubnetMap["new_subnet"] = NewSubnetMap
+				IngressGwLocalSubnetMap["new_subnet"] = IngressGwLocalSubnetNewSubnetMap
 			}
-			IngressGwMap["local_subnet"] = LocalSubnetMap
+			IngressGwMap["local_subnet"] = IngressGwLocalSubnetMap
 		}
 		if !data.IngressGw.NodeNumber.IsNull() && !data.IngressGw.NodeNumber.IsUnknown() {
 			IngressGwMap["node_number"] = data.IngressGw.NodeNumber.ValueInt64()
 		}
 		if data.IngressGw.PerformanceEnhancementMode != nil {
-			PerformanceEnhancementModeMap := make(map[string]interface{})
+			IngressGwPerformanceEnhancementModeMap := make(map[string]interface{})
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced != nil {
-				PerfModeL3EnhancedMap := make(map[string]interface{})
+				IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap := make(map[string]interface{})
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.Jumbo != nil {
-					PerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["jumbo"] = map[string]interface{}{}
 				}
 				if data.IngressGw.PerformanceEnhancementMode.PerfModeL3Enhanced.NoJumbo != nil {
-					PerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
+					IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap["no_jumbo"] = map[string]interface{}{}
 				}
-				PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerfModeL3EnhancedMap
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
 			}
-			IngressGwMap["performance_enhancement_mode"] = PerformanceEnhancementModeMap
+			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
 		apiResource.Spec["ingress_gw"] = IngressGwMap
 	}
@@ -11034,20 +11034,20 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			KubernetesUpgradeDrainMap["disable_upgrade_drain"] = map[string]interface{}{}
 		}
 		if data.KubernetesUpgradeDrain.EnableUpgradeDrain != nil {
-			EnableUpgradeDrainMap := make(map[string]interface{})
+			KubernetesUpgradeDrainEnableUpgradeDrainMap := make(map[string]interface{})
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.DisableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["disable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.IsUnknown() {
-				EnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_max_unavailable_node_count"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainMaxUnavailableNodeCount.ValueInt64()
 			}
 			if !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsNull() && !data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.IsUnknown() {
-				EnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["drain_node_timeout"] = data.KubernetesUpgradeDrain.EnableUpgradeDrain.DrainNodeTimeout.ValueInt64()
 			}
 			if data.KubernetesUpgradeDrain.EnableUpgradeDrain.EnableVegaUpgradeMode != nil {
-				EnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
+				KubernetesUpgradeDrainEnableUpgradeDrainMap["enable_vega_upgrade_mode"] = map[string]interface{}{}
 			}
-			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = EnableUpgradeDrainMap
+			KubernetesUpgradeDrainMap["enable_upgrade_drain"] = KubernetesUpgradeDrainEnableUpgradeDrainMap
 		}
 		apiResource.Spec["kubernetes_upgrade_drain"] = KubernetesUpgradeDrainMap
 	}
@@ -11093,17 +11093,17 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.PrivateConnectivity != nil {
 		PrivateConnectivityMap := make(map[string]interface{})
 		if data.PrivateConnectivity.CloudLink != nil {
-			CloudLinkMap := make(map[string]interface{})
+			PrivateConnectivityCloudLinkMap := make(map[string]interface{})
 			if !data.PrivateConnectivity.CloudLink.Name.IsNull() && !data.PrivateConnectivity.CloudLink.Name.IsUnknown() {
-				CloudLinkMap["name"] = data.PrivateConnectivity.CloudLink.Name.ValueString()
+				PrivateConnectivityCloudLinkMap["name"] = data.PrivateConnectivity.CloudLink.Name.ValueString()
 			}
 			if !data.PrivateConnectivity.CloudLink.Namespace.IsNull() && !data.PrivateConnectivity.CloudLink.Namespace.IsUnknown() {
-				CloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
+				PrivateConnectivityCloudLinkMap["namespace"] = data.PrivateConnectivity.CloudLink.Namespace.ValueString()
 			}
 			if !data.PrivateConnectivity.CloudLink.Tenant.IsNull() && !data.PrivateConnectivity.CloudLink.Tenant.IsUnknown() {
-				CloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
+				PrivateConnectivityCloudLinkMap["tenant"] = data.PrivateConnectivity.CloudLink.Tenant.ValueString()
 			}
-			PrivateConnectivityMap["cloud_link"] = CloudLinkMap
+			PrivateConnectivityMap["cloud_link"] = PrivateConnectivityCloudLinkMap
 		}
 		if data.PrivateConnectivity.Inside != nil {
 			PrivateConnectivityMap["inside"] = map[string]interface{}{}
@@ -11126,7 +11126,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 	if data.VoltstackCluster != nil {
 		VoltstackClusterMap := make(map[string]interface{})
 		if data.VoltstackCluster.ActiveEnhancedFirewallPolicies != nil {
-			ActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveEnhancedFirewallPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsNull() && !data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.IsUnknown() {
 				var EnhancedFirewallPoliciesElems []GCPVPCSiteVoltstackClusterActiveEnhancedFirewallPoliciesEnhancedFirewallPoliciesModel
 				diags := data.VoltstackCluster.ActiveEnhancedFirewallPolicies.EnhancedFirewallPolicies.ElementsAs(ctx, &EnhancedFirewallPoliciesElems, false)
@@ -11146,13 +11146,13 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						EnhancedFirewallPoliciesList = append(EnhancedFirewallPoliciesList, EnhancedFirewallPoliciesItemMap)
 					}
-					ActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
+					VoltstackClusterActiveEnhancedFirewallPoliciesMap["enhanced_firewall_policies"] = EnhancedFirewallPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_enhanced_firewall_policies"] = ActiveEnhancedFirewallPoliciesMap
+			VoltstackClusterMap["active_enhanced_firewall_policies"] = VoltstackClusterActiveEnhancedFirewallPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveForwardProxyPolicies != nil {
-			ActiveForwardProxyPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveForwardProxyPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsNull() && !data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.IsUnknown() {
 				var ForwardProxyPoliciesElems []GCPVPCSiteVoltstackClusterActiveForwardProxyPoliciesForwardProxyPoliciesModel
 				diags := data.VoltstackCluster.ActiveForwardProxyPolicies.ForwardProxyPolicies.ElementsAs(ctx, &ForwardProxyPoliciesElems, false)
@@ -11172,13 +11172,13 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						ForwardProxyPoliciesList = append(ForwardProxyPoliciesList, ForwardProxyPoliciesItemMap)
 					}
-					ActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
+					VoltstackClusterActiveForwardProxyPoliciesMap["forward_proxy_policies"] = ForwardProxyPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_forward_proxy_policies"] = ActiveForwardProxyPoliciesMap
+			VoltstackClusterMap["active_forward_proxy_policies"] = VoltstackClusterActiveForwardProxyPoliciesMap
 		}
 		if data.VoltstackCluster.ActiveNetworkPolicies != nil {
-			ActiveNetworkPoliciesMap := make(map[string]interface{})
+			VoltstackClusterActiveNetworkPoliciesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsNull() && !data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.IsUnknown() {
 				var NetworkPoliciesElems []GCPVPCSiteVoltstackClusterActiveNetworkPoliciesNetworkPoliciesModel
 				diags := data.VoltstackCluster.ActiveNetworkPolicies.NetworkPolicies.ElementsAs(ctx, &NetworkPoliciesElems, false)
@@ -11198,23 +11198,23 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						NetworkPoliciesList = append(NetworkPoliciesList, NetworkPoliciesItemMap)
 					}
-					ActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
+					VoltstackClusterActiveNetworkPoliciesMap["network_policies"] = NetworkPoliciesList
 				}
 			}
-			VoltstackClusterMap["active_network_policies"] = ActiveNetworkPoliciesMap
+			VoltstackClusterMap["active_network_policies"] = VoltstackClusterActiveNetworkPoliciesMap
 		}
 		if data.VoltstackCluster.DcClusterGroup != nil {
-			DcClusterGroupMap := make(map[string]interface{})
+			VoltstackClusterDcClusterGroupMap := make(map[string]interface{})
 			if !data.VoltstackCluster.DcClusterGroup.Name.IsNull() && !data.VoltstackCluster.DcClusterGroup.Name.IsUnknown() {
-				DcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
+				VoltstackClusterDcClusterGroupMap["name"] = data.VoltstackCluster.DcClusterGroup.Name.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Namespace.IsNull() && !data.VoltstackCluster.DcClusterGroup.Namespace.IsUnknown() {
-				DcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
+				VoltstackClusterDcClusterGroupMap["namespace"] = data.VoltstackCluster.DcClusterGroup.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.DcClusterGroup.Tenant.IsNull() && !data.VoltstackCluster.DcClusterGroup.Tenant.IsUnknown() {
-				DcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
+				VoltstackClusterDcClusterGroupMap["tenant"] = data.VoltstackCluster.DcClusterGroup.Tenant.ValueString()
 			}
-			VoltstackClusterMap["dc_cluster_group"] = DcClusterGroupMap
+			VoltstackClusterMap["dc_cluster_group"] = VoltstackClusterDcClusterGroupMap
 		}
 		if data.VoltstackCluster.DefaultStorage != nil {
 			VoltstackClusterMap["default_storage"] = map[string]interface{}{}
@@ -11233,7 +11233,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 		}
 		if data.VoltstackCluster.GlobalNetworkList != nil {
-			GlobalNetworkListMap := make(map[string]interface{})
+			VoltstackClusterGlobalNetworkListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsNull() && !data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.IsUnknown() {
 				var GlobalNetworkConnectionsElems []GCPVPCSiteVoltstackClusterGlobalNetworkListGlobalNetworkConnectionsModel
 				diags := data.VoltstackCluster.GlobalNetworkList.GlobalNetworkConnections.ElementsAs(ctx, &GlobalNetworkConnectionsElems, false)
@@ -11243,58 +11243,58 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					for _, GlobalNetworkConnectionsItem := range GlobalNetworkConnectionsElems {
 						GlobalNetworkConnectionsItemMap := make(map[string]interface{})
 						if GlobalNetworkConnectionsItem.SLIToGlobalDR != nil {
-							SLIToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SLIToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SLIToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = SLIToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["sli_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSLIToGlobalDRMap
 						}
 						if GlobalNetworkConnectionsItem.SloToGlobalDR != nil {
-							SloToGlobalDRMap := make(map[string]interface{})
+							VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap := make(map[string]interface{})
 							if GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn != nil {
-								GlobalVnMap := make(map[string]interface{})
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap := make(map[string]interface{})
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.IsUnknown() {
-									GlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["name"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Name.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.IsUnknown() {
-									GlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["namespace"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Namespace.ValueString()
 								}
 								if !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsNull() && !GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.IsUnknown() {
-									GlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
+									VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap["tenant"] = GlobalNetworkConnectionsItem.SloToGlobalDR.GlobalVn.Tenant.ValueString()
 								}
-								SloToGlobalDRMap["global_vn"] = GlobalVnMap
+								VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap["global_vn"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRGlobalVnMap
 							}
-							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = SloToGlobalDRMap
+							GlobalNetworkConnectionsItemMap["slo_to_global_dr"] = VoltstackClusterGlobalNetworkListGlobalNetworkConnectionsSloToGlobalDRMap
 						}
 						GlobalNetworkConnectionsList = append(GlobalNetworkConnectionsList, GlobalNetworkConnectionsItemMap)
 					}
-					GlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
+					VoltstackClusterGlobalNetworkListMap["global_network_connections"] = GlobalNetworkConnectionsList
 				}
 			}
-			VoltstackClusterMap["global_network_list"] = GlobalNetworkListMap
+			VoltstackClusterMap["global_network_list"] = VoltstackClusterGlobalNetworkListMap
 		}
 		if data.VoltstackCluster.K8SCluster != nil {
-			K8SClusterMap := make(map[string]interface{})
+			VoltstackClusterK8SClusterMap := make(map[string]interface{})
 			if !data.VoltstackCluster.K8SCluster.Name.IsNull() && !data.VoltstackCluster.K8SCluster.Name.IsUnknown() {
-				K8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
+				VoltstackClusterK8SClusterMap["name"] = data.VoltstackCluster.K8SCluster.Name.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Namespace.IsNull() && !data.VoltstackCluster.K8SCluster.Namespace.IsUnknown() {
-				K8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
+				VoltstackClusterK8SClusterMap["namespace"] = data.VoltstackCluster.K8SCluster.Namespace.ValueString()
 			}
 			if !data.VoltstackCluster.K8SCluster.Tenant.IsNull() && !data.VoltstackCluster.K8SCluster.Tenant.IsUnknown() {
-				K8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
+				VoltstackClusterK8SClusterMap["tenant"] = data.VoltstackCluster.K8SCluster.Tenant.ValueString()
 			}
-			VoltstackClusterMap["k8s_cluster"] = K8SClusterMap
+			VoltstackClusterMap["k8s_cluster"] = VoltstackClusterK8SClusterMap
 		}
 		if data.VoltstackCluster.NoDcClusterGroup != nil {
 			VoltstackClusterMap["no_dc_cluster_group"] = map[string]interface{}{}
@@ -11318,7 +11318,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			VoltstackClusterMap["node_number"] = data.VoltstackCluster.NodeNumber.ValueInt64()
 		}
 		if data.VoltstackCluster.OutsideStaticRoutes != nil {
-			OutsideStaticRoutesMap := make(map[string]interface{})
+			VoltstackClusterOutsideStaticRoutesMap := make(map[string]interface{})
 			if !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsNull() && !data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.IsUnknown() {
 				var StaticRouteListElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListModel
 				diags := data.VoltstackCluster.OutsideStaticRoutes.StaticRouteList.ElementsAs(ctx, &StaticRouteListElems, false)
@@ -11328,19 +11328,19 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					for _, StaticRouteListItem := range StaticRouteListElems {
 						StaticRouteListItemMap := make(map[string]interface{})
 						if StaticRouteListItem.CustomStaticRoute != nil {
-							CustomStaticRouteMap := make(map[string]interface{})
+							VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap := make(map[string]interface{})
 							if !StaticRouteListItem.CustomStaticRoute.Attrs.IsNull() && !StaticRouteListItem.CustomStaticRoute.Attrs.IsUnknown() {
 								var AttrsItems []string
 								diags := StaticRouteListItem.CustomStaticRoute.Attrs.ElementsAs(ctx, &AttrsItems, false)
 								if !diags.HasError() {
-									CustomStaticRouteMap["attrs"] = AttrsItems
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["attrs"] = AttrsItems
 								}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Labels != nil {
-								CustomStaticRouteMap["labels"] = map[string]interface{}{}
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["labels"] = map[string]interface{}{}
 							}
 							if StaticRouteListItem.CustomStaticRoute.Nexthop != nil {
-								NexthopMap := make(map[string]interface{})
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap := make(map[string]interface{})
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.IsUnknown() {
 									var InterfaceElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopInterfaceModel
 									diags := StaticRouteListItem.CustomStaticRoute.Nexthop.Interface.ElementsAs(ctx, &InterfaceElems, false)
@@ -11366,31 +11366,31 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 											}
 											InterfaceList = append(InterfaceList, InterfaceItemMap)
 										}
-										NexthopMap["interface"] = InterfaceList
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["interface"] = InterfaceList
 									}
 								}
 								if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress != nil {
-									NexthopAddressMap := make(map[string]interface{})
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap := make(map[string]interface{})
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4 != nil {
-										Ipv4Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.IsUnknown() {
-											Ipv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv4.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv4"] = Ipv4Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv4Map
 									}
 									if StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6 != nil {
-										Ipv6Map := make(map[string]interface{})
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map := make(map[string]interface{})
 										if !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.IsUnknown() {
-											Ipv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map["addr"] = StaticRouteListItem.CustomStaticRoute.Nexthop.NexthopAddress.Ipv6.Addr.ValueString()
 										}
-										NexthopAddressMap["ipv6"] = Ipv6Map
+										VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressIpv6Map
 									}
-									NexthopMap["nexthop_address"] = NexthopAddressMap
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["nexthop_address"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopNexthopAddressMap
 								}
 								if !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsNull() && !StaticRouteListItem.CustomStaticRoute.Nexthop.Type.IsUnknown() {
-									NexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap["type"] = StaticRouteListItem.CustomStaticRoute.Nexthop.Type.ValueString()
 								}
-								CustomStaticRouteMap["nexthop"] = NexthopMap
+								VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["nexthop"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteNexthopMap
 							}
 							if !StaticRouteListItem.CustomStaticRoute.Subnets.IsNull() && !StaticRouteListItem.CustomStaticRoute.Subnets.IsUnknown() {
 								var SubnetsElems []GCPVPCSiteVoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsModel
@@ -11401,83 +11401,83 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									for _, SubnetsItem := range SubnetsElems {
 										SubnetsItemMap := make(map[string]interface{})
 										if SubnetsItem.Ipv4 != nil {
-											Ipv4Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv4.Plen.IsNull() && !SubnetsItem.Ipv4.Plen.IsUnknown() {
-												Ipv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["plen"] = SubnetsItem.Ipv4.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv4.Prefix.IsNull() && !SubnetsItem.Ipv4.Prefix.IsUnknown() {
-												Ipv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map["prefix"] = SubnetsItem.Ipv4.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv4"] = Ipv4Map
+											SubnetsItemMap["ipv4"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv4Map
 										}
 										if SubnetsItem.Ipv6 != nil {
-											Ipv6Map := make(map[string]interface{})
+											VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map := make(map[string]interface{})
 											if !SubnetsItem.Ipv6.Plen.IsNull() && !SubnetsItem.Ipv6.Plen.IsUnknown() {
-												Ipv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["plen"] = SubnetsItem.Ipv6.Plen.ValueInt64()
 											}
 											if !SubnetsItem.Ipv6.Prefix.IsNull() && !SubnetsItem.Ipv6.Prefix.IsUnknown() {
-												Ipv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
+												VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map["prefix"] = SubnetsItem.Ipv6.Prefix.ValueString()
 											}
-											SubnetsItemMap["ipv6"] = Ipv6Map
+											SubnetsItemMap["ipv6"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteSubnetsIpv6Map
 										}
 										SubnetsList = append(SubnetsList, SubnetsItemMap)
 									}
-									CustomStaticRouteMap["subnets"] = SubnetsList
+									VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap["subnets"] = SubnetsList
 								}
 							}
-							StaticRouteListItemMap["custom_static_route"] = CustomStaticRouteMap
+							StaticRouteListItemMap["custom_static_route"] = VoltstackClusterOutsideStaticRoutesStaticRouteListCustomStaticRouteMap
 						}
 						if !StaticRouteListItem.SimpleStaticRoute.IsNull() && !StaticRouteListItem.SimpleStaticRoute.IsUnknown() {
 							StaticRouteListItemMap["simple_static_route"] = StaticRouteListItem.SimpleStaticRoute.ValueString()
 						}
 						StaticRouteListList = append(StaticRouteListList, StaticRouteListItemMap)
 					}
-					OutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
+					VoltstackClusterOutsideStaticRoutesMap["static_route_list"] = StaticRouteListList
 				}
 			}
-			VoltstackClusterMap["outside_static_routes"] = OutsideStaticRoutesMap
+			VoltstackClusterMap["outside_static_routes"] = VoltstackClusterOutsideStaticRoutesMap
 		}
 		if data.VoltstackCluster.SiteLocalNetwork != nil {
-			SiteLocalNetworkMap := make(map[string]interface{})
+			VoltstackClusterSiteLocalNetworkMap := make(map[string]interface{})
 			if data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork != nil {
-				ExistingNetworkMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalNetworkExistingNetworkMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.IsNull() && !data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.IsUnknown() {
-					ExistingNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.ValueString()
+					VoltstackClusterSiteLocalNetworkExistingNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.ExistingNetwork.Name.ValueString()
 				}
-				SiteLocalNetworkMap["existing_network"] = ExistingNetworkMap
+				VoltstackClusterSiteLocalNetworkMap["existing_network"] = VoltstackClusterSiteLocalNetworkExistingNetworkMap
 			}
 			if data.VoltstackCluster.SiteLocalNetwork.NewNetwork != nil {
-				NewNetworkMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalNetworkNewNetworkMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.IsNull() && !data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.IsUnknown() {
-					NewNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.ValueString()
+					VoltstackClusterSiteLocalNetworkNewNetworkMap["name"] = data.VoltstackCluster.SiteLocalNetwork.NewNetwork.Name.ValueString()
 				}
-				SiteLocalNetworkMap["new_network"] = NewNetworkMap
+				VoltstackClusterSiteLocalNetworkMap["new_network"] = VoltstackClusterSiteLocalNetworkNewNetworkMap
 			}
 			if data.VoltstackCluster.SiteLocalNetwork.NewNetworkAutogenerate != nil {
-				SiteLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
+				VoltstackClusterSiteLocalNetworkMap["new_network_autogenerate"] = map[string]interface{}{}
 			}
-			VoltstackClusterMap["site_local_network"] = SiteLocalNetworkMap
+			VoltstackClusterMap["site_local_network"] = VoltstackClusterSiteLocalNetworkMap
 		}
 		if data.VoltstackCluster.SiteLocalSubnet != nil {
-			SiteLocalSubnetMap := make(map[string]interface{})
+			VoltstackClusterSiteLocalSubnetMap := make(map[string]interface{})
 			if data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet != nil {
-				ExistingSubnetMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalSubnetExistingSubnetMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.IsNull() && !data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.IsUnknown() {
-					ExistingSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.ValueString()
+					VoltstackClusterSiteLocalSubnetExistingSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.ExistingSubnet.SubnetName.ValueString()
 				}
-				SiteLocalSubnetMap["existing_subnet"] = ExistingSubnetMap
+				VoltstackClusterSiteLocalSubnetMap["existing_subnet"] = VoltstackClusterSiteLocalSubnetExistingSubnetMap
 			}
 			if data.VoltstackCluster.SiteLocalSubnet.NewSubnet != nil {
-				NewSubnetMap := make(map[string]interface{})
+				VoltstackClusterSiteLocalSubnetNewSubnetMap := make(map[string]interface{})
 				if !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.IsNull() && !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.IsUnknown() {
-					NewSubnetMap["primary_ipv4"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
+					VoltstackClusterSiteLocalSubnetNewSubnetMap["primary_ipv4"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.PrimaryIpv4.ValueString()
 				}
 				if !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.IsNull() && !data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.IsUnknown() {
-					NewSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.ValueString()
+					VoltstackClusterSiteLocalSubnetNewSubnetMap["subnet_name"] = data.VoltstackCluster.SiteLocalSubnet.NewSubnet.SubnetName.ValueString()
 				}
-				SiteLocalSubnetMap["new_subnet"] = NewSubnetMap
+				VoltstackClusterSiteLocalSubnetMap["new_subnet"] = VoltstackClusterSiteLocalSubnetNewSubnetMap
 			}
-			VoltstackClusterMap["site_local_subnet"] = SiteLocalSubnetMap
+			VoltstackClusterMap["site_local_subnet"] = VoltstackClusterSiteLocalSubnetMap
 		}
 		if data.VoltstackCluster.SmConnectionPublicIP != nil {
 			VoltstackClusterMap["sm_connection_public_ip"] = map[string]interface{}{}
@@ -11486,7 +11486,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			VoltstackClusterMap["sm_connection_pvt_ip"] = map[string]interface{}{}
 		}
 		if data.VoltstackCluster.StorageClassList != nil {
-			StorageClassListMap := make(map[string]interface{})
+			VoltstackClusterStorageClassListMap := make(map[string]interface{})
 			if !data.VoltstackCluster.StorageClassList.StorageClasses.IsNull() && !data.VoltstackCluster.StorageClassList.StorageClasses.IsUnknown() {
 				var StorageClassesElems []GCPVPCSiteVoltstackClusterStorageClassListStorageClassesModel
 				diags := data.VoltstackCluster.StorageClassList.StorageClasses.ElementsAs(ctx, &StorageClassesElems, false)
@@ -11503,10 +11503,10 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						StorageClassesList = append(StorageClassesList, StorageClassesItemMap)
 					}
-					StorageClassListMap["storage_classes"] = StorageClassesList
+					VoltstackClusterStorageClassListMap["storage_classes"] = StorageClassesList
 				}
 			}
-			VoltstackClusterMap["storage_class_list"] = StorageClassListMap
+			VoltstackClusterMap["storage_class_list"] = VoltstackClusterStorageClassListMap
 		}
 		apiResource.Spec["voltstack_cluster"] = VoltstackClusterMap
 	}

@@ -657,7 +657,7 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 	if data.LocalIP != nil {
 		LocalIPMap := make(map[string]interface{})
 		if data.LocalIP.Intf != nil {
-			IntfMap := make(map[string]interface{})
+			LocalIPIntfMap := make(map[string]interface{})
 			if !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
 				var LocalIntfElems []TunnelLocalIPIntfLocalIntfModel
 				diags := data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfElems, false)
@@ -683,112 +683,112 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 						}
 						LocalIntfList = append(LocalIntfList, LocalIntfItemMap)
 					}
-					IntfMap["local_intf"] = LocalIntfList
+					LocalIPIntfMap["local_intf"] = LocalIntfList
 				}
 			}
-			LocalIPMap["intf"] = IntfMap
+			LocalIPMap["intf"] = LocalIPIntfMap
 		}
 		if data.LocalIP.IPAddress != nil {
-			IPAddressMap := make(map[string]interface{})
+			LocalIPIPAddressMap := make(map[string]interface{})
 			if data.LocalIP.IPAddress.Auto != nil {
-				IPAddressMap["auto"] = map[string]interface{}{}
+				LocalIPIPAddressMap["auto"] = map[string]interface{}{}
 			}
 			if data.LocalIP.IPAddress.IPAddress != nil {
-				IPAddressMap := make(map[string]interface{})
+				LocalIPIPAddressIPAddressMap := make(map[string]interface{})
 				if data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
-					Ipv4Map := make(map[string]interface{})
+					LocalIPIPAddressIPAddressIpv4Map := make(map[string]interface{})
 					if !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsUnknown() {
-						Ipv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.ValueString()
+						LocalIPIPAddressIPAddressIpv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.ValueString()
 					}
-					IPAddressMap["ipv4"] = Ipv4Map
+					LocalIPIPAddressIPAddressMap["ipv4"] = LocalIPIPAddressIPAddressIpv4Map
 				}
 				if data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
-					Ipv6Map := make(map[string]interface{})
+					LocalIPIPAddressIPAddressIpv6Map := make(map[string]interface{})
 					if !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsUnknown() {
-						Ipv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.ValueString()
+						LocalIPIPAddressIPAddressIpv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.ValueString()
 					}
-					IPAddressMap["ipv6"] = Ipv6Map
+					LocalIPIPAddressIPAddressMap["ipv6"] = LocalIPIPAddressIPAddressIpv6Map
 				}
-				IPAddressMap["ip_address"] = IPAddressMap
+				LocalIPIPAddressMap["ip_address"] = LocalIPIPAddressIPAddressMap
 			}
 			if data.LocalIP.IPAddress.VirtualNetworkType != nil {
-				VirtualNetworkTypeMap := make(map[string]interface{})
+				LocalIPIPAddressVirtualNetworkTypeMap := make(map[string]interface{})
 				if data.LocalIP.IPAddress.VirtualNetworkType.Public != nil {
-					VirtualNetworkTypeMap["public"] = map[string]interface{}{}
+					LocalIPIPAddressVirtualNetworkTypeMap["public"] = map[string]interface{}{}
 				}
 				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal != nil {
-					VirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
+					LocalIPIPAddressVirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
 				}
 				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside != nil {
-					VirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
+					LocalIPIPAddressVirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
 				}
-				IPAddressMap["virtual_network_type"] = VirtualNetworkTypeMap
+				LocalIPIPAddressMap["virtual_network_type"] = LocalIPIPAddressVirtualNetworkTypeMap
 			}
-			LocalIPMap["ip_address"] = IPAddressMap
+			LocalIPMap["ip_address"] = LocalIPIPAddressMap
 		}
 		createReq.Spec["local_ip"] = LocalIPMap
 	}
 	if data.Params != nil {
 		ParamsMap := make(map[string]interface{})
 		if data.Params.Ipsec != nil {
-			IpsecMap := make(map[string]interface{})
+			ParamsIpsecMap := make(map[string]interface{})
 			if data.Params.Ipsec.IpsecPsk != nil {
-				IpsecPskMap := make(map[string]interface{})
+				ParamsIpsecIpsecPskMap := make(map[string]interface{})
 				if data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					ParamsIpsecIpsecPskBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						ParamsIpsecIpsecPskBlindfoldSecretInfoMap["decryption_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.ValueString()
+						ParamsIpsecIpsecPskBlindfoldSecretInfoMap["location"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.ValueString()
+						ParamsIpsecIpsecPskBlindfoldSecretInfoMap["store_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					IpsecPskMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					ParamsIpsecIpsecPskMap["blindfold_secret_info"] = ParamsIpsecIpsecPskBlindfoldSecretInfoMap
 				}
 				if data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					ParamsIpsecIpsecPskClearSecretInfoMap := make(map[string]interface{})
 					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.ValueString()
+						ParamsIpsecIpsecPskClearSecretInfoMap["provider"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.ValueString()
+						ParamsIpsecIpsecPskClearSecretInfoMap["url"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.ValueString()
 					}
-					IpsecPskMap["clear_secret_info"] = ClearSecretInfoMap
+					ParamsIpsecIpsecPskMap["clear_secret_info"] = ParamsIpsecIpsecPskClearSecretInfoMap
 				}
-				IpsecMap["ipsec_psk"] = IpsecPskMap
+				ParamsIpsecMap["ipsec_psk"] = ParamsIpsecIpsecPskMap
 			}
-			ParamsMap["ipsec"] = IpsecMap
+			ParamsMap["ipsec"] = ParamsIpsecMap
 		}
 		createReq.Spec["params"] = ParamsMap
 	}
 	if data.RemoteIP != nil {
 		RemoteIPMap := make(map[string]interface{})
 		if data.RemoteIP.Endpoints != nil {
-			EndpointsMap := make(map[string]interface{})
+			RemoteIPEndpointsMap := make(map[string]interface{})
 			if data.RemoteIP.Endpoints.Endpoints != nil {
-				EndpointsMap["endpoints"] = map[string]interface{}{}
+				RemoteIPEndpointsMap["endpoints"] = map[string]interface{}{}
 			}
-			RemoteIPMap["endpoints"] = EndpointsMap
+			RemoteIPMap["endpoints"] = RemoteIPEndpointsMap
 		}
 		if data.RemoteIP.IP != nil {
-			IPMap := make(map[string]interface{})
+			RemoteIPIPMap := make(map[string]interface{})
 			if data.RemoteIP.IP.Ipv4 != nil {
-				Ipv4Map := make(map[string]interface{})
+				RemoteIPIPIpv4Map := make(map[string]interface{})
 				if !data.RemoteIP.IP.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.Ipv4.Addr.IsUnknown() {
-					Ipv4Map["addr"] = data.RemoteIP.IP.Ipv4.Addr.ValueString()
+					RemoteIPIPIpv4Map["addr"] = data.RemoteIP.IP.Ipv4.Addr.ValueString()
 				}
-				IPMap["ipv4"] = Ipv4Map
+				RemoteIPIPMap["ipv4"] = RemoteIPIPIpv4Map
 			}
 			if data.RemoteIP.IP.Ipv6 != nil {
-				Ipv6Map := make(map[string]interface{})
+				RemoteIPIPIpv6Map := make(map[string]interface{})
 				if !data.RemoteIP.IP.Ipv6.Addr.IsNull() && !data.RemoteIP.IP.Ipv6.Addr.IsUnknown() {
-					Ipv6Map["addr"] = data.RemoteIP.IP.Ipv6.Addr.ValueString()
+					RemoteIPIPIpv6Map["addr"] = data.RemoteIP.IP.Ipv6.Addr.ValueString()
 				}
-				IPMap["ipv6"] = Ipv6Map
+				RemoteIPIPMap["ipv6"] = RemoteIPIPIpv6Map
 			}
-			RemoteIPMap["ip"] = IPMap
+			RemoteIPMap["ip"] = RemoteIPIPMap
 		}
 		createReq.Spec["remote_ip"] = RemoteIPMap
 	}
@@ -1573,7 +1573,7 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 	if data.LocalIP != nil {
 		LocalIPMap := make(map[string]interface{})
 		if data.LocalIP.Intf != nil {
-			IntfMap := make(map[string]interface{})
+			LocalIPIntfMap := make(map[string]interface{})
 			if !data.LocalIP.Intf.LocalIntf.IsNull() && !data.LocalIP.Intf.LocalIntf.IsUnknown() {
 				var LocalIntfElems []TunnelLocalIPIntfLocalIntfModel
 				diags := data.LocalIP.Intf.LocalIntf.ElementsAs(ctx, &LocalIntfElems, false)
@@ -1599,112 +1599,112 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 						}
 						LocalIntfList = append(LocalIntfList, LocalIntfItemMap)
 					}
-					IntfMap["local_intf"] = LocalIntfList
+					LocalIPIntfMap["local_intf"] = LocalIntfList
 				}
 			}
-			LocalIPMap["intf"] = IntfMap
+			LocalIPMap["intf"] = LocalIPIntfMap
 		}
 		if data.LocalIP.IPAddress != nil {
-			IPAddressMap := make(map[string]interface{})
+			LocalIPIPAddressMap := make(map[string]interface{})
 			if data.LocalIP.IPAddress.Auto != nil {
-				IPAddressMap["auto"] = map[string]interface{}{}
+				LocalIPIPAddressMap["auto"] = map[string]interface{}{}
 			}
 			if data.LocalIP.IPAddress.IPAddress != nil {
-				IPAddressMap := make(map[string]interface{})
+				LocalIPIPAddressIPAddressMap := make(map[string]interface{})
 				if data.LocalIP.IPAddress.IPAddress.Ipv4 != nil {
-					Ipv4Map := make(map[string]interface{})
+					LocalIPIPAddressIPAddressIpv4Map := make(map[string]interface{})
 					if !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.IsUnknown() {
-						Ipv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.ValueString()
+						LocalIPIPAddressIPAddressIpv4Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv4.Addr.ValueString()
 					}
-					IPAddressMap["ipv4"] = Ipv4Map
+					LocalIPIPAddressIPAddressMap["ipv4"] = LocalIPIPAddressIPAddressIpv4Map
 				}
 				if data.LocalIP.IPAddress.IPAddress.Ipv6 != nil {
-					Ipv6Map := make(map[string]interface{})
+					LocalIPIPAddressIPAddressIpv6Map := make(map[string]interface{})
 					if !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsNull() && !data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.IsUnknown() {
-						Ipv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.ValueString()
+						LocalIPIPAddressIPAddressIpv6Map["addr"] = data.LocalIP.IPAddress.IPAddress.Ipv6.Addr.ValueString()
 					}
-					IPAddressMap["ipv6"] = Ipv6Map
+					LocalIPIPAddressIPAddressMap["ipv6"] = LocalIPIPAddressIPAddressIpv6Map
 				}
-				IPAddressMap["ip_address"] = IPAddressMap
+				LocalIPIPAddressMap["ip_address"] = LocalIPIPAddressIPAddressMap
 			}
 			if data.LocalIP.IPAddress.VirtualNetworkType != nil {
-				VirtualNetworkTypeMap := make(map[string]interface{})
+				LocalIPIPAddressVirtualNetworkTypeMap := make(map[string]interface{})
 				if data.LocalIP.IPAddress.VirtualNetworkType.Public != nil {
-					VirtualNetworkTypeMap["public"] = map[string]interface{}{}
+					LocalIPIPAddressVirtualNetworkTypeMap["public"] = map[string]interface{}{}
 				}
 				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocal != nil {
-					VirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
+					LocalIPIPAddressVirtualNetworkTypeMap["site_local"] = map[string]interface{}{}
 				}
 				if data.LocalIP.IPAddress.VirtualNetworkType.SiteLocalInside != nil {
-					VirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
+					LocalIPIPAddressVirtualNetworkTypeMap["site_local_inside"] = map[string]interface{}{}
 				}
-				IPAddressMap["virtual_network_type"] = VirtualNetworkTypeMap
+				LocalIPIPAddressMap["virtual_network_type"] = LocalIPIPAddressVirtualNetworkTypeMap
 			}
-			LocalIPMap["ip_address"] = IPAddressMap
+			LocalIPMap["ip_address"] = LocalIPIPAddressMap
 		}
 		apiResource.Spec["local_ip"] = LocalIPMap
 	}
 	if data.Params != nil {
 		ParamsMap := make(map[string]interface{})
 		if data.Params.Ipsec != nil {
-			IpsecMap := make(map[string]interface{})
+			ParamsIpsecMap := make(map[string]interface{})
 			if data.Params.Ipsec.IpsecPsk != nil {
-				IpsecPskMap := make(map[string]interface{})
+				ParamsIpsecIpsecPskMap := make(map[string]interface{})
 				if data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					ParamsIpsecIpsecPskBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						ParamsIpsecIpsecPskBlindfoldSecretInfoMap["decryption_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.ValueString()
+						ParamsIpsecIpsecPskBlindfoldSecretInfoMap["location"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.ValueString()
+						ParamsIpsecIpsecPskBlindfoldSecretInfoMap["store_provider"] = data.Params.Ipsec.IpsecPsk.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					IpsecPskMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					ParamsIpsecIpsecPskMap["blindfold_secret_info"] = ParamsIpsecIpsecPskBlindfoldSecretInfoMap
 				}
 				if data.Params.Ipsec.IpsecPsk.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					ParamsIpsecIpsecPskClearSecretInfoMap := make(map[string]interface{})
 					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.ValueString()
+						ParamsIpsecIpsecPskClearSecretInfoMap["provider"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsNull() && !data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.ValueString()
+						ParamsIpsecIpsecPskClearSecretInfoMap["url"] = data.Params.Ipsec.IpsecPsk.ClearSecretInfo.URL.ValueString()
 					}
-					IpsecPskMap["clear_secret_info"] = ClearSecretInfoMap
+					ParamsIpsecIpsecPskMap["clear_secret_info"] = ParamsIpsecIpsecPskClearSecretInfoMap
 				}
-				IpsecMap["ipsec_psk"] = IpsecPskMap
+				ParamsIpsecMap["ipsec_psk"] = ParamsIpsecIpsecPskMap
 			}
-			ParamsMap["ipsec"] = IpsecMap
+			ParamsMap["ipsec"] = ParamsIpsecMap
 		}
 		apiResource.Spec["params"] = ParamsMap
 	}
 	if data.RemoteIP != nil {
 		RemoteIPMap := make(map[string]interface{})
 		if data.RemoteIP.Endpoints != nil {
-			EndpointsMap := make(map[string]interface{})
+			RemoteIPEndpointsMap := make(map[string]interface{})
 			if data.RemoteIP.Endpoints.Endpoints != nil {
-				EndpointsMap["endpoints"] = map[string]interface{}{}
+				RemoteIPEndpointsMap["endpoints"] = map[string]interface{}{}
 			}
-			RemoteIPMap["endpoints"] = EndpointsMap
+			RemoteIPMap["endpoints"] = RemoteIPEndpointsMap
 		}
 		if data.RemoteIP.IP != nil {
-			IPMap := make(map[string]interface{})
+			RemoteIPIPMap := make(map[string]interface{})
 			if data.RemoteIP.IP.Ipv4 != nil {
-				Ipv4Map := make(map[string]interface{})
+				RemoteIPIPIpv4Map := make(map[string]interface{})
 				if !data.RemoteIP.IP.Ipv4.Addr.IsNull() && !data.RemoteIP.IP.Ipv4.Addr.IsUnknown() {
-					Ipv4Map["addr"] = data.RemoteIP.IP.Ipv4.Addr.ValueString()
+					RemoteIPIPIpv4Map["addr"] = data.RemoteIP.IP.Ipv4.Addr.ValueString()
 				}
-				IPMap["ipv4"] = Ipv4Map
+				RemoteIPIPMap["ipv4"] = RemoteIPIPIpv4Map
 			}
 			if data.RemoteIP.IP.Ipv6 != nil {
-				Ipv6Map := make(map[string]interface{})
+				RemoteIPIPIpv6Map := make(map[string]interface{})
 				if !data.RemoteIP.IP.Ipv6.Addr.IsNull() && !data.RemoteIP.IP.Ipv6.Addr.IsUnknown() {
-					Ipv6Map["addr"] = data.RemoteIP.IP.Ipv6.Addr.ValueString()
+					RemoteIPIPIpv6Map["addr"] = data.RemoteIP.IP.Ipv6.Addr.ValueString()
 				}
-				IPMap["ipv6"] = Ipv6Map
+				RemoteIPIPMap["ipv6"] = RemoteIPIPIpv6Map
 			}
-			RemoteIPMap["ip"] = IPMap
+			RemoteIPMap["ip"] = RemoteIPIPMap
 		}
 		apiResource.Spec["remote_ip"] = RemoteIPMap
 	}

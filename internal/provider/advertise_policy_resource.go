@@ -1000,19 +1000,19 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
-			CommonParamsMap := make(map[string]interface{})
+			TLSParametersCommonParamsMap := make(map[string]interface{})
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 				if !diags.HasError() {
-					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
 			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
@@ -1026,15 +1026,15 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -1043,47 +1043,47 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["clear_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					CommonParamsMap["tls_certificates"] = TLSCertificatesList
+					TLSParametersCommonParamsMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.TLSParameters.CommonParams.ValidationParams != nil {
-				ValidationParamsMap := make(map[string]interface{})
+				TLSParametersCommonParamsValidationParamsMap := make(map[string]interface{})
 				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					TLSParametersCommonParamsValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
 				}
 				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSParametersCommonParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 						var TrustedCAListElems []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
 						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -1109,24 +1109,24 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
-							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							TLSParametersCommonParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 						}
 					}
-					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca"] = TLSParametersCommonParamsValidationParamsTrustedCAMap
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
-					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 					if !diags.HasError() {
-						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
 				}
-				CommonParamsMap["validation_params"] = ValidationParamsMap
+				TLSParametersCommonParamsMap["validation_params"] = TLSParametersCommonParamsValidationParamsMap
 			}
-			TLSParametersMap["common_params"] = CommonParamsMap
+			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
 		if data.TLSParameters.NoClientCertificate != nil {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
@@ -1143,15 +1143,15 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []AdvertisePolicyWhereSiteRefModel
@@ -1178,13 +1178,13 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []AdvertisePolicyWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1210,21 +1210,21 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []AdvertisePolicyWhereVirtualSiteRefModel
@@ -1251,10 +1251,10 @@ func (r *AdvertisePolicyResource) Create(ctx context.Context, req resource.Creat
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		createReq.Spec["where"] = WhereMap
 	}
@@ -2687,19 +2687,19 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
-			CommonParamsMap := make(map[string]interface{})
+			TLSParametersCommonParamsMap := make(map[string]interface{})
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 				if !diags.HasError() {
-					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
 			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []AdvertisePolicyTLSParametersCommonParamsTLSCertificatesModel
@@ -2713,15 +2713,15 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -2730,47 +2730,47 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["clear_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					CommonParamsMap["tls_certificates"] = TLSCertificatesList
+					TLSParametersCommonParamsMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.TLSParameters.CommonParams.ValidationParams != nil {
-				ValidationParamsMap := make(map[string]interface{})
+				TLSParametersCommonParamsValidationParamsMap := make(map[string]interface{})
 				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					TLSParametersCommonParamsValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
 				}
 				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSParametersCommonParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 						var TrustedCAListElems []AdvertisePolicyTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
 						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -2796,24 +2796,24 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
-							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							TLSParametersCommonParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 						}
 					}
-					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca"] = TLSParametersCommonParamsValidationParamsTrustedCAMap
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
-					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 					if !diags.HasError() {
-						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
 				}
-				CommonParamsMap["validation_params"] = ValidationParamsMap
+				TLSParametersCommonParamsMap["validation_params"] = TLSParametersCommonParamsValidationParamsMap
 			}
-			TLSParametersMap["common_params"] = CommonParamsMap
+			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
 		if data.TLSParameters.NoClientCertificate != nil {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
@@ -2830,15 +2830,15 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []AdvertisePolicyWhereSiteRefModel
@@ -2865,13 +2865,13 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []AdvertisePolicyWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -2897,21 +2897,21 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []AdvertisePolicyWhereVirtualSiteRefModel
@@ -2938,10 +2938,10 @@ func (r *AdvertisePolicyResource) Update(ctx context.Context, req resource.Updat
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		apiResource.Spec["where"] = WhereMap
 	}

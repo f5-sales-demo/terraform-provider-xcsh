@@ -2519,27 +2519,27 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 	if data.VirtualServer != nil {
 		VirtualServerMap := make(map[string]interface{})
 		if data.VirtualServer.AddressTranslation != nil {
-			AddressTranslationMap := make(map[string]interface{})
+			VirtualServerAddressTranslationMap := make(map[string]interface{})
 			if data.VirtualServer.AddressTranslation.AddressTranslationDisable != nil {
-				AddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
+				VirtualServerAddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.AddressTranslation.AddressTranslationEnable != nil {
-				AddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
+				VirtualServerAddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["address_translation"] = AddressTranslationMap
+			VirtualServerMap["address_translation"] = VirtualServerAddressTranslationMap
 		}
 		if data.VirtualServer.AutoLastHop != nil {
-			AutoLastHopMap := make(map[string]interface{})
+			VirtualServerAutoLastHopMap := make(map[string]interface{})
 			if data.VirtualServer.AutoLastHop.AutoLastHopDefault != nil {
-				AutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
+				VirtualServerAutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.AutoLastHop.AutoLastHopDisable != nil {
-				AutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
+				VirtualServerAutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.AutoLastHop.AutoLastHopEnable != nil {
-				AutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
+				VirtualServerAutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["auto_last_hop"] = AutoLastHopMap
+			VirtualServerMap["auto_last_hop"] = VirtualServerAutoLastHopMap
 		}
 		if !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
 			var ClonePoolClientElems []ApplicationProfilesVirtualServerClonePoolClientModel
@@ -2604,59 +2604,59 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			VirtualServerMap["connection_rate_limit"] = data.VirtualServer.ConnectionRateLimit.ValueInt64()
 		}
 		if data.VirtualServer.ConnectionRateLimitMode != nil {
-			ConnectionRateLimitModeMap := make(map[string]interface{})
+			VirtualServerConnectionRateLimitModeMap := make(map[string]interface{})
 			if data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
-				PerDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
-					PerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_destination_address"] = PerDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_destination_address"] = VirtualServerConnectionRateLimitModePerDestinationAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
-				PerSourceAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerSourceAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
-					PerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_source_address"] = PerSourceAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_source_address"] = VirtualServerConnectionRateLimitModePerSourceAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
-				PerSourceDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
-					PerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.ValueInt64()
 				}
 				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
-					PerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_source_destination_address"] = PerSourceDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_source_destination_address"] = VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer != nil {
-				ConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
-				PerVirtualServerDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
-					PerVirtualServerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_virtual_server_destination_address"] = PerVirtualServerDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server_destination_address"] = VirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
-				PerVirtualServerSourceAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerVirtualServerSourceAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
-					PerVirtualServerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_virtual_server_source_address"] = PerVirtualServerSourceAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server_source_address"] = VirtualServerConnectionRateLimitModePerVirtualServerSourceAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
-				PerVirtualServerSourceDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
-					PerVirtualServerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.ValueInt64()
 				}
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
-					PerVirtualServerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_virtual_server_source_destination_address"] = PerVirtualServerSourceDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server_source_destination_address"] = VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap
 			}
-			VirtualServerMap["connection_rate_limit_mode"] = ConnectionRateLimitModeMap
+			VirtualServerMap["connection_rate_limit_mode"] = VirtualServerConnectionRateLimitModeMap
 		}
 		if !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
 			var DefaultPersistenceProfileElems []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
@@ -2771,7 +2771,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			}
 		}
 		if data.VirtualServer.HTTP != nil {
-			HTTPMap := make(map[string]interface{})
+			VirtualServerHTTPMap := make(map[string]interface{})
 			if !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
 				diags := data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -2797,7 +2797,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
-					HTTPMap["http_client_profile"] = HTTPClientProfileList
+					VirtualServerHTTPMap["http_client_profile"] = HTTPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
@@ -2825,7 +2825,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
-					HTTPMap["http_server_profile"] = HTTPServerProfileList
+					VirtualServerHTTPMap["http_server_profile"] = HTTPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
@@ -2853,7 +2853,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
-					HTTPMap["stream_profile"] = StreamProfileList
+					VirtualServerHTTPMap["stream_profile"] = StreamProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
@@ -2881,7 +2881,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					HTTPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerHTTPMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
@@ -2909,7 +2909,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					HTTPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerHTTPMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
@@ -2937,7 +2937,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
-					HTTPMap["websocket_client_profile"] = WebSocketClientProfileList
+					VirtualServerHTTPMap["websocket_client_profile"] = WebSocketClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
@@ -2965,13 +2965,13 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
-					HTTPMap["websocket_server_profile"] = WebSocketServerProfileList
+					VirtualServerHTTPMap["websocket_server_profile"] = WebSocketServerProfileList
 				}
 			}
-			VirtualServerMap["http"] = HTTPMap
+			VirtualServerMap["http"] = VirtualServerHTTPMap
 		}
 		if data.VirtualServer.HTTPS != nil {
-			HTTPSMap := make(map[string]interface{})
+			VirtualServerHTTPSMap := make(map[string]interface{})
 			if !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
 				diags := data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -2997,7 +2997,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
-					HTTPSMap["http_client_profile"] = HTTPClientProfileList
+					VirtualServerHTTPSMap["http_client_profile"] = HTTPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
@@ -3025,7 +3025,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
-					HTTPSMap["http_server_profile"] = HTTPServerProfileList
+					VirtualServerHTTPSMap["http_server_profile"] = HTTPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
@@ -3053,7 +3053,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
-					HTTPSMap["stream_profile"] = StreamProfileList
+					VirtualServerHTTPSMap["stream_profile"] = StreamProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
@@ -3081,7 +3081,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					HTTPSMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerHTTPSMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
@@ -3109,7 +3109,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					HTTPSMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerHTTPSMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
@@ -3137,7 +3137,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
-					HTTPSMap["websocket_client_profile"] = WebSocketClientProfileList
+					VirtualServerHTTPSMap["websocket_client_profile"] = WebSocketClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
@@ -3165,23 +3165,23 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
-					HTTPSMap["websocket_server_profile"] = WebSocketServerProfileList
+					VirtualServerHTTPSMap["websocket_server_profile"] = WebSocketServerProfileList
 				}
 			}
-			VirtualServerMap["https"] = HTTPSMap
+			VirtualServerMap["https"] = VirtualServerHTTPSMap
 		}
 		if data.VirtualServer.ImmediateActionOnServiceDown != nil {
-			ImmediateActionOnServiceDownMap := make(map[string]interface{})
+			VirtualServerImmediateActionOnServiceDownMap := make(map[string]interface{})
 			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop != nil {
-				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
+				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone != nil {
-				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
+				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset != nil {
-				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
+				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
 			}
-			VirtualServerMap["immediate_action_on_service_down"] = ImmediateActionOnServiceDownMap
+			VirtualServerMap["immediate_action_on_service_down"] = VirtualServerImmediateActionOnServiceDownMap
 		}
 		if !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
 			var LastHopPoolElems []ApplicationProfilesVirtualServerLastHopPoolModel
@@ -3212,24 +3212,24 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			}
 		}
 		if data.VirtualServer.Nat64 != nil {
-			Nat64Map := make(map[string]interface{})
+			VirtualServerNat64Map := make(map[string]interface{})
 			if data.VirtualServer.Nat64.Nat64Disable != nil {
-				Nat64Map["nat64_disable"] = map[string]interface{}{}
+				VirtualServerNat64Map["nat64_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.Nat64.Nat64Enable != nil {
-				Nat64Map["nat64_enable"] = map[string]interface{}{}
+				VirtualServerNat64Map["nat64_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["nat64"] = Nat64Map
+			VirtualServerMap["nat64"] = VirtualServerNat64Map
 		}
 		if data.VirtualServer.PortTranslation != nil {
-			PortTranslationMap := make(map[string]interface{})
+			VirtualServerPortTranslationMap := make(map[string]interface{})
 			if data.VirtualServer.PortTranslation.PortTranslationDisable != nil {
-				PortTranslationMap["port_translation_disable"] = map[string]interface{}{}
+				VirtualServerPortTranslationMap["port_translation_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.PortTranslation.PortTranslationEnable != nil {
-				PortTranslationMap["port_translation_enable"] = map[string]interface{}{}
+				VirtualServerPortTranslationMap["port_translation_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["port_translation"] = PortTranslationMap
+			VirtualServerMap["port_translation"] = VirtualServerPortTranslationMap
 		}
 		if !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
 			var RequestLoggingProfileElems []ApplicationProfilesVirtualServerRequestLoggingProfileModel
@@ -3260,17 +3260,17 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			}
 		}
 		if data.VirtualServer.SourcePort != nil {
-			SourcePortMap := make(map[string]interface{})
+			VirtualServerSourcePortMap := make(map[string]interface{})
 			if data.VirtualServer.SourcePort.SourcePortChange != nil {
-				SourcePortMap["source_port_change"] = map[string]interface{}{}
+				VirtualServerSourcePortMap["source_port_change"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.SourcePort.SourcePortPreserve != nil {
-				SourcePortMap["source_port_preserve"] = map[string]interface{}{}
+				VirtualServerSourcePortMap["source_port_preserve"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.SourcePort.SourcePortPreserveStrict != nil {
-				SourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
+				VirtualServerSourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
 			}
-			VirtualServerMap["source_port"] = SourcePortMap
+			VirtualServerMap["source_port"] = VirtualServerSourcePortMap
 		}
 		if !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
 			var StatisticsProfileElems []ApplicationProfilesVirtualServerStatisticsProfileModel
@@ -3301,7 +3301,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			}
 		}
 		if data.VirtualServer.TCP != nil {
-			TCPMap := make(map[string]interface{})
+			VirtualServerTCPMap := make(map[string]interface{})
 			if !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
 				var TCPClientProfileElems []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
 				diags := data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
@@ -3327,7 +3327,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					TCPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerTCPMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
@@ -3355,13 +3355,13 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					TCPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerTCPMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
-			VirtualServerMap["tcp"] = TCPMap
+			VirtualServerMap["tcp"] = VirtualServerTCPMap
 		}
 		if data.VirtualServer.UDP != nil {
-			UDPMap := make(map[string]interface{})
+			VirtualServerUDPMap := make(map[string]interface{})
 			if !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
 				var TCPClientProfileElems []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
 				diags := data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
@@ -3387,7 +3387,7 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					UDPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerUDPMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
@@ -3415,20 +3415,20 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					UDPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerUDPMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
-			VirtualServerMap["udp"] = UDPMap
+			VirtualServerMap["udp"] = VirtualServerUDPMap
 		}
 		if data.VirtualServer.VirtualServerState != nil {
-			VirtualServerStateMap := make(map[string]interface{})
+			VirtualServerVirtualServerStateMap := make(map[string]interface{})
 			if data.VirtualServer.VirtualServerState.StateDisabled != nil {
-				VirtualServerStateMap["state_disabled"] = map[string]interface{}{}
+				VirtualServerVirtualServerStateMap["state_disabled"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.VirtualServerState.StateEnabled != nil {
-				VirtualServerStateMap["state_enabled"] = map[string]interface{}{}
+				VirtualServerVirtualServerStateMap["state_enabled"] = map[string]interface{}{}
 			}
-			VirtualServerMap["virtual_server_state"] = VirtualServerStateMap
+			VirtualServerMap["virtual_server_state"] = VirtualServerVirtualServerStateMap
 		}
 		if !data.VirtualServer.VsScore.IsNull() && !data.VirtualServer.VsScore.IsUnknown() {
 			VirtualServerMap["vs_score"] = data.VirtualServer.VsScore.ValueInt64()
@@ -7653,27 +7653,27 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 	if data.VirtualServer != nil {
 		VirtualServerMap := make(map[string]interface{})
 		if data.VirtualServer.AddressTranslation != nil {
-			AddressTranslationMap := make(map[string]interface{})
+			VirtualServerAddressTranslationMap := make(map[string]interface{})
 			if data.VirtualServer.AddressTranslation.AddressTranslationDisable != nil {
-				AddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
+				VirtualServerAddressTranslationMap["address_translation_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.AddressTranslation.AddressTranslationEnable != nil {
-				AddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
+				VirtualServerAddressTranslationMap["address_translation_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["address_translation"] = AddressTranslationMap
+			VirtualServerMap["address_translation"] = VirtualServerAddressTranslationMap
 		}
 		if data.VirtualServer.AutoLastHop != nil {
-			AutoLastHopMap := make(map[string]interface{})
+			VirtualServerAutoLastHopMap := make(map[string]interface{})
 			if data.VirtualServer.AutoLastHop.AutoLastHopDefault != nil {
-				AutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
+				VirtualServerAutoLastHopMap["auto_last_hop_default"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.AutoLastHop.AutoLastHopDisable != nil {
-				AutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
+				VirtualServerAutoLastHopMap["auto_last_hop_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.AutoLastHop.AutoLastHopEnable != nil {
-				AutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
+				VirtualServerAutoLastHopMap["auto_last_hop_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["auto_last_hop"] = AutoLastHopMap
+			VirtualServerMap["auto_last_hop"] = VirtualServerAutoLastHopMap
 		}
 		if !data.VirtualServer.ClonePoolClient.IsNull() && !data.VirtualServer.ClonePoolClient.IsUnknown() {
 			var ClonePoolClientElems []ApplicationProfilesVirtualServerClonePoolClientModel
@@ -7738,59 +7738,59 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			VirtualServerMap["connection_rate_limit"] = data.VirtualServer.ConnectionRateLimit.ValueInt64()
 		}
 		if data.VirtualServer.ConnectionRateLimitMode != nil {
-			ConnectionRateLimitModeMap := make(map[string]interface{})
+			VirtualServerConnectionRateLimitModeMap := make(map[string]interface{})
 			if data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress != nil {
-				PerDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.IsUnknown() {
-					PerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerDestinationAddress.DestinationMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_destination_address"] = PerDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_destination_address"] = VirtualServerConnectionRateLimitModePerDestinationAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress != nil {
-				PerSourceAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerSourceAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.IsUnknown() {
-					PerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_source_address"] = PerSourceAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_source_address"] = VirtualServerConnectionRateLimitModePerSourceAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress != nil {
-				PerSourceDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.IsUnknown() {
-					PerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.DestinationMask.ValueInt64()
 				}
 				if !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.IsUnknown() {
-					PerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerSourceDestinationAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_source_destination_address"] = PerSourceDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_source_destination_address"] = VirtualServerConnectionRateLimitModePerSourceDestinationAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServer != nil {
-				ConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress != nil {
-				PerVirtualServerDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.IsUnknown() {
-					PerVirtualServerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerDestinationAddress.DestinationMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_virtual_server_destination_address"] = PerVirtualServerDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server_destination_address"] = VirtualServerConnectionRateLimitModePerVirtualServerDestinationAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress != nil {
-				PerVirtualServerSourceAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerVirtualServerSourceAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.IsUnknown() {
-					PerVirtualServerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerSourceAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_virtual_server_source_address"] = PerVirtualServerSourceAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server_source_address"] = VirtualServerConnectionRateLimitModePerVirtualServerSourceAddressMap
 			}
 			if data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress != nil {
-				PerVirtualServerSourceDestinationAddressMap := make(map[string]interface{})
+				VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap := make(map[string]interface{})
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.IsUnknown() {
-					PerVirtualServerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap["destination_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.DestinationMask.ValueInt64()
 				}
 				if !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsNull() && !data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.IsUnknown() {
-					PerVirtualServerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.ValueInt64()
+					VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap["source_mask"] = data.VirtualServer.ConnectionRateLimitMode.PerVirtualServerSourceDestinationAddress.SourceMask.ValueInt64()
 				}
-				ConnectionRateLimitModeMap["per_virtual_server_source_destination_address"] = PerVirtualServerSourceDestinationAddressMap
+				VirtualServerConnectionRateLimitModeMap["per_virtual_server_source_destination_address"] = VirtualServerConnectionRateLimitModePerVirtualServerSourceDestinationAddressMap
 			}
-			VirtualServerMap["connection_rate_limit_mode"] = ConnectionRateLimitModeMap
+			VirtualServerMap["connection_rate_limit_mode"] = VirtualServerConnectionRateLimitModeMap
 		}
 		if !data.VirtualServer.DefaultPersistenceProfile.IsNull() && !data.VirtualServer.DefaultPersistenceProfile.IsUnknown() {
 			var DefaultPersistenceProfileElems []ApplicationProfilesVirtualServerDefaultPersistenceProfileModel
@@ -7905,7 +7905,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			}
 		}
 		if data.VirtualServer.HTTP != nil {
-			HTTPMap := make(map[string]interface{})
+			VirtualServerHTTPMap := make(map[string]interface{})
 			if !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
 				diags := data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -7931,7 +7931,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
-					HTTPMap["http_client_profile"] = HTTPClientProfileList
+					VirtualServerHTTPMap["http_client_profile"] = HTTPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTP.HTTPServerProfile.IsUnknown() {
@@ -7959,7 +7959,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
-					HTTPMap["http_server_profile"] = HTTPServerProfileList
+					VirtualServerHTTPMap["http_server_profile"] = HTTPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
@@ -7987,7 +7987,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
-					HTTPMap["stream_profile"] = StreamProfileList
+					VirtualServerHTTPMap["stream_profile"] = StreamProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.TCPClientProfile.IsNull() && !data.VirtualServer.HTTP.TCPClientProfile.IsUnknown() {
@@ -8015,7 +8015,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					HTTPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerHTTPMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.TCPServerProfile.IsNull() && !data.VirtualServer.HTTP.TCPServerProfile.IsUnknown() {
@@ -8043,7 +8043,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					HTTPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerHTTPMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketClientProfile.IsUnknown() {
@@ -8071,7 +8071,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
-					HTTPMap["websocket_client_profile"] = WebSocketClientProfileList
+					VirtualServerHTTPMap["websocket_client_profile"] = WebSocketClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTP.WebSocketServerProfile.IsUnknown() {
@@ -8099,13 +8099,13 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
-					HTTPMap["websocket_server_profile"] = WebSocketServerProfileList
+					VirtualServerHTTPMap["websocket_server_profile"] = WebSocketServerProfileList
 				}
 			}
-			VirtualServerMap["http"] = HTTPMap
+			VirtualServerMap["http"] = VirtualServerHTTPMap
 		}
 		if data.VirtualServer.HTTPS != nil {
-			HTTPSMap := make(map[string]interface{})
+			VirtualServerHTTPSMap := make(map[string]interface{})
 			if !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
 				diags := data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -8131,7 +8131,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
 					}
-					HTTPSMap["http_client_profile"] = HTTPClientProfileList
+					VirtualServerHTTPSMap["http_client_profile"] = HTTPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.HTTPServerProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPServerProfile.IsUnknown() {
@@ -8159,7 +8159,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
-					HTTPSMap["http_server_profile"] = HTTPServerProfileList
+					VirtualServerHTTPSMap["http_server_profile"] = HTTPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
@@ -8187,7 +8187,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						StreamProfileList = append(StreamProfileList, StreamProfileItemMap)
 					}
-					HTTPSMap["stream_profile"] = StreamProfileList
+					VirtualServerHTTPSMap["stream_profile"] = StreamProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.TCPClientProfile.IsNull() && !data.VirtualServer.HTTPS.TCPClientProfile.IsUnknown() {
@@ -8215,7 +8215,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					HTTPSMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerHTTPSMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.TCPServerProfile.IsNull() && !data.VirtualServer.HTTPS.TCPServerProfile.IsUnknown() {
@@ -8243,7 +8243,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					HTTPSMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerHTTPSMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.WebSocketClientProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketClientProfile.IsUnknown() {
@@ -8271,7 +8271,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						WebSocketClientProfileList = append(WebSocketClientProfileList, WebSocketClientProfileItemMap)
 					}
-					HTTPSMap["websocket_client_profile"] = WebSocketClientProfileList
+					VirtualServerHTTPSMap["websocket_client_profile"] = WebSocketClientProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.WebSocketServerProfile.IsNull() && !data.VirtualServer.HTTPS.WebSocketServerProfile.IsUnknown() {
@@ -8299,23 +8299,23 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						WebSocketServerProfileList = append(WebSocketServerProfileList, WebSocketServerProfileItemMap)
 					}
-					HTTPSMap["websocket_server_profile"] = WebSocketServerProfileList
+					VirtualServerHTTPSMap["websocket_server_profile"] = WebSocketServerProfileList
 				}
 			}
-			VirtualServerMap["https"] = HTTPSMap
+			VirtualServerMap["https"] = VirtualServerHTTPSMap
 		}
 		if data.VirtualServer.ImmediateActionOnServiceDown != nil {
-			ImmediateActionOnServiceDownMap := make(map[string]interface{})
+			VirtualServerImmediateActionOnServiceDownMap := make(map[string]interface{})
 			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownDrop != nil {
-				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
+				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_drop"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownNone != nil {
-				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
+				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_none"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.ImmediateActionOnServiceDown.ImmediateActionOnServiceDownReset != nil {
-				ImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
+				VirtualServerImmediateActionOnServiceDownMap["immediate_action_on_service_down_reset"] = map[string]interface{}{}
 			}
-			VirtualServerMap["immediate_action_on_service_down"] = ImmediateActionOnServiceDownMap
+			VirtualServerMap["immediate_action_on_service_down"] = VirtualServerImmediateActionOnServiceDownMap
 		}
 		if !data.VirtualServer.LastHopPool.IsNull() && !data.VirtualServer.LastHopPool.IsUnknown() {
 			var LastHopPoolElems []ApplicationProfilesVirtualServerLastHopPoolModel
@@ -8346,24 +8346,24 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			}
 		}
 		if data.VirtualServer.Nat64 != nil {
-			Nat64Map := make(map[string]interface{})
+			VirtualServerNat64Map := make(map[string]interface{})
 			if data.VirtualServer.Nat64.Nat64Disable != nil {
-				Nat64Map["nat64_disable"] = map[string]interface{}{}
+				VirtualServerNat64Map["nat64_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.Nat64.Nat64Enable != nil {
-				Nat64Map["nat64_enable"] = map[string]interface{}{}
+				VirtualServerNat64Map["nat64_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["nat64"] = Nat64Map
+			VirtualServerMap["nat64"] = VirtualServerNat64Map
 		}
 		if data.VirtualServer.PortTranslation != nil {
-			PortTranslationMap := make(map[string]interface{})
+			VirtualServerPortTranslationMap := make(map[string]interface{})
 			if data.VirtualServer.PortTranslation.PortTranslationDisable != nil {
-				PortTranslationMap["port_translation_disable"] = map[string]interface{}{}
+				VirtualServerPortTranslationMap["port_translation_disable"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.PortTranslation.PortTranslationEnable != nil {
-				PortTranslationMap["port_translation_enable"] = map[string]interface{}{}
+				VirtualServerPortTranslationMap["port_translation_enable"] = map[string]interface{}{}
 			}
-			VirtualServerMap["port_translation"] = PortTranslationMap
+			VirtualServerMap["port_translation"] = VirtualServerPortTranslationMap
 		}
 		if !data.VirtualServer.RequestLoggingProfile.IsNull() && !data.VirtualServer.RequestLoggingProfile.IsUnknown() {
 			var RequestLoggingProfileElems []ApplicationProfilesVirtualServerRequestLoggingProfileModel
@@ -8394,17 +8394,17 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			}
 		}
 		if data.VirtualServer.SourcePort != nil {
-			SourcePortMap := make(map[string]interface{})
+			VirtualServerSourcePortMap := make(map[string]interface{})
 			if data.VirtualServer.SourcePort.SourcePortChange != nil {
-				SourcePortMap["source_port_change"] = map[string]interface{}{}
+				VirtualServerSourcePortMap["source_port_change"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.SourcePort.SourcePortPreserve != nil {
-				SourcePortMap["source_port_preserve"] = map[string]interface{}{}
+				VirtualServerSourcePortMap["source_port_preserve"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.SourcePort.SourcePortPreserveStrict != nil {
-				SourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
+				VirtualServerSourcePortMap["source_port_preserve_strict"] = map[string]interface{}{}
 			}
-			VirtualServerMap["source_port"] = SourcePortMap
+			VirtualServerMap["source_port"] = VirtualServerSourcePortMap
 		}
 		if !data.VirtualServer.StatisticsProfile.IsNull() && !data.VirtualServer.StatisticsProfile.IsUnknown() {
 			var StatisticsProfileElems []ApplicationProfilesVirtualServerStatisticsProfileModel
@@ -8435,7 +8435,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			}
 		}
 		if data.VirtualServer.TCP != nil {
-			TCPMap := make(map[string]interface{})
+			VirtualServerTCPMap := make(map[string]interface{})
 			if !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
 				var TCPClientProfileElems []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
 				diags := data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
@@ -8461,7 +8461,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					TCPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerTCPMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.TCP.TCPServerProfile.IsNull() && !data.VirtualServer.TCP.TCPServerProfile.IsUnknown() {
@@ -8489,13 +8489,13 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					TCPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerTCPMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
-			VirtualServerMap["tcp"] = TCPMap
+			VirtualServerMap["tcp"] = VirtualServerTCPMap
 		}
 		if data.VirtualServer.UDP != nil {
-			UDPMap := make(map[string]interface{})
+			VirtualServerUDPMap := make(map[string]interface{})
 			if !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
 				var TCPClientProfileElems []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
 				diags := data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
@@ -8521,7 +8521,7 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
 					}
-					UDPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerUDPMap["tcp_client_profile"] = TCPClientProfileList
 				}
 			}
 			if !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
@@ -8549,20 +8549,20 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						}
 						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
 					}
-					UDPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerUDPMap["tcp_server_profile"] = TCPServerProfileList
 				}
 			}
-			VirtualServerMap["udp"] = UDPMap
+			VirtualServerMap["udp"] = VirtualServerUDPMap
 		}
 		if data.VirtualServer.VirtualServerState != nil {
-			VirtualServerStateMap := make(map[string]interface{})
+			VirtualServerVirtualServerStateMap := make(map[string]interface{})
 			if data.VirtualServer.VirtualServerState.StateDisabled != nil {
-				VirtualServerStateMap["state_disabled"] = map[string]interface{}{}
+				VirtualServerVirtualServerStateMap["state_disabled"] = map[string]interface{}{}
 			}
 			if data.VirtualServer.VirtualServerState.StateEnabled != nil {
-				VirtualServerStateMap["state_enabled"] = map[string]interface{}{}
+				VirtualServerVirtualServerStateMap["state_enabled"] = map[string]interface{}{}
 			}
-			VirtualServerMap["virtual_server_state"] = VirtualServerStateMap
+			VirtualServerMap["virtual_server_state"] = VirtualServerVirtualServerStateMap
 		}
 		if !data.VirtualServer.VsScore.IsNull() && !data.VirtualServer.VsScore.IsUnknown() {
 			VirtualServerMap["vs_score"] = data.VirtualServer.VsScore.ValueInt64()

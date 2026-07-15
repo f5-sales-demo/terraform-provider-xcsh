@@ -314,21 +314,21 @@ func (r *BotInfrastructureResource) Create(ctx context.Context, req resource.Cre
 			}
 		}
 		if data.CreateCloudHosted.Production != nil {
-			ProductionMap := make(map[string]interface{})
+			CreateCloudHostedProductionMap := make(map[string]interface{})
 			if !data.CreateCloudHosted.Production.Region1.IsNull() && !data.CreateCloudHosted.Production.Region1.IsUnknown() {
-				ProductionMap["region_1"] = data.CreateCloudHosted.Production.Region1.ValueString()
+				CreateCloudHostedProductionMap["region_1"] = data.CreateCloudHosted.Production.Region1.ValueString()
 			}
 			if !data.CreateCloudHosted.Production.Region2.IsNull() && !data.CreateCloudHosted.Production.Region2.IsUnknown() {
-				ProductionMap["region_2"] = data.CreateCloudHosted.Production.Region2.ValueString()
+				CreateCloudHostedProductionMap["region_2"] = data.CreateCloudHosted.Production.Region2.ValueString()
 			}
-			CreateCloudHostedMap["production"] = ProductionMap
+			CreateCloudHostedMap["production"] = CreateCloudHostedProductionMap
 		}
 		if data.CreateCloudHosted.Testing != nil {
-			TestingMap := make(map[string]interface{})
+			CreateCloudHostedTestingMap := make(map[string]interface{})
 			if !data.CreateCloudHosted.Testing.Region1.IsNull() && !data.CreateCloudHosted.Testing.Region1.IsUnknown() {
-				TestingMap["region_1"] = data.CreateCloudHosted.Testing.Region1.ValueString()
+				CreateCloudHostedTestingMap["region_1"] = data.CreateCloudHosted.Testing.Region1.ValueString()
 			}
-			CreateCloudHostedMap["testing"] = TestingMap
+			CreateCloudHostedMap["testing"] = CreateCloudHostedTestingMap
 		}
 		createReq.Spec["create_cloud_hosted"] = CreateCloudHostedMap
 	}
@@ -630,21 +630,21 @@ func (r *BotInfrastructureResource) Update(ctx context.Context, req resource.Upd
 			}
 		}
 		if data.CreateCloudHosted.Production != nil {
-			ProductionMap := make(map[string]interface{})
+			CreateCloudHostedProductionMap := make(map[string]interface{})
 			if !data.CreateCloudHosted.Production.Region1.IsNull() && !data.CreateCloudHosted.Production.Region1.IsUnknown() {
-				ProductionMap["region_1"] = data.CreateCloudHosted.Production.Region1.ValueString()
+				CreateCloudHostedProductionMap["region_1"] = data.CreateCloudHosted.Production.Region1.ValueString()
 			}
 			if !data.CreateCloudHosted.Production.Region2.IsNull() && !data.CreateCloudHosted.Production.Region2.IsUnknown() {
-				ProductionMap["region_2"] = data.CreateCloudHosted.Production.Region2.ValueString()
+				CreateCloudHostedProductionMap["region_2"] = data.CreateCloudHosted.Production.Region2.ValueString()
 			}
-			CreateCloudHostedMap["production"] = ProductionMap
+			CreateCloudHostedMap["production"] = CreateCloudHostedProductionMap
 		}
 		if data.CreateCloudHosted.Testing != nil {
-			TestingMap := make(map[string]interface{})
+			CreateCloudHostedTestingMap := make(map[string]interface{})
 			if !data.CreateCloudHosted.Testing.Region1.IsNull() && !data.CreateCloudHosted.Testing.Region1.IsUnknown() {
-				TestingMap["region_1"] = data.CreateCloudHosted.Testing.Region1.ValueString()
+				CreateCloudHostedTestingMap["region_1"] = data.CreateCloudHosted.Testing.Region1.ValueString()
 			}
-			CreateCloudHostedMap["testing"] = TestingMap
+			CreateCloudHostedMap["testing"] = CreateCloudHostedTestingMap
 		}
 		apiResource.Spec["create_cloud_hosted"] = CreateCloudHostedMap
 	}

@@ -1002,248 +1002,248 @@ func (r *CodeBaseIntegrationResource) Create(ctx context.Context, req resource.C
 	if data.CodeBaseIntegration != nil {
 		CodeBaseIntegrationMap := make(map[string]interface{})
 		if data.CodeBaseIntegration.AzureRepos != nil {
-			AzureReposMap := make(map[string]interface{})
+			CodeBaseIntegrationAzureReposMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationAzureReposAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationAzureReposAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationAzureReposAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap
 				}
-				AzureReposMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationAzureReposMap["access_token"] = CodeBaseIntegrationAzureReposAccessTokenMap
 			}
-			CodeBaseIntegrationMap["azure_repos"] = AzureReposMap
+			CodeBaseIntegrationMap["azure_repos"] = CodeBaseIntegrationAzureReposMap
 		}
 		if data.CodeBaseIntegration.Bitbucket != nil {
-			BitbucketMap := make(map[string]interface{})
+			CodeBaseIntegrationBitbucketMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.Bitbucket.Passwd != nil {
-				PasswdMap := make(map[string]interface{})
+				CodeBaseIntegrationBitbucketPasswdMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationBitbucketPasswdMap["blindfold_secret_info"] = CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap["url"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.ValueString()
 					}
-					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationBitbucketPasswdMap["clear_secret_info"] = CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap
 				}
-				BitbucketMap["passwd"] = PasswdMap
+				CodeBaseIntegrationBitbucketMap["passwd"] = CodeBaseIntegrationBitbucketPasswdMap
 			}
 			if !data.CodeBaseIntegration.Bitbucket.Username.IsNull() && !data.CodeBaseIntegration.Bitbucket.Username.IsUnknown() {
-				BitbucketMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
+				CodeBaseIntegrationBitbucketMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
 			}
-			CodeBaseIntegrationMap["bitbucket"] = BitbucketMap
+			CodeBaseIntegrationMap["bitbucket"] = CodeBaseIntegrationBitbucketMap
 		}
 		if data.CodeBaseIntegration.BitbucketServer != nil {
-			BitbucketServerMap := make(map[string]interface{})
+			CodeBaseIntegrationBitbucketServerMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
-				PasswdMap := make(map[string]interface{})
+				CodeBaseIntegrationBitbucketServerPasswdMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationBitbucketServerPasswdMap["blindfold_secret_info"] = CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap["provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap["url"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.ValueString()
 					}
-					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationBitbucketServerPasswdMap["clear_secret_info"] = CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap
 				}
-				BitbucketServerMap["passwd"] = PasswdMap
+				CodeBaseIntegrationBitbucketServerMap["passwd"] = CodeBaseIntegrationBitbucketServerPasswdMap
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.URL.IsUnknown() {
-				BitbucketServerMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
+				CodeBaseIntegrationBitbucketServerMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.Username.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Username.IsUnknown() {
-				BitbucketServerMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
+				CodeBaseIntegrationBitbucketServerMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
-				BitbucketServerMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
+				CodeBaseIntegrationBitbucketServerMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
 			}
-			CodeBaseIntegrationMap["bitbucket_server"] = BitbucketServerMap
+			CodeBaseIntegrationMap["bitbucket_server"] = CodeBaseIntegrationBitbucketServerMap
 		}
 		if data.CodeBaseIntegration.Github != nil {
-			GithubMap := make(map[string]interface{})
+			CodeBaseIntegrationGithubMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.Github.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGithubAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGithubAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGithubAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap
 				}
-				GithubMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGithubMap["access_token"] = CodeBaseIntegrationGithubAccessTokenMap
 			}
 			if !data.CodeBaseIntegration.Github.Username.IsNull() && !data.CodeBaseIntegration.Github.Username.IsUnknown() {
-				GithubMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
+				CodeBaseIntegrationGithubMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.Github.VerifySSL.IsNull() && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
-				GithubMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
+				CodeBaseIntegrationGithubMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
 			}
-			CodeBaseIntegrationMap["github"] = GithubMap
+			CodeBaseIntegrationMap["github"] = CodeBaseIntegrationGithubMap
 		}
 		if data.CodeBaseIntegration.GithubEnterprise != nil {
-			GithubEnterpriseMap := make(map[string]interface{})
+			CodeBaseIntegrationGithubEnterpriseMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGithubEnterpriseAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGithubEnterpriseAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGithubEnterpriseAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap
 				}
-				GithubEnterpriseMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGithubEnterpriseMap["access_token"] = CodeBaseIntegrationGithubEnterpriseAccessTokenMap
 			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsUnknown() {
-				GithubEnterpriseMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
+				CodeBaseIntegrationGithubEnterpriseMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
 			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Username.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Username.IsUnknown() {
-				GithubEnterpriseMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
+				CodeBaseIntegrationGithubEnterpriseMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
 			}
-			CodeBaseIntegrationMap["github_enterprise"] = GithubEnterpriseMap
+			CodeBaseIntegrationMap["github_enterprise"] = CodeBaseIntegrationGithubEnterpriseMap
 		}
 		if data.CodeBaseIntegration.Gitlab != nil {
-			GitlabMap := make(map[string]interface{})
+			CodeBaseIntegrationGitlabMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.Gitlab.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGitlabAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGitlabAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGitlabAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap
 				}
-				GitlabMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGitlabMap["access_token"] = CodeBaseIntegrationGitlabAccessTokenMap
 			}
-			CodeBaseIntegrationMap["gitlab"] = GitlabMap
+			CodeBaseIntegrationMap["gitlab"] = CodeBaseIntegrationGitlabMap
 		}
 		if data.CodeBaseIntegration.GitlabEnterprise != nil {
-			GitlabEnterpriseMap := make(map[string]interface{})
+			CodeBaseIntegrationGitlabEnterpriseMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGitlabEnterpriseAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap
 				}
-				GitlabEnterpriseMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGitlabEnterpriseMap["access_token"] = CodeBaseIntegrationGitlabEnterpriseAccessTokenMap
 			}
 			if !data.CodeBaseIntegration.GitlabEnterprise.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.URL.IsUnknown() {
-				GitlabEnterpriseMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
+				CodeBaseIntegrationGitlabEnterpriseMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
 			}
-			CodeBaseIntegrationMap["gitlab_enterprise"] = GitlabEnterpriseMap
+			CodeBaseIntegrationMap["gitlab_enterprise"] = CodeBaseIntegrationGitlabEnterpriseMap
 		}
 		createReq.Spec["code_base_integration"] = CodeBaseIntegrationMap
 	}
@@ -2523,248 +2523,248 @@ func (r *CodeBaseIntegrationResource) Update(ctx context.Context, req resource.U
 	if data.CodeBaseIntegration != nil {
 		CodeBaseIntegrationMap := make(map[string]interface{})
 		if data.CodeBaseIntegration.AzureRepos != nil {
-			AzureReposMap := make(map[string]interface{})
+			CodeBaseIntegrationAzureReposMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.AzureRepos.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationAzureReposAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationAzureReposAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationAzureReposAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.AzureRepos.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationAzureReposAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationAzureReposAccessTokenClearSecretInfoMap
 				}
-				AzureReposMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationAzureReposMap["access_token"] = CodeBaseIntegrationAzureReposAccessTokenMap
 			}
-			CodeBaseIntegrationMap["azure_repos"] = AzureReposMap
+			CodeBaseIntegrationMap["azure_repos"] = CodeBaseIntegrationAzureReposMap
 		}
 		if data.CodeBaseIntegration.Bitbucket != nil {
-			BitbucketMap := make(map[string]interface{})
+			CodeBaseIntegrationBitbucketMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.Bitbucket.Passwd != nil {
-				PasswdMap := make(map[string]interface{})
+				CodeBaseIntegrationBitbucketPasswdMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationBitbucketPasswdMap["blindfold_secret_info"] = CodeBaseIntegrationBitbucketPasswdBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap["url"] = data.CodeBaseIntegration.Bitbucket.Passwd.ClearSecretInfo.URL.ValueString()
 					}
-					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationBitbucketPasswdMap["clear_secret_info"] = CodeBaseIntegrationBitbucketPasswdClearSecretInfoMap
 				}
-				BitbucketMap["passwd"] = PasswdMap
+				CodeBaseIntegrationBitbucketMap["passwd"] = CodeBaseIntegrationBitbucketPasswdMap
 			}
 			if !data.CodeBaseIntegration.Bitbucket.Username.IsNull() && !data.CodeBaseIntegration.Bitbucket.Username.IsUnknown() {
-				BitbucketMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
+				CodeBaseIntegrationBitbucketMap["username"] = data.CodeBaseIntegration.Bitbucket.Username.ValueString()
 			}
-			CodeBaseIntegrationMap["bitbucket"] = BitbucketMap
+			CodeBaseIntegrationMap["bitbucket"] = CodeBaseIntegrationBitbucketMap
 		}
 		if data.CodeBaseIntegration.BitbucketServer != nil {
-			BitbucketServerMap := make(map[string]interface{})
+			CodeBaseIntegrationBitbucketServerMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.BitbucketServer.Passwd != nil {
-				PasswdMap := make(map[string]interface{})
+				CodeBaseIntegrationBitbucketServerPasswdMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					PasswdMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationBitbucketServerPasswdMap["blindfold_secret_info"] = CodeBaseIntegrationBitbucketServerPasswdBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap["provider"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap["url"] = data.CodeBaseIntegration.BitbucketServer.Passwd.ClearSecretInfo.URL.ValueString()
 					}
-					PasswdMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationBitbucketServerPasswdMap["clear_secret_info"] = CodeBaseIntegrationBitbucketServerPasswdClearSecretInfoMap
 				}
-				BitbucketServerMap["passwd"] = PasswdMap
+				CodeBaseIntegrationBitbucketServerMap["passwd"] = CodeBaseIntegrationBitbucketServerPasswdMap
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.URL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.URL.IsUnknown() {
-				BitbucketServerMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
+				CodeBaseIntegrationBitbucketServerMap["url"] = data.CodeBaseIntegration.BitbucketServer.URL.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.Username.IsNull() && !data.CodeBaseIntegration.BitbucketServer.Username.IsUnknown() {
-				BitbucketServerMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
+				CodeBaseIntegrationBitbucketServerMap["username"] = data.CodeBaseIntegration.BitbucketServer.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsNull() && !data.CodeBaseIntegration.BitbucketServer.VerifySSL.IsUnknown() {
-				BitbucketServerMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
+				CodeBaseIntegrationBitbucketServerMap["verify_ssl"] = data.CodeBaseIntegration.BitbucketServer.VerifySSL.ValueBool()
 			}
-			CodeBaseIntegrationMap["bitbucket_server"] = BitbucketServerMap
+			CodeBaseIntegrationMap["bitbucket_server"] = CodeBaseIntegrationBitbucketServerMap
 		}
 		if data.CodeBaseIntegration.Github != nil {
-			GithubMap := make(map[string]interface{})
+			CodeBaseIntegrationGithubMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.Github.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGithubAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Github.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGithubAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGithubAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.Github.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGithubAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGithubAccessTokenClearSecretInfoMap
 				}
-				GithubMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGithubMap["access_token"] = CodeBaseIntegrationGithubAccessTokenMap
 			}
 			if !data.CodeBaseIntegration.Github.Username.IsNull() && !data.CodeBaseIntegration.Github.Username.IsUnknown() {
-				GithubMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
+				CodeBaseIntegrationGithubMap["username"] = data.CodeBaseIntegration.Github.Username.ValueString()
 			}
 			if !data.CodeBaseIntegration.Github.VerifySSL.IsNull() && !data.CodeBaseIntegration.Github.VerifySSL.IsUnknown() {
-				GithubMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
+				CodeBaseIntegrationGithubMap["verify_ssl"] = data.CodeBaseIntegration.Github.VerifySSL.ValueBool()
 			}
-			CodeBaseIntegrationMap["github"] = GithubMap
+			CodeBaseIntegrationMap["github"] = CodeBaseIntegrationGithubMap
 		}
 		if data.CodeBaseIntegration.GithubEnterprise != nil {
-			GithubEnterpriseMap := make(map[string]interface{})
+			CodeBaseIntegrationGithubEnterpriseMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.GithubEnterprise.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGithubEnterpriseAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGithubEnterpriseAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGithubEnterpriseAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.GithubEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGithubEnterpriseAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGithubEnterpriseAccessTokenClearSecretInfoMap
 				}
-				GithubEnterpriseMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGithubEnterpriseMap["access_token"] = CodeBaseIntegrationGithubEnterpriseAccessTokenMap
 			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Hostname.IsUnknown() {
-				GithubEnterpriseMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
+				CodeBaseIntegrationGithubEnterpriseMap["hostname"] = data.CodeBaseIntegration.GithubEnterprise.Hostname.ValueString()
 			}
 			if !data.CodeBaseIntegration.GithubEnterprise.Username.IsNull() && !data.CodeBaseIntegration.GithubEnterprise.Username.IsUnknown() {
-				GithubEnterpriseMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
+				CodeBaseIntegrationGithubEnterpriseMap["username"] = data.CodeBaseIntegration.GithubEnterprise.Username.ValueString()
 			}
-			CodeBaseIntegrationMap["github_enterprise"] = GithubEnterpriseMap
+			CodeBaseIntegrationMap["github_enterprise"] = CodeBaseIntegrationGithubEnterpriseMap
 		}
 		if data.CodeBaseIntegration.Gitlab != nil {
-			GitlabMap := make(map[string]interface{})
+			CodeBaseIntegrationGitlabMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.Gitlab.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGitlabAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGitlabAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGitlabAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.Gitlab.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGitlabAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGitlabAccessTokenClearSecretInfoMap
 				}
-				GitlabMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGitlabMap["access_token"] = CodeBaseIntegrationGitlabAccessTokenMap
 			}
-			CodeBaseIntegrationMap["gitlab"] = GitlabMap
+			CodeBaseIntegrationMap["gitlab"] = CodeBaseIntegrationGitlabMap
 		}
 		if data.CodeBaseIntegration.GitlabEnterprise != nil {
-			GitlabEnterpriseMap := make(map[string]interface{})
+			CodeBaseIntegrationGitlabEnterpriseMap := make(map[string]interface{})
 			if data.CodeBaseIntegration.GitlabEnterprise.AccessToken != nil {
-				AccessTokenMap := make(map[string]interface{})
+				CodeBaseIntegrationGitlabEnterpriseAccessTokenMap := make(map[string]interface{})
 				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap["decryption_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap["location"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap["store_provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					AccessTokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenMap["blindfold_secret_info"] = CodeBaseIntegrationGitlabEnterpriseAccessTokenBlindfoldSecretInfoMap
 				}
 				if data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap["provider"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
+						CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.AccessToken.ClearSecretInfo.URL.ValueString()
 					}
-					AccessTokenMap["clear_secret_info"] = ClearSecretInfoMap
+					CodeBaseIntegrationGitlabEnterpriseAccessTokenMap["clear_secret_info"] = CodeBaseIntegrationGitlabEnterpriseAccessTokenClearSecretInfoMap
 				}
-				GitlabEnterpriseMap["access_token"] = AccessTokenMap
+				CodeBaseIntegrationGitlabEnterpriseMap["access_token"] = CodeBaseIntegrationGitlabEnterpriseAccessTokenMap
 			}
 			if !data.CodeBaseIntegration.GitlabEnterprise.URL.IsNull() && !data.CodeBaseIntegration.GitlabEnterprise.URL.IsUnknown() {
-				GitlabEnterpriseMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
+				CodeBaseIntegrationGitlabEnterpriseMap["url"] = data.CodeBaseIntegration.GitlabEnterprise.URL.ValueString()
 			}
-			CodeBaseIntegrationMap["gitlab_enterprise"] = GitlabEnterpriseMap
+			CodeBaseIntegrationMap["gitlab_enterprise"] = CodeBaseIntegrationGitlabEnterpriseMap
 		}
 		apiResource.Spec["code_base_integration"] = CodeBaseIntegrationMap
 	}

@@ -501,17 +501,17 @@ func (r *SiteMeshGroupResource) Create(ctx context.Context, req resource.CreateR
 			SpokeMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.HubMeshGroup != nil {
-			HubMeshGroupMap := make(map[string]interface{})
+			SpokeMeshHubMeshGroupMap := make(map[string]interface{})
 			if !data.SpokeMesh.HubMeshGroup.Name.IsNull() && !data.SpokeMesh.HubMeshGroup.Name.IsUnknown() {
-				HubMeshGroupMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
+				SpokeMeshHubMeshGroupMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Namespace.IsNull() && !data.SpokeMesh.HubMeshGroup.Namespace.IsUnknown() {
-				HubMeshGroupMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
+				SpokeMeshHubMeshGroupMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Tenant.IsNull() && !data.SpokeMesh.HubMeshGroup.Tenant.IsUnknown() {
-				HubMeshGroupMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
+				SpokeMeshHubMeshGroupMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
 			}
-			SpokeMeshMap["hub_mesh_group"] = HubMeshGroupMap
+			SpokeMeshMap["hub_mesh_group"] = SpokeMeshHubMeshGroupMap
 		}
 		createReq.Spec["spoke_mesh"] = SpokeMeshMap
 	}
@@ -1127,17 +1127,17 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 			SpokeMeshMap["data_plane_mesh"] = map[string]interface{}{}
 		}
 		if data.SpokeMesh.HubMeshGroup != nil {
-			HubMeshGroupMap := make(map[string]interface{})
+			SpokeMeshHubMeshGroupMap := make(map[string]interface{})
 			if !data.SpokeMesh.HubMeshGroup.Name.IsNull() && !data.SpokeMesh.HubMeshGroup.Name.IsUnknown() {
-				HubMeshGroupMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
+				SpokeMeshHubMeshGroupMap["name"] = data.SpokeMesh.HubMeshGroup.Name.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Namespace.IsNull() && !data.SpokeMesh.HubMeshGroup.Namespace.IsUnknown() {
-				HubMeshGroupMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
+				SpokeMeshHubMeshGroupMap["namespace"] = data.SpokeMesh.HubMeshGroup.Namespace.ValueString()
 			}
 			if !data.SpokeMesh.HubMeshGroup.Tenant.IsNull() && !data.SpokeMesh.HubMeshGroup.Tenant.IsUnknown() {
-				HubMeshGroupMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
+				SpokeMeshHubMeshGroupMap["tenant"] = data.SpokeMesh.HubMeshGroup.Tenant.ValueString()
 			}
-			SpokeMeshMap["hub_mesh_group"] = HubMeshGroupMap
+			SpokeMeshMap["hub_mesh_group"] = SpokeMeshHubMeshGroupMap
 		}
 		apiResource.Spec["spoke_mesh"] = SpokeMeshMap
 	}

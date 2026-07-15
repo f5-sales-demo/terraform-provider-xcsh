@@ -2134,21 +2134,21 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-						AdvertiseOnPublicMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-							PublicIPMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-								PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-								PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 							}
-							AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
-						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -2157,132 +2157,132 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 					}
 					if AdvertiseWhereItem.Site != nil {
-						SiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 						}
 						if AdvertiseWhereItem.Site.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
-							SiteMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
-						AdvertiseWhereItemMap["site"] = SiteMap
+						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
 					if AdvertiseWhereItem.UseDefaultPort != nil {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-							VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-							VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-							VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-							VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-								VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-								VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 							}
-							VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
-						AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
 					}
 					if AdvertiseWhereItem.VirtualSite != nil {
-						VirtualSiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						AdvertiseWhereItemMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteMap
 					}
 					if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-						VirtualSiteWithVIPMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-							VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-							VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 					}
 					if AdvertiseWhereItem.Vk8sService != nil {
-						Vk8sServiceMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 						if AdvertiseWhereItem.Vk8sService.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 							}
-							Vk8sServiceMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
-							Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						AdvertiseWhereItemMap["vk8s_service"] = AdvertiseCustomAdvertiseWhereVk8sServiceMap
 					}
 					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
@@ -2294,17 +2294,17 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if data.AdvertiseOnPublic != nil {
 		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
-			PublicIPMap := make(map[string]interface{})
+			AdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 			if !data.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-				PublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				AdvertiseOnPublicPublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-				PublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				PublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
-			AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
 		createReq.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
@@ -2348,33 +2348,33 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			for _, OriginPoolsWeightsItem := range OriginPoolsWeightsElems {
 				OriginPoolsWeightsItemMap := make(map[string]interface{})
 				if OriginPoolsWeightsItem.Cluster != nil {
-					ClusterMap := make(map[string]interface{})
+					OriginPoolsWeightsClusterMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Cluster.Name.IsNull() && !OriginPoolsWeightsItem.Cluster.Name.IsUnknown() {
-						ClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
+						OriginPoolsWeightsClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
-						ClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
+						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						ClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
+						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["cluster"] = ClusterMap
+					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
 					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if OriginPoolsWeightsItem.Pool != nil {
-					PoolMap := make(map[string]interface{})
+					OriginPoolsWeightsPoolMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Pool.Name.IsNull() && !OriginPoolsWeightsItem.Pool.Name.IsUnknown() {
-						PoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
+						OriginPoolsWeightsPoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
-						PoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
+						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						PoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
+						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["pool"] = PoolMap
+					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
 				if !OriginPoolsWeightsItem.Priority.IsNull() && !OriginPoolsWeightsItem.Priority.IsUnknown() {
 					OriginPoolsWeightsItemMap["priority"] = OriginPoolsWeightsItem.Priority.ValueInt64()
@@ -2393,7 +2393,7 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if data.TLSTCP != nil {
 		TLSTCPMap := make(map[string]interface{})
 		if data.TLSTCP.TLSCertParams != nil {
-			TLSCertParamsMap := make(map[string]interface{})
+			TLSTCPTLSCertParamsMap := make(map[string]interface{})
 			if !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
 				var CertificatesElems []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
 				diags := data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
@@ -2413,101 +2413,101 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
-					TLSCertParamsMap["certificates"] = CertificatesList
+					TLSTCPTLSCertParamsMap["certificates"] = CertificatesList
 				}
 			}
 			if data.TLSTCP.TLSCertParams.NoMtls != nil {
-				TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+				TLSTCPTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 			}
 			if data.TLSTCP.TLSCertParams.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				TLSTCPTLSCertParamsTLSConfigMap := make(map[string]interface{})
 				if data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["max_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["min_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					TLSTCPTLSCertParamsTLSConfigMap["custom_security"] = TLSTCPTLSCertParamsTLSConfigCustomSecurityMap
 				}
 				if data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				TLSCertParamsMap["tls_config"] = TLSConfigMap
+				TLSTCPTLSCertParamsMap["tls_config"] = TLSTCPTLSCertParamsTLSConfigMap
 			}
 			if data.TLSTCP.TLSCertParams.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				TLSTCPTLSCertParamsUseMtlsMap := make(map[string]interface{})
 				if !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+					TLSTCPTLSCertParamsUseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsUseMtlsCRLMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.ValueString()
+						TLSTCPTLSCertParamsUseMtlsCRLMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+						TLSTCPTLSCertParamsUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+						TLSTCPTLSCertParamsUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					TLSTCPTLSCertParamsUseMtlsMap["crl"] = TLSTCPTLSCertParamsUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca"] = TLSTCPTLSCertParamsUseMtlsTrustedCAMap
 				}
 				if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							TLSTCPTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					TLSTCPTLSCertParamsUseMtlsMap["xfcc_options"] = TLSTCPTLSCertParamsUseMtlsXfccOptionsMap
 				}
-				TLSCertParamsMap["use_mtls"] = UseMtlsMap
+				TLSTCPTLSCertParamsMap["use_mtls"] = TLSTCPTLSCertParamsUseMtlsMap
 			}
-			TLSTCPMap["tls_cert_params"] = TLSCertParamsMap
+			TLSTCPMap["tls_cert_params"] = TLSTCPTLSCertParamsMap
 		}
 		if data.TLSTCP.TLSParameters != nil {
-			TLSParametersMap := make(map[string]interface{})
+			TLSTCPTLSParametersMap := make(map[string]interface{})
 			if data.TLSTCP.TLSParameters.NoMtls != nil {
-				TLSParametersMap["no_mtls"] = map[string]interface{}{}
+				TLSTCPTLSParametersMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
@@ -2521,15 +2521,15 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -2538,124 +2538,124 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							TLSTCPTLSParametersTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyMap["clear_secret_info"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					TLSParametersMap["tls_certificates"] = TLSCertificatesList
+					TLSTCPTLSParametersMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.TLSTCP.TLSParameters.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				TLSTCPTLSParametersTLSConfigMap := make(map[string]interface{})
 				if data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					TLSTCPTLSParametersTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							TLSTCPTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						TLSTCPTLSParametersTLSConfigCustomSecurityMap["max_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						TLSTCPTLSParametersTLSConfigCustomSecurityMap["min_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					TLSTCPTLSParametersTLSConfigMap["custom_security"] = TLSTCPTLSParametersTLSConfigCustomSecurityMap
 				}
 				if data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					TLSTCPTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					TLSTCPTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					TLSTCPTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				TLSParametersMap["tls_config"] = TLSConfigMap
+				TLSTCPTLSParametersMap["tls_config"] = TLSTCPTLSParametersTLSConfigMap
 			}
 			if data.TLSTCP.TLSParameters.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				TLSTCPTLSParametersUseMtlsMap := make(map[string]interface{})
 				if !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+					TLSTCPTLSParametersUseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					TLSTCPTLSParametersUseMtlsCRLMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Name.ValueString()
+						TLSTCPTLSParametersUseMtlsCRLMap["name"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+						TLSTCPTLSParametersUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+						TLSTCPTLSParametersUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					TLSTCPTLSParametersUseMtlsMap["crl"] = TLSTCPTLSParametersUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					TLSTCPTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSTCPTLSParametersUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+						TLSTCPTLSParametersUseMtlsTrustedCAMap["name"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+						TLSTCPTLSParametersUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+						TLSTCPTLSParametersUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					TLSTCPTLSParametersUseMtlsMap["trusted_ca"] = TLSTCPTLSParametersUseMtlsTrustedCAMap
 				}
 				if !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+					TLSTCPTLSParametersUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					TLSTCPTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					TLSTCPTLSParametersUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							TLSTCPTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					TLSTCPTLSParametersUseMtlsMap["xfcc_options"] = TLSTCPTLSParametersUseMtlsXfccOptionsMap
 				}
-				TLSParametersMap["use_mtls"] = UseMtlsMap
+				TLSTCPTLSParametersMap["use_mtls"] = TLSTCPTLSParametersUseMtlsMap
 			}
-			TLSTCPMap["tls_parameters"] = TLSParametersMap
+			TLSTCPMap["tls_parameters"] = TLSTCPTLSParametersMap
 		}
 		createReq.Spec["tls_tcp"] = TLSTCPMap
 	}
@@ -2665,87 +2665,87 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 			TLSTCPAutoCertMap["no_mtls"] = map[string]interface{}{}
 		}
 		if data.TLSTCPAutoCert.TLSConfig != nil {
-			TLSConfigMap := make(map[string]interface{})
+			TLSTCPAutoCertTLSConfigMap := make(map[string]interface{})
 			if data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
-				CustomSecurityMap := make(map[string]interface{})
+				TLSTCPAutoCertTLSConfigCustomSecurityMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						TLSTCPAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-					CustomSecurityMap["max_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					TLSTCPAutoCertTLSConfigCustomSecurityMap["max_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 				}
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-					CustomSecurityMap["min_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					TLSTCPAutoCertTLSConfigCustomSecurityMap["min_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
 				}
-				TLSConfigMap["custom_security"] = CustomSecurityMap
+				TLSTCPAutoCertTLSConfigMap["custom_security"] = TLSTCPAutoCertTLSConfigCustomSecurityMap
 			}
 			if data.TLSTCPAutoCert.TLSConfig.DefaultSecurity != nil {
-				TLSConfigMap["default_security"] = map[string]interface{}{}
+				TLSTCPAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.TLSConfig.LowSecurity != nil {
-				TLSConfigMap["low_security"] = map[string]interface{}{}
+				TLSTCPAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.TLSConfig.MediumSecurity != nil {
-				TLSConfigMap["medium_security"] = map[string]interface{}{}
+				TLSTCPAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
-			TLSTCPAutoCertMap["tls_config"] = TLSConfigMap
+			TLSTCPAutoCertMap["tls_config"] = TLSTCPAutoCertTLSConfigMap
 		}
 		if data.TLSTCPAutoCert.UseMtls != nil {
-			UseMtlsMap := make(map[string]interface{})
+			TLSTCPAutoCertUseMtlsMap := make(map[string]interface{})
 			if !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
-				UseMtlsMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+				TLSTCPAutoCertUseMtlsMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
 			}
 			if data.TLSTCPAutoCert.UseMtls.CRL != nil {
-				CRLMap := make(map[string]interface{})
+				TLSTCPAutoCertUseMtlsCRLMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsUnknown() {
-					CRLMap["name"] = data.TLSTCPAutoCert.UseMtls.CRL.Name.ValueString()
+					TLSTCPAutoCertUseMtlsCRLMap["name"] = data.TLSTCPAutoCert.UseMtls.CRL.Name.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
-					CRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
+					TLSTCPAutoCertUseMtlsCRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-					CRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
+					TLSTCPAutoCertUseMtlsCRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
 				}
-				UseMtlsMap["crl"] = CRLMap
+				TLSTCPAutoCertUseMtlsMap["crl"] = TLSTCPAutoCertUseMtlsCRLMap
 			}
 			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
-				UseMtlsMap["no_crl"] = map[string]interface{}{}
+				TLSTCPAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.TrustedCA != nil {
-				TrustedCAMap := make(map[string]interface{})
+				TLSTCPAutoCertUseMtlsTrustedCAMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
-					TrustedCAMap["name"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.ValueString()
+					TLSTCPAutoCertUseMtlsTrustedCAMap["name"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
-					TrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+					TLSTCPAutoCertUseMtlsTrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-					TrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+					TLSTCPAutoCertUseMtlsTrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 				}
-				UseMtlsMap["trusted_ca"] = TrustedCAMap
+				TLSTCPAutoCertUseMtlsMap["trusted_ca"] = TLSTCPAutoCertUseMtlsTrustedCAMap
 			}
 			if !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
-				UseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
+				TLSTCPAutoCertUseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
 			}
 			if data.TLSTCPAutoCert.UseMtls.XfccDisabled != nil {
-				UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				TLSTCPAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
-				XfccOptionsMap := make(map[string]interface{})
+				TLSTCPAutoCertUseMtlsXfccOptionsMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 					var XfccHeaderElementsItems []string
 					diags := data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 					if !diags.HasError() {
-						XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						TLSTCPAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 					}
 				}
-				UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				TLSTCPAutoCertUseMtlsMap["xfcc_options"] = TLSTCPAutoCertUseMtlsXfccOptionsMap
 			}
-			TLSTCPAutoCertMap["use_mtls"] = UseMtlsMap
+			TLSTCPAutoCertMap["use_mtls"] = TLSTCPAutoCertUseMtlsMap
 		}
 		createReq.Spec["tls_tcp_auto_cert"] = TLSTCPAutoCertMap
 	}
@@ -5652,21 +5652,21 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 				for _, AdvertiseWhereItem := range AdvertiseWhereElems {
 					AdvertiseWhereItemMap := make(map[string]interface{})
 					if AdvertiseWhereItem.AdvertiseOnPublic != nil {
-						AdvertiseOnPublicMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap := make(map[string]interface{})
 						if AdvertiseWhereItem.AdvertiseOnPublic.PublicIP != nil {
-							PublicIPMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-								PublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["name"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-								PublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["namespace"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-								PublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap["tenant"] = AdvertiseWhereItem.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 							}
-							AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+							AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap["public_ip"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicPublicIPMap
 						}
-						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseOnPublicMap
+						AdvertiseWhereItemMap["advertise_on_public"] = AdvertiseCustomAdvertiseWhereAdvertiseOnPublicMap
 					}
 					if !AdvertiseWhereItem.Port.IsNull() && !AdvertiseWhereItem.Port.IsUnknown() {
 						AdvertiseWhereItemMap["port"] = AdvertiseWhereItem.Port.ValueInt64()
@@ -5675,132 +5675,132 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						AdvertiseWhereItemMap["port_ranges"] = AdvertiseWhereItem.PortRanges.ValueString()
 					}
 					if AdvertiseWhereItem.Site != nil {
-						SiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.Site.IP.IsNull() && !AdvertiseWhereItem.Site.IP.IsUnknown() {
-							SiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["ip"] = AdvertiseWhereItem.Site.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.Site.Network.IsNull() && !AdvertiseWhereItem.Site.Network.IsUnknown() {
-							SiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereSiteMap["network"] = AdvertiseWhereItem.Site.Network.ValueString()
 						}
 						if AdvertiseWhereItem.Site.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereSiteSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Site.Site.Name.IsNull() && !AdvertiseWhereItem.Site.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["name"] = AdvertiseWhereItem.Site.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Namespace.IsNull() && !AdvertiseWhereItem.Site.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["namespace"] = AdvertiseWhereItem.Site.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Site.Site.Tenant.IsNull() && !AdvertiseWhereItem.Site.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereSiteSiteMap["tenant"] = AdvertiseWhereItem.Site.Site.Tenant.ValueString()
 							}
-							SiteMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereSiteMap["site"] = AdvertiseCustomAdvertiseWhereSiteSiteMap
 						}
-						AdvertiseWhereItemMap["site"] = SiteMap
+						AdvertiseWhereItemMap["site"] = AdvertiseCustomAdvertiseWhereSiteMap
 					}
 					if AdvertiseWhereItem.UseDefaultPort != nil {
 						AdvertiseWhereItemMap["use_default_port"] = map[string]interface{}{}
 					}
 					if AdvertiseWhereItem.VirtualNetwork != nil {
-						VirtualNetworkMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualNetworkMap := make(map[string]interface{})
 						if AdvertiseWhereItem.VirtualNetwork.DefaultV6VIP != nil {
-							VirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_v6_vip"] = map[string]interface{}{}
 						}
 						if AdvertiseWhereItem.VirtualNetwork.DefaultVIP != nil {
-							VirtualNetworkMap["default_vip"] = map[string]interface{}{}
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["default_vip"] = map[string]interface{}{}
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.IsUnknown() {
-							VirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_v6_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificV6VIP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsNull() && !AdvertiseWhereItem.VirtualNetwork.SpecificVIP.IsUnknown() {
-							VirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["specific_vip"] = AdvertiseWhereItem.VirtualNetwork.SpecificVIP.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualNetwork.VirtualNetwork != nil {
-							VirtualNetworkMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.IsUnknown() {
-								VirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["name"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.IsUnknown() {
-								VirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["namespace"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsNull() && !AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.IsUnknown() {
-								VirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap["tenant"] = AdvertiseWhereItem.VirtualNetwork.VirtualNetwork.Tenant.ValueString()
 							}
-							VirtualNetworkMap["virtual_network"] = VirtualNetworkMap
+							AdvertiseCustomAdvertiseWhereVirtualNetworkMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkVirtualNetworkMap
 						}
-						AdvertiseWhereItemMap["virtual_network"] = VirtualNetworkMap
+						AdvertiseWhereItemMap["virtual_network"] = AdvertiseCustomAdvertiseWhereVirtualNetworkMap
 					}
 					if AdvertiseWhereItem.VirtualSite != nil {
-						VirtualSiteMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSite.Network.IsNull() && !AdvertiseWhereItem.VirtualSite.Network.IsUnknown() {
-							VirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["network"] = AdvertiseWhereItem.VirtualSite.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSite.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSite.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site"] = VirtualSiteMap
+						AdvertiseWhereItemMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteMap
 					}
 					if AdvertiseWhereItem.VirtualSiteWithVIP != nil {
-						VirtualSiteWithVIPMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap := make(map[string]interface{})
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.IP.IsUnknown() {
-							VirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["ip"] = AdvertiseWhereItem.VirtualSiteWithVIP.IP.ValueString()
 						}
 						if !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.Network.IsUnknown() {
-							VirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["network"] = AdvertiseWhereItem.VirtualSiteWithVIP.Network.ValueString()
 						}
 						if AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["name"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["namespace"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap["tenant"] = AdvertiseWhereItem.VirtualSiteWithVIP.VirtualSite.Tenant.ValueString()
 							}
-							VirtualSiteWithVIPMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["virtual_site_with_vip"] = VirtualSiteWithVIPMap
+						AdvertiseWhereItemMap["virtual_site_with_vip"] = AdvertiseCustomAdvertiseWhereVirtualSiteWithVIPMap
 					}
 					if AdvertiseWhereItem.Vk8sService != nil {
-						Vk8sServiceMap := make(map[string]interface{})
+						AdvertiseCustomAdvertiseWhereVk8sServiceMap := make(map[string]interface{})
 						if AdvertiseWhereItem.Vk8sService.Site != nil {
-							SiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.Site.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Name.IsUnknown() {
-								SiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["name"] = AdvertiseWhereItem.Vk8sService.Site.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Namespace.IsUnknown() {
-								SiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.Site.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.Site.Tenant.IsUnknown() {
-								SiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.Site.Tenant.ValueString()
 							}
-							Vk8sServiceMap["site"] = SiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["site"] = AdvertiseCustomAdvertiseWhereVk8sServiceSiteMap
 						}
 						if AdvertiseWhereItem.Vk8sService.VirtualSite != nil {
-							VirtualSiteMap := make(map[string]interface{})
+							AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap := make(map[string]interface{})
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Name.IsUnknown() {
-								VirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["name"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Name.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.IsUnknown() {
-								VirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["namespace"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Namespace.ValueString()
 							}
 							if !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsNull() && !AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.IsUnknown() {
-								VirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
+								AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap["tenant"] = AdvertiseWhereItem.Vk8sService.VirtualSite.Tenant.ValueString()
 							}
-							Vk8sServiceMap["virtual_site"] = VirtualSiteMap
+							AdvertiseCustomAdvertiseWhereVk8sServiceMap["virtual_site"] = AdvertiseCustomAdvertiseWhereVk8sServiceVirtualSiteMap
 						}
-						AdvertiseWhereItemMap["vk8s_service"] = Vk8sServiceMap
+						AdvertiseWhereItemMap["vk8s_service"] = AdvertiseCustomAdvertiseWhereVk8sServiceMap
 					}
 					AdvertiseWhereList = append(AdvertiseWhereList, AdvertiseWhereItemMap)
 				}
@@ -5812,17 +5812,17 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if data.AdvertiseOnPublic != nil {
 		AdvertiseOnPublicMap := make(map[string]interface{})
 		if data.AdvertiseOnPublic.PublicIP != nil {
-			PublicIPMap := make(map[string]interface{})
+			AdvertiseOnPublicPublicIPMap := make(map[string]interface{})
 			if !data.AdvertiseOnPublic.PublicIP.Name.IsNull() && !data.AdvertiseOnPublic.PublicIP.Name.IsUnknown() {
-				PublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
+				AdvertiseOnPublicPublicIPMap["name"] = data.AdvertiseOnPublic.PublicIP.Name.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Namespace.IsNull() && !data.AdvertiseOnPublic.PublicIP.Namespace.IsUnknown() {
-				PublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
+				AdvertiseOnPublicPublicIPMap["namespace"] = data.AdvertiseOnPublic.PublicIP.Namespace.ValueString()
 			}
 			if !data.AdvertiseOnPublic.PublicIP.Tenant.IsNull() && !data.AdvertiseOnPublic.PublicIP.Tenant.IsUnknown() {
-				PublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
+				AdvertiseOnPublicPublicIPMap["tenant"] = data.AdvertiseOnPublic.PublicIP.Tenant.ValueString()
 			}
-			AdvertiseOnPublicMap["public_ip"] = PublicIPMap
+			AdvertiseOnPublicMap["public_ip"] = AdvertiseOnPublicPublicIPMap
 		}
 		apiResource.Spec["advertise_on_public"] = AdvertiseOnPublicMap
 	}
@@ -5866,33 +5866,33 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			for _, OriginPoolsWeightsItem := range OriginPoolsWeightsElems {
 				OriginPoolsWeightsItemMap := make(map[string]interface{})
 				if OriginPoolsWeightsItem.Cluster != nil {
-					ClusterMap := make(map[string]interface{})
+					OriginPoolsWeightsClusterMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Cluster.Name.IsNull() && !OriginPoolsWeightsItem.Cluster.Name.IsUnknown() {
-						ClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
+						OriginPoolsWeightsClusterMap["name"] = OriginPoolsWeightsItem.Cluster.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Namespace.IsNull() && !OriginPoolsWeightsItem.Cluster.Namespace.IsUnknown() {
-						ClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
+						OriginPoolsWeightsClusterMap["namespace"] = OriginPoolsWeightsItem.Cluster.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Cluster.Tenant.IsNull() && !OriginPoolsWeightsItem.Cluster.Tenant.IsUnknown() {
-						ClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
+						OriginPoolsWeightsClusterMap["tenant"] = OriginPoolsWeightsItem.Cluster.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["cluster"] = ClusterMap
+					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
 				if OriginPoolsWeightsItem.EndpointSubsets != nil {
 					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if OriginPoolsWeightsItem.Pool != nil {
-					PoolMap := make(map[string]interface{})
+					OriginPoolsWeightsPoolMap := make(map[string]interface{})
 					if !OriginPoolsWeightsItem.Pool.Name.IsNull() && !OriginPoolsWeightsItem.Pool.Name.IsUnknown() {
-						PoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
+						OriginPoolsWeightsPoolMap["name"] = OriginPoolsWeightsItem.Pool.Name.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Namespace.IsNull() && !OriginPoolsWeightsItem.Pool.Namespace.IsUnknown() {
-						PoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
+						OriginPoolsWeightsPoolMap["namespace"] = OriginPoolsWeightsItem.Pool.Namespace.ValueString()
 					}
 					if !OriginPoolsWeightsItem.Pool.Tenant.IsNull() && !OriginPoolsWeightsItem.Pool.Tenant.IsUnknown() {
-						PoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
+						OriginPoolsWeightsPoolMap["tenant"] = OriginPoolsWeightsItem.Pool.Tenant.ValueString()
 					}
-					OriginPoolsWeightsItemMap["pool"] = PoolMap
+					OriginPoolsWeightsItemMap["pool"] = OriginPoolsWeightsPoolMap
 				}
 				if !OriginPoolsWeightsItem.Priority.IsNull() && !OriginPoolsWeightsItem.Priority.IsUnknown() {
 					OriginPoolsWeightsItemMap["priority"] = OriginPoolsWeightsItem.Priority.ValueInt64()
@@ -5911,7 +5911,7 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	if data.TLSTCP != nil {
 		TLSTCPMap := make(map[string]interface{})
 		if data.TLSTCP.TLSCertParams != nil {
-			TLSCertParamsMap := make(map[string]interface{})
+			TLSTCPTLSCertParamsMap := make(map[string]interface{})
 			if !data.TLSTCP.TLSCertParams.Certificates.IsNull() && !data.TLSTCP.TLSCertParams.Certificates.IsUnknown() {
 				var CertificatesElems []TCPLoadBalancerTLSTCPTLSCertParamsCertificatesModel
 				diags := data.TLSTCP.TLSCertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
@@ -5931,101 +5931,101 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						CertificatesList = append(CertificatesList, CertificatesItemMap)
 					}
-					TLSCertParamsMap["certificates"] = CertificatesList
+					TLSTCPTLSCertParamsMap["certificates"] = CertificatesList
 				}
 			}
 			if data.TLSTCP.TLSCertParams.NoMtls != nil {
-				TLSCertParamsMap["no_mtls"] = map[string]interface{}{}
+				TLSTCPTLSCertParamsMap["no_mtls"] = map[string]interface{}{}
 			}
 			if data.TLSTCP.TLSCertParams.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				TLSTCPTLSCertParamsTLSConfigMap := make(map[string]interface{})
 				if data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["max_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						TLSTCPTLSCertParamsTLSConfigCustomSecurityMap["min_version"] = data.TLSTCP.TLSCertParams.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					TLSTCPTLSCertParamsTLSConfigMap["custom_security"] = TLSTCPTLSCertParamsTLSConfigCustomSecurityMap
 				}
 				if data.TLSTCP.TLSCertParams.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				TLSCertParamsMap["tls_config"] = TLSConfigMap
+				TLSTCPTLSCertParamsMap["tls_config"] = TLSTCPTLSCertParamsTLSConfigMap
 			}
 			if data.TLSTCP.TLSCertParams.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				TLSTCPTLSCertParamsUseMtlsMap := make(map[string]interface{})
 				if !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
+					TLSTCPTLSCertParamsUseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSCertParams.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsUseMtlsCRLMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.ValueString()
+						TLSTCPTLSCertParamsUseMtlsCRLMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
+						TLSTCPTLSCertParamsUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
+						TLSTCPTLSCertParamsUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					TLSTCPTLSCertParamsUseMtlsMap["crl"] = TLSTCPTLSCertParamsUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
+						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["name"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
+						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
+						TLSTCPTLSCertParamsUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca"] = TLSTCPTLSCertParamsUseMtlsTrustedCAMap
 				}
 				if !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
+					TLSTCPTLSCertParamsUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSCertParams.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					TLSTCPTLSCertParamsUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSCertParams.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					TLSTCPTLSCertParamsUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSCertParams.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							TLSTCPTLSCertParamsUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					TLSTCPTLSCertParamsUseMtlsMap["xfcc_options"] = TLSTCPTLSCertParamsUseMtlsXfccOptionsMap
 				}
-				TLSCertParamsMap["use_mtls"] = UseMtlsMap
+				TLSTCPTLSCertParamsMap["use_mtls"] = TLSTCPTLSCertParamsUseMtlsMap
 			}
-			TLSTCPMap["tls_cert_params"] = TLSCertParamsMap
+			TLSTCPMap["tls_cert_params"] = TLSTCPTLSCertParamsMap
 		}
 		if data.TLSTCP.TLSParameters != nil {
-			TLSParametersMap := make(map[string]interface{})
+			TLSTCPTLSParametersMap := make(map[string]interface{})
 			if data.TLSTCP.TLSParameters.NoMtls != nil {
-				TLSParametersMap["no_mtls"] = map[string]interface{}{}
+				TLSTCPTLSParametersMap["no_mtls"] = map[string]interface{}{}
 			}
 			if !data.TLSTCP.TLSParameters.TLSCertificates.IsNull() && !data.TLSTCP.TLSParameters.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []TCPLoadBalancerTLSTCPTLSParametersTLSCertificatesModel
@@ -6039,15 +6039,15 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = TLSTCPTLSParametersTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -6056,124 +6056,124 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							TLSTCPTLSParametersTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								TLSTCPTLSParametersTLSCertificatesPrivateKeyMap["clear_secret_info"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = TLSTCPTLSParametersTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					TLSParametersMap["tls_certificates"] = TLSCertificatesList
+					TLSTCPTLSParametersMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.TLSTCP.TLSParameters.TLSConfig != nil {
-				TLSConfigMap := make(map[string]interface{})
+				TLSTCPTLSParametersTLSConfigMap := make(map[string]interface{})
 				if data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity != nil {
-					CustomSecurityMap := make(map[string]interface{})
+					TLSTCPTLSParametersTLSConfigCustomSecurityMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 						var CipherSuitesItems []string
 						diags := data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 						if !diags.HasError() {
-							CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+							TLSTCPTLSParametersTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 						}
 					}
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-						CustomSecurityMap["max_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+						TLSTCPTLSParametersTLSConfigCustomSecurityMap["max_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-						CustomSecurityMap["min_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
+						TLSTCPTLSParametersTLSConfigCustomSecurityMap["min_version"] = data.TLSTCP.TLSParameters.TLSConfig.CustomSecurity.MinVersion.ValueString()
 					}
-					TLSConfigMap["custom_security"] = CustomSecurityMap
+					TLSTCPTLSParametersTLSConfigMap["custom_security"] = TLSTCPTLSParametersTLSConfigCustomSecurityMap
 				}
 				if data.TLSTCP.TLSParameters.TLSConfig.DefaultSecurity != nil {
-					TLSConfigMap["default_security"] = map[string]interface{}{}
+					TLSTCPTLSParametersTLSConfigMap["default_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.TLSConfig.LowSecurity != nil {
-					TLSConfigMap["low_security"] = map[string]interface{}{}
+					TLSTCPTLSParametersTLSConfigMap["low_security"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.TLSConfig.MediumSecurity != nil {
-					TLSConfigMap["medium_security"] = map[string]interface{}{}
+					TLSTCPTLSParametersTLSConfigMap["medium_security"] = map[string]interface{}{}
 				}
-				TLSParametersMap["tls_config"] = TLSConfigMap
+				TLSTCPTLSParametersMap["tls_config"] = TLSTCPTLSParametersTLSConfigMap
 			}
 			if data.TLSTCP.TLSParameters.UseMtls != nil {
-				UseMtlsMap := make(map[string]interface{})
+				TLSTCPTLSParametersUseMtlsMap := make(map[string]interface{})
 				if !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.IsUnknown() {
-					UseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
+					TLSTCPTLSParametersUseMtlsMap["client_certificate_optional"] = data.TLSTCP.TLSParameters.UseMtls.ClientCertificateOptional.ValueBool()
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.CRL != nil {
-					CRLMap := make(map[string]interface{})
+					TLSTCPTLSParametersUseMtlsCRLMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Name.IsUnknown() {
-						CRLMap["name"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Name.ValueString()
+						TLSTCPTLSParametersUseMtlsCRLMap["name"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.IsUnknown() {
-						CRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
+						TLSTCPTLSParametersUseMtlsCRLMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.IsUnknown() {
-						CRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
+						TLSTCPTLSParametersUseMtlsCRLMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.CRL.Tenant.ValueString()
 					}
-					UseMtlsMap["crl"] = CRLMap
+					TLSTCPTLSParametersUseMtlsMap["crl"] = TLSTCPTLSParametersUseMtlsCRLMap
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.NoCRL != nil {
-					UseMtlsMap["no_crl"] = map[string]interface{}{}
+					TLSTCPTLSParametersUseMtlsMap["no_crl"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSTCPTLSParametersUseMtlsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.IsUnknown() {
-						TrustedCAMap["name"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
+						TLSTCPTLSParametersUseMtlsTrustedCAMap["name"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Name.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.IsUnknown() {
-						TrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
+						TLSTCPTLSParametersUseMtlsTrustedCAMap["namespace"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Namespace.ValueString()
 					}
 					if !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.IsUnknown() {
-						TrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
+						TLSTCPTLSParametersUseMtlsTrustedCAMap["tenant"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCA.Tenant.ValueString()
 					}
-					UseMtlsMap["trusted_ca"] = TrustedCAMap
+					TLSTCPTLSParametersUseMtlsMap["trusted_ca"] = TLSTCPTLSParametersUseMtlsTrustedCAMap
 				}
 				if !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.IsUnknown() {
-					UseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
+					TLSTCPTLSParametersUseMtlsMap["trusted_ca_url"] = data.TLSTCP.TLSParameters.UseMtls.TrustedCAURL.ValueString()
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.XfccDisabled != nil {
-					UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+					TLSTCPTLSParametersUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 				}
 				if data.TLSTCP.TLSParameters.UseMtls.XfccOptions != nil {
-					XfccOptionsMap := make(map[string]interface{})
+					TLSTCPTLSParametersUseMtlsXfccOptionsMap := make(map[string]interface{})
 					if !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 						var XfccHeaderElementsItems []string
 						diags := data.TLSTCP.TLSParameters.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 						if !diags.HasError() {
-							XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+							TLSTCPTLSParametersUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 						}
 					}
-					UseMtlsMap["xfcc_options"] = XfccOptionsMap
+					TLSTCPTLSParametersUseMtlsMap["xfcc_options"] = TLSTCPTLSParametersUseMtlsXfccOptionsMap
 				}
-				TLSParametersMap["use_mtls"] = UseMtlsMap
+				TLSTCPTLSParametersMap["use_mtls"] = TLSTCPTLSParametersUseMtlsMap
 			}
-			TLSTCPMap["tls_parameters"] = TLSParametersMap
+			TLSTCPMap["tls_parameters"] = TLSTCPTLSParametersMap
 		}
 		apiResource.Spec["tls_tcp"] = TLSTCPMap
 	}
@@ -6183,87 +6183,87 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 			TLSTCPAutoCertMap["no_mtls"] = map[string]interface{}{}
 		}
 		if data.TLSTCPAutoCert.TLSConfig != nil {
-			TLSConfigMap := make(map[string]interface{})
+			TLSTCPAutoCertTLSConfigMap := make(map[string]interface{})
 			if data.TLSTCPAutoCert.TLSConfig.CustomSecurity != nil {
-				CustomSecurityMap := make(map[string]interface{})
+				TLSTCPAutoCertTLSConfigCustomSecurityMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.TLSTCPAutoCert.TLSConfig.CustomSecurity.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CustomSecurityMap["cipher_suites"] = CipherSuitesItems
+						TLSTCPAutoCertTLSConfigCustomSecurityMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.IsUnknown() {
-					CustomSecurityMap["max_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
+					TLSTCPAutoCertTLSConfigCustomSecurityMap["max_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MaxVersion.ValueString()
 				}
 				if !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsNull() && !data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.IsUnknown() {
-					CustomSecurityMap["min_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
+					TLSTCPAutoCertTLSConfigCustomSecurityMap["min_version"] = data.TLSTCPAutoCert.TLSConfig.CustomSecurity.MinVersion.ValueString()
 				}
-				TLSConfigMap["custom_security"] = CustomSecurityMap
+				TLSTCPAutoCertTLSConfigMap["custom_security"] = TLSTCPAutoCertTLSConfigCustomSecurityMap
 			}
 			if data.TLSTCPAutoCert.TLSConfig.DefaultSecurity != nil {
-				TLSConfigMap["default_security"] = map[string]interface{}{}
+				TLSTCPAutoCertTLSConfigMap["default_security"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.TLSConfig.LowSecurity != nil {
-				TLSConfigMap["low_security"] = map[string]interface{}{}
+				TLSTCPAutoCertTLSConfigMap["low_security"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.TLSConfig.MediumSecurity != nil {
-				TLSConfigMap["medium_security"] = map[string]interface{}{}
+				TLSTCPAutoCertTLSConfigMap["medium_security"] = map[string]interface{}{}
 			}
-			TLSTCPAutoCertMap["tls_config"] = TLSConfigMap
+			TLSTCPAutoCertMap["tls_config"] = TLSTCPAutoCertTLSConfigMap
 		}
 		if data.TLSTCPAutoCert.UseMtls != nil {
-			UseMtlsMap := make(map[string]interface{})
+			TLSTCPAutoCertUseMtlsMap := make(map[string]interface{})
 			if !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsNull() && !data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.IsUnknown() {
-				UseMtlsMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
+				TLSTCPAutoCertUseMtlsMap["client_certificate_optional"] = data.TLSTCPAutoCert.UseMtls.ClientCertificateOptional.ValueBool()
 			}
 			if data.TLSTCPAutoCert.UseMtls.CRL != nil {
-				CRLMap := make(map[string]interface{})
+				TLSTCPAutoCertUseMtlsCRLMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Name.IsUnknown() {
-					CRLMap["name"] = data.TLSTCPAutoCert.UseMtls.CRL.Name.ValueString()
+					TLSTCPAutoCertUseMtlsCRLMap["name"] = data.TLSTCPAutoCert.UseMtls.CRL.Name.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Namespace.IsUnknown() {
-					CRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
+					TLSTCPAutoCertUseMtlsCRLMap["namespace"] = data.TLSTCPAutoCert.UseMtls.CRL.Namespace.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.CRL.Tenant.IsUnknown() {
-					CRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
+					TLSTCPAutoCertUseMtlsCRLMap["tenant"] = data.TLSTCPAutoCert.UseMtls.CRL.Tenant.ValueString()
 				}
-				UseMtlsMap["crl"] = CRLMap
+				TLSTCPAutoCertUseMtlsMap["crl"] = TLSTCPAutoCertUseMtlsCRLMap
 			}
 			if data.TLSTCPAutoCert.UseMtls.NoCRL != nil {
-				UseMtlsMap["no_crl"] = map[string]interface{}{}
+				TLSTCPAutoCertUseMtlsMap["no_crl"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.TrustedCA != nil {
-				TrustedCAMap := make(map[string]interface{})
+				TLSTCPAutoCertUseMtlsTrustedCAMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.IsUnknown() {
-					TrustedCAMap["name"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.ValueString()
+					TLSTCPAutoCertUseMtlsTrustedCAMap["name"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Name.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.IsUnknown() {
-					TrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
+					TLSTCPAutoCertUseMtlsTrustedCAMap["namespace"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Namespace.ValueString()
 				}
 				if !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.IsUnknown() {
-					TrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
+					TLSTCPAutoCertUseMtlsTrustedCAMap["tenant"] = data.TLSTCPAutoCert.UseMtls.TrustedCA.Tenant.ValueString()
 				}
-				UseMtlsMap["trusted_ca"] = TrustedCAMap
+				TLSTCPAutoCertUseMtlsMap["trusted_ca"] = TLSTCPAutoCertUseMtlsTrustedCAMap
 			}
 			if !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsNull() && !data.TLSTCPAutoCert.UseMtls.TrustedCAURL.IsUnknown() {
-				UseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
+				TLSTCPAutoCertUseMtlsMap["trusted_ca_url"] = data.TLSTCPAutoCert.UseMtls.TrustedCAURL.ValueString()
 			}
 			if data.TLSTCPAutoCert.UseMtls.XfccDisabled != nil {
-				UseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
+				TLSTCPAutoCertUseMtlsMap["xfcc_disabled"] = map[string]interface{}{}
 			}
 			if data.TLSTCPAutoCert.UseMtls.XfccOptions != nil {
-				XfccOptionsMap := make(map[string]interface{})
+				TLSTCPAutoCertUseMtlsXfccOptionsMap := make(map[string]interface{})
 				if !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsNull() && !data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.IsUnknown() {
 					var XfccHeaderElementsItems []string
 					diags := data.TLSTCPAutoCert.UseMtls.XfccOptions.XfccHeaderElements.ElementsAs(ctx, &XfccHeaderElementsItems, false)
 					if !diags.HasError() {
-						XfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
+						TLSTCPAutoCertUseMtlsXfccOptionsMap["xfcc_header_elements"] = XfccHeaderElementsItems
 					}
 				}
-				UseMtlsMap["xfcc_options"] = XfccOptionsMap
+				TLSTCPAutoCertUseMtlsMap["xfcc_options"] = TLSTCPAutoCertUseMtlsXfccOptionsMap
 			}
-			TLSTCPAutoCertMap["use_mtls"] = UseMtlsMap
+			TLSTCPAutoCertMap["use_mtls"] = TLSTCPAutoCertUseMtlsMap
 		}
 		apiResource.Spec["tls_tcp_auto_cert"] = TLSTCPAutoCertMap
 	}

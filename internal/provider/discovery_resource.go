@@ -1266,193 +1266,193 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 	if data.DiscoveryConsul != nil {
 		DiscoveryConsulMap := make(map[string]interface{})
 		if data.DiscoveryConsul.AccessInfo != nil {
-			AccessInfoMap := make(map[string]interface{})
+			DiscoveryConsulAccessInfoMap := make(map[string]interface{})
 			if data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
-				ConnectionInfoMap := make(map[string]interface{})
+				DiscoveryConsulAccessInfoConnectionInfoMap := make(map[string]interface{})
 				if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
-					ConnectionInfoMap["api_server"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.ValueString()
+					DiscoveryConsulAccessInfoConnectionInfoMap["api_server"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.ValueString()
 				}
 				if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
-					TLSInfoMap := make(map[string]interface{})
+					DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap := make(map[string]interface{})
 					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
-						TLSInfoMap["certificate"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["certificate"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
 					}
 					if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
-						KeyURLMap := make(map[string]interface{})
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap := make(map[string]interface{})
 						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 							}
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 							}
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 							}
-							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap["blindfold_secret_info"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap
 						}
 						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
 							}
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
 							}
-							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap["clear_secret_info"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap
 						}
-						TLSInfoMap["key_url"] = KeyURLMap
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["key_url"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap
 					}
 					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
-						TLSInfoMap["server_name"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["server_name"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
 					}
 					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
-						TLSInfoMap["trusted_ca_url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["trusted_ca_url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
 					}
-					ConnectionInfoMap["tls_info"] = TLSInfoMap
+					DiscoveryConsulAccessInfoConnectionInfoMap["tls_info"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap
 				}
-				AccessInfoMap["connection_info"] = ConnectionInfoMap
+				DiscoveryConsulAccessInfoMap["connection_info"] = DiscoveryConsulAccessInfoConnectionInfoMap
 			}
 			if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
-				HTTPBasicAuthInfoMap := make(map[string]interface{})
+				DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap := make(map[string]interface{})
 				if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
-					PasswdURLMap := make(map[string]interface{})
+					DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap := make(map[string]interface{})
 					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PasswdURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap["blindfold_secret_info"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap
 					}
 					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.ValueString()
 						}
-						PasswdURLMap["clear_secret_info"] = ClearSecretInfoMap
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap["clear_secret_info"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap
 					}
-					HTTPBasicAuthInfoMap["passwd_url"] = PasswdURLMap
+					DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap["passwd_url"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap
 				}
 				if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsUnknown() {
-					HTTPBasicAuthInfoMap["user_name"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.ValueString()
+					DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap["user_name"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.ValueString()
 				}
-				AccessInfoMap["http_basic_auth_info"] = HTTPBasicAuthInfoMap
+				DiscoveryConsulAccessInfoMap["http_basic_auth_info"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap
 			}
-			DiscoveryConsulMap["access_info"] = AccessInfoMap
+			DiscoveryConsulMap["access_info"] = DiscoveryConsulAccessInfoMap
 		}
 		if data.DiscoveryConsul.PublishInfo != nil {
-			PublishInfoMap := make(map[string]interface{})
+			DiscoveryConsulPublishInfoMap := make(map[string]interface{})
 			if data.DiscoveryConsul.PublishInfo.DisableSpec != nil {
-				PublishInfoMap["disable"] = map[string]interface{}{}
+				DiscoveryConsulPublishInfoMap["disable"] = map[string]interface{}{}
 			}
 			if data.DiscoveryConsul.PublishInfo.Publish != nil {
-				PublishInfoMap["publish"] = map[string]interface{}{}
+				DiscoveryConsulPublishInfoMap["publish"] = map[string]interface{}{}
 			}
-			DiscoveryConsulMap["publish_info"] = PublishInfoMap
+			DiscoveryConsulMap["publish_info"] = DiscoveryConsulPublishInfoMap
 		}
 		createReq.Spec["discovery_consul"] = DiscoveryConsulMap
 	}
 	if data.DiscoveryK8S != nil {
 		DiscoveryK8SMap := make(map[string]interface{})
 		if data.DiscoveryK8S.AccessInfo != nil {
-			AccessInfoMap := make(map[string]interface{})
+			DiscoveryK8SAccessInfoMap := make(map[string]interface{})
 			if data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
-				ConnectionInfoMap := make(map[string]interface{})
+				DiscoveryK8SAccessInfoConnectionInfoMap := make(map[string]interface{})
 				if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
-					ConnectionInfoMap["api_server"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.ValueString()
+					DiscoveryK8SAccessInfoConnectionInfoMap["api_server"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.ValueString()
 				}
 				if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
-					TLSInfoMap := make(map[string]interface{})
+					DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap := make(map[string]interface{})
 					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
-						TLSInfoMap["certificate"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["certificate"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
 					}
 					if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
-						KeyURLMap := make(map[string]interface{})
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap := make(map[string]interface{})
 						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 							}
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 							}
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 							}
-							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap["blindfold_secret_info"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap
 						}
 						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
 							}
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
 							}
-							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap["clear_secret_info"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap
 						}
-						TLSInfoMap["key_url"] = KeyURLMap
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["key_url"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap
 					}
 					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
-						TLSInfoMap["server_name"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["server_name"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
-						TLSInfoMap["trusted_ca_url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["trusted_ca_url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
 					}
-					ConnectionInfoMap["tls_info"] = TLSInfoMap
+					DiscoveryK8SAccessInfoConnectionInfoMap["tls_info"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap
 				}
-				AccessInfoMap["connection_info"] = ConnectionInfoMap
+				DiscoveryK8SAccessInfoMap["connection_info"] = DiscoveryK8SAccessInfoConnectionInfoMap
 			}
 			if data.DiscoveryK8S.AccessInfo.Isolated != nil {
-				AccessInfoMap["isolated"] = map[string]interface{}{}
+				DiscoveryK8SAccessInfoMap["isolated"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
-				KubeconfigURLMap := make(map[string]interface{})
+				DiscoveryK8SAccessInfoKubeconfigURLMap := make(map[string]interface{})
 				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					KubeconfigURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					DiscoveryK8SAccessInfoKubeconfigURLMap["blindfold_secret_info"] = DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap
 				}
 				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap := make(map[string]interface{})
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.ValueString()
 					}
-					KubeconfigURLMap["clear_secret_info"] = ClearSecretInfoMap
+					DiscoveryK8SAccessInfoKubeconfigURLMap["clear_secret_info"] = DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap
 				}
-				AccessInfoMap["kubeconfig_url"] = KubeconfigURLMap
+				DiscoveryK8SAccessInfoMap["kubeconfig_url"] = DiscoveryK8SAccessInfoKubeconfigURLMap
 			}
 			if data.DiscoveryK8S.AccessInfo.Reachable != nil {
-				AccessInfoMap["reachable"] = map[string]interface{}{}
+				DiscoveryK8SAccessInfoMap["reachable"] = map[string]interface{}{}
 			}
-			DiscoveryK8SMap["access_info"] = AccessInfoMap
+			DiscoveryK8SMap["access_info"] = DiscoveryK8SAccessInfoMap
 		}
 		if data.DiscoveryK8S.DefaultAll != nil {
 			DiscoveryK8SMap["default_all"] = map[string]interface{}{}
 		}
 		if data.DiscoveryK8S.NamespaceMapping != nil {
-			NamespaceMappingMap := make(map[string]interface{})
+			DiscoveryK8SNamespaceMappingMap := make(map[string]interface{})
 			if !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
 				var ItemsElems []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
 				diags := data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsElems, false)
@@ -1469,37 +1469,37 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						ItemsList = append(ItemsList, ItemsItemMap)
 					}
-					NamespaceMappingMap["items"] = ItemsList
+					DiscoveryK8SNamespaceMappingMap["items"] = ItemsList
 				}
 			}
-			DiscoveryK8SMap["namespace_mapping"] = NamespaceMappingMap
+			DiscoveryK8SMap["namespace_mapping"] = DiscoveryK8SNamespaceMappingMap
 		}
 		if data.DiscoveryK8S.PublishInfo != nil {
-			PublishInfoMap := make(map[string]interface{})
+			DiscoveryK8SPublishInfoMap := make(map[string]interface{})
 			if data.DiscoveryK8S.PublishInfo.DisableSpec != nil {
-				PublishInfoMap["disable"] = map[string]interface{}{}
+				DiscoveryK8SPublishInfoMap["disable"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
-				DNSDelegationMap := make(map[string]interface{})
+				DiscoveryK8SPublishInfoDNSDelegationMap := make(map[string]interface{})
 				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsUnknown() {
-					DNSDelegationMap["dns_mode"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.ValueString()
+					DiscoveryK8SPublishInfoDNSDelegationMap["dns_mode"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.ValueString()
 				}
 				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsUnknown() {
-					DNSDelegationMap["subdomain"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.ValueString()
+					DiscoveryK8SPublishInfoDNSDelegationMap["subdomain"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.ValueString()
 				}
-				PublishInfoMap["dns_delegation"] = DNSDelegationMap
+				DiscoveryK8SPublishInfoMap["dns_delegation"] = DiscoveryK8SPublishInfoDNSDelegationMap
 			}
 			if data.DiscoveryK8S.PublishInfo.Publish != nil {
-				PublishMap := make(map[string]interface{})
+				DiscoveryK8SPublishInfoPublishMap := make(map[string]interface{})
 				if !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsNull() && !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsUnknown() {
-					PublishMap["namespace"] = data.DiscoveryK8S.PublishInfo.Publish.Namespace.ValueString()
+					DiscoveryK8SPublishInfoPublishMap["namespace"] = data.DiscoveryK8S.PublishInfo.Publish.Namespace.ValueString()
 				}
-				PublishInfoMap["publish"] = PublishMap
+				DiscoveryK8SPublishInfoMap["publish"] = DiscoveryK8SPublishInfoPublishMap
 			}
 			if data.DiscoveryK8S.PublishInfo.PublishFqdns != nil {
-				PublishInfoMap["publish_fqdns"] = map[string]interface{}{}
+				DiscoveryK8SPublishInfoMap["publish_fqdns"] = map[string]interface{}{}
 			}
-			DiscoveryK8SMap["publish_info"] = PublishInfoMap
+			DiscoveryK8SMap["publish_info"] = DiscoveryK8SPublishInfoMap
 		}
 		createReq.Spec["discovery_k8s"] = DiscoveryK8SMap
 	}
@@ -1509,15 +1509,15 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []DiscoveryWhereSiteRefModel
@@ -1544,13 +1544,13 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []DiscoveryWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1576,21 +1576,21 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []DiscoveryWhereVirtualSiteRefModel
@@ -1617,10 +1617,10 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		createReq.Spec["where"] = WhereMap
 	}
@@ -3343,193 +3343,193 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 	if data.DiscoveryConsul != nil {
 		DiscoveryConsulMap := make(map[string]interface{})
 		if data.DiscoveryConsul.AccessInfo != nil {
-			AccessInfoMap := make(map[string]interface{})
+			DiscoveryConsulAccessInfoMap := make(map[string]interface{})
 			if data.DiscoveryConsul.AccessInfo.ConnectionInfo != nil {
-				ConnectionInfoMap := make(map[string]interface{})
+				DiscoveryConsulAccessInfoConnectionInfoMap := make(map[string]interface{})
 				if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
-					ConnectionInfoMap["api_server"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.ValueString()
+					DiscoveryConsulAccessInfoConnectionInfoMap["api_server"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.APIServer.ValueString()
 				}
 				if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo != nil {
-					TLSInfoMap := make(map[string]interface{})
+					DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap := make(map[string]interface{})
 					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
-						TLSInfoMap["certificate"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["certificate"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
 					}
 					if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
-						KeyURLMap := make(map[string]interface{})
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap := make(map[string]interface{})
 						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 							}
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 							}
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 							}
-							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap["blindfold_secret_info"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap
 						}
 						if data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
 							}
 							if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+								DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
 							}
-							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+							DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap["clear_secret_info"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap
 						}
-						TLSInfoMap["key_url"] = KeyURLMap
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["key_url"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoKeyURLMap
 					}
 					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
-						TLSInfoMap["server_name"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["server_name"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
 					}
 					if !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
-						TLSInfoMap["trusted_ca_url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+						DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap["trusted_ca_url"] = data.DiscoveryConsul.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
 					}
-					ConnectionInfoMap["tls_info"] = TLSInfoMap
+					DiscoveryConsulAccessInfoConnectionInfoMap["tls_info"] = DiscoveryConsulAccessInfoConnectionInfoTLSInfoMap
 				}
-				AccessInfoMap["connection_info"] = ConnectionInfoMap
+				DiscoveryConsulAccessInfoMap["connection_info"] = DiscoveryConsulAccessInfoConnectionInfoMap
 			}
 			if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo != nil {
-				HTTPBasicAuthInfoMap := make(map[string]interface{})
+				DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap := make(map[string]interface{})
 				if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL != nil {
-					PasswdURLMap := make(map[string]interface{})
+					DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap := make(map[string]interface{})
 					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap["location"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PasswdURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap["blindfold_secret_info"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLBlindfoldSecretInfoMap
 					}
 					if data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap["provider"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.ValueString()
+							DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap["url"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.PasswdURL.ClearSecretInfo.URL.ValueString()
 						}
-						PasswdURLMap["clear_secret_info"] = ClearSecretInfoMap
+						DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap["clear_secret_info"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLClearSecretInfoMap
 					}
-					HTTPBasicAuthInfoMap["passwd_url"] = PasswdURLMap
+					DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap["passwd_url"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoPasswdURLMap
 				}
 				if !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsNull() && !data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.IsUnknown() {
-					HTTPBasicAuthInfoMap["user_name"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.ValueString()
+					DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap["user_name"] = data.DiscoveryConsul.AccessInfo.HTTPBasicAuthInfo.UserName.ValueString()
 				}
-				AccessInfoMap["http_basic_auth_info"] = HTTPBasicAuthInfoMap
+				DiscoveryConsulAccessInfoMap["http_basic_auth_info"] = DiscoveryConsulAccessInfoHTTPBasicAuthInfoMap
 			}
-			DiscoveryConsulMap["access_info"] = AccessInfoMap
+			DiscoveryConsulMap["access_info"] = DiscoveryConsulAccessInfoMap
 		}
 		if data.DiscoveryConsul.PublishInfo != nil {
-			PublishInfoMap := make(map[string]interface{})
+			DiscoveryConsulPublishInfoMap := make(map[string]interface{})
 			if data.DiscoveryConsul.PublishInfo.DisableSpec != nil {
-				PublishInfoMap["disable"] = map[string]interface{}{}
+				DiscoveryConsulPublishInfoMap["disable"] = map[string]interface{}{}
 			}
 			if data.DiscoveryConsul.PublishInfo.Publish != nil {
-				PublishInfoMap["publish"] = map[string]interface{}{}
+				DiscoveryConsulPublishInfoMap["publish"] = map[string]interface{}{}
 			}
-			DiscoveryConsulMap["publish_info"] = PublishInfoMap
+			DiscoveryConsulMap["publish_info"] = DiscoveryConsulPublishInfoMap
 		}
 		apiResource.Spec["discovery_consul"] = DiscoveryConsulMap
 	}
 	if data.DiscoveryK8S != nil {
 		DiscoveryK8SMap := make(map[string]interface{})
 		if data.DiscoveryK8S.AccessInfo != nil {
-			AccessInfoMap := make(map[string]interface{})
+			DiscoveryK8SAccessInfoMap := make(map[string]interface{})
 			if data.DiscoveryK8S.AccessInfo.ConnectionInfo != nil {
-				ConnectionInfoMap := make(map[string]interface{})
+				DiscoveryK8SAccessInfoConnectionInfoMap := make(map[string]interface{})
 				if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.IsUnknown() {
-					ConnectionInfoMap["api_server"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.ValueString()
+					DiscoveryK8SAccessInfoConnectionInfoMap["api_server"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.APIServer.ValueString()
 				}
 				if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo != nil {
-					TLSInfoMap := make(map[string]interface{})
+					DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap := make(map[string]interface{})
 					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.IsUnknown() {
-						TLSInfoMap["certificate"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["certificate"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.Certificate.ValueString()
 					}
 					if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL != nil {
-						KeyURLMap := make(map[string]interface{})
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap := make(map[string]interface{})
 						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo != nil {
-							BlindfoldSecretInfoMap := make(map[string]interface{})
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 							}
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-								BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 							}
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-								BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 							}
-							KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap["blindfold_secret_info"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLBlindfoldSecretInfoMap
 						}
 						if data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo != nil {
-							ClearSecretInfoMap := make(map[string]interface{})
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap := make(map[string]interface{})
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-								ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.Provider.ValueString()
 							}
 							if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-								ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
+								DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.KeyURL.ClearSecretInfo.URL.ValueString()
 							}
-							KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+							DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap["clear_secret_info"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLClearSecretInfoMap
 						}
-						TLSInfoMap["key_url"] = KeyURLMap
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["key_url"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoKeyURLMap
 					}
 					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.IsUnknown() {
-						TLSInfoMap["server_name"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["server_name"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.ServerName.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsNull() && !data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.IsUnknown() {
-						TLSInfoMap["trusted_ca_url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
+						DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap["trusted_ca_url"] = data.DiscoveryK8S.AccessInfo.ConnectionInfo.TLSInfo.TrustedCAURL.ValueString()
 					}
-					ConnectionInfoMap["tls_info"] = TLSInfoMap
+					DiscoveryK8SAccessInfoConnectionInfoMap["tls_info"] = DiscoveryK8SAccessInfoConnectionInfoTLSInfoMap
 				}
-				AccessInfoMap["connection_info"] = ConnectionInfoMap
+				DiscoveryK8SAccessInfoMap["connection_info"] = DiscoveryK8SAccessInfoConnectionInfoMap
 			}
 			if data.DiscoveryK8S.AccessInfo.Isolated != nil {
-				AccessInfoMap["isolated"] = map[string]interface{}{}
+				DiscoveryK8SAccessInfoMap["isolated"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.AccessInfo.KubeconfigURL != nil {
-				KubeconfigURLMap := make(map[string]interface{})
+				DiscoveryK8SAccessInfoKubeconfigURLMap := make(map[string]interface{})
 				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap["decryption_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap["location"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap["store_provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					KubeconfigURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					DiscoveryK8SAccessInfoKubeconfigURLMap["blindfold_secret_info"] = DiscoveryK8SAccessInfoKubeconfigURLBlindfoldSecretInfoMap
 				}
 				if data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap := make(map[string]interface{})
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap["provider"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsNull() && !data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.ValueString()
+						DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap["url"] = data.DiscoveryK8S.AccessInfo.KubeconfigURL.ClearSecretInfo.URL.ValueString()
 					}
-					KubeconfigURLMap["clear_secret_info"] = ClearSecretInfoMap
+					DiscoveryK8SAccessInfoKubeconfigURLMap["clear_secret_info"] = DiscoveryK8SAccessInfoKubeconfigURLClearSecretInfoMap
 				}
-				AccessInfoMap["kubeconfig_url"] = KubeconfigURLMap
+				DiscoveryK8SAccessInfoMap["kubeconfig_url"] = DiscoveryK8SAccessInfoKubeconfigURLMap
 			}
 			if data.DiscoveryK8S.AccessInfo.Reachable != nil {
-				AccessInfoMap["reachable"] = map[string]interface{}{}
+				DiscoveryK8SAccessInfoMap["reachable"] = map[string]interface{}{}
 			}
-			DiscoveryK8SMap["access_info"] = AccessInfoMap
+			DiscoveryK8SMap["access_info"] = DiscoveryK8SAccessInfoMap
 		}
 		if data.DiscoveryK8S.DefaultAll != nil {
 			DiscoveryK8SMap["default_all"] = map[string]interface{}{}
 		}
 		if data.DiscoveryK8S.NamespaceMapping != nil {
-			NamespaceMappingMap := make(map[string]interface{})
+			DiscoveryK8SNamespaceMappingMap := make(map[string]interface{})
 			if !data.DiscoveryK8S.NamespaceMapping.Items.IsNull() && !data.DiscoveryK8S.NamespaceMapping.Items.IsUnknown() {
 				var ItemsElems []DiscoveryDiscoveryK8SNamespaceMappingItemsModel
 				diags := data.DiscoveryK8S.NamespaceMapping.Items.ElementsAs(ctx, &ItemsElems, false)
@@ -3546,37 +3546,37 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						ItemsList = append(ItemsList, ItemsItemMap)
 					}
-					NamespaceMappingMap["items"] = ItemsList
+					DiscoveryK8SNamespaceMappingMap["items"] = ItemsList
 				}
 			}
-			DiscoveryK8SMap["namespace_mapping"] = NamespaceMappingMap
+			DiscoveryK8SMap["namespace_mapping"] = DiscoveryK8SNamespaceMappingMap
 		}
 		if data.DiscoveryK8S.PublishInfo != nil {
-			PublishInfoMap := make(map[string]interface{})
+			DiscoveryK8SPublishInfoMap := make(map[string]interface{})
 			if data.DiscoveryK8S.PublishInfo.DisableSpec != nil {
-				PublishInfoMap["disable"] = map[string]interface{}{}
+				DiscoveryK8SPublishInfoMap["disable"] = map[string]interface{}{}
 			}
 			if data.DiscoveryK8S.PublishInfo.DNSDelegation != nil {
-				DNSDelegationMap := make(map[string]interface{})
+				DiscoveryK8SPublishInfoDNSDelegationMap := make(map[string]interface{})
 				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.IsUnknown() {
-					DNSDelegationMap["dns_mode"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.ValueString()
+					DiscoveryK8SPublishInfoDNSDelegationMap["dns_mode"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.DNSMode.ValueString()
 				}
 				if !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsNull() && !data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.IsUnknown() {
-					DNSDelegationMap["subdomain"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.ValueString()
+					DiscoveryK8SPublishInfoDNSDelegationMap["subdomain"] = data.DiscoveryK8S.PublishInfo.DNSDelegation.Subdomain.ValueString()
 				}
-				PublishInfoMap["dns_delegation"] = DNSDelegationMap
+				DiscoveryK8SPublishInfoMap["dns_delegation"] = DiscoveryK8SPublishInfoDNSDelegationMap
 			}
 			if data.DiscoveryK8S.PublishInfo.Publish != nil {
-				PublishMap := make(map[string]interface{})
+				DiscoveryK8SPublishInfoPublishMap := make(map[string]interface{})
 				if !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsNull() && !data.DiscoveryK8S.PublishInfo.Publish.Namespace.IsUnknown() {
-					PublishMap["namespace"] = data.DiscoveryK8S.PublishInfo.Publish.Namespace.ValueString()
+					DiscoveryK8SPublishInfoPublishMap["namespace"] = data.DiscoveryK8S.PublishInfo.Publish.Namespace.ValueString()
 				}
-				PublishInfoMap["publish"] = PublishMap
+				DiscoveryK8SPublishInfoMap["publish"] = DiscoveryK8SPublishInfoPublishMap
 			}
 			if data.DiscoveryK8S.PublishInfo.PublishFqdns != nil {
-				PublishInfoMap["publish_fqdns"] = map[string]interface{}{}
+				DiscoveryK8SPublishInfoMap["publish_fqdns"] = map[string]interface{}{}
 			}
-			DiscoveryK8SMap["publish_info"] = PublishInfoMap
+			DiscoveryK8SMap["publish_info"] = DiscoveryK8SPublishInfoMap
 		}
 		apiResource.Spec["discovery_k8s"] = DiscoveryK8SMap
 	}
@@ -3586,15 +3586,15 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []DiscoveryWhereSiteRefModel
@@ -3621,13 +3621,13 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []DiscoveryWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -3653,21 +3653,21 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []DiscoveryWhereVirtualSiteRefModel
@@ -3694,10 +3694,10 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		apiResource.Spec["where"] = WhereMap
 	}

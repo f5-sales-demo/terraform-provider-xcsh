@@ -418,23 +418,23 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 					SiteSubnetParamsItemMap["dhcp"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.Site != nil {
-					SiteMap := make(map[string]interface{})
+					SiteSubnetParamsSiteMap := make(map[string]interface{})
 					if !SiteSubnetParamsItem.Site.Name.IsNull() && !SiteSubnetParamsItem.Site.Name.IsUnknown() {
-						SiteMap["name"] = SiteSubnetParamsItem.Site.Name.ValueString()
+						SiteSubnetParamsSiteMap["name"] = SiteSubnetParamsItem.Site.Name.ValueString()
 					}
 					if !SiteSubnetParamsItem.Site.Namespace.IsNull() && !SiteSubnetParamsItem.Site.Namespace.IsUnknown() {
-						SiteMap["namespace"] = SiteSubnetParamsItem.Site.Namespace.ValueString()
+						SiteSubnetParamsSiteMap["namespace"] = SiteSubnetParamsItem.Site.Namespace.ValueString()
 					}
 					if !SiteSubnetParamsItem.Site.Tenant.IsNull() && !SiteSubnetParamsItem.Site.Tenant.IsUnknown() {
-						SiteMap["tenant"] = SiteSubnetParamsItem.Site.Tenant.ValueString()
+						SiteSubnetParamsSiteMap["tenant"] = SiteSubnetParamsItem.Site.Tenant.ValueString()
 					}
-					SiteSubnetParamsItemMap["site"] = SiteMap
+					SiteSubnetParamsItemMap["site"] = SiteSubnetParamsSiteMap
 				}
 				if SiteSubnetParamsItem.StaticIP != nil {
 					SiteSubnetParamsItemMap["static_ip"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.SubnetDHCPServerParams != nil {
-					SubnetDHCPServerParamsMap := make(map[string]interface{})
+					SiteSubnetParamsSubnetDHCPServerParamsMap := make(map[string]interface{})
 					if !SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks.IsNull() && !SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks.IsUnknown() {
 						var DHCPNetworksElems []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
 						diags := SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
@@ -448,10 +448,10 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 								}
 								DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 							}
-							SubnetDHCPServerParamsMap["dhcp_networks"] = DHCPNetworksList
+							SiteSubnetParamsSubnetDHCPServerParamsMap["dhcp_networks"] = DHCPNetworksList
 						}
 					}
-					SiteSubnetParamsItemMap["subnet_dhcp_server_params"] = SubnetDHCPServerParamsMap
+					SiteSubnetParamsItemMap["subnet_dhcp_server_params"] = SiteSubnetParamsSubnetDHCPServerParamsMap
 				}
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SiteSubnetParamsItemMap)
 			}
@@ -461,17 +461,17 @@ func (r *SubnetResource) Create(ctx context.Context, req resource.CreateRequest,
 	if data.ConnectToLayer2 != nil {
 		ConnectToLayer2Map := make(map[string]interface{})
 		if data.ConnectToLayer2.Layer2IntfRef != nil {
-			Layer2IntfRefMap := make(map[string]interface{})
+			ConnectToLayer2Layer2IntfRefMap := make(map[string]interface{})
 			if !data.ConnectToLayer2.Layer2IntfRef.Name.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Name.IsUnknown() {
-				Layer2IntfRefMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
+				ConnectToLayer2Layer2IntfRefMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsUnknown() {
-				Layer2IntfRefMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
+				ConnectToLayer2Layer2IntfRefMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsUnknown() {
-				Layer2IntfRefMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
+				ConnectToLayer2Layer2IntfRefMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
 			}
-			ConnectToLayer2Map["layer2_intf_ref"] = Layer2IntfRefMap
+			ConnectToLayer2Map["layer2_intf_ref"] = ConnectToLayer2Layer2IntfRefMap
 		}
 		createReq.Spec["connect_to_layer2"] = ConnectToLayer2Map
 	}
@@ -930,23 +930,23 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 					SiteSubnetParamsItemMap["dhcp"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.Site != nil {
-					SiteMap := make(map[string]interface{})
+					SiteSubnetParamsSiteMap := make(map[string]interface{})
 					if !SiteSubnetParamsItem.Site.Name.IsNull() && !SiteSubnetParamsItem.Site.Name.IsUnknown() {
-						SiteMap["name"] = SiteSubnetParamsItem.Site.Name.ValueString()
+						SiteSubnetParamsSiteMap["name"] = SiteSubnetParamsItem.Site.Name.ValueString()
 					}
 					if !SiteSubnetParamsItem.Site.Namespace.IsNull() && !SiteSubnetParamsItem.Site.Namespace.IsUnknown() {
-						SiteMap["namespace"] = SiteSubnetParamsItem.Site.Namespace.ValueString()
+						SiteSubnetParamsSiteMap["namespace"] = SiteSubnetParamsItem.Site.Namespace.ValueString()
 					}
 					if !SiteSubnetParamsItem.Site.Tenant.IsNull() && !SiteSubnetParamsItem.Site.Tenant.IsUnknown() {
-						SiteMap["tenant"] = SiteSubnetParamsItem.Site.Tenant.ValueString()
+						SiteSubnetParamsSiteMap["tenant"] = SiteSubnetParamsItem.Site.Tenant.ValueString()
 					}
-					SiteSubnetParamsItemMap["site"] = SiteMap
+					SiteSubnetParamsItemMap["site"] = SiteSubnetParamsSiteMap
 				}
 				if SiteSubnetParamsItem.StaticIP != nil {
 					SiteSubnetParamsItemMap["static_ip"] = map[string]interface{}{}
 				}
 				if SiteSubnetParamsItem.SubnetDHCPServerParams != nil {
-					SubnetDHCPServerParamsMap := make(map[string]interface{})
+					SiteSubnetParamsSubnetDHCPServerParamsMap := make(map[string]interface{})
 					if !SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks.IsNull() && !SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks.IsUnknown() {
 						var DHCPNetworksElems []SubnetSiteSubnetParamsSubnetDHCPServerParamsDHCPNetworksModel
 						diags := SiteSubnetParamsItem.SubnetDHCPServerParams.DHCPNetworks.ElementsAs(ctx, &DHCPNetworksElems, false)
@@ -960,10 +960,10 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 								}
 								DHCPNetworksList = append(DHCPNetworksList, DHCPNetworksItemMap)
 							}
-							SubnetDHCPServerParamsMap["dhcp_networks"] = DHCPNetworksList
+							SiteSubnetParamsSubnetDHCPServerParamsMap["dhcp_networks"] = DHCPNetworksList
 						}
 					}
-					SiteSubnetParamsItemMap["subnet_dhcp_server_params"] = SubnetDHCPServerParamsMap
+					SiteSubnetParamsItemMap["subnet_dhcp_server_params"] = SiteSubnetParamsSubnetDHCPServerParamsMap
 				}
 				SiteSubnetParamsList = append(SiteSubnetParamsList, SiteSubnetParamsItemMap)
 			}
@@ -973,17 +973,17 @@ func (r *SubnetResource) Update(ctx context.Context, req resource.UpdateRequest,
 	if data.ConnectToLayer2 != nil {
 		ConnectToLayer2Map := make(map[string]interface{})
 		if data.ConnectToLayer2.Layer2IntfRef != nil {
-			Layer2IntfRefMap := make(map[string]interface{})
+			ConnectToLayer2Layer2IntfRefMap := make(map[string]interface{})
 			if !data.ConnectToLayer2.Layer2IntfRef.Name.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Name.IsUnknown() {
-				Layer2IntfRefMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
+				ConnectToLayer2Layer2IntfRefMap["name"] = data.ConnectToLayer2.Layer2IntfRef.Name.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Namespace.IsUnknown() {
-				Layer2IntfRefMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
+				ConnectToLayer2Layer2IntfRefMap["namespace"] = data.ConnectToLayer2.Layer2IntfRef.Namespace.ValueString()
 			}
 			if !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsNull() && !data.ConnectToLayer2.Layer2IntfRef.Tenant.IsUnknown() {
-				Layer2IntfRefMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
+				ConnectToLayer2Layer2IntfRefMap["tenant"] = data.ConnectToLayer2.Layer2IntfRef.Tenant.ValueString()
 			}
-			ConnectToLayer2Map["layer2_intf_ref"] = Layer2IntfRefMap
+			ConnectToLayer2Map["layer2_intf_ref"] = ConnectToLayer2Layer2IntfRefMap
 		}
 		apiResource.Spec["connect_to_layer2"] = ConnectToLayer2Map
 	}

@@ -1496,56 +1496,56 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 	if data.AccessInfo != nil {
 		AccessInfoMap := make(map[string]interface{})
 		if data.AccessInfo.RESTAuthInfo != nil {
-			RESTAuthInfoMap := make(map[string]interface{})
+			AccessInfoRESTAuthInfoMap := make(map[string]interface{})
 			if data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
-				BasicAuthMap := make(map[string]interface{})
+				AccessInfoRESTAuthInfoBasicAuthMap := make(map[string]interface{})
 				if data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
-					PasswordMap := make(map[string]interface{})
+					AccessInfoRESTAuthInfoBasicAuthPasswordMap := make(map[string]interface{})
 					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap["location"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AccessInfoRESTAuthInfoBasicAuthPasswordMap["blindfold_secret_info"] = AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap
 					}
 					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap["provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap["url"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
 						}
-						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						AccessInfoRESTAuthInfoBasicAuthPasswordMap["clear_secret_info"] = AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap
 					}
-					BasicAuthMap["password"] = PasswordMap
+					AccessInfoRESTAuthInfoBasicAuthMap["password"] = AccessInfoRESTAuthInfoBasicAuthPasswordMap
 				}
 				if !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsUnknown() {
-					BasicAuthMap["username"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Username.ValueString()
+					AccessInfoRESTAuthInfoBasicAuthMap["username"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Username.ValueString()
 				}
-				RESTAuthInfoMap["basic_auth"] = BasicAuthMap
+				AccessInfoRESTAuthInfoMap["basic_auth"] = AccessInfoRESTAuthInfoBasicAuthMap
 			}
 			if data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
-				HeadersAuthMap := make(map[string]interface{})
+				AccessInfoRESTAuthInfoHeadersAuthMap := make(map[string]interface{})
 				if data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers != nil {
-					HeadersAuthMap["headers"] = map[string]interface{}{}
+					AccessInfoRESTAuthInfoHeadersAuthMap["headers"] = map[string]interface{}{}
 				}
-				RESTAuthInfoMap["headers_auth"] = HeadersAuthMap
+				AccessInfoRESTAuthInfoMap["headers_auth"] = AccessInfoRESTAuthInfoHeadersAuthMap
 			}
 			if data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
-				QueryParamsAuthMap := make(map[string]interface{})
+				AccessInfoRESTAuthInfoQueryParamsAuthMap := make(map[string]interface{})
 				if data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams != nil {
-					QueryParamsAuthMap["query_params"] = map[string]interface{}{}
+					AccessInfoRESTAuthInfoQueryParamsAuthMap["query_params"] = map[string]interface{}{}
 				}
-				RESTAuthInfoMap["query_params_auth"] = QueryParamsAuthMap
+				AccessInfoRESTAuthInfoMap["query_params_auth"] = AccessInfoRESTAuthInfoQueryParamsAuthMap
 			}
-			AccessInfoMap["rest_auth_info"] = RESTAuthInfoMap
+			AccessInfoMap["rest_auth_info"] = AccessInfoRESTAuthInfoMap
 		}
 		if !data.AccessInfo.Scheme.IsNull() && !data.AccessInfo.Scheme.IsUnknown() {
 			AccessInfoMap["scheme"] = data.AccessInfo.Scheme.ValueString()
@@ -1554,9 +1554,9 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			AccessInfoMap["server_endpoint"] = data.AccessInfo.ServerEndpoint.ValueString()
 		}
 		if data.AccessInfo.TLSConfig != nil {
-			TLSConfigMap := make(map[string]interface{})
+			AccessInfoTLSConfigMap := make(map[string]interface{})
 			if data.AccessInfo.TLSConfig.CertParams != nil {
-				CertParamsMap := make(map[string]interface{})
+				AccessInfoTLSConfigCertParamsMap := make(map[string]interface{})
 				if !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
 					var CertificatesElems []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
 					diags := data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
@@ -1582,29 +1582,29 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
-						CertParamsMap["certificates"] = CertificatesList
+						AccessInfoTLSConfigCertParamsMap["certificates"] = CertificatesList
 					}
 				}
 				if !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CertParamsMap["cipher_suites"] = CipherSuitesItems
+						AccessInfoTLSConfigCertParamsMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsUnknown() {
-					CertParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCertParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.ValueString()
 				}
 				if !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsUnknown() {
-					CertParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCertParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.ValueString()
 				}
 				if data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil {
-					ValidationParamsMap := make(map[string]interface{})
+					AccessInfoTLSConfigCertParamsValidationParamsMap := make(map[string]interface{})
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+						AccessInfoTLSConfigCertParamsValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
 					}
 					if data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						AccessInfoTLSConfigCertParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 						if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
 							diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -1630,39 +1630,39 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 									}
 									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 								}
-								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+								AccessInfoTLSConfigCertParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 							}
 						}
-						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+						AccessInfoTLSConfigCertParamsValidationParamsMap["trusted_ca"] = AccessInfoTLSConfigCertParamsValidationParamsTrustedCAMap
 					}
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
-						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.ValueString()
+						AccessInfoTLSConfigCertParamsValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.ValueString()
 					}
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 						if !diags.HasError() {
-							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+							AccessInfoTLSConfigCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
 					}
-					CertParamsMap["validation_params"] = ValidationParamsMap
+					AccessInfoTLSConfigCertParamsMap["validation_params"] = AccessInfoTLSConfigCertParamsValidationParamsMap
 				}
-				TLSConfigMap["cert_params"] = CertParamsMap
+				AccessInfoTLSConfigMap["cert_params"] = AccessInfoTLSConfigCertParamsMap
 			}
 			if data.AccessInfo.TLSConfig.CommonParams != nil {
-				CommonParamsMap := make(map[string]interface{})
+				AccessInfoTLSConfigCommonParamsMap := make(map[string]interface{})
 				if !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CommonParamsMap["cipher_suites"] = CipherSuitesItems
+						AccessInfoTLSConfigCommonParamsMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsUnknown() {
-					CommonParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCommonParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.ValueString()
 				}
 				if !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsUnknown() {
-					CommonParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCommonParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.ValueString()
 				}
 				if !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsUnknown() {
 					var TLSCertificatesElems []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
@@ -1676,15 +1676,15 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
 							if TLSCertificatesItem.CustomHashAlgorithms != nil {
-								CustomHashAlgorithmsMap := make(map[string]interface{})
+								AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 									if !diags.HasError() {
-										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+										AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
 								}
-								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap
 							}
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -1693,47 +1693,47 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
-								PrivateKeyMap := make(map[string]interface{})
+								AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 								}
 								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 									}
-									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap["clear_secret_info"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap
 								}
-								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+								TLSCertificatesItemMap["private_key"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap
 							}
 							if TLSCertificatesItem.UseSystemDefaults != nil {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						CommonParamsMap["tls_certificates"] = TLSCertificatesList
+						AccessInfoTLSConfigCommonParamsMap["tls_certificates"] = TLSCertificatesList
 					}
 				}
 				if data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil {
-					ValidationParamsMap := make(map[string]interface{})
+					AccessInfoTLSConfigCommonParamsValidationParamsMap := make(map[string]interface{})
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+						AccessInfoTLSConfigCommonParamsValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
 					}
 					if data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						AccessInfoTLSConfigCommonParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 						if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
 							diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -1759,124 +1759,124 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 									}
 									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 								}
-								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+								AccessInfoTLSConfigCommonParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 							}
 						}
-						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+						AccessInfoTLSConfigCommonParamsValidationParamsMap["trusted_ca"] = AccessInfoTLSConfigCommonParamsValidationParamsTrustedCAMap
 					}
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
-						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+						AccessInfoTLSConfigCommonParamsValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.ValueString()
 					}
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 						if !diags.HasError() {
-							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+							AccessInfoTLSConfigCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
 					}
-					CommonParamsMap["validation_params"] = ValidationParamsMap
+					AccessInfoTLSConfigCommonParamsMap["validation_params"] = AccessInfoTLSConfigCommonParamsValidationParamsMap
 				}
-				TLSConfigMap["common_params"] = CommonParamsMap
+				AccessInfoTLSConfigMap["common_params"] = AccessInfoTLSConfigCommonParamsMap
 			}
 			if data.AccessInfo.TLSConfig.DefaultSessionKeyCaching != nil {
-				TLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
 			}
 			if data.AccessInfo.TLSConfig.DisableSessionKeyCaching != nil {
-				TLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
 			}
 			if data.AccessInfo.TLSConfig.DisableSni != nil {
-				TLSConfigMap["disable_sni"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["disable_sni"] = map[string]interface{}{}
 			}
 			if !data.AccessInfo.TLSConfig.MaxSessionKeys.IsNull() && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
-				TLSConfigMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
+				AccessInfoTLSConfigMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
 			}
 			if !data.AccessInfo.TLSConfig.Sni.IsNull() && !data.AccessInfo.TLSConfig.Sni.IsUnknown() {
-				TLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
+				AccessInfoTLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
 			}
 			if data.AccessInfo.TLSConfig.UseHostHeaderAsSni != nil {
-				TLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
 			}
-			AccessInfoMap["tls_config"] = TLSConfigMap
+			AccessInfoMap["tls_config"] = AccessInfoTLSConfigMap
 		}
 		if data.AccessInfo.VaultAuthInfo != nil {
-			VaultAuthInfoMap := make(map[string]interface{})
+			AccessInfoVaultAuthInfoMap := make(map[string]interface{})
 			if data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
-				AppRoleAuthMap := make(map[string]interface{})
+				AccessInfoVaultAuthInfoAppRoleAuthMap := make(map[string]interface{})
 				if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsUnknown() {
-					AppRoleAuthMap["role_id"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.ValueString()
+					AccessInfoVaultAuthInfoAppRoleAuthMap["role_id"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.ValueString()
 				}
 				if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
-					SecretIDMap := make(map[string]interface{})
+					AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap := make(map[string]interface{})
 					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretIDMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap["blindfold_secret_info"] = AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap
 					}
 					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.ValueString()
 						}
-						SecretIDMap["clear_secret_info"] = ClearSecretInfoMap
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap["clear_secret_info"] = AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap
 					}
-					AppRoleAuthMap["secret_id"] = SecretIDMap
+					AccessInfoVaultAuthInfoAppRoleAuthMap["secret_id"] = AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap
 				}
-				VaultAuthInfoMap["app_role_auth"] = AppRoleAuthMap
+				AccessInfoVaultAuthInfoMap["app_role_auth"] = AccessInfoVaultAuthInfoAppRoleAuthMap
 			}
 			if data.AccessInfo.VaultAuthInfo.Token != nil {
-				TokenMap := make(map[string]interface{})
+				AccessInfoVaultAuthInfoTokenMap := make(map[string]interface{})
 				if data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.ValueString()
+						AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+						AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					AccessInfoVaultAuthInfoTokenMap["blindfold_secret_info"] = AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap
 				}
 				if data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					AccessInfoVaultAuthInfoTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.ValueString()
+						AccessInfoVaultAuthInfoTokenClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.ValueString()
+						AccessInfoVaultAuthInfoTokenClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.ValueString()
 					}
-					TokenMap["clear_secret_info"] = ClearSecretInfoMap
+					AccessInfoVaultAuthInfoTokenMap["clear_secret_info"] = AccessInfoVaultAuthInfoTokenClearSecretInfoMap
 				}
-				VaultAuthInfoMap["token"] = TokenMap
+				AccessInfoVaultAuthInfoMap["token"] = AccessInfoVaultAuthInfoTokenMap
 			}
-			AccessInfoMap["vault_auth_info"] = VaultAuthInfoMap
+			AccessInfoMap["vault_auth_info"] = AccessInfoVaultAuthInfoMap
 		}
 		createReq.Spec["access_info"] = AccessInfoMap
 	}
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []SecretManagementAccessWhereSiteRefModel
@@ -1903,13 +1903,13 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []SecretManagementAccessWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -1935,21 +1935,21 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []SecretManagementAccessWhereVirtualSiteRefModel
@@ -1976,10 +1976,10 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		createReq.Spec["where"] = WhereMap
 	}
@@ -4176,56 +4176,56 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 	if data.AccessInfo != nil {
 		AccessInfoMap := make(map[string]interface{})
 		if data.AccessInfo.RESTAuthInfo != nil {
-			RESTAuthInfoMap := make(map[string]interface{})
+			AccessInfoRESTAuthInfoMap := make(map[string]interface{})
 			if data.AccessInfo.RESTAuthInfo.BasicAuth != nil {
-				BasicAuthMap := make(map[string]interface{})
+				AccessInfoRESTAuthInfoBasicAuthMap := make(map[string]interface{})
 				if data.AccessInfo.RESTAuthInfo.BasicAuth.Password != nil {
-					PasswordMap := make(map[string]interface{})
+					AccessInfoRESTAuthInfoBasicAuthPasswordMap := make(map[string]interface{})
 					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap["location"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AccessInfoRESTAuthInfoBasicAuthPasswordMap["blindfold_secret_info"] = AccessInfoRESTAuthInfoBasicAuthPasswordBlindfoldSecretInfoMap
 					}
 					if data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap["provider"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
+							AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap["url"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Password.ClearSecretInfo.URL.ValueString()
 						}
-						PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+						AccessInfoRESTAuthInfoBasicAuthPasswordMap["clear_secret_info"] = AccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfoMap
 					}
-					BasicAuthMap["password"] = PasswordMap
+					AccessInfoRESTAuthInfoBasicAuthMap["password"] = AccessInfoRESTAuthInfoBasicAuthPasswordMap
 				}
 				if !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsNull() && !data.AccessInfo.RESTAuthInfo.BasicAuth.Username.IsUnknown() {
-					BasicAuthMap["username"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Username.ValueString()
+					AccessInfoRESTAuthInfoBasicAuthMap["username"] = data.AccessInfo.RESTAuthInfo.BasicAuth.Username.ValueString()
 				}
-				RESTAuthInfoMap["basic_auth"] = BasicAuthMap
+				AccessInfoRESTAuthInfoMap["basic_auth"] = AccessInfoRESTAuthInfoBasicAuthMap
 			}
 			if data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
-				HeadersAuthMap := make(map[string]interface{})
+				AccessInfoRESTAuthInfoHeadersAuthMap := make(map[string]interface{})
 				if data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers != nil {
-					HeadersAuthMap["headers"] = map[string]interface{}{}
+					AccessInfoRESTAuthInfoHeadersAuthMap["headers"] = map[string]interface{}{}
 				}
-				RESTAuthInfoMap["headers_auth"] = HeadersAuthMap
+				AccessInfoRESTAuthInfoMap["headers_auth"] = AccessInfoRESTAuthInfoHeadersAuthMap
 			}
 			if data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
-				QueryParamsAuthMap := make(map[string]interface{})
+				AccessInfoRESTAuthInfoQueryParamsAuthMap := make(map[string]interface{})
 				if data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams != nil {
-					QueryParamsAuthMap["query_params"] = map[string]interface{}{}
+					AccessInfoRESTAuthInfoQueryParamsAuthMap["query_params"] = map[string]interface{}{}
 				}
-				RESTAuthInfoMap["query_params_auth"] = QueryParamsAuthMap
+				AccessInfoRESTAuthInfoMap["query_params_auth"] = AccessInfoRESTAuthInfoQueryParamsAuthMap
 			}
-			AccessInfoMap["rest_auth_info"] = RESTAuthInfoMap
+			AccessInfoMap["rest_auth_info"] = AccessInfoRESTAuthInfoMap
 		}
 		if !data.AccessInfo.Scheme.IsNull() && !data.AccessInfo.Scheme.IsUnknown() {
 			AccessInfoMap["scheme"] = data.AccessInfo.Scheme.ValueString()
@@ -4234,9 +4234,9 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			AccessInfoMap["server_endpoint"] = data.AccessInfo.ServerEndpoint.ValueString()
 		}
 		if data.AccessInfo.TLSConfig != nil {
-			TLSConfigMap := make(map[string]interface{})
+			AccessInfoTLSConfigMap := make(map[string]interface{})
 			if data.AccessInfo.TLSConfig.CertParams != nil {
-				CertParamsMap := make(map[string]interface{})
+				AccessInfoTLSConfigCertParamsMap := make(map[string]interface{})
 				if !data.AccessInfo.TLSConfig.CertParams.Certificates.IsNull() && !data.AccessInfo.TLSConfig.CertParams.Certificates.IsUnknown() {
 					var CertificatesElems []SecretManagementAccessAccessInfoTLSConfigCertParamsCertificatesModel
 					diags := data.AccessInfo.TLSConfig.CertParams.Certificates.ElementsAs(ctx, &CertificatesElems, false)
@@ -4262,29 +4262,29 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							}
 							CertificatesList = append(CertificatesList, CertificatesItemMap)
 						}
-						CertParamsMap["certificates"] = CertificatesList
+						AccessInfoTLSConfigCertParamsMap["certificates"] = CertificatesList
 					}
 				}
 				if !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CertParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CertParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CertParamsMap["cipher_suites"] = CipherSuitesItems
+						AccessInfoTLSConfigCertParamsMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.IsUnknown() {
-					CertParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCertParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MaximumProtocolVersion.ValueString()
 				}
 				if !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.IsUnknown() {
-					CertParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCertParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CertParams.MinimumProtocolVersion.ValueString()
 				}
 				if data.AccessInfo.TLSConfig.CertParams.ValidationParams != nil {
-					ValidationParamsMap := make(map[string]interface{})
+					AccessInfoTLSConfigCertParamsValidationParamsMap := make(map[string]interface{})
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+						AccessInfoTLSConfigCertParamsValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.SkipHostnameVerification.ValueBool()
 					}
 					if data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						AccessInfoTLSConfigCertParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 						if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCertParamsValidationParamsTrustedCATrustedCAListModel
 							diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -4310,39 +4310,39 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 									}
 									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 								}
-								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+								AccessInfoTLSConfigCertParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 							}
 						}
-						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+						AccessInfoTLSConfigCertParamsValidationParamsMap["trusted_ca"] = AccessInfoTLSConfigCertParamsValidationParamsTrustedCAMap
 					}
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.IsUnknown() {
-						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.ValueString()
+						AccessInfoTLSConfigCertParamsValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CertParams.ValidationParams.TrustedCAURL.ValueString()
 					}
 					if !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 						if !diags.HasError() {
-							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+							AccessInfoTLSConfigCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
 					}
-					CertParamsMap["validation_params"] = ValidationParamsMap
+					AccessInfoTLSConfigCertParamsMap["validation_params"] = AccessInfoTLSConfigCertParamsValidationParamsMap
 				}
-				TLSConfigMap["cert_params"] = CertParamsMap
+				AccessInfoTLSConfigMap["cert_params"] = AccessInfoTLSConfigCertParamsMap
 			}
 			if data.AccessInfo.TLSConfig.CommonParams != nil {
-				CommonParamsMap := make(map[string]interface{})
+				AccessInfoTLSConfigCommonParamsMap := make(map[string]interface{})
 				if !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.CipherSuites.IsUnknown() {
 					var CipherSuitesItems []string
 					diags := data.AccessInfo.TLSConfig.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 					if !diags.HasError() {
-						CommonParamsMap["cipher_suites"] = CipherSuitesItems
+						AccessInfoTLSConfigCommonParamsMap["cipher_suites"] = CipherSuitesItems
 					}
 				}
 				if !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.IsUnknown() {
-					CommonParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCommonParamsMap["maximum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MaximumProtocolVersion.ValueString()
 				}
 				if !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.IsUnknown() {
-					CommonParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.ValueString()
+					AccessInfoTLSConfigCommonParamsMap["minimum_protocol_version"] = data.AccessInfo.TLSConfig.CommonParams.MinimumProtocolVersion.ValueString()
 				}
 				if !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.TLSCertificates.IsUnknown() {
 					var TLSCertificatesElems []SecretManagementAccessAccessInfoTLSConfigCommonParamsTLSCertificatesModel
@@ -4356,15 +4356,15 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 								TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 							}
 							if TLSCertificatesItem.CustomHashAlgorithms != nil {
-								CustomHashAlgorithmsMap := make(map[string]interface{})
+								AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 								if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 									var HashAlgorithmsItems []string
 									diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 									if !diags.HasError() {
-										CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+										AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 									}
 								}
-								TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+								TLSCertificatesItemMap["custom_hash_algorithms"] = AccessInfoTLSConfigCommonParamsTLSCertificatesCustomHashAlgorithmsMap
 							}
 							if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 								TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -4373,47 +4373,47 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 								TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 							}
 							if TLSCertificatesItem.PrivateKey != nil {
-								PrivateKeyMap := make(map[string]interface{})
+								AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 								if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-									BlindfoldSecretInfoMap := make(map[string]interface{})
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-										BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-										BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 									}
-									PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 								}
 								if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-									ClearSecretInfoMap := make(map[string]interface{})
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-										ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 									}
 									if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-										ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+										AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 									}
-									PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+									AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap["clear_secret_info"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap
 								}
-								TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+								TLSCertificatesItemMap["private_key"] = AccessInfoTLSConfigCommonParamsTLSCertificatesPrivateKeyMap
 							}
 							if TLSCertificatesItem.UseSystemDefaults != nil {
 								TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 							}
 							TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 						}
-						CommonParamsMap["tls_certificates"] = TLSCertificatesList
+						AccessInfoTLSConfigCommonParamsMap["tls_certificates"] = TLSCertificatesList
 					}
 				}
 				if data.AccessInfo.TLSConfig.CommonParams.ValidationParams != nil {
-					ValidationParamsMap := make(map[string]interface{})
+					AccessInfoTLSConfigCommonParamsValidationParamsMap := make(map[string]interface{})
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-						ValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+						AccessInfoTLSConfigCommonParamsValidationParamsMap["skip_hostname_verification"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
 					}
 					if data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA != nil {
-						TrustedCAMap := make(map[string]interface{})
+						AccessInfoTLSConfigCommonParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 						if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 							var TrustedCAListElems []SecretManagementAccessAccessInfoTLSConfigCommonParamsValidationParamsTrustedCATrustedCAListModel
 							diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -4439,124 +4439,124 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 									}
 									TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 								}
-								TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+								AccessInfoTLSConfigCommonParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 							}
 						}
-						ValidationParamsMap["trusted_ca"] = TrustedCAMap
+						AccessInfoTLSConfigCommonParamsValidationParamsMap["trusted_ca"] = AccessInfoTLSConfigCommonParamsValidationParamsTrustedCAMap
 					}
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
-						ValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+						AccessInfoTLSConfigCommonParamsValidationParamsMap["trusted_ca_url"] = data.AccessInfo.TLSConfig.CommonParams.ValidationParams.TrustedCAURL.ValueString()
 					}
 					if !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 						var VerifySubjectAltNamesItems []string
 						diags := data.AccessInfo.TLSConfig.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 						if !diags.HasError() {
-							ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+							AccessInfoTLSConfigCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 						}
 					}
-					CommonParamsMap["validation_params"] = ValidationParamsMap
+					AccessInfoTLSConfigCommonParamsMap["validation_params"] = AccessInfoTLSConfigCommonParamsValidationParamsMap
 				}
-				TLSConfigMap["common_params"] = CommonParamsMap
+				AccessInfoTLSConfigMap["common_params"] = AccessInfoTLSConfigCommonParamsMap
 			}
 			if data.AccessInfo.TLSConfig.DefaultSessionKeyCaching != nil {
-				TLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["default_session_key_caching"] = map[string]interface{}{}
 			}
 			if data.AccessInfo.TLSConfig.DisableSessionKeyCaching != nil {
-				TLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["disable_session_key_caching"] = map[string]interface{}{}
 			}
 			if data.AccessInfo.TLSConfig.DisableSni != nil {
-				TLSConfigMap["disable_sni"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["disable_sni"] = map[string]interface{}{}
 			}
 			if !data.AccessInfo.TLSConfig.MaxSessionKeys.IsNull() && !data.AccessInfo.TLSConfig.MaxSessionKeys.IsUnknown() {
-				TLSConfigMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
+				AccessInfoTLSConfigMap["max_session_keys"] = data.AccessInfo.TLSConfig.MaxSessionKeys.ValueInt64()
 			}
 			if !data.AccessInfo.TLSConfig.Sni.IsNull() && !data.AccessInfo.TLSConfig.Sni.IsUnknown() {
-				TLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
+				AccessInfoTLSConfigMap["sni"] = data.AccessInfo.TLSConfig.Sni.ValueString()
 			}
 			if data.AccessInfo.TLSConfig.UseHostHeaderAsSni != nil {
-				TLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
+				AccessInfoTLSConfigMap["use_host_header_as_sni"] = map[string]interface{}{}
 			}
-			AccessInfoMap["tls_config"] = TLSConfigMap
+			AccessInfoMap["tls_config"] = AccessInfoTLSConfigMap
 		}
 		if data.AccessInfo.VaultAuthInfo != nil {
-			VaultAuthInfoMap := make(map[string]interface{})
+			AccessInfoVaultAuthInfoMap := make(map[string]interface{})
 			if data.AccessInfo.VaultAuthInfo.AppRoleAuth != nil {
-				AppRoleAuthMap := make(map[string]interface{})
+				AccessInfoVaultAuthInfoAppRoleAuthMap := make(map[string]interface{})
 				if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.IsUnknown() {
-					AppRoleAuthMap["role_id"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.ValueString()
+					AccessInfoVaultAuthInfoAppRoleAuthMap["role_id"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.RoleID.ValueString()
 				}
 				if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID != nil {
-					SecretIDMap := make(map[string]interface{})
+					AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap := make(map[string]interface{})
 					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretIDMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap["blindfold_secret_info"] = AccessInfoVaultAuthInfoAppRoleAuthSecretIDBlindfoldSecretInfoMap
 					}
 					if data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap := make(map[string]interface{})
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.ValueString()
+							AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.AppRoleAuth.SecretID.ClearSecretInfo.URL.ValueString()
 						}
-						SecretIDMap["clear_secret_info"] = ClearSecretInfoMap
+						AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap["clear_secret_info"] = AccessInfoVaultAuthInfoAppRoleAuthSecretIDClearSecretInfoMap
 					}
-					AppRoleAuthMap["secret_id"] = SecretIDMap
+					AccessInfoVaultAuthInfoAppRoleAuthMap["secret_id"] = AccessInfoVaultAuthInfoAppRoleAuthSecretIDMap
 				}
-				VaultAuthInfoMap["app_role_auth"] = AppRoleAuthMap
+				AccessInfoVaultAuthInfoMap["app_role_auth"] = AccessInfoVaultAuthInfoAppRoleAuthMap
 			}
 			if data.AccessInfo.VaultAuthInfo.Token != nil {
-				TokenMap := make(map[string]interface{})
+				AccessInfoVaultAuthInfoTokenMap := make(map[string]interface{})
 				if data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo != nil {
-					BlindfoldSecretInfoMap := make(map[string]interface{})
+					AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap := make(map[string]interface{})
 					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+						AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap["decryption_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 					}
 					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.IsUnknown() {
-						BlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.ValueString()
+						AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap["location"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.Location.ValueString()
 					}
 					if !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-						BlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
+						AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap["store_provider"] = data.AccessInfo.VaultAuthInfo.Token.BlindfoldSecretInfo.StoreProvider.ValueString()
 					}
-					TokenMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+					AccessInfoVaultAuthInfoTokenMap["blindfold_secret_info"] = AccessInfoVaultAuthInfoTokenBlindfoldSecretInfoMap
 				}
 				if data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo != nil {
-					ClearSecretInfoMap := make(map[string]interface{})
+					AccessInfoVaultAuthInfoTokenClearSecretInfoMap := make(map[string]interface{})
 					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.IsUnknown() {
-						ClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.ValueString()
+						AccessInfoVaultAuthInfoTokenClearSecretInfoMap["provider"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.Provider.ValueString()
 					}
 					if !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsNull() && !data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.IsUnknown() {
-						ClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.ValueString()
+						AccessInfoVaultAuthInfoTokenClearSecretInfoMap["url"] = data.AccessInfo.VaultAuthInfo.Token.ClearSecretInfo.URL.ValueString()
 					}
-					TokenMap["clear_secret_info"] = ClearSecretInfoMap
+					AccessInfoVaultAuthInfoTokenMap["clear_secret_info"] = AccessInfoVaultAuthInfoTokenClearSecretInfoMap
 				}
-				VaultAuthInfoMap["token"] = TokenMap
+				AccessInfoVaultAuthInfoMap["token"] = AccessInfoVaultAuthInfoTokenMap
 			}
-			AccessInfoMap["vault_auth_info"] = VaultAuthInfoMap
+			AccessInfoMap["vault_auth_info"] = AccessInfoVaultAuthInfoMap
 		}
 		apiResource.Spec["access_info"] = AccessInfoMap
 	}
 	if data.Where != nil {
 		WhereMap := make(map[string]interface{})
 		if data.Where.Site != nil {
-			SiteMap := make(map[string]interface{})
+			WhereSiteMap := make(map[string]interface{})
 			if data.Where.Site.DisableInternetVIP != nil {
-				SiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.Site.EnableInternetVIP != nil {
-				SiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.Site.NetworkType.IsNull() && !data.Where.Site.NetworkType.IsUnknown() {
-				SiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
+				WhereSiteMap["network_type"] = data.Where.Site.NetworkType.ValueString()
 			}
 			if !data.Where.Site.Ref.IsNull() && !data.Where.Site.Ref.IsUnknown() {
 				var RefElems []SecretManagementAccessWhereSiteRefModel
@@ -4583,13 +4583,13 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					SiteMap["ref"] = RefList
+					WhereSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["site"] = SiteMap
+			WhereMap["site"] = WhereSiteMap
 		}
 		if data.Where.VirtualNetwork != nil {
-			VirtualNetworkMap := make(map[string]interface{})
+			WhereVirtualNetworkMap := make(map[string]interface{})
 			if !data.Where.VirtualNetwork.Ref.IsNull() && !data.Where.VirtualNetwork.Ref.IsUnknown() {
 				var RefElems []SecretManagementAccessWhereVirtualNetworkRefModel
 				diags := data.Where.VirtualNetwork.Ref.ElementsAs(ctx, &RefElems, false)
@@ -4615,21 +4615,21 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualNetworkMap["ref"] = RefList
+					WhereVirtualNetworkMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_network"] = VirtualNetworkMap
+			WhereMap["virtual_network"] = WhereVirtualNetworkMap
 		}
 		if data.Where.VirtualSite != nil {
-			VirtualSiteMap := make(map[string]interface{})
+			WhereVirtualSiteMap := make(map[string]interface{})
 			if data.Where.VirtualSite.DisableInternetVIP != nil {
-				VirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["disable_internet_vip"] = map[string]interface{}{}
 			}
 			if data.Where.VirtualSite.EnableInternetVIP != nil {
-				VirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
+				WhereVirtualSiteMap["enable_internet_vip"] = map[string]interface{}{}
 			}
 			if !data.Where.VirtualSite.NetworkType.IsNull() && !data.Where.VirtualSite.NetworkType.IsUnknown() {
-				VirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
+				WhereVirtualSiteMap["network_type"] = data.Where.VirtualSite.NetworkType.ValueString()
 			}
 			if !data.Where.VirtualSite.Ref.IsNull() && !data.Where.VirtualSite.Ref.IsUnknown() {
 				var RefElems []SecretManagementAccessWhereVirtualSiteRefModel
@@ -4656,10 +4656,10 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 						}
 						RefList = append(RefList, RefItemMap)
 					}
-					VirtualSiteMap["ref"] = RefList
+					WhereVirtualSiteMap["ref"] = RefList
 				}
 			}
-			WhereMap["virtual_site"] = VirtualSiteMap
+			WhereMap["virtual_site"] = WhereVirtualSiteMap
 		}
 		apiResource.Spec["where"] = WhereMap
 	}

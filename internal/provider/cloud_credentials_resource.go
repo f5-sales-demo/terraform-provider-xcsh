@@ -783,31 +783,31 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			AWSSecretKeyMap["access_key"] = data.AWSSecretKey.AccessKey.ValueString()
 		}
 		if data.AWSSecretKey.SecretKey != nil {
-			SecretKeyMap := make(map[string]interface{})
+			AWSSecretKeySecretKeyMap := make(map[string]interface{})
 			if data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AWSSecretKeySecretKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AWSSecretKeySecretKeyBlindfoldSecretInfoMap["decryption_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.ValueString()
+					AWSSecretKeySecretKeyBlindfoldSecretInfoMap["location"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AWSSecretKeySecretKeyBlindfoldSecretInfoMap["store_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				SecretKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AWSSecretKeySecretKeyMap["blindfold_secret_info"] = AWSSecretKeySecretKeyBlindfoldSecretInfoMap
 			}
 			if data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AWSSecretKeySecretKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.ValueString()
+					AWSSecretKeySecretKeyClearSecretInfoMap["provider"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.ValueString()
+					AWSSecretKeySecretKeyClearSecretInfoMap["url"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.ValueString()
 				}
-				SecretKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				AWSSecretKeySecretKeyMap["clear_secret_info"] = AWSSecretKeySecretKeyClearSecretInfoMap
 			}
-			AWSSecretKeyMap["secret_key"] = SecretKeyMap
+			AWSSecretKeyMap["secret_key"] = AWSSecretKeySecretKeyMap
 		}
 		createReq.Spec["aws_secret_key"] = AWSSecretKeyMap
 	}
@@ -817,31 +817,31 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			AzureClientSecretMap["client_id"] = data.AzureClientSecret.ClientID.ValueString()
 		}
 		if data.AzureClientSecret.ClientSecret != nil {
-			ClientSecretMap := make(map[string]interface{})
+			AzureClientSecretClientSecretMap := make(map[string]interface{})
 			if data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzureClientSecretClientSecretBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzureClientSecretClientSecretBlindfoldSecretInfoMap["decryption_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+					AzureClientSecretClientSecretBlindfoldSecretInfoMap["location"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzureClientSecretClientSecretBlindfoldSecretInfoMap["store_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzureClientSecretClientSecretMap["blindfold_secret_info"] = AzureClientSecretClientSecretBlindfoldSecretInfoMap
 			}
 			if data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzureClientSecretClientSecretClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.ValueString()
+					AzureClientSecretClientSecretClearSecretInfoMap["provider"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.ValueString()
+					AzureClientSecretClientSecretClearSecretInfoMap["url"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.ValueString()
 				}
-				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+				AzureClientSecretClientSecretMap["clear_secret_info"] = AzureClientSecretClientSecretClearSecretInfoMap
 			}
-			AzureClientSecretMap["client_secret"] = ClientSecretMap
+			AzureClientSecretMap["client_secret"] = AzureClientSecretClientSecretMap
 		}
 		if !data.AzureClientSecret.SubscriptionID.IsNull() && !data.AzureClientSecret.SubscriptionID.IsUnknown() {
 			AzureClientSecretMap["subscription_id"] = data.AzureClientSecret.SubscriptionID.ValueString()
@@ -860,31 +860,31 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 			AzurePfxCertificateMap["client_id"] = data.AzurePfxCertificate.ClientID.ValueString()
 		}
 		if data.AzurePfxCertificate.Password != nil {
-			PasswordMap := make(map[string]interface{})
+			AzurePfxCertificatePasswordMap := make(map[string]interface{})
 			if data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzurePfxCertificatePasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzurePfxCertificatePasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.ValueString()
+					AzurePfxCertificatePasswordBlindfoldSecretInfoMap["location"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzurePfxCertificatePasswordBlindfoldSecretInfoMap["store_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzurePfxCertificatePasswordMap["blindfold_secret_info"] = AzurePfxCertificatePasswordBlindfoldSecretInfoMap
 			}
 			if data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzurePfxCertificatePasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.ValueString()
+					AzurePfxCertificatePasswordClearSecretInfoMap["provider"] = data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzurePfxCertificate.Password.ClearSecretInfo.URL.ValueString()
+					AzurePfxCertificatePasswordClearSecretInfoMap["url"] = data.AzurePfxCertificate.Password.ClearSecretInfo.URL.ValueString()
 				}
-				PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				AzurePfxCertificatePasswordMap["clear_secret_info"] = AzurePfxCertificatePasswordClearSecretInfoMap
 			}
-			AzurePfxCertificateMap["password"] = PasswordMap
+			AzurePfxCertificateMap["password"] = AzurePfxCertificatePasswordMap
 		}
 		if !data.AzurePfxCertificate.SubscriptionID.IsNull() && !data.AzurePfxCertificate.SubscriptionID.IsUnknown() {
 			AzurePfxCertificateMap["subscription_id"] = data.AzurePfxCertificate.SubscriptionID.ValueString()
@@ -897,31 +897,31 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 	if data.GCPCredFile != nil {
 		GCPCredFileMap := make(map[string]interface{})
 		if data.GCPCredFile.CredentialFile != nil {
-			CredentialFileMap := make(map[string]interface{})
+			GCPCredFileCredentialFileMap := make(map[string]interface{})
 			if data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				GCPCredFileCredentialFileBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					GCPCredFileCredentialFileBlindfoldSecretInfoMap["decryption_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.ValueString()
+					GCPCredFileCredentialFileBlindfoldSecretInfoMap["location"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.ValueString()
+					GCPCredFileCredentialFileBlindfoldSecretInfoMap["store_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				CredentialFileMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				GCPCredFileCredentialFileMap["blindfold_secret_info"] = GCPCredFileCredentialFileBlindfoldSecretInfoMap
 			}
 			if data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				GCPCredFileCredentialFileClearSecretInfoMap := make(map[string]interface{})
 				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.ValueString()
+					GCPCredFileCredentialFileClearSecretInfoMap["provider"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.ValueString()
+					GCPCredFileCredentialFileClearSecretInfoMap["url"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.ValueString()
 				}
-				CredentialFileMap["clear_secret_info"] = ClearSecretInfoMap
+				GCPCredFileCredentialFileMap["clear_secret_info"] = GCPCredFileCredentialFileClearSecretInfoMap
 			}
-			GCPCredFileMap["credential_file"] = CredentialFileMap
+			GCPCredFileMap["credential_file"] = GCPCredFileCredentialFileMap
 		}
 		createReq.Spec["gcp_cred_file"] = GCPCredFileMap
 	}
@@ -1845,31 +1845,31 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			AWSSecretKeyMap["access_key"] = data.AWSSecretKey.AccessKey.ValueString()
 		}
 		if data.AWSSecretKey.SecretKey != nil {
-			SecretKeyMap := make(map[string]interface{})
+			AWSSecretKeySecretKeyMap := make(map[string]interface{})
 			if data.AWSSecretKey.SecretKey.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AWSSecretKeySecretKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AWSSecretKeySecretKeyBlindfoldSecretInfoMap["decryption_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.ValueString()
+					AWSSecretKeySecretKeyBlindfoldSecretInfoMap["location"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AWSSecretKeySecretKeyBlindfoldSecretInfoMap["store_provider"] = data.AWSSecretKey.SecretKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				SecretKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AWSSecretKeySecretKeyMap["blindfold_secret_info"] = AWSSecretKeySecretKeyBlindfoldSecretInfoMap
 			}
 			if data.AWSSecretKey.SecretKey.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AWSSecretKeySecretKeyClearSecretInfoMap := make(map[string]interface{})
 				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.ValueString()
+					AWSSecretKeySecretKeyClearSecretInfoMap["provider"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsNull() && !data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.ValueString()
+					AWSSecretKeySecretKeyClearSecretInfoMap["url"] = data.AWSSecretKey.SecretKey.ClearSecretInfo.URL.ValueString()
 				}
-				SecretKeyMap["clear_secret_info"] = ClearSecretInfoMap
+				AWSSecretKeySecretKeyMap["clear_secret_info"] = AWSSecretKeySecretKeyClearSecretInfoMap
 			}
-			AWSSecretKeyMap["secret_key"] = SecretKeyMap
+			AWSSecretKeyMap["secret_key"] = AWSSecretKeySecretKeyMap
 		}
 		apiResource.Spec["aws_secret_key"] = AWSSecretKeyMap
 	}
@@ -1879,31 +1879,31 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			AzureClientSecretMap["client_id"] = data.AzureClientSecret.ClientID.ValueString()
 		}
 		if data.AzureClientSecret.ClientSecret != nil {
-			ClientSecretMap := make(map[string]interface{})
+			AzureClientSecretClientSecretMap := make(map[string]interface{})
 			if data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzureClientSecretClientSecretBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzureClientSecretClientSecretBlindfoldSecretInfoMap["decryption_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
+					AzureClientSecretClientSecretBlindfoldSecretInfoMap["location"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzureClientSecretClientSecretBlindfoldSecretInfoMap["store_provider"] = data.AzureClientSecret.ClientSecret.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				ClientSecretMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzureClientSecretClientSecretMap["blindfold_secret_info"] = AzureClientSecretClientSecretBlindfoldSecretInfoMap
 			}
 			if data.AzureClientSecret.ClientSecret.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzureClientSecretClientSecretClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.ValueString()
+					AzureClientSecretClientSecretClearSecretInfoMap["provider"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsNull() && !data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.ValueString()
+					AzureClientSecretClientSecretClearSecretInfoMap["url"] = data.AzureClientSecret.ClientSecret.ClearSecretInfo.URL.ValueString()
 				}
-				ClientSecretMap["clear_secret_info"] = ClearSecretInfoMap
+				AzureClientSecretClientSecretMap["clear_secret_info"] = AzureClientSecretClientSecretClearSecretInfoMap
 			}
-			AzureClientSecretMap["client_secret"] = ClientSecretMap
+			AzureClientSecretMap["client_secret"] = AzureClientSecretClientSecretMap
 		}
 		if !data.AzureClientSecret.SubscriptionID.IsNull() && !data.AzureClientSecret.SubscriptionID.IsUnknown() {
 			AzureClientSecretMap["subscription_id"] = data.AzureClientSecret.SubscriptionID.ValueString()
@@ -1922,31 +1922,31 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 			AzurePfxCertificateMap["client_id"] = data.AzurePfxCertificate.ClientID.ValueString()
 		}
 		if data.AzurePfxCertificate.Password != nil {
-			PasswordMap := make(map[string]interface{})
+			AzurePfxCertificatePasswordMap := make(map[string]interface{})
 			if data.AzurePfxCertificate.Password.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				AzurePfxCertificatePasswordBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					AzurePfxCertificatePasswordBlindfoldSecretInfoMap["decryption_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.ValueString()
+					AzurePfxCertificatePasswordBlindfoldSecretInfoMap["location"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
+					AzurePfxCertificatePasswordBlindfoldSecretInfoMap["store_provider"] = data.AzurePfxCertificate.Password.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				PasswordMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				AzurePfxCertificatePasswordMap["blindfold_secret_info"] = AzurePfxCertificatePasswordBlindfoldSecretInfoMap
 			}
 			if data.AzurePfxCertificate.Password.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				AzurePfxCertificatePasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.ValueString()
+					AzurePfxCertificatePasswordClearSecretInfoMap["provider"] = data.AzurePfxCertificate.Password.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsNull() && !data.AzurePfxCertificate.Password.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.AzurePfxCertificate.Password.ClearSecretInfo.URL.ValueString()
+					AzurePfxCertificatePasswordClearSecretInfoMap["url"] = data.AzurePfxCertificate.Password.ClearSecretInfo.URL.ValueString()
 				}
-				PasswordMap["clear_secret_info"] = ClearSecretInfoMap
+				AzurePfxCertificatePasswordMap["clear_secret_info"] = AzurePfxCertificatePasswordClearSecretInfoMap
 			}
-			AzurePfxCertificateMap["password"] = PasswordMap
+			AzurePfxCertificateMap["password"] = AzurePfxCertificatePasswordMap
 		}
 		if !data.AzurePfxCertificate.SubscriptionID.IsNull() && !data.AzurePfxCertificate.SubscriptionID.IsUnknown() {
 			AzurePfxCertificateMap["subscription_id"] = data.AzurePfxCertificate.SubscriptionID.ValueString()
@@ -1959,31 +1959,31 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 	if data.GCPCredFile != nil {
 		GCPCredFileMap := make(map[string]interface{})
 		if data.GCPCredFile.CredentialFile != nil {
-			CredentialFileMap := make(map[string]interface{})
+			GCPCredFileCredentialFileMap := make(map[string]interface{})
 			if data.GCPCredFile.CredentialFile.BlindfoldSecretInfo != nil {
-				BlindfoldSecretInfoMap := make(map[string]interface{})
+				GCPCredFileCredentialFileBlindfoldSecretInfoMap := make(map[string]interface{})
 				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["decryption_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+					GCPCredFileCredentialFileBlindfoldSecretInfoMap["decryption_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 				}
 				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.IsUnknown() {
-					BlindfoldSecretInfoMap["location"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.ValueString()
+					GCPCredFileCredentialFileBlindfoldSecretInfoMap["location"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.Location.ValueString()
 				}
 				if !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-					BlindfoldSecretInfoMap["store_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.ValueString()
+					GCPCredFileCredentialFileBlindfoldSecretInfoMap["store_provider"] = data.GCPCredFile.CredentialFile.BlindfoldSecretInfo.StoreProvider.ValueString()
 				}
-				CredentialFileMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+				GCPCredFileCredentialFileMap["blindfold_secret_info"] = GCPCredFileCredentialFileBlindfoldSecretInfoMap
 			}
 			if data.GCPCredFile.CredentialFile.ClearSecretInfo != nil {
-				ClearSecretInfoMap := make(map[string]interface{})
+				GCPCredFileCredentialFileClearSecretInfoMap := make(map[string]interface{})
 				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.IsUnknown() {
-					ClearSecretInfoMap["provider"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.ValueString()
+					GCPCredFileCredentialFileClearSecretInfoMap["provider"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.Provider.ValueString()
 				}
 				if !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsNull() && !data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.IsUnknown() {
-					ClearSecretInfoMap["url"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.ValueString()
+					GCPCredFileCredentialFileClearSecretInfoMap["url"] = data.GCPCredFile.CredentialFile.ClearSecretInfo.URL.ValueString()
 				}
-				CredentialFileMap["clear_secret_info"] = ClearSecretInfoMap
+				GCPCredFileCredentialFileMap["clear_secret_info"] = GCPCredFileCredentialFileClearSecretInfoMap
 			}
-			GCPCredFileMap["credential_file"] = CredentialFileMap
+			GCPCredFileMap["credential_file"] = GCPCredFileCredentialFileMap
 		}
 		apiResource.Spec["gcp_cred_file"] = GCPCredFileMap
 	}

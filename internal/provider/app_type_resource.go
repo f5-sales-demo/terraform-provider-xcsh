@@ -302,11 +302,11 @@ func (r *AppTypeResource) Create(ctx context.Context, req resource.CreateRequest
 			BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 		}
 		if data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
-			DiscoveredAPISettingsMap := make(map[string]interface{})
+			BusinessLogicMarkupSettingDiscoveredAPISettingsMap := make(map[string]interface{})
 			if !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsNull() && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
-				DiscoveredAPISettingsMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
+				BusinessLogicMarkupSettingDiscoveredAPISettingsMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
 			}
-			BusinessLogicMarkupSettingMap["discovered_api_settings"] = DiscoveredAPISettingsMap
+			BusinessLogicMarkupSettingMap["discovered_api_settings"] = BusinessLogicMarkupSettingDiscoveredAPISettingsMap
 		}
 		if data.BusinessLogicMarkupSetting.Enable != nil {
 			BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}
@@ -640,11 +640,11 @@ func (r *AppTypeResource) Update(ctx context.Context, req resource.UpdateRequest
 			BusinessLogicMarkupSettingMap["disable"] = map[string]interface{}{}
 		}
 		if data.BusinessLogicMarkupSetting.DiscoveredAPISettings != nil {
-			DiscoveredAPISettingsMap := make(map[string]interface{})
+			BusinessLogicMarkupSettingDiscoveredAPISettingsMap := make(map[string]interface{})
 			if !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsNull() && !data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.IsUnknown() {
-				DiscoveredAPISettingsMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
+				BusinessLogicMarkupSettingDiscoveredAPISettingsMap["purge_duration_for_inactive_discovered_apis"] = data.BusinessLogicMarkupSetting.DiscoveredAPISettings.PurgeDurationForInactiveDiscoveredApis.ValueInt64()
 			}
-			BusinessLogicMarkupSettingMap["discovered_api_settings"] = DiscoveredAPISettingsMap
+			BusinessLogicMarkupSettingMap["discovered_api_settings"] = BusinessLogicMarkupSettingDiscoveredAPISettingsMap
 		}
 		if data.BusinessLogicMarkupSetting.Enable != nil {
 			BusinessLogicMarkupSettingMap["enable"] = map[string]interface{}{}

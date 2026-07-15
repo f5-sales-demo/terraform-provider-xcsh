@@ -675,102 +675,102 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					RoutesItemMap["any"] = map[string]interface{}{}
 				}
 				if RoutesItem.Custom != nil {
-					CustomMap := make(map[string]interface{})
+					RoutesCustomMap := make(map[string]interface{})
 					if RoutesItem.Custom.Alertlabel != nil {
-						CustomMap["alertlabel"] = map[string]interface{}{}
+						RoutesCustomMap["alertlabel"] = map[string]interface{}{}
 					}
 					if RoutesItem.Custom.Alertname != nil {
-						AlertnameMap := make(map[string]interface{})
+						RoutesCustomAlertnameMap := make(map[string]interface{})
 						if !RoutesItem.Custom.Alertname.ExactMatch.IsNull() && !RoutesItem.Custom.Alertname.ExactMatch.IsUnknown() {
-							AlertnameMap["exact_match"] = RoutesItem.Custom.Alertname.ExactMatch.ValueString()
+							RoutesCustomAlertnameMap["exact_match"] = RoutesItem.Custom.Alertname.ExactMatch.ValueString()
 						}
 						if !RoutesItem.Custom.Alertname.RegexMatch.IsNull() && !RoutesItem.Custom.Alertname.RegexMatch.IsUnknown() {
-							AlertnameMap["regex_match"] = RoutesItem.Custom.Alertname.RegexMatch.ValueString()
+							RoutesCustomAlertnameMap["regex_match"] = RoutesItem.Custom.Alertname.RegexMatch.ValueString()
 						}
-						CustomMap["alertname"] = AlertnameMap
+						RoutesCustomMap["alertname"] = RoutesCustomAlertnameMap
 					}
 					if RoutesItem.Custom.Group != nil {
-						GroupMap := make(map[string]interface{})
+						RoutesCustomGroupMap := make(map[string]interface{})
 						if !RoutesItem.Custom.Group.ExactMatch.IsNull() && !RoutesItem.Custom.Group.ExactMatch.IsUnknown() {
-							GroupMap["exact_match"] = RoutesItem.Custom.Group.ExactMatch.ValueString()
+							RoutesCustomGroupMap["exact_match"] = RoutesItem.Custom.Group.ExactMatch.ValueString()
 						}
 						if !RoutesItem.Custom.Group.RegexMatch.IsNull() && !RoutesItem.Custom.Group.RegexMatch.IsUnknown() {
-							GroupMap["regex_match"] = RoutesItem.Custom.Group.RegexMatch.ValueString()
+							RoutesCustomGroupMap["regex_match"] = RoutesItem.Custom.Group.RegexMatch.ValueString()
 						}
-						CustomMap["group"] = GroupMap
+						RoutesCustomMap["group"] = RoutesCustomGroupMap
 					}
 					if RoutesItem.Custom.Severity != nil {
-						SeverityMap := make(map[string]interface{})
+						RoutesCustomSeverityMap := make(map[string]interface{})
 						if !RoutesItem.Custom.Severity.ExactMatch.IsNull() && !RoutesItem.Custom.Severity.ExactMatch.IsUnknown() {
-							SeverityMap["exact_match"] = RoutesItem.Custom.Severity.ExactMatch.ValueString()
+							RoutesCustomSeverityMap["exact_match"] = RoutesItem.Custom.Severity.ExactMatch.ValueString()
 						}
 						if !RoutesItem.Custom.Severity.RegexMatch.IsNull() && !RoutesItem.Custom.Severity.RegexMatch.IsUnknown() {
-							SeverityMap["regex_match"] = RoutesItem.Custom.Severity.RegexMatch.ValueString()
+							RoutesCustomSeverityMap["regex_match"] = RoutesItem.Custom.Severity.RegexMatch.ValueString()
 						}
-						CustomMap["severity"] = SeverityMap
+						RoutesCustomMap["severity"] = RoutesCustomSeverityMap
 					}
-					RoutesItemMap["custom"] = CustomMap
+					RoutesItemMap["custom"] = RoutesCustomMap
 				}
 				if RoutesItem.DontSend != nil {
 					RoutesItemMap["dont_send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Group != nil {
-					GroupMap := make(map[string]interface{})
+					RoutesGroupMap := make(map[string]interface{})
 					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
 						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
 						if !diags.HasError() {
-							GroupMap["groups"] = GroupsItems
+							RoutesGroupMap["groups"] = GroupsItems
 						}
 					}
-					RoutesItemMap["group"] = GroupMap
+					RoutesItemMap["group"] = RoutesGroupMap
 				}
 				if RoutesItem.NotificationParameters != nil {
-					NotificationParametersMap := make(map[string]interface{})
+					RoutesNotificationParametersMap := make(map[string]interface{})
 					if RoutesItem.NotificationParameters.Custom != nil {
-						CustomMap := make(map[string]interface{})
+						RoutesNotificationParametersCustomMap := make(map[string]interface{})
 						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
 							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
 							if !diags.HasError() {
-								CustomMap["labels"] = LabelsItems
+								RoutesNotificationParametersCustomMap["labels"] = LabelsItems
 							}
 						}
-						NotificationParametersMap["custom"] = CustomMap
+						RoutesNotificationParametersMap["custom"] = RoutesNotificationParametersCustomMap
 					}
 					if RoutesItem.NotificationParameters.Default != nil {
-						NotificationParametersMap["default"] = map[string]interface{}{}
+						RoutesNotificationParametersMap["default"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.GroupInterval.IsNull() && !RoutesItem.NotificationParameters.GroupInterval.IsUnknown() {
-						NotificationParametersMap["group_interval"] = RoutesItem.NotificationParameters.GroupInterval.ValueString()
+						RoutesNotificationParametersMap["group_interval"] = RoutesItem.NotificationParameters.GroupInterval.ValueString()
 					}
 					if !RoutesItem.NotificationParameters.GroupWait.IsNull() && !RoutesItem.NotificationParameters.GroupWait.IsUnknown() {
-						NotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
+						RoutesNotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
 					}
 					if RoutesItem.NotificationParameters.Individual != nil {
-						NotificationParametersMap["individual"] = map[string]interface{}{}
+						RoutesNotificationParametersMap["individual"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.RepeatInterval.IsNull() && !RoutesItem.NotificationParameters.RepeatInterval.IsUnknown() {
-						NotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
+						RoutesNotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
 					}
 					if RoutesItem.NotificationParameters.VesIoGroup != nil {
-						NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
+						RoutesNotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 					}
-					RoutesItemMap["notification_parameters"] = NotificationParametersMap
+					RoutesItemMap["notification_parameters"] = RoutesNotificationParametersMap
 				}
 				if RoutesItem.Send != nil {
 					RoutesItemMap["send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Severity != nil {
-					SeverityMap := make(map[string]interface{})
+					RoutesSeverityMap := make(map[string]interface{})
 					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
 						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
 						if !diags.HasError() {
-							SeverityMap["severities"] = SeveritiesItems
+							RoutesSeverityMap["severities"] = SeveritiesItems
 						}
 					}
-					RoutesItemMap["severity"] = SeverityMap
+					RoutesItemMap["severity"] = RoutesSeverityMap
 				}
 				RoutesList = append(RoutesList, RoutesItemMap)
 			}
@@ -780,15 +780,15 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 	if data.NotificationParameters != nil {
 		NotificationParametersMap := make(map[string]interface{})
 		if data.NotificationParameters.Custom != nil {
-			CustomMap := make(map[string]interface{})
+			NotificationParametersCustomMap := make(map[string]interface{})
 			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
 				var LabelsItems []string
 				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
 				if !diags.HasError() {
-					CustomMap["labels"] = LabelsItems
+					NotificationParametersCustomMap["labels"] = LabelsItems
 				}
 			}
-			NotificationParametersMap["custom"] = CustomMap
+			NotificationParametersMap["custom"] = NotificationParametersCustomMap
 		}
 		if data.NotificationParameters.Default != nil {
 			NotificationParametersMap["default"] = map[string]interface{}{}
@@ -1789,102 +1789,102 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					RoutesItemMap["any"] = map[string]interface{}{}
 				}
 				if RoutesItem.Custom != nil {
-					CustomMap := make(map[string]interface{})
+					RoutesCustomMap := make(map[string]interface{})
 					if RoutesItem.Custom.Alertlabel != nil {
-						CustomMap["alertlabel"] = map[string]interface{}{}
+						RoutesCustomMap["alertlabel"] = map[string]interface{}{}
 					}
 					if RoutesItem.Custom.Alertname != nil {
-						AlertnameMap := make(map[string]interface{})
+						RoutesCustomAlertnameMap := make(map[string]interface{})
 						if !RoutesItem.Custom.Alertname.ExactMatch.IsNull() && !RoutesItem.Custom.Alertname.ExactMatch.IsUnknown() {
-							AlertnameMap["exact_match"] = RoutesItem.Custom.Alertname.ExactMatch.ValueString()
+							RoutesCustomAlertnameMap["exact_match"] = RoutesItem.Custom.Alertname.ExactMatch.ValueString()
 						}
 						if !RoutesItem.Custom.Alertname.RegexMatch.IsNull() && !RoutesItem.Custom.Alertname.RegexMatch.IsUnknown() {
-							AlertnameMap["regex_match"] = RoutesItem.Custom.Alertname.RegexMatch.ValueString()
+							RoutesCustomAlertnameMap["regex_match"] = RoutesItem.Custom.Alertname.RegexMatch.ValueString()
 						}
-						CustomMap["alertname"] = AlertnameMap
+						RoutesCustomMap["alertname"] = RoutesCustomAlertnameMap
 					}
 					if RoutesItem.Custom.Group != nil {
-						GroupMap := make(map[string]interface{})
+						RoutesCustomGroupMap := make(map[string]interface{})
 						if !RoutesItem.Custom.Group.ExactMatch.IsNull() && !RoutesItem.Custom.Group.ExactMatch.IsUnknown() {
-							GroupMap["exact_match"] = RoutesItem.Custom.Group.ExactMatch.ValueString()
+							RoutesCustomGroupMap["exact_match"] = RoutesItem.Custom.Group.ExactMatch.ValueString()
 						}
 						if !RoutesItem.Custom.Group.RegexMatch.IsNull() && !RoutesItem.Custom.Group.RegexMatch.IsUnknown() {
-							GroupMap["regex_match"] = RoutesItem.Custom.Group.RegexMatch.ValueString()
+							RoutesCustomGroupMap["regex_match"] = RoutesItem.Custom.Group.RegexMatch.ValueString()
 						}
-						CustomMap["group"] = GroupMap
+						RoutesCustomMap["group"] = RoutesCustomGroupMap
 					}
 					if RoutesItem.Custom.Severity != nil {
-						SeverityMap := make(map[string]interface{})
+						RoutesCustomSeverityMap := make(map[string]interface{})
 						if !RoutesItem.Custom.Severity.ExactMatch.IsNull() && !RoutesItem.Custom.Severity.ExactMatch.IsUnknown() {
-							SeverityMap["exact_match"] = RoutesItem.Custom.Severity.ExactMatch.ValueString()
+							RoutesCustomSeverityMap["exact_match"] = RoutesItem.Custom.Severity.ExactMatch.ValueString()
 						}
 						if !RoutesItem.Custom.Severity.RegexMatch.IsNull() && !RoutesItem.Custom.Severity.RegexMatch.IsUnknown() {
-							SeverityMap["regex_match"] = RoutesItem.Custom.Severity.RegexMatch.ValueString()
+							RoutesCustomSeverityMap["regex_match"] = RoutesItem.Custom.Severity.RegexMatch.ValueString()
 						}
-						CustomMap["severity"] = SeverityMap
+						RoutesCustomMap["severity"] = RoutesCustomSeverityMap
 					}
-					RoutesItemMap["custom"] = CustomMap
+					RoutesItemMap["custom"] = RoutesCustomMap
 				}
 				if RoutesItem.DontSend != nil {
 					RoutesItemMap["dont_send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Group != nil {
-					GroupMap := make(map[string]interface{})
+					RoutesGroupMap := make(map[string]interface{})
 					if !RoutesItem.Group.Groups.IsNull() && !RoutesItem.Group.Groups.IsUnknown() {
 						var GroupsItems []string
 						diags := RoutesItem.Group.Groups.ElementsAs(ctx, &GroupsItems, false)
 						if !diags.HasError() {
-							GroupMap["groups"] = GroupsItems
+							RoutesGroupMap["groups"] = GroupsItems
 						}
 					}
-					RoutesItemMap["group"] = GroupMap
+					RoutesItemMap["group"] = RoutesGroupMap
 				}
 				if RoutesItem.NotificationParameters != nil {
-					NotificationParametersMap := make(map[string]interface{})
+					RoutesNotificationParametersMap := make(map[string]interface{})
 					if RoutesItem.NotificationParameters.Custom != nil {
-						CustomMap := make(map[string]interface{})
+						RoutesNotificationParametersCustomMap := make(map[string]interface{})
 						if !RoutesItem.NotificationParameters.Custom.Labels.IsNull() && !RoutesItem.NotificationParameters.Custom.Labels.IsUnknown() {
 							var LabelsItems []string
 							diags := RoutesItem.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
 							if !diags.HasError() {
-								CustomMap["labels"] = LabelsItems
+								RoutesNotificationParametersCustomMap["labels"] = LabelsItems
 							}
 						}
-						NotificationParametersMap["custom"] = CustomMap
+						RoutesNotificationParametersMap["custom"] = RoutesNotificationParametersCustomMap
 					}
 					if RoutesItem.NotificationParameters.Default != nil {
-						NotificationParametersMap["default"] = map[string]interface{}{}
+						RoutesNotificationParametersMap["default"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.GroupInterval.IsNull() && !RoutesItem.NotificationParameters.GroupInterval.IsUnknown() {
-						NotificationParametersMap["group_interval"] = RoutesItem.NotificationParameters.GroupInterval.ValueString()
+						RoutesNotificationParametersMap["group_interval"] = RoutesItem.NotificationParameters.GroupInterval.ValueString()
 					}
 					if !RoutesItem.NotificationParameters.GroupWait.IsNull() && !RoutesItem.NotificationParameters.GroupWait.IsUnknown() {
-						NotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
+						RoutesNotificationParametersMap["group_wait"] = RoutesItem.NotificationParameters.GroupWait.ValueString()
 					}
 					if RoutesItem.NotificationParameters.Individual != nil {
-						NotificationParametersMap["individual"] = map[string]interface{}{}
+						RoutesNotificationParametersMap["individual"] = map[string]interface{}{}
 					}
 					if !RoutesItem.NotificationParameters.RepeatInterval.IsNull() && !RoutesItem.NotificationParameters.RepeatInterval.IsUnknown() {
-						NotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
+						RoutesNotificationParametersMap["repeat_interval"] = RoutesItem.NotificationParameters.RepeatInterval.ValueString()
 					}
 					if RoutesItem.NotificationParameters.VesIoGroup != nil {
-						NotificationParametersMap["ves_io_group"] = map[string]interface{}{}
+						RoutesNotificationParametersMap["ves_io_group"] = map[string]interface{}{}
 					}
-					RoutesItemMap["notification_parameters"] = NotificationParametersMap
+					RoutesItemMap["notification_parameters"] = RoutesNotificationParametersMap
 				}
 				if RoutesItem.Send != nil {
 					RoutesItemMap["send"] = map[string]interface{}{}
 				}
 				if RoutesItem.Severity != nil {
-					SeverityMap := make(map[string]interface{})
+					RoutesSeverityMap := make(map[string]interface{})
 					if !RoutesItem.Severity.Severities.IsNull() && !RoutesItem.Severity.Severities.IsUnknown() {
 						var SeveritiesItems []string
 						diags := RoutesItem.Severity.Severities.ElementsAs(ctx, &SeveritiesItems, false)
 						if !diags.HasError() {
-							SeverityMap["severities"] = SeveritiesItems
+							RoutesSeverityMap["severities"] = SeveritiesItems
 						}
 					}
-					RoutesItemMap["severity"] = SeverityMap
+					RoutesItemMap["severity"] = RoutesSeverityMap
 				}
 				RoutesList = append(RoutesList, RoutesItemMap)
 			}
@@ -1894,15 +1894,15 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.NotificationParameters != nil {
 		NotificationParametersMap := make(map[string]interface{})
 		if data.NotificationParameters.Custom != nil {
-			CustomMap := make(map[string]interface{})
+			NotificationParametersCustomMap := make(map[string]interface{})
 			if !data.NotificationParameters.Custom.Labels.IsNull() && !data.NotificationParameters.Custom.Labels.IsUnknown() {
 				var LabelsItems []string
 				diags := data.NotificationParameters.Custom.Labels.ElementsAs(ctx, &LabelsItems, false)
 				if !diags.HasError() {
-					CustomMap["labels"] = LabelsItems
+					NotificationParametersCustomMap["labels"] = LabelsItems
 				}
 			}
-			NotificationParametersMap["custom"] = CustomMap
+			NotificationParametersMap["custom"] = NotificationParametersCustomMap
 		}
 		if data.NotificationParameters.Default != nil {
 			NotificationParametersMap["default"] = map[string]interface{}{}

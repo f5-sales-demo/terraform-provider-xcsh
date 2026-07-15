@@ -489,83 +489,83 @@ func (r *LogReceiverResource) Create(ctx context.Context, req resource.CreateReq
 			SyslogMap["syslog_rfc5424"] = data.Syslog.SyslogRfc5424.ValueInt64()
 		}
 		if data.Syslog.TCPServer != nil {
-			TCPServerMap := make(map[string]interface{})
+			SyslogTCPServerMap := make(map[string]interface{})
 			if !data.Syslog.TCPServer.Port.IsNull() && !data.Syslog.TCPServer.Port.IsUnknown() {
-				TCPServerMap["port"] = data.Syslog.TCPServer.Port.ValueInt64()
+				SyslogTCPServerMap["port"] = data.Syslog.TCPServer.Port.ValueInt64()
 			}
 			if !data.Syslog.TCPServer.ServerName.IsNull() && !data.Syslog.TCPServer.ServerName.IsUnknown() {
-				TCPServerMap["server_name"] = data.Syslog.TCPServer.ServerName.ValueString()
+				SyslogTCPServerMap["server_name"] = data.Syslog.TCPServer.ServerName.ValueString()
 			}
-			SyslogMap["tcp_server"] = TCPServerMap
+			SyslogMap["tcp_server"] = SyslogTCPServerMap
 		}
 		if data.Syslog.TLSServer != nil {
-			TLSServerMap := make(map[string]interface{})
+			SyslogTLSServerMap := make(map[string]interface{})
 			if data.Syslog.TLSServer.DefaultHTTPSPort != nil {
-				TLSServerMap["default_https_port"] = map[string]interface{}{}
+				SyslogTLSServerMap["default_https_port"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.DefaultSyslogTLSPort != nil {
-				TLSServerMap["default_syslog_tls_port"] = map[string]interface{}{}
+				SyslogTLSServerMap["default_syslog_tls_port"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.MtlsDisabled != nil {
-				TLSServerMap["mtls_disabled"] = map[string]interface{}{}
+				SyslogTLSServerMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				SyslogTLSServerMtlsEnableMap := make(map[string]interface{})
 				if !data.Syslog.TLSServer.MtlsEnable.Certificate.IsNull() && !data.Syslog.TLSServer.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.Syslog.TLSServer.MtlsEnable.Certificate.ValueString()
+					SyslogTLSServerMtlsEnableMap["certificate"] = data.Syslog.TLSServer.MtlsEnable.Certificate.ValueString()
 				}
 				if data.Syslog.TLSServer.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					SyslogTLSServerMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						SyslogTLSServerMtlsEnableKeyURLMap["blindfold_secret_info"] = SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap["url"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						SyslogTLSServerMtlsEnableKeyURLMap["clear_secret_info"] = SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					SyslogTLSServerMtlsEnableMap["key_url"] = SyslogTLSServerMtlsEnableKeyURLMap
 				}
-				TLSServerMap["mtls_enable"] = MtlsEnableMap
+				SyslogTLSServerMap["mtls_enable"] = SyslogTLSServerMtlsEnableMap
 			}
 			if !data.Syslog.TLSServer.Port.IsNull() && !data.Syslog.TLSServer.Port.IsUnknown() {
-				TLSServerMap["port"] = data.Syslog.TLSServer.Port.ValueInt64()
+				SyslogTLSServerMap["port"] = data.Syslog.TLSServer.Port.ValueInt64()
 			}
 			if !data.Syslog.TLSServer.ServerName.IsNull() && !data.Syslog.TLSServer.ServerName.IsUnknown() {
-				TLSServerMap["server_name"] = data.Syslog.TLSServer.ServerName.ValueString()
+				SyslogTLSServerMap["server_name"] = data.Syslog.TLSServer.ServerName.ValueString()
 			}
 			if !data.Syslog.TLSServer.TrustedCAURL.IsNull() && !data.Syslog.TLSServer.TrustedCAURL.IsUnknown() {
-				TLSServerMap["trusted_ca_url"] = data.Syslog.TLSServer.TrustedCAURL.ValueString()
+				SyslogTLSServerMap["trusted_ca_url"] = data.Syslog.TLSServer.TrustedCAURL.ValueString()
 			}
 			if data.Syslog.TLSServer.VolterraCA != nil {
-				TLSServerMap["volterra_ca"] = map[string]interface{}{}
+				SyslogTLSServerMap["volterra_ca"] = map[string]interface{}{}
 			}
-			SyslogMap["tls_server"] = TLSServerMap
+			SyslogMap["tls_server"] = SyslogTLSServerMap
 		}
 		if data.Syslog.UDPServer != nil {
-			UDPServerMap := make(map[string]interface{})
+			SyslogUDPServerMap := make(map[string]interface{})
 			if !data.Syslog.UDPServer.Port.IsNull() && !data.Syslog.UDPServer.Port.IsUnknown() {
-				UDPServerMap["port"] = data.Syslog.UDPServer.Port.ValueInt64()
+				SyslogUDPServerMap["port"] = data.Syslog.UDPServer.Port.ValueInt64()
 			}
 			if !data.Syslog.UDPServer.ServerName.IsNull() && !data.Syslog.UDPServer.ServerName.IsUnknown() {
-				UDPServerMap["server_name"] = data.Syslog.UDPServer.ServerName.ValueString()
+				SyslogUDPServerMap["server_name"] = data.Syslog.UDPServer.ServerName.ValueString()
 			}
-			SyslogMap["udp_server"] = UDPServerMap
+			SyslogMap["udp_server"] = SyslogUDPServerMap
 		}
 		createReq.Spec["syslog"] = SyslogMap
 	}
@@ -1161,83 +1161,83 @@ func (r *LogReceiverResource) Update(ctx context.Context, req resource.UpdateReq
 			SyslogMap["syslog_rfc5424"] = data.Syslog.SyslogRfc5424.ValueInt64()
 		}
 		if data.Syslog.TCPServer != nil {
-			TCPServerMap := make(map[string]interface{})
+			SyslogTCPServerMap := make(map[string]interface{})
 			if !data.Syslog.TCPServer.Port.IsNull() && !data.Syslog.TCPServer.Port.IsUnknown() {
-				TCPServerMap["port"] = data.Syslog.TCPServer.Port.ValueInt64()
+				SyslogTCPServerMap["port"] = data.Syslog.TCPServer.Port.ValueInt64()
 			}
 			if !data.Syslog.TCPServer.ServerName.IsNull() && !data.Syslog.TCPServer.ServerName.IsUnknown() {
-				TCPServerMap["server_name"] = data.Syslog.TCPServer.ServerName.ValueString()
+				SyslogTCPServerMap["server_name"] = data.Syslog.TCPServer.ServerName.ValueString()
 			}
-			SyslogMap["tcp_server"] = TCPServerMap
+			SyslogMap["tcp_server"] = SyslogTCPServerMap
 		}
 		if data.Syslog.TLSServer != nil {
-			TLSServerMap := make(map[string]interface{})
+			SyslogTLSServerMap := make(map[string]interface{})
 			if data.Syslog.TLSServer.DefaultHTTPSPort != nil {
-				TLSServerMap["default_https_port"] = map[string]interface{}{}
+				SyslogTLSServerMap["default_https_port"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.DefaultSyslogTLSPort != nil {
-				TLSServerMap["default_syslog_tls_port"] = map[string]interface{}{}
+				SyslogTLSServerMap["default_syslog_tls_port"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.MtlsDisabled != nil {
-				TLSServerMap["mtls_disabled"] = map[string]interface{}{}
+				SyslogTLSServerMap["mtls_disabled"] = map[string]interface{}{}
 			}
 			if data.Syslog.TLSServer.MtlsEnable != nil {
-				MtlsEnableMap := make(map[string]interface{})
+				SyslogTLSServerMtlsEnableMap := make(map[string]interface{})
 				if !data.Syslog.TLSServer.MtlsEnable.Certificate.IsNull() && !data.Syslog.TLSServer.MtlsEnable.Certificate.IsUnknown() {
-					MtlsEnableMap["certificate"] = data.Syslog.TLSServer.MtlsEnable.Certificate.ValueString()
+					SyslogTLSServerMtlsEnableMap["certificate"] = data.Syslog.TLSServer.MtlsEnable.Certificate.ValueString()
 				}
 				if data.Syslog.TLSServer.MtlsEnable.KeyURL != nil {
-					KeyURLMap := make(map[string]interface{})
+					SyslogTLSServerMtlsEnableKeyURLMap := make(map[string]interface{})
 					if data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap["decryption_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap["location"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap["store_provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						KeyURLMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						SyslogTLSServerMtlsEnableKeyURLMap["blindfold_secret_info"] = SyslogTLSServerMtlsEnableKeyURLBlindfoldSecretInfoMap
 					}
 					if data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap := make(map[string]interface{})
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap["provider"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsNull() && !data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
+							SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap["url"] = data.Syslog.TLSServer.MtlsEnable.KeyURL.ClearSecretInfo.URL.ValueString()
 						}
-						KeyURLMap["clear_secret_info"] = ClearSecretInfoMap
+						SyslogTLSServerMtlsEnableKeyURLMap["clear_secret_info"] = SyslogTLSServerMtlsEnableKeyURLClearSecretInfoMap
 					}
-					MtlsEnableMap["key_url"] = KeyURLMap
+					SyslogTLSServerMtlsEnableMap["key_url"] = SyslogTLSServerMtlsEnableKeyURLMap
 				}
-				TLSServerMap["mtls_enable"] = MtlsEnableMap
+				SyslogTLSServerMap["mtls_enable"] = SyslogTLSServerMtlsEnableMap
 			}
 			if !data.Syslog.TLSServer.Port.IsNull() && !data.Syslog.TLSServer.Port.IsUnknown() {
-				TLSServerMap["port"] = data.Syslog.TLSServer.Port.ValueInt64()
+				SyslogTLSServerMap["port"] = data.Syslog.TLSServer.Port.ValueInt64()
 			}
 			if !data.Syslog.TLSServer.ServerName.IsNull() && !data.Syslog.TLSServer.ServerName.IsUnknown() {
-				TLSServerMap["server_name"] = data.Syslog.TLSServer.ServerName.ValueString()
+				SyslogTLSServerMap["server_name"] = data.Syslog.TLSServer.ServerName.ValueString()
 			}
 			if !data.Syslog.TLSServer.TrustedCAURL.IsNull() && !data.Syslog.TLSServer.TrustedCAURL.IsUnknown() {
-				TLSServerMap["trusted_ca_url"] = data.Syslog.TLSServer.TrustedCAURL.ValueString()
+				SyslogTLSServerMap["trusted_ca_url"] = data.Syslog.TLSServer.TrustedCAURL.ValueString()
 			}
 			if data.Syslog.TLSServer.VolterraCA != nil {
-				TLSServerMap["volterra_ca"] = map[string]interface{}{}
+				SyslogTLSServerMap["volterra_ca"] = map[string]interface{}{}
 			}
-			SyslogMap["tls_server"] = TLSServerMap
+			SyslogMap["tls_server"] = SyslogTLSServerMap
 		}
 		if data.Syslog.UDPServer != nil {
-			UDPServerMap := make(map[string]interface{})
+			SyslogUDPServerMap := make(map[string]interface{})
 			if !data.Syslog.UDPServer.Port.IsNull() && !data.Syslog.UDPServer.Port.IsUnknown() {
-				UDPServerMap["port"] = data.Syslog.UDPServer.Port.ValueInt64()
+				SyslogUDPServerMap["port"] = data.Syslog.UDPServer.Port.ValueInt64()
 			}
 			if !data.Syslog.UDPServer.ServerName.IsNull() && !data.Syslog.UDPServer.ServerName.IsUnknown() {
-				UDPServerMap["server_name"] = data.Syslog.UDPServer.ServerName.ValueString()
+				SyslogUDPServerMap["server_name"] = data.Syslog.UDPServer.ServerName.ValueString()
 			}
-			SyslogMap["udp_server"] = UDPServerMap
+			SyslogMap["udp_server"] = SyslogUDPServerMap
 		}
 		apiResource.Spec["syslog"] = SyslogMap
 	}

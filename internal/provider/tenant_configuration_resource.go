@@ -563,40 +563,40 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 	if data.UserSessionExpiration != nil {
 		UserSessionExpirationMap := make(map[string]interface{})
 		if data.UserSessionExpiration.AbsoluteTimeout != nil {
-			AbsoluteTimeoutMap := make(map[string]interface{})
+			UserSessionExpirationAbsoluteTimeoutMap := make(map[string]interface{})
 			if data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
-				HoursMap := make(map[string]interface{})
+				UserSessionExpirationAbsoluteTimeoutHoursMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
-					HoursMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.ValueInt64()
+					UserSessionExpirationAbsoluteTimeoutHoursMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.ValueInt64()
 				}
-				AbsoluteTimeoutMap["hours"] = HoursMap
+				UserSessionExpirationAbsoluteTimeoutMap["hours"] = UserSessionExpirationAbsoluteTimeoutHoursMap
 			}
 			if data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
-				MinutesMap := make(map[string]interface{})
+				UserSessionExpirationAbsoluteTimeoutMinutesMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
-					MinutesMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.ValueInt64()
+					UserSessionExpirationAbsoluteTimeoutMinutesMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.ValueInt64()
 				}
-				AbsoluteTimeoutMap["minutes"] = MinutesMap
+				UserSessionExpirationAbsoluteTimeoutMap["minutes"] = UserSessionExpirationAbsoluteTimeoutMinutesMap
 			}
-			UserSessionExpirationMap["absolute_timeout"] = AbsoluteTimeoutMap
+			UserSessionExpirationMap["absolute_timeout"] = UserSessionExpirationAbsoluteTimeoutMap
 		}
 		if data.UserSessionExpiration.IdleTimeout != nil {
-			IdleTimeoutMap := make(map[string]interface{})
+			UserSessionExpirationIdleTimeoutMap := make(map[string]interface{})
 			if data.UserSessionExpiration.IdleTimeout.Hours != nil {
-				HoursMap := make(map[string]interface{})
+				UserSessionExpirationIdleTimeoutHoursMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
-					HoursMap["duration"] = data.UserSessionExpiration.IdleTimeout.Hours.Duration.ValueInt64()
+					UserSessionExpirationIdleTimeoutHoursMap["duration"] = data.UserSessionExpiration.IdleTimeout.Hours.Duration.ValueInt64()
 				}
-				IdleTimeoutMap["hours"] = HoursMap
+				UserSessionExpirationIdleTimeoutMap["hours"] = UserSessionExpirationIdleTimeoutHoursMap
 			}
 			if data.UserSessionExpiration.IdleTimeout.Minutes != nil {
-				MinutesMap := make(map[string]interface{})
+				UserSessionExpirationIdleTimeoutMinutesMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
-					MinutesMap["duration"] = data.UserSessionExpiration.IdleTimeout.Minutes.Duration.ValueInt64()
+					UserSessionExpirationIdleTimeoutMinutesMap["duration"] = data.UserSessionExpiration.IdleTimeout.Minutes.Duration.ValueInt64()
 				}
-				IdleTimeoutMap["minutes"] = MinutesMap
+				UserSessionExpirationIdleTimeoutMap["minutes"] = UserSessionExpirationIdleTimeoutMinutesMap
 			}
-			UserSessionExpirationMap["idle_timeout"] = IdleTimeoutMap
+			UserSessionExpirationMap["idle_timeout"] = UserSessionExpirationIdleTimeoutMap
 		}
 		createReq.Spec["user_session_expiration"] = UserSessionExpirationMap
 	}
@@ -1268,40 +1268,40 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 	if data.UserSessionExpiration != nil {
 		UserSessionExpirationMap := make(map[string]interface{})
 		if data.UserSessionExpiration.AbsoluteTimeout != nil {
-			AbsoluteTimeoutMap := make(map[string]interface{})
+			UserSessionExpirationAbsoluteTimeoutMap := make(map[string]interface{})
 			if data.UserSessionExpiration.AbsoluteTimeout.Hours != nil {
-				HoursMap := make(map[string]interface{})
+				UserSessionExpirationAbsoluteTimeoutHoursMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.IsUnknown() {
-					HoursMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.ValueInt64()
+					UserSessionExpirationAbsoluteTimeoutHoursMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Hours.Duration.ValueInt64()
 				}
-				AbsoluteTimeoutMap["hours"] = HoursMap
+				UserSessionExpirationAbsoluteTimeoutMap["hours"] = UserSessionExpirationAbsoluteTimeoutHoursMap
 			}
 			if data.UserSessionExpiration.AbsoluteTimeout.Minutes != nil {
-				MinutesMap := make(map[string]interface{})
+				UserSessionExpirationAbsoluteTimeoutMinutesMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.IsUnknown() {
-					MinutesMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.ValueInt64()
+					UserSessionExpirationAbsoluteTimeoutMinutesMap["duration"] = data.UserSessionExpiration.AbsoluteTimeout.Minutes.Duration.ValueInt64()
 				}
-				AbsoluteTimeoutMap["minutes"] = MinutesMap
+				UserSessionExpirationAbsoluteTimeoutMap["minutes"] = UserSessionExpirationAbsoluteTimeoutMinutesMap
 			}
-			UserSessionExpirationMap["absolute_timeout"] = AbsoluteTimeoutMap
+			UserSessionExpirationMap["absolute_timeout"] = UserSessionExpirationAbsoluteTimeoutMap
 		}
 		if data.UserSessionExpiration.IdleTimeout != nil {
-			IdleTimeoutMap := make(map[string]interface{})
+			UserSessionExpirationIdleTimeoutMap := make(map[string]interface{})
 			if data.UserSessionExpiration.IdleTimeout.Hours != nil {
-				HoursMap := make(map[string]interface{})
+				UserSessionExpirationIdleTimeoutHoursMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Hours.Duration.IsUnknown() {
-					HoursMap["duration"] = data.UserSessionExpiration.IdleTimeout.Hours.Duration.ValueInt64()
+					UserSessionExpirationIdleTimeoutHoursMap["duration"] = data.UserSessionExpiration.IdleTimeout.Hours.Duration.ValueInt64()
 				}
-				IdleTimeoutMap["hours"] = HoursMap
+				UserSessionExpirationIdleTimeoutMap["hours"] = UserSessionExpirationIdleTimeoutHoursMap
 			}
 			if data.UserSessionExpiration.IdleTimeout.Minutes != nil {
-				MinutesMap := make(map[string]interface{})
+				UserSessionExpirationIdleTimeoutMinutesMap := make(map[string]interface{})
 				if !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsNull() && !data.UserSessionExpiration.IdleTimeout.Minutes.Duration.IsUnknown() {
-					MinutesMap["duration"] = data.UserSessionExpiration.IdleTimeout.Minutes.Duration.ValueInt64()
+					UserSessionExpirationIdleTimeoutMinutesMap["duration"] = data.UserSessionExpiration.IdleTimeout.Minutes.Duration.ValueInt64()
 				}
-				IdleTimeoutMap["minutes"] = MinutesMap
+				UserSessionExpirationIdleTimeoutMap["minutes"] = UserSessionExpirationIdleTimeoutMinutesMap
 			}
-			UserSessionExpirationMap["idle_timeout"] = IdleTimeoutMap
+			UserSessionExpirationMap["idle_timeout"] = UserSessionExpirationIdleTimeoutMap
 		}
 		apiResource.Spec["user_session_expiration"] = UserSessionExpirationMap
 	}

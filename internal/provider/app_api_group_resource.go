@@ -470,51 +470,51 @@ func (r *AppAPIGroupResource) Create(ctx context.Context, req resource.CreateReq
 	if data.BigIPVirtualServer != nil {
 		BigIPVirtualServerMap := make(map[string]interface{})
 		if data.BigIPVirtualServer.BigIPVirtualServer != nil {
-			BigIPVirtualServerMap := make(map[string]interface{})
+			BigIPVirtualServerBigIPVirtualServerMap := make(map[string]interface{})
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsUnknown() {
-				BigIPVirtualServerMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
+				BigIPVirtualServerBigIPVirtualServerMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsUnknown() {
-				BigIPVirtualServerMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
+				BigIPVirtualServerBigIPVirtualServerMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsUnknown() {
-				BigIPVirtualServerMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
+				BigIPVirtualServerBigIPVirtualServerMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
 			}
-			BigIPVirtualServerMap["bigip_virtual_server"] = BigIPVirtualServerMap
+			BigIPVirtualServerMap["bigip_virtual_server"] = BigIPVirtualServerBigIPVirtualServerMap
 		}
 		createReq.Spec["bigip_virtual_server"] = BigIPVirtualServerMap
 	}
 	if data.CDNLoadBalancer != nil {
 		CDNLoadBalancerMap := make(map[string]interface{})
 		if data.CDNLoadBalancer.CDNLoadBalancer != nil {
-			CDNLoadBalancerMap := make(map[string]interface{})
+			CDNLoadBalancerCDNLoadBalancerMap := make(map[string]interface{})
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsUnknown() {
-				CDNLoadBalancerMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
+				CDNLoadBalancerCDNLoadBalancerMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsUnknown() {
-				CDNLoadBalancerMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
+				CDNLoadBalancerCDNLoadBalancerMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsUnknown() {
-				CDNLoadBalancerMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
+				CDNLoadBalancerCDNLoadBalancerMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
 			}
-			CDNLoadBalancerMap["cdn_loadbalancer"] = CDNLoadBalancerMap
+			CDNLoadBalancerMap["cdn_loadbalancer"] = CDNLoadBalancerCDNLoadBalancerMap
 		}
 		createReq.Spec["cdn_loadbalancer"] = CDNLoadBalancerMap
 	}
 	if data.HTTPLoadBalancer != nil {
 		HTTPLoadBalancerMap := make(map[string]interface{})
 		if data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-			HTTPLoadBalancerMap := make(map[string]interface{})
+			HTTPLoadBalancerHTTPLoadBalancerMap := make(map[string]interface{})
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsUnknown() {
-				HTTPLoadBalancerMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
+				HTTPLoadBalancerHTTPLoadBalancerMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsUnknown() {
-				HTTPLoadBalancerMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
+				HTTPLoadBalancerHTTPLoadBalancerMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsUnknown() {
-				HTTPLoadBalancerMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
+				HTTPLoadBalancerHTTPLoadBalancerMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
 			}
-			HTTPLoadBalancerMap["http_loadbalancer"] = HTTPLoadBalancerMap
+			HTTPLoadBalancerMap["http_loadbalancer"] = HTTPLoadBalancerHTTPLoadBalancerMap
 		}
 		createReq.Spec["http_loadbalancer"] = HTTPLoadBalancerMap
 	}
@@ -967,51 +967,51 @@ func (r *AppAPIGroupResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.BigIPVirtualServer != nil {
 		BigIPVirtualServerMap := make(map[string]interface{})
 		if data.BigIPVirtualServer.BigIPVirtualServer != nil {
-			BigIPVirtualServerMap := make(map[string]interface{})
+			BigIPVirtualServerBigIPVirtualServerMap := make(map[string]interface{})
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Name.IsUnknown() {
-				BigIPVirtualServerMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
+				BigIPVirtualServerBigIPVirtualServerMap["name"] = data.BigIPVirtualServer.BigIPVirtualServer.Name.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Namespace.IsUnknown() {
-				BigIPVirtualServerMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
+				BigIPVirtualServerBigIPVirtualServerMap["namespace"] = data.BigIPVirtualServer.BigIPVirtualServer.Namespace.ValueString()
 			}
 			if !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsNull() && !data.BigIPVirtualServer.BigIPVirtualServer.Tenant.IsUnknown() {
-				BigIPVirtualServerMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
+				BigIPVirtualServerBigIPVirtualServerMap["tenant"] = data.BigIPVirtualServer.BigIPVirtualServer.Tenant.ValueString()
 			}
-			BigIPVirtualServerMap["bigip_virtual_server"] = BigIPVirtualServerMap
+			BigIPVirtualServerMap["bigip_virtual_server"] = BigIPVirtualServerBigIPVirtualServerMap
 		}
 		apiResource.Spec["bigip_virtual_server"] = BigIPVirtualServerMap
 	}
 	if data.CDNLoadBalancer != nil {
 		CDNLoadBalancerMap := make(map[string]interface{})
 		if data.CDNLoadBalancer.CDNLoadBalancer != nil {
-			CDNLoadBalancerMap := make(map[string]interface{})
+			CDNLoadBalancerCDNLoadBalancerMap := make(map[string]interface{})
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Name.IsUnknown() {
-				CDNLoadBalancerMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
+				CDNLoadBalancerCDNLoadBalancerMap["name"] = data.CDNLoadBalancer.CDNLoadBalancer.Name.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Namespace.IsUnknown() {
-				CDNLoadBalancerMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
+				CDNLoadBalancerCDNLoadBalancerMap["namespace"] = data.CDNLoadBalancer.CDNLoadBalancer.Namespace.ValueString()
 			}
 			if !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsNull() && !data.CDNLoadBalancer.CDNLoadBalancer.Tenant.IsUnknown() {
-				CDNLoadBalancerMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
+				CDNLoadBalancerCDNLoadBalancerMap["tenant"] = data.CDNLoadBalancer.CDNLoadBalancer.Tenant.ValueString()
 			}
-			CDNLoadBalancerMap["cdn_loadbalancer"] = CDNLoadBalancerMap
+			CDNLoadBalancerMap["cdn_loadbalancer"] = CDNLoadBalancerCDNLoadBalancerMap
 		}
 		apiResource.Spec["cdn_loadbalancer"] = CDNLoadBalancerMap
 	}
 	if data.HTTPLoadBalancer != nil {
 		HTTPLoadBalancerMap := make(map[string]interface{})
 		if data.HTTPLoadBalancer.HTTPLoadBalancer != nil {
-			HTTPLoadBalancerMap := make(map[string]interface{})
+			HTTPLoadBalancerHTTPLoadBalancerMap := make(map[string]interface{})
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Name.IsUnknown() {
-				HTTPLoadBalancerMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
+				HTTPLoadBalancerHTTPLoadBalancerMap["name"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Name.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.IsUnknown() {
-				HTTPLoadBalancerMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
+				HTTPLoadBalancerHTTPLoadBalancerMap["namespace"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Namespace.ValueString()
 			}
 			if !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsNull() && !data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.IsUnknown() {
-				HTTPLoadBalancerMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
+				HTTPLoadBalancerHTTPLoadBalancerMap["tenant"] = data.HTTPLoadBalancer.HTTPLoadBalancer.Tenant.ValueString()
 			}
-			HTTPLoadBalancerMap["http_loadbalancer"] = HTTPLoadBalancerMap
+			HTTPLoadBalancerMap["http_loadbalancer"] = HTTPLoadBalancerHTTPLoadBalancerMap
 		}
 		apiResource.Spec["http_loadbalancer"] = HTTPLoadBalancerMap
 	}

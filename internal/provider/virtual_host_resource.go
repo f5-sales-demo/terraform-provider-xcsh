@@ -2912,84 +2912,84 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}
 		}
 		if data.Authentication.CookieParams != nil {
-			CookieParamsMap := make(map[string]interface{})
+			AuthenticationCookieParamsMap := make(map[string]interface{})
 			if data.Authentication.CookieParams.AuthHMAC != nil {
-				AuthHMACMap := make(map[string]interface{})
+				AuthenticationCookieParamsAuthHMACMap := make(map[string]interface{})
 				if data.Authentication.CookieParams.AuthHMAC.PrimKey != nil {
-					PrimKeyMap := make(map[string]interface{})
+					AuthenticationCookieParamsAuthHMACPrimKeyMap := make(map[string]interface{})
 					if data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PrimKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AuthenticationCookieParamsAuthHMACPrimKeyMap["blindfold_secret_info"] = AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap
 					}
 					if data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
 						}
-						PrimKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						AuthenticationCookieParamsAuthHMACPrimKeyMap["clear_secret_info"] = AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap
 					}
-					AuthHMACMap["prim_key"] = PrimKeyMap
+					AuthenticationCookieParamsAuthHMACMap["prim_key"] = AuthenticationCookieParamsAuthHMACPrimKeyMap
 				}
 				if !data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.IsUnknown() {
-					AuthHMACMap["prim_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+					AuthenticationCookieParamsAuthHMACMap["prim_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
 				}
 				if data.Authentication.CookieParams.AuthHMAC.SecKey != nil {
-					SecKeyMap := make(map[string]interface{})
+					AuthenticationCookieParamsAuthHMACSecKeyMap := make(map[string]interface{})
 					if data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AuthenticationCookieParamsAuthHMACSecKeyMap["blindfold_secret_info"] = AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap
 					}
 					if data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
 						}
-						SecKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						AuthenticationCookieParamsAuthHMACSecKeyMap["clear_secret_info"] = AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap
 					}
-					AuthHMACMap["sec_key"] = SecKeyMap
+					AuthenticationCookieParamsAuthHMACMap["sec_key"] = AuthenticationCookieParamsAuthHMACSecKeyMap
 				}
 				if !data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.IsUnknown() {
-					AuthHMACMap["sec_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
+					AuthenticationCookieParamsAuthHMACMap["sec_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
 				}
-				CookieParamsMap["auth_hmac"] = AuthHMACMap
+				AuthenticationCookieParamsMap["auth_hmac"] = AuthenticationCookieParamsAuthHMACMap
 			}
 			if !data.Authentication.CookieParams.CookieExpiry.IsNull() && !data.Authentication.CookieParams.CookieExpiry.IsUnknown() {
-				CookieParamsMap["cookie_expiry"] = data.Authentication.CookieParams.CookieExpiry.ValueInt64()
+				AuthenticationCookieParamsMap["cookie_expiry"] = data.Authentication.CookieParams.CookieExpiry.ValueInt64()
 			}
 			if !data.Authentication.CookieParams.CookieRefreshInterval.IsNull() && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
-				CookieParamsMap["cookie_refresh_interval"] = data.Authentication.CookieParams.CookieRefreshInterval.ValueInt64()
+				AuthenticationCookieParamsMap["cookie_refresh_interval"] = data.Authentication.CookieParams.CookieRefreshInterval.ValueInt64()
 			}
 			if data.Authentication.CookieParams.KmsKeyHMAC != nil {
-				CookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
+				AuthenticationCookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 			}
 			if !data.Authentication.CookieParams.SessionExpiry.IsNull() && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
-				CookieParamsMap["session_expiry"] = data.Authentication.CookieParams.SessionExpiry.ValueInt64()
+				AuthenticationCookieParamsMap["session_expiry"] = data.Authentication.CookieParams.SessionExpiry.ValueInt64()
 			}
-			AuthenticationMap["cookie_params"] = CookieParamsMap
+			AuthenticationMap["cookie_params"] = AuthenticationCookieParamsMap
 		}
 		if data.Authentication.RedirectDynamic != nil {
 			AuthenticationMap["redirect_dynamic"] = map[string]interface{}{}
@@ -3094,15 +3094,15 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			CSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 		}
 		if data.CSRFPolicy.CustomDomainList != nil {
-			CustomDomainListMap := make(map[string]interface{})
+			CSRFPolicyCustomDomainListMap := make(map[string]interface{})
 			if !data.CSRFPolicy.CustomDomainList.Domains.IsNull() && !data.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
 				if !diags.HasError() {
-					CustomDomainListMap["domains"] = DomainsItems
+					CSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 				}
 			}
-			CSRFPolicyMap["custom_domain_list"] = CustomDomainListMap
+			CSRFPolicyMap["custom_domain_list"] = CSRFPolicyCustomDomainListMap
 		}
 		if data.CSRFPolicy.Disabled != nil {
 			CSRFPolicyMap["disabled"] = map[string]interface{}{}
@@ -3175,24 +3175,24 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if data.HTTPProtocolOptions != nil {
 		HTTPProtocolOptionsMap := make(map[string]interface{})
 		if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
-			HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+			HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 			if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-				HeaderTransformationMap := make(map[string]interface{})
+				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
-					HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-					HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-					HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-					HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
-				HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 			}
-			HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+			HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 		}
 		if data.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
 			HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
@@ -3273,31 +3273,31 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 					RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
 				}
 				if RequestCookiesToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					RequestCookiesToAddSecretValueMap := make(map[string]interface{})
 					if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						RequestCookiesToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							RequestCookiesToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							RequestCookiesToAddSecretValueBlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							RequestCookiesToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						RequestCookiesToAddSecretValueMap["blindfold_secret_info"] = RequestCookiesToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						RequestCookiesToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							RequestCookiesToAddSecretValueClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							RequestCookiesToAddSecretValueClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						RequestCookiesToAddSecretValueMap["clear_secret_info"] = RequestCookiesToAddSecretValueClearSecretInfoMap
 					}
-					RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+					RequestCookiesToAddItemMap["secret_value"] = RequestCookiesToAddSecretValueMap
 				}
 				if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
 					RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
@@ -3329,31 +3329,31 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 					RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 				}
 				if RequestHeadersToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					RequestHeadersToAddSecretValueMap := make(map[string]interface{})
 					if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						RequestHeadersToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							RequestHeadersToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							RequestHeadersToAddSecretValueBlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							RequestHeadersToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						RequestHeadersToAddSecretValueMap["blindfold_secret_info"] = RequestHeadersToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						RequestHeadersToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							RequestHeadersToAddSecretValueClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							RequestHeadersToAddSecretValueClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						RequestHeadersToAddSecretValueMap["clear_secret_info"] = RequestHeadersToAddSecretValueClearSecretInfoMap
 					}
-					RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+					RequestHeadersToAddItemMap["secret_value"] = RequestHeadersToAddSecretValueMap
 				}
 				if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
 					RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
@@ -3442,31 +3442,31 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 					ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 				}
 				if ResponseCookiesToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					ResponseCookiesToAddSecretValueMap := make(map[string]interface{})
 					if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						ResponseCookiesToAddSecretValueMap["blindfold_secret_info"] = ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						ResponseCookiesToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							ResponseCookiesToAddSecretValueClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							ResponseCookiesToAddSecretValueClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						ResponseCookiesToAddSecretValueMap["clear_secret_info"] = ResponseCookiesToAddSecretValueClearSecretInfoMap
 					}
-					ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+					ResponseCookiesToAddItemMap["secret_value"] = ResponseCookiesToAddSecretValueMap
 				}
 				if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
 					ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
@@ -3498,31 +3498,31 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 					ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 				}
 				if ResponseHeadersToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					ResponseHeadersToAddSecretValueMap := make(map[string]interface{})
 					if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						ResponseHeadersToAddSecretValueMap["blindfold_secret_info"] = ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						ResponseHeadersToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							ResponseHeadersToAddSecretValueClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							ResponseHeadersToAddSecretValueClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						ResponseHeadersToAddSecretValueMap["clear_secret_info"] = ResponseHeadersToAddSecretValueClearSecretInfoMap
 					}
-					ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+					ResponseHeadersToAddItemMap["secret_value"] = ResponseHeadersToAddSecretValueMap
 				}
 				if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
 					ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
@@ -3542,14 +3542,14 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if data.RetryPolicy != nil {
 		RetryPolicyMap := make(map[string]interface{})
 		if data.RetryPolicy.BackOff != nil {
-			BackOffMap := make(map[string]interface{})
+			RetryPolicyBackOffMap := make(map[string]interface{})
 			if !data.RetryPolicy.BackOff.BaseInterval.IsNull() && !data.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
-				BackOffMap["base_interval"] = data.RetryPolicy.BackOff.BaseInterval.ValueInt64()
+				RetryPolicyBackOffMap["base_interval"] = data.RetryPolicy.BackOff.BaseInterval.ValueInt64()
 			}
 			if !data.RetryPolicy.BackOff.MaxInterval.IsNull() && !data.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
-				BackOffMap["max_interval"] = data.RetryPolicy.BackOff.MaxInterval.ValueInt64()
+				RetryPolicyBackOffMap["max_interval"] = data.RetryPolicy.BackOff.MaxInterval.ValueInt64()
 			}
-			RetryPolicyMap["back_off"] = BackOffMap
+			RetryPolicyMap["back_off"] = RetryPolicyBackOffMap
 		}
 		if !data.RetryPolicy.NumRetries.IsNull() && !data.RetryPolicy.NumRetries.IsUnknown() {
 			RetryPolicyMap["num_retries"] = data.RetryPolicy.NumRetries.ValueInt64()
@@ -3695,12 +3695,12 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			TLSCertParamsMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if data.TLSCertParams.ValidationParams != nil {
-			ValidationParamsMap := make(map[string]interface{})
+			TLSCertParamsValidationParamsMap := make(map[string]interface{})
 			if !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-				ValidationParamsMap["skip_hostname_verification"] = data.TLSCertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				TLSCertParamsValidationParamsMap["skip_hostname_verification"] = data.TLSCertParams.ValidationParams.SkipHostnameVerification.ValueBool()
 			}
 			if data.TLSCertParams.ValidationParams.TrustedCA != nil {
-				TrustedCAMap := make(map[string]interface{})
+				TLSCertParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 				if !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 					var TrustedCAListElems []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
 					diags := data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -3726,22 +3726,22 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							}
 							TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 						}
-						TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						TLSCertParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 					}
 				}
-				ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				TLSCertParamsValidationParamsMap["trusted_ca"] = TLSCertParamsValidationParamsTrustedCAMap
 			}
 			if !data.TLSCertParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCAURL.IsUnknown() {
-				ValidationParamsMap["trusted_ca_url"] = data.TLSCertParams.ValidationParams.TrustedCAURL.ValueString()
+				TLSCertParamsValidationParamsMap["trusted_ca_url"] = data.TLSCertParams.ValidationParams.TrustedCAURL.ValueString()
 			}
 			if !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 				var VerifySubjectAltNamesItems []string
 				diags := data.TLSCertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 				if !diags.HasError() {
-					ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					TLSCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 				}
 			}
-			TLSCertParamsMap["validation_params"] = ValidationParamsMap
+			TLSCertParamsMap["validation_params"] = TLSCertParamsValidationParamsMap
 		}
 		if !data.TLSCertParams.XfccHeaderElements.IsNull() && !data.TLSCertParams.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
@@ -3761,19 +3761,19 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
-			CommonParamsMap := make(map[string]interface{})
+			TLSParametersCommonParamsMap := make(map[string]interface{})
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 				if !diags.HasError() {
-					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
 			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
@@ -3787,15 +3787,15 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -3804,47 +3804,47 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["clear_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					CommonParamsMap["tls_certificates"] = TLSCertificatesList
+					TLSParametersCommonParamsMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.TLSParameters.CommonParams.ValidationParams != nil {
-				ValidationParamsMap := make(map[string]interface{})
+				TLSParametersCommonParamsValidationParamsMap := make(map[string]interface{})
 				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					TLSParametersCommonParamsValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
 				}
 				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSParametersCommonParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 						var TrustedCAListElems []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
 						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -3870,24 +3870,24 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
-							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							TLSParametersCommonParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 						}
 					}
-					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca"] = TLSParametersCommonParamsValidationParamsTrustedCAMap
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
-					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 					if !diags.HasError() {
-						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
 				}
-				CommonParamsMap["validation_params"] = ValidationParamsMap
+				TLSParametersCommonParamsMap["validation_params"] = TLSParametersCommonParamsValidationParamsMap
 			}
-			TLSParametersMap["common_params"] = CommonParamsMap
+			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
 		if data.TLSParameters.NoClientCertificate != nil {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
@@ -3932,7 +3932,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 	if data.WAFType != nil {
 		WAFTypeMap := make(map[string]interface{})
 		if data.WAFType.AppFirewall != nil {
-			AppFirewallMap := make(map[string]interface{})
+			WAFTypeAppFirewallMap := make(map[string]interface{})
 			if !data.WAFType.AppFirewall.AppFirewall.IsNull() && !data.WAFType.AppFirewall.AppFirewall.IsUnknown() {
 				var AppFirewallElems []VirtualHostWAFTypeAppFirewallAppFirewallModel
 				diags := data.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallElems, false)
@@ -3958,10 +3958,10 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 						}
 						AppFirewallList = append(AppFirewallList, AppFirewallItemMap)
 					}
-					AppFirewallMap["app_firewall"] = AppFirewallList
+					WAFTypeAppFirewallMap["app_firewall"] = AppFirewallList
 				}
 			}
-			WAFTypeMap["app_firewall"] = AppFirewallMap
+			WAFTypeMap["app_firewall"] = WAFTypeAppFirewallMap
 		}
 		if data.WAFType.DisableWAF != nil {
 			WAFTypeMap["disable_waf"] = map[string]interface{}{}
@@ -8933,84 +8933,84 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}
 		}
 		if data.Authentication.CookieParams != nil {
-			CookieParamsMap := make(map[string]interface{})
+			AuthenticationCookieParamsMap := make(map[string]interface{})
 			if data.Authentication.CookieParams.AuthHMAC != nil {
-				AuthHMACMap := make(map[string]interface{})
+				AuthenticationCookieParamsAuthHMACMap := make(map[string]interface{})
 				if data.Authentication.CookieParams.AuthHMAC.PrimKey != nil {
-					PrimKeyMap := make(map[string]interface{})
+					AuthenticationCookieParamsAuthHMACPrimKeyMap := make(map[string]interface{})
 					if data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						PrimKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AuthenticationCookieParamsAuthHMACPrimKeyMap["blindfold_secret_info"] = AuthenticationCookieParamsAuthHMACPrimKeyBlindfoldSecretInfoMap
 					}
 					if data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
+							AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.PrimKey.ClearSecretInfo.URL.ValueString()
 						}
-						PrimKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						AuthenticationCookieParamsAuthHMACPrimKeyMap["clear_secret_info"] = AuthenticationCookieParamsAuthHMACPrimKeyClearSecretInfoMap
 					}
-					AuthHMACMap["prim_key"] = PrimKeyMap
+					AuthenticationCookieParamsAuthHMACMap["prim_key"] = AuthenticationCookieParamsAuthHMACPrimKeyMap
 				}
 				if !data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.IsNull() && !data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.IsUnknown() {
-					AuthHMACMap["prim_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
+					AuthenticationCookieParamsAuthHMACMap["prim_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.PrimKeyExpiry.ValueString()
 				}
 				if data.Authentication.CookieParams.AuthHMAC.SecKey != nil {
-					SecKeyMap := make(map[string]interface{})
+					AuthenticationCookieParamsAuthHMACSecKeyMap := make(map[string]interface{})
 					if data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["decryption_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["location"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap["store_provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						AuthenticationCookieParamsAuthHMACSecKeyMap["blindfold_secret_info"] = AuthenticationCookieParamsAuthHMACSecKeyBlindfoldSecretInfoMap
 					}
 					if data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap := make(map[string]interface{})
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap["provider"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.Provider.ValueString()
 						}
 						if !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
+							AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap["url"] = data.Authentication.CookieParams.AuthHMAC.SecKey.ClearSecretInfo.URL.ValueString()
 						}
-						SecKeyMap["clear_secret_info"] = ClearSecretInfoMap
+						AuthenticationCookieParamsAuthHMACSecKeyMap["clear_secret_info"] = AuthenticationCookieParamsAuthHMACSecKeyClearSecretInfoMap
 					}
-					AuthHMACMap["sec_key"] = SecKeyMap
+					AuthenticationCookieParamsAuthHMACMap["sec_key"] = AuthenticationCookieParamsAuthHMACSecKeyMap
 				}
 				if !data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.IsNull() && !data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.IsUnknown() {
-					AuthHMACMap["sec_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
+					AuthenticationCookieParamsAuthHMACMap["sec_key_expiry"] = data.Authentication.CookieParams.AuthHMAC.SecKeyExpiry.ValueString()
 				}
-				CookieParamsMap["auth_hmac"] = AuthHMACMap
+				AuthenticationCookieParamsMap["auth_hmac"] = AuthenticationCookieParamsAuthHMACMap
 			}
 			if !data.Authentication.CookieParams.CookieExpiry.IsNull() && !data.Authentication.CookieParams.CookieExpiry.IsUnknown() {
-				CookieParamsMap["cookie_expiry"] = data.Authentication.CookieParams.CookieExpiry.ValueInt64()
+				AuthenticationCookieParamsMap["cookie_expiry"] = data.Authentication.CookieParams.CookieExpiry.ValueInt64()
 			}
 			if !data.Authentication.CookieParams.CookieRefreshInterval.IsNull() && !data.Authentication.CookieParams.CookieRefreshInterval.IsUnknown() {
-				CookieParamsMap["cookie_refresh_interval"] = data.Authentication.CookieParams.CookieRefreshInterval.ValueInt64()
+				AuthenticationCookieParamsMap["cookie_refresh_interval"] = data.Authentication.CookieParams.CookieRefreshInterval.ValueInt64()
 			}
 			if data.Authentication.CookieParams.KmsKeyHMAC != nil {
-				CookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
+				AuthenticationCookieParamsMap["kms_key_hmac"] = map[string]interface{}{}
 			}
 			if !data.Authentication.CookieParams.SessionExpiry.IsNull() && !data.Authentication.CookieParams.SessionExpiry.IsUnknown() {
-				CookieParamsMap["session_expiry"] = data.Authentication.CookieParams.SessionExpiry.ValueInt64()
+				AuthenticationCookieParamsMap["session_expiry"] = data.Authentication.CookieParams.SessionExpiry.ValueInt64()
 			}
-			AuthenticationMap["cookie_params"] = CookieParamsMap
+			AuthenticationMap["cookie_params"] = AuthenticationCookieParamsMap
 		}
 		if data.Authentication.RedirectDynamic != nil {
 			AuthenticationMap["redirect_dynamic"] = map[string]interface{}{}
@@ -9115,15 +9115,15 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			CSRFPolicyMap["all_load_balancer_domains"] = map[string]interface{}{}
 		}
 		if data.CSRFPolicy.CustomDomainList != nil {
-			CustomDomainListMap := make(map[string]interface{})
+			CSRFPolicyCustomDomainListMap := make(map[string]interface{})
 			if !data.CSRFPolicy.CustomDomainList.Domains.IsNull() && !data.CSRFPolicy.CustomDomainList.Domains.IsUnknown() {
 				var DomainsItems []string
 				diags := data.CSRFPolicy.CustomDomainList.Domains.ElementsAs(ctx, &DomainsItems, false)
 				if !diags.HasError() {
-					CustomDomainListMap["domains"] = DomainsItems
+					CSRFPolicyCustomDomainListMap["domains"] = DomainsItems
 				}
 			}
-			CSRFPolicyMap["custom_domain_list"] = CustomDomainListMap
+			CSRFPolicyMap["custom_domain_list"] = CSRFPolicyCustomDomainListMap
 		}
 		if data.CSRFPolicy.Disabled != nil {
 			CSRFPolicyMap["disabled"] = map[string]interface{}{}
@@ -9196,24 +9196,24 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.HTTPProtocolOptions != nil {
 		HTTPProtocolOptionsMap := make(map[string]interface{})
 		if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only != nil {
-			HTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
+			HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap := make(map[string]interface{})
 			if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation != nil {
-				HeaderTransformationMap := make(map[string]interface{})
+				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap := make(map[string]interface{})
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.DefaultHeaderTransformation != nil {
-					HeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["default_header_transformation"] = map[string]interface{}{}
 				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.LegacyHeaderTransformation != nil {
-					HeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["legacy_header_transformation"] = map[string]interface{}{}
 				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.PreserveCaseHeaderTransformation != nil {
-					HeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["preserve_case_header_transformation"] = map[string]interface{}{}
 				}
 				if data.HTTPProtocolOptions.HTTPProtocolEnableV1Only.HeaderTransformation.ProperCaseHeaderTransformation != nil {
-					HeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
+					HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap["proper_case_header_transformation"] = map[string]interface{}{}
 				}
-				HTTPProtocolEnableV1OnlyMap["header_transformation"] = HeaderTransformationMap
+				HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap["header_transformation"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyHeaderTransformationMap
 			}
-			HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolEnableV1OnlyMap
+			HTTPProtocolOptionsMap["http_protocol_enable_v1_only"] = HTTPProtocolOptionsHTTPProtocolEnableV1OnlyMap
 		}
 		if data.HTTPProtocolOptions.HTTPProtocolEnableV1V2 != nil {
 			HTTPProtocolOptionsMap["http_protocol_enable_v1_v2"] = map[string]interface{}{}
@@ -9294,31 +9294,31 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 					RequestCookiesToAddItemMap["overwrite"] = RequestCookiesToAddItem.Overwrite.ValueBool()
 				}
 				if RequestCookiesToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					RequestCookiesToAddSecretValueMap := make(map[string]interface{})
 					if RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						RequestCookiesToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							RequestCookiesToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							RequestCookiesToAddSecretValueBlindfoldSecretInfoMap["location"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							RequestCookiesToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = RequestCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						RequestCookiesToAddSecretValueMap["blindfold_secret_info"] = RequestCookiesToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if RequestCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						RequestCookiesToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							RequestCookiesToAddSecretValueClearSecretInfoMap["provider"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							RequestCookiesToAddSecretValueClearSecretInfoMap["url"] = RequestCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						RequestCookiesToAddSecretValueMap["clear_secret_info"] = RequestCookiesToAddSecretValueClearSecretInfoMap
 					}
-					RequestCookiesToAddItemMap["secret_value"] = SecretValueMap
+					RequestCookiesToAddItemMap["secret_value"] = RequestCookiesToAddSecretValueMap
 				}
 				if !RequestCookiesToAddItem.Value.IsNull() && !RequestCookiesToAddItem.Value.IsUnknown() {
 					RequestCookiesToAddItemMap["value"] = RequestCookiesToAddItem.Value.ValueString()
@@ -9350,31 +9350,31 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 					RequestHeadersToAddItemMap["name"] = RequestHeadersToAddItem.Name.ValueString()
 				}
 				if RequestHeadersToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					RequestHeadersToAddSecretValueMap := make(map[string]interface{})
 					if RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						RequestHeadersToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							RequestHeadersToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							RequestHeadersToAddSecretValueBlindfoldSecretInfoMap["location"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							RequestHeadersToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = RequestHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						RequestHeadersToAddSecretValueMap["blindfold_secret_info"] = RequestHeadersToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if RequestHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						RequestHeadersToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							RequestHeadersToAddSecretValueClearSecretInfoMap["provider"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							RequestHeadersToAddSecretValueClearSecretInfoMap["url"] = RequestHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						RequestHeadersToAddSecretValueMap["clear_secret_info"] = RequestHeadersToAddSecretValueClearSecretInfoMap
 					}
-					RequestHeadersToAddItemMap["secret_value"] = SecretValueMap
+					RequestHeadersToAddItemMap["secret_value"] = RequestHeadersToAddSecretValueMap
 				}
 				if !RequestHeadersToAddItem.Value.IsNull() && !RequestHeadersToAddItem.Value.IsUnknown() {
 					RequestHeadersToAddItemMap["value"] = RequestHeadersToAddItem.Value.ValueString()
@@ -9463,31 +9463,31 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 					ResponseCookiesToAddItemMap["samesite_strict"] = map[string]interface{}{}
 				}
 				if ResponseCookiesToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					ResponseCookiesToAddSecretValueMap := make(map[string]interface{})
 					if ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap["location"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = ResponseCookiesToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						ResponseCookiesToAddSecretValueMap["blindfold_secret_info"] = ResponseCookiesToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if ResponseCookiesToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						ResponseCookiesToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							ResponseCookiesToAddSecretValueClearSecretInfoMap["provider"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							ResponseCookiesToAddSecretValueClearSecretInfoMap["url"] = ResponseCookiesToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						ResponseCookiesToAddSecretValueMap["clear_secret_info"] = ResponseCookiesToAddSecretValueClearSecretInfoMap
 					}
-					ResponseCookiesToAddItemMap["secret_value"] = SecretValueMap
+					ResponseCookiesToAddItemMap["secret_value"] = ResponseCookiesToAddSecretValueMap
 				}
 				if !ResponseCookiesToAddItem.Value.IsNull() && !ResponseCookiesToAddItem.Value.IsUnknown() {
 					ResponseCookiesToAddItemMap["value"] = ResponseCookiesToAddItem.Value.ValueString()
@@ -9519,31 +9519,31 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 					ResponseHeadersToAddItemMap["name"] = ResponseHeadersToAddItem.Name.ValueString()
 				}
 				if ResponseHeadersToAddItem.SecretValue != nil {
-					SecretValueMap := make(map[string]interface{})
+					ResponseHeadersToAddSecretValueMap := make(map[string]interface{})
 					if ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo != nil {
-						BlindfoldSecretInfoMap := make(map[string]interface{})
+						ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap := make(map[string]interface{})
 						if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+							ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap["decryption_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 						}
 						if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.IsUnknown() {
-							BlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
+							ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap["location"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.Location.ValueString()
 						}
 						if !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsNull() && !ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-							BlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
+							ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap["store_provider"] = ResponseHeadersToAddItem.SecretValue.BlindfoldSecretInfo.StoreProvider.ValueString()
 						}
-						SecretValueMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+						ResponseHeadersToAddSecretValueMap["blindfold_secret_info"] = ResponseHeadersToAddSecretValueBlindfoldSecretInfoMap
 					}
 					if ResponseHeadersToAddItem.SecretValue.ClearSecretInfo != nil {
-						ClearSecretInfoMap := make(map[string]interface{})
+						ResponseHeadersToAddSecretValueClearSecretInfoMap := make(map[string]interface{})
 						if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.IsUnknown() {
-							ClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
+							ResponseHeadersToAddSecretValueClearSecretInfoMap["provider"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.Provider.ValueString()
 						}
 						if !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsNull() && !ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.IsUnknown() {
-							ClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
+							ResponseHeadersToAddSecretValueClearSecretInfoMap["url"] = ResponseHeadersToAddItem.SecretValue.ClearSecretInfo.URL.ValueString()
 						}
-						SecretValueMap["clear_secret_info"] = ClearSecretInfoMap
+						ResponseHeadersToAddSecretValueMap["clear_secret_info"] = ResponseHeadersToAddSecretValueClearSecretInfoMap
 					}
-					ResponseHeadersToAddItemMap["secret_value"] = SecretValueMap
+					ResponseHeadersToAddItemMap["secret_value"] = ResponseHeadersToAddSecretValueMap
 				}
 				if !ResponseHeadersToAddItem.Value.IsNull() && !ResponseHeadersToAddItem.Value.IsUnknown() {
 					ResponseHeadersToAddItemMap["value"] = ResponseHeadersToAddItem.Value.ValueString()
@@ -9563,14 +9563,14 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.RetryPolicy != nil {
 		RetryPolicyMap := make(map[string]interface{})
 		if data.RetryPolicy.BackOff != nil {
-			BackOffMap := make(map[string]interface{})
+			RetryPolicyBackOffMap := make(map[string]interface{})
 			if !data.RetryPolicy.BackOff.BaseInterval.IsNull() && !data.RetryPolicy.BackOff.BaseInterval.IsUnknown() {
-				BackOffMap["base_interval"] = data.RetryPolicy.BackOff.BaseInterval.ValueInt64()
+				RetryPolicyBackOffMap["base_interval"] = data.RetryPolicy.BackOff.BaseInterval.ValueInt64()
 			}
 			if !data.RetryPolicy.BackOff.MaxInterval.IsNull() && !data.RetryPolicy.BackOff.MaxInterval.IsUnknown() {
-				BackOffMap["max_interval"] = data.RetryPolicy.BackOff.MaxInterval.ValueInt64()
+				RetryPolicyBackOffMap["max_interval"] = data.RetryPolicy.BackOff.MaxInterval.ValueInt64()
 			}
-			RetryPolicyMap["back_off"] = BackOffMap
+			RetryPolicyMap["back_off"] = RetryPolicyBackOffMap
 		}
 		if !data.RetryPolicy.NumRetries.IsNull() && !data.RetryPolicy.NumRetries.IsUnknown() {
 			RetryPolicyMap["num_retries"] = data.RetryPolicy.NumRetries.ValueInt64()
@@ -9716,12 +9716,12 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			TLSCertParamsMap["no_client_certificate"] = map[string]interface{}{}
 		}
 		if data.TLSCertParams.ValidationParams != nil {
-			ValidationParamsMap := make(map[string]interface{})
+			TLSCertParamsValidationParamsMap := make(map[string]interface{})
 			if !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSCertParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-				ValidationParamsMap["skip_hostname_verification"] = data.TLSCertParams.ValidationParams.SkipHostnameVerification.ValueBool()
+				TLSCertParamsValidationParamsMap["skip_hostname_verification"] = data.TLSCertParams.ValidationParams.SkipHostnameVerification.ValueBool()
 			}
 			if data.TLSCertParams.ValidationParams.TrustedCA != nil {
-				TrustedCAMap := make(map[string]interface{})
+				TLSCertParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 				if !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 					var TrustedCAListElems []VirtualHostTLSCertParamsValidationParamsTrustedCATrustedCAListModel
 					diags := data.TLSCertParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -9747,22 +9747,22 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							}
 							TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 						}
-						TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+						TLSCertParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 					}
 				}
-				ValidationParamsMap["trusted_ca"] = TrustedCAMap
+				TLSCertParamsValidationParamsMap["trusted_ca"] = TLSCertParamsValidationParamsTrustedCAMap
 			}
 			if !data.TLSCertParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSCertParams.ValidationParams.TrustedCAURL.IsUnknown() {
-				ValidationParamsMap["trusted_ca_url"] = data.TLSCertParams.ValidationParams.TrustedCAURL.ValueString()
+				TLSCertParamsValidationParamsMap["trusted_ca_url"] = data.TLSCertParams.ValidationParams.TrustedCAURL.ValueString()
 			}
 			if !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSCertParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 				var VerifySubjectAltNamesItems []string
 				diags := data.TLSCertParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 				if !diags.HasError() {
-					ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+					TLSCertParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 				}
 			}
-			TLSCertParamsMap["validation_params"] = ValidationParamsMap
+			TLSCertParamsMap["validation_params"] = TLSCertParamsValidationParamsMap
 		}
 		if !data.TLSCertParams.XfccHeaderElements.IsNull() && !data.TLSCertParams.XfccHeaderElements.IsUnknown() {
 			var XfccHeaderElementsItems []string
@@ -9782,19 +9782,19 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			TLSParametersMap["client_certificate_required"] = map[string]interface{}{}
 		}
 		if data.TLSParameters.CommonParams != nil {
-			CommonParamsMap := make(map[string]interface{})
+			TLSParametersCommonParamsMap := make(map[string]interface{})
 			if !data.TLSParameters.CommonParams.CipherSuites.IsNull() && !data.TLSParameters.CommonParams.CipherSuites.IsUnknown() {
 				var CipherSuitesItems []string
 				diags := data.TLSParameters.CommonParams.CipherSuites.ElementsAs(ctx, &CipherSuitesItems, false)
 				if !diags.HasError() {
-					CommonParamsMap["cipher_suites"] = CipherSuitesItems
+					TLSParametersCommonParamsMap["cipher_suites"] = CipherSuitesItems
 				}
 			}
 			if !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MaximumProtocolVersion.IsUnknown() {
-				CommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["maximum_protocol_version"] = data.TLSParameters.CommonParams.MaximumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsNull() && !data.TLSParameters.CommonParams.MinimumProtocolVersion.IsUnknown() {
-				CommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
+				TLSParametersCommonParamsMap["minimum_protocol_version"] = data.TLSParameters.CommonParams.MinimumProtocolVersion.ValueString()
 			}
 			if !data.TLSParameters.CommonParams.TLSCertificates.IsNull() && !data.TLSParameters.CommonParams.TLSCertificates.IsUnknown() {
 				var TLSCertificatesElems []VirtualHostTLSParametersCommonParamsTLSCertificatesModel
@@ -9808,15 +9808,15 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							TLSCertificatesItemMap["certificate_url"] = TLSCertificatesItem.CertificateURL.ValueString()
 						}
 						if TLSCertificatesItem.CustomHashAlgorithms != nil {
-							CustomHashAlgorithmsMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap := make(map[string]interface{})
 							if !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsNull() && !TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.IsUnknown() {
 								var HashAlgorithmsItems []string
 								diags := TLSCertificatesItem.CustomHashAlgorithms.HashAlgorithms.ElementsAs(ctx, &HashAlgorithmsItems, false)
 								if !diags.HasError() {
-									CustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
+									TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap["hash_algorithms"] = HashAlgorithmsItems
 								}
 							}
-							TLSCertificatesItemMap["custom_hash_algorithms"] = CustomHashAlgorithmsMap
+							TLSCertificatesItemMap["custom_hash_algorithms"] = TLSParametersCommonParamsTLSCertificatesCustomHashAlgorithmsMap
 						}
 						if !TLSCertificatesItem.DescriptionSpec.IsNull() && !TLSCertificatesItem.DescriptionSpec.IsUnknown() {
 							TLSCertificatesItemMap["description"] = TLSCertificatesItem.DescriptionSpec.ValueString()
@@ -9825,47 +9825,47 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 							TLSCertificatesItemMap["disable_ocsp_stapling"] = map[string]interface{}{}
 						}
 						if TLSCertificatesItem.PrivateKey != nil {
-							PrivateKeyMap := make(map[string]interface{})
+							TLSParametersCommonParamsTLSCertificatesPrivateKeyMap := make(map[string]interface{})
 							if TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo != nil {
-								BlindfoldSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["decryption_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.DecryptionProvider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.IsUnknown() {
-									BlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["location"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.Location.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsNull() && !TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.IsUnknown() {
-									BlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap["store_provider"] = TLSCertificatesItem.PrivateKey.BlindfoldSecretInfo.StoreProvider.ValueString()
 								}
-								PrivateKeyMap["blindfold_secret_info"] = BlindfoldSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["blindfold_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyBlindfoldSecretInfoMap
 							}
 							if TLSCertificatesItem.PrivateKey.ClearSecretInfo != nil {
-								ClearSecretInfoMap := make(map[string]interface{})
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.IsUnknown() {
-									ClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["provider"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.Provider.ValueString()
 								}
 								if !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsNull() && !TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.IsUnknown() {
-									ClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
+									TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap["url"] = TLSCertificatesItem.PrivateKey.ClearSecretInfo.URL.ValueString()
 								}
-								PrivateKeyMap["clear_secret_info"] = ClearSecretInfoMap
+								TLSParametersCommonParamsTLSCertificatesPrivateKeyMap["clear_secret_info"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyClearSecretInfoMap
 							}
-							TLSCertificatesItemMap["private_key"] = PrivateKeyMap
+							TLSCertificatesItemMap["private_key"] = TLSParametersCommonParamsTLSCertificatesPrivateKeyMap
 						}
 						if TLSCertificatesItem.UseSystemDefaults != nil {
 							TLSCertificatesItemMap["use_system_defaults"] = map[string]interface{}{}
 						}
 						TLSCertificatesList = append(TLSCertificatesList, TLSCertificatesItemMap)
 					}
-					CommonParamsMap["tls_certificates"] = TLSCertificatesList
+					TLSParametersCommonParamsMap["tls_certificates"] = TLSCertificatesList
 				}
 			}
 			if data.TLSParameters.CommonParams.ValidationParams != nil {
-				ValidationParamsMap := make(map[string]interface{})
+				TLSParametersCommonParamsValidationParamsMap := make(map[string]interface{})
 				if !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.IsUnknown() {
-					ValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
+					TLSParametersCommonParamsValidationParamsMap["skip_hostname_verification"] = data.TLSParameters.CommonParams.ValidationParams.SkipHostnameVerification.ValueBool()
 				}
 				if data.TLSParameters.CommonParams.ValidationParams.TrustedCA != nil {
-					TrustedCAMap := make(map[string]interface{})
+					TLSParametersCommonParamsValidationParamsTrustedCAMap := make(map[string]interface{})
 					if !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.IsUnknown() {
 						var TrustedCAListElems []VirtualHostTLSParametersCommonParamsValidationParamsTrustedCATrustedCAListModel
 						diags := data.TLSParameters.CommonParams.ValidationParams.TrustedCA.TrustedCAList.ElementsAs(ctx, &TrustedCAListElems, false)
@@ -9891,24 +9891,24 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 								}
 								TrustedCAListList = append(TrustedCAListList, TrustedCAListItemMap)
 							}
-							TrustedCAMap["trusted_ca_list"] = TrustedCAListList
+							TLSParametersCommonParamsValidationParamsTrustedCAMap["trusted_ca_list"] = TrustedCAListList
 						}
 					}
-					ValidationParamsMap["trusted_ca"] = TrustedCAMap
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca"] = TLSParametersCommonParamsValidationParamsTrustedCAMap
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.IsUnknown() {
-					ValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
+					TLSParametersCommonParamsValidationParamsMap["trusted_ca_url"] = data.TLSParameters.CommonParams.ValidationParams.TrustedCAURL.ValueString()
 				}
 				if !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsNull() && !data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.IsUnknown() {
 					var VerifySubjectAltNamesItems []string
 					diags := data.TLSParameters.CommonParams.ValidationParams.VerifySubjectAltNames.ElementsAs(ctx, &VerifySubjectAltNamesItems, false)
 					if !diags.HasError() {
-						ValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
+						TLSParametersCommonParamsValidationParamsMap["verify_subject_alt_names"] = VerifySubjectAltNamesItems
 					}
 				}
-				CommonParamsMap["validation_params"] = ValidationParamsMap
+				TLSParametersCommonParamsMap["validation_params"] = TLSParametersCommonParamsValidationParamsMap
 			}
-			TLSParametersMap["common_params"] = CommonParamsMap
+			TLSParametersMap["common_params"] = TLSParametersCommonParamsMap
 		}
 		if data.TLSParameters.NoClientCertificate != nil {
 			TLSParametersMap["no_client_certificate"] = map[string]interface{}{}
@@ -9953,7 +9953,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 	if data.WAFType != nil {
 		WAFTypeMap := make(map[string]interface{})
 		if data.WAFType.AppFirewall != nil {
-			AppFirewallMap := make(map[string]interface{})
+			WAFTypeAppFirewallMap := make(map[string]interface{})
 			if !data.WAFType.AppFirewall.AppFirewall.IsNull() && !data.WAFType.AppFirewall.AppFirewall.IsUnknown() {
 				var AppFirewallElems []VirtualHostWAFTypeAppFirewallAppFirewallModel
 				diags := data.WAFType.AppFirewall.AppFirewall.ElementsAs(ctx, &AppFirewallElems, false)
@@ -9979,10 +9979,10 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 						}
 						AppFirewallList = append(AppFirewallList, AppFirewallItemMap)
 					}
-					AppFirewallMap["app_firewall"] = AppFirewallList
+					WAFTypeAppFirewallMap["app_firewall"] = AppFirewallList
 				}
 			}
-			WAFTypeMap["app_firewall"] = AppFirewallMap
+			WAFTypeMap["app_firewall"] = WAFTypeAppFirewallMap
 		}
 		if data.WAFType.DisableWAF != nil {
 			WAFTypeMap["disable_waf"] = map[string]interface{}{}
