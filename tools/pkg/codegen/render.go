@@ -292,7 +292,12 @@ func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath strin
 		sb.WriteString(fmt.Sprintf("%s}\n", indent))
 		return
 	}
-	subVar := base + "Map"
+	// Name the map var by the full nested path (childPath), not just the leaf GoName:
+	// a single nested block whose child is another single block with the SAME GoName
+	// (F5 XC view-ref wrappers, e.g. http_loadbalancer { http_loadbalancer { name } })
+	// would otherwise collide the map var, shadowing the outer and emitting a
+	// self-referential assignment while the outer map sent to the API stayed empty.
+	subVar := childPath + "Map"
 	sb.WriteString(fmt.Sprintf("%sif %s != nil {\n", indent, src))
 	sb.WriteString(fmt.Sprintf("%s\t%s := make(map[string]interface{})\n", indent, subVar))
 	for _, child := range attr.NestedAttributes {

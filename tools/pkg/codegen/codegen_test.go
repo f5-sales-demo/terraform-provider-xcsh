@@ -3,6 +3,7 @@
 package codegen
 
 import (
+	"regexp"
 	"strings"
 	"testing"
 
@@ -936,5 +937,49 @@ func TestRenderUnmarshalListChild_PreservesElementStatePositionally(t *testing.T
 	}
 	if !strings.Contains(out, "ApiEndpointRulesExisting[ApiEndpointRulesIdx].ApiEndpointMethod.InvertMatcher") {
 		t.Errorf("nested list element leaf must preserve the planned value positionally:\n%s", out)
+	}
+}
+
+// Coverage Batch F (#61): a single nested block whose child is another single nested
+// block with the SAME GoName (F5 XC "view ref" wrappers like http_loadbalancer {
+// http_loadbalancer { name } }) must not collide the marshal map variable. The old
+// code named both maps "<GoName>Map", so the inner `:= make` shadowed the outer and
+// emitted `XMap["http_loadbalancer"] = XMap` (self-reference) while the OUTER map sent
+// to the API stayed empty {} — dropping the LB association (live 400). The map var
+// must be unique per nesting level (childPath-based), so the outer map receives the
+// inner map, not itself.
+func TestRenderMarshalBlock_NestedSameNameNoShadow(t *testing.T) {
+	ref := openapi.TerraformAttribute{
+		GoName: "HTTPLoadBalancer", TfsdkTag: "http_loadbalancer", JsonName: "http_loadbalancer",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{
+			{GoName: "Name", TfsdkTag: "name", JsonName: "name"},
+			{GoName: "Namespace", TfsdkTag: "namespace", JsonName: "namespace"},
+		},
+	}
+	outer := openapi.TerraformAttribute{
+		GoName: "HTTPLoadBalancer", TfsdkTag: "http_loadbalancer", JsonName: "http_loadbalancer",
+		IsBlock: true, NestedBlockType: "single",
+		NestedAttributes: []openapi.TerraformAttribute{ref},
+	}
+	var sb strings.Builder
+	renderMarshalBlock(&sb, "AppAPIGroup", "", outer, "data.HTTPLoadBalancer", "createReq.Spec", "\t", false)
+	got := sb.String()
+
+	// No map may be assigned to its own key (the shadow self-reference bug).
+	selfRef := regexp.MustCompile(`(\w+)\["[a-z_]+"\] = (\w+)`)
+	for _, m := range selfRef.FindAllStringSubmatch(got, -1) {
+		if m[1] == m[2] {
+			t.Errorf("marshal emits self-referential map assignment %q (shadowed nested block); got:\n%s", m[0], got)
+		}
+	}
+	// The two nested maps must be declared with DISTINCT identifiers.
+	decl := regexp.MustCompile(`(\w+) := make\(map\[string\]interface\{\}\)`)
+	names := map[string]bool{}
+	for _, m := range decl.FindAllStringSubmatch(got, -1) {
+		if names[m[1]] {
+			t.Errorf("duplicate marshal map var %q (shadow); got:\n%s", m[1], got)
+		}
+		names[m[1]] = true
 	}
 }
