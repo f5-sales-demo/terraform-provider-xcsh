@@ -357,6 +357,50 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) 
 	}
 }
 
+// #1103: plain optional empty-marker blocks the API echoes on every list element
+// (origin_pool origin_servers[].labels {}, http_loadbalancer
+// default_route_pools[].endpoint_subsets {}) must guard their response-populate with
+// !isImport, exactly like oneof base markers — otherwise a minimal config that omits
+// them drifts every plan after import. This proves the seed entries flow through to the
+// generated flatten closure for these two leaves.
+func TestRenderUnmarshalSingleChild_ImportSuppressesEmptyMarkerListElement_Issue1103(t *testing.T) {
+	mk := func(go_, tfsdk string) openapi.TerraformAttribute {
+		return openapi.TerraformAttribute{GoName: go_, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "single"}
+	}
+	cases := []struct {
+		rc, goName, tfsdk string
+	}{
+		{"OriginPool", "Labels", "labels"},
+		{"HTTPLoadBalancer", "EndpointSubsets", "endpoint_subsets"},
+	}
+	for _, c := range cases {
+		var sb strings.Builder
+		// Render as it appears inside a list element (positional state accessor).
+		renderUnmarshalSingleChild(&sb, c.rc, "", mk(c.goName, c.tfsdk), "itemMap", "existingItems[idx]", "len(existingItems) > idx", "list", "\t")
+		got := sb.String()
+		if !strings.Contains(got, "if !isImport {") {
+			t.Errorf("%s.%s must guard response-populate with !isImport (empty-marker import drift #1103); got:\n%s", c.rc, c.tfsdk, got)
+		}
+	}
+}
+
+// #1103 non-collision: seeding OriginPool.labels suppresses ONLY the origin_servers[]
+// empty-marker block. The top-level metadata.labels is a types.Map rendered by a
+// different path that never consults isImportDefaultSuppressed, so a map-typed "labels"
+// child must NOT acquire an empty-marker import-suppression guard.
+func TestRenderUnmarshalChild_MetadataLabelsMapNotSuppressed_Issue1103(t *testing.T) {
+	var sb strings.Builder
+	mapAttr := openapi.TerraformAttribute{GoName: "Labels", TfsdkTag: "labels", JsonName: "labels", Type: "map", ElementType: "string"}
+	renderUnmarshalChild(&sb, "OriginPool", "", mapAttr, "metaMap", "", "", "single", "\t")
+	got := sb.String()
+	if strings.Contains(got, "EmptyModel{}") {
+		t.Errorf("metadata.labels (types.Map) must not render as an empty-marker block; got:\n%s", got)
+	}
+	if strings.Contains(got, "if !isImport {") {
+		t.Errorf("metadata.labels (types.Map) must not acquire an empty-marker import-suppression guard; got:\n%s", got)
+	}
+}
+
 // A suppressed server-computed LIST block nested inside another block (e.g.
 // app_firewall detection_settings.violations_view — the server materializes the
 // full violation catalog whenever detection_settings is set) must not be populated

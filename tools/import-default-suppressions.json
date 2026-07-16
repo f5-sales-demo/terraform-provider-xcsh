@@ -32,6 +32,7 @@
     "disable_trust_client_ip_headers",
     "disable_waf",
     "dns_volterra_managed",
+    "endpoint_subsets",
     "l7_ddos_protection",
     "no_challenge",
     "round_robin",
@@ -43,6 +44,9 @@
   "Healthcheck": [
     "headers",
     "use_http2"
+  ],
+  "OriginPool": [
+    "labels"
   ],
   "RateLimiterPolicy": [
     "any_asn",

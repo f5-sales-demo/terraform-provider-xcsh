@@ -105,6 +105,25 @@ func TestImportSuppressions_AppFirewallViolationsView(t *testing.T) {
 	}
 }
 
+// #1103 (recurrence): empty-marker nested blocks the F5 XC API always echoes on
+// every list element — origin_pool origin_servers[].labels {} and
+// http_loadbalancer default_route_pools[].endpoint_subsets {} (also routes[].pools[],
+// etc.). These are NOT oneof members but plain optional message blocks the server
+// materializes as present-but-empty. On import there is no prior state to preserve, so
+// without suppression the flatten populates the marker and the next plan wants to remove
+// it (present-in-read vs absent-in-config) = perpetual drift, cascading into computed
+// tenant re-planning on reference blocks. One entry per resource covers all depths
+// (matched by leaf name). They slipped through because the auto-derive differ was blind
+// to defaults nested inside list elements (fixed in tools/pkg/suppress/diff.go).
+func TestImportSuppressions_EmptyMarkerListElementBlocks_Issue1103(t *testing.T) {
+	if !isImportDefaultSuppressed("OriginPool", "labels") {
+		t.Error("OriginPool.labels must be a suppressed server-default (origin_servers[].labels {} import round-trip drift, #1103)")
+	}
+	if !isImportDefaultSuppressed("HTTPLoadBalancer", "endpoint_subsets") {
+		t.Error("HTTPLoadBalancer.endpoint_subsets must be a suppressed server-default (default_route_pools[].endpoint_subsets {} import round-trip drift, #1103)")
+	}
+}
+
 // Coverage Batch B (#51): a rate_limiter_policy rule that omits its country client
 // matcher gets any_country {} materialized by the server (verified live on
 // f5-sales-demo webapp-api-protection: a rule with asn_list but no country came
