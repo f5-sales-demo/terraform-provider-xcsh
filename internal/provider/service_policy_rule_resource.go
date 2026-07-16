@@ -2786,10 +2786,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingArgMatchersItems) > listIdx {
 							return existingArgMatchersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -2797,10 +2795,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingArgMatchersItems) > listIdx {
 							return existingArgMatchersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3004,10 +3000,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.BotAction != nil {
 					return data.BotAction.None
 				}
-				if !isImport {
-					if _, ok := blockData["none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3076,10 +3070,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingCookieMatchersItems) > listIdx {
 							return existingCookieMatchersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3087,10 +3079,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingCookieMatchersItems) > listIdx {
 							return existingCookieMatchersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3209,10 +3199,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingHeadersItems) > listIdx {
 							return existingHeadersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3220,10 +3208,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingHeadersItems) > listIdx {
 							return existingHeadersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3463,10 +3449,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingJWTClaimsItems) > listIdx {
 							return existingJWTClaimsItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3474,10 +3458,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingJWTClaimsItems) > listIdx {
 							return existingJWTClaimsItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3573,10 +3555,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.MumAction != nil {
 					return data.MumAction.Default
 				}
-				if !isImport {
-					if _, ok := blockData["default"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["default"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3685,10 +3665,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingQueryParamsItems) > listIdx {
 							return existingQueryParamsItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3696,10 +3674,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 						if !isImport && len(existingQueryParamsItems) > listIdx {
 							return existingQueryParamsItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -3787,10 +3763,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3807,10 +3781,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieKeySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_key_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_key_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3827,10 +3799,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3847,10 +3817,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3867,10 +3835,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderKeySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_key_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_key_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3887,10 +3853,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3907,10 +3871,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3927,10 +3889,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterNameSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_name_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_name_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3947,10 +3907,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3967,10 +3925,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxQuerySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_query_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_query_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -3987,10 +3943,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxRequestLineSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_request_line_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_request_line_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4007,10 +3961,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxRequestSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_request_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_request_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4027,10 +3979,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxURLSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_url_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_url_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4042,10 +3992,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.DstAny
 				}
-				if !isImport {
-					if _, ok := blockData["dst_any"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["dst_any"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4100,10 +4048,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.IntraSegment
 				}
-				if !isImport {
-					if _, ok := blockData["intra_segment"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["intra_segment"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4111,10 +4057,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.SrcAny
 				}
-				if !isImport {
-					if _, ok := blockData["src_any"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["src_any"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4374,10 +4318,8 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 				if !isImport && data.WAFAction != nil {
 					return data.WAFAction.None
 				}
-				if !isImport {
-					if _, ok := blockData["none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4568,10 +4510,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingArgMatchersItems) > listIdx {
 							return existingArgMatchersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -4579,10 +4519,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingArgMatchersItems) > listIdx {
 							return existingArgMatchersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -4786,10 +4724,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.BotAction != nil {
 					return data.BotAction.None
 				}
-				if !isImport {
-					if _, ok := blockData["none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -4858,10 +4794,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingCookieMatchersItems) > listIdx {
 							return existingCookieMatchersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -4869,10 +4803,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingCookieMatchersItems) > listIdx {
 							return existingCookieMatchersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -4991,10 +4923,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingHeadersItems) > listIdx {
 							return existingHeadersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -5002,10 +4932,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingHeadersItems) > listIdx {
 							return existingHeadersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -5245,10 +5173,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingJWTClaimsItems) > listIdx {
 							return existingJWTClaimsItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -5256,10 +5182,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingJWTClaimsItems) > listIdx {
 							return existingJWTClaimsItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -5355,10 +5279,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.MumAction != nil {
 					return data.MumAction.Default
 				}
-				if !isImport {
-					if _, ok := blockData["default"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["default"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5467,10 +5389,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingQueryParamsItems) > listIdx {
 							return existingQueryParamsItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -5478,10 +5398,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 						if !isImport && len(existingQueryParamsItems) > listIdx {
 							return existingQueryParamsItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -5569,10 +5487,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5589,10 +5505,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieKeySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_key_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_key_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5609,10 +5523,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5629,10 +5541,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5649,10 +5559,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderKeySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_key_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_key_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5669,10 +5577,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5689,10 +5595,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5709,10 +5613,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterNameSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_name_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_name_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5729,10 +5631,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5749,10 +5649,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxQuerySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_query_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_query_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5769,10 +5667,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxRequestLineSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_request_line_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_request_line_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5789,10 +5685,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxRequestSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_request_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_request_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5809,10 +5703,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxURLSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_url_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_url_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5824,10 +5716,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.DstAny
 				}
-				if !isImport {
-					if _, ok := blockData["dst_any"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["dst_any"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5882,10 +5772,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.IntraSegment
 				}
-				if !isImport {
-					if _, ok := blockData["intra_segment"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["intra_segment"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -5893,10 +5781,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.SrcAny
 				}
-				if !isImport {
-					if _, ok := blockData["src_any"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["src_any"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -6156,10 +6042,8 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 				if !isImport && data.WAFAction != nil {
 					return data.WAFAction.None
 				}
-				if !isImport {
-					if _, ok := blockData["none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -7198,10 +7082,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingArgMatchersItems) > listIdx {
 							return existingArgMatchersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7209,10 +7091,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingArgMatchersItems) > listIdx {
 							return existingArgMatchersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7416,10 +7296,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.BotAction != nil {
 					return data.BotAction.None
 				}
-				if !isImport {
-					if _, ok := blockData["none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -7488,10 +7366,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingCookieMatchersItems) > listIdx {
 							return existingCookieMatchersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7499,10 +7375,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingCookieMatchersItems) > listIdx {
 							return existingCookieMatchersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7621,10 +7495,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingHeadersItems) > listIdx {
 							return existingHeadersItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7632,10 +7504,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingHeadersItems) > listIdx {
 							return existingHeadersItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7875,10 +7745,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingJWTClaimsItems) > listIdx {
 							return existingJWTClaimsItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7886,10 +7754,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingJWTClaimsItems) > listIdx {
 							return existingJWTClaimsItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -7985,10 +7851,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.MumAction != nil {
 					return data.MumAction.Default
 				}
-				if !isImport {
-					if _, ok := blockData["default"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["default"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8097,10 +7961,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingQueryParamsItems) > listIdx {
 							return existingQueryParamsItems[listIdx].CheckNotPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_not_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -8108,10 +7970,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 						if !isImport && len(existingQueryParamsItems) > listIdx {
 							return existingQueryParamsItems[listIdx].CheckPresent
 						}
-						if !isImport {
-							if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
-								return &ServicePolicyRuleEmptyModel{}
-							}
+						if _, ok := itemMap["check_present"].(map[string]interface{}); ok {
+							return &ServicePolicyRuleEmptyModel{}
 						}
 						return nil
 					}(),
@@ -8199,10 +8059,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8219,10 +8077,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieKeySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_key_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_key_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8239,10 +8095,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxCookieValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_cookie_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_cookie_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8259,10 +8113,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8279,10 +8131,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderKeySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_key_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_key_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8299,10 +8149,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxHeaderValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_header_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_header_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8319,10 +8167,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterCountNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_count_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_count_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8339,10 +8185,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterNameSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_name_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_name_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8359,10 +8203,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxParameterValueSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_parameter_value_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_parameter_value_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8379,10 +8221,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxQuerySizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_query_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_query_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8399,10 +8239,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxRequestLineSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_request_line_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_request_line_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8419,10 +8257,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxRequestSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_request_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_request_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8439,10 +8275,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.RequestConstraints != nil {
 					return data.RequestConstraints.MaxURLSizeNone
 				}
-				if !isImport {
-					if _, ok := blockData["max_url_size_none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["max_url_size_none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8454,10 +8288,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.DstAny
 				}
-				if !isImport {
-					if _, ok := blockData["dst_any"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["dst_any"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8512,10 +8344,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.IntraSegment
 				}
-				if !isImport {
-					if _, ok := blockData["intra_segment"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["intra_segment"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8523,10 +8353,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.SegmentPolicy != nil {
 					return data.SegmentPolicy.SrcAny
 				}
-				if !isImport {
-					if _, ok := blockData["src_any"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["src_any"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
@@ -8786,10 +8614,8 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 				if !isImport && data.WAFAction != nil {
 					return data.WAFAction.None
 				}
-				if !isImport {
-					if _, ok := blockData["none"].(map[string]interface{}); ok {
-						return &ServicePolicyRuleEmptyModel{}
-					}
+				if _, ok := blockData["none"].(map[string]interface{}); ok {
+					return &ServicePolicyRuleEmptyModel{}
 				}
 				return nil
 			}(),
