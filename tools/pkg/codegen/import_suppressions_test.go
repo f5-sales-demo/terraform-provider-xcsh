@@ -124,6 +124,57 @@ func TestImportSuppressions_EmptyMarkerListElementBlocks_Issue1103(t *testing.T)
 	}
 }
 
+// SPol-1 (service_policy coverage): xcsh_service_policy and xcsh_service_policy_rule had
+// NO suppression entries, yet the API echoes many server-default empty markers — the
+// policy-level server oneof base (any_server), the per-rule client/asn/ip oneof bases
+// (any_client/any_asn/any_ip, same class as RateLimiterPolicy), the action-side oneof bases
+// (waf_action/bot_action "none", mum_action "default"), the segment_policy src/dst bases
+// (src_any/dst_any/intra_segment), the per-list-element present/not-present markers
+// (check_present/check_not_present), and the 13 request_constraints max_*_none bases. Without
+// suppression every service_policy matrix variant drifts on round-trip import. Seeded up
+// front for both resources so the whole SPol effort inherits an import-clean base. Matched
+// by leaf name at any depth. (port_matcher is a NON-empty server-default block handled
+// separately if the live matrix surfaces it — the empty-marker suppression path does not
+// cover it.)
+func TestImportSuppressions_ServicePolicyServerDefaults(t *testing.T) {
+	requestConstraintNones := []string{
+		"max_cookie_count_none", "max_cookie_key_size_none", "max_cookie_value_size_none",
+		"max_header_count_none", "max_header_key_size_none", "max_header_value_size_none",
+		"max_parameter_count_none", "max_parameter_name_size_none", "max_parameter_value_size_none",
+		"max_query_size_none", "max_request_line_size_none", "max_request_size_none", "max_url_size_none",
+	}
+	ruleMarkers := append([]string{
+		"any_client", "any_asn", "any_ip", "none", "default",
+		"src_any", "dst_any", "intra_segment", "check_present", "check_not_present",
+	}, requestConstraintNones...)
+
+	// ServicePolicy embeds rule_list.rules[], so it carries every rule marker plus the
+	// policy-level any_server.
+	for _, m := range append([]string{"any_server"}, ruleMarkers...) {
+		if !isImportDefaultSuppressed("ServicePolicy", m) {
+			t.Errorf("ServicePolicy.%s must be a suppressed server-default", m)
+		}
+	}
+	// ServicePolicyRule is the standalone rule (no policy-level any_server).
+	for _, m := range ruleMarkers {
+		if !isImportDefaultSuppressed("ServicePolicyRule", m) {
+			t.Errorf("ServicePolicyRule.%s must be a suppressed server-default", m)
+		}
+	}
+
+	// Guard against over-suppression: user-intent oneof arms and concrete matchers must
+	// still import normally (suppressing them would drop real config on import).
+	for _, m := range []string{
+		"allow_list", "deny_list", "rule_list", "server_name", "server_selector",
+		"server_name_matcher", "client_selector", "client_name_matcher", "ip_prefix_list",
+		"ip_matcher", "asn_list", "asn_matcher", "tls_fingerprint_matcher", "segment_policy",
+	} {
+		if isImportDefaultSuppressed("ServicePolicy", m) {
+			t.Errorf("ServicePolicy.%s is user intent and must NOT be suppressed", m)
+		}
+	}
+}
+
 // Coverage Batch B (#51): a rate_limiter_policy rule that omits its country client
 // matcher gets any_country {} materialized by the server (verified live on
 // f5-sales-demo webapp-api-protection: a rule with asn_list but no country came
