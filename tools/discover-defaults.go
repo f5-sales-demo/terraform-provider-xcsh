@@ -35,6 +35,7 @@ import (
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/discovery"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/suppress"
 )
 
 // ============================================================================
@@ -43,49 +44,49 @@ import (
 
 // DefaultsDatabase stores all discovered defaults for the provider
 type DefaultsDatabase struct {
-	Version      string                      `json:"version"`
-	GeneratedAt  string                      `json:"generated_at"`
-	APIEndpoint  string                      `json:"api_endpoint"`
-	TotalResources int                       `json:"total_resources"`
-	Discovered   int                         `json:"discovered"`
-	Skipped      int                         `json:"skipped"`
-	Failed       int                         `json:"failed"`
-	Resources    map[string]*DiscoveryResult `json:"resources"`
+	Version        string                      `json:"version"`
+	GeneratedAt    string                      `json:"generated_at"`
+	APIEndpoint    string                      `json:"api_endpoint"`
+	TotalResources int                         `json:"total_resources"`
+	Discovered     int                         `json:"discovered"`
+	Skipped        int                         `json:"skipped"`
+	Failed         int                         `json:"failed"`
+	Resources      map[string]*DiscoveryResult `json:"resources"`
 }
 
 // DiscoveryResult holds the discovery result for a single resource type
 type DiscoveryResult struct {
-	ResourceName string                 `json:"resource_name"`
-	Category     string                 `json:"category"`
-	Status       string                 `json:"status"` // "discovered", "skipped", "failed"
-	SkipReason   string                 `json:"skip_reason,omitempty"`
-	Error        string                 `json:"error,omitempty"`
-	DiscoveredAt string                 `json:"discovered_at,omitempty"`
+	ResourceName string                  `json:"resource_name"`
+	Category     string                  `json:"category"`
+	Status       string                  `json:"status"` // "discovered", "skipped", "failed"
+	SkipReason   string                  `json:"skip_reason,omitempty"`
+	Error        string                  `json:"error,omitempty"`
+	DiscoveredAt string                  `json:"discovered_at,omitempty"`
 	Defaults     map[string]FieldDefault `json:"defaults,omitempty"`
-	RequestSent  map[string]interface{} `json:"request_sent,omitempty"`
-	ResponseGot  map[string]interface{} `json:"response_got,omitempty"`
+	RequestSent  map[string]interface{}  `json:"request_sent,omitempty"`
+	ResponseGot  map[string]interface{}  `json:"response_got,omitempty"`
 }
 
 // FieldDefault represents a single field's default value
 type FieldDefault struct {
-	Path         string      `json:"path"`
-	DefaultValue interface{} `json:"default_value"`
-	Type         string      `json:"type"` // "string", "int", "bool", "object", "array"
-	IsMarkerBlock bool       `json:"is_marker_block,omitempty"`
-	Description  string      `json:"description,omitempty"`
+	Path          string      `json:"path"`
+	DefaultValue  interface{} `json:"default_value"`
+	Type          string      `json:"type"` // "string", "int", "bool", "object", "array"
+	IsMarkerBlock bool        `json:"is_marker_block,omitempty"`
+	Description   string      `json:"description,omitempty"`
 }
 
 // ResourceCategory defines complexity categories for discovery
 type ResourceCategory string
 
 const (
-	CategorySimple      ResourceCategory = "simple"
+	CategorySimple       ResourceCategory = "simple"
 	CategoryLoadBalancer ResourceCategory = "load_balancer"
-	CategoryOriginPool  ResourceCategory = "origin_pool"
-	CategorySecurity    ResourceCategory = "security"
-	CategoryDNS         ResourceCategory = "dns"
-	CategoryCloudSite   ResourceCategory = "cloud_site"
-	CategoryTenant      ResourceCategory = "tenant"
+	CategoryOriginPool   ResourceCategory = "origin_pool"
+	CategorySecurity     ResourceCategory = "security"
+	CategoryDNS          ResourceCategory = "dns"
+	CategoryCloudSite    ResourceCategory = "cloud_site"
+	CategoryTenant       ResourceCategory = "tenant"
 )
 
 // ============================================================================
@@ -101,8 +102,8 @@ const (
 
 // MinimalConfig defines the minimal configuration needed to create a resource
 type MinimalConfig struct {
-	Category    ResourceCategory
-	Namespace   bool                   // true if resource requires namespace
+	Category     ResourceCategory
+	Namespace    bool                   // true if resource requires namespace
 	RequiredSpec map[string]interface{} // minimal spec fields required
 	// Prerequisites are dependency objects created (in order) before this resource
 	// and deleted (in reverse) after discovery. Reference a prerequisite's created
@@ -123,8 +124,8 @@ type Prerequisite struct {
 var ResourceConfigs = map[string]MinimalConfig{
 	// Simple resources - just name (and maybe namespace)
 	"namespace": {
-		Category:    CategorySimple,
-		Namespace:   false,
+		Category:     CategorySimple,
+		Namespace:    false,
 		RequiredSpec: map[string]interface{}{},
 	},
 	"healthcheck": {
@@ -132,13 +133,13 @@ var ResourceConfigs = map[string]MinimalConfig{
 		Namespace: true,
 		RequiredSpec: map[string]interface{}{
 			"http_health_check": map[string]interface{}{
-				"path":                    "/healthz",
+				"path":                   "/healthz",
 				"use_origin_server_name": map[string]interface{}{},
 			},
-			"timeout":              1,
-			"interval":             10,
-			"unhealthy_threshold":  2,
-			"healthy_threshold":    3,
+			"timeout":             1,
+			"interval":            10,
+			"unhealthy_threshold": 2,
+			"healthy_threshold":   3,
 		},
 	},
 	"alert_policy": {
@@ -297,7 +298,7 @@ var ResourceConfigs = map[string]MinimalConfig{
 		Category:  CategorySecurity,
 		Namespace: true,
 		RequiredSpec: map[string]interface{}{
-			"algo":    "FIRST_MATCH",
+			"algo":       "FIRST_MATCH",
 			"any_server": map[string]interface{}{},
 			"rule_list": map[string]interface{}{
 				"rules": []interface{}{},
@@ -308,8 +309,8 @@ var ResourceConfigs = map[string]MinimalConfig{
 		Category:  CategorySecurity,
 		Namespace: true,
 		RequiredSpec: map[string]interface{}{
-			"total_number": 100,
-			"unit":         "SECOND",
+			"total_number":     100,
+			"unit":             "SECOND",
 			"burst_multiplier": 1,
 		},
 	},
@@ -326,10 +327,10 @@ var ResourceConfigs = map[string]MinimalConfig{
 					},
 				},
 			},
-			"port":                    80,
-			"endpoint_selection":      "LOCAL_PREFERRED",
-			"loadbalancer_algorithm":  "LB_OVERRIDE",
-			"no_tls":                  map[string]interface{}{},
+			"port":                   80,
+			"endpoint_selection":     "LOCAL_PREFERRED",
+			"loadbalancer_algorithm": "LB_OVERRIDE",
+			"no_tls":                 map[string]interface{}{},
 		},
 	},
 
@@ -432,8 +433,8 @@ var ResourceConfigs = map[string]MinimalConfig{
 						"request_headers": map[string]interface{}{
 							"headers": []interface{}{
 								map[string]interface{}{
-									"name":       "X-Test",
-									"exact":      "value",
+									"name":           "X-Test",
+									"exact":          "value",
 									"invert_matcher": false,
 								},
 							},
@@ -460,8 +461,8 @@ var ResourceConfigs = map[string]MinimalConfig{
 		Category:  CategorySimple,
 		Namespace: true,
 		RequiredSpec: map[string]interface{}{
-			"priority":    "HIGH",
-			"dscp_value":  46,
+			"priority":   "HIGH",
+			"dscp_value": 46,
 		},
 	},
 }
@@ -471,16 +472,16 @@ var ResourceConfigs = map[string]MinimalConfig{
 // ============================================================================
 
 var (
-	flagAll        = flag.Bool("all", false, "Discover defaults for all resources")
-	flagResource   = flag.String("resource", "", "Discover defaults for a specific resource")
-	flagPattern    = flag.String("pattern", "", "Discover defaults for resources matching pattern")
-	flagOutput     = flag.String("output", "tools/api-defaults.json", "Output file path")
-	flagValidate   = flag.Bool("validate", false, "Validate stored defaults against current API")
-	flagVerbose    = flag.Bool("verbose", false, "Enable verbose output")
-	flagDryRun     = flag.Bool("dry-run", false, "Show what would be done without making API calls")
-	flagTestNS     = flag.String("test-namespace", "", "Use existing namespace for testing (skip namespace creation)")
-	flagCreateNS   = flag.Bool("create-namespace", false, "Create test namespace automatically")
-	flagNSPrefix   = flag.String("ns-prefix", "tf-discover", "Prefix for auto-created test namespace")
+	flagAll      = flag.Bool("all", false, "Discover defaults for all resources")
+	flagResource = flag.String("resource", "", "Discover defaults for a specific resource")
+	flagPattern  = flag.String("pattern", "", "Discover defaults for resources matching pattern")
+	flagOutput   = flag.String("output", "tools/api-defaults.json", "Output file path")
+	flagValidate = flag.Bool("validate", false, "Validate stored defaults against current API")
+	flagVerbose  = flag.Bool("verbose", false, "Enable verbose output")
+	flagDryRun   = flag.Bool("dry-run", false, "Show what would be done without making API calls")
+	flagTestNS   = flag.String("test-namespace", "", "Use existing namespace for testing (skip namespace creation)")
+	flagCreateNS = flag.Bool("create-namespace", false, "Create test namespace automatically")
+	flagNSPrefix = flag.String("ns-prefix", "tf-discover", "Prefix for auto-created test namespace")
 )
 
 // ============================================================================
@@ -791,8 +792,13 @@ func discoverResource(apiClient *client.Client, resourceName string) *DiscoveryR
 	result.Status = "discovered"
 	result.DiscoveredAt = time.Now().UTC().Format(time.RFC3339)
 
-	// Extract defaults by comparing request and response
-	result.Defaults = extractDefaults(request, response, "")
+	// Extract defaults by comparing request and response. The differ lives in the
+	// testable tools/pkg/suppress package (recurses into list elements — #1103).
+	sd := suppress.ExtractDefaults(request, response)
+	result.Defaults = make(map[string]FieldDefault, len(sd))
+	for k, v := range sd {
+		result.Defaults[k] = FieldDefault{Path: v.Path, DefaultValue: v.DefaultValue, Type: v.Type, IsMarkerBlock: v.IsMarkerBlock}
+	}
 
 	// Clean up - delete the test resource
 	cleanupResource(ctx, apiClient, resourceName, testNamespace, testName)
@@ -909,91 +915,11 @@ func pluralizeResource(name string) string {
 	return name + "s"
 }
 
-// ============================================================================
-// Default Extraction
-// ============================================================================
-
-func extractDefaults(request, response map[string]interface{}, prefix string) map[string]FieldDefault {
-	defaults := make(map[string]FieldDefault)
-
-	// Get spec from both
-	reqSpec, reqOk := request["spec"].(map[string]interface{})
-	respSpec, respOk := response["spec"].(map[string]interface{})
-
-	if !reqOk || !respOk {
-		return defaults
-	}
-
-	// Find fields in response that weren't in request
-	compareObjects(reqSpec, respSpec, "spec", defaults)
-
-	return defaults
-}
-
-func compareObjects(request, response map[string]interface{}, path string, defaults map[string]FieldDefault) {
-	for key, respValue := range response {
-		fullPath := path + "." + key
-
-		reqValue, existsInReq := request[key]
-
-		if !existsInReq {
-			// This is a default value - wasn't sent in request
-			fd := FieldDefault{
-				Path:         fullPath,
-				DefaultValue: respValue,
-				Type:         getValueType(respValue),
-			}
-
-			// Check if it's an empty marker block
-			if m, ok := respValue.(map[string]interface{}); ok && len(m) == 0 {
-				fd.IsMarkerBlock = true
-			}
-
-			defaults[fullPath] = fd
-		} else {
-			// Both have the key - recursively compare if both are maps
-			if reqMap, reqIsMap := reqValue.(map[string]interface{}); reqIsMap {
-				if respMap, respIsMap := respValue.(map[string]interface{}); respIsMap {
-					// Only recurse if request map was empty (marker block)
-					if len(reqMap) == 0 {
-						// Check if response added any fields
-						for subKey, subValue := range respMap {
-							subPath := fullPath + "." + subKey
-							fd := FieldDefault{
-								Path:         subPath,
-								DefaultValue: subValue,
-								Type:         getValueType(subValue),
-							}
-							defaults[subPath] = fd
-						}
-					} else {
-						compareObjects(reqMap, respMap, fullPath, defaults)
-					}
-				}
-			}
-		}
-	}
-}
-
-func getValueType(v interface{}) string {
-	if v == nil {
-		return "null"
-	}
-	switch reflect.TypeOf(v).Kind() {
-	case reflect.String:
-		return "string"
-	case reflect.Int, reflect.Int64, reflect.Float64:
-		return "number"
-	case reflect.Bool:
-		return "bool"
-	case reflect.Map:
-		return "object"
-	case reflect.Slice, reflect.Array:
-		return "array"
-	default:
-		return "unknown"
-	}
-}
+// Default extraction lives in the testable tools/pkg/suppress package
+// (suppress.ExtractDefaults), which recurses into list elements so defaults nested
+// inside list elements — origin_servers[].labels {}, default_route_pools[].
+// endpoint_subsets {} — are discovered. See issue #1103. This script converts the
+// result into its local FieldDefault at the call site above.
 
 // ============================================================================
 // Database Operations
