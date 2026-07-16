@@ -10,14 +10,22 @@ import (
 	"sync"
 )
 
-// Import-default suppression: per resource (title-case model prefix), the oneof
-// members the F5 XC API ALWAYS returns as the server default for their group. On
-// `terraform import` there is no prior config to preserve, so the flatten would
-// otherwise populate every such default member and the next plan would show
-// spurious drift. Suppressing the DEFAULT member on import is semantically safe:
-// omitting it means the server re-applies the same default. Non-default and
-// user-intent markers (e.g. app_firewall, advertise_on_public_default_vip) are
-// NOT listed and still import normally.
+// Import-default suppression: per resource (title-case model prefix), the empty
+// marker blocks the F5 XC API ALWAYS returns as a server default. Two classes:
+//  1. oneof base members the API echoes for their group (e.g. disable_waf,
+//     any_client, round_robin);
+//  2. plain optional message blocks the API materializes as present-but-empty on
+//     every element — including inside list elements — even though they carry no
+//     meaning empty (e.g. origin_servers[].labels {}, default_route_pools[].
+//     endpoint_subsets {}; see #1103).
+//
+// On `terraform import` there is no prior config to preserve, so the flatten would
+// otherwise populate every such marker and the next plan would show spurious drift.
+// Suppressing the marker on import is semantically safe: omitting it means the
+// server re-applies the same default. Non-default and user-intent markers (e.g.
+// app_firewall, advertise_on_public_default_vip) are NOT listed and still import
+// normally. Matched by leaf name at any depth (see isImportDefaultSuppressed), so
+// one entry per resource covers every nesting/list depth it appears at.
 //
 // Data lives in tools/import-default-suppressions.json (auto-populated by
 // tools/discover-defaults.go against a live tenant). The seed below is the
@@ -70,9 +78,25 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		// xcsh_api_testing (APITesting, below). Suppress so a concrete-arm credential
 		// (api_key/basic_auth/bearer_token) is round-trip-import clean. Verified live.
 		"standard",
+		// #1103: endpoint_subsets {} is a plain optional empty-marker block (NOT a oneof
+		// member) that the API echoes on every default_route_pools[] / routes[].pools[]
+		// element. The module omits it (empty carries no meaning), so it must be
+		// suppressed on import or the minimal config drifts every plan (- endpoint_subsets
+		// {}), cascading into computed tenant re-planning on pool/app_firewall/api refs.
+		// Missed until now because the auto-derive differ was blind to list-element
+		// defaults (fixed in tools/pkg/suppress/diff.go).
+		"endpoint_subsets",
 	},
 	"APITesting": {
 		"standard",
+	},
+	// #1103: labels {} is a plain optional empty-marker block the API echoes on every
+	// origin_servers[] element (a label selector the schema models as empty-only). The
+	// module omits it, so suppress on import to keep origin_pool round-trip clean.
+	// Does NOT affect the top-level metadata.labels types.Map (a different read path
+	// that never consults isImportDefaultSuppressed).
+	"OriginPool": {
+		"labels",
 	},
 	// Coverage Batch B (#51): the server materializes the base member of each
 	// client-matcher oneof on a rate_limiter_policy rule that omits that matcher
