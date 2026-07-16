@@ -109,6 +109,69 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"any_country",
 		"any_ip",
 	},
+	// SPol effort (service_policy coverage): the API echoes server-default empty markers
+	// throughout xcsh_service_policy (and the standalone xcsh_service_policy_rule, which
+	// shares the rule shape). Seeded up front so every service_policy matrix variant is
+	// round-trip-import clean. Matched by leaf name at any depth, so one list per resource
+	// covers all nesting/list depths. Classes: policy server oneof base (any_server);
+	// per-rule client/asn/ip oneof bases (any_client/any_asn/any_ip); action oneof bases
+	// (waf_action & bot_action "none", mum_action "default"); segment_policy bases
+	// (src_any/dst_any/intra_segment); per-list-element present/not-present markers
+	// (check_present/check_not_present); and the 13 request_constraints max_*_none bases.
+	// NOTE: port_matcher is a NON-empty server-default block ("Server applies default when
+	// omitted") — the empty-marker suppression path does not cover it; handle in lock-step
+	// (mirroring l7_ddos_protection) only if the live import matrix surfaces its drift.
+	"ServicePolicy": {
+		"any_server",
+		"any_client",
+		"any_asn",
+		"any_ip",
+		"none",
+		"default",
+		"src_any",
+		"dst_any",
+		"intra_segment",
+		"check_present",
+		"check_not_present",
+		"max_cookie_count_none",
+		"max_cookie_key_size_none",
+		"max_cookie_value_size_none",
+		"max_header_count_none",
+		"max_header_key_size_none",
+		"max_header_value_size_none",
+		"max_parameter_count_none",
+		"max_parameter_name_size_none",
+		"max_parameter_value_size_none",
+		"max_query_size_none",
+		"max_request_line_size_none",
+		"max_request_size_none",
+		"max_url_size_none",
+	},
+	"ServicePolicyRule": {
+		"any_client",
+		"any_asn",
+		"any_ip",
+		"none",
+		"default",
+		"src_any",
+		"dst_any",
+		"intra_segment",
+		"check_present",
+		"check_not_present",
+		"max_cookie_count_none",
+		"max_cookie_key_size_none",
+		"max_cookie_value_size_none",
+		"max_header_count_none",
+		"max_header_key_size_none",
+		"max_header_value_size_none",
+		"max_parameter_count_none",
+		"max_parameter_name_size_none",
+		"max_parameter_value_size_none",
+		"max_query_size_none",
+		"max_request_line_size_none",
+		"max_request_size_none",
+		"max_url_size_none",
+	},
 }
 
 var (
