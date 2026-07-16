@@ -3403,8 +3403,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						if !isImport && len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-							return &OriginPoolEmptyModel{}
+						if !isImport {
+							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+								return &OriginPoolEmptyModel{}
+							}
 						}
 						return nil
 					}(),
@@ -5141,8 +5143,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 						if !isImport && len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-							return &OriginPoolEmptyModel{}
+						if !isImport {
+							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+								return &OriginPoolEmptyModel{}
+							}
 						}
 						return nil
 					}(),
@@ -7644,8 +7648,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						if !isImport && len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-							return &OriginPoolEmptyModel{}
+						if !isImport {
+							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
+								return &OriginPoolEmptyModel{}
+							}
 						}
 						return nil
 					}(),
