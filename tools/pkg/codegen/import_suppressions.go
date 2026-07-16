@@ -109,68 +109,33 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"any_country",
 		"any_ip",
 	},
-	// SPol effort (service_policy coverage): the API echoes server-default empty markers
-	// throughout xcsh_service_policy (and the standalone xcsh_service_policy_rule, which
-	// shares the rule shape). Seeded up front so every service_policy matrix variant is
-	// round-trip-import clean. Matched by leaf name at any depth, so one list per resource
-	// covers all nesting/list depths. Classes: policy server oneof base (any_server);
-	// per-rule client/asn/ip oneof bases (any_client/any_asn/any_ip); action oneof bases
-	// (waf_action & bot_action "none", mum_action "default"); segment_policy bases
-	// (src_any/dst_any/intra_segment); per-list-element present/not-present markers
-	// (check_present/check_not_present); and the 13 request_constraints max_*_none bases.
-	// NOTE: port_matcher is a NON-empty server-default block ("Server applies default when
-	// omitted") — the empty-marker suppression path does not cover it; handle in lock-step
-	// (mirroring l7_ddos_protection) only if the live import matrix surfaces its drift.
+	// SPol effort (service_policy coverage). Suppress ONLY the oneof base members the F5 XC
+	// API echoes when the module OMITS their parent — verified live by GETting a created
+	// service_policy (f5-sales-demo): a rule that declares no client/asn/ip matcher still
+	// comes back with any_client{}/any_asn{}/any_ip{}, and a policy with no server scope
+	// comes back with any_server{}. Those are true "server adds it on omit" defaults, so
+	// suppressing them keeps a minimal config round-trip-import clean.
+	//
+	// Do NOT suppress DECLARED oneof members like waf_action.none / bot_action.none /
+	// mum_action.default / segment_policy.{src_any,dst_any,intra_segment} /
+	// headers[].{check_present,check_not_present} / request_constraints.max_*_none: the API
+	// returns those ONLY when the parent block is set (waf_action=null / bot_action=null /
+	// no segment_policy when omitted — confirmed live), so they are mandatory declared
+	// values, not defaults. Suppressing them drops the declared value on import ("was
+	// present, now absent" drift) — exactly how the live rule_list matrix caught an earlier
+	// over-broad seed that guessed from schema structure instead of server behavior. Re-add
+	// a specific base here only if a later sub-project's live matrix proves the server
+	// echoes it alongside a concrete arm (the any_client pattern).
 	"ServicePolicy": {
 		"any_server",
 		"any_client",
 		"any_asn",
 		"any_ip",
-		"none",
-		"default",
-		"src_any",
-		"dst_any",
-		"intra_segment",
-		"check_present",
-		"check_not_present",
-		"max_cookie_count_none",
-		"max_cookie_key_size_none",
-		"max_cookie_value_size_none",
-		"max_header_count_none",
-		"max_header_key_size_none",
-		"max_header_value_size_none",
-		"max_parameter_count_none",
-		"max_parameter_name_size_none",
-		"max_parameter_value_size_none",
-		"max_query_size_none",
-		"max_request_line_size_none",
-		"max_request_size_none",
-		"max_url_size_none",
 	},
 	"ServicePolicyRule": {
 		"any_client",
 		"any_asn",
 		"any_ip",
-		"none",
-		"default",
-		"src_any",
-		"dst_any",
-		"intra_segment",
-		"check_present",
-		"check_not_present",
-		"max_cookie_count_none",
-		"max_cookie_key_size_none",
-		"max_cookie_value_size_none",
-		"max_header_count_none",
-		"max_header_key_size_none",
-		"max_header_value_size_none",
-		"max_parameter_count_none",
-		"max_parameter_name_size_none",
-		"max_parameter_value_size_none",
-		"max_query_size_none",
-		"max_request_line_size_none",
-		"max_request_size_none",
-		"max_url_size_none",
 	},
 }
 
