@@ -48,7 +48,13 @@
     "use_http2"
   ],
   "OriginPool": [
-    "labels"
+    "auto_http_config",
+    "default_circuit_breaker",
+    "disable_outlier_detection",
+    "disable_subsets",
+    "labels",
+    "no_panic_threshold",
+    "no_request_limit_per_connection"
   ],
   "RateLimiterPolicy": [
     "any_asn",

@@ -124,6 +124,24 @@ func TestImportSuppressions_EmptyMarkerListElementBlocks_Issue1103(t *testing.T)
 	}
 }
 
+// LPC-5b (#1130): advanced_options oneof base members the API materializes whenever
+// advanced_options is set. A minimal advanced_options config omits them, so import drifts
+// (- each marker) unless suppressed. Verified live (webapp-api-protection LPC-5b).
+func TestImportSuppressions_OriginPoolAdvancedOptionsDefaults(t *testing.T) {
+	for _, leaf := range []string{
+		"auto_http_config",
+		"default_circuit_breaker",
+		"disable_outlier_detection",
+		"disable_subsets",
+		"no_panic_threshold",
+		"no_request_limit_per_connection",
+	} {
+		if !isImportDefaultSuppressed("OriginPool", leaf) {
+			t.Errorf("OriginPool.%s must be a suppressed advanced_options server-default (#1130)", leaf)
+		}
+	}
+}
+
 // SPol-1 (service_policy coverage): suppress ONLY the oneof base members the F5 XC API
 // echoes when their parent is OMITTED — verified live by GETting a created service_policy
 // on f5-sales-demo: a rule with no client/asn/ip matcher still returns any_client{}/
