@@ -103,6 +103,22 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		// (webapp-api-protection CR-1).
 		"route_state_enabled",
 		"auto_host_rewrite",
+		// CR-3 (#1138): simple_route.advanced_options oneof-base empty markers the API
+		// materializes whenever advanced_options is set — buffer_policy (common_buffering),
+		// hash_policy (common_hash_policy), retry (default_retry_policy), mirror
+		// (disable_mirroring), rewrite (disable_prefix_rewrite, when no prefix_rewrite), spdy
+		// (disable_spdy), web_socket (disable_web_socket_config), cluster-retract
+		// (retract_cluster). A minimal advanced_options omits them, so the whole-LB import
+		// round-trip drifts (- each). All appear only under routes[].simple_route.advanced_options.
+		// Verified live (webapp-api-protection CR-3, two probes with/without prefix_rewrite+WAF).
+		"common_buffering",
+		"common_hash_policy",
+		"default_retry_policy",
+		"disable_mirroring",
+		"disable_prefix_rewrite",
+		"disable_spdy",
+		"disable_web_socket_config",
+		"retract_cluster",
 	},
 	"APITesting": {
 		"standard",

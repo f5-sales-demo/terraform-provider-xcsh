@@ -136,6 +136,20 @@ func TestImportSuppressions_HTTPLBCustomRouteDefaults(t *testing.T) {
 	}
 }
 
+// CR-3 (#1138): simple_route.advanced_options oneof-base empty markers the API materializes
+// whenever advanced_options is set. A minimal advanced_options omits them, so the whole-LB
+// import round-trip drifts (- each). Verified live (webapp-api-protection CR-3).
+func TestImportSuppressions_HTTPLBRouteAdvancedOptionsDefaults(t *testing.T) {
+	for _, leaf := range []string{
+		"common_buffering", "common_hash_policy", "default_retry_policy", "disable_mirroring",
+		"disable_prefix_rewrite", "disable_spdy", "disable_web_socket_config", "retract_cluster",
+	} {
+		if !isImportDefaultSuppressed("HTTPLoadBalancer", leaf) {
+			t.Errorf("HTTPLoadBalancer.%s must be a suppressed route advanced_options server-default (#1138)", leaf)
+		}
+	}
+}
+
 // LPC-5b (#1130): advanced_options oneof base members the API materializes whenever
 // advanced_options is set. A minimal advanced_options config omits them, so import drifts
 // (- each marker) unless suppressed. Verified live (webapp-api-protection LPC-5b).
