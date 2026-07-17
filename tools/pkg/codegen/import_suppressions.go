@@ -105,6 +105,19 @@ var importDefaultSuppressionsSeed = map[string][]string{
 	// that never consults isImportDefaultSuppressed).
 	"OriginPool": {
 		"labels",
+		// LPC-5b (#1130): advanced_options oneof base members the API materializes whenever
+		// advanced_options is set — the circuit_breaker / outlier_detection / subsets /
+		// panic_threshold / request-limit "default/disable/no" choices plus auto_http_config.
+		// A minimal advanced_options config (e.g. just connection_timeout/http_idle_timeout)
+		// omits them, so import populates them and the next plan drifts (- each marker). Same
+		// class as endpoint_subsets (#1103) / more_option (#1125). Verified live
+		// (f5-sales-demo webapp-api-protection LPC-5b origin_pool matrix).
+		"auto_http_config",
+		"default_circuit_breaker",
+		"disable_outlier_detection",
+		"disable_subsets",
+		"no_panic_threshold",
+		"no_request_limit_per_connection",
 	},
 	// Coverage Batch B (#51): the server materializes the base member of each
 	// client-matcher oneof on a rate_limiter_policy rule that omits that matcher
