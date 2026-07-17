@@ -86,6 +86,14 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		// Missed until now because the auto-derive differ was blind to list-element
 		// defaults (fixed in tools/pkg/suppress/diff.go).
 		"endpoint_subsets",
+		// #1125: more_option empty-marker sub-blocks the API always materializes when a
+		// config sets more_option (e.g. for header manipulation): custom_errors {} and
+		// no_request_limit_per_connection {}. Same class as endpoint_subsets — the module
+		// omits them, so suppress on import or the whole-LB round-trip drifts (+ each
+		// marker). discover-defaults.go can't observe them (its probe LB sets no
+		// more_option). Verified live (webapp-api-protection LPC-2 more_option matrix).
+		"custom_errors",
+		"no_request_limit_per_connection",
 	},
 	"APITesting": {
 		"standard",
