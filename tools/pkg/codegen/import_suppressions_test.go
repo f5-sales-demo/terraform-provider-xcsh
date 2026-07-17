@@ -182,3 +182,15 @@ func TestImportSuppressions_RateLimiterPolicyClientMatcherDefaults(t *testing.T)
 		}
 	}
 }
+
+// #1125 (more_option): custom_errors {} and no_request_limit_per_connection {} are plain
+// optional empty-marker sub-blocks the API always materializes when a config sets
+// more_option. Same class as endpoint_subsets — suppress on import so the whole-LB round
+// trip is clean when the module omits them.
+func TestImportSuppressions_MoreOptionEmptyMarkers(t *testing.T) {
+	for _, m := range []string{"custom_errors", "no_request_limit_per_connection"} {
+		if !isImportDefaultSuppressed("HTTPLoadBalancer", m) {
+			t.Errorf("HTTPLoadBalancer.%s must be a suppressed server-default (more_option empty marker)", m)
+		}
+	}
+}
