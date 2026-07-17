@@ -3857,8 +3857,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.AutoHTTPConfig
 				}
-				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -3927,8 +3929,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DefaultCircuitBreaker
 				}
-				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -3954,8 +3958,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DisableOutlierDetection
 				}
-				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -3972,8 +3978,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DisableSubsets
 				}
-				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -4165,8 +4173,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.NoPanicThreshold
 				}
-				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -4174,8 +4184,10 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.NoRequestLimitPerConnection
 				}
-				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -5597,8 +5609,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.AutoHTTPConfig
 				}
-				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -5667,8 +5681,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DefaultCircuitBreaker
 				}
-				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -5694,8 +5710,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DisableOutlierDetection
 				}
-				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -5712,8 +5730,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DisableSubsets
 				}
-				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -5905,8 +5925,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.NoPanicThreshold
 				}
-				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -5914,8 +5936,10 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.NoRequestLimitPerConnection
 				}
-				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -8102,8 +8126,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.AutoHTTPConfig
 				}
-				if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["auto_http_config"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -8172,8 +8198,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DefaultCircuitBreaker
 				}
-				if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["default_circuit_breaker"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -8199,8 +8227,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DisableOutlierDetection
 				}
-				if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["disable_outlier_detection"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -8217,8 +8247,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.DisableSubsets
 				}
-				if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["disable_subsets"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -8410,8 +8442,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.NoPanicThreshold
 				}
-				if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["no_panic_threshold"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
@@ -8419,8 +8453,10 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.AdvancedOptions != nil {
 					return data.AdvancedOptions.NoRequestLimitPerConnection
 				}
-				if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
-					return &OriginPoolEmptyModel{}
+				if !isImport {
+					if _, ok := blockData["no_request_limit_per_connection"].(map[string]interface{}); ok {
+						return &OriginPoolEmptyModel{}
+					}
 				}
 				return nil
 			}(),
