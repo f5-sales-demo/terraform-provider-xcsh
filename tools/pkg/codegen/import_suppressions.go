@@ -94,6 +94,15 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		// more_option). Verified live (webapp-api-protection LPC-2 more_option matrix).
 		"custom_errors",
 		"no_request_limit_per_connection",
+		// CR-1 (#1134): custom routes[] server-default empty markers. route_state_enabled is the
+		// route enable/disable oneof default (routes are enabled by default); auto_host_rewrite is
+		// the simple_route host-rewrite oneof base (server default when neither host_rewrite nor
+		// disable_host_rewrite is set). A minimal simple_route omits both, so the whole-LB import
+		// round-trip drifts (- each) without suppression. Same class as endpoint_subsets (#1103).
+		// Both appear only under routes[]; matched by leaf name at any depth. Verified live
+		// (webapp-api-protection CR-1).
+		"route_state_enabled",
+		"auto_host_rewrite",
 	},
 	"APITesting": {
 		"standard",
