@@ -124,6 +124,18 @@ func TestImportSuppressions_EmptyMarkerListElementBlocks_Issue1103(t *testing.T)
 	}
 }
 
+// CR-1 (#1134): custom routes[] server-default empty markers. route_state_enabled (route
+// enable/disable oneof default) and auto_host_rewrite (simple_route host-rewrite oneof base)
+// are materialized by the API on a minimal simple_route; without suppression the whole-LB
+// import round-trip drifts (- each). Verified live (webapp-api-protection CR-1).
+func TestImportSuppressions_HTTPLBCustomRouteDefaults(t *testing.T) {
+	for _, leaf := range []string{"route_state_enabled", "auto_host_rewrite"} {
+		if !isImportDefaultSuppressed("HTTPLoadBalancer", leaf) {
+			t.Errorf("HTTPLoadBalancer.%s must be a suppressed custom-routes server-default (#1134)", leaf)
+		}
+	}
+}
+
 // LPC-5b (#1130): advanced_options oneof base members the API materializes whenever
 // advanced_options is set. A minimal advanced_options config omits them, so import drifts
 // (- each marker) unless suppressed. Verified live (webapp-api-protection LPC-5b).
