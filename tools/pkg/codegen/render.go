@@ -767,7 +767,10 @@ func renderUnmarshalSingleChild(sb *strings.Builder, rc, childPath string, attr 
 		// them causes spurious "was absent, now present" drift on the next plan.
 		// Guard the response-populate with !isImport for those members; omitting a
 		// default member means the server re-applies the same default (safe).
-		suppress := isImportDefaultSuppressed(rc, jsonName)
+		// Root-only leaves (#1145, e.g. disable_waf) are a server default at the resource
+		// root but a DECLARED oneof arm here (nested / inside a list element), so they must
+		// read back and round-trip — skip suppression for them at this nested site.
+		suppress := isImportDefaultSuppressed(rc, jsonName) && !isSuppressionRootOnly(rc, jsonName)
 		popIndent := indent
 		if suppress {
 			sb.WriteString(fmt.Sprintf("%s\tif !isImport {\n", indent))

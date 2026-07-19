@@ -248,3 +248,31 @@ func isImportDefaultSuppressed(resourceTitleCase, jsonName string) bool {
 	}
 	return members[jsonName]
 }
+
+// suppressionRootOnly scopes a suppressed leaf to the resource ROOT only. A few leaves are a
+// server-default oneof member at the top level (must suppress so a bare resource imports clean)
+// AND a legitimately user-DECLARED oneof arm when nested. Because isImportDefaultSuppressed
+// matches by leaf name at any depth, suppressing such a leaf everywhere strips the nested
+// declared value on import, drifting the next plan.
+//
+// http_loadbalancer disable_waf is the case (#1145): the LB-level WAF oneof default vs. the
+// per-route routes[].{simple_route}.advanced_options "disable WAF for this route" choice. Root
+// single blocks render via renderUnmarshalTopLevelSingle (which keeps suppressing these leaves);
+// nested single blocks — including single blocks inside list elements like routes[] — render via
+// renderUnmarshalSingleChild, which skips suppression for a root-only leaf so the declared nested
+// marker reads back and round-trips. Keep this list tight: only a leaf a live round-trip proves
+// is a DECLARED arm when nested (never a server-default-on-omit there) belongs here.
+var suppressionRootOnly = map[string][]string{
+	"HTTPLoadBalancer": {"disable_waf"},
+}
+
+// isSuppressionRootOnly reports whether the given suppressed leaf must be suppressed only at the
+// resource root (and therefore read back — not suppressed — when nested).
+func isSuppressionRootOnly(resourceTitleCase, jsonName string) bool {
+	for _, leaf := range suppressionRootOnly[resourceTitleCase] {
+		if leaf == jsonName {
+			return true
+		}
+	}
+	return false
+}
