@@ -793,7 +793,7 @@ func (r *WAFExclusionPolicyResource) Create(ctx context.Context, req resource.Cr
 														return types.StringNull()
 													}(),
 													SignatureID: func() types.Int64 {
-														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok {
 															return types.Int64Value(int64(v))
 														}
 														return types.Int64Null()
@@ -1153,7 +1153,7 @@ func (r *WAFExclusionPolicyResource) Read(ctx context.Context, req resource.Read
 														return types.StringNull()
 													}(),
 													SignatureID: func() types.Int64 {
-														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok {
 															return types.Int64Value(int64(v))
 														}
 														return types.Int64Null()
@@ -1643,7 +1643,7 @@ func (r *WAFExclusionPolicyResource) Update(ctx context.Context, req resource.Up
 														return types.StringNull()
 													}(),
 													SignatureID: func() types.Int64 {
-														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok && v != 0 {
+														if v, ok := ExcludeSignatureContextsItemMap["signature_id"].(float64); ok {
 															return types.Int64Value(int64(v))
 														}
 														return types.Int64Null()
