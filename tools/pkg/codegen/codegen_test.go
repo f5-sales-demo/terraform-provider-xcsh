@@ -1027,3 +1027,33 @@ func TestRenderMarshalBlock_NestedSameNameNoShadow(t *testing.T) {
 		names[m[1]] = true
 	}
 }
+
+// #1129: meaningful-zero int64 leaves (signature_id, where 0 = "all signatures") must read a
+// returned 0 back faithfully — the generated read must DROP the `v != 0` guard for them, while
+// every other int64 field keeps it (0 = unset). Regression test for both the allowlisted leaf
+// and a control leaf.
+func TestRenderUnmarshalScalarChild_MeaningfulZeroInt64_Issue1129(t *testing.T) {
+	// signature_id on HTTPLoadBalancer (a list-element leaf) drops the v != 0 guard.
+	var sig strings.Builder
+	sigAttr := openapi.TerraformAttribute{
+		GoName: "SignatureID", TfsdkTag: "signature_id", JsonName: "signature_id", Type: "int64", Optional: true,
+	}
+	renderUnmarshalScalarChild(&sig, "HTTPLoadBalancer", sigAttr, "m", "", "", "list", "\t")
+	got := sig.String()
+	if !strings.Contains(got, `if v, ok := m["signature_id"].(float64); ok {`) {
+		t.Errorf("signature_id read must drop the `v != 0` guard (#1129); got:\n%s", got)
+	}
+	if strings.Contains(got, "ok && v != 0") {
+		t.Errorf("signature_id read must NOT keep the `v != 0` guard (#1129); got:\n%s", got)
+	}
+
+	// A control int64 leaf keeps the v != 0 guard (0 = unset for the common case).
+	var ctl strings.Builder
+	ctlAttr := openapi.TerraformAttribute{
+		GoName: "Timeout", TfsdkTag: "timeout", JsonName: "timeout", Type: "int64", Optional: true,
+	}
+	renderUnmarshalScalarChild(&ctl, "HTTPLoadBalancer", ctlAttr, "m", "", "", "list", "\t")
+	if !strings.Contains(ctl.String(), "ok && v != 0") {
+		t.Errorf("non-meaningful-zero int64 (timeout) must keep the `v != 0` guard; got:\n%s", ctl.String())
+	}
+}

@@ -635,7 +635,13 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
 			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		}
-		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(float64); ok && v != 0 {\n", indent, srcMap, jsonName))
+		// Most int64 fields treat a returned 0 as "unset" (v != 0 guard); meaningful-zero
+		// leaves (e.g. signature_id, where 0 = "all") must read 0 back faithfully (#1129).
+		if isMeaningfulZeroInt64(rc, jsonName) {
+			sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(float64); ok {\n", indent, srcMap, jsonName))
+		} else {
+			sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(float64); ok && v != 0 {\n", indent, srcMap, jsonName))
+		}
 		sb.WriteString(fmt.Sprintf("%s\t\treturn types.Int64Value(int64(v))\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 		sb.WriteString(fmt.Sprintf("%s\treturn types.Int64Null()\n", indent))
