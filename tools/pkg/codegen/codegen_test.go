@@ -331,12 +331,14 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) 
 		return openapi.TerraformAttribute{GoName: go_, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "single"}
 	}
 
-	// Suppressed default marker (disable_waf) -> guarded by !isImport.
+	// Suppressed any-depth default marker (common_buffering, a route advanced_options
+	// oneof-base default) -> guarded by !isImport. (disable_waf is root-only scoped;
+	// see TestRenderUnmarshalSingleChild_RootOnlySuppression_Issue1145.)
 	var sb strings.Builder
-	renderUnmarshalSingleChild(&sb, "HTTPLoadBalancer", "", mk("DisableWaf", "disable_waf"), "apiResource.Spec", "data", "true", "single", "\t")
+	renderUnmarshalSingleChild(&sb, "HTTPLoadBalancer", "", mk("CommonBuffering", "common_buffering"), "apiResource.Spec", "data", "true", "single", "\t")
 	got := sb.String()
 	if !strings.Contains(got, "if !isImport {") {
-		t.Errorf("suppressed member disable_waf must guard response-populate with !isImport; got:\n%s", got)
+		t.Errorf("suppressed member common_buffering must guard response-populate with !isImport; got:\n%s", got)
 	}
 
 	// Non-suppressed user-intent marker (advertise_on_public_default_vip) -> no import guard on the populate.
@@ -354,6 +356,57 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesServerDefault(t *testing.T) 
 	}
 	if isImportDefaultSuppressed("HTTPLoadBalancer", "advertise_on_public_default_vip") {
 		t.Error("advertise_on_public_default_vip is user intent and must NOT be suppressed")
+	}
+}
+
+// #1145: a leaf that is a server-default at the resource ROOT (suppressed there so a bare
+// LB imports clean) but a user-DECLARED oneof arm when nested must be suppressed ONLY at the
+// root. http_loadbalancer disable_waf is the case: at the LB root it is the WAF oneof default;
+// inside routes[].{simple_route}.advanced_options it is a per-route "disable WAF for this
+// route" choice. Because suppression matches by leaf name at any depth, the nested declared
+// disable_waf was stripped on import and drifted (+ disable_waf {}) — forcing custom-routes
+// coverage to drop route-level waf_mode=disable (CR-3). Root-only scope fixes it: the nested
+// renderer (renderUnmarshalSingleChild, which also renders single blocks inside list elements
+// like routes[]) must NOT guard a root-only leaf, so the declared nested marker reads back and
+// round-trips. renderUnmarshalTopLevelSingle (root) still suppresses it. A genuinely any-depth
+// marker (common_buffering, a route advanced_options oneof-base default) stays guarded nested.
+func TestRenderUnmarshalSingleChild_RootOnlySuppression_Issue1145(t *testing.T) {
+	mk := func(go_, tfsdk string) openapi.TerraformAttribute {
+		return openapi.TerraformAttribute{GoName: go_, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "single"}
+	}
+
+	// Root-only leaf nested inside a route (container="list") -> NOT guarded: the declared
+	// per-route disable_waf must read back from the API so it round-trips on import.
+	var sb strings.Builder
+	renderUnmarshalSingleChild(&sb, "HTTPLoadBalancer", "RoutesSimpleRouteAdvancedOptions", mk("DisableWaf", "disable_waf"), "advMap", "existingItems[idx]", "len(existingItems) > idx", "list", "\t")
+	if strings.Contains(sb.String(), "if !isImport {") {
+		t.Errorf("root-only leaf disable_waf must NOT be import-suppressed when nested; got:\n%s", sb.String())
+	}
+
+	// Genuinely any-depth suppressed marker (common_buffering) -> STILL guarded nested.
+	var sb2 strings.Builder
+	renderUnmarshalSingleChild(&sb2, "HTTPLoadBalancer", "RoutesSimpleRouteAdvancedOptions", mk("CommonBuffering", "common_buffering"), "advMap", "existingItems[idx]", "len(existingItems) > idx", "list", "\t")
+	if !strings.Contains(sb2.String(), "if !isImport {") {
+		t.Errorf("any-depth marker common_buffering must remain import-suppressed when nested; got:\n%s", sb2.String())
+	}
+
+	// The root suppression is unchanged: at the LB root, disable_waf is an empty-marker
+	// server default and renderUnmarshalTopLevelSingle emits NO populate for it.
+	var sb3 strings.Builder
+	renderUnmarshalTopLevelSingle(&sb3, "HTTPLoadBalancer", mk("DisableWaf", "disable_waf"), "\t")
+	if strings.Contains(sb3.String(), "EmptyModel{}") {
+		t.Errorf("root disable_waf must stay suppressed (no populate) at the resource root; got:\n%s", sb3.String())
+	}
+
+	// Helper contract: disable_waf is root-only; common_buffering / round_robin are not.
+	if !isSuppressionRootOnly("HTTPLoadBalancer", "disable_waf") {
+		t.Error("disable_waf must be root-only-scoped for HTTPLoadBalancer")
+	}
+	if isSuppressionRootOnly("HTTPLoadBalancer", "common_buffering") {
+		t.Error("common_buffering is suppressed at any depth and must NOT be root-only-scoped")
+	}
+	if isSuppressionRootOnly("HTTPLoadBalancer", "round_robin") {
+		t.Error("round_robin is suppressed at any depth and must NOT be root-only-scoped")
 	}
 }
 
