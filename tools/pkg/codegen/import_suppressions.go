@@ -47,6 +47,13 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"disable_trust_client_ip_headers",
 		"disable_waf",
 		"l7_ddos_protection",
+		// l7_ddos_protection nested server-default markers (#1155): the server materializes
+		// all four for any l7_ddos_protection config (even empty), so a config that enables it
+		// to set a custom rps_threshold / clientside action drifts on import without these.
+		"mitigation_block",
+		"default_rps_threshold",
+		"clientside_action_none",
+		"ddos_policy_none",
 		"no_challenge",
 		"round_robin",
 		"service_policies_from_namespace",
