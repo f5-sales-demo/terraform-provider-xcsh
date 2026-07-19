@@ -150,6 +150,20 @@ func TestImportSuppressions_HTTPLBRouteAdvancedOptionsDefaults(t *testing.T) {
 	}
 }
 
+// DDoS-1 (#1155): l7_ddos_protection nested server-default markers. The server materializes all
+// four for any l7_ddos_protection config, so a config enabling it to set a custom rps_threshold /
+// clientside action drifts on import (- each marker) unless suppressed. Verified live (PUT+GET
+// probe: send none/block/empty all echo the same four). webapp-api-protection DDoS-1.
+func TestImportSuppressions_HTTPLBL7DDoSDefaults(t *testing.T) {
+	for _, leaf := range []string{
+		"mitigation_block", "default_rps_threshold", "clientside_action_none", "ddos_policy_none",
+	} {
+		if !isImportDefaultSuppressed("HTTPLoadBalancer", leaf) {
+			t.Errorf("HTTPLoadBalancer.%s must be a suppressed l7_ddos_protection server-default (#1155)", leaf)
+		}
+	}
+}
+
 // LPC-5b (#1130): advanced_options oneof base members the API materializes whenever
 // advanced_options is set. A minimal advanced_options config omits them, so import drifts
 // (- each marker) unless suppressed. Verified live (webapp-api-protection LPC-5b).
