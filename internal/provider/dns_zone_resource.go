@@ -5548,6 +5548,7 @@ func (r *DNSZoneResource) Create(ctx context.Context, req resource.CreateRequest
 					data.Primary.RrSetGroup.ElementsAs(ctx, &RrSetGroupExisting, false)
 				}
 				if rawList, ok := blockData["rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
+					rawList = filterSystemManagedRrSetGroups(rawList)
 					var RrSetGroupResult []DNSZonePrimaryRrSetGroupModel
 					for RrSetGroupIdx, RrSetGroupItem := range rawList {
 						_ = RrSetGroupIdx
@@ -7902,6 +7903,7 @@ func (r *DNSZoneResource) Read(ctx context.Context, req resource.ReadRequest, re
 					data.Primary.RrSetGroup.ElementsAs(ctx, &RrSetGroupExisting, false)
 				}
 				if rawList, ok := blockData["rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
+					rawList = filterSystemManagedRrSetGroups(rawList)
 					var RrSetGroupResult []DNSZonePrimaryRrSetGroupModel
 					for RrSetGroupIdx, RrSetGroupItem := range rawList {
 						_ = RrSetGroupIdx
@@ -11448,6 +11450,7 @@ func (r *DNSZoneResource) Update(ctx context.Context, req resource.UpdateRequest
 					data.Primary.RrSetGroup.ElementsAs(ctx, &RrSetGroupExisting, false)
 				}
 				if rawList, ok := blockData["rr_set_group"].([]interface{}); ok && len(rawList) > 0 {
+					rawList = filterSystemManagedRrSetGroups(rawList)
 					var RrSetGroupResult []DNSZonePrimaryRrSetGroupModel
 					for RrSetGroupIdx, RrSetGroupItem := range rawList {
 						_ = RrSetGroupIdx
