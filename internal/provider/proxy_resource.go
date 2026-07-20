@@ -1593,7 +1593,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 128),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 								"namespace": schema.StringAttribute{
@@ -1604,7 +1604,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										stringplanmodifier.UseStateForUnknown(),
 									},
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 64),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 								"tenant": schema.StringAttribute{
@@ -2703,7 +2703,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 128),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"namespace": schema.StringAttribute{
@@ -2714,7 +2714,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 64),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"tenant": schema.StringAttribute{
@@ -2736,7 +2736,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 128),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"namespace": schema.StringAttribute{
@@ -2747,7 +2747,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 64),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"tenant": schema.StringAttribute{
@@ -3301,7 +3301,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -3312,7 +3312,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{
@@ -3348,7 +3348,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -3359,7 +3359,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{

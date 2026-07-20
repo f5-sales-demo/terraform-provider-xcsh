@@ -1398,7 +1398,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -1502,7 +1502,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -1544,7 +1544,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													MarkdownDescription: "Name. Name of the header .",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"regex": schema.StringAttribute{
@@ -1625,7 +1625,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1889,7 +1889,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 														MarkdownDescription: "Name. Name of the header .",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"regex": schema.StringAttribute{
@@ -1918,7 +1918,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2057,7 +2057,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -2161,7 +2161,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -2210,7 +2210,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 													MarkdownDescription: "Name. Name of the header .",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 256),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"regex": schema.StringAttribute{
@@ -2323,7 +2323,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 																				MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																				Optional:            true,
 																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 256),
+																					stringvalidator.LengthBetween(1, 63),
 																				},
 																			},
 																			"regex_values": schema.ListAttribute{
@@ -2352,7 +2352,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 																				MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																				Optional:            true,
 																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 256),
+																					stringvalidator.LengthBetween(1, 63),
 																				},
 																			},
 																			"regex_values": schema.ListAttribute{
@@ -2503,7 +2503,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2754,7 +2754,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 														MarkdownDescription: "Name. Name of the header .",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"regex": schema.StringAttribute{
@@ -2783,7 +2783,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},

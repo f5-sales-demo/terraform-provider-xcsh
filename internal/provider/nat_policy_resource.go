@@ -600,7 +600,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 							MarkdownDescription: "Name. Name of the Rule .",
 							Optional:            true,
 							Validators: []validator.String{
-								stringvalidator.LengthBetween(1, 1024),
+								stringvalidator.LengthBetween(1, 63),
 								stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 							},
 						},
@@ -638,7 +638,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -650,7 +650,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 																	stringplanmodifier.UseStateForUnknown(),
 																},
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -700,7 +700,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -712,7 +712,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													stringplanmodifier.UseStateForUnknown(),
 												},
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -794,7 +794,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 															stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 														},
 													},
@@ -806,7 +806,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 															stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 														},
 													},
@@ -962,7 +962,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 															stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 														},
 													},
@@ -974,7 +974,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 															stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 														},
 													},
@@ -1015,7 +1015,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -1027,7 +1027,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													stringplanmodifier.UseStateForUnknown(),
 												},
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -1070,7 +1070,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 															MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 																stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 															},
 														},
@@ -1082,7 +1082,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 																stringplanmodifier.UseStateForUnknown(),
 															},
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 																stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 															},
 														},
@@ -1118,7 +1118,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -1130,7 +1130,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													stringplanmodifier.UseStateForUnknown(),
 												},
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -1163,7 +1163,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -1175,7 +1175,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 													stringplanmodifier.UseStateForUnknown(),
 												},
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 1024),
+													stringvalidator.LengthBetween(1, 63),
 													stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 												},
 											},
@@ -1211,7 +1211,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 										stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 									},
 								},
@@ -1223,7 +1223,7 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 										stringplanmodifier.UseStateForUnknown(),
 									},
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 										stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 									},
 								},

@@ -223,7 +223,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 											},
 										},
@@ -235,7 +235,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 											},
 										},
@@ -268,7 +268,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 											},
 										},
@@ -280,7 +280,7 @@ func (r *NginxServiceDiscoveryResource) Schema(ctx context.Context, req resource
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 											},
 										},

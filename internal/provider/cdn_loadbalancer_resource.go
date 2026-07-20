@@ -5160,7 +5160,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 128),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 								"namespace": schema.StringAttribute{
@@ -5171,7 +5171,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										stringplanmodifier.UseStateForUnknown(),
 									},
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 64),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 								"tenant": schema.StringAttribute{
@@ -5269,7 +5269,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -5281,7 +5281,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	stringplanmodifier.UseStateForUnknown(),
 																},
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -5332,7 +5332,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -5344,7 +5344,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	stringplanmodifier.UseStateForUnknown(),
 																},
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -5445,7 +5445,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -5456,7 +5456,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{
@@ -5480,7 +5480,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -5491,7 +5491,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -5519,7 +5519,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "Case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -5574,7 +5574,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "Case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -5629,7 +5629,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "JWT Claim Name. JWT claim name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -5834,7 +5834,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																		Optional:            true,
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -5846,7 +5846,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																			stringplanmodifier.UseStateForUnknown(),
 																		},
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -5897,7 +5897,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																		Optional:            true,
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -5909,7 +5909,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																			stringplanmodifier.UseStateForUnknown(),
 																		},
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -6003,7 +6003,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "Case-sensitive cookie name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 256),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 														},
@@ -6058,7 +6058,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "Case-insensitive HTTP header name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 256),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 														},
@@ -6113,7 +6113,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "JWT Claim Name. JWT claim name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 256),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 														},
@@ -6230,7 +6230,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -6241,7 +6241,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -6341,7 +6341,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -6353,7 +6353,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	stringplanmodifier.UseStateForUnknown(),
 																},
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -6404,7 +6404,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -6416,7 +6416,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	stringplanmodifier.UseStateForUnknown(),
 																},
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 1024),
+																	stringvalidator.LengthBetween(1, 63),
 																	stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																},
 															},
@@ -6517,7 +6517,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -6528,7 +6528,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{
@@ -6552,7 +6552,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -6563,7 +6563,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -6591,7 +6591,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "Case-sensitive cookie name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -6646,7 +6646,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "Case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -6701,7 +6701,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "JWT Claim Name. JWT claim name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -6817,7 +6817,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"namespace": schema.StringAttribute{
@@ -6828,7 +6828,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									stringplanmodifier.UseStateForUnknown(),
 								},
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 64),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"tenant": schema.StringAttribute{
@@ -6918,7 +6918,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 																	Optional:            true,
 																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(1, 1024),
+																		stringvalidator.LengthBetween(1, 63),
 																	},
 																},
 															},
@@ -7097,7 +7097,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																	MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 																	Optional:            true,
 																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(1, 1024),
+																		stringvalidator.LengthBetween(1, 63),
 																	},
 																},
 															},
@@ -7173,7 +7173,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -7282,7 +7282,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 						Optional:            true,
 						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 128),
+							stringvalidator.LengthBetween(1, 63),
 						},
 					},
 					"namespace": schema.StringAttribute{
@@ -7293,7 +7293,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							stringplanmodifier.UseStateForUnknown(),
 						},
 						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 64),
+							stringvalidator.LengthBetween(1, 63),
 						},
 					},
 					"tenant": schema.StringAttribute{
@@ -7368,7 +7368,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Name. Name of the header .",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 256),
+													stringvalidator.LengthBetween(1, 63),
 												},
 											},
 											"presence": schema.BoolAttribute{
@@ -7401,7 +7401,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 							},
@@ -7531,7 +7531,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -7619,7 +7619,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -7709,7 +7709,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -7761,7 +7761,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Case-insensitive HTTP header name.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 256),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -7900,7 +7900,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																						MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																						Optional:            true,
 																						Validators: []validator.String{
-																							stringvalidator.LengthBetween(1, 256),
+																							stringvalidator.LengthBetween(1, 63),
 																						},
 																					},
 																					"regex_values": schema.ListAttribute{
@@ -7929,7 +7929,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																						MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																						Optional:            true,
 																						Validators: []validator.String{
-																							stringvalidator.LengthBetween(1, 256),
+																							stringvalidator.LengthBetween(1, 63),
 																						},
 																					},
 																					"regex_values": schema.ListAttribute{
@@ -8078,7 +8078,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "Case-insensitive HTTP header name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 256),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -8135,7 +8135,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -8396,7 +8396,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -8484,7 +8484,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -8566,7 +8566,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 1024),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},
@@ -8688,7 +8688,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 128),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 								"namespace": schema.StringAttribute{
@@ -8699,7 +8699,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										stringplanmodifier.UseStateForUnknown(),
 									},
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 64),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 								"tenant": schema.StringAttribute{
@@ -8754,7 +8754,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 							},
@@ -8905,7 +8905,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 							},
@@ -9068,7 +9068,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -9079,7 +9079,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{
@@ -9117,7 +9117,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 										Optional:            true,
 										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 128),
+											stringvalidator.LengthBetween(1, 63),
 										},
 									},
 									"namespace": schema.StringAttribute{
@@ -9128,7 +9128,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											stringplanmodifier.UseStateForUnknown(),
 										},
 										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 64),
+											stringvalidator.LengthBetween(1, 63),
 										},
 									},
 									"tenant": schema.StringAttribute{
@@ -9218,7 +9218,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"namespace": schema.StringAttribute{
@@ -9229,7 +9229,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									stringplanmodifier.UseStateForUnknown(),
 								},
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 64),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"tenant": schema.StringAttribute{
@@ -9331,7 +9331,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 							},
@@ -9394,7 +9394,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -9405,7 +9405,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{
@@ -9483,7 +9483,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 128),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"namespace": schema.StringAttribute{
@@ -9494,7 +9494,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 64),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"tenant": schema.StringAttribute{
@@ -9516,7 +9516,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 128),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"namespace": schema.StringAttribute{
@@ -9527,7 +9527,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 64),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"tenant": schema.StringAttribute{
@@ -9706,7 +9706,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 128),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"namespace": schema.StringAttribute{
@@ -9717,7 +9717,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 64),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"tenant": schema.StringAttribute{
@@ -9739,7 +9739,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 128),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"namespace": schema.StringAttribute{
@@ -9750,7 +9750,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															stringplanmodifier.UseStateForUnknown(),
 														},
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 64),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"tenant": schema.StringAttribute{
@@ -9858,7 +9858,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -9869,7 +9869,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -10269,7 +10269,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 										Optional:            true,
 										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 128),
+											stringvalidator.LengthBetween(1, 63),
 										},
 									},
 									"namespace": schema.StringAttribute{
@@ -10280,7 +10280,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											stringplanmodifier.UseStateForUnknown(),
 										},
 										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 64),
+											stringvalidator.LengthBetween(1, 63),
 										},
 									},
 									"tenant": schema.StringAttribute{
@@ -10311,7 +10311,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 128),
+													stringvalidator.LengthBetween(1, 63),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -10322,7 +10322,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													stringplanmodifier.UseStateForUnknown(),
 												},
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 64),
+													stringvalidator.LengthBetween(1, 63),
 												},
 											},
 											"tenant": schema.StringAttribute{
@@ -10612,7 +10612,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"namespace": schema.StringAttribute{
@@ -10623,7 +10623,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									stringplanmodifier.UseStateForUnknown(),
 								},
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 64),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"tenant": schema.StringAttribute{
@@ -10661,7 +10661,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -10696,7 +10696,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "Case-sensitive JSON path in the HTTP request body.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 256),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 														},
@@ -10768,7 +10768,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																		Optional:            true,
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -10780,7 +10780,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																			stringplanmodifier.UseStateForUnknown(),
 																		},
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -10851,7 +10851,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "Case-sensitive cookie name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 256),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 														},
@@ -10936,7 +10936,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																MarkdownDescription: "Case-insensitive HTTP header name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 256),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 														},
@@ -11017,7 +11017,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																		MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																		Optional:            true,
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -11029,7 +11029,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 																			stringplanmodifier.UseStateForUnknown(),
 																		},
 																		Validators: []validator.String{
-																			stringvalidator.LengthBetween(1, 1024),
+																			stringvalidator.LengthBetween(1, 63),
 																			stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																		},
 																	},
@@ -11286,7 +11286,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -11297,7 +11297,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -11343,7 +11343,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -11354,7 +11354,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -11454,7 +11454,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"namespace": schema.StringAttribute{
@@ -11465,7 +11465,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									stringplanmodifier.UseStateForUnknown(),
 								},
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 64),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"tenant": schema.StringAttribute{
@@ -11566,7 +11566,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "Name. Name of the header .",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 256),
+													stringvalidator.LengthBetween(1, 63),
 												},
 											},
 											"presence": schema.BoolAttribute{
@@ -11599,7 +11599,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 							},
@@ -11623,7 +11623,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 						Optional:            true,
 						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 128),
+							stringvalidator.LengthBetween(1, 63),
 						},
 					},
 					"namespace": schema.StringAttribute{
@@ -11634,7 +11634,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							stringplanmodifier.UseStateForUnknown(),
 						},
 						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 64),
+							stringvalidator.LengthBetween(1, 63),
 						},
 					},
 					"tenant": schema.StringAttribute{
@@ -11818,7 +11818,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 1024),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 											},
@@ -11838,7 +11838,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 128),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"namespace": schema.StringAttribute{
@@ -11849,7 +11849,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									stringplanmodifier.UseStateForUnknown(),
 								},
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 64),
+									stringvalidator.LengthBetween(1, 63),
 								},
 							},
 							"tenant": schema.StringAttribute{

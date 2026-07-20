@@ -495,7 +495,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 															MarkdownDescription: "Case-sensitive cookie name.",
 															Optional:            true,
 															Validators: []validator.String{
-																stringvalidator.LengthBetween(1, 256),
+																stringvalidator.LengthBetween(1, 63),
 															},
 														},
 													},

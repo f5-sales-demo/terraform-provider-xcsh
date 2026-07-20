@@ -604,7 +604,7 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 									MarkdownDescription: "Name. Human-readable name for the resource",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 										stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 									},
 								},

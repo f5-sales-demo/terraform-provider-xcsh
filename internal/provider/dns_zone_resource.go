@@ -1456,7 +1456,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"values": schema.ListAttribute{
@@ -1476,7 +1476,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "AAAA Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"values": schema.ListAttribute{
@@ -1496,7 +1496,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "AFSDB Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1543,7 +1543,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "CAA Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1579,7 +1579,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "CDS Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1649,7 +1649,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "CERT Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1695,7 +1695,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "CName Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"value": schema.StringAttribute{
@@ -1714,7 +1714,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "DS Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1784,7 +1784,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "EUI48 Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"value": schema.StringAttribute{
@@ -1803,7 +1803,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "EUI64 Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"value": schema.StringAttribute{
@@ -1834,7 +1834,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 128),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1845,7 +1845,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														stringplanmodifier.UseStateForUnknown(),
 													},
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 64),
+														stringvalidator.LengthBetween(1, 63),
 													},
 												},
 												"tenant": schema.StringAttribute{
@@ -1866,7 +1866,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "LOC Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1941,7 +1941,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "MX Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -1973,7 +1973,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "NAPTR Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2027,7 +2027,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "NS Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"values": schema.ListAttribute{
@@ -2047,7 +2047,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "PTR Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"values": schema.ListAttribute{
@@ -2067,7 +2067,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "SRV Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2107,7 +2107,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "SSHFP Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2161,7 +2161,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "TLSA Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2210,7 +2210,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "TXT Record name, please provide only the specific subdomain or record name without the base domain.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"values": schema.ListAttribute{
@@ -2260,7 +2260,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
@@ -2286,7 +2286,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"values": schema.ListAttribute{
@@ -2306,7 +2306,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "AAAA Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"values": schema.ListAttribute{
@@ -2326,7 +2326,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "AFSDB Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2373,7 +2373,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "CAA Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2409,7 +2409,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "CDS Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2479,7 +2479,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "CERT Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2525,7 +2525,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "CName Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"value": schema.StringAttribute{
@@ -2544,7 +2544,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "DS Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2614,7 +2614,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "EUI48 Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"value": schema.StringAttribute{
@@ -2633,7 +2633,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "EUI64 Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"value": schema.StringAttribute{
@@ -2664,7 +2664,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 																Optional:            true,
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 128),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 															"namespace": schema.StringAttribute{
@@ -2675,7 +2675,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	stringplanmodifier.UseStateForUnknown(),
 																},
 																Validators: []validator.String{
-																	stringvalidator.LengthBetween(1, 64),
+																	stringvalidator.LengthBetween(1, 63),
 																},
 															},
 															"tenant": schema.StringAttribute{
@@ -2696,7 +2696,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "LOC Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2771,7 +2771,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "MX Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2803,7 +2803,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "NAPTR Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2857,7 +2857,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "NS Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"values": schema.ListAttribute{
@@ -2877,7 +2877,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "PTR Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"values": schema.ListAttribute{
@@ -2897,7 +2897,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "SRV Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2937,7 +2937,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "SSHFP Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -2991,7 +2991,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "TLSA Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 												},
@@ -3040,7 +3040,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "TXT Record name, please provide only the specific subdomain or record name without the base domain.",
 														Optional:            true,
 														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 1024),
+															stringvalidator.LengthBetween(1, 63),
 														},
 													},
 													"values": schema.ListAttribute{
