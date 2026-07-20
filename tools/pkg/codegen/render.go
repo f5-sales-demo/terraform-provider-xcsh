@@ -894,6 +894,14 @@ func renderUnmarshalListChild(sb *strings.Builder, rc, childPath string, attr op
 		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
 	}
 	sb.WriteString(fmt.Sprintf("%s\tif rawList, ok := %s[\"%s\"].([]interface{}); ok && len(rawList) > 0 {\n", indent, srcMap, jsonName))
+	// Drop F5 XC system-managed elements (e.g. the DNS zone "x-ves-io-managed"
+	// rr_set_group) from the raw API list before flattening, so a config that does
+	// not declare them does not plan a forbidden delete. Filtering up front keeps
+	// prior-state positional threading aligned. See isSystemManagedFilteredList and
+	// filterSystemManagedRrSetGroups (internal/provider/provider_helpers.go).
+	if isSystemManagedFilteredList(rc, jsonName) {
+		sb.WriteString(fmt.Sprintf("%s\t\trawList = filterSystemManagedRrSetGroups(rawList)\n", indent))
+	}
 	sb.WriteString(fmt.Sprintf("%s\t\tvar %s []%s\n", indent, resultVar, elemModel))
 	if len(attr.NestedAttributes) == 0 {
 		sb.WriteString(fmt.Sprintf("%s\t\tfor range rawList {\n", indent))
