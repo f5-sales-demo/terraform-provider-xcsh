@@ -250,18 +250,28 @@ jobs:
             SPEC_COUNT=$(jq '.specifications | length' "${{ env.SPEC_DIR }}/index.json")
             echo "✅ index.json valid with $SPEC_COUNT domain specifications"
 
-            # Verify each domain file exists and has basic OpenAPI structure
+            # Verify each OpenAPI spec listed in index.json exists and has basic
+            # OpenAPI structure. Iterate index.json's specifications[] (the actual
+            # domain specs) rather than every domains/*.json: the enriched bundle
+            # also ships auxiliary data files (e.g. namespace_profiles.json,
+            # validation.json) that are not OpenAPI documents and legitimately lack
+            # an openapi/swagger key. Validating those hard-fails every real release.
             VALID=true
-            for file in "${{ env.SPEC_DIR }}"/domains/*.json; do
-              if [ -f "$file" ]; then
-                if jq -e '.openapi or .swagger' "$file" > /dev/null 2>&1; then
-                  echo "✅ $(basename "$file") has valid OpenAPI structure"
-                else
-                  echo "❌ $(basename "$file") missing openapi/swagger version"
-                  VALID=false
-                fi
+            while IFS= read -r spec_file; do
+              [ -z "$spec_file" ] && continue
+              file="${{ env.SPEC_DIR }}/domains/$(basename "$spec_file")"
+              if [ ! -f "$file" ]; then
+                echo "❌ $spec_file listed in index.json but not found in domains/"
+                VALID=false
+                continue
               fi
-            done
+              if jq -e '.openapi or .swagger' "$file" > /dev/null 2>&1; then
+                echo "✅ $spec_file has valid OpenAPI structure"
+              else
+                echo "❌ $spec_file missing openapi/swagger version"
+                VALID=false
+              fi
+            done < <(jq -r '.specifications[].file' "${{ env.SPEC_DIR }}/index.json")
             if [ "$VALID" = false ]; then
               echo "::error::Some v2 specs failed structure validation"
               exit 1
