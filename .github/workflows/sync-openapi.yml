@@ -200,6 +200,18 @@ jobs:
             echo "V1 structure verified: $SPEC_COUNT spec files"
           fi
 
+      # The downloaded specs live under docs/specifications/api/, which is gitignored
+      # (they are re-downloaded fresh at generation time). Record the resolved upstream
+      # version into a TRACKED marker so `git add -A` below stages a real change and the
+      # sync PR actually fires. The marker lives under tools/ so on-merge.yml's
+      # detect-changes classifies its change as tools -> triggers provider regeneration.
+      - name: Record resolved spec version (tracked marker)
+        if: steps.existing_pr.outputs.exists == 'false'
+        env:
+          RESOLVED_SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
+        run: |
+          printf '%s\n' "$RESOLVED_SPEC_VERSION" > tools/spec-version.txt
+
       - name: Check for changes
         if: steps.existing_pr.outputs.exists == 'false'
         id: changes
@@ -207,10 +219,10 @@ jobs:
           git add -A
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No changes detected in OpenAPI specs"
+            echo "No changes detected (spec version unchanged)"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Changes detected in OpenAPI specs"
+            echo "Changes detected (spec version marker updated)"
             git reset HEAD
           fi
 
@@ -288,8 +300,13 @@ jobs:
           SPEC_SOURCE="${{ steps.spec_config.outputs.spec_source }}"
           SPEC_VERSION="${{ steps.spec_config.outputs.spec_version }}"
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Author as a distinct NON-bot identity on purpose: on-merge.yml's
+          # detect-changes treats any github-actions[bot]-authored commit as a
+          # completed regeneration and tags WITHOUT regenerating. A non-bot author
+          # routes the merged spec-sync commit through the human path (build-test +
+          # regenerate-provider), i.e. the intended delayed-tagging flow.
+          git config user.name "f5xc-spec-sync"
+          git config user.email "f5xc-spec-sync@users.noreply.github.com"
           git checkout -b "openapi-update-${{ steps.date.outputs.date }}"
           git add -A
 
