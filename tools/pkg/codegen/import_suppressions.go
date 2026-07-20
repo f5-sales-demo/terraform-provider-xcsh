@@ -256,6 +256,20 @@ func isImportDefaultSuppressed(resourceTitleCase, jsonName string) bool {
 	return members[jsonName]
 }
 
+// isSystemManagedFilteredList reports whether the given list member of the given
+// resource holds F5 XC system-managed elements that must be dropped from Terraform
+// state on EVERY refresh path (Read/Create/Update, not just import), so a config
+// that does not declare them does not plan a forbidden delete.
+//
+// DNSZone rr_set_group is the case: when a primary block sets
+// allow_http_lb_managed_records = true, F5 XC auto-creates a reserved
+// "x-ves-io-managed" rr_set_group holding load-balancer-owned records. The caller
+// may not modify or delete it (403 FORBIDDEN), so the generated flatten filters it
+// via filterSystemManagedRrSetGroups (internal/provider/provider_helpers.go).
+func isSystemManagedFilteredList(resourceTitleCase, jsonName string) bool {
+	return resourceTitleCase == "DNSZone" && jsonName == "rr_set_group"
+}
+
 // suppressionRootOnly scopes a suppressed leaf to the resource ROOT only. A few leaves are a
 // server-default oneof member at the top level (must suppress so a bare resource imports clean)
 // AND a legitimately user-DECLARED oneof arm when nested. Because isImportDefaultSuppressed

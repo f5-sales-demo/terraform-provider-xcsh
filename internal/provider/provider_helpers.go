@@ -42,3 +42,40 @@ func filterSystemLabels(labels map[string]string) map[string]string {
 	}
 	return filtered
 }
+
+// systemManagedRrSetGroupName is the reserved name F5 XC gives the rr_set_group it
+// auto-creates in a DNS zone to hold records owned by load balancers (created when
+// a primary block sets allow_http_lb_managed_records = true). The group is
+// platform-owned: any attempt to modify or delete it via the config API returns
+// 403 FORBIDDEN.
+const systemManagedRrSetGroupName = "x-ves-io-managed"
+
+// isSystemManagedRrSetGroup reports whether an rr_set_group element read from the
+// API (as decoded into a map) is the reserved F5 XC system-managed group. The
+// reserved name is the authoritative signal.
+func isSystemManagedRrSetGroup(item map[string]interface{}) bool {
+	md, ok := item["metadata"].(map[string]interface{})
+	if !ok {
+		return false
+	}
+	name, _ := md["name"].(string)
+	return name == systemManagedRrSetGroupName
+}
+
+// filterSystemManagedRrSetGroups returns rawList with the F5 XC system-managed
+// rr_set_group ("x-ves-io-managed") removed. Terraform must not surface that group
+// as user-managed state: a config that does not declare it would otherwise plan a
+// delete the API forbids (403). Filtering the raw API list up front (before the
+// flatten loop) keeps prior-state positional threading aligned, since the user
+// never declares the system group. Returns a new slice; the input is not mutated.
+// nolint:unused // Used by generated DNS zone Read/Create/Update methods
+func filterSystemManagedRrSetGroups(rawList []interface{}) []interface{} {
+	filtered := make([]interface{}, 0, len(rawList))
+	for _, item := range rawList {
+		if m, ok := item.(map[string]interface{}); ok && isSystemManagedRrSetGroup(m) {
+			continue
+		}
+		filtered = append(filtered, item)
+	}
+	return filtered
+}
