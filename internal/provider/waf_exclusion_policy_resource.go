@@ -395,7 +395,7 @@ func (r *WAFExclusionPolicyResource) Schema(ctx context.Context, req resource.Sc
 									MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 1024),
+										stringvalidator.LengthBetween(1, 63),
 									},
 								},
 							},

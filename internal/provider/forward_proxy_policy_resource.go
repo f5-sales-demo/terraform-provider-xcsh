@@ -796,7 +796,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 						Optional:            true,
 						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 128),
+							stringvalidator.LengthBetween(1, 63),
 						},
 					},
 					"namespace": schema.StringAttribute{
@@ -807,7 +807,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 							stringplanmodifier.UseStateForUnknown(),
 						},
 						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 64),
+							stringvalidator.LengthBetween(1, 63),
 						},
 					},
 					"tenant": schema.StringAttribute{
@@ -875,7 +875,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -886,7 +886,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -905,7 +905,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -916,7 +916,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -1021,7 +1021,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 128),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -1032,7 +1032,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 												stringplanmodifier.UseStateForUnknown(),
 											},
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 64),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 										"tenant": schema.StringAttribute{
@@ -1071,7 +1071,7 @@ func (r *ForwardProxyPolicyResource) Schema(ctx context.Context, req resource.Sc
 											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 1024),
+												stringvalidator.LengthBetween(1, 63),
 											},
 										},
 									},
