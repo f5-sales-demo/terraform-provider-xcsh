@@ -14,6 +14,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -85,6 +87,9 @@ func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.Schem
 			"mitigated_domain": schema.StringAttribute{
 				MarkdownDescription: "Enter root domain or domain to be entered to mitigated list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry.",
 				Required:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 				},
@@ -93,19 +98,31 @@ func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true will administratively disable the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.RequiresReplace(),
+				},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -511,21 +528,22 @@ func (r *MitigatedDomainResource) Delete(ctx context.Context, req resource.Delet
 }
 
 func (r *MitigatedDomainResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
-	// Import ID format: namespace/name
+	// Import ID format: namespace/name/mitigated_domain
+	// Trailing fields are create-only and not readable from the API (e.g. GET-by-name
+	// returns 501), so they ride in the import ID to keep round-trip import drift-free.
 	parts := strings.Split(req.ID, "/")
-	if len(parts) != 2 || parts[0] == "" || parts[1] == "" {
+	if len(parts) != 3 || parts[0] == "" || parts[1] == "" {
 		resp.Diagnostics.AddError(
 			"Invalid Import ID",
-			fmt.Sprintf("Expected import ID format: namespace/name, got: %s", req.ID),
+			fmt.Sprintf("Expected import ID format: namespace/name/mitigated_domain, got: %s", req.ID),
 		)
 		return
 	}
-	namespace := parts[0]
-	name := parts[1]
 
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), namespace)...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), name)...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), name)...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), parts[0])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), parts[1])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), parts[1])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("mitigated_domain"), parts[2])...)
 
 	// Set private state marker to indicate this is an import operation
 	// This allows Read to populate all nested blocks from API response

@@ -14,6 +14,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -85,6 +87,9 @@ func (r *ProtectedDomainResource) Schema(ctx context.Context, req resource.Schem
 			"protected_domain": schema.StringAttribute{
 				MarkdownDescription: "For Client-Side Defense to work on the web pages where you injected the JS, you need to enter the root domain below.",
 				Required:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 				Validators: []validator.String{
 					stringvalidator.LengthAtMost(256),
 					validators.ETLDPlusOneValidator(),
@@ -94,19 +99,31 @@ func (r *ProtectedDomainResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.RequiresReplace(),
+				},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true will administratively disable the object.",
 				Optional:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.RequiresReplace(),
+				},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
+				PlanModifiers: []planmodifier.Map{
+					mapplanmodifier.RequiresReplace(),
+				},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
