@@ -342,3 +342,34 @@ func TestExtractResourceSchema_AutoDerivesPreflightFromRequires(t *testing.T) {
 		t.Error("WhenGoField must be resolved to the Go model field, got empty")
 	}
 }
+
+// TestForceReplaceForCreateDeleteOnly verifies that create/delete-only resources (no PUT/update
+// endpoint on the F5 XC API) get RequiresReplace on every user-settable field, so any change
+// forces delete+create instead of a phantom in-place update that 404s.
+func TestForceReplaceForCreateDeleteOnly(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{Name: "name", TfsdkTag: "name", Required: true, PlanModifier: "RequiresReplace"},
+		{Name: "namespace", TfsdkTag: "namespace", Required: true, PlanModifier: "RequiresReplace"},
+		{Name: "mitigated_domain", TfsdkTag: "mitigated_domain", Type: "string", Required: true},
+		{Name: "description", TfsdkTag: "description", Type: "string", Optional: true},
+		{Name: "disable", TfsdkTag: "disable", Type: "bool", Optional: true},
+		{Name: "labels", TfsdkTag: "labels", Type: "map", Optional: true},
+		{Name: "annotations", TfsdkTag: "annotations", Type: "map", Optional: true},
+		{Name: "id", TfsdkTag: "id", Type: "string", Computed: true, PlanModifier: "UseStateForUnknown"},
+	}
+	ForceReplaceForCreateDeleteOnly(attrs)
+
+	for _, tag := range []string{"mitigated_domain", "description", "disable", "labels", "annotations", "name", "namespace"} {
+		a := findAttr(attrs, tag)
+		if a == nil {
+			t.Fatalf("attr %q missing", tag)
+		}
+		if a.PlanModifier != "RequiresReplace" {
+			t.Errorf("attr %q: PlanModifier = %q, want RequiresReplace", tag, a.PlanModifier)
+		}
+	}
+	// Computed id must NOT be forced to replace.
+	if id := findAttr(attrs, "id"); id == nil || id.PlanModifier != "UseStateForUnknown" {
+		t.Errorf("computed id must keep UseStateForUnknown, got %v", id)
+	}
+}

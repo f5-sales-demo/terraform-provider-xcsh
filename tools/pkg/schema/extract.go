@@ -25,6 +25,21 @@ type ExtractConfig struct {
 
 // ExtractResourceSchema extracts a Terraform resource schema from an OpenAPI spec.
 // extractAPIPath is passed as a callback because it remains in the monolith.
+// ForceReplaceForCreateDeleteOnly marks every user-settable, non-computed attribute as
+// RequiresReplace. Create/delete-only F5 XC resources (those declared in import-id-fields.json —
+// e.g. the CSD shape/csd domain objects) support only create/list/delete: there is no PUT/update
+// endpoint and no by-name GET. An in-place update therefore 404s ("API Group could not be
+// determined for Method: PUT"), so any field change must force delete+create instead of a phantom
+// update. Computed-only attributes (e.g. id) are left untouched.
+func ForceReplaceForCreateDeleteOnly(attrs []openapi.TerraformAttribute) {
+	for i := range attrs {
+		a := &attrs[i]
+		if (a.Required || a.Optional) && !a.Computed && a.PlanModifier != "RequiresReplace" {
+			a.PlanModifier = "RequiresReplace"
+		}
+	}
+}
+
 func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPath func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
 	// Find CreateSpecType schema
 	var createSpec openapi.Schema
@@ -239,6 +254,14 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	}
 
 	attributes = sortedAttrs
+
+	// Create/delete-only resources (declared in import-id-fields.json, because their create-only
+	// spec fields are not readable via the 501 by-name GET) also lack a PUT/update endpoint on the
+	// F5 XC API. Force every settable field to RequiresReplace so terraform reconciles via
+	// delete+create instead of a phantom in-place update that 404s.
+	if len(openapi.LoadImportIDFields(naming.ToResourceTypeName(resourceName))) > 0 {
+		ForceReplaceForCreateDeleteOnly(attributes)
+	}
 
 	// Apply x-f5xc-minimum-configuration to improve Required field accuracy
 	minConfigFields := ParseMinConfigRequiredFields(createSpec.XF5XCMinimumConfiguration)

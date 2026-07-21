@@ -1,4 +1,6 @@
 {
   "_comment": "Resources whose create-only spec fields are NOT readable from the API (e.g. GET-by-name returns 501) and therefore cannot be recovered on import from state alone. For these, the import ID carries the field value(s) as trailing '/'-separated segments after namespace/name, so a round-trip import is drift-free. Keyed by resource TitleCase; loaded by tools/pkg/openapi/import_id_fields.go and emitted into ImportState by the codegen. Example import: `terraform import xcsh_protected_domain.x <namespace>/<name>/<protected_domain>`.",
-  "ProtectedDomain": ["protected_domain"]
+  "ProtectedDomain": ["protected_domain"],
+  "MitigatedDomain": ["mitigated_domain"],
+  "AllowedDomain": ["allowed_domain"]
 }
