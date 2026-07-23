@@ -223,27 +223,27 @@ func ParseDomainSpec(path string) (*DomainSpec, error) {
 
 // DomainSpecInfo contains parsed information about a domain and its resources.
 type DomainSpecInfo struct {
-	DomainName    string
-	Category      string
-	RequiresTier  string
-	Complexity    string
-	IsPreview     bool
-	Resources     []ExtractedResource
-	SourceFile    string
-	Spec          *DomainSpec
+	DomainName   string
+	Category     string
+	RequiresTier string
+	Complexity   string
+	IsPreview    bool
+	Resources    []ExtractedResource
+	SourceFile   string
+	Spec         *DomainSpec
 }
 
 // ExtractedResource contains information about a single resource extracted from a domain.
 type ExtractedResource struct {
-	Name             string
-	SchemaName       string  // Full schema name in components/schemas
-	Description      string
-	APIPath          string
-	RequiresTier     string
-	Complexity       string
-	Category         string  // Inherited from domain if not specified
-	IsPreview        bool    // Inherited from domain if not specified
-	DomainName       string  // Parent domain
+	Name         string
+	SchemaName   string // Full schema name in components/schemas
+	Description  string
+	APIPath      string
+	RequiresTier string
+	Complexity   string
+	Category     string // Inherited from domain if not specified
+	IsPreview    bool   // Inherited from domain if not specified
+	DomainName   string // Parent domain
 }
 
 // ExtractResourcesFromDomain parses a domain spec and extracts resource information.
@@ -278,10 +278,10 @@ func ExtractResourcesFromDomain(specPath string) (*DomainSpecInfo, error) {
 			SchemaName:   rp.SchemaName,
 			APIPath:      rp.APIPath,
 			DomainName:   domainName,
-			Category:     info.Category,    // Inherit from domain
-			IsPreview:    info.IsPreview,   // Inherit from domain
+			Category:     info.Category,     // Inherit from domain
+			IsPreview:    info.IsPreview,    // Inherit from domain
 			RequiresTier: info.RequiresTier, // Inherit from domain
-			Complexity:   info.Complexity,  // Inherit from domain
+			Complexity:   info.Complexity,   // Inherit from domain
 		}
 
 		// Try to get description from schema if available
@@ -338,6 +338,14 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	// preserved as the resource's APIPath so the client targets /api/shape/... correctly.
 	shapeServicePathRegex := regexp.MustCompile(`^/api/shape/[a-z_0-9]+/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
 
+	// Register pattern: /api/register/namespaces/{namespace}/{resource_plural}
+	// (e.g. tokens, registrations). Site-registration objects (the CE registration
+	// token and the registration record) live under /api/register/, not /api/config/.
+	// Without this the generator never emits xcsh_token / xcsh_registration. See #1212.
+	// The token spec also exposes {metadata.namespace} variants; the {namespace} form
+	// above is what drives detection, so the dotted variant is simply ignored here.
+	registerPathRegex := regexp.MustCompile(`^/api/register/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
+
 	for path := range paths {
 		var resourcePlural string
 
@@ -352,6 +360,9 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 			resourcePlural = matches[1]
 		} else if matches := shapeServicePathRegex.FindStringSubmatch(path); len(matches) >= 2 {
 			// Shape-service resources (e.g. Client-Side Defense protected_domains)
+			resourcePlural = matches[1]
+		} else if matches := registerPathRegex.FindStringSubmatch(path); len(matches) >= 2 {
+			// Register-service resources (token, registration)
 			resourcePlural = matches[1]
 		} else {
 			continue
