@@ -200,6 +200,15 @@ type ResourceTemplate struct {
 	// so their values ride in the import ID as trailing segments after namespace/name.
 	// Loaded from tools/import-id-fields.json keyed by TitleCase; see import_id_fields.go.
 	ImportIDExtraFields []string
+
+	// ExposeUID makes the generator surface the object's server-generated
+	// system_metadata.uid as a Computed, read-only `uid` attribute, carry it on the
+	// client struct (SystemMetadata), and populate it from the Create/Get response.
+	// It is opt-in per resource (tools/expose-uid.json, keyed by TitleCase) AND
+	// gated on the response schema actually carrying system_metadata.uid, so it
+	// stays surgically scoped and never emits a uid a resource cannot return.
+	// See tools/pkg/openapi/expose_uid.go and schema.ResponseHasSystemMetadataUID.
+	ExposeUID bool
 }
 
 // RequirementPreflight is one apply-time prerequisite the provider verifies

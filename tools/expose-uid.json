@@ -1,0 +1,4 @@
+{
+  "_comment": "Resources whose server-generated system_metadata.uid must be surfaced as a Computed, read-only `uid` Terraform attribute. Keyed by resource TitleCase. The generator only emits uid when BOTH this file opts the resource in AND its response schema (e.g. <resource>GetResponse) actually carries system_metadata.uid, so the mechanism is schema-driven yet surgically scoped. Loaded by tools/pkg/openapi/expose_uid.go; the schema guard lives in schema.ResponseHasSystemMetadataUID. Token opts in because a Customer Edge registers with the token VALUE, which is system_metadata.uid (the object's own `id`/name is not the token value). See docs-control issue #1224.",
+  "Token": true
+}

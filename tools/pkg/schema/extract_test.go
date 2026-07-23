@@ -143,6 +143,103 @@ func TestExtractResourceSchema_UnverifiedSingleAllowedStaysRequired(t *testing.T
 	}
 }
 
+// tokenLikeSpec builds a spec shaped like the F5 XC token domain: an (empty)
+// CreateSpecType plus a GetResponse envelope whose system_metadata is an
+// allOf-$ref to a shared system-metadata type carrying uid.
+func tokenLikeSpec(resourceName string, withSystemMetadataUID bool) (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+	schemas := map[string]openapi.Schema{
+		resourceName + "CreateSpecType": {
+			Type:       "object",
+			Properties: map[string]openapi.Schema{},
+		},
+		"schemaSystemObjectGetMetaType": {
+			Type: "object",
+			Properties: map[string]openapi.Schema{
+				"uid":    {Type: "string"},
+				"tenant": {Type: "string"},
+			},
+		},
+	}
+	getResp := openapi.Schema{Type: "object", Properties: map[string]openapi.Schema{
+		"metadata": {Type: "object"},
+		"spec":     {Type: "object"},
+	}}
+	if withSystemMetadataUID {
+		getResp.Properties["system_metadata"] = openapi.Schema{
+			AllOf: []openapi.Schema{{Ref: "#/components/schemas/schemaSystemObjectGetMetaType"}},
+		}
+	}
+	schemas[resourceName+"GetResponse"] = getResp
+	spec := &openapi.Spec{Components: openapi.Components{Schemas: schemas}}
+	extractAPIPath := func(_ *openapi.Spec, _ string) (string, string, bool) {
+		return "/api/register/namespaces/%s/" + resourceName + "s",
+			"/api/register/namespaces/%s/" + resourceName + "s/%s", true
+	}
+	return spec, extractAPIPath
+}
+
+// ResponseHasSystemMetadataUID resolves the allOf-wrapped system_metadata ref and
+// reports whether it carries uid.
+func TestResponseHasSystemMetadataUID(t *testing.T) {
+	specYes, _ := tokenLikeSpec("token", true)
+	if !ResponseHasSystemMetadataUID(specYes, "token") {
+		t.Error("expected true when GetResponse.system_metadata carries uid")
+	}
+	specNo, _ := tokenLikeSpec("token", false)
+	if ResponseHasSystemMetadataUID(specNo, "token") {
+		t.Error("expected false when the response envelope has no system_metadata")
+	}
+}
+
+// The token resource (opted in via tools/expose-uid.json AND schema-verified)
+// gains a Computed, read-only `uid` attribute and ExposeUID=true; the uid is not
+// a spec field. A resource NOT opted in is unchanged (no uid, ExposeUID=false).
+func TestExtractResourceSchema_ExposesUIDForToken(t *testing.T) {
+	namespace.ClearProfiles()
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := tokenLikeSpec("token", true)
+	result, err := ExtractResourceSchema(spec, "token", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if !result.ExposeUID {
+		t.Error("ResourceTemplate.ExposeUID should be true for token")
+	}
+	uid := findAttr(result.Attributes, "uid")
+	if uid == nil {
+		t.Fatal("uid attribute missing")
+	}
+	if !uid.Computed || uid.Required || uid.Optional {
+		t.Errorf("uid must be Computed-only, got Computed=%v Required=%v Optional=%v", uid.Computed, uid.Required, uid.Optional)
+	}
+	if uid.IsSpecField {
+		t.Error("uid must not be a spec field (excluded from spec marshal/unmarshal)")
+	}
+	if uid.GoName != "Uid" || uid.Type != "string" {
+		t.Errorf("uid GoName/Type = %q/%q, want Uid/string", uid.GoName, uid.Type)
+	}
+}
+
+// A resource that is NOT opted in gets no uid attribute even if its response
+// schema carries system_metadata.uid — scoping is opt-in, not schema-wide.
+func TestExtractResourceSchema_NoUIDWhenNotOptedIn(t *testing.T) {
+	namespace.ClearProfiles()
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := tokenLikeSpec("not_opted_in_res", true)
+	result, err := ExtractResourceSchema(spec, "not_opted_in_res", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if result.ExposeUID {
+		t.Error("ExposeUID must be false for a resource not in expose-uid.json")
+	}
+	if findAttr(result.Attributes, "uid") != nil {
+		t.Error("non-opted-in resource must not gain a uid attribute")
+	}
+}
+
 func TestExtractOneOfGroups_Empty(t *testing.T) {
 	spec := &openapi.Spec{}
 	result := ExtractOneOfGroups(spec, "NonExistent")
