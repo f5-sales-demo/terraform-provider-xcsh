@@ -451,7 +451,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 							Optional:            true,
 							Validators: []validator.String{
-								stringvalidator.LengthBetween(1, 63),
+								stringvalidator.LengthBetween(1, 128),
 							},
 						},
 						"namespace": schema.StringAttribute{
@@ -498,7 +498,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 63),
+													stringvalidator.LengthBetween(1, 128),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -589,7 +589,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.LengthBetween(1, 128),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -759,7 +759,7 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 63),
+													stringvalidator.LengthBetween(1, 128),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -798,10 +798,6 @@ func (r *PolicyBasedRoutingResource) Schema(ctx context.Context, req resource.Sc
 													"name": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 														Optional:            true,
-														Validators: []validator.String{
-															stringvalidator.LengthBetween(1, 63),
-															stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
-														},
 													},
 													"namespace": schema.StringAttribute{
 														MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",

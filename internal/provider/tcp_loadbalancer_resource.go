@@ -920,7 +920,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 63),
+										stringvalidator.LengthBetween(1, 128),
 									},
 								},
 								"namespace": schema.StringAttribute{
@@ -978,7 +978,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1029,7 +1029,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1089,7 +1089,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1133,7 +1133,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1184,7 +1184,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1220,7 +1220,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1250,7 +1250,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 													Optional:            true,
 													Validators: []validator.String{
-														stringvalidator.LengthBetween(1, 63),
+														stringvalidator.LengthBetween(1, 128),
 													},
 												},
 												"namespace": schema.StringAttribute{
@@ -1291,7 +1291,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 63),
+									stringvalidator.LengthBetween(1, 128),
 								},
 							},
 							"namespace": schema.StringAttribute{
@@ -1361,7 +1361,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 63),
+										stringvalidator.LengthBetween(1, 128),
 									},
 								},
 								"namespace": schema.StringAttribute{
@@ -1394,7 +1394,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 									Optional:            true,
 									Validators: []validator.String{
-										stringvalidator.LengthBetween(1, 63),
+										stringvalidator.LengthBetween(1, 128),
 									},
 								},
 								"namespace": schema.StringAttribute{
@@ -1439,7 +1439,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.LengthBetween(1, 128),
 											},
 										},
 										"namespace": schema.StringAttribute{
@@ -1528,7 +1528,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 63),
+													stringvalidator.LengthBetween(1, 128),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -1561,7 +1561,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 63),
+													stringvalidator.LengthBetween(1, 128),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -1751,7 +1751,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 63),
+													stringvalidator.LengthBetween(1, 128),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -1784,7 +1784,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 												Optional:            true,
 												Validators: []validator.String{
-													stringvalidator.LengthBetween(1, 63),
+													stringvalidator.LengthBetween(1, 128),
 												},
 											},
 											"namespace": schema.StringAttribute{
@@ -1895,7 +1895,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 										Optional:            true,
 										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 63),
+											stringvalidator.LengthBetween(1, 128),
 										},
 									},
 									"namespace": schema.StringAttribute{
@@ -1928,7 +1928,7 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
 										Optional:            true,
 										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 63),
+											stringvalidator.LengthBetween(1, 128),
 										},
 									},
 									"namespace": schema.StringAttribute{
