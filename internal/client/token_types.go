@@ -10,8 +10,16 @@ import (
 
 // Token represents a F5XC Token
 type Token struct {
-	Metadata Metadata               `json:"metadata"`
-	Spec     map[string]interface{} `json:"spec"`
+	Metadata       Metadata               `json:"metadata"`
+	Spec           map[string]interface{} `json:"spec"`
+	SystemMetadata *TokenSystemMetadata   `json:"system_metadata,omitempty"`
+}
+
+// TokenSystemMetadata carries server-generated object metadata returned in
+// Token API responses. Only uid is surfaced: it is the value a consumer needs
+// (e.g. the token value a Customer Edge registers with).
+type TokenSystemMetadata struct {
+	UID string `json:"uid,omitempty"`
 }
 
 // CreateToken creates a new Token

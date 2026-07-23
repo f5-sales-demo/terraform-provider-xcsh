@@ -51,6 +51,7 @@ type TokenResourceModel struct {
 	Disable     types.Bool     `tfsdk:"disable"`
 	Labels      types.Map      `tfsdk:"labels"`
 	ID          types.String   `tfsdk:"id"`
+	Uid         types.String   `tfsdk:"uid"`
 	Timeouts    timeouts.Value `tfsdk:"timeouts"`
 }
 
@@ -105,6 +106,13 @@ func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
+				Computed:            true,
+				PlanModifiers: []planmodifier.String{
+					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"uid": schema.StringAttribute{
+				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation.",
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
@@ -232,6 +240,12 @@ func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, 
 	}
 
 	data.ID = types.StringValue(apiResource.Metadata.Name)
+	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
+	if apiResource.SystemMetadata != nil {
+		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
 
 	// Unmarshal spec fields from API response to Terraform state
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
@@ -289,6 +303,12 @@ func (r *TokenResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
+	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
+	if apiResource.SystemMetadata != nil {
+		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
 
 	// Read description from metadata
 	if apiResource.Metadata.Description != "" {
@@ -409,8 +429,14 @@ func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, 
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
-	isImport := false     // Update is never an import
-	_ = isImport          // May be unused if resource has no blocks needing import detection
+	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
+	if apiResource.SystemMetadata != nil {
+		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
+	isImport := false // Update is never an import
+	_ = isImport      // May be unused if resource has no blocks needing import detection
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
