@@ -806,3 +806,28 @@ func TestExtractResourcePaths_ShapeServiceCSD(t *testing.T) {
 		}
 	}
 }
+
+// Site registration tokens and registration objects live under /api/register/
+// (not /api/config/), so resource discovery must recognize the register pattern.
+// Without it, xcsh_token and xcsh_registration are never generated (see #1212).
+// The token spec also exposes {metadata.namespace} path variants alongside the
+// {namespace} forms; the {namespace} collection/item paths are what drive CRUD
+// detection, so the resource is discovered even though the dotted variant is not.
+func TestExtractResourcePaths_RegisterService(t *testing.T) {
+	paths := map[string]interface{}{
+		"/api/register/namespaces/{namespace}/tokens":               map[string]interface{}{"post": map[string]interface{}{}, "get": map[string]interface{}{}},
+		"/api/register/namespaces/{namespace}/tokens/{name}":        map[string]interface{}{"get": map[string]interface{}{}, "put": map[string]interface{}{}, "delete": map[string]interface{}{}},
+		"/api/register/namespaces/{metadata.namespace}/tokens":      map[string]interface{}{"post": map[string]interface{}{}},
+		"/api/register/namespaces/{namespace}/registrations":        map[string]interface{}{"post": map[string]interface{}{}, "get": map[string]interface{}{}},
+		"/api/register/namespaces/{namespace}/registrations/{name}": map[string]interface{}{"get": map[string]interface{}{}, "delete": map[string]interface{}{}},
+	}
+	got := map[string]bool{}
+	for _, rp := range extractResourcePathsFromPaths(paths) {
+		got[rp.ResourceName] = true
+	}
+	for _, want := range []string{"token", "registration"} {
+		if !got[want] {
+			t.Errorf("expected register-service resource %q to be discovered; got %v", want, got)
+		}
+	}
+}
