@@ -215,6 +215,25 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 			Description: "Unique identifier for the resource.", Computed: true, PlanModifier: "UseStateForUnknown"},
 	}
 
+	// Surface the object's server-generated system_metadata.uid as a Computed,
+	// read-only `uid` attribute — but only when the resource is opted in
+	// (tools/expose-uid.json) AND its response schema actually carries
+	// system_metadata.uid. This keeps the mechanism schema-driven yet surgically
+	// scoped: `id` is the object name, whereas `uid` is the value a consumer such
+	// as a CE registration flow needs. It is not a spec field, so it is excluded
+	// from spec marshal/unmarshal and populated directly from the API response.
+	exposeUID := openapi.LoadExposeUID(naming.ToResourceTypeName(resourceName)) &&
+		ResponseHasSystemMetadataUID(spec, resourceName)
+	if exposeUID {
+		computedAttrs = append(computedAttrs, openapi.TerraformAttribute{
+			Name: "uid", GoName: "Uid", TfsdkTag: "uid", Type: "string",
+			Description:  "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation.",
+			Computed:     true,
+			PlanModifier: "UseStateForUnknown",
+			IsSpecField:  false,
+		})
+	}
+
 	// Combine: ID components first, then other required, then optional (incl. standard), then computed
 	var sortedAttrs []openapi.TerraformAttribute
 	sortedAttrs = append(sortedAttrs, idComponentAttrs...)
@@ -339,6 +358,7 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		TitleCase:               titleCase,
 		Preflights:              preflights,
 		ImportIDExtraFields:     openapi.LoadImportIDFields(titleCase),
+		ExposeUID:               exposeUID,
 		APIPath:                 apiPath,
 		APIPathPlural:           resourceName + "s",
 		APIPathItem:             apiPathItem,
@@ -494,6 +514,50 @@ func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extr
 		Attributes:         allAttrs,
 		IsReadOnly:         true,
 	}, nil
+}
+
+// ResponseHasSystemMetadataUID reports whether the resource's API response
+// envelope carries a system_metadata object with a uid property. F5 XC response
+// schemas wrap system_metadata as an allOf-$ref to a shared system-metadata type
+// (e.g. schemaSystemObjectGetMetaType) whose properties include uid. This is the
+// schema guard behind ExposeUID: the generator only surfaces uid when the object
+// can actually return it. Checks the Get and Create response envelopes and the
+// object schema, resolving refs via ResolveRef (spec components then SchemaCache).
+func ResponseHasSystemMetadataUID(spec *openapi.Spec, resourceName string) bool {
+	candidates := []string{
+		resourceName + "GetResponse",
+		"schema" + resourceName + "GetResponse",
+		resourceName + "CreateResponse",
+		"schema" + resourceName + "CreateResponse",
+		resourceName + "Object",
+	}
+	for _, name := range candidates {
+		envelope, ok := spec.Components.Schemas[name]
+		if !ok {
+			continue
+		}
+		sm, ok := envelope.Properties["system_metadata"]
+		if !ok {
+			continue
+		}
+		// system_metadata is typically an allOf-wrapped $ref; unwrap it.
+		if sm.Ref == "" && len(sm.AllOf) > 0 {
+			for _, item := range sm.AllOf {
+				if item.Ref != "" {
+					sm.Ref = item.Ref
+					break
+				}
+			}
+		}
+		target := sm
+		if sm.Ref != "" {
+			target = ResolveRef(sm.Ref, spec)
+		}
+		if _, ok := target.Properties["uid"]; ok {
+			return true
+		}
+	}
+	return false
 }
 
 // ExtractOneOfGroups extracts x-ves-oneof-field annotations from the raw schema JSON.

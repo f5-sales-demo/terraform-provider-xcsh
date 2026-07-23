@@ -3,6 +3,8 @@
 package codegen
 
 import (
+	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"testing"
@@ -1108,5 +1110,52 @@ func TestRenderUnmarshalScalarChild_MeaningfulZeroInt64_Issue1129(t *testing.T) 
 	renderUnmarshalScalarChild(&ctl, "HTTPLoadBalancer", ctlAttr, "m", "", "", "list", "\t")
 	if !strings.Contains(ctl.String(), "ok && v != 0") {
 		t.Errorf("non-meaningful-zero int64 (timeout) must keep the `v != 0` guard; got:\n%s", ctl.String())
+	}
+}
+
+// TestGenerateClientTypes_ExposeUID verifies that when a resource opts in to
+// ExposeUID, the generated client type carries a SystemMetadata field and a
+// per-resource *SystemMetadata type with a uid; and that a resource without
+// ExposeUID is unchanged (no SystemMetadata anywhere).
+func TestGenerateClientTypes_ExposeUID(t *testing.T) {
+	base := &openapi.ResourceTemplate{
+		Name:               "token",
+		TitleCase:          "Token",
+		APIPath:            "/api/register/namespaces/%s/tokens",
+		APIPathItem:        "/api/register/namespaces/%s/tokens/%s",
+		HasNamespaceInPath: true,
+	}
+
+	render := func(exposeUID bool) string {
+		r := *base
+		r.ExposeUID = exposeUID
+		dir := t.TempDir()
+		if err := GenerateClientTypes(&r, dir); err != nil {
+			t.Fatalf("GenerateClientTypes error: %v", err)
+		}
+		data, err := os.ReadFile(filepath.Join(dir, "token_types.go"))
+		if err != nil {
+			t.Fatalf("reading generated file: %v", err)
+		}
+		return string(data)
+	}
+
+	with := render(true)
+	// Substrings chosen to survive gofmt column alignment of struct fields.
+	for _, want := range []string{
+		"SystemMetadata *TokenSystemMetadata",
+		"json:\"system_metadata,omitempty\"",
+		"type TokenSystemMetadata struct",
+		"UID string",
+		"json:\"uid,omitempty\"",
+	} {
+		if !strings.Contains(with, want) {
+			t.Errorf("ExposeUID=true output missing %q; got:\n%s", want, with)
+		}
+	}
+
+	without := render(false)
+	if strings.Contains(without, "SystemMetadata") {
+		t.Errorf("ExposeUID=false output must not mention SystemMetadata; got:\n%s", without)
 	}
 }

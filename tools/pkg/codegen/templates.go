@@ -335,6 +335,14 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	// For resources without namespace in API path, namespace is computed from API response
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
 {{- end}}
+{{- if .ExposeUID}}
+	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
+	if apiResource.SystemMetadata != nil {
+		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
+{{- end}}
 
 	// Unmarshal spec fields from API response to Terraform state
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
@@ -393,6 +401,14 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	data.ID = types.StringValue(apiResource.Metadata.Name)
 	data.Name = types.StringValue(apiResource.Metadata.Name)
 	data.Namespace = types.StringValue(apiResource.Metadata.Namespace)
+{{- if .ExposeUID}}
+	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
+	if apiResource.SystemMetadata != nil {
+		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
+{{- end}}
 
 	// Read description from metadata
 	if apiResource.Metadata.Description != "" {
@@ -517,6 +533,14 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
+{{- if .ExposeUID}}
+	// Surface the server-generated system_metadata.uid as the read-only uid attribute.
+	if apiResource.SystemMetadata != nil {
+		data.Uid = types.StringValue(apiResource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
+{{- end}}
 	isImport := false // Update is never an import
 	_ = isImport // May be unused if resource has no blocks needing import detection
 {{renderSpecUnmarshalCode .Attributes "\t" .TitleCase}}
@@ -672,7 +696,19 @@ import (
 type {{.TitleCase}} struct {
 	Metadata Metadata               ` + "`" + `json:"metadata"` + "`" + `
 	Spec     map[string]interface{} ` + "`" + `json:"spec"` + "`" + `
+{{- if .ExposeUID}}
+	SystemMetadata *{{.TitleCase}}SystemMetadata ` + "`" + `json:"system_metadata,omitempty"` + "`" + `
+{{- end}}
 }
+{{- if .ExposeUID}}
+
+// {{.TitleCase}}SystemMetadata carries server-generated object metadata returned in
+// {{.TitleCase}} API responses. Only uid is surfaced: it is the value a consumer needs
+// (e.g. the token value a Customer Edge registers with).
+type {{.TitleCase}}SystemMetadata struct {
+	UID string ` + "`" + `json:"uid,omitempty"` + "`" + `
+}
+{{- end}}
 
 // Create{{.TitleCase}} creates a new {{.TitleCase}}
 func (c *Client) Create{{.TitleCase}}(ctx context.Context, resource *{{.TitleCase}}) (*{{.TitleCase}}, error) {
@@ -761,6 +797,9 @@ type {{.TitleCase}}DataSourceModel struct {
 	Description types.String ` + "`" + `tfsdk:"description"` + "`" + `
 	Labels      types.Map    ` + "`" + `tfsdk:"labels"` + "`" + `
 	Annotations types.Map    ` + "`" + `tfsdk:"annotations"` + "`" + `
+{{- if .ExposeUID}}
+	Uid         types.String ` + "`" + `tfsdk:"uid"` + "`" + `
+{{- end}}
 }
 
 func (d *{{.TitleCase}}DataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -797,6 +836,12 @@ func (d *{{.TitleCase}}DataSource) Schema(ctx context.Context, req datasource.Sc
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+{{- if .ExposeUID}}
+			"uid": schema.StringAttribute{
+				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).",
+				Computed:            true,
+			},
+{{- end}}
 		},
 	}
 }
@@ -827,6 +872,13 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 	}
 
 	data.ID = types.StringValue(resource.Metadata.Name)
+{{- if .ExposeUID}}
+	if resource.SystemMetadata != nil {
+		data.Uid = types.StringValue(resource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
+{{- end}}
 	data.Name = types.StringValue(resource.Metadata.Name)
 	data.Namespace = types.StringValue(resource.Metadata.Namespace)
 	if resource.Metadata.Description != "" {
