@@ -59,6 +59,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (system_metadata.uid)
+
 ---
 
 ## Common Types

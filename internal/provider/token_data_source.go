@@ -34,6 +34,7 @@ type TokenDataSourceModel struct {
 	Description types.String `tfsdk:"description"`
 	Labels      types.Map    `tfsdk:"labels"`
 	Annotations types.Map    `tfsdk:"annotations"`
+	Uid         types.String `tfsdk:"uid"`
 }
 
 func (d *TokenDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -70,6 +71,10 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
+			"uid": schema.StringAttribute{
+				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).",
+				Computed:            true,
+			},
 		},
 	}
 }
@@ -100,6 +105,11 @@ func (d *TokenDataSource) Read(ctx context.Context, req datasource.ReadRequest, 
 	}
 
 	data.ID = types.StringValue(resource.Metadata.Name)
+	if resource.SystemMetadata != nil {
+		data.Uid = types.StringValue(resource.SystemMetadata.UID)
+	} else {
+		data.Uid = types.StringNull()
+	}
 	data.Name = types.StringValue(resource.Metadata.Name)
 	data.Namespace = types.StringValue(resource.Metadata.Namespace)
 	if resource.Metadata.Description != "" {
