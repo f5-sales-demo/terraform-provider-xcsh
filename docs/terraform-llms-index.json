@@ -110,13 +110,14 @@
       "name": "Sites",
       "slug": "sites",
       "description": "AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups",
-      "resource_count": 11,
+      "resource_count": 12,
       "resources": [
         "aws_tgw_site",
         "aws_vpc_site",
         "azure_vnet_site",
         "fleet",
         "gcp_vpc_site",
+        "registration",
         "securemesh_site",
         "securemesh_site_v2",
         "site",
@@ -192,6 +193,13 @@
       "resources": ["app_setting", "app_type", "discovery", "filter_set"]
     },
     {
+      "name": "Authentication",
+      "slug": "authentication",
+      "description": "Authentication methods, cloud credentials, and secret management",
+      "resource_count": 4,
+      "resources": ["authentication", "cloud_credentials", "secret_management_access", "token"]
+    },
+    {
       "name": "Certificates",
       "slug": "certificates",
       "description": "TLS certificates, certificate chains, CRLs, and trusted CA lists",
@@ -204,13 +212,6 @@
       "description": "VPN and IPSec configuration",
       "resource_count": 4,
       "resources": ["ike1", "ike2", "ike_phase1_profile", "ike_phase2_profile"]
-    },
-    {
-      "name": "Authentication",
-      "slug": "authentication",
-      "description": "Authentication methods, cloud credentials, and secret management",
-      "resource_count": 3,
-      "resources": ["authentication", "cloud_credentials", "secret_management_access"]
     },
     {
       "name": "BIG-IP Integration",
@@ -1300,6 +1301,16 @@
       },
       "import_syntax": "terraform import xcsh_rate_limiter_policy.example namespace/name"
     },
+    "registration": {
+      "category": "sites",
+      "description": "Vpm creates registration using this message, never used by users. configuration",
+      "required": ["name", "namespace", "token"],
+      "minimal_config": "resource \"xcsh_registration\" \"example\" {\n  name      = \"example-registration\"\n  namespace = \"staging\"\n\n  token = \"example-value\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_registration.example namespace/name"
+    },
     "route": {
       "category": "load-balancing",
       "description": "Route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests",
@@ -1445,6 +1456,16 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_tenant_configuration.example namespace/name"
+    },
+    "token": {
+      "category": "authentication",
+      "description": "New token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration",
+      "required": ["name"],
+      "minimal_config": "resource \"xcsh_token\" \"example\" {\n  name      = \"example-token\"\n  namespace = \"system\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_token.example namespace/name"
     },
     "trusted_ca_list": {
       "category": "certificates",

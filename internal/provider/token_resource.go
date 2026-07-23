@@ -14,9 +14,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
-	"github.com/hashicorp/terraform-plugin-framework/resource/schema/mapplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringdefault"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -29,43 +28,42 @@ import (
 
 // Ensure provider defined types fully satisfy framework interfaces.
 var (
-	_ resource.Resource                   = &MitigatedDomainResource{}
-	_ resource.ResourceWithConfigure      = &MitigatedDomainResource{}
-	_ resource.ResourceWithImportState    = &MitigatedDomainResource{}
-	_ resource.ResourceWithModifyPlan     = &MitigatedDomainResource{}
-	_ resource.ResourceWithValidateConfig = &MitigatedDomainResource{}
+	_ resource.Resource                   = &TokenResource{}
+	_ resource.ResourceWithConfigure      = &TokenResource{}
+	_ resource.ResourceWithImportState    = &TokenResource{}
+	_ resource.ResourceWithModifyPlan     = &TokenResource{}
+	_ resource.ResourceWithValidateConfig = &TokenResource{}
 )
 
-func NewMitigatedDomainResource() resource.Resource {
-	return &MitigatedDomainResource{}
+func NewTokenResource() resource.Resource {
+	return &TokenResource{}
 }
 
-type MitigatedDomainResource struct {
+type TokenResource struct {
 	client *client.Client
 }
 
-type MitigatedDomainResourceModel struct {
-	Name            types.String   `tfsdk:"name"`
-	Namespace       types.String   `tfsdk:"namespace"`
-	MitigatedDomain types.String   `tfsdk:"mitigated_domain"`
-	Annotations     types.Map      `tfsdk:"annotations"`
-	Description     types.String   `tfsdk:"description"`
-	Disable         types.Bool     `tfsdk:"disable"`
-	Labels          types.Map      `tfsdk:"labels"`
-	ID              types.String   `tfsdk:"id"`
-	Timeouts        timeouts.Value `tfsdk:"timeouts"`
+type TokenResourceModel struct {
+	Name        types.String   `tfsdk:"name"`
+	Namespace   types.String   `tfsdk:"namespace"`
+	Annotations types.Map      `tfsdk:"annotations"`
+	Description types.String   `tfsdk:"description"`
+	Disable     types.Bool     `tfsdk:"disable"`
+	Labels      types.Map      `tfsdk:"labels"`
+	ID          types.String   `tfsdk:"id"`
+	Timeouts    timeouts.Value `tfsdk:"timeouts"`
 }
 
-func (r *MitigatedDomainResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
-	resp.TypeName = req.ProviderTypeName + "_mitigated_domain"
+func (r *TokenResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
+	resp.TypeName = req.ProviderTypeName + "_token"
 }
 
-func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
+func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, resp *resource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages Mitigated Domain. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"name": schema.StringAttribute{
-				MarkdownDescription: "Name of the Mitigated Domain. Must be unique within the namespace.",
+				MarkdownDescription: "Name of the Token. Must be unique within the namespace.",
 				Required:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
@@ -75,54 +73,35 @@ func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the Mitigated Domain will be created.",
-				Required:            true,
+				MarkdownDescription: "Namespace for the Token. The F5 XC API restricts this resource to the system namespace; it defaults to that value and may be omitted.",
+				Optional:            true,
+				Computed:            true,
+				Default:             stringdefault.StaticString("system"),
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.RequiresReplace(),
 				},
 				Validators: []validator.String{
 					validators.NamespaceValidator(),
-				},
-			},
-			"mitigated_domain": schema.StringAttribute{
-				MarkdownDescription: "Enter root domain or domain to be entered to mitigated list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry.",
-				Required:            true,
-				PlanModifiers: []planmodifier.String{
-					stringplanmodifier.RequiresReplace(),
-				},
-				Validators: []validator.String{
-					stringvalidator.LengthAtMost(256),
+					stringvalidator.OneOf("system"),
 				},
 			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",
 				Optional:            true,
 				ElementType:         types.StringType,
-				PlanModifiers: []planmodifier.Map{
-					mapplanmodifier.RequiresReplace(),
-				},
 			},
 			"description": schema.StringAttribute{
 				MarkdownDescription: "Human readable description for the object.",
 				Optional:            true,
-				PlanModifiers: []planmodifier.String{
-					stringplanmodifier.RequiresReplace(),
-				},
 			},
 			"disable": schema.BoolAttribute{
 				MarkdownDescription: "A value of true will administratively disable the object.",
 				Optional:            true,
-				PlanModifiers: []planmodifier.Bool{
-					boolplanmodifier.RequiresReplace(),
-				},
 			},
 			"labels": schema.MapAttribute{
 				MarkdownDescription: "Labels is a user defined key value map that can be attached to resources for organization and filtering.",
 				Optional:            true,
 				ElementType:         types.StringType,
-				PlanModifiers: []planmodifier.Map{
-					mapplanmodifier.RequiresReplace(),
-				},
 			},
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
@@ -143,7 +122,7 @@ func (r *MitigatedDomainResource) Schema(ctx context.Context, req resource.Schem
 	}
 }
 
-func (r *MitigatedDomainResource) Configure(ctx context.Context, req resource.ConfigureRequest, resp *resource.ConfigureResponse) {
+func (r *TokenResource) Configure(ctx context.Context, req resource.ConfigureRequest, resp *resource.ConfigureResponse) {
 	if req.ProviderData == nil {
 		return
 	}
@@ -159,8 +138,8 @@ func (r *MitigatedDomainResource) Configure(ctx context.Context, req resource.Co
 }
 
 // ValidateConfig implements resource.ResourceWithValidateConfig
-func (r *MitigatedDomainResource) ValidateConfig(ctx context.Context, req resource.ValidateConfigRequest, resp *resource.ValidateConfigResponse) {
-	var data MitigatedDomainResourceModel
+func (r *TokenResource) ValidateConfig(ctx context.Context, req resource.ValidateConfigRequest, resp *resource.ValidateConfigResponse) {
+	var data TokenResourceModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -168,17 +147,17 @@ func (r *MitigatedDomainResource) ValidateConfig(ctx context.Context, req resour
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
-func (r *MitigatedDomainResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanRequest, resp *resource.ModifyPlanResponse) {
+func (r *TokenResource) ModifyPlan(ctx context.Context, req resource.ModifyPlanRequest, resp *resource.ModifyPlanResponse) {
 	if req.Plan.Raw.IsNull() {
 		resp.Diagnostics.AddWarning(
 			"Resource Destruction",
-			"This will permanently delete the mitigated_domain from F5 Distributed Cloud.",
+			"This will permanently delete the token from F5 Distributed Cloud.",
 		)
 		return
 	}
 
 	if req.State.Raw.IsNull() {
-		var plan MitigatedDomainResourceModel
+		var plan TokenResourceModel
 		resp.Diagnostics.Append(req.Plan.Get(ctx, &plan)...)
 		if resp.Diagnostics.HasError() {
 			return
@@ -193,8 +172,8 @@ func (r *MitigatedDomainResource) ModifyPlan(ctx context.Context, req resource.M
 	}
 }
 
-func (r *MitigatedDomainResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
-	var data MitigatedDomainResourceModel
+func (r *TokenResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {
+	var data TokenResourceModel
 	resp.Diagnostics.Append(req.Plan.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -209,12 +188,12 @@ func (r *MitigatedDomainResource) Create(ctx context.Context, req resource.Creat
 	ctx, cancel := context.WithTimeout(ctx, createTimeout)
 	defer cancel()
 
-	tflog.Debug(ctx, "Creating mitigated_domain", map[string]interface{}{
+	tflog.Debug(ctx, "Creating token", map[string]interface{}{
 		"name":      data.Name.ValueString(),
 		"namespace": data.Namespace.ValueString(),
 	})
 
-	createReq := &client.MitigatedDomain{
+	createReq := &client.Token{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
 			Namespace: data.Namespace.ValueString(),
@@ -245,13 +224,10 @@ func (r *MitigatedDomainResource) Create(ctx context.Context, req resource.Creat
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if !data.MitigatedDomain.IsNull() && !data.MitigatedDomain.IsUnknown() {
-		createReq.Spec["mitigated_domain"] = data.MitigatedDomain.ValueString()
-	}
 
-	apiResource, err := r.client.CreateMitigatedDomain(ctx, createReq)
+	apiResource, err := r.client.CreateToken(ctx, createReq)
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create MitigatedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create Token: %s", err))
 		return
 	}
 
@@ -261,18 +237,13 @@ func (r *MitigatedDomainResource) Create(ctx context.Context, req resource.Creat
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["mitigated_domain"].(string); ok && v != "" {
-		data.MitigatedDomain = types.StringValue(v)
-	} else {
-		data.MitigatedDomain = types.StringNull()
-	}
 
-	tflog.Trace(ctx, "created MitigatedDomain resource")
+	tflog.Trace(ctx, "created Token resource")
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
-func (r *MitigatedDomainResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
-	var data MitigatedDomainResourceModel
+func (r *TokenResource) Read(ctx context.Context, req resource.ReadRequest, resp *resource.ReadResponse) {
+	var data TokenResourceModel
 	resp.Diagnostics.Append(req.State.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -287,11 +258,11 @@ func (r *MitigatedDomainResource) Read(ctx context.Context, req resource.ReadReq
 	ctx, cancel := context.WithTimeout(ctx, readTimeout)
 	defer cancel()
 
-	apiResource, err := r.client.GetMitigatedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	apiResource, err := r.client.GetToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
 		// Check if the resource was deleted outside Terraform
 		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
-			tflog.Warn(ctx, "MitigatedDomain not found, removing from state", map[string]interface{}{
+			tflog.Warn(ctx, "Token not found, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
 			})
@@ -304,14 +275,14 @@ func (r *MitigatedDomainResource) Read(ctx context.Context, req resource.ReadReq
 		// prior state rather than erroring, so the resource stays manageable and
 		// idempotent (create/delete still work).
 		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "MitigatedDomain read not implemented by API (501); keeping prior state", map[string]interface{}{
+			tflog.Warn(ctx, "Token read not implemented by API (501); keeping prior state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
 			})
 			resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 			return
 		}
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read MitigatedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Token: %s", err))
 		return
 	}
 
@@ -359,11 +330,6 @@ func (r *MitigatedDomainResource) Read(ctx context.Context, req resource.ReadReq
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["mitigated_domain"].(string); ok && v != "" {
-		data.MitigatedDomain = types.StringValue(v)
-	} else {
-		data.MitigatedDomain = types.StringNull()
-	}
 
 	// The import marker is a one-shot signal for the import Read only. Clear it so every
 	// subsequent refresh runs as a normal Read with drift-preservation; otherwise the
@@ -376,8 +342,8 @@ func (r *MitigatedDomainResource) Read(ctx context.Context, req resource.ReadReq
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
-func (r *MitigatedDomainResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
-	var data MitigatedDomainResourceModel
+func (r *TokenResource) Update(ctx context.Context, req resource.UpdateRequest, resp *resource.UpdateResponse) {
+	var data TokenResourceModel
 	resp.Diagnostics.Append(req.Plan.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -392,7 +358,7 @@ func (r *MitigatedDomainResource) Update(ctx context.Context, req resource.Updat
 	ctx, cancel := context.WithTimeout(ctx, updateTimeout)
 	defer cancel()
 
-	apiResource := &client.MitigatedDomain{
+	apiResource := &client.Token{
 		Metadata: client.Metadata{
 			Name:      data.Name.ValueString(),
 			Namespace: data.Namespace.ValueString(),
@@ -423,13 +389,10 @@ func (r *MitigatedDomainResource) Update(ctx context.Context, req resource.Updat
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if !data.MitigatedDomain.IsNull() && !data.MitigatedDomain.IsUnknown() {
-		apiResource.Spec["mitigated_domain"] = data.MitigatedDomain.ValueString()
-	}
 
-	_, err := r.client.UpdateMitigatedDomain(ctx, apiResource)
+	_, err := r.client.UpdateToken(ctx, apiResource)
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update MitigatedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update Token: %s", err))
 		return
 	}
 
@@ -438,29 +401,22 @@ func (r *MitigatedDomainResource) Update(ctx context.Context, req resource.Updat
 
 	// Fetch the resource to get complete state including computed fields
 	// PUT responses may not include all computed nested fields (like tenant in Object Reference blocks)
-	fetched, fetchErr := r.client.GetMitigatedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	fetched, fetchErr := r.client.GetToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if fetchErr != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read MitigatedDomain after update: %s", fetchErr))
+		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Token after update: %s", fetchErr))
 		return
 	}
-
-	// Set computed fields from API response
 
 	// Unmarshal spec fields from fetched resource to Terraform state
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if v, ok := apiResource.Spec["mitigated_domain"].(string); ok && v != "" {
-		data.MitigatedDomain = types.StringValue(v)
-	} else {
-		data.MitigatedDomain = types.StringNull()
-	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 }
 
-func (r *MitigatedDomainResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
-	var data MitigatedDomainResourceModel
+func (r *TokenResource) Delete(ctx context.Context, req resource.DeleteRequest, resp *resource.DeleteResponse) {
+	var data TokenResourceModel
 	resp.Diagnostics.Append(req.State.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
@@ -482,7 +438,7 @@ func (r *MitigatedDomainResource) Delete(ctx context.Context, req resource.Delet
 	// terminal and handled after the loop.
 	var err error
 	for attempt := 0; ; attempt++ {
-		err = r.client.DeleteMitigatedDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+		err = r.client.DeleteToken(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 		if err == nil {
 			break
 		}
@@ -492,14 +448,14 @@ func (r *MitigatedDomainResource) Delete(ctx context.Context, req resource.Delet
 		if !transient || attempt >= 5 {
 			break
 		}
-		tflog.Warn(ctx, "MitigatedDomain delete hit transient BAD_REQUEST (likely still referenced); retrying", map[string]interface{}{
+		tflog.Warn(ctx, "Token delete hit transient BAD_REQUEST (likely still referenced); retrying", map[string]interface{}{
 			"name":      data.Name.ValueString(),
 			"namespace": data.Namespace.ValueString(),
 			"attempt":   attempt + 1,
 		})
 		select {
 		case <-ctx.Done():
-			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Timed out retrying delete of MitigatedDomain (still referenced): %s", err))
+			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Timed out retrying delete of Token (still referenced): %s", err))
 			return
 		case <-time.After(5 * time.Second):
 		}
@@ -507,7 +463,7 @@ func (r *MitigatedDomainResource) Delete(ctx context.Context, req resource.Delet
 	if err != nil {
 		// If the resource is already gone, consider deletion successful (idempotent delete)
 		if strings.Contains(err.Error(), "NOT_FOUND") || strings.Contains(err.Error(), "404") {
-			tflog.Warn(ctx, "MitigatedDomain already deleted, removing from state", map[string]interface{}{
+			tflog.Warn(ctx, "Token already deleted, removing from state", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
 			})
@@ -516,34 +472,33 @@ func (r *MitigatedDomainResource) Delete(ctx context.Context, req resource.Delet
 		// If delete is not implemented (501), warn and remove from state
 		// Some F5 XC resources don't support deletion via API
 		if strings.Contains(err.Error(), "501") {
-			tflog.Warn(ctx, "MitigatedDomain delete not supported by API (501), removing from state only", map[string]interface{}{
+			tflog.Warn(ctx, "Token delete not supported by API (501), removing from state only", map[string]interface{}{
 				"name":      data.Name.ValueString(),
 				"namespace": data.Namespace.ValueString(),
 			})
 			return
 		}
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete MitigatedDomain: %s", err))
+		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to delete Token: %s", err))
 		return
 	}
 }
 
-func (r *MitigatedDomainResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
-	// Import ID format: namespace/name/mitigated_domain
-	// Trailing fields are create-only and not readable from the API (e.g. GET-by-name
-	// returns 501), so they ride in the import ID to keep round-trip import drift-free.
+func (r *TokenResource) ImportState(ctx context.Context, req resource.ImportStateRequest, resp *resource.ImportStateResponse) {
+	// Import ID format: namespace/name
 	parts := strings.Split(req.ID, "/")
-	if len(parts) != 3 || parts[0] == "" || parts[1] == "" {
+	if len(parts) != 2 || parts[0] == "" || parts[1] == "" {
 		resp.Diagnostics.AddError(
 			"Invalid Import ID",
-			fmt.Sprintf("Expected import ID format: namespace/name/mitigated_domain, got: %s", req.ID),
+			fmt.Sprintf("Expected import ID format: namespace/name, got: %s", req.ID),
 		)
 		return
 	}
+	namespace := parts[0]
+	name := parts[1]
 
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), parts[0])...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), parts[1])...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), parts[1])...)
-	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("mitigated_domain"), parts[2])...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("namespace"), namespace)...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("name"), name)...)
+	resp.Diagnostics.Append(resp.State.SetAttribute(ctx, path.Root("id"), name)...)
 
 	// Set private state marker to indicate this is an import operation
 	// This allows Read to populate all nested blocks from API response

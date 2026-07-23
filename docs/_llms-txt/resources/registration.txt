@@ -1,0 +1,25 @@
+# xcsh_registration
+
+Category: Sites
+Vpm creates registration using this message, never used by users. configuration
+
+## Required
+
+- name
+- namespace
+- token
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_registration" "example" {
+  name      = "example-registration"
+  namespace = "staging"
+
+  token = "example-value"
+}
+```
+
+## Dependencies
+
+Requires: none
