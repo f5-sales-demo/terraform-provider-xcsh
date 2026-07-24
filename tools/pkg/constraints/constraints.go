@@ -13,6 +13,11 @@ type Parsed struct {
 	MaxItems  int
 	Minimum   int
 	Maximum   int
+
+	// HasMinimum/HasMaximum record whether the minimum/maximum key was present,
+	// independent of value, so a legitimate minimum:0 (or maximum:0) is detectable.
+	HasMinimum bool
+	HasMaximum bool
 }
 
 // Parse extracts constraint data from x-f5xc-constraints map.
@@ -82,9 +87,11 @@ func Parse(raw map[string]interface{}) *Parsed {
 	// Numeric constraints
 	if v, ok := raw["minimum"].(float64); ok {
 		p.Minimum = int(v)
+		p.HasMinimum = true
 	}
 	if v, ok := raw["maximum"].(float64); ok {
 		p.Maximum = int(v)
+		p.HasMaximum = true
 	}
 
 	return p
