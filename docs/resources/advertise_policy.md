@@ -62,7 +62,7 @@ resource "xcsh_advertise_policy" "example" {
 
 ### Spec Argument Reference
 
-<a id="address"></a>&#x2022; [`address`](#address) - Required String<br>Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip specified in the site
+<a id="address"></a>&#x2022; [`address`](#address) - Required String  Specified in the site<br>Optional. VIP to advertise. This VIP can be either V4/V6 address You can not specify this if where contains a site or virtual site of type REGIONAL_EDGE or public network If not specified and 'where' is specified with site or virtual site option, inside_vip or outside_vip
 
 -> **One of the following:**
 &#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Port to advertise

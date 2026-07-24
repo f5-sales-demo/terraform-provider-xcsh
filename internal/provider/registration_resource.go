@@ -782,6 +782,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(17, 1024),
 												stringvalidator.RegexMatches(regexp.MustCompile(`^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$`), ""),
+												validators.MACValidator(),
 											},
 										},
 										"name": schema.StringAttribute{

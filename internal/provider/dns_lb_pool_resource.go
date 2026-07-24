@@ -393,6 +393,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
+										validators.IPValidator(),
 									},
 								},
 								"name": schema.StringAttribute{
@@ -446,6 +447,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
+										validators.IPValidator(),
 									},
 								},
 								"name": schema.StringAttribute{

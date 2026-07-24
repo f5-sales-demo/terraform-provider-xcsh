@@ -1870,6 +1870,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
+										validators.CIDRValidator(),
 									},
 								},
 							},
@@ -2741,6 +2742,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
+										validators.CIDRValidator(),
 									},
 								},
 							},

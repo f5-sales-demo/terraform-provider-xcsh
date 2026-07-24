@@ -3347,6 +3347,7 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1024),
+												validators.IPv4Validator(),
 											},
 										},
 										"network": schema.StringAttribute{

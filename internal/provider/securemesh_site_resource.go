@@ -1298,6 +1298,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(1024),
+								validators.IPv4Validator(),
 							},
 						},
 					},
@@ -1827,6 +1828,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																	"dns_address": schema.StringAttribute{
@@ -1834,6 +1836,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																	"network_prefix": schema.StringAttribute{
@@ -1894,6 +1897,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
 																					},
 																				},
 																				"exclude": schema.BoolAttribute{
@@ -1905,6 +1909,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
 																					},
 																				},
 																			},
@@ -1974,6 +1979,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv6Validator(),
 																					},
 																				},
 																			},
@@ -2024,6 +2030,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthAtMost(1024),
+																										validators.IPv6Validator(),
 																									},
 																								},
 																								"start_ip": schema.StringAttribute{
@@ -2031,6 +2038,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthAtMost(1024),
+																										validators.IPv6Validator(),
 																									},
 																								},
 																							},
@@ -2099,6 +2107,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -2106,6 +2115,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -2133,6 +2143,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -2140,6 +2151,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -2179,6 +2191,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
+									validators.IPv4Validator(),
 								},
 							},
 							"vip": schema.StringAttribute{
@@ -2186,6 +2199,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
+									validators.IPv4Validator(),
 								},
 							},
 						},
@@ -2253,6 +2267,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -2348,6 +2363,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv6Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -2432,6 +2448,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
+									validators.IPv4Validator(),
 								},
 							},
 							"vip": schema.StringAttribute{
@@ -2439,6 +2456,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
+									validators.IPv4Validator(),
 								},
 							},
 						},
@@ -2506,6 +2524,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -2601,6 +2620,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv6Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{

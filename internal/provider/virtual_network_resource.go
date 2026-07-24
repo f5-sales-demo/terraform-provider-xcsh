@@ -222,6 +222,7 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthBetween(7, 1024),
+								validators.IPv4Validator(),
 							},
 						},
 						"ip_prefixes": schema.ListAttribute{

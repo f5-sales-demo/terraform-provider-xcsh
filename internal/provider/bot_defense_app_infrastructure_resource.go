@@ -249,6 +249,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(7, 1024),
+										validators.IPValidator(),
 									},
 								},
 								"location": schema.StringAttribute{
@@ -277,6 +278,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(7, 1024),
+										validators.IPValidator(),
 									},
 								},
 								"location": schema.StringAttribute{
@@ -319,6 +321,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(7, 1024),
+										validators.IPValidator(),
 									},
 								},
 								"location": schema.StringAttribute{
@@ -347,6 +350,7 @@ func (r *BotDefenseAppInfrastructureResource) Schema(ctx context.Context, req re
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthBetween(7, 1024),
+										validators.IPValidator(),
 									},
 								},
 								"location": schema.StringAttribute{

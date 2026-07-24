@@ -63,11 +63,11 @@ resource "xcsh_srv6_network_slice" "example" {
 
 ### Spec Argument Reference
 
-<a id="connect-to-access-networks"></a>&#x2022; [`connect_to_access_networks`](#connect-to-access-networks) - Required Bool<br>Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets specified in the virtual network
+<a id="connect-to-access-networks"></a>&#x2022; [`connect_to_access_networks`](#connect-to-access-networks) - Required Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding access networks by importing route targets
 
-<a id="connect-to-enterprise-networks"></a>&#x2022; [`connect_to_enterprise_networks`](#connect-to-enterprise-networks) - Required Bool<br>Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets specified in the virtual network
+<a id="connect-to-enterprise-networks"></a>&#x2022; [`connect_to_enterprise_networks`](#connect-to-enterprise-networks) - Required Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to their corresponding enterprise networks by importing route targets
 
-<a id="connect-to-internet"></a>&#x2022; [`connect_to_internet`](#connect-to-internet) - Required Bool<br>Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets specified in the virtual network
+<a id="connect-to-internet"></a>&#x2022; [`connect_to_internet`](#connect-to-internet) - Required Bool  Specified in the virtual network<br>Connect all SRv6 Virtual Networks in this slice to the internet by importing route targets
 
 <a id="sid-prefixes"></a>&#x2022; [`sid_prefixes`](#sid-prefixes) - Required List<br>SID Locator from the prefix is allocated automatically for each node in each site
 

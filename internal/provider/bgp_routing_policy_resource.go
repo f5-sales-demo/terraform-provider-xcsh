@@ -296,6 +296,7 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
+															validators.CIDRValidator(),
 														},
 													},
 												},

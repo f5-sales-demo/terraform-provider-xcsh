@@ -66,7 +66,7 @@ resource "xcsh_virtual_k8s" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="vsite-refs"></a>&#x2022; [`vsite_refs`](#vsite-refs) - Optional Block<br>Reference to virtual-sites Default virtual-site of the Virtual K8S object. If no virtual-site is specified in the Kubernetes API resource object annotations via F5 XC/virtual-sites, then this virtual-site is used select sites on which to instantiate the Kubernetes API resource object<br>See [Vsite Refs](#vsite-refs)
+<a id="vsite-refs"></a>&#x2022; [`vsite_refs`](#vsite-refs) - Optional Block  Specified in the Kubernetes API resource object annotations via F5 XC/virtual-sites, then this virtual-site is used select sites on which to instantiate the Kubernetes API resource object<br>Reference to virtual-sites Default virtual-site of the Virtual K8S object. If no virtual-site is<br>See [Vsite Refs](#vsite-refs)
 below for details.
 
 ### Attributes Reference

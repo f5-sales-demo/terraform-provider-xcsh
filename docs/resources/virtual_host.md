@@ -112,7 +112,7 @@ Policy](#csrf-policy) below for details.
 
 <a id="disable-default-error-pages"></a>&#x2022; [`disable_default_error_pages`](#disable-default-error-pages) - Required Bool<br>Option to specify whether to disable using default F5XC error pages
 
-<a id="disable-dns-resolve"></a>&#x2022; [`disable_dns_resolve`](#disable-dns-resolve) - Required Bool<br>Disable DNS resolution for domains specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured. This configuration is suitable for HTTP CONNECT proxy
+<a id="disable-dns-resolve"></a>&#x2022; [`disable_dns_resolve`](#disable-dns-resolve) - Required Bool  Specified in the virtual host When the virtual host is configured as Dynamive Resolve Proxy (DRP), disable DNS resolution for domains configured<br>Disable DNS resolution for domains  This configuration is suitable for HTTP CONNECT proxy
 
 -> **One of the following:**
 &#x2022; <a id="disable-path-normalize"></a>[`disable_path_normalize`](#disable-path-normalize) - Optional Block<br>Enable this option

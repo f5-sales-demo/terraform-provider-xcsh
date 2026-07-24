@@ -106,7 +106,7 @@ An [`api_inventory_exclusion_list`](#api-inventory-exclusion-list) block support
 
 <a id="api-inventory-exclusion-list-method"></a>&#x2022; [`method`](#api-inventory-exclusion-list-method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
 
-<a id="api-inventory-exclusion-list-path"></a>&#x2022; [`path`](#api-inventory-exclusion-list-path) - Optional String<br>Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
+<a id="api-inventory-exclusion-list-path"></a>&#x2022; [`path`](#api-inventory-exclusion-list-path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
 
 #### API Inventory Inclusion List
 
@@ -114,7 +114,7 @@ An [`api_inventory_inclusion_list`](#api-inventory-inclusion-list) block support
 
 <a id="api-inventory-inclusion-list-method"></a>&#x2022; [`method`](#api-inventory-inclusion-list-method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
 
-<a id="api-inventory-inclusion-list-path"></a>&#x2022; [`path`](#api-inventory-inclusion-list-path) - Optional String<br>Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
+<a id="api-inventory-inclusion-list-path"></a>&#x2022; [`path`](#api-inventory-inclusion-list-path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
 
 #### Non API Endpoints
 
@@ -122,7 +122,7 @@ A [`non_api_endpoints`](#non-api-endpoints) block supports the following:
 
 <a id="non-api-endpoints-method"></a>&#x2022; [`method`](#non-api-endpoints-method) - Optional String  Defaults to `ANY`<br>See [HTTP Methods](#common-http-methods)<br> Specifies the HTTP method used to access a resource. Any HTTP Method
 
-<a id="non-api-endpoints-path"></a>&#x2022; [`path`](#non-api-endpoints-path) - Optional String<br>Endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
+<a id="non-api-endpoints-path"></a>&#x2022; [`path`](#non-api-endpoints-path) - Optional String  Specified in OpenAPI, including parameters<br>Endpoint path, as  The path should comply with RFC 3986 and may have parameters according to OpenAPI specification
 
 #### Timeouts
 

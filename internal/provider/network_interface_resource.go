@@ -730,6 +730,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1024),
+												validators.IPv4Validator(),
 											},
 										},
 										"dns_address": schema.StringAttribute{
@@ -737,6 +738,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthAtMost(1024),
+												validators.IPv4Validator(),
 											},
 										},
 										"network_prefix": schema.StringAttribute{
@@ -767,6 +769,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
+															validators.IPv4Validator(),
 														},
 													},
 													"start_ip": schema.StringAttribute{
@@ -774,6 +777,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
+															validators.IPv4Validator(),
 														},
 													},
 												},
@@ -843,6 +847,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
+															validators.IPv6Validator(),
 														},
 													},
 												},
@@ -893,6 +898,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																	"start_ip": schema.StringAttribute{
@@ -900,6 +906,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -968,6 +975,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(1024),
+											validators.IPValidator(),
 										},
 									},
 									"ip_address": schema.StringAttribute{
@@ -975,6 +983,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(7, 1024),
+											validators.CIDRValidator(),
 										},
 									},
 								},
@@ -1002,6 +1011,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(1024),
+											validators.IPValidator(),
 										},
 									},
 									"ip_address": schema.StringAttribute{
@@ -1009,6 +1019,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(7, 1024),
+											validators.CIDRValidator(),
 										},
 									},
 								},
@@ -1137,6 +1148,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(1024),
+											validators.IPValidator(),
 										},
 									},
 									"ip_address": schema.StringAttribute{
@@ -1144,6 +1156,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(7, 1024),
+											validators.CIDRValidator(),
 										},
 									},
 								},

@@ -3536,6 +3536,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							Optional:            true,
 							Validators: []validator.String{
 								stringvalidator.LengthAtMost(1024),
+								validators.IPv4Validator(),
 							},
 						},
 					},
@@ -3655,6 +3656,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 					"outside_nameserver": schema.StringAttribute{
@@ -3662,6 +3664,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 				},
@@ -3674,6 +3677,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPValidator(),
 						},
 					},
 					"bgp_router_id": schema.StringAttribute{
@@ -3681,6 +3685,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPValidator(),
 						},
 					},
 					"outside_nameserver": schema.StringAttribute{
@@ -3688,6 +3693,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 					"outside_vip": schema.StringAttribute{
@@ -3695,6 +3701,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 					"site_to_site_tunnel_ip": schema.StringAttribute{
@@ -3702,6 +3709,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPValidator(),
 						},
 					},
 					"tunnel_dead_timeout": schema.Int64Attribute{
@@ -4101,6 +4109,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																	"dns_address": schema.StringAttribute{
@@ -4108,6 +4117,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																	"network_prefix": schema.StringAttribute{
@@ -4168,6 +4178,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
 																					},
 																				},
 																				"exclude": schema.BoolAttribute{
@@ -4179,6 +4190,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
 																					},
 																				},
 																			},
@@ -4248,6 +4260,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv6Validator(),
 																					},
 																				},
 																			},
@@ -4298,6 +4311,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthAtMost(1024),
+																										validators.IPv6Validator(),
 																									},
 																								},
 																								"start_ip": schema.StringAttribute{
@@ -4305,6 +4319,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthAtMost(1024),
+																										validators.IPv6Validator(),
 																									},
 																								},
 																							},
@@ -4373,6 +4388,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -4380,6 +4396,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -4407,6 +4424,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -4414,6 +4432,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -4484,6 +4503,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -4491,6 +4511,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -4574,6 +4595,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -4669,6 +4691,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv6Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -4812,6 +4835,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -4907,6 +4931,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(7, 1024),
+														validators.IPv6Validator(),
 													},
 												},
 												"ip_prefixes": schema.ListAttribute{
@@ -5028,6 +5053,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.LengthBetween(7, 1024),
+												validators.IPv4Validator(),
 											},
 										},
 										"ip_prefixes": schema.ListAttribute{
@@ -5349,6 +5375,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"storage_server_name": schema.StringAttribute{
@@ -5628,6 +5655,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(1024),
+																validators.IPValidator(),
 															},
 														},
 														"limit_aggregate_usage": schema.StringAttribute{
@@ -5650,6 +5678,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(1024),
+																validators.IPValidator(),
 															},
 														},
 														"nfs_mount_options": schema.StringAttribute{
@@ -6097,6 +6126,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(1024),
+																validators.IPValidator(),
 															},
 														},
 														"igroup_name": schema.StringAttribute{
@@ -6129,6 +6159,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthAtMost(1024),
+																validators.IPValidator(),
 															},
 														},
 														"region": schema.StringAttribute{
@@ -6867,6 +6898,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Optional:            true,
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(1024),
+																					validators.IPValidator(),
 																				},
 																			},
 																		},
@@ -7022,6 +7054,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Optional:            true,
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(1024),
+																					validators.IPValidator(),
 																				},
 																			},
 																			"nfs_endpoint_dns_name": schema.StringAttribute{
@@ -7036,6 +7069,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Optional:            true,
 																				Validators: []validator.String{
 																					stringvalidator.LengthAtMost(1024),
+																					validators.IPValidator(),
 																				},
 																			},
 																		},
@@ -7253,6 +7287,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																	"dns_address": schema.StringAttribute{
@@ -7260,6 +7295,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																	"network_prefix": schema.StringAttribute{
@@ -7320,6 +7356,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
 																					},
 																				},
 																				"exclude": schema.BoolAttribute{
@@ -7331,6 +7368,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv4Validator(),
 																					},
 																				},
 																			},
@@ -7400,6 +7438,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthAtMost(1024),
+																						validators.IPv6Validator(),
 																					},
 																				},
 																			},
@@ -7450,6 +7489,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthAtMost(1024),
+																										validators.IPv6Validator(),
 																									},
 																								},
 																								"start_ip": schema.StringAttribute{
@@ -7457,6 +7497,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																									Optional:            true,
 																									Validators: []validator.String{
 																										stringvalidator.LengthAtMost(1024),
+																										validators.IPv6Validator(),
 																									},
 																								},
 																							},
@@ -7525,6 +7566,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -7532,6 +7574,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -7559,6 +7602,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
+																		validators.IPValidator(),
 																	},
 																},
 																"ip_address": schema.StringAttribute{
@@ -7566,6 +7610,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(7, 1024),
+																		validators.CIDRValidator(),
 																	},
 																},
 															},
@@ -7769,6 +7814,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"address_ipv6": schema.StringAttribute{
@@ -7776,6 +7822,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(1024),
+														validators.IPv6Validator(),
 													},
 												},
 												"asn": schema.Int64Attribute{

@@ -1395,6 +1395,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(1024),
+											validators.IPValidator(),
 										},
 									},
 								},
@@ -1646,6 +1647,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(1024),
+											validators.IPValidator(),
 										},
 									},
 									"sku_name": schema.StringAttribute{
@@ -1743,6 +1745,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"network_self_ip": schema.StringAttribute{
@@ -1791,6 +1794,7 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(1024),
+														validators.IPv4Validator(),
 													},
 												},
 												"network_self_ip": schema.StringAttribute{
