@@ -504,7 +504,7 @@ PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_XLARGE|PALO_ALTO_FW_AWS_INSTANCE_TYPE_M4_2XLAR
 
 <a id="palo-alto-fw-service-tags"></a>&#x2022; [`tags`](#palo-alto-fw-service-tags) - Optional Block<br>AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console
 
-<a id="palo-alto-fw-service-version"></a>&#x2022; [`version`](#palo-alto-fw-service-version) - Optional String<br>PAN VM-Series version. PAN-OS version
+<a id="palo-alto-fw-service-version"></a>&#x2022; [`version`](#palo-alto-fw-service-version) - Optional String<br>[Enum: 11.0.0] PAN VM-Series version. PAN-OS version. The only possible value is `11.0.0`
 
 #### Palo Alto Fw Service Auto Setup
 

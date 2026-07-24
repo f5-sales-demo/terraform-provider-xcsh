@@ -1564,8 +1564,11 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"tag": schema.StringAttribute{
-														MarkdownDescription: "Tag. Tag for categorization and filtering",
+														MarkdownDescription: "[Enum: issue|issuewild|iodef] Tag. Tag for categorization and filtering. Possible values are `issue`, `issuewild`, `iodef`.",
 														Optional:            true,
+														Validators: []validator.String{
+															stringvalidator.OneOf("issue", "issuewild", "iodef"),
+														},
 													},
 													"value": schema.StringAttribute{
 														MarkdownDescription: "Value. Configuration parameter for value",
@@ -2439,8 +2442,11 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	},
 																},
 																"tag": schema.StringAttribute{
-																	MarkdownDescription: "Tag. Tag for categorization and filtering",
+																	MarkdownDescription: "[Enum: issue|issuewild|iodef] Tag. Tag for categorization and filtering. Possible values are `issue`, `issuewild`, `iodef`.",
 																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.OneOf("issue", "issuewild", "iodef"),
+																	},
 																},
 																"value": schema.StringAttribute{
 																	MarkdownDescription: "Value. Configuration parameter for value",

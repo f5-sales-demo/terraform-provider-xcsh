@@ -4928,8 +4928,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -5317,8 +5320,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -5706,8 +5712,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -6401,8 +6410,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -6793,8 +6805,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -7182,8 +7197,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -8149,8 +8167,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -8538,8 +8559,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -8939,8 +8963,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -9328,8 +9355,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -10102,8 +10132,11 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"type": schema.StringAttribute{
-											MarkdownDescription: "Type for this Node, can be Control or Worker.",
+											MarkdownDescription: "[Enum: Control|Worker] Type for this Node, can be Control or Worker. Possible values are `Control`, `Worker`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("Control", "Worker"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{

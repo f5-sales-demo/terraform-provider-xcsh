@@ -72,7 +72,7 @@ Selector](#prefix-selector) below for details.
 
 <a id="ports"></a>&#x2022; [`ports`](#ports) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
 
-<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 

@@ -329,8 +329,11 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 			},
 			"protocol": schema.StringAttribute{
-				MarkdownDescription: "Protocol. Endpoint protocol. Default is TCP. Both TCP and UDP protocols are supported.",
+				MarkdownDescription: "[Enum: TCP|UDP] Protocol. Endpoint protocol. Default is TCP. Both TCP and UDP protocols are supported. Possible values are `TCP`, `UDP`.",
 				Required:            true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("TCP", "UDP"),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{

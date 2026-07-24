@@ -18,6 +18,6 @@ resource "xcsh_advertise_policy" "example" {
   namespace = "staging"
 
   address         = "example-value"
-  protocol        = "example-value"
+  protocol        = "TCP"
   skip_xff_append = true
 }

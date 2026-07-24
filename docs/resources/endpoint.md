@@ -35,7 +35,7 @@ resource "xcsh_endpoint" "example" {
 
   health_check_port = 1
   port              = 1
-  protocol          = "example-value"
+  protocol          = "TCP"
 }
 ```
 
@@ -72,7 +72,7 @@ resource "xcsh_endpoint" "example" {
 
 <a id="port"></a>&#x2022; [`port`](#port) - Required Number<br>Endpoint service is available on this port
 
-<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Required String<br>Protocol. Endpoint protocol. Default is TCP. Both TCP and UDP protocols are supported
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Required String<br>Possible values are `TCP`, `UDP`<br>[Enum: TCP|UDP] Protocol. Endpoint protocol. Default is TCP. Both TCP and UDP protocols are supported
 
 <a id="snat-pool"></a>&#x2022; [`snat_pool`](#snat-pool) - Optional Block<br>SNAT Pool. SNAT Pool configuration<br>See [Snat Pool](#snat-pool) below for details.
 

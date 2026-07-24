@@ -4731,7 +4731,7 @@ A [`route_redirect`](#routes-redirect-route-route-redirect) block (within [`rout
 
 <a id="rewrite-a81c41"></a>&#x2022; [`prefix_rewrite`](#rewrite-a81c41) - Optional String<br>In Redirect response, the matched prefix (or path) should be swapped with this value. This option allows redirect URLs be dynamically created based on the request
 
-<a id="redirect-f23979"></a>&#x2022; [`proto_redirect`](#redirect-f23979) - Optional String<br>Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of protocol is not done
+<a id="redirect-f23979"></a>&#x2022; [`proto_redirect`](#redirect-f23979) - Optional String<br>Possible values are `incoming-proto`, `HTTP`, `HTTPS`<br>[Enum: incoming-proto|HTTP|HTTPS] Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of protocol is not done
 
 <a id="params-0941dc"></a>&#x2022; [`remove_all_params`](#params-0941dc) - Optional Block<br>Configuration parameter for remove all params
 

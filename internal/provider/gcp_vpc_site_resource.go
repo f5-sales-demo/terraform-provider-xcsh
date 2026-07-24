@@ -1917,10 +1917,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for GCP certified hardware.",
+						MarkdownDescription: "[Enum: gcp-byol-multi-nic-voltmesh] Name for GCP certified hardware. The only possible value is `gcp-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("gcp-byol-multi-nic-voltmesh"),
 						},
 					},
 					"gcp_zone_names": schema.ListAttribute{
@@ -2717,10 +2718,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "GCP Ingress Gateway. Single interface GCP ingress site.",
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for GCP certified hardware.",
+						MarkdownDescription: "[Enum: gcp-byol-voltmesh] Name for GCP certified hardware. The only possible value is `gcp-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("gcp-byol-voltmesh"),
 						},
 					},
 					"gcp_zone_names": schema.ListAttribute{
@@ -2991,10 +2993,11 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "App Stack cluster of single interface GCP site.",
 				Attributes: map[string]schema.Attribute{
 					"gcp_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for GCP certified hardware.",
+						MarkdownDescription: "[Enum: gcp-byol-voltstack-combo] Name for GCP certified hardware. The only possible value is `gcp-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("gcp-byol-voltstack-combo"),
 						},
 					},
 					"gcp_zone_names": schema.ListAttribute{

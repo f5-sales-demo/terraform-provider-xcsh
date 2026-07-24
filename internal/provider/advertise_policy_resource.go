@@ -430,8 +430,11 @@ func (r *AdvertisePolicyResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"protocol": schema.StringAttribute{
-				MarkdownDescription: "Protocol. Protocol to advertise.",
+				MarkdownDescription: "[Enum: TCP|UDP] Protocol. Protocol to advertise. Possible values are `TCP`, `UDP`.",
 				Required:            true,
+				Validators: []validator.String{
+					stringvalidator.OneOf("TCP", "UDP"),
+				},
 			},
 			"skip_xff_append": schema.BoolAttribute{
 				MarkdownDescription: "If set, the loadbalancer will not append the remote address to the x-forwarded-for HTTP header.",
