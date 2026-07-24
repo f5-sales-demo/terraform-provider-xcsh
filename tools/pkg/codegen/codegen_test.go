@@ -1159,3 +1159,13 @@ func TestGenerateClientTypes_ExposeUID(t *testing.T) {
 		t.Errorf("ExposeUID=false output must not mention SystemMetadata; got:\n%s", without)
 	}
 }
+
+func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{GoName: "Priority", TfsdkTag: "priority", Type: "int64", Minimum: 0, HasMinimum: true, Maximum: 255, HasMaximum: true},
+	}
+	got := RenderNestedAttributes(attrs, "\t")
+	if !strings.Contains(got, "int64validator.Between(0, 255)") {
+		t.Errorf("expected int64validator.Between(0, 255), got:\n%s", got)
+	}
+}

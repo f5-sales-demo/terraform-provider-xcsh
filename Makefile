@@ -89,7 +89,7 @@ build:
 # Run tests
 test:
 	@echo "Running tests..."
-	$(GO) test -v -race ./internal/...
+	$(GO) test -v -race ./internal/... ./tools/...
 
 # Run linters
 lint:

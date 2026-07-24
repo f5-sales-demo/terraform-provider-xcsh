@@ -269,3 +269,18 @@ func TestParse_ConfidenceInMetadata_NoDeterministic(t *testing.T) {
 		t.Errorf("MaxLength = %d, want 1200", result.MaxLength)
 	}
 }
+
+func TestParse_MinimumZeroIsPresent(t *testing.T) {
+	p := Parse(map[string]interface{}{
+		"minimum": float64(0), "maximum": float64(255), "deterministic": true,
+	})
+	if p == nil {
+		t.Fatal("nil")
+	}
+	if !p.HasMinimum || p.Minimum != 0 {
+		t.Errorf("HasMinimum=%v Minimum=%d, want true/0", p.HasMinimum, p.Minimum)
+	}
+	if !p.HasMaximum || p.Maximum != 255 {
+		t.Errorf("HasMaximum=%v Maximum=%d, want true/255", p.HasMaximum, p.Maximum)
+	}
+}
