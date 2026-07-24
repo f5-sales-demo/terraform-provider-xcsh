@@ -240,6 +240,95 @@ func TestExtractResourceSchema_NoUIDWhenNotOptedIn(t *testing.T) {
 	}
 }
 
+// actionApproveSpec builds a spec shaped like the F5 XC registration-approval
+// action: a request-body component schema carrying a schema-level x-f5xc-action
+// marker, the raw POST action path that $refs it, and a sibling plural GET path
+// for the object being acted on. Paths are stored raw (map[string]interface{})
+// exactly as parsed from JSON so ExtractActionsFromPaths walks a realistic shape.
+func actionApproveSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+	spec := &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				"registration_approvalReq": {
+					Type:        "object",
+					XF5xcAction: "approve",
+					Properties: map[string]openapi.Schema{
+						"namespace": {Type: "string"},
+						"name":      {Type: "string"},
+						"state":     {Type: "string"},
+						"passport":  {Type: "string"},
+					},
+				},
+			},
+		},
+		Paths: map[string]interface{}{
+			"/api/register/namespaces/{namespace}/registration/{name}/approve": map[string]interface{}{
+				"post": map[string]interface{}{
+					"requestBody": map[string]interface{}{
+						"content": map[string]interface{}{
+							"application/json": map[string]interface{}{
+								"schema": map[string]interface{}{
+									"$ref": "#/components/schemas/registration_approvalReq",
+								},
+							},
+						},
+					},
+				},
+			},
+			"/api/register/namespaces/{namespace}/registrations/{name}": map[string]interface{}{
+				"get": map[string]interface{}{},
+			},
+		},
+	}
+	extractAPIPath := func(_ *openapi.Spec, _ string) (string, string, bool) {
+		return "/api/register/namespaces/%s/registrations", "/api/register/namespaces/%s/registrations/%s", true
+	}
+	return spec, extractAPIPath
+}
+
+// A schema-level x-f5xc-action marker drives an action-style resource: attributes
+// derive from the request body, the singular action POST path and the pluralized
+// sibling GET path are captured, state constant-defaults to APPROVED, and every
+// user-settable attribute forces replace (there is no in-place update).
+func TestActionResourceApprove(t *testing.T) {
+	spec, extractAPIPath := actionApproveSpec()
+
+	result, err := ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if !result.IsAction {
+		t.Error("IsAction should be true")
+	}
+	if result.ActionPath != "/api/register/namespaces/%s/registration/%s/approve" {
+		t.Errorf("ActionPath = %q, want the singular approve path", result.ActionPath)
+	}
+	if result.ReadObjectPath != "/api/register/namespaces/%s/registrations/%s" {
+		t.Errorf("ReadObjectPath = %q, want the pluralized sibling GET path", result.ReadObjectPath)
+	}
+	if result.ActionState != "APPROVED" {
+		t.Errorf("ActionState = %q, want APPROVED", result.ActionState)
+	}
+	if len(result.Attributes) == 0 {
+		t.Fatal("expected attributes derived from the request body")
+	}
+	for _, a := range result.Attributes {
+		if a.PlanModifier != "RequiresReplace" {
+			t.Errorf("attr %q: PlanModifier = %q, want RequiresReplace", a.TfsdkTag, a.PlanModifier)
+		}
+	}
+	if st := findAttr(result.Attributes, "state"); st == nil {
+		t.Error("state attribute missing")
+	} else if st.StringDefault != "APPROVED" {
+		t.Errorf("state StringDefault = %q, want APPROVED", st.StringDefault)
+	}
+	if pp := findAttr(result.Attributes, "passport"); pp == nil {
+		t.Error("passport attribute missing")
+	} else if !pp.Sensitive {
+		t.Error("passport must be a write-only (Sensitive) attribute")
+	}
+}
+
 func TestExtractOneOfGroups_Empty(t *testing.T) {
 	spec := &openapi.Spec{}
 	result := ExtractOneOfGroups(spec, "NonExistent")

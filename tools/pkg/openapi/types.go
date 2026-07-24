@@ -108,6 +108,12 @@ type Schema struct {
 	XF5XCSideEffects          []string               `json:"x-f5xc-side-effects"`
 	XF5XCOperationMetadata    map[string]interface{} `json:"x-f5xc-operation-metadata"`
 	XF5XCRequiredFields       []string               `json:"x-f5xc-required-fields"`
+
+	// XF5xcAction marks a request-body schema whose operation is an action-style
+	// resource (e.g. "approve") so codegen emits an action resource — Create=action
+	// POST, Read=sibling object Get, Delete=no-op — instead of CRUD. Injected by
+	// api-specs-enriched onto the request schema (schema-level, not operation-level).
+	XF5xcAction string `json:"x-f5xc-action"`
 }
 
 // TerraformAttribute represents an attribute in a Terraform resource schema.
@@ -214,6 +220,17 @@ type ResourceTemplate struct {
 	// stays surgically scoped and never emits a uid a resource cannot return.
 	// See tools/pkg/openapi/expose_uid.go and schema.ResponseHasSystemMetadataUID.
 	ExposeUID bool
+
+	// ---- Action-resource fields (x-f5xc-action) ----
+	// IsAction marks this template as an action-style resource: Create issues the
+	// action POST (ActionPath), Read does a lenient GET on the sibling object
+	// (ReadObjectPath) with 404 -> remove-from-state, Delete is a no-op, and there
+	// is no Update and no data-source companion. ActionState is the constant state
+	// value the action drives the object to (e.g. "APPROVED").
+	IsAction       bool
+	ActionPath     string // %s-substituted singular action POST path
+	ActionState    string // constant state the action applies (e.g. "APPROVED")
+	ReadObjectPath string // %s-substituted sibling object GET path (pluralized)
 }
 
 // RequirementPreflight is one apply-time prerequisite the provider verifies
@@ -244,6 +261,7 @@ type GenerationResult struct {
 	AttrCount  int  // Number of attributes generated
 	BlockCount int  // Number of nested blocks generated
 	IsReadOnly bool // True if only GetSpecType found (data source only, no resource)
+	IsAction   bool // True if this is an action-style resource (x-f5xc-action)
 }
 
 // IsRef returns true if the schema is a reference to another schema.

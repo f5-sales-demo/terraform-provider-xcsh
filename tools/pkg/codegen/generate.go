@@ -152,6 +152,48 @@ func GenerateReadOnlyClientTypes(resource *openapi.ResourceTemplate, clientDir s
 	return os.WriteFile(outputPath, formatted, 0644)
 }
 
+// GenerateActionResource generates the resource file and the client request-body
+// types file for an action-style resource (x-f5xc-action). It emits no data
+// source and no CRUD client: Create marshals the request struct via the generic
+// Post, and Read uses GetLenient into a generic map.
+func GenerateActionResource(resource *openapi.ResourceTemplate, outputDir, clientDir string) error {
+	// Resource file.
+	resourcePath := filepath.Join(outputDir, resource.Name+"_resource.go")
+	rtmpl, err := template.New("action_resource").Parse(ActionResourceTemplate)
+	if err != nil {
+		return fmt.Errorf("action resource template parse error: %w", err)
+	}
+	var rbuf bytes.Buffer
+	if err := rtmpl.Execute(&rbuf, resource); err != nil {
+		return fmt.Errorf("action resource template execute error: %w", err)
+	}
+	rformatted, err := imports.Process(resourcePath, rbuf.Bytes(), nil)
+	if err != nil {
+		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", resourcePath, err)
+		rformatted = rbuf.Bytes()
+	}
+	if err := os.WriteFile(resourcePath, rformatted, 0644); err != nil {
+		return err
+	}
+
+	// Client request-body types file.
+	clientPath := filepath.Join(clientDir, resource.Name+"_types.go")
+	ctmpl, err := template.New("action_client").Parse(ActionClientTemplate)
+	if err != nil {
+		return fmt.Errorf("action client template parse error: %w", err)
+	}
+	var cbuf bytes.Buffer
+	if err := ctmpl.Execute(&cbuf, resource); err != nil {
+		return fmt.Errorf("action client template execute error: %w", err)
+	}
+	cformatted, err := imports.Process(clientPath, cbuf.Bytes(), nil)
+	if err != nil {
+		fmt.Printf("Warning: gofmt failed for %s: %v (writing unformatted)\n", clientPath, err)
+		cformatted = cbuf.Bytes()
+	}
+	return os.WriteFile(clientPath, cformatted, 0644)
+}
+
 // GenerateDataSource generates the Terraform data source Go file for a single resource.
 // outputDir is the directory where the file will be written (e.g. "internal/provider").
 func GenerateDataSource(resource *openapi.ResourceTemplate, outputDir string) error {

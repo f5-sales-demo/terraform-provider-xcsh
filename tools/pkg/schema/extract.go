@@ -385,6 +385,93 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	}, nil
 }
 
+// ExtractActionResourceSchema builds an action-style resource template from a
+// request-body schema carrying a schema-level x-f5xc-action. Unlike a CRUD
+// resource it has no CreateSpecType/GetSpecType: its attributes derive directly
+// from the flat action request body (namespace, name, state, passport, …), the
+// singular action POST path and the pluralized sibling object GET path are
+// captured for Create/Read, `state` constant-defaults to APPROVED, `passport` is
+// write-only, and every user-settable field forces replace (there is no in-place
+// update). extractAPIPath is accepted for signature parity with the CRUD
+// extractor but unused — action paths come from the discovered x-f5xc-action.
+func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
+	// Locate the action for this resource among the spec's discovered actions.
+	var action *openapi.ResourcePath
+	for _, a := range openapi.ExtractActionsFromPaths(spec) {
+		if a.ResourceName == resourceName {
+			ac := a
+			action = &ac
+			break
+		}
+	}
+	if action == nil {
+		return nil, fmt.Errorf("no x-f5xc-action found for %s", resourceName)
+	}
+
+	reqSchema, ok := spec.Components.Schemas[action.SchemaName]
+	if !ok {
+		return nil, fmt.Errorf("action request schema %s not found", action.SchemaName)
+	}
+
+	// Derive attributes from the request-body properties (deterministic order).
+	propNames := make([]string, 0, len(reqSchema.Properties))
+	for name := range reqSchema.Properties {
+		propNames = append(propNames, name)
+	}
+	sort.Strings(propNames)
+
+	var attributes []openapi.TerraformAttribute
+	for _, name := range propNames {
+		attr := openapi.TerraformAttribute{
+			Name:        name,
+			GoName:      naming.ToResourceTypeName(name),
+			TfsdkTag:    naming.ToSnakeCaseTerraform(name),
+			Type:        "string",
+			JsonName:    name,
+			IsSpecField: true,
+		}
+		switch name {
+		case "name", "namespace":
+			attr.Required = true
+		case "state":
+			// state constant-defaults to APPROVED; Optional+Computed so it may be
+			// omitted yet always materializes to the action's target state.
+			attr.Optional = true
+			attr.Computed = true
+			attr.StringDefault = "APPROVED"
+		case "passport":
+			// passport is write-only: supplied on create, never read back.
+			attr.Optional = true
+			attr.Sensitive = true
+		default:
+			attr.Optional = true
+		}
+		attributes = append(attributes, attr)
+	}
+
+	// An action has no PUT/update endpoint, so force every settable field to
+	// replace. ForceReplaceForCreateDeleteOnly skips Computed attributes, but the
+	// Optional+Computed `state` must force replace too, so backfill afterwards.
+	ForceReplaceForCreateDeleteOnly(attributes)
+	for i := range attributes {
+		attributes[i].PlanModifier = "RequiresReplace"
+	}
+
+	titleCase := naming.ToResourceTypeName(resourceName)
+	return &openapi.ResourceTemplate{
+		Name:               resourceName,
+		TitleCase:          titleCase,
+		Description:        description.TransformResourceDescription(resourceName, reqSchema.Description),
+		Attributes:         attributes,
+		HasNamespaceInPath: true,
+		HasStringDefaults:  true,
+		IsAction:           true,
+		ActionPath:         action.ActionPath,
+		ActionState:        "APPROVED",
+		ReadObjectPath:     action.ReadObjectPath,
+	}, nil
+}
+
 // ResolvePreflightGoFields binds each preflight's declared trigger field (WhenField,
 // a tfsdk tag such as "client_side_defense") to its generated Go model field name
 // (WhenGoField, e.g. "ClientSideDefense") using the resource's top-level attributes.

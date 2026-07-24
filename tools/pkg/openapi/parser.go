@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 	"sync"
 )
@@ -391,6 +392,122 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	}
 
 	return results
+}
+
+// =============================================================================
+// Action-resource discovery (schema-level x-f5xc-action)
+// =============================================================================
+
+// ResourcePath describes an action-style resource discovered from the raw
+// OpenAPI paths: a POST whose request-body schema is a component carrying a
+// schema-level x-f5xc-action. It captures the action POST path, the sibling
+// object GET path (for lenient Read), and the request schema name.
+type ResourcePath struct {
+	ResourceName   string // resource name (request schema name minus the "Req" suffix)
+	SchemaName     string // request-body component schema name
+	ActionValue    string // x-f5xc-action value (e.g. "approve")
+	ActionPath     string // %s-substituted action POST path
+	ReadObjectPath string // %s-substituted sibling object GET path (pluralized)
+}
+
+// ExtractActionsFromPaths walks the raw spec.Paths and returns one ResourcePath
+// for each POST whose request-body schema is a component carrying a non-empty
+// x-f5xc-action. The sibling read path is derived — action-specific, as this is
+// the sole action resource today: drop the trailing action segment, then
+// pluralize the object segment immediately before the item placeholder
+// (…/registration/{name}/approve -> …/registrations/{name}).
+func ExtractActionsFromPaths(spec *Spec) []ResourcePath {
+	var results []ResourcePath
+	seen := make(map[string]bool)
+
+	// Deterministic iteration order (Go map order is random).
+	paths := make([]string, 0, len(spec.Paths))
+	for p := range spec.Paths {
+		paths = append(paths, p)
+	}
+	sort.Strings(paths)
+
+	for _, rawPath := range paths {
+		pathItem, ok := spec.Paths[rawPath].(map[string]interface{})
+		if !ok {
+			continue
+		}
+		post, ok := pathItem["post"].(map[string]interface{})
+		if !ok {
+			continue
+		}
+		ref := requestBodySchemaRef(post)
+		if ref == "" {
+			continue
+		}
+		schemaName := GetRefName(ref)
+		compSchema, ok := spec.Components.Schemas[schemaName]
+		if !ok || compSchema.XF5xcAction == "" {
+			continue
+		}
+		action := compSchema.XF5xcAction
+		resourceName := strings.TrimSuffix(schemaName, "Req")
+		if seen[resourceName] {
+			continue
+		}
+		seen[resourceName] = true
+
+		results = append(results, ResourcePath{
+			ResourceName:   resourceName,
+			SchemaName:     schemaName,
+			ActionValue:    action,
+			ActionPath:     placeholdersToFormat(rawPath),
+			ReadObjectPath: deriveActionReadPath(rawPath, action),
+		})
+	}
+	return results
+}
+
+// requestBodySchemaRef extracts the application/json request-body schema $ref
+// from a raw operation map, or "" if absent.
+func requestBodySchemaRef(op map[string]interface{}) string {
+	rb, ok := op["requestBody"].(map[string]interface{})
+	if !ok {
+		return ""
+	}
+	content, ok := rb["content"].(map[string]interface{})
+	if !ok {
+		return ""
+	}
+	mt, ok := content["application/json"].(map[string]interface{})
+	if !ok {
+		return ""
+	}
+	s, ok := mt["schema"].(map[string]interface{})
+	if !ok {
+		return ""
+	}
+	ref, _ := s["$ref"].(string)
+	return ref
+}
+
+// placeholdersToFormat converts OpenAPI {name} path placeholders to Go %s verbs.
+func placeholdersToFormat(path string) string {
+	r := strings.NewReplacer(
+		"{metadata.namespace}", "%s",
+		"{namespace}", "%s",
+		"{metadata.name}", "%s",
+		"{name}", "%s",
+	)
+	return r.Replace(path)
+}
+
+// deriveActionReadPath derives the sibling object GET path from an action POST
+// path: drop the trailing "/{action}" segment and pluralize the object segment
+// immediately preceding the item placeholder, then substitute placeholders.
+func deriveActionReadPath(actionPath, action string) string {
+	objectPath := strings.TrimSuffix(actionPath, "/"+action)
+	segs := strings.Split(objectPath, "/")
+	// segs[last] is the item placeholder ({name}); segs[last-1] is the object kind.
+	if len(segs) >= 2 {
+		segs[len(segs)-2] += "s"
+	}
+	return placeholdersToFormat(strings.Join(segs, "/"))
 }
 
 // GetExampleValue returns the best available example for a schema field.

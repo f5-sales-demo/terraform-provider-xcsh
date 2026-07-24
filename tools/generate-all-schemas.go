@@ -264,6 +264,30 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 				failCount++
 			}
 		}
+
+		// Action-resource discovery (schema-level x-f5xc-action). These emit
+		// action-style resources (Create=action POST, Read=sibling object Get,
+		// Delete=no-op, no Update, no data source) that the CRUD discovery above
+		// does not produce. Guard names against the already-processed set.
+		if actionSpec, aerr := parseOpenAPISpec(domainFile); aerr == nil {
+			for _, act := range openapi.ExtractActionsFromPaths(actionSpec) {
+				if processedResources[act.ResourceName] {
+					if verbose {
+						fmt.Printf("      ⏭️  Skipping duplicate action: %s (already processed)\n", act.ResourceName)
+					}
+					skipCount++
+					continue
+				}
+				processedResources[act.ResourceName] = true
+				result := processV2Action(domainFile, act)
+				results = append(results, result)
+				if result.Success {
+					successCount++
+				} else if result.Error != "" {
+					failCount++
+				}
+			}
+		}
 	}
 
 	// Log duplicates if any were skipped
@@ -326,6 +350,46 @@ func processV2Resource(domainFile string, resource openapi.ExtractedResource, do
 	result := processSpecFileForResource(domainFile, resource.Name, resource.Category, resource.RequiresTier)
 
 	return result
+}
+
+// processV2Action generates an action-style resource (x-f5xc-action) discovered
+// in a v2 domain spec. Unlike CRUD resources it has no CreateSpecType: its schema
+// and API paths come from the discovered action (request body + action/sibling
+// paths). Emits only a resource + client request-body type (no data source).
+func processV2Action(domainFile string, act openapi.ResourcePath) GenerationResult {
+	if verbose {
+		fmt.Printf("      Processing action resource: %s (action: %s)\n", act.ResourceName, act.ActionValue)
+	}
+
+	spec, err := parseOpenAPISpec(domainFile)
+	if err != nil {
+		return GenerationResult{ResourceName: act.ResourceName, Success: false, Error: err.Error()}
+	}
+	for name, s := range spec.Components.Schemas {
+		schemaCache[name] = s
+	}
+
+	tmpl, err := schema.ExtractActionResourceSchema(spec, act.ResourceName, extractAPIPath)
+	if err != nil {
+		if verbose {
+			fmt.Printf("  ⏭️  Skipping action %s: %v\n", act.ResourceName, err)
+		}
+		return GenerationResult{ResourceName: act.ResourceName, Success: false}
+	}
+
+	if !dryRun {
+		if err := codegen.GenerateActionResource(tmpl, outputDir, clientDir); err != nil {
+			return GenerationResult{ResourceName: act.ResourceName, Success: false, Error: err.Error()}
+		}
+	}
+
+	fmt.Printf("✅ %s: action resource (%s)\n", act.ResourceName, act.ActionValue)
+	return GenerationResult{
+		ResourceName: act.ResourceName,
+		Success:      true,
+		IsAction:     true,
+		AttrCount:    len(tmpl.Attributes),
+	}
 }
 
 // convertNamespaceProfile converts an openapi.NamespaceProfileSpec into a
