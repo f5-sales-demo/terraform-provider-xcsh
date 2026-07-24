@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -1072,14 +1073,23 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 					"connection_limit": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the maximum number of concurrent connections allowed for the virtual server. Setting this to 0 turns off connection limits. The.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 600000),
+						},
 					},
 					"connection_rate_limit": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the maximum number of connections-per-second allowed for a virtual server. When the number of connections-per-second reaches the limit for a given virtual server, the system drops (UDP) or resets (TCP) additional connection requests. This helps detect Denial of Service attacks, where..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 600000),
+						},
 					},
 					"vs_score": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the virtual server score in percent. Global Traffic Manager (GTM) can rely on this value to load balance traffic in a proportional manner. The , meaning that no additional metric is applied for the virtual server.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 600000),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -1190,6 +1200,9 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									"destination_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for destination mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 								},
 							},
@@ -1199,6 +1212,9 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									"source_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for source mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 								},
 							},
@@ -1208,10 +1224,16 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									"destination_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for destination mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 									"source_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for source mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 								},
 							},
@@ -1224,6 +1246,9 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									"destination_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for destination mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 								},
 							},
@@ -1233,6 +1258,9 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									"source_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for source mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 								},
 							},
@@ -1242,10 +1270,16 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									"destination_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for destination mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 									"source_mask": schema.Int64Attribute{
 										MarkdownDescription: "Configuration parameter for source mask.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 600000),
+										},
 									},
 								},
 							},

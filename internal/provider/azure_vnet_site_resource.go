@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -3409,6 +3410,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					int64validator.AtMost(4095),
+				},
 			},
 			"nodes_per_az": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [no_worker_nodes total_nodes] Desired Worker Nodes Per AZ. Max limit is up to 21.",
@@ -3417,6 +3421,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					int64validator.Between(0, 21),
+				},
 			},
 			"total_nodes": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [no_worker_nodes nodes_per_az] Total number of worker nodes to be deployed across all AZ's used in the Site.",
@@ -3424,6 +3431,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
+				},
+				Validators: []validator.Int64{
+					int64validator.Between(0, 61),
 				},
 			},
 		},
@@ -4051,6 +4061,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									"custom_asn": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(65535),
+										},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -4492,6 +4505,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -4508,6 +4524,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",
@@ -4669,6 +4688,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -4685,6 +4707,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",
@@ -5034,6 +5059,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 									"custom_asn": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [auto_asn] Set custom ASN for F5XC Site.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(65535),
+										},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -5475,6 +5503,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -5491,6 +5522,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",
@@ -5535,6 +5569,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"fault_domain": schema.Int64Attribute{
 								MarkdownDescription: "Namuber of fault domains to be used while creating the availability set.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 3),
+								},
 							},
 							"node_number": schema.Int64Attribute{
 								MarkdownDescription: "Number of main nodes to create, either 1 or 3.",
@@ -5543,6 +5580,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"update_domain": schema.Int64Attribute{
 								MarkdownDescription: "Namuber of update domains to be used while creating the availability set.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 20),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -5749,6 +5789,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -5765,6 +5808,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",
@@ -5943,6 +5989,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"fault_domain": schema.Int64Attribute{
 								MarkdownDescription: "Namuber of fault domains to be used while creating the availability set.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 3),
+								},
 							},
 							"node_number": schema.Int64Attribute{
 								MarkdownDescription: "Number of main nodes to create, either 1 or 3.",
@@ -5951,6 +6000,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"update_domain": schema.Int64Attribute{
 								MarkdownDescription: "Namuber of update domains to be used while creating the availability set.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 20),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -6031,10 +6083,16 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 5000),
+								},
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 900),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -6658,6 +6716,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -6674,6 +6735,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",
@@ -7040,6 +7104,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"fault_domain": schema.Int64Attribute{
 								MarkdownDescription: "Namuber of fault domains to be used while creating the availability set.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 3),
+								},
 							},
 							"node_number": schema.Int64Attribute{
 								MarkdownDescription: "Number of main nodes to create, either 1 or 3.",
@@ -7048,6 +7115,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"update_domain": schema.Int64Attribute{
 								MarkdownDescription: "Namuber of update domains to be used while creating the availability set.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 20),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -7212,6 +7282,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -7228,6 +7301,9 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",

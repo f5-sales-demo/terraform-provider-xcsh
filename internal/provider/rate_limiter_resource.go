@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -216,14 +217,23 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 						"burst_multiplier": schema.Int64Attribute{
 							MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.AtMost(100),
+							},
 						},
 						"period_multiplier": schema.Int64Attribute{
 							MarkdownDescription: "Setting, combined with Per Period units, provides a duration.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.AtLeast(0),
+							},
 						},
 						"total_number": schema.Int64Attribute{
 							MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.AtMost(8192),
+							},
 						},
 						"unit": schema.StringAttribute{
 							MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
@@ -244,6 +254,9 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 										"duration": schema.Int64Attribute{
 											MarkdownDescription: "Duration. Configuration parameter for duration",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(48),
+											},
 										},
 									},
 								},
@@ -253,6 +266,9 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 										"duration": schema.Int64Attribute{
 											MarkdownDescription: "Duration. Configuration parameter for duration",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(60),
+											},
 										},
 									},
 								},
@@ -262,6 +278,9 @@ func (r *RateLimiterResource) Schema(ctx context.Context, req resource.SchemaReq
 										"duration": schema.Int64Attribute{
 											MarkdownDescription: "Duration. Configuration parameter for duration",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(300),
+											},
 										},
 									},
 								},

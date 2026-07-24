@@ -105,6 +105,9 @@ func (r *CRLResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			"refresh_interval": schema.Int64Attribute{
 				MarkdownDescription: "CRL Refresh interval. CRL refresh interval, in hours.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.Between(6, 168),
+				},
 			},
 			"server_address": schema.StringAttribute{
 				MarkdownDescription: "CRL server address or hostname .",
@@ -116,12 +119,15 @@ func (r *CRLResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 			"server_port": schema.Int64Attribute{
 				MarkdownDescription: "CRL Server Port. Set CRL Server port number.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.Between(1, 65535),
+				},
 			},
 			"timeout": schema.Int64Attribute{
 				MarkdownDescription: "CRL download timeout. CRL download wait time, in seconds.",
 				Required:            true,
 				Validators: []validator.Int64{
-					int64validator.Between(1, 3600),
+					int64validator.Between(1, 180),
 				},
 			},
 			"annotations": schema.MapAttribute{

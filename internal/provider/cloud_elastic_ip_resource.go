@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -111,6 +112,9 @@ func (r *CloudElasticIPResource) Schema(ctx context.Context, req resource.Schema
 			"item_count": schema.Int64Attribute{
 				MarkdownDescription: "Number of Elastic Ips / Public Ips associated with this object per Node.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.Between(1, 8),
+				},
 			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",

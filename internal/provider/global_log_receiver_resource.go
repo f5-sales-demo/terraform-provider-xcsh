@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1517,10 +1518,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -1641,10 +1648,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -1765,10 +1778,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -1958,10 +1977,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -2172,10 +2197,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -2328,10 +2359,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -2546,10 +2583,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -2731,10 +2774,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",
@@ -2811,10 +2860,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 							"max_bytes": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_bytes_disabled] Send batch to endpoint after the batch is equal to or larger than this many bytes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(4096, 10485760),
+								},
 							},
 							"max_events": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [max_events_disabled] Send batch to endpoint after this many log messages are in the batch.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(32, 2000),
+								},
 							},
 							"timeout_seconds": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [timeout_seconds_default] Send batch to the endpoint after this many seconds.",

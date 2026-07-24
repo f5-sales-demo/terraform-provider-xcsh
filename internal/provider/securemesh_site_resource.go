@@ -1374,10 +1374,16 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								"link_polling_interval": schema.Int64Attribute{
 									MarkdownDescription: "Link polling interval in milliseconds .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(500, 5000),
+									},
 								},
 								"link_up_delay": schema.Int64Attribute{
 									MarkdownDescription: "Milliseconds wait before link is declared up .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 1000),
+									},
 								},
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -1397,6 +1403,9 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 										"rate": schema.Int64Attribute{
 											MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 30),
+											},
 										},
 									},
 								},
@@ -1424,6 +1433,9 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					"tunnel_dead_timeout": schema.Int64Attribute{
 						MarkdownDescription: "Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 180000),
+						},
 					},
 					"vip_vrrp_mode": schema.StringAttribute{
 						MarkdownDescription: "[Enum: VIP_VRRP_INVALID|VIP_VRRP_ENABLE|VIP_VRRP_DISABLE] VRRP advertisement mode for VIP Invalid VRRP mode. Possible values are `VIP_VRRP_INVALID`, `VIP_VRRP_ENABLE`, `VIP_VRRP_DISABLE`. Defaults to `VIP_VRRP_INVALID`.",
@@ -1682,6 +1694,9 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node of the site.",
@@ -1693,6 +1708,9 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												"priority": schema.Int64Attribute{
 													MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 255),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -1726,6 +1744,9 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node of the site.",
@@ -1754,6 +1775,9 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node.",
@@ -1765,12 +1789,15 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 												"priority": schema.Int64Attribute{
 													MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 255),
+													},
 												},
 												"vlan_id": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 4094),
+														int64validator.Between(1, 4095),
 													},
 												},
 											},
@@ -2677,10 +2704,16 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 5000),
+								},
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 900),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{

@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1339,6 +1340,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"disk_size": schema.Int64Attribute{
 						MarkdownDescription: "Node disk size for all node in the F5XC site. Unit is GiB.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(64000),
+						},
 					},
 					"instance_type": schema.StringAttribute{
 						MarkdownDescription: "Instance size based on the performance.",
@@ -1350,6 +1354,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"nodes_per_az": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [no_worker_nodes total_nodes] Desired Worker Nodes Per AZ. Max limit is up to 21.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 21),
+						},
 					},
 					"ssh_key": schema.StringAttribute{
 						MarkdownDescription: "Public SSH key for accessing nodes of the site.",
@@ -1361,6 +1368,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"total_nodes": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [no_worker_nodes nodes_per_az] Total number of worker nodes to be deployed across all AZ's used in the Site.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 61),
+						},
 					},
 					"vpc_id": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [new_vpc] Existing VPC ID.",
@@ -1640,6 +1650,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"tgw_asn": schema.Int64Attribute{
 								MarkdownDescription: "Enter TGW ASN. TGW ASN.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(65535),
+								},
 							},
 							"tgw_id": schema.StringAttribute{
 								MarkdownDescription: "X-displayName: 'Existing TGW ID' Existing TGW ID.",
@@ -1651,6 +1664,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"volterra_site_asn": schema.Int64Attribute{
 								MarkdownDescription: "X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(65535),
+								},
 							},
 						},
 					},
@@ -1670,10 +1686,16 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 									"tgw_asn": schema.Int64Attribute{
 										MarkdownDescription: "X-displayName: 'Enter TGW ASN' TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(65534),
+										},
 									},
 									"volterra_site_asn": schema.Int64Attribute{
 										MarkdownDescription: "X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(65535),
+										},
 									},
 								},
 							},
@@ -1799,6 +1821,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"custom_asn": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [auto_asn] Custom Autonomous System Number.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtLeast(1),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -1867,10 +1892,16 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 5000),
+								},
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 900),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -2511,6 +2542,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -2527,6 +2561,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",
@@ -2679,6 +2716,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(32),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -2695,6 +2735,9 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	"plen": schema.Int64Attribute{
 																		MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.AtMost(128),
+																		},
 																	},
 																	"prefix": schema.StringAttribute{
 																		MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",

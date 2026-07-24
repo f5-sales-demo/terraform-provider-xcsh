@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -387,6 +388,9 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 										"cooling_off_period": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [] Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assessment to lower levels..",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(5, 120),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -462,6 +466,9 @@ func (r *AppSettingResource) Schema(ctx context.Context, req resource.SchemaRequ
 												"nonexistent_requests_threshold": schema.Int64Attribute{
 													MarkdownDescription: "The percentage of non-existent requests beyond which the system will flag this user as malicious .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(100),
+													},
 												},
 											},
 										},

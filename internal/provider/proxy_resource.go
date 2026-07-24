@@ -1573,6 +1573,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			"connection_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The timeout for new network connections to upstream server. This is specified in milliseconds. The  (2 seconds). Defaults to `2000`.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtMost(1800000),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -1656,14 +1659,23 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									"idle_timeout": schema.Int64Attribute{
 										MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(3600000),
+										},
 									},
 									"max_request_header_size": schema.Int64Attribute{
 										MarkdownDescription: "The maximum request header size for downstream connections, in KiB. A HTTP 431 (Request Header Fields Too Large) error code is sent for requests that exceed this size. If multiple load balancers share the same advertise_policy, the highest value configured across all such load balancers is used..",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(96),
+										},
 									},
 									"max_requests_per_connection": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [no_request_limit_per_connection] Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtLeast(1),
+										},
 									},
 									"request_cookies_to_remove": schema.ListAttribute{
 										MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -1709,6 +1721,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											"max_request_bytes": schema.Int64Attribute{
 												MarkdownDescription: "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtMost(10485760),
+												},
 											},
 										},
 									},
@@ -1718,6 +1733,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											"content_length": schema.Int64Attribute{
 												MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtLeast(30),
+												},
 											},
 											"content_type": schema.ListAttribute{
 												MarkdownDescription: "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: 'application/javascript' 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain' 'text/XML'.",
@@ -1915,6 +1933,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												"max_age_value": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(34560000),
+													},
 												},
 												"name": schema.StringAttribute{
 													MarkdownDescription: "Name of the cookie in Cookie header.",
@@ -2113,14 +2134,23 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									"idle_timeout": schema.Int64Attribute{
 										MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(3600000),
+										},
 									},
 									"max_request_header_size": schema.Int64Attribute{
 										MarkdownDescription: "The maximum request header size for downstream connections, in KiB. A HTTP 431 (Request Header Fields Too Large) error code is sent for requests that exceed this size. If multiple load balancers share the same advertise_policy, the highest value configured across all such load balancers is used..",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(96),
+										},
 									},
 									"max_requests_per_connection": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [no_request_limit_per_connection] Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtLeast(1),
+										},
 									},
 									"request_cookies_to_remove": schema.ListAttribute{
 										MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -2166,6 +2196,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											"max_request_bytes": schema.Int64Attribute{
 												MarkdownDescription: "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtMost(10485760),
+												},
 											},
 										},
 									},
@@ -2175,6 +2208,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											"content_length": schema.Int64Attribute{
 												MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtLeast(30),
+												},
 											},
 											"content_type": schema.ListAttribute{
 												MarkdownDescription: "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: 'application/javascript' 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain' 'text/XML'.",
@@ -2372,6 +2408,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												"max_age_value": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(34560000),
+													},
 												},
 												"name": schema.StringAttribute{
 													MarkdownDescription: "Name of the cookie in Cookie header.",
@@ -2785,6 +2824,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							"idle_timeout": schema.Int64Attribute{
 								MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(86400000),
+								},
 							},
 						},
 					},
@@ -2807,14 +2849,23 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							"idle_timeout": schema.Int64Attribute{
 								MarkdownDescription: "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds. The stream is terminated with a HTTP 504 (Gateway Timeout) error code if no upstream response header has been received, otherwise the stream is reset.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(3600000),
+								},
 							},
 							"max_request_header_size": schema.Int64Attribute{
 								MarkdownDescription: "The maximum request header size for downstream connections, in KiB. A HTTP 431 (Request Header Fields Too Large) error code is sent for requests that exceed this size. If multiple load balancers share the same advertise_policy, the highest value configured across all such load balancers is used..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(96),
+								},
 							},
 							"max_requests_per_connection": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [no_request_limit_per_connection] Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtLeast(1),
+								},
 							},
 							"request_cookies_to_remove": schema.ListAttribute{
 								MarkdownDescription: "List of keys of Cookies to be removed from the HTTP request being sent towards upstream.",
@@ -2860,6 +2911,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									"max_request_bytes": schema.Int64Attribute{
 										MarkdownDescription: "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(10485760),
+										},
 									},
 								},
 							},
@@ -2869,6 +2923,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									"content_length": schema.Int64Attribute{
 										MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtLeast(30),
+										},
 									},
 									"content_type": schema.ListAttribute{
 										MarkdownDescription: "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: 'application/javascript' 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain' 'text/XML'.",
@@ -3066,6 +3123,9 @@ func (r *ProxyResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"max_age_value": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(34560000),
+											},
 										},
 										"name": schema.StringAttribute{
 											MarkdownDescription: "Name of the cookie in Cookie header.",

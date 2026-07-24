@@ -597,6 +597,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"mtu": schema.Int64Attribute{
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16384),
+						},
 					},
 					"node": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node of the site.",
@@ -608,6 +611,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"priority": schema.Int64Attribute{
 						MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 255),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -641,6 +647,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"mtu": schema.Int64Attribute{
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16384),
+						},
 					},
 					"node": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node of the site.",
@@ -669,6 +678,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"mtu": schema.Int64Attribute{
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16384),
+						},
 					},
 					"node": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node.",
@@ -680,12 +692,15 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"priority": schema.Int64Attribute{
 						MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 255),
+						},
 					},
 					"vlan_id": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(1, 4094),
+							int64validator.Between(1, 4095),
 						},
 					},
 				},
@@ -1026,7 +1041,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged interface.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.Between(1, 4094),
+									int64validator.Between(1, 4095),
 								},
 							},
 						},
@@ -1050,7 +1065,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "VLAN ID. VLAN ID .",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.Between(1, 4094),
+									int64validator.Between(1, 4095),
 								},
 							},
 						},
@@ -1062,7 +1077,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "VLAN ID. VLAN ID .",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.Between(1, 4094),
+									int64validator.Between(1, 4095),
 								},
 							},
 						},
@@ -1075,6 +1090,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"mtu": schema.Int64Attribute{
 						MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16384),
+						},
 					},
 					"node": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [] Configuration will apply to a given device on the given node.",
@@ -1086,6 +1104,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"priority": schema.Int64Attribute{
 						MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 255),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

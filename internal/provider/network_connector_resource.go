@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -340,10 +341,16 @@ func (r *NetworkConnectorResource) Schema(ctx context.Context, req resource.Sche
 					"connection_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for new network connections to upstream server. This is specified in milliseconds. The  (2 seconds). Defaults to `2000`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(600000),
+						},
 					},
 					"max_connect_attempts": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the allowed number of retries on connect failure to upstream server. Defaults to `1`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(8),
+						},
 					},
 					"white_listed_ports": schema.ListAttribute{
 						MarkdownDescription: "Traffic to these destination TCP ports is not subjected to protocol parsing Example 'tmate' server port.",

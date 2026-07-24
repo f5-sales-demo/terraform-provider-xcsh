@@ -1327,7 +1327,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						MarkdownDescription: "The timeout for the inference check, in milliseconds.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(1, 3600),
+							int64validator.Between(0, 60000),
 						},
 					},
 				},
@@ -1945,6 +1945,9 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					"data_sample": schema.Int64Attribute{
 						MarkdownDescription: "Limit on amount of request-body data (other than F5 telemetry) to send for analysis (limit 1,048,576 == 1 MiByte).",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 1048576),
+						},
 					},
 					"loglevel": schema.StringAttribute{
 						MarkdownDescription: "[Enum: LOG_UNDEFINED|LOG_ERROR|LOG_WARNING|LOG_INFO|LOG_DEBUG] Select the level of logging desired. Levels are cumulative (e.g. Debug includes Error, Warning, and Informational) - LOG_UNDEFINED: Undefined - LOG_ERROR: Error Log only errors - LOG_WARNING: Warning Log malicious requests - LOG_INFO: Info Log all requests - LOG_DEBUG: Debug Log debugging data. Possible values are `LOG_UNDEFINED`, `LOG_ERROR`, `LOG_WARNING`, `LOG_INFO`, `LOG_DEBUG`. Defaults to `LOG_UNDEFINED`.",
@@ -1957,7 +1960,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 						MarkdownDescription: "The timeout for the inference check, in milliseconds.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(1, 3600),
+							int64validator.Between(0, 60000),
 						},
 					},
 				},

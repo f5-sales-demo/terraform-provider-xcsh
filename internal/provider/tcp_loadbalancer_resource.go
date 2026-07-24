@@ -881,6 +881,9 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					int64validator.AtMost(4147200000),
+				},
 			},
 			"listen_port": schema.Int64Attribute{
 				MarkdownDescription: "[OneOf: listen_port, port_ranges] Exclusive with [port_ranges] Listen Port for this load balancer.",
@@ -888,6 +891,9 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
+				},
+				Validators: []validator.Int64{
+					int64validator.AtMost(65535),
 				},
 			},
 			"port_ranges": schema.StringAttribute{
@@ -1351,6 +1357,9 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						"priority": schema.Int64Attribute{
 							MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.Between(0, 32),
+							},
 						},
 						"weight": schema.Int64Attribute{
 							MarkdownDescription: "Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool.",

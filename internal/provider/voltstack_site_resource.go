@@ -3594,10 +3594,16 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								"link_polling_interval": schema.Int64Attribute{
 									MarkdownDescription: "Link polling interval in milliseconds .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(500, 5000),
+									},
 								},
 								"link_up_delay": schema.Int64Attribute{
 									MarkdownDescription: "Milliseconds wait before link is declared up .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 1000),
+									},
 								},
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -3617,6 +3623,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										"rate": schema.Int64Attribute{
 											MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 30),
+											},
 										},
 									},
 								},
@@ -3698,6 +3707,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					"tunnel_dead_timeout": schema.Int64Attribute{
 						MarkdownDescription: "Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 180000),
+						},
 					},
 					"vip_vrrp_mode": schema.StringAttribute{
 						MarkdownDescription: "[Enum: VIP_VRRP_INVALID|VIP_VRRP_ENABLE|VIP_VRRP_DISABLE] VRRP advertisement mode for VIP Invalid VRRP mode. Possible values are `VIP_VRRP_INVALID`, `VIP_VRRP_ENABLE`, `VIP_VRRP_DISABLE`. Defaults to `VIP_VRRP_INVALID`.",
@@ -3956,6 +3968,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node of the site.",
@@ -3967,6 +3982,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"priority": schema.Int64Attribute{
 													MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 255),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -4000,6 +4018,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node of the site.",
@@ -4028,6 +4049,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node.",
@@ -4039,12 +4063,15 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"priority": schema.Int64Attribute{
 													MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 255),
+													},
 												},
 												"vlan_id": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 4094),
+														int64validator.Between(1, 4095),
 													},
 												},
 											},
@@ -4410,6 +4437,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [] Configuration will apply to a given device on the given node.",
@@ -4421,6 +4451,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"priority": schema.Int64Attribute{
 													MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 255),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -5260,6 +5293,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"iops_limit": schema.Int64Attribute{
 													MarkdownDescription: "Enable IOPS limitation. It must be between 100 and 100 million. If value is 0, IOPS limit is not defined.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(100000000),
+													},
 												},
 											},
 										},
@@ -5297,6 +5333,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"api_server_port": schema.Int64Attribute{
 													MarkdownDescription: "Storage server Port. Enter Storage Server Port.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 												"iscsi_chap_user": schema.StringAttribute{
 													MarkdownDescription: "Chap Username to connect to the HPE storage.",
@@ -6070,6 +6109,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														"limit_aggregate_usage": schema.Int64Attribute{
 															MarkdownDescription: "Fail provisioning if usage is above this percentage. Not enforced by default.",
 															Optional:            true,
+															Validators: []validator.Int64{
+																int64validator.Between(0, 100),
+															},
 														},
 														"limit_volume_size": schema.Int64Attribute{
 															MarkdownDescription: "Fail provisioning if requested volume size in GBi is above this value. Not enforced by default.",
@@ -6799,6 +6841,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																"iscsi_login_timeout": schema.Int64Attribute{
 																	MarkdownDescription: "ISCSI login timeout in seconds. Not recommended to change!",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(1, 100),
+																	},
 																},
 																"san_type": schema.StringAttribute{
 																	MarkdownDescription: "Block volume access protocol, either ISCSI or FC .",
@@ -7156,6 +7201,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"mtu": schema.Int64Attribute{
 													MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtMost(16384),
+													},
 												},
 												"node": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [cluster] Configuration will apply to a device on the given node.",
@@ -7167,12 +7215,15 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"priority": schema.Int64Attribute{
 													MarkdownDescription: "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 255),
+													},
 												},
 												"vlan_id": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 4094),
+														int64validator.Between(1, 4095),
 													},
 												},
 											},
@@ -7577,6 +7628,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 					"server_port": schema.Int64Attribute{
 						MarkdownDescription: "License Server Port Number. Set License Server port number.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 				},
 			},
@@ -7626,10 +7680,16 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 5000),
+								},
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 900),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -7653,6 +7713,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							"asn": schema.Int64Attribute{
 								MarkdownDescription: "ASN. Autonomous System Number .",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtLeast(1),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -7675,14 +7738,23 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"multiplier": schema.Int64Attribute{
 													MarkdownDescription: "Specify Number of missed packets to bring session down' .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 255),
+													},
 												},
 												"receive_interval_milliseconds": schema.Int64Attribute{
 													MarkdownDescription: "BFD receive interval timer, in milliseconds .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 255000),
+													},
 												},
 												"transmit_interval_milliseconds": schema.Int64Attribute{
 													MarkdownDescription: "BFD transmit interval timer, in milliseconds .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 255000),
+													},
 												},
 											},
 										},
@@ -7709,6 +7781,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"asn": schema.Int64Attribute{
 													MarkdownDescription: "Autonomous System Number for BGP peer .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.AtLeast(1),
+													},
 												},
 												"md5_auth_key": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [no_authentication] MD5 key for protecting BGP Sessions (RFC 2385).",
@@ -7724,18 +7799,30 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"subnet_begin_offset": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [address default_gateway disable external_connector from_site subnet_end_offset] Calculate peer address using offset from the beginning of the subnet.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 32),
+													},
 												},
 												"subnet_begin_offset_v6": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [address_ipv6 default_gateway_v6 disable_v6 from_site_v6 subnet_end_offset_v6] Calculate peer address using offset from the beginning of the subnet.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 32),
+													},
 												},
 												"subnet_end_offset": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [address default_gateway disable external_connector from_site subnet_begin_offset] Calculate peer address using offset from the end of the subnet.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 32),
+													},
 												},
 												"subnet_end_offset_v6": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [address_ipv6 default_gateway_v6 disable_v6 from_site_v6 subnet_begin_offset_v6] Calculate peer address using offset from the end of the subnet.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 32),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{

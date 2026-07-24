@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -223,10 +224,16 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Port used for performing health check .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 					"health_check_secondary_port": schema.Int64Attribute{
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 65535),
+						},
 					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
@@ -262,10 +269,16 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Port used for performing health check .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 					"health_check_secondary_port": schema.Int64Attribute{
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 65535),
+						},
 					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
@@ -304,10 +317,16 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Port used for performing health check .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 					"health_check_secondary_port": schema.Int64Attribute{
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 65535),
+						},
 					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Regular expression used to match against the response to the monitor's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
@@ -331,10 +350,16 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Port used for performing health check .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 					"health_check_secondary_port": schema.Int64Attribute{
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 65535),
+						},
 					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "Hex encoded raw bytes expected in the response.",
@@ -358,10 +383,16 @@ func (r *DNSLBHealthCheckResource) Schema(ctx context.Context, req resource.Sche
 					"health_check_port": schema.Int64Attribute{
 						MarkdownDescription: "Port used for performing health check .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 					"health_check_secondary_port": schema.Int64Attribute{
 						MarkdownDescription: "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 65535),
+						},
 					},
 					"receive": schema.StringAttribute{
 						MarkdownDescription: "UDP response to be matched. It can be a regex.",

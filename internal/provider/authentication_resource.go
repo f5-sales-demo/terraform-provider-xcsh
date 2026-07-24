@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -305,14 +306,23 @@ func (r *AuthenticationResource) Schema(ctx context.Context, req resource.Schema
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(86400),
+						},
 					},
 					"cookie_refresh_interval": schema.Int64Attribute{
 						MarkdownDescription: "Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same original session..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(86400),
+						},
 					},
 					"session_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours).",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(1296000),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

@@ -1223,6 +1223,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			"connection_idle_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtMost(600000),
+				},
 			},
 			"disable_default_error_pages": schema.BoolAttribute{
 				MarkdownDescription: "Option to specify whether to disable using default F5XC error pages.",
@@ -1239,6 +1242,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 			"max_request_header_size": schema.Int64Attribute{
 				MarkdownDescription: "The maximum request header size in KiB for incoming connections. If un-configured, the default max request headers allowed is 60 KiB. Requests that exceed this limit will receive a 431 response.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtMost(96),
+				},
 			},
 			"max_requests_per_connection": schema.Int64Attribute{
 				MarkdownDescription: "[OneOf: max_requests_per_connection, no_request_limit_per_connection; Default: no_request_limit_per_connection] Exclusive with [no_request_limit_per_connection] Sets the maximum number of requests a downstream client can send over a single connection to Envoy. Enter a value >=1 to define the request limit per connection.",
@@ -1246,6 +1252,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
+				},
+				Validators: []validator.Int64{
+					int64validator.AtLeast(1),
 				},
 			},
 			"proxy": schema.StringAttribute{
@@ -1362,14 +1371,23 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(86400),
+								},
 							},
 							"cookie_refresh_interval": schema.Int64Attribute{
 								MarkdownDescription: "Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same original session..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(86400),
+								},
 							},
 							"session_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours).",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(1296000),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -1495,6 +1513,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"max_request_bytes": schema.Int64Attribute{
 						MarkdownDescription: "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(10485760),
+						},
 					},
 				},
 			},
@@ -1504,6 +1525,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 86400),
+						},
 					},
 					"custom_page": schema.StringAttribute{
 						MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -1532,6 +1556,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"content_length": schema.Int64Attribute{
 						MarkdownDescription: "Minimum response length, in bytes, which will trigger compression. The. Defaults to `30`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtLeast(30),
+						},
 					},
 					"content_type": schema.ListAttribute{
 						MarkdownDescription: "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: 'application/javascript' 'application/JSON', 'application/xhtml+XML' 'image/svg+XML' 'text/CSS' 'text/HTML' 'text/plain' 'text/XML'.",
@@ -1642,6 +1669,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"connection_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for new network connections to upstream server. This is specified in milliseconds. The  (2 seconds). Defaults to `2000`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(600000),
+						},
 					},
 					"resolution_network_type": schema.StringAttribute{
 						MarkdownDescription: "[Enum: VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT] Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to.. Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`. Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`.",
@@ -1738,6 +1768,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 86400),
+						},
 					},
 					"custom_page": schema.StringAttribute{
 						MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -1749,6 +1782,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"js_script_delay": schema.Int64Attribute{
 						MarkdownDescription: "Delay introduced by Javascript, in milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1000, 60000),
+						},
 					},
 				},
 			},
@@ -1968,6 +2004,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 						"max_age_value": schema.Int64Attribute{
 							MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.AtMost(34560000),
+							},
 						},
 						"name": schema.StringAttribute{
 							MarkdownDescription: "Name of the cookie in Cookie header.",
@@ -2154,10 +2193,16 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"num_retries": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the allowed number of retries. Retries can be done any number of times. An exponential back-off algorithm is used between each retry. Defaults to `1`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(8),
+						},
 					},
 					"per_try_timeout": schema.Int64Attribute{
 						MarkdownDescription: "Specifies a non-zero timeout per retry attempt. In milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(600000),
+						},
 					},
 					"retriable_status_codes": schema.ListAttribute{
 						MarkdownDescription: "HTTP status codes that should trigger a retry in addition to those specified by retry_on.",
@@ -2268,10 +2313,16 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"request_headers_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The  milliseconds. This setting provides protection against Slowloris attacks. Defaults to `10000`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(2000, 30000),
+						},
 					},
 					"request_timeout": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [disable_request_timeout].",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(2000, 300000),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

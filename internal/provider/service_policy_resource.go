@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -2047,54 +2048,93 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 												"max_cookie_count_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the Count for all Cookies that exceed this value. Exclusive with [max_cookie_count_none]",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 1024),
+													},
 												},
 												"max_cookie_key_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_cookie_key_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 1024),
+													},
 												},
 												"max_cookie_value_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_cookie_value_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 32768),
+													},
 												},
 												"max_header_count_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the Count for all Headers that exceed this value. Exclusive with [max_header_count_none]",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 40),
+													},
 												},
 												"max_header_key_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_header_key_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 1024),
+													},
 												},
 												"max_header_value_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_header_value_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 64000),
+													},
 												},
 												"max_parameter_count_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_parameter_count_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 1024),
+													},
 												},
 												"max_parameter_name_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_parameter_name_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 1024),
+													},
 												},
 												"max_parameter_value_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_parameter_value_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 1073741824),
+													},
 												},
 												"max_query_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the URL Query Size that exceed this value. Exclusive with [max_query_size_none]",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 60000),
+													},
 												},
 												"max_request_line_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [max_request_line_size_none].",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65536),
+													},
 												},
 												"max_request_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the Request Size that exceed this value. Exclusive with [max_request_size_none]",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65536),
+													},
 												},
 												"max_url_size_exceeds": schema.Int64Attribute{
 													MarkdownDescription: "Match on the URL Size that exceed this value. Exclusive with [max_url_size_none]",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 128000),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -2348,6 +2388,9 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 																	"signature_id": schema.Int64Attribute{
 																		MarkdownDescription: "The allowed values for signature ID are 0 and in the range of 200000001-299999999. 0 implies that all signatures will be excluded for the specified context.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(0, 299999999),
+																		},
 																	},
 																},
 															},

@@ -323,6 +323,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					int64validator.Between(0, 2147483647),
+				},
 			},
 		},
 		Blocks: map[string]schema.Block{
@@ -338,6 +341,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 32),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -399,10 +405,16 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Used if the pool’s load balancing mode is set to Priority.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 255),
+									},
 								},
 								"ratio": schema.Int64Attribute{
 									MarkdownDescription: "Used if the pool’s load balancing mode is set to Ratio-Member.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 100),
+									},
 								},
 							},
 						},
@@ -415,6 +427,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 32),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -443,10 +458,16 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Used if the pool’s load balancing mode is set to Priority.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 255),
+									},
 								},
 								"ratio": schema.Int64Attribute{
 									MarkdownDescription: "Used if the pool’s load balancing mode is set to Ratio-Member.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 100),
+									},
 								},
 							},
 						},
@@ -515,6 +536,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 								"ratio": schema.Int64Attribute{
 									MarkdownDescription: "Load Balancing Ratio. Configuration parameter for ratio",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 100),
+									},
 								},
 							},
 						},
@@ -527,6 +551,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 32),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -551,10 +578,16 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "MX Record Priority. MX Record priority.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 65535),
+									},
 								},
 								"ratio": schema.Int64Attribute{
 									MarkdownDescription: "Load Balancing Ratio. Load Balancing Ratio.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 100),
+									},
 								},
 							},
 						},
@@ -567,6 +600,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 					"max_answers": schema.Int64Attribute{
 						MarkdownDescription: "Limit on number of Resource Records to be included in the response to query .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 32),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -589,16 +625,22 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 									MarkdownDescription: "Port on which the service can be found .",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.Between(1, 65535),
+										int64validator.Between(0, 65535),
 									},
 								},
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 65535),
+									},
 								},
 								"ratio": schema.Int64Attribute{
 									MarkdownDescription: "Load Balancing Ratio. Configuration parameter for ratio",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 100),
+									},
 								},
 								"target": schema.StringAttribute{
 									MarkdownDescription: "Domain name of the machine providing the service .",
@@ -610,6 +652,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 								"weight": schema.Int64Attribute{
 									MarkdownDescription: "Weight of the target. A higher number indicates a higher preference.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 65535),
+									},
 								},
 							},
 						},

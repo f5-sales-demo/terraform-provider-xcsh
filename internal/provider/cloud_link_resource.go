@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -335,6 +336,9 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 					"custom_asn": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [] F5XC will use custom ASN to create a Direct Connect Gateway.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(4294967294),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -379,6 +383,9 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 										"bgp_asn": schema.Int64Attribute{
 											MarkdownDescription: "The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of your on-premises router for the new virtual interface to be configured on AWS.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 2147483647),
+											},
 										},
 										"connection_id": schema.StringAttribute{
 											MarkdownDescription: "ID of the existing AWS Direct Connect Connection .",
@@ -408,6 +415,9 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 										"vlan": schema.Int64Attribute{
 											MarkdownDescription: "Virtual Local Area Network number for the new virtual interface to be configured on the AWS. This tag is required for any traffic traversing the AWS Direct Connect connection .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 4094),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
