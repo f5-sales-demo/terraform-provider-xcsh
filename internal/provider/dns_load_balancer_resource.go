@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -381,14 +382,23 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"cache_cidr_ipv4": schema.Int64Attribute{
 								MarkdownDescription: "Length of CIDR masks used to group IPv4 clients.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 32),
+								},
 							},
 							"cache_cidr_ipv6": schema.Int64Attribute{
 								MarkdownDescription: "Length of CIDR masks used to group IPv6 clients.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 128),
+								},
 							},
 							"cache_ttl": schema.Int64Attribute{
 								MarkdownDescription: "TTL. TTL for response cache.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtLeast(0),
+								},
 							},
 						},
 					},
@@ -405,6 +415,9 @@ func (r *DNSLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								"score": schema.Int64Attribute{
 									MarkdownDescription: "When multiple load balancing rules match a query, the one with the highest score is chosen.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 32767),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{

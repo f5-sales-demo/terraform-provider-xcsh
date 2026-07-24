@@ -1447,6 +1447,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 								"ttl": schema.Int64Attribute{
 									MarkdownDescription: "Time to live. Time-to-live duration in seconds",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(60, 2147483647),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -1556,6 +1559,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"flags": schema.Int64Attribute{
 														MarkdownDescription: "Flag should be an integer between 0 and 255.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 													"tag": schema.StringAttribute{
 														MarkdownDescription: "Tag. Tag for categorization and filtering",
@@ -1599,6 +1605,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"key_tag": schema.Int64Attribute{
 														MarkdownDescription: "Short numeric value which can help quickly identify the referenced DNSKEY-record.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(1, 65535),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -1669,6 +1678,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"cert_key_tag": schema.Int64Attribute{
 														MarkdownDescription: "Key Tag.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 65535),
+														},
 													},
 													"cert_type": schema.StringAttribute{
 														MarkdownDescription: "[Enum: INVALIDCERTTYPE|PKIX|SPKI|PGP|IPKIX|ISPKI|IPGP|ACPKIX|IACPKIX|URI_|OID] CERT type value must be compatible with the specified types. - INVALIDCERTTYPE: INVALIDCERTTYPE - PKIX: PKIX - SPKI: SPKI - PGP: PGP - IPKIX: IPKIX - ISPKI: ISPKI - IPGP: IPGP - ACPKIX: ACPKIX - IACPKIX: IACPKIX - URI_: URI - OID: OID. Possible values are `INVALIDCERTTYPE`, `PKIX`, `SPKI`, `PGP`, `IPKIX`, `ISPKI`, `IPGP`, `ACPKIX`, `IACPKIX`, `URI_`, `OID`. Defaults to `INVALIDCERTTYPE`.",
@@ -1734,6 +1746,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"key_tag": schema.Int64Attribute{
 														MarkdownDescription: "Short numeric value which can help quickly identify the referenced DNSKEY-record.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(1, 65535),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -1973,6 +1988,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "Priority. Mail exchanger priority code.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 65535),
+														},
 													},
 												},
 											},
@@ -2005,10 +2023,16 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"order": schema.Int64Attribute{
 														MarkdownDescription: "Order in which the NAPTR records must be processed. A lower number indicates a higher preference.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 65535),
+														},
 													},
 													"preference": schema.Int64Attribute{
 														MarkdownDescription: "Preference when records have the same order. A lower number indicates a higher preference.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 65535),
+														},
 													},
 													"regexp": schema.StringAttribute{
 														MarkdownDescription: "Regular expression to construct the next domain name to lookup.",
@@ -2093,12 +2117,15 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														MarkdownDescription: "Port. Port on which the service can be found.",
 														Optional:            true,
 														Validators: []validator.Int64{
-															int64validator.Between(1, 65535),
+															int64validator.Between(0, 65535),
 														},
 													},
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 65535),
+														},
 													},
 													"target": schema.StringAttribute{
 														MarkdownDescription: "Hostname of the machine providing the service.",
@@ -2110,6 +2137,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"weight": schema.Int64Attribute{
 														MarkdownDescription: "Weight of the target. A higher number indicates a higher preference.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 65535),
+														},
 													},
 												},
 											},
@@ -2292,6 +2322,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											"ttl": schema.Int64Attribute{
 												MarkdownDescription: "Time to live. Time-to-live duration in seconds",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.Between(60, 2147483647),
+												},
 											},
 										},
 										Blocks: map[string]schema.Block{
@@ -2401,6 +2434,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"flags": schema.Int64Attribute{
 																	MarkdownDescription: "Flag should be an integer between 0 and 255.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 255),
+																	},
 																},
 																"tag": schema.StringAttribute{
 																	MarkdownDescription: "Tag. Tag for categorization and filtering",
@@ -2444,6 +2480,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"key_tag": schema.Int64Attribute{
 																	MarkdownDescription: "Short numeric value which can help quickly identify the referenced DNSKEY-record.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(1, 65535),
+																	},
 																},
 															},
 															Blocks: map[string]schema.Block{
@@ -2514,6 +2553,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"cert_key_tag": schema.Int64Attribute{
 																	MarkdownDescription: "Key Tag.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 65535),
+																	},
 																},
 																"cert_type": schema.StringAttribute{
 																	MarkdownDescription: "[Enum: INVALIDCERTTYPE|PKIX|SPKI|PGP|IPKIX|ISPKI|IPGP|ACPKIX|IACPKIX|URI_|OID] CERT type value must be compatible with the specified types. - INVALIDCERTTYPE: INVALIDCERTTYPE - PKIX: PKIX - SPKI: SPKI - PGP: PGP - IPKIX: IPKIX - ISPKI: ISPKI - IPGP: IPGP - ACPKIX: ACPKIX - IACPKIX: IACPKIX - URI_: URI - OID: OID. Possible values are `INVALIDCERTTYPE`, `PKIX`, `SPKI`, `PGP`, `IPKIX`, `ISPKI`, `IPGP`, `ACPKIX`, `IACPKIX`, `URI_`, `OID`. Defaults to `INVALIDCERTTYPE`.",
@@ -2579,6 +2621,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"key_tag": schema.Int64Attribute{
 																	MarkdownDescription: "Short numeric value which can help quickly identify the referenced DNSKEY-record.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(1, 65535),
+																	},
 																},
 															},
 															Blocks: map[string]schema.Block{
@@ -2818,6 +2863,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"priority": schema.Int64Attribute{
 																	MarkdownDescription: "Priority. Mail exchanger priority code.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 65535),
+																	},
 																},
 															},
 														},
@@ -2850,10 +2898,16 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"order": schema.Int64Attribute{
 																	MarkdownDescription: "Order in which the NAPTR records must be processed. A lower number indicates a higher preference.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 65535),
+																	},
 																},
 																"preference": schema.Int64Attribute{
 																	MarkdownDescription: "Preference when records have the same order. A lower number indicates a higher preference.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 65535),
+																	},
 																},
 																"regexp": schema.StringAttribute{
 																	MarkdownDescription: "Regular expression to construct the next domain name to lookup.",
@@ -2938,12 +2992,15 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																	MarkdownDescription: "Port. Port on which the service can be found.",
 																	Optional:            true,
 																	Validators: []validator.Int64{
-																		int64validator.Between(1, 65535),
+																		int64validator.Between(0, 65535),
 																	},
 																},
 																"priority": schema.Int64Attribute{
 																	MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 65535),
+																	},
 																},
 																"target": schema.StringAttribute{
 																	MarkdownDescription: "Hostname of the machine providing the service.",
@@ -2955,6 +3012,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"weight": schema.Int64Attribute{
 																	MarkdownDescription: "Weight of the target. A higher number indicates a higher preference.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 65535),
+																	},
 																},
 															},
 														},
@@ -3096,22 +3156,37 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 							"expire": schema.Int64Attribute{
 								MarkdownDescription: "Expire value indicates when secondary nameservers should stop answering request for this zone if primary does not respond.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 2147483647),
+								},
 							},
 							"negative_ttl": schema.Int64Attribute{
 								MarkdownDescription: "Negative TTL value indicates how long to cache non-existent resource record for this zone.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 2147483647),
+								},
 							},
 							"refresh": schema.Int64Attribute{
 								MarkdownDescription: "Refresh value indicates when secondary nameservers should query for the SOA record to detect zone changes.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(3600, 2147483647),
+								},
 							},
 							"retry": schema.Int64Attribute{
 								MarkdownDescription: "Retry value indicates when secondary nameservers should retry to request the serial number if primary does not respond.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(60, 2147483647),
+								},
 							},
 							"ttl": schema.Int64Attribute{
 								MarkdownDescription: "TTL. SOA record time to live (in seconds)",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 2147483647),
+								},
 							},
 						},
 					},

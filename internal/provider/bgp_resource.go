@@ -446,14 +446,23 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								"multiplier": schema.Int64Attribute{
 									MarkdownDescription: "Specify Number of missed packets to bring session down' .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 255),
+									},
 								},
 								"receive_interval_milliseconds": schema.Int64Attribute{
 									MarkdownDescription: "BFD receive interval timer, in milliseconds .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 255000),
+									},
 								},
 								"transmit_interval_milliseconds": schema.Int64Attribute{
 									MarkdownDescription: "BFD transmit interval timer, in milliseconds .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 255000),
+									},
 								},
 							},
 						},
@@ -480,6 +489,9 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								"asn": schema.Int64Attribute{
 									MarkdownDescription: "Autonomous System Number for BGP peer .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.AtLeast(1),
+									},
 								},
 								"md5_auth_key": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [no_authentication] MD5 key for protecting BGP Sessions (RFC 2385).",
@@ -495,18 +507,30 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								"subnet_begin_offset": schema.Int64Attribute{
 									MarkdownDescription: "Exclusive with [address default_gateway disable external_connector from_site subnet_end_offset] Calculate peer address using offset from the beginning of the subnet.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 32),
+									},
 								},
 								"subnet_begin_offset_v6": schema.Int64Attribute{
 									MarkdownDescription: "Exclusive with [address_ipv6 default_gateway_v6 disable_v6 from_site_v6 subnet_end_offset_v6] Calculate peer address using offset from the beginning of the subnet.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 32),
+									},
 								},
 								"subnet_end_offset": schema.Int64Attribute{
 									MarkdownDescription: "Exclusive with [address default_gateway disable external_connector from_site subnet_begin_offset] Calculate peer address using offset from the end of the subnet.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 32),
+									},
 								},
 								"subnet_end_offset_v6": schema.Int64Attribute{
 									MarkdownDescription: "Exclusive with [address_ipv6 default_gateway_v6 disable_v6 from_site_v6 subnet_begin_offset_v6] Calculate peer address using offset from the end of the subnet.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 32),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -718,6 +742,9 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 					"asn": schema.Int64Attribute{
 						MarkdownDescription: "ASN. Autonomous System Number .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtLeast(1),
+						},
 					},
 					"ip_address": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [from_site local_address] Use the configured IPv4 Address as Router ID.",

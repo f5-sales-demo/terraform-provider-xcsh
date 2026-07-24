@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -283,6 +284,9 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 					"max_login_failures": schema.Int64Attribute{
 						MarkdownDescription: "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(30),
+						},
 					},
 				},
 			},
@@ -292,6 +296,9 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 					"max_login_failures": schema.Int64Attribute{
 						MarkdownDescription: "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(30),
+						},
 					},
 				},
 			},
@@ -301,18 +308,30 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 					"digits": schema.Int64Attribute{
 						MarkdownDescription: "The number of digits required to be in the password string.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16),
+						},
 					},
 					"expire_password": schema.Int64Attribute{
 						MarkdownDescription: "The number of days for which the password is valid. After the number of days has expired, the user is required to change their password.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(1080),
+						},
 					},
 					"lowercase_characters": schema.Int64Attribute{
 						MarkdownDescription: "The number of lower case letters required to be in the password string.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16),
+						},
 					},
 					"minimum_length": schema.Int64Attribute{
 						MarkdownDescription: "Minimum length of password.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtLeast(7),
+						},
 					},
 					"not_recently_used": schema.Int64Attribute{
 						MarkdownDescription: "Policy is used to restrict user from using previously used passwords. Number that's set determines number of last passwords which user cannot use as new password.",
@@ -325,10 +344,16 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 					"special_characters": schema.Int64Attribute{
 						MarkdownDescription: "The number of special characters like '?!#%$' required to be in the password string.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16),
+						},
 					},
 					"uppercase_characters": schema.Int64Attribute{
 						MarkdownDescription: "The number of upper case letters required to be in the password string.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(16),
+						},
 					},
 				},
 			},
@@ -358,6 +383,9 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(1, 720),
+										},
 									},
 								},
 							},
@@ -367,6 +395,9 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(5, 43200),
+										},
 									},
 								},
 							},
@@ -382,6 +413,9 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(1, 720),
+										},
 									},
 								},
 							},
@@ -391,6 +425,9 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 									"duration": schema.Int64Attribute{
 										MarkdownDescription: "Duration.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(5, 43200),
+										},
 									},
 								},
 							},

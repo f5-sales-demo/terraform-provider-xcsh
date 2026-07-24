@@ -4656,6 +4656,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					int64validator.Between(0, 180000),
+				},
 			},
 			"tunnel_type": schema.StringAttribute{
 				MarkdownDescription: "[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`. Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`.",
@@ -4944,6 +4947,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -4955,6 +4961,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -4972,10 +4981,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -4995,6 +5010,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -5249,7 +5267,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -5310,6 +5328,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -5321,6 +5342,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -5338,10 +5362,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -5361,6 +5391,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -5615,7 +5648,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -5676,6 +5709,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -5687,6 +5723,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -5704,10 +5743,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -5727,6 +5772,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -5981,7 +6029,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -6043,6 +6091,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					"proxy_port": schema.Int64Attribute{
 						MarkdownDescription: "Specify the Port of the internal Enterprise Proxy .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 65535),
+						},
 					},
 					"username": schema.StringAttribute{
 						MarkdownDescription: "If the internal Enterprise Proxy is using basic authentication, specify the username. This is an optional field.",
@@ -6344,6 +6395,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -6355,6 +6409,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -6372,10 +6429,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -6395,6 +6458,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -6649,7 +6715,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -6713,6 +6779,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -6724,6 +6793,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -6741,10 +6813,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -6764,6 +6842,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -7018,7 +7099,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -7079,6 +7160,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -7090,6 +7174,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -7107,10 +7194,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -7130,6 +7223,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -7384,7 +7480,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -8013,6 +8109,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -8024,6 +8123,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -8041,10 +8143,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -8064,6 +8172,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -8318,7 +8429,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -8379,6 +8490,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -8390,6 +8504,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -8407,10 +8524,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -8430,6 +8553,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -8684,7 +8810,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -8757,6 +8883,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -8768,6 +8897,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -8785,10 +8917,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -8808,6 +8946,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -9062,7 +9203,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -9123,6 +9264,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -9134,6 +9278,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -9151,10 +9298,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -9174,6 +9327,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -9428,7 +9584,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},
@@ -9799,10 +9955,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									"drain_max_unavailable_node_count": schema.Int64Attribute{
 										MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(1, 5000),
+										},
 									},
 									"drain_node_timeout": schema.Int64Attribute{
 										MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.Between(0, 900),
+										},
 									},
 								},
 								Blocks: map[string]schema.Block{
@@ -9864,6 +10026,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"mtu": schema.Int64Attribute{
 														MarkdownDescription: "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 16384.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(16384),
+														},
 													},
 													"name": schema.StringAttribute{
 														MarkdownDescription: "Interface Name. Name of this Interface.",
@@ -9875,6 +10040,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be used as active and interfaces with lower priority will be used as backup. If multiple interfaces have the same priority, ECMP will be used. Greater the value, higher the priority.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 255),
+														},
 													},
 												},
 												Blocks: map[string]schema.Block{
@@ -9892,10 +10060,16 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"link_polling_interval": schema.Int64Attribute{
 																MarkdownDescription: "Link polling interval in milliseconds .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(500, 5000),
+																},
 															},
 															"link_up_delay": schema.Int64Attribute{
 																MarkdownDescription: "Milliseconds wait before link is declared up .",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 1000),
+																},
 															},
 															"name": schema.StringAttribute{
 																MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -9915,6 +10089,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																	"rate": schema.Int64Attribute{
 																		MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 																		Optional:            true,
+																		Validators: []validator.Int64{
+																			int64validator.Between(1, 30),
+																		},
 																	},
 																},
 															},
@@ -10169,7 +10346,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
 																Validators: []validator.Int64{
-																	int64validator.Between(1, 4094),
+																	int64validator.Between(1, 4095),
 																},
 															},
 														},

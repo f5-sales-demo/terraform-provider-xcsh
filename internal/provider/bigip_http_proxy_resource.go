@@ -1412,6 +1412,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool. When active origin pool is not available, lower priority origin pools are made active as per the increasing priority.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 32),
+									},
 								},
 								"weight": schema.Int64Attribute{
 									MarkdownDescription: "Weight of this origin pool, valid only with multiple origin pools. Value of 0 will disable the pool.",
@@ -1440,6 +1443,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												"healthy_threshold": schema.Int64Attribute{
 													MarkdownDescription: "Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 16),
+													},
 												},
 												"interval": schema.Int64Attribute{
 													MarkdownDescription: "Time interval in seconds between two health check requests .",
@@ -1452,12 +1458,15 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 													MarkdownDescription: "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 3600),
+														int64validator.Between(1, 600),
 													},
 												},
 												"unhealthy_threshold": schema.Int64Attribute{
 													MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health check if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 16),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -1779,6 +1788,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 															"refresh_interval": schema.Int64Attribute{
 																MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.AtMost(604800),
+																},
 															},
 														},
 													},
@@ -2191,6 +2203,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							"connection_idle_timeout": schema.Int64Attribute{
 								MarkdownDescription: "The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(600000),
+								},
 							},
 							"http_redirect": schema.BoolAttribute{
 								MarkdownDescription: "HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.",
@@ -2701,6 +2716,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							"connection_idle_timeout": schema.Int64Attribute{
 								MarkdownDescription: "The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(600000),
+								},
 							},
 							"http_redirect": schema.BoolAttribute{
 								MarkdownDescription: "HTTP Redirect to HTTPS. Redirect HTTP traffic to HTTPS.",

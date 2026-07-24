@@ -506,6 +506,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			"connection_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The  seconds. Defaults to `2`.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtMost(600000),
+				},
 			},
 			"endpoint_selection": schema.StringAttribute{
 				MarkdownDescription: "[Enum: DISTRIBUTED|LOCAL_ONLY|LOCAL_PREFERRED] Policy for selection of endpoints from local site/remote site/both Consider both remote and local endpoints for load balancing LOCAL_ONLY: Consider only local endpoints for load balancing Enable this policy to load balance ONLY among locally discovered endpoints Prefer the local endpoints for.. Possible values are `DISTRIBUTED`, `LOCAL_ONLY`, `LOCAL_PREFERRED`. Defaults to `DISTRIBUTED`.",
@@ -524,6 +527,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 			"http_idle_timeout": schema.Int64Attribute{
 				MarkdownDescription: "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtMost(600000),
+				},
 			},
 			"loadbalancer_algorithm": schema.StringAttribute{
 				MarkdownDescription: "[Enum: ROUND_ROBIN|LEAST_REQUEST|RING_HASH|RANDOM|LB_OVERRIDE] Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in.. Possible values are `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `LB_OVERRIDE`. Defaults to `ROUND_ROBIN`.",
@@ -539,6 +545,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
 				},
+				Validators: []validator.Int64{
+					int64validator.AtLeast(1),
+				},
 			},
 			"panic_threshold": schema.Int64Attribute{
 				MarkdownDescription: "Exclusive with [no_panic_threshold] Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for loadbalancing ignoring its health status.",
@@ -546,6 +555,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 				Computed:            true,
 				PlanModifiers: []planmodifier.Int64{
 					int64planmodifier.UseStateForUnknown(),
+				},
+				Validators: []validator.Int64{
+					int64validator.AtMost(100),
 				},
 			},
 		},
@@ -565,14 +577,23 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"connection_limit": schema.Int64Attribute{
 						MarkdownDescription: "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(32768),
+						},
 					},
 					"max_requests": schema.Int64Attribute{
 						MarkdownDescription: "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(32768),
+						},
 					},
 					"pending_requests": schema.Int64Attribute{
 						MarkdownDescription: "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(32768),
+						},
 					},
 					"priority": schema.StringAttribute{
 						MarkdownDescription: "[Enum: DEFAULT|HIGH] Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Possible values are `DEFAULT`, `HIGH`. Defaults to `DEFAULT`.",
@@ -584,6 +605,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"retries": schema.Int64Attribute{
 						MarkdownDescription: "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(0, 32768),
+						},
 					},
 				},
 			},
@@ -723,25 +747,37 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"base_ejection_time": schema.Int64Attribute{
 						MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(1800000),
+						},
 					},
 					"consecutive_5xx": schema.Int64Attribute{
 						MarkdownDescription: "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(1024),
+						},
 					},
 					"consecutive_gateway_failure": schema.Int64Attribute{
 						MarkdownDescription: "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.)..",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(1024),
+						},
 					},
 					"interval": schema.Int64Attribute{
 						MarkdownDescription: "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to `10000ms`.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(1, 600),
+							int64validator.Between(1, 600000),
 						},
 					},
 					"max_ejection_percent": schema.Int64Attribute{
 						MarkdownDescription: "The maximum % of an upstream cluster that can be ejected due to outlier detection.  but will eject at least one host regardless of the value. Defaults to `10%`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.AtMost(100),
+						},
 					},
 				},
 			},
@@ -757,6 +793,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"max_session_keys": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(2, 64),
+						},
 					},
 					"sni": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [disable_sni use_host_header_as_sni] SNI value to be used.",

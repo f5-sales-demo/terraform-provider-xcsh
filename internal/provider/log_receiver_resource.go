@@ -245,6 +245,9 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 					"syslog_rfc5424": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [] Select RFC5424 syslog format and maximum message length.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(408, 268435456),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

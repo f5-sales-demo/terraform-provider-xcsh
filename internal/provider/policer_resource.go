@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -88,10 +89,16 @@ func (r *PolicerResource) Schema(ctx context.Context, req resource.SchemaRequest
 			"burst_size": schema.Int64Attribute{
 				MarkdownDescription: "The maximum size permitted for bursts of data. E.g. 10000 pps burst .",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtLeast(1),
+				},
 			},
 			"committed_information_rate": schema.Int64Attribute{
 				MarkdownDescription: "The committed information rate is the guaranteed packets rate for traffic arriving or departing under normal conditions. E.g. 10000 pps .",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.Between(1, 10000000),
+				},
 			},
 			"annotations": schema.MapAttribute{
 				MarkdownDescription: "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata.",

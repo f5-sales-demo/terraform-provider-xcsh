@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -502,10 +503,16 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 										"max_id": schema.Int64Attribute{
 											MarkdownDescription: "Ending(maximum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"min_id": schema.Int64Attribute{
 											MarkdownDescription: "Starting(minimum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 									},
 								},
@@ -558,10 +565,16 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 										"max_id": schema.Int64Attribute{
 											MarkdownDescription: "Ending(maximum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"min_id": schema.Int64Attribute{
 											MarkdownDescription: "Starting(minimum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 									},
 								},
@@ -587,10 +600,16 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 										"max_id": schema.Int64Attribute{
 											MarkdownDescription: "Ending(maximum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"min_id": schema.Int64Attribute{
 											MarkdownDescription: "Starting(minimum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 									},
 								},
@@ -616,10 +635,16 @@ func (r *K8SPodSecurityPolicyResource) Schema(ctx context.Context, req resource.
 										"max_id": schema.Int64Attribute{
 											MarkdownDescription: "Ending(maximum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"min_id": schema.Int64Attribute{
 											MarkdownDescription: "Starting(minimum) ID for for ID range .",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 									},
 								},

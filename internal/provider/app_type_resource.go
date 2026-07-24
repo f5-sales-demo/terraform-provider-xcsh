@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -168,6 +169,9 @@ func (r *AppTypeResource) Schema(ctx context.Context, req resource.SchemaRequest
 							"purge_duration_for_inactive_discovered_apis": schema.Int64Attribute{
 								MarkdownDescription: "Inactive discovered API will be deleted after configured duration.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 7),
+								},
 							},
 						},
 					},

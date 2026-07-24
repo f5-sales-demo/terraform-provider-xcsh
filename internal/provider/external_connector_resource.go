@@ -449,6 +449,9 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							"tunnel_mtu": schema.Int64Attribute{
 								MarkdownDescription: "X-displayName: 'Tunnel MTU' Configure MTU for the GRE tunnel interface.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(512, 1370),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -561,7 +564,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 										MarkdownDescription: "Keepalive Timer. Operation timeout duration",
 										Optional:            true,
 										Validators: []validator.Int64{
-											int64validator.Between(1, 3600),
+											int64validator.Between(1, 5),
 										},
 									},
 								},
@@ -680,6 +683,9 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 							"tunnel_mtu": schema.Int64Attribute{
 								MarkdownDescription: "The tunnel MTU defines the maximum size of the packet that can be sent through the tunnel without needing to be fragmented .",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(512, 1370),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{

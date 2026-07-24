@@ -5421,6 +5421,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										"threshold": schema.Int64Attribute{
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(0, 8192),
+											},
 										},
 										"unit": schema.StringAttribute{
 											MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
@@ -6477,6 +6480,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										"threshold": schema.Int64Attribute{
 											MarkdownDescription: "The total number of allowed requests for 1 unit (e.g. SECOND/MINUTE/HOUR etc.) of the specified period.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(0, 8192),
+											},
 										},
 										"unit": schema.StringAttribute{
 											MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
@@ -7297,6 +7303,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						"as_number": schema.Int64Attribute{
 							MarkdownDescription: "Exclusive with [http_header ip_prefix ipv6_prefix user_identifier] RFC 6793 defined 4-byte AS number.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.Between(1, 401308),
+							},
 						},
 						"expiration_timestamp": schema.StringAttribute{
 							MarkdownDescription: "Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.",
@@ -7406,7 +7415,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						MarkdownDescription: "The timeout for the inference check, in milliseconds.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(1, 3600),
+							int64validator.Between(0, 60000),
 						},
 					},
 				},
@@ -8300,6 +8309,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 86400),
+						},
 					},
 					"custom_page": schema.StringAttribute{
 						MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -9137,6 +9149,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"purge_duration_for_inactive_discovered_apis": schema.Int64Attribute{
 								MarkdownDescription: "Inactive discovered API will be deleted after configured duration.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 7),
+								},
 							},
 						},
 					},
@@ -9155,6 +9170,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 86400),
+								},
 							},
 							"custom_page": schema.StringAttribute{
 								MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -9180,6 +9198,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 86400),
+								},
 							},
 							"custom_page": schema.StringAttribute{
 								MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -9191,6 +9212,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"js_script_delay": schema.Int64Attribute{
 								MarkdownDescription: "Delay introduced by Javascript, in milliseconds.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1000, 60000),
+								},
 							},
 						},
 					},
@@ -9281,14 +9305,23 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								"max_batched_queries": schema.Int64Attribute{
 									MarkdownDescription: "Specify maximum number of queries in a single batched request.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 20),
+									},
 								},
 								"max_depth": schema.Int64Attribute{
 									MarkdownDescription: "Specify maximum depth for the GraphQL query.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 20),
+									},
 								},
 								"max_total_length": schema.Int64Attribute{
 									MarkdownDescription: "Specify maximum length in bytes for the GraphQL query.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 16386),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -9802,6 +9835,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 86400),
+						},
 					},
 					"custom_page": schema.StringAttribute{
 						MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -9813,6 +9849,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"js_script_delay": schema.Int64Attribute{
 						MarkdownDescription: "Delay introduced by Javascript, in milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1000, 60000),
+						},
 					},
 				},
 			},
@@ -9986,6 +10025,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"cookie_expiry": schema.Int64Attribute{
 						MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 86400),
+						},
 					},
 					"custom_page": schema.StringAttribute{
 						MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -9997,6 +10039,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"js_script_delay": schema.Int64Attribute{
 						MarkdownDescription: "Delay introduced by Javascript, in milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1000, 60000),
+						},
 					},
 				},
 			},
@@ -10039,7 +10084,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									MarkdownDescription: "Origin Server Port. Port the workload can be reached on.",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.Between(1, 65535),
+										int64validator.Between(0, 65535),
 									},
 								},
 							},
@@ -10069,6 +10114,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										"refresh_interval": schema.Int64Attribute{
 											MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(604800),
+											},
 										},
 									},
 								},
@@ -10088,6 +10136,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"refresh_interval": schema.Int64Attribute{
 								MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(604800),
+								},
 							},
 						},
 					},
@@ -10097,6 +10148,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"max_session_keys": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(2, 64),
+								},
 							},
 							"sni": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [disable_sni use_host_header_as_sni] SNI value to be used.",
@@ -10552,6 +10606,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 86400),
+								},
 							},
 							"custom_page": schema.StringAttribute{
 								MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -10580,6 +10637,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"cookie_expiry": schema.Int64Attribute{
 								MarkdownDescription: "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 86400),
+								},
 							},
 							"custom_page": schema.StringAttribute{
 								MarkdownDescription: "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format.",
@@ -10591,6 +10651,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"js_script_delay": schema.Int64Attribute{
 								MarkdownDescription: "Delay introduced by Javascript, in milliseconds.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1000, 60000),
+								},
 							},
 						},
 					},
@@ -11205,6 +11268,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						"max_age_value": schema.Int64Attribute{
 							MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.AtMost(34560000),
+							},
 						},
 						"name": schema.StringAttribute{
 							MarkdownDescription: "Cookie Name. Name of the Cookie .",
@@ -11356,6 +11422,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 							"burst_multiplier": schema.Int64Attribute{
 								MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(100),
+								},
 							},
 							"period_multiplier": schema.Int64Attribute{
 								MarkdownDescription: "Setting, combined with Per Period units, provides a duration. Server applies default when omitted.",
@@ -11364,10 +11433,16 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								PlanModifiers: []planmodifier.Int64{
 									int64planmodifier.UseStateForUnknown(),
 								},
+								Validators: []validator.Int64{
+									int64validator.AtLeast(0),
+								},
 							},
 							"total_number": schema.Int64Attribute{
 								MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtMost(8192),
+								},
 							},
 							"unit": schema.StringAttribute{
 								MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
@@ -11388,6 +11463,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											"duration": schema.Int64Attribute{
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtMost(48),
+												},
 											},
 										},
 									},
@@ -11397,6 +11475,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											"duration": schema.Int64Attribute{
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtMost(60),
+												},
 											},
 										},
 									},
@@ -11406,6 +11487,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 											"duration": schema.Int64Attribute{
 												MarkdownDescription: "Duration. Configuration parameter for duration",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.AtMost(300),
+												},
 											},
 										},
 									},
@@ -11469,10 +11553,16 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"request_headers_timeout": schema.Int64Attribute{
 						MarkdownDescription: "The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The  milliseconds. This setting provides protection against Slowloris attacks. Defaults to `10000`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(2000, 30000),
+						},
 					},
 					"request_timeout": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [disable_request_timeout].",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(2000, 300000),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -11499,6 +11589,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 						"as_number": schema.Int64Attribute{
 							MarkdownDescription: "Exclusive with [http_header ip_prefix ipv6_prefix user_identifier] RFC 6793 defined 4-byte AS number.",
 							Optional:            true,
+							Validators: []validator.Int64{
+								int64validator.Between(1, 401308),
+							},
 						},
 						"expiration_timestamp": schema.StringAttribute{
 							MarkdownDescription: "Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.",
@@ -11751,6 +11844,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 															"signature_id": schema.Int64Attribute{
 																MarkdownDescription: "The allowed values for signature ID are 0 and in the range of 200000001-299999999. 0 implies that all signatures will be excluded for the specified context.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(0, 299999999),
+																},
 															},
 														},
 													},

@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1850,6 +1851,9 @@ func (r *APMResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 					"https_port": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_https_port] Enter TCP port number.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

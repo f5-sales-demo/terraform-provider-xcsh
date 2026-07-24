@@ -1336,6 +1336,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									"max_age_value": schema.Int64Attribute{
 										MarkdownDescription: "Exclusive with [ignore_max_age] Add max age attribute.",
 										Optional:            true,
+										Validators: []validator.Int64{
+											int64validator.AtMost(34560000),
+										},
 									},
 									"name": schema.StringAttribute{
 										MarkdownDescription: "Name of the cookie in Cookie header.",
@@ -1548,7 +1551,7 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									MarkdownDescription: "Specifies the timeout for the route in milliseconds. This timeout includes all retries. For server side streaming, configure this field with higher value or leave it un-configured for infinite timeout.",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.Between(1, 3600),
+										int64validator.Between(1, 1800000),
 									},
 								},
 							},
@@ -1563,6 +1566,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"max_request_bytes": schema.Int64Attribute{
 											MarkdownDescription: "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(10485760),
+											},
 										},
 									},
 								},
@@ -1646,10 +1652,16 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											"priority": schema.Int64Attribute{
 												MarkdownDescription: "Priority of this cluster, valid only with multiple destinations are configured. Value of 0 will make the cluster as lowest priority upstream cluster Priority of 1 means highest priority and is considered active. When active cluster is not available, lower priority clusters are made active as per..",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.Between(0, 32),
+												},
 											},
 											"weight": schema.Int64Attribute{
 												MarkdownDescription: "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured.",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.Between(0, 65535),
+												},
 											},
 										},
 										Blocks: map[string]schema.Block{
@@ -1875,10 +1887,16 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"num_retries": schema.Int64Attribute{
 											MarkdownDescription: "Specifies the allowed number of retries. Retries can be done any number of times. An exponential back-off algorithm is used between each retry. Defaults to `1`.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(8),
+											},
 										},
 										"per_try_timeout": schema.Int64Attribute{
 											MarkdownDescription: "Specifies a non-zero timeout per retry attempt. In milliseconds.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(600000),
+											},
 										},
 										"retriable_status_codes": schema.ListAttribute{
 											MarkdownDescription: "HTTP status codes that should trigger a retry in addition to those specified by retry_on.",
@@ -1946,6 +1964,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								"response_code": schema.Int64Attribute{
 									MarkdownDescription: "Response Code. Response code to send.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(100, 599),
+									},
 								},
 							},
 						},
@@ -1984,6 +2005,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								"response_code": schema.Int64Attribute{
 									MarkdownDescription: "The HTTP status code to use in the redirect response.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.AtMost(599),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{

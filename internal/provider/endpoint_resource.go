@@ -306,6 +306,9 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 			"health_check_port": schema.Int64Attribute{
 				MarkdownDescription: "By default the health check port of an endpoint is the same as the endpoint’s port. This option provides an alternative health check port. Setting this with a non-zero value allows an endpoint to have different health check port.",
 				Required:            true,
+				Validators: []validator.Int64{
+					int64validator.AtMost(65535),
+				},
 			},
 			"ip": schema.StringAttribute{
 				MarkdownDescription: "Exclusive with [dns_name dns_name_advanced service_info] Endpoint is reachable at the given IPv4/IPv6 address.",
@@ -350,6 +353,9 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 					"refresh_interval": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [] Interval for DNS refresh in seconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(10, 604800),
+						},
 					},
 				},
 			},

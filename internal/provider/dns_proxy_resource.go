@@ -686,6 +686,9 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 					"cache_size": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [disable_cache_profile] cache size.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 10240),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -757,6 +760,9 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 							"healthy_threshold": schema.Int64Attribute{
 								MarkdownDescription: "Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 16),
+								},
 							},
 							"interval": schema.Int64Attribute{
 								MarkdownDescription: "Time interval in seconds between two healthcheck requests.",
@@ -769,12 +775,15 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 								MarkdownDescription: "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.",
 								Optional:            true,
 								Validators: []validator.Int64{
-									int64validator.Between(1, 3600),
+									int64validator.Between(1, 600),
 								},
 							},
 							"unhealthy_threshold": schema.Int64Attribute{
 								MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 16),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -1002,6 +1011,9 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										"refresh_interval": schema.Int64Attribute{
 											MarkdownDescription: "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(604800),
+											},
 										},
 									},
 								},

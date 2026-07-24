@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -780,6 +781,9 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 							"max_session_keys": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_session_key_caching disable_session_key_caching] Number of session keys that are cached.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(2, 64),
+								},
 							},
 							"sni": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [disable_sni use_host_header_as_sni] SNI value to be used.",

@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1705,10 +1706,16 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								"link_polling_interval": schema.Int64Attribute{
 									MarkdownDescription: "Link polling interval in milliseconds .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(500, 5000),
+									},
 								},
 								"link_up_delay": schema.Int64Attribute{
 									MarkdownDescription: "Milliseconds wait before link is declared up .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 1000),
+									},
 								},
 								"name": schema.StringAttribute{
 									MarkdownDescription: "Name for the Bond. Ex 'bond0' .",
@@ -1728,6 +1735,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"rate": schema.Int64Attribute{
 											MarkdownDescription: "Interval in seconds to transmit LACP packets.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 30),
+											},
 										},
 									},
 								},
@@ -1913,6 +1923,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					"server_port": schema.Int64Attribute{
 						MarkdownDescription: "License Server Port Number. Set License Server port number.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 				},
 			},
@@ -2005,10 +2018,16 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 							"drain_max_unavailable_node_count": schema.Int64Attribute{
 								MarkdownDescription: "Node Batch Size Count. Exclusive with []",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 5000),
+								},
 							},
 							"drain_node_timeout": schema.Int64Attribute{
 								MarkdownDescription: "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(0, 900),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -2391,6 +2410,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"iops_limit": schema.Int64Attribute{
 											MarkdownDescription: "Enable IOPS limitation. It must be between 100 and 100 million. If value is 0, IOPS limit is not defined.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.AtMost(100000000),
+											},
 										},
 									},
 								},
@@ -2428,6 +2450,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"api_server_port": schema.Int64Attribute{
 											MarkdownDescription: "Storage server Port. Enter Storage Server Port.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"iscsi_chap_user": schema.StringAttribute{
 											MarkdownDescription: "Chap Username to connect to the HPE storage.",
@@ -2925,6 +2950,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 												"limit_aggregate_usage": schema.Int64Attribute{
 													MarkdownDescription: "Fail provisioning if usage is above this percentage. Not enforced by default.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(0, 100),
+													},
 												},
 												"limit_volume_size": schema.Int64Attribute{
 													MarkdownDescription: "Fail provisioning if requested volume size in GBi is above this value. Not enforced by default.",
@@ -3378,6 +3406,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 														"iscsi_login_timeout": schema.Int64Attribute{
 															MarkdownDescription: "ISCSI login timeout in seconds. Not recommended to change!",
 															Optional:            true,
+															Validators: []validator.Int64{
+																int64validator.Between(1, 100),
+															},
 														},
 														"san_type": schema.StringAttribute{
 															MarkdownDescription: "Block volume access protocol, either ISCSI or FC .",
@@ -3713,6 +3744,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													"plen": schema.Int64Attribute{
 														MarkdownDescription: "Prefix-length of the IPv4 subnet. Must be <= 32.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(32),
+														},
 													},
 													"prefix": schema.StringAttribute{
 														MarkdownDescription: "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
@@ -3729,6 +3763,9 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 													"plen": schema.Int64Attribute{
 														MarkdownDescription: "Prefix length of the IPv6 subnet. Must be <= 128.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.AtMost(128),
+														},
 													},
 													"prefix": schema.StringAttribute{
 														MarkdownDescription: "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. '2001:db8:0:0:0:2:0:0' The address can be compacted by suppressing zeros e.g. '2001:db8::2::'.",

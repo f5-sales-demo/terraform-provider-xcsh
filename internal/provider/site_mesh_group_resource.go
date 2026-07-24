@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -222,14 +223,23 @@ func (r *SiteMeshGroupResource) Schema(ctx context.Context, req resource.SchemaR
 					"multiplier": schema.Int64Attribute{
 						MarkdownDescription: "Specify Number of missed packets to bring session down' .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(2, 255),
+						},
 					},
 					"receive_interval_milliseconds": schema.Int64Attribute{
 						MarkdownDescription: "BFD receive interval timer, in milliseconds .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(300, 60000),
+						},
 					},
 					"transmit_interval_milliseconds": schema.Int64Attribute{
 						MarkdownDescription: "BFD transmit interval timer, in milliseconds .",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(300, 60000),
+						},
 					},
 				},
 			},

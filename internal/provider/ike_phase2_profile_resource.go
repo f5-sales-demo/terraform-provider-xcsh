@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
@@ -184,6 +185,9 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 5),
+						},
 					},
 				},
 			},
@@ -193,6 +197,9 @@ func (r *IKEPhase2ProfileResource) Schema(ctx context.Context, req resource.Sche
 					"duration": schema.Int64Attribute{
 						MarkdownDescription: "Duration. Configuration parameter for duration",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(10, 300),
+						},
 					},
 				},
 			},
