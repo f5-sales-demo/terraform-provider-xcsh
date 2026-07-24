@@ -285,6 +285,40 @@ func TestGetNotFound(t *testing.T) {
 	}
 }
 
+// A response whose JSON string value contains a raw control character (0x01)
+// makes the strict decoder used by Get fail, but GetLenient sanitizes it and
+// unmarshals successfully.
+func TestGetLenient_StripsRawControlChars(t *testing.T) {
+	// Raw \x01 embedded inside the "name" string value — invalid strict JSON.
+	rawBody := "{\"id\":\"12\",\"name\":\"a\x01b\"}"
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(rawBody))
+	}))
+	defer server.Close()
+
+	client := NewClient(server.URL, "test-token")
+
+	// Plain Get must fail on the raw control character.
+	var strict testResponse
+	if err := client.Get(context.Background(), "/test", &strict); err == nil {
+		t.Fatal("expected plain Get to fail on a raw control character, got nil")
+	}
+
+	// GetLenient sanitizes the control byte and unmarshals cleanly.
+	var lenient testResponse
+	if err := client.GetLenient(context.Background(), "/test", &lenient); err != nil {
+		t.Fatalf("GetLenient() error = %v", err)
+	}
+	if lenient.ID != "12" {
+		t.Errorf("lenient.ID = %q, want %q", lenient.ID, "12")
+	}
+	if lenient.Name != "ab" {
+		t.Errorf("lenient.Name = %q, want %q (control char stripped)", lenient.Name, "ab")
+	}
+}
+
 func TestPostSuccess(t *testing.T) {
 	requestData := testResponse{Name: "new-resource"}
 	expectedResponse := testResponse{ID: "456", Name: "new-resource"}

@@ -396,6 +396,40 @@ func (c *Client) Get(ctx context.Context, path string, result interface{}) error
 	return nil
 }
 
+// sanitizeControlChars strips raw ASCII control characters (0x00–0x1F, except
+// the JSON-legal whitespace \t, \n, \r) from a response body. Some F5 XC objects
+// (e.g. a registration's embedded certificate/log fields) return unescaped control
+// bytes inside JSON string values, which the standard library's strict decoder
+// rejects ("invalid character in string literal"). Go's encoding/json has no
+// lenient/strict toggle, so GetLenient removes those bytes before unmarshaling.
+// Structural JSON never contains control bytes other than the preserved
+// whitespace, so dropping them cannot corrupt well-formed documents.
+func sanitizeControlChars(b []byte) []byte {
+	out := make([]byte, 0, len(b))
+	for _, c := range b {
+		if c < 0x20 && c != '\t' && c != '\n' && c != '\r' {
+			continue
+		}
+		out = append(out, c)
+	}
+	return out
+}
+
+// GetLenient performs a GET request like Get, but sanitizes raw control
+// characters out of the response body before unmarshaling. Used by action-style
+// resources whose sibling object read can return control bytes that would
+// otherwise fail a strict json.Unmarshal.
+func (c *Client) GetLenient(ctx context.Context, path string, result interface{}) error {
+	body, err := c.doRequest(ctx, http.MethodGet, path, nil)
+	if err != nil {
+		return err
+	}
+	if result != nil && len(body) > 0 {
+		return json.Unmarshal(sanitizeControlChars(body), result)
+	}
+	return nil
+}
+
 // Post performs a POST request
 func (c *Client) Post(ctx context.Context, path string, data, result interface{}) error {
 	body, err := c.doRequest(ctx, http.MethodPost, path, data)

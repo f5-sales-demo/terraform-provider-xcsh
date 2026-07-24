@@ -1182,6 +1182,81 @@ func TestGenerateClientTypes_ExposeUID(t *testing.T) {
 	}
 }
 
+// TestActionResourceApprove verifies the action-resource codegen: Create issues
+// the action POST to the singular path with state=APPROVED, Read does a lenient
+// GET on the pluralized sibling path with 404 -> remove-from-state, Delete is a
+// no-op, there is no PUT/update and no data-source companion, every settable
+// attribute forces replace, and the client types file carries the request struct.
+func TestActionResourceApprove(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "registration_approval",
+		TitleCase:          "RegistrationApproval",
+		Description:        "Approve a registration.",
+		HasNamespaceInPath: true,
+		HasStringDefaults:  true,
+		IsAction:           true,
+		ActionPath:         "/api/register/namespaces/%s/registration/%s/approve",
+		ActionState:        "APPROVED",
+		ReadObjectPath:     "/api/register/namespaces/%s/registrations/%s",
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true, PlanModifier: "RequiresReplace"},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true, PlanModifier: "RequiresReplace"},
+			{Name: "passport", GoName: "Passport", TfsdkTag: "passport", Type: "string", JsonName: "passport", Optional: true, Sensitive: true, PlanModifier: "RequiresReplace"},
+			{Name: "state", GoName: "State", TfsdkTag: "state", Type: "string", JsonName: "state", Optional: true, Computed: true, StringDefault: "APPROVED", PlanModifier: "RequiresReplace"},
+		},
+	}
+
+	outDir := t.TempDir()
+	clientDir := t.TempDir()
+	if err := GenerateActionResource(tmpl, outDir, clientDir); err != nil {
+		t.Fatalf("GenerateActionResource error: %v", err)
+	}
+
+	resourceBytes, err := os.ReadFile(filepath.Join(outDir, "registration_approval_resource.go"))
+	if err != nil {
+		t.Fatalf("reading resource file: %v", err)
+	}
+	res := string(resourceBytes)
+	typesBytes, err := os.ReadFile(filepath.Join(clientDir, "registration_approval_types.go"))
+	if err != nil {
+		t.Fatalf("reading types file: %v", err)
+	}
+	types := string(typesBytes)
+
+	// Create → action POST on the singular approve path, body state = APPROVED.
+	for _, want := range []string{"r.client.Post(ctx,", "/api/register/namespaces/%s/registration/%s/approve", `"APPROVED"`} {
+		if !strings.Contains(res, want) {
+			t.Errorf("resource missing Create marker %q; got:\n%s", want, res)
+		}
+	}
+	// Read → lenient GET on the pluralized sibling path; 404 → remove from state.
+	for _, want := range []string{"r.client.GetLenient(ctx,", "/api/register/namespaces/%s/registrations/%s", "resp.State.RemoveResource(ctx)"} {
+		if !strings.Contains(res, want) {
+			t.Errorf("resource missing Read marker %q; got:\n%s", want, res)
+		}
+	}
+	// Delete is a no-op — no client Delete call.
+	if strings.Contains(res, "r.client.Delete") {
+		t.Errorf("action Delete must be a no-op (no client Delete call); got:\n%s", res)
+	}
+	// No in-place update — no PUT.
+	if strings.Contains(res, "r.client.Put") {
+		t.Errorf("action resource must not issue an Update/PUT; got:\n%s", res)
+	}
+	// Every settable schema attribute forces replace (name, namespace, passport, state).
+	if n := strings.Count(res, "RequiresReplace()"); n < 4 {
+		t.Errorf("expected >=4 RequiresReplace(), got %d;\n%s", n, res)
+	}
+	// No data-source companion for an action resource.
+	if _, statErr := os.Stat(filepath.Join(outDir, "registration_approval_data_source.go")); statErr == nil {
+		t.Error("action resource must not generate a data source companion")
+	}
+	// Client types file carries the request struct.
+	if !strings.Contains(types, "type RegistrationApproval struct") {
+		t.Errorf("types file missing request struct; got:\n%s", types)
+	}
+}
+
 func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
 	attrs := []openapi.TerraformAttribute{
 		{GoName: "Priority", TfsdkTag: "priority", Type: "int64", Minimum: 0, HasMinimum: true, Maximum: 255, HasMaximum: true},
