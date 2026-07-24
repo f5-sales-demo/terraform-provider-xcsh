@@ -779,7 +779,7 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 								},
 							},
 							"unhealthy_threshold": schema.Int64Attribute{
-								MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
+								MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkinggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(1, 16),
