@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -566,6 +567,9 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 							"numa_nodes": schema.Int64Attribute{
 								MarkdownDescription: "Non-uniform memory access (NUMA) nodes count.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.AtLeast(0),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -951,6 +955,9 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Port on which the device was detected in decimal.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"product_name": schema.StringAttribute{
 											MarkdownDescription: "Product ID translated to name (if available).",

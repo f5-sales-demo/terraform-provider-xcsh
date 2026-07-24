@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -253,6 +254,9 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Port number used for communication .",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 65535),
+								},
 							},
 							"server_name": schema.StringAttribute{
 								MarkdownDescription: "Server name is fully qualified domain name or IP address of the server .",
@@ -269,6 +273,9 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [default_https_port default_syslog_tls_port] Custom port number used for communication.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 65535),
+								},
 							},
 							"server_name": schema.StringAttribute{
 								MarkdownDescription: "ServerName is passed to the server for SNI and is used in the client to check server certificates against.",
@@ -362,6 +369,9 @@ func (r *LogReceiverResource) Schema(ctx context.Context, req resource.SchemaReq
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Port number used for communication .",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 65535),
+								},
 							},
 							"server_name": schema.StringAttribute{
 								MarkdownDescription: "Server name is fully qualified domain name or IP address of the server .",

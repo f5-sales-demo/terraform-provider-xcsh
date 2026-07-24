@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -760,10 +761,16 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 							"interval": schema.Int64Attribute{
 								MarkdownDescription: "Time interval in seconds between two healthcheck requests.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 600),
+								},
 							},
 							"timeout": schema.Int64Attribute{
 								MarkdownDescription: "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 3600),
+								},
 							},
 							"unhealthy_threshold": schema.Int64Attribute{
 								MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
@@ -1086,6 +1093,9 @@ func (r *DNSProxyResource) Schema(ctx context.Context, req resource.SchemaReques
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [port_ranges use_default_port] Port to Listen.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"port_ranges": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [port use_default_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",

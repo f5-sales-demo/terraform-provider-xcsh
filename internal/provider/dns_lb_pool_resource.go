@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -587,6 +588,9 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 								"port": schema.Int64Attribute{
 									MarkdownDescription: "Port on which the service can be found .",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 65535),
+									},
 								},
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",

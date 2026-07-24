@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -7404,6 +7405,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for the inference check, in milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 3600),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -8624,6 +8628,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"maximum_age": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours).",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(-1, 86400),
+						},
 					},
 				},
 			},
@@ -9331,6 +9338,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 					"port": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [port_ranges] HTTP port to Listen.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 					"port_ranges": schema.StringAttribute{
 						MarkdownDescription: "Exclusive with [port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
@@ -10028,6 +10038,9 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								"port": schema.Int64Attribute{
 									MarkdownDescription: "Origin Server Port. Port the workload can be reached on.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 65535),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{

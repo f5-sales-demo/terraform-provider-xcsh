@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1097,6 +1098,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 											"port": schema.Int64Attribute{
 												MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 												Optional:            true,
+												Validators: []validator.Int64{
+													int64validator.Between(1, 65535),
+												},
 											},
 											"port_ranges": schema.StringAttribute{
 												MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",
@@ -1543,6 +1547,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 								"timeout": schema.Int64Attribute{
 									MarkdownDescription: "Specifies the timeout for the route in milliseconds. This timeout includes all retries. For server side streaming, configure this field with higher value or leave it un-configured for infinite timeout.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 3600),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -1601,6 +1608,9 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										"maximum_age": schema.Int64Attribute{
 											MarkdownDescription: "Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours).",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(-1, 86400),
+											},
 										},
 									},
 								},

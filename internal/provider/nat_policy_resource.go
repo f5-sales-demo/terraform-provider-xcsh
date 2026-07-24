@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -752,6 +753,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"port_ranges": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",
@@ -823,6 +827,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"port_ranges": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",
@@ -848,6 +855,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 												"port_ranges": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",
@@ -869,6 +879,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 												"port_ranges": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",
@@ -896,6 +909,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 												"port_ranges": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",
@@ -917,6 +933,9 @@ func (r *NATPolicyResource) Schema(ctx context.Context, req resource.SchemaReque
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [no_port_match port_ranges] Exact Port to match.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 												"port_ranges": schema.StringAttribute{
 													MarkdownDescription: "Exclusive with [no_port_match port] Port range to match.",

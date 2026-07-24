@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1886,6 +1887,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"latitude_degree": schema.Int64Attribute{
 														MarkdownDescription: "Latitude degree, an integer between 0 and 90, including 0 and 90 .",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 90),
+														},
 													},
 													"latitude_hemisphere": schema.StringAttribute{
 														MarkdownDescription: "[Enum: N|S] Latitude hemisphere can only be N or S - N: North Hemisphere - S: South Hemisphere. Possible values are `N`, `S`. Defaults to `N`.",
@@ -1897,6 +1901,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"latitude_minute": schema.Int64Attribute{
 														MarkdownDescription: "Latitude minute, an integer between 0 and 59, including 0 and 59.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 59),
+														},
 													},
 													"latitude_second": schema.Int64Attribute{
 														MarkdownDescription: "Latitude second, an decimal between 0 and 59.999, including 0 and 59.999.",
@@ -1909,6 +1916,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"longitude_degree": schema.Int64Attribute{
 														MarkdownDescription: "Longitude degree, an integer between 0 and 180, including 0 and 180 .",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 180),
+														},
 													},
 													"longitude_hemisphere": schema.StringAttribute{
 														MarkdownDescription: "[Enum: E|W] Longitude hemisphere can only be E or W - E: East Hemisphere - W: West Hemisphere. Possible values are `E`, `W`. Defaults to `E`.",
@@ -1920,6 +1930,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"longitude_minute": schema.Int64Attribute{
 														MarkdownDescription: "Longitude minute, an integer between 0 and 59, including 0 and 59.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(0, 59),
+														},
 													},
 													"longitude_second": schema.Int64Attribute{
 														MarkdownDescription: "Longitude second, an decimal between 0 and 59.999, including 0 and 59.999.",
@@ -2079,6 +2092,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 													"port": schema.Int64Attribute{
 														MarkdownDescription: "Port. Port on which the service can be found.",
 														Optional:            true,
+														Validators: []validator.Int64{
+															int64validator.Between(1, 65535),
+														},
 													},
 													"priority": schema.Int64Attribute{
 														MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",
@@ -2716,6 +2732,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"latitude_degree": schema.Int64Attribute{
 																	MarkdownDescription: "Latitude degree, an integer between 0 and 90, including 0 and 90 .",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 90),
+																	},
 																},
 																"latitude_hemisphere": schema.StringAttribute{
 																	MarkdownDescription: "[Enum: N|S] Latitude hemisphere can only be N or S - N: North Hemisphere - S: South Hemisphere. Possible values are `N`, `S`. Defaults to `N`.",
@@ -2727,6 +2746,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"latitude_minute": schema.Int64Attribute{
 																	MarkdownDescription: "Latitude minute, an integer between 0 and 59, including 0 and 59.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 59),
+																	},
 																},
 																"latitude_second": schema.Int64Attribute{
 																	MarkdownDescription: "Latitude second, an decimal between 0 and 59.999, including 0 and 59.999.",
@@ -2739,6 +2761,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"longitude_degree": schema.Int64Attribute{
 																	MarkdownDescription: "Longitude degree, an integer between 0 and 180, including 0 and 180 .",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 180),
+																	},
 																},
 																"longitude_hemisphere": schema.StringAttribute{
 																	MarkdownDescription: "[Enum: E|W] Longitude hemisphere can only be E or W - E: East Hemisphere - W: West Hemisphere. Possible values are `E`, `W`. Defaults to `E`.",
@@ -2750,6 +2775,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"longitude_minute": schema.Int64Attribute{
 																	MarkdownDescription: "Longitude minute, an integer between 0 and 59, including 0 and 59.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(0, 59),
+																	},
 																},
 																"longitude_second": schema.Int64Attribute{
 																	MarkdownDescription: "Longitude second, an decimal between 0 and 59.999, including 0 and 59.999.",
@@ -2909,6 +2937,9 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 																"port": schema.Int64Attribute{
 																	MarkdownDescription: "Port. Port on which the service can be found.",
 																	Optional:            true,
+																	Validators: []validator.Int64{
+																		int64validator.Between(1, 65535),
+																	},
 																},
 																"priority": schema.Int64Attribute{
 																	MarkdownDescription: "Priority of the target. A lower number indicates a higher preference.",

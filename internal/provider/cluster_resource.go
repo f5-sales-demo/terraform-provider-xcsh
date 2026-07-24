@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -734,6 +735,9 @@ func (r *ClusterResource) Schema(ctx context.Context, req resource.SchemaRequest
 					"interval": schema.Int64Attribute{
 						MarkdownDescription: "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to `10000ms`.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 600),
+						},
 					},
 					"max_ejection_percent": schema.Int64Attribute{
 						MarkdownDescription: "The maximum % of an upstream cluster that can be ejected due to outlier detection.  but will eject at least one host regardless of the value. Defaults to `10%`.",

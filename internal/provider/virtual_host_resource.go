@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1592,6 +1593,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 					"maximum_age": schema.Int64Attribute{
 						MarkdownDescription: "Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours).",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(-1, 86400),
+						},
 					},
 				},
 			},
