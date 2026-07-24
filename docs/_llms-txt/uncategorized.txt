@@ -10,3 +10,4 @@ Resources pending categorization
 - [mitigated_domain](_llms-txt/resources/mitigated_domain.txt) : Mitigated Domain
 - [protected_application](_llms-txt/resources/protected_application.txt) : Applications protected by Bot Defense
 - [protected_domain](_llms-txt/resources/protected_domain.txt) : Domain to protect
+- [registration_approval](_llms-txt/resources/registration_approval.txt) : Request for admission approval. configuration

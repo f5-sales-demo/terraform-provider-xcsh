@@ -2144,12 +2144,12 @@ var CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServic
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel represents flight block
 type CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel struct {
-	Checkingg *CDNLoadBalancerEmptyModel `tfsdk:"checkingg"`
+	Checking *CDNLoadBalancerEmptyModel `tfsdk:"checking"`
 }
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel
 var CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes = map[string]attr.Type{
-	"checkingg": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"checking": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel represents profile_management block
@@ -7973,7 +7973,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
-														"checkingg": schema.SingleNestedBlock{
+														"checking": schema.SingleNestedBlock{
 															MarkdownDescription: "Enable this option",
 														},
 													},
@@ -14204,8 +14204,8 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
 								BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checkingg != nil {
-									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checkingg"] = map[string]interface{}{}
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
+									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsFlowLabelMap["flight"] = BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap
 							}
@@ -21519,11 +21519,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checkingg: func() *CDNLoadBalancerEmptyModel {
+																	Checking: func() *CDNLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkingg
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
 																		}
-																		if _, ok := FlightData["checkingg"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -32063,11 +32063,11 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checkingg: func() *CDNLoadBalancerEmptyModel {
+																	Checking: func() *CDNLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkingg
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
 																		}
-																		if _, ok := FlightData["checkingg"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -40308,8 +40308,8 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
 								BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checkingg != nil {
-									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checkingg"] = map[string]interface{}{}
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
+									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsFlowLabelMap["flight"] = BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap
 							}
@@ -47634,11 +47634,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checkingg: func() *CDNLoadBalancerEmptyModel {
+																	Checking: func() *CDNLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkingg
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
 																		}
-																		if _, ok := FlightData["checkingg"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
