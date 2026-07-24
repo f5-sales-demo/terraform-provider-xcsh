@@ -39,7 +39,7 @@ DEPRECATED — do not use: volterraedge/volterra
 - [Sites](_llms-txt/sites.txt) (12 resources): AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups
 - [Kubernetes](_llms-txt/kubernetes.txt) (8 resources): Container registries, workloads, and Kubernetes integrations
 - [DNS](_llms-txt/dns.txt) (7 resources): DNS domains, zones, compliance checks, and DNS proxy configuration
-- [Uncategorized](_llms-txt/uncategorized.txt) (6 resources): Resources pending categorization
+- [Uncategorized](_llms-txt/uncategorized.txt) (7 resources): Resources pending categorization
 - [API Security](_llms-txt/api-security.txt) (5 resources): API definition, discovery, testing, and security controls for web APIs
 - [Monitoring](_llms-txt/monitoring.txt) (5 resources): Log receivers, alert policies, APM, and global logging configuration
 - [Applications](_llms-txt/applications.txt) (4 resources): Application settings, types, discovery, and filtering

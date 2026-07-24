@@ -1,0 +1,22 @@
+# xcsh_registration_approval
+
+Category: Uncategorized
+Request for admission approval. configuration
+
+## Required
+
+- name
+- namespace
+
+## Minimal Valid Config
+
+```terraform
+resource "xcsh_registration_approval" "example" {
+  name      = "example-registration-approval"
+  namespace = "staging"
+}
+```
+
+## Dependencies
+
+Requires: none

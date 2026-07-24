@@ -161,14 +161,15 @@
       "name": "Uncategorized",
       "slug": "uncategorized",
       "description": "Resources pending categorization",
-      "resource_count": 6,
+      "resource_count": 7,
       "resources": [
         "application_profiles",
         "authorization_server",
         "bot_infrastructure",
         "mitigated_domain",
         "protected_application",
-        "protected_domain"
+        "protected_domain",
+        "registration_approval"
       ]
     },
     {
@@ -499,7 +500,7 @@
     },
     "bgp_routing_policy": {
       "category": "security",
-      "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration",
+      "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration",
       "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bgp_routing_policy\" \"example\" {\n  name      = \"example-bgp-routing-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
@@ -1310,6 +1311,16 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_registration.example namespace/name"
+    },
+    "registration_approval": {
+      "category": "uncategorized",
+      "description": "Request for admission approval. configuration",
+      "required": ["name", "namespace"],
+      "minimal_config": "resource \"xcsh_registration_approval\" \"example\" {\n  name      = \"example-registration-approval\"\n  namespace = \"staging\"\n}",
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
     },
     "route": {
       "category": "load-balancing",
