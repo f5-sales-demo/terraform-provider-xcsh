@@ -499,7 +499,7 @@
     },
     "bgp_routing_policy": {
       "category": "security",
-      "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help contol routes which are imported or exported to bgp peers. configuration",
+      "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration",
       "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bgp_routing_policy\" \"example\" {\n  name      = \"example-bgp-routing-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {

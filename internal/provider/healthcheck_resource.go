@@ -157,7 +157,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"unhealthy_threshold": schema.Int64Attribute{
-				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
+				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkinggg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
 				Required:            true,
 				Validators: []validator.Int64{
 					int64validator.Between(1, 16),
@@ -238,7 +238,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 					"path": schema.StringAttribute{
-						MarkdownDescription: "Specifies the HTTP path that will be requested during health checkingg. Recommended: `/`.",
+						MarkdownDescription: "Specifies the HTTP path that will be requested during health checkinggg. Recommended: `/`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 2048),

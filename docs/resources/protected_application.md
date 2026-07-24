@@ -692,7 +692,7 @@ A [`financial_services`](#services-6b999f) block (within [`cloudfront.protected_
 
 A [`flight`](#flight-3e8b83) block (within [`cloudfront.protected_endpoints.flow_label`](#label-36deaa)) supports the following:
 
-<a id="checking-28c280"></a>&#x2022; [`checking`](#checking-28c280) - Optional Block<br>Enable this option
+<a id="checkingg-f24b3c"></a>&#x2022; [`checkingg`](#checkingg-f24b3c) - Optional Block<br>Enable this option
 
 #### Cloudfront Protected Endpoints Flow Label Profile Management
 
