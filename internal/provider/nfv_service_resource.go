@@ -1498,6 +1498,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
+									validators.IPValidator(),
 								},
 							},
 						},
@@ -2774,6 +2775,7 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
+									validators.IPValidator(),
 								},
 							},
 							"template_stack_name": schema.StringAttribute{

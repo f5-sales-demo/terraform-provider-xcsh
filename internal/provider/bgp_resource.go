@@ -477,6 +477,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
+										validators.IPv4Validator(),
 									},
 								},
 								"address_ipv6": schema.StringAttribute{
@@ -484,6 +485,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
+										validators.IPv6Validator(),
 									},
 								},
 								"asn": schema.Int64Attribute{
@@ -751,6 +753,7 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(7, 1024),
+							validators.IPv4Validator(),
 						},
 					},
 				},

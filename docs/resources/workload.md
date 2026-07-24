@@ -181,9 +181,8 @@ An [`image`](#job-containers-image) block (within [`job.containers`](#job-contai
 
 <a id="job-containers-image-public"></a>&#x2022; [`public`](#job-containers-image-public) - Optional Block<br>Enable this option
 
-<a id="job-containers-image-pull-policy"></a>&#x2022; [`pull_policy`](#job-containers-image-pull-policy) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum:
-IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image
-only
+<a id="job-containers-image-pull-policy"></a>&#x2022; [`pull_policy`](#job-containers-image-pull-policy) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`  Specified in image name<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum:
+IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is  If :latest tag is not
 
 #### Job Containers Image Container Registry
 
@@ -1381,9 +1380,8 @@ An [`image`](#service-containers-image) block (within [`service.containers`](#se
 
 <a id="service-containers-image-public"></a>&#x2022; [`public`](#service-containers-image-public) - Optional Block<br>Enable this option
 
-<a id="service-containers-image-pull-policy"></a>&#x2022; [`pull_policy`](#service-containers-image-pull-policy) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum:
-IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image
-only
+<a id="service-containers-image-pull-policy"></a>&#x2022; [`pull_policy`](#service-containers-image-pull-policy) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`  Specified in image name<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum:
+IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is  If :latest tag is not
 
 #### Service Containers Image Container Registry
 
@@ -1757,8 +1755,8 @@ An [`image`](#simple-service-container-image) block (within [`simple_service.con
 
 <a id="simple-service-container-image-public"></a>&#x2022; [`public`](#simple-service-container-image-public) - Optional Block<br>Enable this option
 
-<a id="policy-b2dd3c"></a>&#x2022; [`pull_policy`](#policy-b2dd3c) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull
-policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only
+<a id="policy-b2dd3c"></a>&#x2022; [`pull_policy`](#policy-b2dd3c) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`  Specified in image name<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum:
+IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is  If :latest tag is not
 
 #### Simple Service Container Image Container Registry
 
@@ -2814,8 +2812,8 @@ An [`image`](#stateful-service-containers-image) block (within [`stateful_servic
 
 <a id="public-27eb7d"></a>&#x2022; [`public`](#public-27eb7d) - Optional Block<br>Enable this option
 
-<a id="policy-013972"></a>&#x2022; [`pull_policy`](#policy-013972) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum: IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull
-policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is specified in image name. If :latest tag is not specified in image name, it will pull image only
+<a id="policy-013972"></a>&#x2022; [`pull_policy`](#policy-013972) - Optional String  Defaults to `IMAGE_PULL_POLICY_DEFAULT`  Specified in image name<br>Possible values are `IMAGE_PULL_POLICY_DEFAULT`, `IMAGE_PULL_POLICY_IF_NOT_PRESENT`, `IMAGE_PULL_POLICY_ALWAYS`, `IMAGE_PULL_POLICY_NEVER`<br>[Enum:
+IMAGE_PULL_POLICY_DEFAULT|IMAGE_PULL_POLICY_IF_NOT_PRESENT|IMAGE_PULL_POLICY_ALWAYS|IMAGE_PULL_POLICY_NEVER] Image pull policy type enumerates the policy choices to use for pulling the image prior to starting the workload - IMAGE_PULL_POLICY_DEFAULT: Default Default will always pull image if :latest tag is  If :latest tag is not
 
 #### Stateful Service Containers Image Container Registry
 

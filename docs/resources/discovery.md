@@ -59,7 +59,7 @@ resource "xcsh_discovery" "example" {
 ### Spec Argument Reference
 
 -> **One of the following:**
-&#x2022; <a id="cluster-id"></a>[`cluster_id`](#cluster-id) - Optional String<br>Specify identifier for discovery cluster. This identifier can be specified in endpoint object to discover only from this discovery object
+&#x2022; <a id="cluster-id"></a>[`cluster_id`](#cluster-id) - Optional String  Specified in endpoint object to discover only from this discovery object<br>Specify identifier for discovery cluster. This identifier can be
 
 -> **One of the following:**
 &#x2022; <a id="discovery-consul"></a>[`discovery_consul`](#discovery-consul) - Optional Block<br>Discovery configuration for Hashicorp Consul<br>See [Discovery Consul](#discovery-consul) below for details.

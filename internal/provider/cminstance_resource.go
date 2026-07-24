@@ -275,6 +275,7 @@ func (r *CminstanceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 				},

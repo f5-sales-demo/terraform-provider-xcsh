@@ -1798,6 +1798,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 					"outside_nameserver": schema.StringAttribute{
@@ -1805,6 +1806,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 				},
@@ -2511,6 +2513,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -2523,6 +2526,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -2551,6 +2555,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -2570,6 +2575,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -2685,6 +2691,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -2697,6 +2704,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -2725,6 +2733,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -2744,6 +2753,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},

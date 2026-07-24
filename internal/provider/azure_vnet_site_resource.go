@@ -3637,6 +3637,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 					"outside_nameserver": schema.StringAttribute{
@@ -3644,6 +3645,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(1024),
+							validators.IPv4Validator(),
 						},
 					},
 				},
@@ -4474,6 +4476,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -4486,6 +4489,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -4514,6 +4518,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -4533,6 +4538,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -4657,6 +4663,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -4669,6 +4676,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -4697,6 +4705,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -4716,6 +4725,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -5472,6 +5482,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -5484,6 +5495,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -5512,6 +5524,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -5531,6 +5544,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -5758,6 +5772,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -5770,6 +5785,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -5798,6 +5814,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -5817,6 +5834,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -6685,6 +6703,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -6697,6 +6716,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -6725,6 +6745,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -6744,6 +6765,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
@@ -7251,6 +7273,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv4Validator(),
 																			},
 																		},
 																	},
@@ -7263,6 +7286,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthAtMost(1024),
+																				validators.IPv6Validator(),
 																			},
 																		},
 																	},
@@ -7291,6 +7315,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv4Validator(),
 																		},
 																	},
 																},
@@ -7310,6 +7335,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
+																			validators.IPv6Validator(),
 																		},
 																	},
 																},
