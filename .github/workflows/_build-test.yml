@@ -55,8 +55,10 @@ jobs:
       - name: Set result
         id: result
         if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
         run: |
-          if [ "${{ job.status }}" == "success" ]; then
+          if [ "$JOB_STATUS" == "success" ]; then
             echo "success=true" >> "$GITHUB_OUTPUT"
           else
             echo "success=false" >> "$GITHUB_OUTPUT"
