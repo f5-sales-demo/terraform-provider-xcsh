@@ -30,7 +30,7 @@ var CoreResources = []string{}
 // Each entry NAME must map (via naming.ToResourceTypeName) to an existing
 // New<TitleCase>DataSource constructor in internal/provider.
 var StandaloneDataSources = []string{
-	"addon_service",                  // xcsh_addon_service — addon tier/details
+	"addon_service",                   // xcsh_addon_service — addon tier/details
 	"addon_service_activation_status", // xcsh_addon_service_activation_status — entitlement/subscription state
 }
 
@@ -144,7 +144,12 @@ func GenerateProviderRegistration(results []openapi.GenerationResult, outputDir 
 			if !r.IsReadOnly {
 				resources = append(resources, fmt.Sprintf("\t\tNew%sResource,", titleCase))
 			}
-			dataSources = append(dataSources, fmt.Sprintf("\t\tNew%sDataSource,", titleCase))
+			// Action-style resources (x-f5xc-action) have no generated data
+			// source companion, so skip the data source registration for them.
+			// Read-only results (data-source-only) still register a data source.
+			if !r.IsAction {
+				dataSources = append(dataSources, fmt.Sprintf("\t\tNew%sDataSource,", titleCase))
+			}
 		}
 	}
 

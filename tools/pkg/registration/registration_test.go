@@ -137,6 +137,57 @@ func TestGenerateProviderRegistration(t *testing.T) {
 	}
 }
 
+func TestGenerateProviderRegistration_ActionResource(t *testing.T) {
+	outDir := t.TempDir()
+
+	// An action-style resource (x-f5xc-action) has a generated resource but no
+	// generated data source companion. It must register as a resource only.
+	results := []openapi.GenerationResult{
+		{ResourceName: "registration_approval", Success: true, IsReadOnly: false, IsAction: true},
+	}
+
+	GenerateProviderRegistration(results, outDir)
+
+	content, err := os.ReadFile(filepath.Join(outDir, "provider.go"))
+	if err != nil {
+		t.Fatalf("provider.go was not created: %v", err)
+	}
+	contentStr := string(content)
+
+	// naming.ToResourceTypeName: "registration_approval" -> "RegistrationApproval"
+	if !contains(contentStr, "NewRegistrationApprovalResource,") {
+		t.Error("expected NewRegistrationApprovalResource in provider.go for action resource")
+	}
+	if contains(contentStr, "NewRegistrationApprovalDataSource,") {
+		t.Error("action resource must NOT register a data source, but found NewRegistrationApprovalDataSource")
+	}
+}
+
+func TestGenerateProviderRegistration_ReadOnlyDataSource(t *testing.T) {
+	outDir := t.TempDir()
+
+	// A read-only result is data-source-only: no resource, but it MUST still
+	// register a data source. The action guard must not regress this.
+	results := []openapi.GenerationResult{
+		{ResourceName: "flow_anomaly", Success: true, IsReadOnly: true, IsAction: false},
+	}
+
+	GenerateProviderRegistration(results, outDir)
+
+	content, err := os.ReadFile(filepath.Join(outDir, "provider.go"))
+	if err != nil {
+		t.Fatalf("provider.go was not created: %v", err)
+	}
+	contentStr := string(content)
+
+	if !contains(contentStr, "NewFlowAnomalyDataSource,") {
+		t.Error("expected read-only result to register NewFlowAnomalyDataSource")
+	}
+	if contains(contentStr, "NewFlowAnomalyResource,") {
+		t.Error("read-only result must NOT register a resource, but found NewFlowAnomalyResource")
+	}
+}
+
 func TestGenerateCombinedClientTypes(t *testing.T) {
 	// Verify it doesn't panic (it's a no-op)
 	results := []openapi.GenerationResult{
