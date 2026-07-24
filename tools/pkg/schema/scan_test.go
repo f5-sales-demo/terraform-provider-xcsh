@@ -131,10 +131,10 @@ func TestCollectConflictAttrs(t *testing.T) {
 func TestHasInt64RangeValidatorsAny(t *testing.T) {
 	withRange := []openapi.TerraformAttribute{
 		{Name: "no_range"},
-		{Name: "has_range", Minimum: 1, Maximum: 16},
+		{Name: "has_range", Minimum: 1, HasMinimum: true, Maximum: 16, HasMaximum: true},
 	}
 	if !HasInt64RangeValidatorsAny(withRange) {
-		t.Error("HasInt64RangeValidatorsAny should detect Minimum/Maximum > 0")
+		t.Error("HasInt64RangeValidatorsAny should detect presence of Minimum/Maximum")
 	}
 
 	withoutRange := []openapi.TerraformAttribute{
@@ -147,7 +147,7 @@ func TestHasInt64RangeValidatorsAny(t *testing.T) {
 
 	nested := []openapi.TerraformAttribute{
 		{Name: "parent", NestedAttributes: []openapi.TerraformAttribute{
-			{Name: "child_range", Minimum: 1, Maximum: 100},
+			{Name: "child_range", Minimum: 1, HasMinimum: true, Maximum: 100, HasMaximum: true},
 		}},
 	}
 	if !HasInt64RangeValidatorsAny(nested) {
@@ -203,5 +203,14 @@ func TestScanPlanModifierUsage_SkipsBlocks(t *testing.T) {
 	_, _, _, usesList, _ := ScanPlanModifierUsage(attrs)
 	if usesList {
 		t.Error("Should not detect list plan modifier on block attributes")
+	}
+}
+
+func TestHasInt64RangeValidatorsAny_MinZero(t *testing.T) {
+	attrs := []openapi.TerraformAttribute{
+		{Name: "port", Minimum: 0, HasMinimum: true, Maximum: 65535, HasMaximum: true},
+	}
+	if !HasInt64RangeValidatorsAny(attrs) {
+		t.Error("want true for a field with HasMinimum (minimum:0)")
 	}
 }

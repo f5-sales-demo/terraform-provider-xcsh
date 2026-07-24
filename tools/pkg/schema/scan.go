@@ -132,11 +132,11 @@ func CollectConflictAttrs(attributes []openapi.TerraformAttribute) ([]conflicts.
 // Block attributes are excluded because blocks use nested schema types that don't support int64validator.
 func HasInt64RangeValidatorsAny(attributes []openapi.TerraformAttribute) bool {
 	for _, attr := range attributes {
-		if !attr.IsBlock && (attr.Minimum > 0 || attr.Maximum > 0) {
+		if !attr.IsBlock && (attr.HasMinimum || attr.HasMaximum) {
 			return true
 		}
 		for _, nested := range attr.NestedAttributes {
-			if !nested.IsBlock && (nested.Minimum > 0 || nested.Maximum > 0) {
+			if !nested.IsBlock && (nested.HasMinimum || nested.HasMaximum) {
 				return true
 			}
 		}

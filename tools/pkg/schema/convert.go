@@ -267,11 +267,13 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		if c.MaxItems > 0 {
 			attr.MaxItems = c.MaxItems
 		}
-		if c.Minimum > 0 {
+		if c.HasMinimum {
 			attr.Minimum = c.Minimum
+			attr.HasMinimum = true
 		}
-		if c.Maximum > 0 {
+		if c.HasMaximum {
 			attr.Maximum = c.Maximum
+			attr.HasMaximum = true
 		}
 	}
 

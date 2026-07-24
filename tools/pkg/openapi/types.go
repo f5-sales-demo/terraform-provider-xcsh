@@ -154,6 +154,10 @@ type TerraformAttribute struct {
 	MaxItems              int               // From x-f5xc-constraints.max_items
 	Minimum               int
 	Maximum               int
+	// HasMinimum/HasMaximum record presence of the numeric bound (independent of
+	// value), so an int64 field with minimum:0 still emits a range validator.
+	HasMinimum bool
+	HasMaximum bool
 }
 
 // ResourceTemplate contains data for generating a Terraform resource.
