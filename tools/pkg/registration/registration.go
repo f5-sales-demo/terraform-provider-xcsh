@@ -32,6 +32,7 @@ var CoreResources = []string{}
 var StandaloneDataSources = []string{
 	"addon_service",                   // xcsh_addon_service — addon tier/details
 	"addon_service_activation_status", // xcsh_addon_service_activation_status — entitlement/subscription state
+	"site_registration",               // xcsh_site_registration — resolve a site's CE registration name ("r-<uuid>")
 }
 
 // GenerateCombinedClientTypes is a no-op placeholder retained for interface
