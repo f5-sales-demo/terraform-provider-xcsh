@@ -1992,8 +1992,11 @@ func (r *RouteResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 									},
 								},
 								"proto_redirect": schema.StringAttribute{
-									MarkdownDescription: "Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of protocol is not done.",
+									MarkdownDescription: "[Enum: incoming-proto|http|https] Swap protocol part of incoming URL in redirect URL The protocol can be swapped with either HTTP or HTTPS When incoming-proto option is specified, swapping of protocol is not done. Possible values are `incoming-proto`, `http`, `https`.",
 									Optional:            true,
+									Validators: []validator.String{
+										stringvalidator.OneOf("incoming-proto", "http", "https"),
+									},
 								},
 								"replace_params": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [remove_all_params retain_all_params].",

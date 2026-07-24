@@ -208,7 +208,7 @@ A [`protocol_port_range`](#rules-egress-rules-protocol-port-range) block (within
 
 <a id="ranges-ffb05a"></a>&#x2022; [`port_ranges`](#ranges-ffb05a) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
 
-<a id="protocol-77c4d7"></a>&#x2022; [`protocol`](#protocol-77c4d7) - Optional String<br>Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+<a id="protocol-77c4d7"></a>&#x2022; [`protocol`](#protocol-77c4d7) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
 
 #### Rules Ingress Rules
 
@@ -311,7 +311,7 @@ A [`protocol_port_range`](#rules-ingress-rules-protocol-port-range) block (withi
 
 <a id="ranges-86d162"></a>&#x2022; [`port_ranges`](#ranges-86d162) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
 
-<a id="protocol-a45394"></a>&#x2022; [`protocol`](#protocol-a45394) - Optional String<br>Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+<a id="protocol-a45394"></a>&#x2022; [`protocol`](#protocol-a45394) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
 
 #### Timeouts
 

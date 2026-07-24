@@ -1463,8 +1463,11 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "[OneOf: aws_cloud_watch_receiver, azure_event_hubs_receiver, azure_receiver, datadog_receiver, gcp_bucket_receiver, http_receiver, kafka_receiver, new_relic_receiver, qradar_receiver, s3_receiver, splunk_receiver, sumo_logic_receiver] AWS Cloudwatch Logs Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
-						MarkdownDescription: "AWS Region. AWS Region Name .",
+						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name . Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
 						Optional:            true,
+						Validators: []validator.String{
+							stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
+						},
 					},
 					"group_name": schema.StringAttribute{
 						MarkdownDescription: "The group name of the target Cloudwatch Logs stream .",
@@ -2726,8 +2729,11 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				MarkdownDescription: "S3 Configuration for Global Log Receiver.",
 				Attributes: map[string]schema.Attribute{
 					"aws_region": schema.StringAttribute{
-						MarkdownDescription: "AWS Region. AWS Region Name .",
+						MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name . Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
 						Optional:            true,
+						Validators: []validator.String{
+							stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
+						},
 					},
 					"bucket": schema.StringAttribute{
 						MarkdownDescription: "S3 Bucket Name. S3 Bucket Name .",

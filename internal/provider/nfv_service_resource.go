@@ -2604,8 +2604,11 @@ func (r *NfvServiceResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 					"version": schema.StringAttribute{
-						MarkdownDescription: "PAN VM-Series version. PAN-OS version.",
+						MarkdownDescription: "[Enum: 11.0.0] PAN VM-Series version. PAN-OS version. The only possible value is `11.0.0`.",
 						Optional:            true,
+						Validators: []validator.String{
+							stringvalidator.OneOf("11.0.0"),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

@@ -19,5 +19,5 @@ resource "xcsh_endpoint" "example" {
 
   health_check_port = 1
   port              = 1
-  protocol          = "example-value"
+  protocol          = "TCP"
 }

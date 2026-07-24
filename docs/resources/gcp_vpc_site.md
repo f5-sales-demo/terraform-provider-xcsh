@@ -266,7 +266,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
 <a id="all-8889af"></a>&#x2022; [`forward_proxy_allow_all`](#all-8889af) - Optional Block<br>Configuration parameter for forward proxy allow all
 
-<a id="ingress-egress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-egress-gw-gcp-certified-hw) - Optional String<br>Name for GCP certified hardware
+<a id="ingress-egress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-egress-gw-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-multi-nic-voltmesh] Name for GCP certified hardware. The only possible value is `GCP-byol-multi-nic-voltmesh`
 
 <a id="ingress-egress-gw-gcp-zone-names"></a>&#x2022; [`gcp_zone_names`](#ingress-egress-gw-gcp-zone-names) - Optional List<br>X-required List of zones when instances will be created, needs to match with region selected
 
@@ -564,7 +564,7 @@ A [`performance_enhancement_mode`](#mode-4d23c2) block (within [`ingress_egress_
 
 An [`ingress_gw`](#ingress-gw) block supports the following:
 
-<a id="ingress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-gw-gcp-certified-hw) - Optional String<br>Name for GCP certified hardware
+<a id="ingress-gw-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#ingress-gw-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-voltmesh] Name for GCP certified hardware. The only possible value is `GCP-byol-voltmesh`
 
 <a id="ingress-gw-gcp-zone-names"></a>&#x2022; [`gcp_zone_names`](#ingress-gw-gcp-zone-names) - Optional List<br>X-required List of zones when instances will be created, needs to match with region selected
 
@@ -734,7 +734,7 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="all-48d905"></a>&#x2022; [`forward_proxy_allow_all`](#all-48d905) - Optional Block<br>Configuration parameter for forward proxy allow all
 
-<a id="voltstack-cluster-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#voltstack-cluster-gcp-certified-hw) - Optional String<br>Name for GCP certified hardware
+<a id="voltstack-cluster-gcp-certified-hw"></a>&#x2022; [`gcp_certified_hw`](#voltstack-cluster-gcp-certified-hw) - Optional String<br>[Enum: GCP-byol-voltstack-combo] Name for GCP certified hardware. The only possible value is `GCP-byol-voltstack-combo`
 
 <a id="voltstack-cluster-gcp-zone-names"></a>&#x2022; [`gcp_zone_names`](#voltstack-cluster-gcp-zone-names) - Optional List<br>X-required List of zones when instances will be created, needs to match with region selected
 

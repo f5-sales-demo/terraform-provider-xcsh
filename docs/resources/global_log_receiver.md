@@ -120,7 +120,8 @@ An [`aws_cloud_watch_receiver`](#aws-cloud-watch-receiver) block supports the fo
 
 <a id="aws-cloud-watch-receiver-aws-cred"></a>&#x2022; [`aws_cred`](#aws-cloud-watch-receiver-aws-cred) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [AWS Cred](#aws-cloud-watch-receiver-aws-cred) below.
 
-<a id="aws-cloud-watch-receiver-aws-region"></a>&#x2022; [`aws_region`](#aws-cloud-watch-receiver-aws-region) - Optional String<br>AWS Region. AWS Region Name
+<a id="aws-cloud-watch-receiver-aws-region"></a>&#x2022; [`aws_region`](#aws-cloud-watch-receiver-aws-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`,
+`eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name
 
 <a id="aws-cloud-watch-receiver-batch"></a>&#x2022; [`batch`](#aws-cloud-watch-receiver-batch) - Optional Block<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint<br>See [Batch](#aws-cloud-watch-receiver-batch) below.
 
@@ -760,7 +761,8 @@ A [`s3_receiver`](#s3-receiver) block supports the following:
 
 <a id="s3-receiver-aws-cred"></a>&#x2022; [`aws_cred`](#s3-receiver-aws-cred) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [AWS Cred](#s3-receiver-aws-cred) below.
 
-<a id="s3-receiver-aws-region"></a>&#x2022; [`aws_region`](#s3-receiver-aws-region) - Optional String<br>AWS Region. AWS Region Name
+<a id="s3-receiver-aws-region"></a>&#x2022; [`aws_region`](#s3-receiver-aws-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`,
+`me-south-1`, `us-west-1`, `ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] AWS Region. AWS Region Name
 
 <a id="s3-receiver-batch"></a>&#x2022; [`batch`](#s3-receiver-batch) - Optional Block<br>Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint<br>See [Batch](#s3-receiver-batch) below.
 

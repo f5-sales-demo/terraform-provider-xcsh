@@ -261,7 +261,7 @@ A [`protocol_port_range`](#rule-list-rules-protocol-port-range) block (within [`
 
 <a id="ranges-73bb0a"></a>&#x2022; [`port_ranges`](#ranges-73bb0a) - Optional List<br>List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192
 
-<a id="protocol-9dade8"></a>&#x2022; [`protocol`](#protocol-9dade8) - Optional String<br>Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
+<a id="protocol-9dade8"></a>&#x2022; [`protocol`](#protocol-9dade8) - Optional String<br>Possible values are `ALL`, `TCP`, `UDP`, `ICMP`<br>[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and ICMP
 
 #### Rule List Rules Source AWS VPC Ids
 

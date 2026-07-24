@@ -271,7 +271,7 @@
       "category": "load-balancing",
       "description": "Advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration",
       "required": ["name", "namespace", "address", "protocol", "skip_xff_append"],
-      "minimal_config": "resource \"xcsh_advertise_policy\" \"example\" {\n  name      = \"example-advertise-policy\"\n  namespace = \"staging\"\n\n  address         = \"example-value\"\n  protocol        = \"example-value\"\n  skip_xff_append = true\n}",
+      "minimal_config": "resource \"xcsh_advertise_policy\" \"example\" {\n  name      = \"example-advertise-policy\"\n  namespace = \"staging\"\n\n  address         = \"example-value\"\n  protocol        = \"TCP\"\n  skip_xff_append = true\n}",
       "dependencies": {
         "requires": []
       },
@@ -799,7 +799,7 @@
       "category": "load-balancing",
       "description": "Endpoint will create the object in the storage backend for namespace metadata.namespace",
       "required": ["name", "namespace", "health_check_port", "port", "protocol"],
-      "minimal_config": "resource \"xcsh_endpoint\" \"example\" {\n  name      = \"example-endpoint\"\n  namespace = \"staging\"\n\n  health_check_port = 1\n  port              = 1\n  protocol          = \"example-value\"\n}",
+      "minimal_config": "resource \"xcsh_endpoint\" \"example\" {\n  name      = \"example-endpoint\"\n  namespace = \"staging\"\n\n  health_check_port = 1\n  port              = 1\n  protocol          = \"TCP\"\n}",
       "dependencies": {
         "requires": []
       },

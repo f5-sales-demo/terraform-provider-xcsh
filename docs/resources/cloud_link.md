@@ -117,7 +117,8 @@ A [`connections`](#aws-byoc-connections) block (within [`aws.byoc`](#aws-byoc)) 
 <a id="aws-byoc-connections-metadata"></a>&#x2022; [`metadata`](#aws-byoc-connections-metadata) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user
 during create<br>See [Metadata](#aws-byoc-connections-metadata) below.
 
-<a id="aws-byoc-connections-region"></a>&#x2022; [`region`](#aws-byoc-connections-region) - Optional String<br>Region where the connection is setup
+<a id="aws-byoc-connections-region"></a>&#x2022; [`region`](#aws-byoc-connections-region) - Optional String<br>Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `CA-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`,
+`me-south-1`, `us-west-1`, `ap-southeast-3`<br>[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|CA-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region where the connection is setup
 
 <a id="name-ebc6a3"></a>&#x2022; [`system_generated_name`](#name-ebc6a3) - Optional Block<br>Enable this option
 
@@ -193,7 +194,11 @@ during create<br>See [Metadata](#gcp-byoc-connections-metadata) below.
 
 <a id="gcp-byoc-connections-project"></a>&#x2022; [`project`](#gcp-byoc-connections-project) - Optional String<br>Specify a GCP Project for the interconnect attachment
 
-<a id="gcp-byoc-connections-region"></a>&#x2022; [`region`](#gcp-byoc-connections-region) - Optional String<br>GCP Region in which the GCP Cloud Interconnect attachment is configured
+<a id="gcp-byoc-connections-region"></a>&#x2022; [`region`](#gcp-byoc-connections-region) - Optional String<br>Possible values are `asia-east1`, `asia-east2`, `asia-northeast1`, `asia-northeast2`, `asia-northeast3`, `asia-southeast1`, `asia-southeast2`, `europe-central2`, `europe-north1`, `europe-west1`, `europe-west2`, `europe-west3`, `europe-west4`, `europe-west6`, `europe-west8`,
+`europe-west9`, `europe-west10`, `europe-west12`, `europe-southwest1`, `me-west1`, `me-central1`, `me-central2`, `northamerica-northeast1`, `northamerica-northeast2`, `us-central1`, `us-east1`, `us-east4`, `us-east5`, `us-south1`, `us-west1`, `us-west2`, `us-west3`, `us-west4`, `southamerica-east1`, `southamerica-west1`, `australia-southeast1`, `australia-southeast2`, `asia-south1`,
+`asia-south2`<br>[Enum:
+asia-east1|asia-east2|asia-northeast1|asia-northeast2|asia-northeast3|asia-southeast1|asia-southeast2|europe-central2|europe-north1|europe-west1|europe-west2|europe-west3|europe-west4|europe-west6|europe-west8|europe-west9|europe-west10|europe-west12|europe-southwest1|me-west1|me-central1|me-central2|northamerica-northeast1|northamerica-northeast2|us-central1|us-east1|us-east4|us-east5|us-south1|us-west1|us-west2|us-west3|us-west4|southamerica-east1|southamerica-west1|australia-southeast1|australia-southeast2|asia-south1|asia-south2]
+GCP Region in which the GCP Cloud Interconnect attachment is configured
 
 <a id="gcp-byoc-connections-same-as-credential"></a>&#x2022; [`same_as_credential`](#gcp-byoc-connections-same-as-credential) - Optional Block<br>Configuration parameter for same as credential
 

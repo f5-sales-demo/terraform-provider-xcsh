@@ -607,8 +607,11 @@ func (r *NetworkPolicyViewResource) Schema(ctx context.Context, req resource.Sch
 									},
 								},
 								"protocol": schema.StringAttribute{
-									MarkdownDescription: "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
+									MarkdownDescription: "[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp. Possible values are `ALL`, `TCP`, `UDP`, `ICMP`.",
 									Optional:            true,
+									Validators: []validator.String{
+										stringvalidator.OneOf("ALL", "TCP", "UDP", "ICMP"),
+									},
 								},
 							},
 						},
@@ -820,8 +823,11 @@ func (r *NetworkPolicyViewResource) Schema(ctx context.Context, req resource.Sch
 									},
 								},
 								"protocol": schema.StringAttribute{
-									MarkdownDescription: "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
+									MarkdownDescription: "[Enum: ALL|TCP|UDP|ICMP] Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp. Possible values are `ALL`, `TCP`, `UDP`, `ICMP`.",
 									Optional:            true,
+									Validators: []validator.String{
+										stringvalidator.OneOf("ALL", "TCP", "UDP", "ICMP"),
+									},
 								},
 							},
 						},

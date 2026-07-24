@@ -264,7 +264,7 @@ A [`node_list`](#aws-not-managed-node-list) block (within [`aws.not_managed`](#a
 
 <a id="aws-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#aws-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="aws-not-managed-node-list-type"></a>&#x2022; [`type`](#aws-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="aws-not-managed-node-list-type"></a>&#x2022; [`type`](#aws-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### AWS Not Managed Node List Interface List
 
@@ -403,7 +403,7 @@ A [`node_list`](#Azure-not-managed-node-list) block (within [`Azure.not_managed`
 
 <a id="Azure-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#Azure-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="Azure-not-managed-node-list-type"></a>&#x2022; [`type`](#Azure-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="Azure-not-managed-node-list-type"></a>&#x2022; [`type`](#Azure-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Azure Not Managed Node List Interface List
 
@@ -542,7 +542,7 @@ A [`node_list`](#baremetal-not-managed-node-list) block (within [`baremetal.not_
 
 <a id="public-ip-acb6d6"></a>&#x2022; [`public_ip`](#public-ip-acb6d6) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="baremetal-not-managed-node-list-type"></a>&#x2022; [`type`](#baremetal-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="baremetal-not-managed-node-list-type"></a>&#x2022; [`type`](#baremetal-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Baremetal Not Managed Node List Interface List
 
@@ -834,7 +834,7 @@ A [`node_list`](#equinix-not-managed-node-list) block (within [`equinix.not_mana
 
 <a id="equinix-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#equinix-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="equinix-not-managed-node-list-type"></a>&#x2022; [`type`](#equinix-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="equinix-not-managed-node-list-type"></a>&#x2022; [`type`](#equinix-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Equinix Not Managed Node List Interface List
 
@@ -973,7 +973,7 @@ A [`node_list`](#gcp-not-managed-node-list) block (within [`gcp.not_managed`](#g
 
 <a id="gcp-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#gcp-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="gcp-not-managed-node-list-type"></a>&#x2022; [`type`](#gcp-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="gcp-not-managed-node-list-type"></a>&#x2022; [`type`](#gcp-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### GCP Not Managed Node List Interface List
 
@@ -1112,7 +1112,7 @@ A [`node_list`](#kvm-not-managed-node-list) block (within [`kvm.not_managed`](#k
 
 <a id="kvm-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#kvm-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="kvm-not-managed-node-list-type"></a>&#x2022; [`type`](#kvm-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="kvm-not-managed-node-list-type"></a>&#x2022; [`type`](#kvm-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Kvm Not Managed Node List Interface List
 
@@ -1427,7 +1427,7 @@ A [`node_list`](#nutanix-not-managed-node-list) block (within [`nutanix.not_mana
 
 <a id="nutanix-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#nutanix-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="nutanix-not-managed-node-list-type"></a>&#x2022; [`type`](#nutanix-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="nutanix-not-managed-node-list-type"></a>&#x2022; [`type`](#nutanix-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Nutanix Not Managed Node List Interface List
 
@@ -1566,7 +1566,7 @@ A [`node_list`](#oci-not-managed-node-list) block (within [`oci.not_managed`](#o
 
 <a id="oci-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#oci-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="oci-not-managed-node-list-type"></a>&#x2022; [`type`](#oci-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="oci-not-managed-node-list-type"></a>&#x2022; [`type`](#oci-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Oci Not Managed Node List Interface List
 
@@ -1713,7 +1713,7 @@ A [`node_list`](#list-2f388f) block (within [`openshift_virtualization.not_manag
 
 <a id="public-ip-1da480"></a>&#x2022; [`public_ip`](#public-ip-1da480) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="type-8c1e46"></a>&#x2022; [`type`](#type-8c1e46) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="type-8c1e46"></a>&#x2022; [`type`](#type-8c1e46) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Openshift Virtualization Not Managed Node List Interface List
 
@@ -1813,7 +1813,7 @@ A [`node_list`](#openstack-not-managed-node-list) block (within [`openstack.not_
 
 <a id="public-ip-1602e3"></a>&#x2022; [`public_ip`](#public-ip-1602e3) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="openstack-not-managed-node-list-type"></a>&#x2022; [`type`](#openstack-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="openstack-not-managed-node-list-type"></a>&#x2022; [`type`](#openstack-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Openstack Not Managed Node List Interface List
 
@@ -2122,7 +2122,7 @@ A [`node_list`](#vmware-not-managed-node-list) block (within [`vmware.not_manage
 
 <a id="vmware-not-managed-node-list-public-ip"></a>&#x2022; [`public_ip`](#vmware-not-managed-node-list-public-ip) - Optional String<br>Public IP. Public IP for this Node
 
-<a id="vmware-not-managed-node-list-type"></a>&#x2022; [`type`](#vmware-not-managed-node-list-type) - Optional String<br>Type for this Node, can be Control or Worker
+<a id="vmware-not-managed-node-list-type"></a>&#x2022; [`type`](#vmware-not-managed-node-list-type) - Optional String<br>Possible values are `Control`, `Worker`<br>[Enum: Control|Worker] Type for this Node, can be Control or Worker
 
 #### Vmware Not Managed Node List Interface List
 

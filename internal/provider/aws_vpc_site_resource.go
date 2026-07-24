@@ -2079,8 +2079,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"other_region": schema.StringAttribute{
-											MarkdownDescription: "Exclusive with [same_as_site_region] Other Region.",
+											MarkdownDescription: "[Enum: af-south-1|ap-east-1|ap-northeast-1|ap-northeast-2|ap-south-1|ap-southeast-1|ap-southeast-2|ap-southeast-3|ca-central-1|eu-central-1|eu-north-1|eu-south-1|eu-west-1|eu-west-2|eu-west-3|me-south-1|sa-east-1|us-east-1|us-east-2|us-west-1|us-west-2] Exclusive with [same_as_site_region] Other Region. Possible values are `af-south-1`, `ap-east-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-southeast-3`, `ca-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `me-south-1`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("af-south-1", "ap-east-1", "ap-northeast-1", "ap-northeast-2", "ap-south-1", "ap-southeast-1", "ap-southeast-2", "ap-southeast-3", "ca-central-1", "eu-central-1", "eu-north-1", "eu-south-1", "eu-west-1", "eu-west-2", "eu-west-3", "me-south-1", "sa-east-1", "us-east-1", "us-east-2", "us-west-1", "us-west-2"),
+											},
 										},
 										"vif_id": schema.StringAttribute{
 											MarkdownDescription: "AWS Direct Connect VIF ID that needs to be connected to the site .",
@@ -2159,10 +2162,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_gw, voltstack_cluster] Configuration parameter for ingress egress gw.",
 				Attributes: map[string]schema.Attribute{
 					"aws_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for AWS certified hardware.",
+						MarkdownDescription: "[Enum: aws-byol-multi-nic-voltmesh] Name for AWS certified hardware. The only possible value is `aws-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("aws-byol-multi-nic-voltmesh"),
 						},
 					},
 				},
@@ -2958,10 +2962,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "AWS Ingress Gateway. Single interface AWS ingress site.",
 				Attributes: map[string]schema.Attribute{
 					"aws_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for AWS certified hardware.",
+						MarkdownDescription: "[Enum: aws-byol-voltmesh] Name for AWS certified hardware. The only possible value is `aws-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("aws-byol-voltmesh"),
 						},
 					},
 				},
@@ -3225,10 +3230,11 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "App Stack cluster of single interface AWS nodes.",
 				Attributes: map[string]schema.Attribute{
 					"aws_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for AWS certified hardware.",
+						MarkdownDescription: "[Enum: aws-byol-voltstack-combo] Name for AWS certified hardware. The only possible value is `aws-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("aws-byol-voltstack-combo"),
 						},
 					},
 				},

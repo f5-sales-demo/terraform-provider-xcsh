@@ -308,7 +308,8 @@ A [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) block (within [`direct_co
 
 A [`vif_list`](#list-d6c323) block (within [`direct_connect_enabled.hosted_vifs`](#direct-connect-enabled-hosted-vifs)) supports the following:
 
-<a id="region-3f105f"></a>&#x2022; [`other_region`](#region-3f105f) - Optional String<br>Other Region
+<a id="region-3f105f"></a>&#x2022; [`other_region`](#region-3f105f) - Optional String<br>Possible values are `af-south-1`, `ap-east-1`, `ap-northeast-1`, `ap-northeast-2`, `ap-south-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-southeast-3`, `CA-central-1`, `eu-central-1`, `eu-north-1`, `eu-south-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `me-south-1`, `sa-east-1`, `us-east-1`, `us-east-2`,
+`us-west-1`, `us-west-2`<br>[Enum: af-south-1|ap-east-1|ap-northeast-1|ap-northeast-2|ap-south-1|ap-southeast-1|ap-southeast-2|ap-southeast-3|CA-central-1|eu-central-1|eu-north-1|eu-south-1|eu-west-1|eu-west-2|eu-west-3|me-south-1|sa-east-1|us-east-1|us-east-2|us-west-1|us-west-2] Other Region
 
 <a id="region-3435ff"></a>&#x2022; [`same_as_site_region`](#region-3435ff) - Optional Block<br>Enable this option
 
@@ -347,7 +348,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 <a id="ingress-egress-gw-allowed-vip-port-sli"></a>&#x2022; [`allowed_vip_port_sli`](#ingress-egress-gw-allowed-vip-port-sli) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port
 SLI](#ingress-egress-gw-allowed-vip-port-sli) below.
 
-<a id="ingress-egress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-egress-gw-aws-certified-hw) - Optional String<br>Name for AWS certified hardware
+<a id="ingress-egress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-egress-gw-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-multi-nic-voltmesh] Name for AWS certified hardware. The only possible value is `AWS-byol-multi-nic-voltmesh`
 
 <a id="ingress-egress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-egress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-egress-gw-az-nodes) below.
 
@@ -641,7 +642,7 @@ An [`ingress_gw`](#ingress-gw) block supports the following:
 
 <a id="ingress-gw-allowed-vip-port"></a>&#x2022; [`allowed_vip_port`](#ingress-gw-allowed-vip-port) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port](#ingress-gw-allowed-vip-port) below.
 
-<a id="ingress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-gw-aws-certified-hw) - Optional String<br>Name for AWS certified hardware
+<a id="ingress-gw-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#ingress-gw-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-voltmesh] Name for AWS certified hardware. The only possible value is `AWS-byol-voltmesh`
 
 <a id="ingress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-gw-az-nodes) below.
 
@@ -797,7 +798,7 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="voltstack-cluster-allowed-vip-port"></a>&#x2022; [`allowed_vip_port`](#voltstack-cluster-allowed-vip-port) - Optional Block<br>Defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site<br>See [Allowed VIP Port](#voltstack-cluster-allowed-vip-port) below.
 
-<a id="voltstack-cluster-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#voltstack-cluster-aws-certified-hw) - Optional String<br>Name for AWS certified hardware
+<a id="voltstack-cluster-aws-certified-hw"></a>&#x2022; [`aws_certified_hw`](#voltstack-cluster-aws-certified-hw) - Optional String<br>[Enum: AWS-byol-voltstack-combo] Name for AWS certified hardware. The only possible value is `AWS-byol-voltstack-combo`
 
 <a id="voltstack-cluster-az-nodes"></a>&#x2022; [`az_nodes`](#voltstack-cluster-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#voltstack-cluster-az-nodes) below.
 

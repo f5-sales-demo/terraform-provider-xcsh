@@ -5306,8 +5306,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Storage class Device configuration for Pure Service Orchestrator.",
 											Attributes: map[string]schema.Attribute{
 												"backend": schema.StringAttribute{
-													MarkdownDescription: "Defines type of Pure storage backend block or file. The volume will have the aspects defined in the chosen virtual pool.",
+													MarkdownDescription: "[Enum: block|file] Defines type of Pure storage backend block or file. The volume will have the aspects defined in the chosen virtual pool. Possible values are `block`, `file`.",
 													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.OneOf("block", "file"),
+													},
 												},
 												"bandwidth_limit": schema.StringAttribute{
 													MarkdownDescription: "It must be between 1 MB/s and 512 GB/s. Enter the size as a number (bytes must be multiple of 512) or number with a single character unit symbol. Valid unit symbols are K, M, G, representing KiB, MiB, and GiB.",
@@ -5690,8 +5693,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 														},
 														"storage_driver_name": schema.StringAttribute{
-															MarkdownDescription: "Configuration of Backend Name .",
+															MarkdownDescription: "[Enum: ontap-nas|ontap-nas-economy|ontap-nas-flexgroup] Configuration of Backend Name . Possible values are `ontap-nas`, `ontap-nas-economy`, `ontap-nas-flexgroup`.",
 															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.OneOf("ontap-nas", "ontap-nas-economy", "ontap-nas-flexgroup"),
+															},
 														},
 														"storage_prefix": schema.StringAttribute{
 															MarkdownDescription: "Prefix used when provisioning new volumes in the SVM. Once set this cannot be updated.",
@@ -6013,8 +6019,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Optional:            true,
 																			},
 																			"space_reserve": schema.StringAttribute{
-																				MarkdownDescription: "Space reservation mode; “none” (thin) or “volume” (thick).",
+																				MarkdownDescription: "[Enum: none|thick] Space reservation mode; “none” (thin) or “volume” (thick). Possible values are `none`, `thick`.",
 																				Optional:            true,
+																				Validators: []validator.String{
+																					stringvalidator.OneOf("none", "thick"),
+																				},
 																			},
 																			"split_on_clone": schema.BoolAttribute{
 																				MarkdownDescription: "Split a clone from its parent upon creation.",
@@ -6080,8 +6089,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																},
 																"space_reserve": schema.StringAttribute{
-																	MarkdownDescription: "Space reservation mode; “none” (thin) or “volume” (thick).",
+																	MarkdownDescription: "[Enum: none|thick] Space reservation mode; “none” (thin) or “volume” (thick). Possible values are `none`, `thick`.",
 																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.OneOf("none", "thick"),
+																	},
 																},
 																"split_on_clone": schema.BoolAttribute{
 																	MarkdownDescription: "Split a clone from its parent upon creation.",
@@ -6167,8 +6179,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Optional:            true,
 														},
 														"storage_driver_name": schema.StringAttribute{
-															MarkdownDescription: "Configuration of Backend Name .",
+															MarkdownDescription: "[Enum: ontap-san|ontap-san-economy|ontap-nas-flexgroup] Configuration of Backend Name . Possible values are `ontap-san`, `ontap-san-economy`, `ontap-nas-flexgroup`.",
 															Optional:            true,
+															Validators: []validator.String{
+																stringvalidator.OneOf("ontap-san", "ontap-san-economy", "ontap-nas-flexgroup"),
+															},
 														},
 														"storage_prefix": schema.StringAttribute{
 															MarkdownDescription: "Prefix used when provisioning new volumes in the SVM. Once set this cannot be updated.",
@@ -6483,8 +6498,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																				Optional:            true,
 																			},
 																			"space_reserve": schema.StringAttribute{
-																				MarkdownDescription: "Space reservation mode; “none” (thin) or “volume” (thick).",
+																				MarkdownDescription: "[Enum: none|thick] Space reservation mode; “none” (thin) or “volume” (thick). Possible values are `none`, `thick`.",
 																				Optional:            true,
+																				Validators: []validator.String{
+																					stringvalidator.OneOf("none", "thick"),
+																				},
 																			},
 																			"split_on_clone": schema.BoolAttribute{
 																				MarkdownDescription: "Split a clone from its parent upon creation.",
@@ -6793,8 +6811,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																},
 																"space_reserve": schema.StringAttribute{
-																	MarkdownDescription: "Space reservation mode; “none” (thin) or “volume” (thick).",
+																	MarkdownDescription: "[Enum: none|thick] Space reservation mode; “none” (thin) or “volume” (thick). Possible values are `none`, `thick`.",
 																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.OneOf("none", "thick"),
+																	},
 																},
 																"split_on_clone": schema.BoolAttribute{
 																	MarkdownDescription: "Split a clone from its parent upon creation.",
@@ -6854,8 +6875,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"default_fs_type": schema.StringAttribute{
-																	MarkdownDescription: "Block volume default filesystem type. Not recommended to change!",
+																	MarkdownDescription: "[Enum: xfs|ext4] Block volume default filesystem type. Not recommended to change!. Possible values are `xfs`, `ext4`.",
 																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.OneOf("xfs", "ext4"),
+																	},
 																},
 																"default_mount_opts": schema.ListAttribute{
 																	MarkdownDescription: "Block volume default filesystem mount OPTIONS. Not recommended to change!",
@@ -6877,8 +6901,11 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"san_type": schema.StringAttribute{
-																	MarkdownDescription: "Block volume access protocol, either ISCSI or FC .",
+																	MarkdownDescription: "[Enum: ISCSI|FC] Block volume access protocol, either ISCSI or FC . Possible values are `ISCSI`, `FC`.",
 																	Optional:            true,
+																	Validators: []validator.String{
+																		stringvalidator.OneOf("ISCSI", "FC"),
+																	},
 																},
 															},
 															Blocks: map[string]schema.Block{

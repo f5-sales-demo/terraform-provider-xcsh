@@ -3676,10 +3676,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "[OneOf: ingress_egress_gw, ingress_egress_gw_ar, ingress_gw, ingress_gw_ar, voltstack_cluster, voltstack_cluster_ar] Two interface Azure ingress/egress site.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for Azure certified hardware.",
+						MarkdownDescription: "[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("azure-byol-multi-nic-voltmesh"),
 						},
 					},
 				},
@@ -3815,8 +3816,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"azure_az": schema.StringAttribute{
-									MarkdownDescription: "Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input .",
+									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input . Possible values are `1`, `2`, `3`.",
 									Optional:            true,
+									Validators: []validator.String{
+										stringvalidator.OneOf("1", "2", "3"),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -4773,10 +4777,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Two interface Azure ingress/egress site on Alternate Region with no support for zones.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for Azure certified hardware.",
+						MarkdownDescription: "[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("azure-byol-multi-nic-voltmesh"),
 						},
 					},
 				},
@@ -5882,10 +5887,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Single interface Azure ingress site on on Recommended Region.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for Azure certified hardware.",
+						MarkdownDescription: "[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("azure-byol-voltmesh"),
 						},
 					},
 				},
@@ -5907,8 +5913,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"azure_az": schema.StringAttribute{
-									MarkdownDescription: "Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input .",
+									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input . Possible values are `1`, `2`, `3`.",
 									Optional:            true,
+									Validators: []validator.String{
+										stringvalidator.OneOf("1", "2", "3"),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -5981,10 +5990,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "Configuration parameter for ingress gw ar.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for Azure certified hardware.",
+						MarkdownDescription: "[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("azure-byol-voltmesh"),
 						},
 					},
 				},
@@ -6258,10 +6268,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for Azure certified hardware.",
+						MarkdownDescription: "[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("azure-byol-voltstack-combo"),
 						},
 					},
 				},
@@ -6397,8 +6408,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"azure_az": schema.StringAttribute{
-									MarkdownDescription: "Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input .",
+									MarkdownDescription: "[Enum: 1|2|3] Zone depicting a grouping of datacenters within an Azure region. Expecting numeric input . Possible values are `1`, `2`, `3`.",
 									Optional:            true,
+									Validators: []validator.String{
+										stringvalidator.OneOf("1", "2", "3"),
+									},
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -6816,10 +6830,11 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				MarkdownDescription: "App Stack Cluster of single interface Azure nodes.",
 				Attributes: map[string]schema.Attribute{
 					"azure_certified_hw": schema.StringAttribute{
-						MarkdownDescription: "Name for Azure certified hardware.",
+						MarkdownDescription: "[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
+							stringvalidator.OneOf("azure-byol-voltstack-combo"),
 						},
 					},
 				},

@@ -395,8 +395,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											},
 										},
 										"region": schema.StringAttribute{
-											MarkdownDescription: "Region where the connection is setup .",
+											MarkdownDescription: "[Enum: ap-northeast-1|ap-southeast-1|eu-central-1|eu-west-1|eu-west-3|sa-east-1|us-east-1|us-east-2|us-west-2|ca-central-1|af-south-1|ap-east-1|ap-south-1|ap-northeast-2|ap-southeast-2|eu-south-1|eu-north-1|eu-west-2|me-south-1|us-west-1|ap-southeast-3] Region where the connection is setup . Possible values are `ap-northeast-1`, `ap-southeast-1`, `eu-central-1`, `eu-west-1`, `eu-west-3`, `sa-east-1`, `us-east-1`, `us-east-2`, `us-west-2`, `ca-central-1`, `af-south-1`, `ap-east-1`, `ap-south-1`, `ap-northeast-2`, `ap-southeast-2`, `eu-south-1`, `eu-north-1`, `eu-west-2`, `me-south-1`, `us-west-1`, `ap-southeast-3`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("ap-northeast-1", "ap-southeast-1", "eu-central-1", "eu-west-1", "eu-west-3", "sa-east-1", "us-east-1", "us-east-2", "us-west-2", "ca-central-1", "af-south-1", "ap-east-1", "ap-south-1", "ap-northeast-2", "ap-southeast-2", "eu-south-1", "eu-north-1", "eu-west-2", "me-south-1", "us-west-1", "ap-southeast-3"),
+											},
 										},
 										"user_assigned_name": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [system_generated_name] User is managing the AWS resource name.",
@@ -550,8 +553,11 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											},
 										},
 										"region": schema.StringAttribute{
-											MarkdownDescription: "GCP Region in which the GCP Cloud Interconnect attachment is configured .",
+											MarkdownDescription: "[Enum: asia-east1|asia-east2|asia-northeast1|asia-northeast2|asia-northeast3|asia-southeast1|asia-southeast2|europe-central2|europe-north1|europe-west1|europe-west2|europe-west3|europe-west4|europe-west6|europe-west8|europe-west9|europe-west10|europe-west12|europe-southwest1|me-west1|me-central1|me-central2|northamerica-northeast1|northamerica-northeast2|us-central1|us-east1|us-east4|us-east5|us-south1|us-west1|us-west2|us-west3|us-west4|southamerica-east1|southamerica-west1|australia-southeast1|australia-southeast2|asia-south1|asia-south2] GCP Region in which the GCP Cloud Interconnect attachment is configured . Possible values are `asia-east1`, `asia-east2`, `asia-northeast1`, `asia-northeast2`, `asia-northeast3`, `asia-southeast1`, `asia-southeast2`, `europe-central2`, `europe-north1`, `europe-west1`, `europe-west2`, `europe-west3`, `europe-west4`, `europe-west6`, `europe-west8`, `europe-west9`, `europe-west10`, `europe-west12`, `europe-southwest1`, `me-west1`, `me-central1`, `me-central2`, `northamerica-northeast1`, `northamerica-northeast2`, `us-central1`, `us-east1`, `us-east4`, `us-east5`, `us-south1`, `us-west1`, `us-west2`, `us-west3`, `us-west4`, `southamerica-east1`, `southamerica-west1`, `australia-southeast1`, `australia-southeast2`, `asia-south1`, `asia-south2`.",
 											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.OneOf("asia-east1", "asia-east2", "asia-northeast1", "asia-northeast2", "asia-northeast3", "asia-southeast1", "asia-southeast2", "europe-central2", "europe-north1", "europe-west1", "europe-west2", "europe-west3", "europe-west4", "europe-west6", "europe-west8", "europe-west9", "europe-west10", "europe-west12", "europe-southwest1", "me-west1", "me-central1", "me-central2", "northamerica-northeast1", "northamerica-northeast2", "us-central1", "us-east1", "us-east4", "us-east5", "us-south1", "us-west1", "us-west2", "us-west3", "us-west4", "southamerica-east1", "southamerica-west1", "australia-southeast1", "australia-southeast2", "asia-south1", "asia-south2"),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{

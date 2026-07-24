@@ -34,7 +34,7 @@ resource "xcsh_advertise_policy" "example" {
   namespace = "staging"
 
   address         = "example-value"
-  protocol        = "example-value"
+  protocol        = "TCP"
   skip_xff_append = true
 }
 ```
@@ -68,7 +68,7 @@ resource "xcsh_advertise_policy" "example" {
 &#x2022; <a id="port"></a>[`port`](#port) - Optional Number<br>Port to advertise
 <br><br>&#x2022; <a id="port-ranges"></a>[`port_ranges`](#port-ranges) - Optional String<br>A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'
 
-<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Required String<br>Protocol. Protocol to advertise
+<a id="protocol"></a>&#x2022; [`protocol`](#protocol) - Required String<br>Possible values are `TCP`, `UDP`<br>[Enum: TCP|UDP] Protocol. Protocol to advertise
 
 <a id="public-ip"></a>&#x2022; [`public_ip`](#public-ip) - Optional Block<br>Optional. Public VIP to advertise This field is mutually exclusive with where and address fields<br>See [Public IP](#public-ip) below for details.
 
