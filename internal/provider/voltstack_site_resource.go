@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -4042,6 +4043,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"vlan_id": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 4094),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -7167,6 +7171,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"vlan_id": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 4094),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -7710,6 +7717,9 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Peer Port. Peer TCP port number.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 												"subnet_begin_offset": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [address default_gateway disable external_connector from_site subnet_end_offset] Calculate peer address using offset from the beginning of the subnet.",

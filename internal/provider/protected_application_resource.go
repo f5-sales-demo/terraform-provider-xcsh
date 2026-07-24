@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1325,6 +1326,9 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					"timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for the inference check, in milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 3600),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -1952,6 +1956,9 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 					"timeout": schema.Int64Attribute{
 						MarkdownDescription: "The timeout for the inference check, in milliseconds.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 3600),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

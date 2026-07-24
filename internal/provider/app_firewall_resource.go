@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -559,6 +560,9 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 							"staging_period": schema.Int64Attribute{
 								MarkdownDescription: "Define staging period in days. The default staging period is 7 days and the max supported staging period is 20 days.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 20),
+								},
 							},
 						},
 					},
@@ -568,6 +572,9 @@ func (r *AppFirewallResource) Schema(ctx context.Context, req resource.SchemaReq
 							"staging_period": schema.Int64Attribute{
 								MarkdownDescription: "Define staging period in days. The default staging period is 7 days and the max supported staging period is 20 days.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 20),
+								},
 							},
 						},
 					},

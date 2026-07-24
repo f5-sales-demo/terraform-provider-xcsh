@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -425,6 +426,9 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 												"port": schema.Int64Attribute{
 													MarkdownDescription: "Exclusive with [default_port] Use custom ArgoCD port. Available port range is less than 65000 except reserved ports.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 65535),
+													},
 												},
 											},
 											Blocks: map[string]schema.Block{
@@ -589,6 +593,9 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"port": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [default_port] Use custom K8s port for API server. Available port range is less than 65000 except reserved ports.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 65535),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{

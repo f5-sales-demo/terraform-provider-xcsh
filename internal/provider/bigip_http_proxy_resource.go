@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -1424,6 +1425,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [automatic_port lb_port] Endpoint service is available on this port.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -1440,10 +1444,16 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 												"interval": schema.Int64Attribute{
 													MarkdownDescription: "Time interval in seconds between two health check requests .",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 600),
+													},
 												},
 												"timeout": schema.Int64Attribute{
 													MarkdownDescription: "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.",
 													Optional:            true,
+													Validators: []validator.Int64{
+														int64validator.Between(1, 3600),
+													},
 												},
 												"unhealthy_threshold": schema.Int64Attribute{
 													MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health check if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately.",
@@ -1797,6 +1807,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 										"port": schema.Int64Attribute{
 											MarkdownDescription: "Exclusive with [port_ranges use_default_port] Port to Listen.",
 											Optional:            true,
+											Validators: []validator.Int64{
+												int64validator.Between(1, 65535),
+											},
 										},
 										"port_ranges": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [port use_default_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
@@ -2148,6 +2161,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [port_ranges] HTTP port to Listen.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 65535),
+								},
 							},
 							"port_ranges": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
@@ -2183,6 +2199,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [port_ranges] HTTPS port to Listen.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 65535),
+								},
 							},
 							"port_ranges": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",
@@ -2690,6 +2709,9 @@ func (r *BigIPHTTPProxyResource) Schema(ctx context.Context, req resource.Schema
 							"port": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [port_ranges] HTTPS port to Listen.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 65535),
+								},
 							},
 							"port_ranges": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",

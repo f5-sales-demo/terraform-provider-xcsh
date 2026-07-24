@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -683,6 +684,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 					"vlan_id": schema.Int64Attribute{
 						MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged ethernet interface.",
 						Optional:            true,
+						Validators: []validator.Int64{
+							int64validator.Between(1, 4094),
+						},
 					},
 				},
 				Blocks: map[string]schema.Block{
@@ -1021,6 +1025,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							"vlan_id": schema.Int64Attribute{
 								MarkdownDescription: "Exclusive with [untagged] Configure a VLAN tagged interface.",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 4094),
+								},
 							},
 						},
 						Blocks: map[string]schema.Block{
@@ -1042,6 +1049,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							"vlan_id": schema.Int64Attribute{
 								MarkdownDescription: "VLAN ID. VLAN ID .",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 4094),
+								},
 							},
 						},
 					},
@@ -1051,6 +1061,9 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 							"vlan_id": schema.Int64Attribute{
 								MarkdownDescription: "VLAN ID. VLAN ID .",
 								Optional:            true,
+								Validators: []validator.Int64{
+									int64validator.Between(1, 4094),
+								},
 							},
 						},
 					},

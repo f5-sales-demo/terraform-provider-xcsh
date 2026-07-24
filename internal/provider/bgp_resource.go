@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -487,6 +488,9 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 								"port": schema.Int64Attribute{
 									MarkdownDescription: "Peer Port. Peer TCP port number.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 65535),
+									},
 								},
 								"subnet_begin_offset": schema.Int64Attribute{
 									MarkdownDescription: "Exclusive with [address default_gateway disable external_connector from_site subnet_end_offset] Calculate peer address using offset from the beginning of the subnet.",

@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -535,6 +536,9 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								"port": schema.Int64Attribute{
 									MarkdownDescription: "Exclusive with [port_ranges use_default_port] Port to Listen.",
 									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(1, 65535),
+									},
 								},
 								"port_ranges": schema.StringAttribute{
 									MarkdownDescription: "Exclusive with [port use_default_port] A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by '-'.",

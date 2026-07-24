@@ -12,6 +12,7 @@ import (
 	"regexp"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
+	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
@@ -5247,6 +5248,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -5610,6 +5614,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -5973,6 +5980,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -6638,6 +6648,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -7004,6 +7017,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -7367,6 +7383,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -8298,6 +8317,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -8661,6 +8683,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -9036,6 +9061,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -9399,6 +9427,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
@@ -10137,6 +10168,9 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 															"vlan_id": schema.Int64Attribute{
 																MarkdownDescription: "Configure the VLAN tag for this interface.",
 																Optional:            true,
+																Validators: []validator.Int64{
+																	int64validator.Between(1, 4094),
+																},
 															},
 														},
 													},
