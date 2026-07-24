@@ -9,6 +9,7 @@ type Parsed struct {
 	MinLength int
 	MaxLength int
 	Pattern   string
+	Format    string
 	MinItems  int
 	MaxItems  int
 	Minimum   int
@@ -74,6 +75,12 @@ func Parse(raw map[string]interface{}) *Parsed {
 				p.Pattern = v
 			}
 		}
+	}
+
+	// Format label (e.g. ipv4, ipv6, ip, cidr, mac-address) drives string
+	// format validators in codegen.
+	if v, ok := raw["format"].(string); ok {
+		p.Format = v
 	}
 
 	// List/array constraints

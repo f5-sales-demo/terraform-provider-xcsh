@@ -284,3 +284,15 @@ func TestParse_MinimumZeroIsPresent(t *testing.T) {
 		t.Errorf("HasMaximum=%v Maximum=%d, want true/255", p.HasMaximum, p.Maximum)
 	}
 }
+
+func TestParse_Format(t *testing.T) {
+	p := Parse(map[string]interface{}{"format": "mac-address", "deterministic": true})
+	if p == nil || p.Format != "mac-address" {
+		t.Fatalf("Format = %q, want mac-address", func() string {
+			if p == nil {
+				return "<nil>"
+			}
+			return p.Format
+		}())
+	}
+}

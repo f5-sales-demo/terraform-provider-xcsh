@@ -149,6 +149,7 @@ type TerraformAttribute struct {
 	StringDefault         string            // Spec-driven static string default (e.g. namespace fixed to "system"); empty = none
 	MinLength             int               // From validation rules
 	Pattern               string            // From validation rules
+	Format                string            // From x-f5xc-constraints.format — drives string format validators (ipv4/ipv6/ip/cidr/mac-address)
 	ETLDPlusOne           bool              // From ves.io.schema.rules.string.etld_plus_one — value must be an eTLD+1 domain
 	MinItems              int               // From x-f5xc-constraints.min_items
 	MaxItems              int               // From x-f5xc-constraints.max_items
