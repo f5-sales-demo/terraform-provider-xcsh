@@ -3463,8 +3463,10 @@ func fixUpstreamTerminology(content string) string {
 	mongodbRegex := regexp.MustCompile(`\bmongodb\b`)
 	content = mongodbRegex.ReplaceAllString(content, "MongoDB")
 
-	base64Regex := regexp.MustCompile(`Base64`)
-	content = base64Regex.ReplaceAllString(content, "base64")
+	// NOTE: no Base64 -> base64 rewrite. Lowercasing prose "Base64" is not required
+	// by any terminology rule, and doing so corrupted the real API enum token
+	// "EncodingBase64" into "Encodingbase64" (Go regexp has no lookbehind to exclude
+	// it). Preserve the token as authored in the schema.
 
 	// Restore protected URLs
 	for i, url := range savedURLs {
