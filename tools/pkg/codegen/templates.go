@@ -173,11 +173,11 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 					listvalidator.SizeAtLeast({{.MinItems}}),
 {{- end}}
 				},
-{{- else if and (eq .Type "int64") (or (gt .Minimum 0) (gt .Maximum 0))}}
+{{- else if and (eq .Type "int64") (or .HasMinimum .HasMaximum)}}
 				Validators: []validator.Int64{
-{{- if and (gt .Minimum 0) (gt .Maximum 0)}}
+{{- if and .HasMinimum .HasMaximum}}
 					int64validator.Between({{.Minimum}}, {{.Maximum}}),
-{{- else if gt .Maximum 0}}
+{{- else if .HasMaximum}}
 					int64validator.AtMost({{.Maximum}}),
 {{- else}}
 					int64validator.AtLeast({{.Minimum}}),

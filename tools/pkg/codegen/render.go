@@ -1071,6 +1071,20 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
 		}
 
+		// int64 range validators. Gated on presence flags (not value > 0) so a
+		// legitimate minimum:0 still emits AtLeast(0)/Between(0, N).
+		if attr.Type == "int64" && (attr.HasMinimum || attr.HasMaximum) {
+			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.Int64{\n", indent))
+			if attr.HasMinimum && attr.HasMaximum {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tint64validator.Between(%d, %d),\n", indent, attr.Minimum, attr.Maximum))
+			} else if attr.HasMaximum {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tint64validator.AtMost(%d),\n", indent, attr.Maximum))
+			} else {
+				sb.WriteString(fmt.Sprintf("%s\t\t\tint64validator.AtLeast(%d),\n", indent, attr.Minimum))
+			}
+			sb.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+		}
+
 		sb.WriteString(fmt.Sprintf("%s\t},\n", indent))
 	}
 
