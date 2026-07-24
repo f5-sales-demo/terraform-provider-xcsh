@@ -1285,7 +1285,7 @@ func approveCompileSpec() *openapi.Spec {
 	return &openapi.Spec{
 		Components: openapi.Components{
 			Schemas: map[string]openapi.Schema{
-				"registrationApprovalReq": {
+				"zzCompileProbeReq": {
 					Type:        "object",
 					XF5xcAction: "approve",
 					Properties: map[string]openapi.Schema{
@@ -1301,20 +1301,20 @@ func approveCompileSpec() *openapi.Spec {
 			},
 		},
 		Paths: map[string]interface{}{
-			"/api/register/namespaces/{namespace}/registration/{name}/approve": map[string]interface{}{
+			"/api/register/namespaces/{namespace}/compile_probe/{name}/approve": map[string]interface{}{
 				"post": map[string]interface{}{
 					"requestBody": map[string]interface{}{
 						"content": map[string]interface{}{
 							"application/json": map[string]interface{}{
 								"schema": map[string]interface{}{
-									"$ref": "#/components/schemas/registrationApprovalReq",
+									"$ref": "#/components/schemas/zzCompileProbeReq",
 								},
 							},
 						},
 					},
 				},
 			},
-			"/api/register/namespaces/{namespace}/registrations/{name}": map[string]interface{}{
+			"/api/register/namespaces/{namespace}/compile_probes/{name}": map[string]interface{}{
 				"get": map[string]interface{}{},
 			},
 		},
@@ -1327,6 +1327,16 @@ func approveCompileSpec() *openapi.Spec {
 // param that is NOT a body property; object + non-enum $ref props that must be
 // excluded), then WRITES the generated Go into the module tree and runs
 // `go build` to prove the output actually COMPILES.
+//
+// The fixture uses a SYNTHETIC resource name ("zz_compile_probe") rather than the
+// real "registration_approval" on purpose: the real resource ships in
+// internal/provider + internal/client once generated, and its compilation is
+// covered by the normal `go build ./...` / `go test ./internal/...`. Reusing the
+// real name here would make this guard write (and refuse to clobber) the
+// committed internal/client/registration_approval_types.go, so it would fail
+// permanently after the first regen. A synthetic name can never collide, so the
+// guard stays live on every branch while still exercising the exact generator
+// paths (snake_case derivation, {namespace} injection, object/$ref exclusion).
 //
 // This is the gap that previously let a broken generator ship: the earlier tests
 // only asserted rendered substrings and never compiled the result, so the
@@ -1350,17 +1360,17 @@ func TestActionResourceCompiles(t *testing.T) {
 	var found *openapi.ResourcePath
 	for _, a := range openapi.ExtractActionsFromPaths(spec) {
 		ac := a
-		if ac.ResourceName == "registration_approval" {
+		if ac.ResourceName == "zz_compile_probe" {
 			found = &ac
 		}
 	}
 	if found == nil {
-		t.Fatalf("ExtractActionsFromPaths did not yield snake_case resource name registration_approval; got %+v", openapi.ExtractActionsFromPaths(spec))
+		t.Fatalf("ExtractActionsFromPaths did not yield snake_case resource name zz_compile_probe; got %+v", openapi.ExtractActionsFromPaths(spec))
 	}
 
 	// 2. Schema extraction: exact attribute set, object/$ref props excluded.
 	stub := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
-	tmpl, err := schema.ExtractActionResourceSchema(spec, "registration_approval", stub)
+	tmpl, err := schema.ExtractActionResourceSchema(spec, "zz_compile_probe", stub)
 	if err != nil {
 		t.Fatalf("ExtractActionResourceSchema: %v", err)
 	}
@@ -1380,7 +1390,7 @@ func TestActionResourceCompiles(t *testing.T) {
 	// 3. Generate into the module tree and compile.
 	root := repoRootFromTest(t)
 	clientDir := filepath.Join(root, "internal", "client")
-	clientTypes := filepath.Join(clientDir, "registration_approval_types.go")
+	clientTypes := filepath.Join(clientDir, "zz_compile_probe_types.go")
 	if _, err := os.Stat(clientTypes); err == nil {
 		t.Fatalf("refusing to clobber existing %s", clientTypes)
 	}
@@ -1397,7 +1407,7 @@ func TestActionResourceCompiles(t *testing.T) {
 		t.Fatalf("GenerateActionResource: %v", err)
 	}
 
-	resBytes, err := os.ReadFile(filepath.Join(provDir, "registration_approval_resource.go"))
+	resBytes, err := os.ReadFile(filepath.Join(provDir, "zz_compile_probe_resource.go"))
 	if err != nil {
 		t.Fatalf("reading generated resource: %v", err)
 	}
@@ -1408,11 +1418,11 @@ func TestActionResourceCompiles(t *testing.T) {
 		t.Errorf("generated model missing Namespace field:\n%s", res)
 	}
 	// snake_case TF type name, not camelCase struct/typename.
-	if !strings.Contains(res, `+ "_registration_approval"`) {
-		t.Errorf("generated resource missing snake_case type name _registration_approval:\n%s", res)
+	if !strings.Contains(res, `+ "_zz_compile_probe"`) {
+		t.Errorf("generated resource missing snake_case type name _zz_compile_probe:\n%s", res)
 	}
-	if strings.Contains(res, "Registrationapproval") {
-		t.Errorf("generated resource contains camelCase-derived name 'Registrationapproval':\n%s", res)
+	if strings.Contains(res, "Zzcompileprobe") {
+		t.Errorf("generated resource contains camelCase-collapsed name 'Zzcompileprobe' (snake_case derivation failed):\n%s", res)
 	}
 	// Excluded props must not appear as model fields.
 	for _, bad := range []string{"Labels", "Passport", "TunnelType", "Annotations"} {
