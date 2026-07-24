@@ -798,6 +798,28 @@ func TestRenderNestedAttributes_ETLDPlusOne(t *testing.T) {
 	}
 }
 
+func TestRenderNestedAttributes_FormatValidators(t *testing.T) {
+	for format, want := range map[string]string{
+		"mac-address": "validators.MACValidator()",
+		"ipv4":        "validators.IPv4Validator()",
+		"ipv6":        "validators.IPv6Validator()",
+		"ip":          "validators.IPValidator()",
+		"cidr":        "validators.CIDRValidator()",
+	} {
+		got := RenderNestedAttributes([]openapi.TerraformAttribute{
+			{GoName: "F", TfsdkTag: "f", Type: "string", Format: format}}, "\t")
+		if !strings.Contains(got, want) {
+			t.Errorf("format %q: expected %q, got:\n%s", format, want, got)
+		}
+	}
+	// Unknown/other formats must not emit any format validator.
+	got := RenderNestedAttributes([]openapi.TerraformAttribute{
+		{GoName: "F", TfsdkTag: "f", Type: "string", Format: "uri"}}, "\t")
+	if strings.Contains(got, "validators.") {
+		t.Errorf("format %q: expected no format validator, got:\n%s", "uri", got)
+	}
+}
+
 // The Delete template must retry transient referential BAD_REQUEST (a resource briefly
 // still referenced during teardown) with a bounded, context-aware loop, while leaving
 // NOT_FOUND/404 (already deleted) and 501 (unsupported) as terminal.

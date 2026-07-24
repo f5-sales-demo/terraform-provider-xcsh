@@ -1049,6 +1049,21 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			if attr.ETLDPlusOne {
 				stringValidators = append(stringValidators, "validators.ETLDPlusOneValidator()")
 			}
+			// Format label (from x-f5xc-constraints.format) drives net-based
+			// string validators. Unknown formats (e.g. uri, dns-label handled via
+			// pattern) are a no-op.
+			switch attr.Format {
+			case "ipv4":
+				stringValidators = append(stringValidators, "validators.IPv4Validator()")
+			case "ipv6":
+				stringValidators = append(stringValidators, "validators.IPv6Validator()")
+			case "ip":
+				stringValidators = append(stringValidators, "validators.IPValidator()")
+			case "cidr":
+				stringValidators = append(stringValidators, "validators.CIDRValidator()")
+			case "mac-address":
+				stringValidators = append(stringValidators, "validators.MACValidator()")
+			}
 			if len(stringValidators) > 0 {
 				sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.String{\n", indent))
 				for _, sv := range stringValidators {

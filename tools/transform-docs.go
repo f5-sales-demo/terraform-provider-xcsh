@@ -21,6 +21,7 @@ import (
 	"strings"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/defaults"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/docsterm"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
@@ -879,7 +880,7 @@ func transformIndexDoc(filePath string) error {
 	// Normalize multiple blank lines
 	text = normalizeBlankLines(text)
 
-	text = fixUpstreamTerminology(text)
+	text = docsterm.FixUpstreamTerminology(text)
 	text = fixDataSourceDescriptions(text, filePath)
 	text = fixDescriptionGrammar(text)
 	text = wrapLongLines(text, 400)
@@ -1234,7 +1235,7 @@ func transformAnchorsOnly(filePath string, content string) error {
 	}
 
 	// Fix upstream API terminology to pass textlint
-	result = fixUpstreamTerminology(result)
+	result = docsterm.FixUpstreamTerminology(result)
 	result = fixDataSourceDescriptions(result, filePath)
 	result = fixDescriptionGrammar(result)
 
@@ -2254,7 +2255,7 @@ func transformDoc(filePath string) error {
 	}
 
 	// Fix upstream API terminology to pass textlint
-	result = fixUpstreamTerminology(result)
+	result = docsterm.FixUpstreamTerminology(result)
 	result = fixDataSourceDescriptions(result, filePath)
 	result = fixDescriptionGrammar(result)
 
@@ -3198,7 +3199,7 @@ func getAPIDefault(resourceName, attrPath string) string {
 // Returns the specification and the cleaned description
 func extractSpecifiedIn(desc string) (specifiedIn, cleanDesc string) {
 	// Match patterns like "Specified in milliseconds" or "This is specified in milliseconds"
-	specRegex := regexp.MustCompile(`(?:This is s|S)pecified in ([^.]+?)(?:\.|$)`)
+	specRegex := regexp.MustCompile(`(?i)(?:This is )?specified in ([^.]+?)(?:\.|$)`)
 	match := specRegex.FindStringSubmatch(desc)
 	if match != nil {
 		specifiedIn = "Specified in " + strings.TrimSpace(match[1])
@@ -3396,82 +3397,6 @@ func wrapLongLines(content string, maxLen int) string {
 		result = append(result, line)
 	}
 	return strings.Join(result, "\n")
-}
-
-// fixUpstreamTerminology corrects upstream API terminology to pass textlint rules.
-// Spelling corrections are handled by codespell --write-changes in the CI workflow.
-func fixUpstreamTerminology(content string) string {
-	// Protect markdown link URLs from terminology corrections.
-	// Store URLs with placeholders, apply corrections, then restore.
-	urlRegex := regexp.MustCompile(`\]\((https?://[^)]+)\)`)
-	var savedURLs []string
-	content = urlRegex.ReplaceAllStringFunc(content, func(match string) string {
-		idx := len(savedURLs)
-		savedURLs = append(savedURLs, match)
-		return fmt.Sprintf("](##URL_%d##)", idx)
-	})
-	defer func() {}() // no-op; restoration happens at end of function
-	content = strings.NewReplacer(
-		"User Name", "username",
-		"Host Name", "hostname",
-		"name space", "namespace",
-		"Javascript", "JavaScript",
-		"javascript", "JavaScript",
-		"MAC OS", "macOS",
-		"Clientside", "client-side",
-		"Client Side", "client-side",
-		"client side", "client-side",
-		"server side", "server-side",
-		"sub-class", "subclass",
-		"Code Base", "codebase",
-		"code base", "codebase",
-		"Internet", "internet",
-	).Replace(content)
-
-	cdnRegex := regexp.MustCompile(`\bcdn\b`)
-	content = cdnRegex.ReplaceAllString(content, "CDN")
-
-	clickhouseRegex := regexp.MustCompile(`(?i)\bclickhouse\b`)
-	content = clickhouseRegex.ReplaceAllStringFunc(content, func(_ string) string {
-		return "ClickHouse"
-	})
-
-	sdkRegex := regexp.MustCompile(`\bSdk\b`)
-	content = sdkRegex.ReplaceAllString(content, "SDK")
-
-	githubRegex := regexp.MustCompile(`\b[Gg]ithub\b`)
-	content = githubRegex.ReplaceAllString(content, "GitHub")
-
-	gitlabRegex := regexp.MustCompile(`\b[Gg]itlab\b`)
-	content = gitlabRegex.ReplaceAllString(content, "GitLab")
-
-	bitbucketRegex := regexp.MustCompile(`\b[Bb]it[Bb]ucket\b`)
-	content = bitbucketRegex.ReplaceAllString(content, "Bitbucket")
-
-	dockerRegex := regexp.MustCompile(`\bdocker\b`)
-	content = dockerRegex.ReplaceAllString(content, "Docker")
-
-	ubuntuRegex := regexp.MustCompile(`\bubuntu\b`)
-	content = ubuntuRegex.ReplaceAllString(content, "Ubuntu")
-
-	azureRegex := regexp.MustCompile(`\bazure\b`)
-	content = azureRegex.ReplaceAllString(content, "Azure")
-
-	cassandraRegex := regexp.MustCompile(`\bcassandra\b`)
-	content = cassandraRegex.ReplaceAllString(content, "Cassandra")
-
-	mongodbRegex := regexp.MustCompile(`\bmongodb\b`)
-	content = mongodbRegex.ReplaceAllString(content, "MongoDB")
-
-	base64Regex := regexp.MustCompile(`Base64`)
-	content = base64Regex.ReplaceAllString(content, "base64")
-
-	// Restore protected URLs
-	for i, url := range savedURLs {
-		content = strings.Replace(content, fmt.Sprintf("](##URL_%d##)", i), url, 1)
-	}
-
-	return content
 }
 
 // fixDataSourceDescriptions corrects data-source docs that incorrectly say "Manages" instead of "Retrieves".

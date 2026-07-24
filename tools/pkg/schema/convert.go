@@ -261,6 +261,9 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		if c.Pattern != "" {
 			attr.Pattern = c.Pattern
 		}
+		if c.Format != "" {
+			attr.Format = c.Format
+		}
 		if c.MinItems > 0 {
 			attr.MinItems = c.MinItems
 		}
