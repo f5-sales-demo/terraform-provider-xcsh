@@ -249,14 +249,25 @@ func actionApproveSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, st
 	spec := &openapi.Spec{
 		Components: openapi.Components{
 			Schemas: map[string]openapi.Schema{
-				"registration_approvalReq": {
+				// Mirror the real spec: the request-body component is camelCase
+				// ("registrationApprovalReq") and its properties mix scalar strings
+				// with object props (annotations, labels) and non-enum $ref props
+				// (passport, tunnel_type). `namespace` is a PATH parameter, not a
+				// body property, so it is intentionally absent here. `state` is a
+				// $ref to a string enum.
+				"registrationApprovalReq": {
 					Type:        "object",
 					XF5xcAction: "approve",
 					Properties: map[string]openapi.Schema{
-						"namespace": {Type: "string"},
-						"name":      {Type: "string"},
-						"state":     {Type: "string"},
-						"passport":  {Type: "string"},
+						"name":                    {Type: "string"},
+						"backup_connected_region": {Type: "string"},
+						"connected_region":        {Type: "string"},
+						"preferred_active_re":     {Type: "string"},
+						"annotations":             {Type: "object"},
+						"labels":                  {Type: "object"},
+						"passport":                {AllOf: []openapi.Schema{{Ref: "#/components/schemas/registrationPassport"}}},
+						"tunnel_type":             {AllOf: []openapi.Schema{{Ref: "#/components/schemas/schemaSiteToSiteTunnelType"}}},
+						"state":                   {Ref: "#/components/schemas/registrationObjectState"},
 					},
 				},
 			},
@@ -268,7 +279,7 @@ func actionApproveSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, st
 						"content": map[string]interface{}{
 							"application/json": map[string]interface{}{
 								"schema": map[string]interface{}{
-									"$ref": "#/components/schemas/registration_approvalReq",
+									"$ref": "#/components/schemas/registrationApprovalReq",
 								},
 							},
 						},
@@ -321,11 +332,51 @@ func TestActionResourceApprove(t *testing.T) {
 		t.Error("state attribute missing")
 	} else if st.StringDefault != "APPROVED" {
 		t.Errorf("state StringDefault = %q, want APPROVED", st.StringDefault)
+	} else if !(st.Optional && st.Computed) {
+		t.Error("state must be Optional+Computed")
 	}
-	if pp := findAttr(result.Attributes, "passport"); pp == nil {
-		t.Error("passport attribute missing")
-	} else if !pp.Sensitive {
-		t.Error("passport must be a write-only (Sensitive) attribute")
+
+	// namespace is a path parameter (not a body property); it must be injected
+	// as a Required attribute so the generated model carries a Namespace field.
+	if ns := findAttr(result.Attributes, "namespace"); ns == nil {
+		t.Error("namespace attribute missing (must be injected from the path param)")
+	} else if !ns.Required {
+		t.Error("namespace must be Required")
+	}
+
+	// name is a path parameter; the request schema's required list is null, so it
+	// must be forced Required.
+	if nm := findAttr(result.Attributes, "name"); nm == nil {
+		t.Error("name attribute missing")
+	} else if !nm.Required {
+		t.Error("name must be Required")
+	}
+
+	// Scalar string metadata props are emitted as optional attributes.
+	if bc := findAttr(result.Attributes, "backup_connected_region"); bc == nil {
+		t.Error("backup_connected_region attribute missing")
+	} else if !bc.Optional {
+		t.Error("backup_connected_region must be Optional")
+	}
+
+	// Object props (annotations, labels) and non-enum $ref props (passport,
+	// tunnel_type) are not representable as plain string attributes and must be
+	// excluded entirely.
+	for _, excluded := range []string{"annotations", "labels", "passport", "tunnel_type"} {
+		if a := findAttr(result.Attributes, excluded); a != nil {
+			t.Errorf("attribute %q must be excluded (object/$ref prop), but it was emitted", excluded)
+		}
+	}
+
+	// The full expected attribute set is exactly these four.
+	wantAttrs := map[string]bool{
+		"namespace": true, "name": true, "state": true,
+		"backup_connected_region": true, "connected_region": true, "preferred_active_re": true,
+	}
+	for _, a := range result.Attributes {
+		if !wantAttrs[a.TfsdkTag] {
+			t.Errorf("unexpected attribute %q in action model", a.TfsdkTag)
+		}
 	}
 }
 

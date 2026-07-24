@@ -13,6 +13,8 @@ import (
 	"sort"
 	"strings"
 	"sync"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 )
 
 // ParseFile reads and parses an OpenAPI specification file.
@@ -446,7 +448,11 @@ func ExtractActionsFromPaths(spec *Spec) []ResourcePath {
 			continue
 		}
 		action := compSchema.XF5xcAction
-		resourceName := strings.TrimSuffix(schemaName, "Req")
+		// The request-body component schema name is camelCase (e.g.
+		// "registrationApprovalReq"); the Terraform resource name must be
+		// snake_case ("registration_approval") so the emitted type
+		// (xcsh_registration_approval), Go struct, and file names are correct.
+		resourceName := naming.ToSnakeCase(strings.TrimSuffix(schemaName, "Req"))
 		if seen[resourceName] {
 			continue
 		}

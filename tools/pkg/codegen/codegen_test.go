@@ -4,12 +4,15 @@ package codegen
 
 import (
 	"os"
+	"os/exec"
 	"path/filepath"
 	"regexp"
+	"runtime"
 	"strings"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/schema"
 )
 
 func TestEscapeGoString(t *testing.T) {
@@ -1199,9 +1202,9 @@ func TestActionResourceApprove(t *testing.T) {
 		ActionState:        "APPROVED",
 		ReadObjectPath:     "/api/register/namespaces/%s/registrations/%s",
 		Attributes: []openapi.TerraformAttribute{
-			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true, PlanModifier: "RequiresReplace"},
 			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true, PlanModifier: "RequiresReplace"},
-			{Name: "passport", GoName: "Passport", TfsdkTag: "passport", Type: "string", JsonName: "passport", Optional: true, Sensitive: true, PlanModifier: "RequiresReplace"},
+			{Name: "backup_connected_region", GoName: "BackupConnectedRegion", TfsdkTag: "backup_connected_region", Type: "string", JsonName: "backup_connected_region", Optional: true, PlanModifier: "RequiresReplace"},
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true, PlanModifier: "RequiresReplace"},
 			{Name: "state", GoName: "State", TfsdkTag: "state", Type: "string", JsonName: "state", Optional: true, Computed: true, StringDefault: "APPROVED", PlanModifier: "RequiresReplace"},
 		},
 	}
@@ -1254,6 +1257,176 @@ func TestActionResourceApprove(t *testing.T) {
 	// Client types file carries the request struct.
 	if !strings.Contains(types, "type RegistrationApproval struct") {
 		t.Errorf("types file missing request struct; got:\n%s", types)
+	}
+}
+
+// repoRootFromTest returns the module root by walking up from this test file's
+// location (…/tools/pkg/codegen/codegen_test.go -> module root).
+func repoRootFromTest(t *testing.T) string {
+	t.Helper()
+	_, file, _, ok := runtime.Caller(0)
+	if !ok {
+		t.Fatal("runtime.Caller failed")
+	}
+	// file = <root>/tools/pkg/codegen/codegen_test.go
+	root := filepath.Join(filepath.Dir(file), "..", "..", "..")
+	if _, err := os.Stat(filepath.Join(root, "go.mod")); err != nil {
+		t.Fatalf("could not locate module root (no go.mod at %s): %v", root, err)
+	}
+	return root
+}
+
+// approveCompileSpec mirrors the REAL registration-approval action spec shape:
+// a camelCase request-body component ("registrationApprovalReq") carrying
+// x-f5xc-action, a mix of scalar string props, object props (annotations,
+// labels), non-enum $ref props (passport, tunnel_type) and a $ref-enum `state`,
+// and an approve POST path whose {namespace} segment is NOT a body property.
+func approveCompileSpec() *openapi.Spec {
+	return &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				"registrationApprovalReq": {
+					Type:        "object",
+					XF5xcAction: "approve",
+					Properties: map[string]openapi.Schema{
+						"name":                    {Type: "string"},
+						"backup_connected_region": {Type: "string"},
+						"annotations":             {Type: "object"},
+						"labels":                  {Type: "object"},
+						"passport":                {AllOf: []openapi.Schema{{Ref: "#/components/schemas/registrationPassport"}}},
+						"tunnel_type":             {AllOf: []openapi.Schema{{Ref: "#/components/schemas/schemaSiteToSiteTunnelType"}}},
+						"state":                   {Ref: "#/components/schemas/registrationObjectState"},
+					},
+				},
+			},
+		},
+		Paths: map[string]interface{}{
+			"/api/register/namespaces/{namespace}/registration/{name}/approve": map[string]interface{}{
+				"post": map[string]interface{}{
+					"requestBody": map[string]interface{}{
+						"content": map[string]interface{}{
+							"application/json": map[string]interface{}{
+								"schema": map[string]interface{}{
+									"$ref": "#/components/schemas/registrationApprovalReq",
+								},
+							},
+						},
+					},
+				},
+			},
+			"/api/register/namespaces/{namespace}/registrations/{name}": map[string]interface{}{
+				"get": map[string]interface{}{},
+			},
+		},
+	}
+}
+
+// TestActionResourceCompiles is the compile-level guard for action-resource
+// codegen. It runs the full pipeline from an in-memory spec whose shape mirrors
+// the real registration-approval action (camelCase Req schema; {namespace} path
+// param that is NOT a body property; object + non-enum $ref props that must be
+// excluded), then WRITES the generated Go into the module tree and runs
+// `go build` to prove the output actually COMPILES.
+//
+// This is the gap that previously let a broken generator ship: the earlier tests
+// only asserted rendered substrings and never compiled the result, so the
+// `data.Namespace undefined` type error (namespace was never emitted as a model
+// field) went unnoticed. The generated resource file imports internal/client and
+// internal/validators, which — by Go's internal-package visibility rule — are
+// importable only from within this module; a bare t.TempDir() outside the module
+// cannot resolve them. So the throwaway resource package is created UNDER
+// internal/ (unique dir), the client request struct is dropped into
+// internal/client, both are built, and both are removed on cleanup. A dir whose
+// package clause is `provider` builds fine via `go build ./internal/<dir>/`
+// without colliding with the real provider package.
+func TestActionResourceCompiles(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping go build compile check in -short mode")
+	}
+
+	spec := approveCompileSpec()
+
+	// 1. Discovery must snake_case the resource name.
+	var found *openapi.ResourcePath
+	for _, a := range openapi.ExtractActionsFromPaths(spec) {
+		ac := a
+		if ac.ResourceName == "registration_approval" {
+			found = &ac
+		}
+	}
+	if found == nil {
+		t.Fatalf("ExtractActionsFromPaths did not yield snake_case resource name registration_approval; got %+v", openapi.ExtractActionsFromPaths(spec))
+	}
+
+	// 2. Schema extraction: exact attribute set, object/$ref props excluded.
+	stub := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
+	tmpl, err := schema.ExtractActionResourceSchema(spec, "registration_approval", stub)
+	if err != nil {
+		t.Fatalf("ExtractActionResourceSchema: %v", err)
+	}
+	got := map[string]openapi.TerraformAttribute{}
+	for _, a := range tmpl.Attributes {
+		got[a.TfsdkTag] = a
+	}
+	for _, excluded := range []string{"annotations", "labels", "passport", "tunnel_type"} {
+		if _, ok := got[excluded]; ok {
+			t.Errorf("object/$ref prop %q must be excluded from action attributes", excluded)
+		}
+	}
+	if ns, ok := got["namespace"]; !ok || !ns.Required {
+		t.Errorf("namespace must be present and Required (injected path param); got %+v ok=%v", got["namespace"], ok)
+	}
+
+	// 3. Generate into the module tree and compile.
+	root := repoRootFromTest(t)
+	clientDir := filepath.Join(root, "internal", "client")
+	clientTypes := filepath.Join(clientDir, "registration_approval_types.go")
+	if _, err := os.Stat(clientTypes); err == nil {
+		t.Fatalf("refusing to clobber existing %s", clientTypes)
+	}
+	provDir, err := os.MkdirTemp(filepath.Join(root, "internal"), "zz_actioncompile_")
+	if err != nil {
+		t.Fatalf("mkdir temp provider dir: %v", err)
+	}
+	t.Cleanup(func() {
+		os.RemoveAll(provDir)
+		os.Remove(clientTypes)
+	})
+
+	if err := GenerateActionResource(tmpl, provDir, clientDir); err != nil {
+		t.Fatalf("GenerateActionResource: %v", err)
+	}
+
+	resBytes, err := os.ReadFile(filepath.Join(provDir, "registration_approval_resource.go"))
+	if err != nil {
+		t.Fatalf("reading generated resource: %v", err)
+	}
+	res := string(resBytes)
+	// Model must carry a Namespace field (the bug: it did not). gofmt aligns
+	// struct fields, so match name + type across arbitrary whitespace.
+	if !regexp.MustCompile(`\bNamespace\s+types\.String\b`).MatchString(res) {
+		t.Errorf("generated model missing Namespace field:\n%s", res)
+	}
+	// snake_case TF type name, not camelCase struct/typename.
+	if !strings.Contains(res, `+ "_registration_approval"`) {
+		t.Errorf("generated resource missing snake_case type name _registration_approval:\n%s", res)
+	}
+	if strings.Contains(res, "Registrationapproval") {
+		t.Errorf("generated resource contains camelCase-derived name 'Registrationapproval':\n%s", res)
+	}
+	// Excluded props must not appear as model fields.
+	for _, bad := range []string{"Labels", "Passport", "TunnelType", "Annotations"} {
+		if regexp.MustCompile(`\b` + bad + `\s+types\.String\b`).MatchString(res) {
+			t.Errorf("generated model contains excluded field %q:\n%s", bad, res)
+		}
+	}
+
+	buildTarget := "./internal/" + filepath.Base(provDir) + "/"
+	cmd := exec.Command("go", "build", buildTarget)
+	cmd.Dir = root
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("generated action resource failed to compile (%v):\n%s", err, out)
 	}
 }
 

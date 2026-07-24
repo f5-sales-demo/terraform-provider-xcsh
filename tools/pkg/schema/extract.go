@@ -388,12 +388,17 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 // ExtractActionResourceSchema builds an action-style resource template from a
 // request-body schema carrying a schema-level x-f5xc-action. Unlike a CRUD
 // resource it has no CreateSpecType/GetSpecType: its attributes derive directly
-// from the flat action request body (namespace, name, state, passport, …), the
-// singular action POST path and the pluralized sibling object GET path are
-// captured for Create/Read, `state` constant-defaults to APPROVED, `passport` is
-// write-only, and every user-settable field forces replace (there is no in-place
-// update). extractAPIPath is accepted for signature parity with the CRUD
-// extractor but unused — action paths come from the discovered x-f5xc-action.
+// from the flat action request body. Only scalar string props (plus the `state`
+// enum) become attributes; object props (annotations, labels) and non-enum $ref
+// props (passport, tunnel_type) are skipped because they are not representable as
+// plain string attributes. `namespace` is a path parameter (not a body property)
+// and is injected so the generated model carries a Namespace field for the
+// action/read path Sprintf. The singular action POST path and the pluralized
+// sibling object GET path are captured for Create/Read, `state`
+// constant-defaults to APPROVED, and every user-settable field forces replace
+// (there is no in-place update). extractAPIPath is accepted for signature parity
+// with the CRUD extractor but unused — action paths come from the discovered
+// x-f5xc-action.
 func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
 	// Locate the action for this resource among the spec's discovered actions.
 	var action *openapi.ResourcePath
@@ -420,8 +425,24 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 	}
 	sort.Strings(propNames)
 
+	// The action model is rendered as a flat set of string attributes. Only
+	// scalar string props (plus the `state` enum $ref, special-cased below) map
+	// cleanly to a StringAttribute. Object props (annotations, labels) and
+	// non-enum $ref props (passport, tunnel_type) are structured values that must
+	// NOT be emitted as strings, so they are skipped entirely.
 	var attributes []openapi.TerraformAttribute
+	haveNamespace := false
 	for _, name := range propNames {
+		prop := reqSchema.Properties[name]
+		isState := name == "state"
+		if prop.Type != "string" && !isState {
+			// Skip object / non-enum $ref props (annotations, labels, passport,
+			// tunnel_type): they are not representable as a plain string attribute.
+			continue
+		}
+		if name == "namespace" {
+			haveNamespace = true
+		}
 		attr := openapi.TerraformAttribute{
 			Name:        name,
 			GoName:      naming.ToResourceTypeName(name),
@@ -432,6 +453,8 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 		}
 		switch name {
 		case "name", "namespace":
+			// Path parameters ({namespace}/{name}); the request schema's `required`
+			// list is null, so force these Required.
 			attr.Required = true
 		case "state":
 			// state constant-defaults to APPROVED; Optional+Computed so it may be
@@ -439,14 +462,27 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 			attr.Optional = true
 			attr.Computed = true
 			attr.StringDefault = "APPROVED"
-		case "passport":
-			// passport is write-only: supplied on create, never read back.
-			attr.Optional = true
-			attr.Sensitive = true
 		default:
 			attr.Optional = true
 		}
 		attributes = append(attributes, attr)
+	}
+
+	// `namespace` is a PATH parameter ({namespace}), not a request-body property,
+	// so it is absent from reqSchema.Properties. Inject it (mirroring how CRUD
+	// resources declare namespace) so the generated model carries a Namespace
+	// field for the action/read path Sprintf. Placed first to keep it adjacent to
+	// the other ID component.
+	if !haveNamespace {
+		attributes = append([]openapi.TerraformAttribute{{
+			Name:        "namespace",
+			GoName:      "Namespace",
+			TfsdkTag:    "namespace",
+			Type:        "string",
+			JsonName:    "namespace",
+			Required:    true,
+			IsSpecField: false,
+		}}, attributes...)
 	}
 
 	// An action has no PUT/update endpoint, so force every settable field to
