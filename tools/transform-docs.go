@@ -3199,7 +3199,7 @@ func getAPIDefault(resourceName, attrPath string) string {
 // Returns the specification and the cleaned description
 func extractSpecifiedIn(desc string) (specifiedIn, cleanDesc string) {
 	// Match patterns like "Specified in milliseconds" or "This is specified in milliseconds"
-	specRegex := regexp.MustCompile(`(?:This is s|S)pecified in ([^.]+?)(?:\.|$)`)
+	specRegex := regexp.MustCompile(`(?i)(?:This is )?specified in ([^.]+?)(?:\.|$)`)
 	match := specRegex.FindStringSubmatch(desc)
 	if match != nil {
 		specifiedIn = "Specified in " + strings.TrimSpace(match[1])
