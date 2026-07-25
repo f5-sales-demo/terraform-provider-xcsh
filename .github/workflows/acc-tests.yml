@@ -90,10 +90,12 @@ on:
   schedule:
     - cron: '0 2 * * 1'  # Monday 2 AM UTC
 
+# Least privilege by default. `checks: write` is granted only on the two jobs that
+# publish a JUnit check run via mikepenz/action-junit-report. `pull-requests: write`
+# was previously granted workflow-wide but nothing here writes to a PR — the report
+# action is not configured to comment (`comment` defaults to false) — so it is dropped.
 permissions:
   contents: read
-  pull-requests: write
-  checks: write
 
 # Only one acceptance test run at a time
 concurrency:
@@ -115,6 +117,11 @@ jobs:
       github.event_name != 'workflow_dispatch' ||
       github.event.inputs.mode != 'real-only'
 
+    # Publishes the "Mock Test Results" check run.
+    permissions:
+      contents: read
+      checks: write
+
     outputs:
       mock_passed: ${{ steps.run-tests.outputs.passed }}
       mock_failed: ${{ steps.run-tests.outputs.failed }}
@@ -131,12 +138,17 @@ jobs:
 
       - name: Run mock tests
         id: run-tests
+        env:
+          # workflow_dispatch inputs are free-text; via env they stay inert data
+          # instead of expanding into the run body as shell.
+          INPUT_PARALLEL: ${{ github.event.inputs.parallel }}
+          INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
         run: |
           mkdir -p test-reports
 
           # Mock tests run in PARALLEL - no rate limiting needed
-          PARALLEL="${{ github.event.inputs.parallel || '4' }}"
-          TIMEOUT="${{ github.event.inputs.timeout || '10' }}"
+          PARALLEL="${INPUT_PARALLEL:-4}"
+          TIMEOUT="${INPUT_TIMEOUT:-10}"
 
           echo "Running mock tests with parallelism: $PARALLEL"
 
@@ -201,6 +213,11 @@ jobs:
     # Allow workflow to continue if self-hosted runner is unavailable
     continue-on-error: ${{ github.event_name == 'schedule' }}
 
+    # Publishes the "Real API Test Results" check run.
+    permissions:
+      contents: read
+      checks: write
+
     outputs:
       real_passed: ${{ steps.run-tests.outputs.passed }}
       real_failed: ${{ steps.run-tests.outputs.failed }}
@@ -208,8 +225,10 @@ jobs:
 
     steps:
       - name: Check runner availability
+        env:
+          RUNNER_NAME: ${{ runner.name }}
         run: |
-          echo "Running on self-hosted runner: ${{ runner.name }}"
+          echo "Running on self-hosted runner: ${RUNNER_NAME}"
           echo ""
           echo "Verifying F5 XC API connectivity..."
 
@@ -286,13 +305,17 @@ jobs:
           XCSH_P12_FILE: ${{ steps.setup-p12.outputs.p12_file }}
           XCSH_P12_PASSWORD: ${{ secrets.XCSH_P12_PASSWORD }}
           TF_ACC: '1'
+          # See the mock-tests job: dispatch inputs and step outputs are passed as
+          # env so they cannot expand into the run body as shell.
+          INPUT_TIMEOUT: ${{ github.event.inputs.timeout }}
+          AUTH_METHOD: ${{ steps.verify-creds.outputs.auth_method }}
         run: |
           mkdir -p test-reports
 
-          TIMEOUT="${{ github.event.inputs.timeout || '10' }}"
+          TIMEOUT="${INPUT_TIMEOUT:-10}"
 
           echo "Running real API tests SEQUENTIALLY with rate limiting"
-          echo "Auth method: ${{ steps.verify-creds.outputs.auth_method }}"
+          echo "Auth method: ${AUTH_METHOD}"
           echo "Timeout per test: ${TIMEOUT}m"
 
           # Real API tests run SEQUENTIALLY (-parallel 1) with rate limiting
@@ -326,9 +349,10 @@ jobs:
 
       - name: Cleanup P12 certificate
         if: always() && steps.verify-creds.outputs.auth_method == 'p12'
+        env:
+          P12_DIR: ${{ steps.setup-p12.outputs.p12_dir }}
         run: |
           # Securely remove the temporary P12 file
-          P12_DIR="${{ steps.setup-p12.outputs.p12_dir }}"
           if [ -n "$P12_DIR" ] && [ -d "$P12_DIR" ]; then
             rm -rf "$P12_DIR"
             echo "✓ Temporary P12 certificate cleaned up"
@@ -446,21 +470,24 @@ jobs:
 
       - name: Cleanup P12 certificate
         if: always() && steps.setup-p12.outputs.p12_dir != ''
+        env:
+          P12_DIR: ${{ steps.setup-p12.outputs.p12_dir }}
         run: |
-          P12_DIR="${{ steps.setup-p12.outputs.p12_dir }}"
           if [ -n "$P12_DIR" ] && [ -d "$P12_DIR" ]; then
             rm -rf "$P12_DIR"
             echo "✓ Temporary P12 certificate cleaned up"
           fi
 
       - name: Post cleanup summary
+        env:
+          SWEPT_NAMESPACES: ${{ steps.sweep.outputs.swept_namespaces || '0' }}
         run: |
           {
             echo "## Resource Cleanup"
             echo ""
             echo "Sweepers ran to clean up test resources left behind by acceptance tests."
             echo ""
-            echo "- Namespaces cleaned: ${{ steps.sweep.outputs.swept_namespaces || '0' }}"
+            echo "- Namespaces cleaned: ${SWEPT_NAMESPACES}"
           } >> "$GITHUB_STEP_SUMMARY"
 
   # ═══════════════════════════════════════════════════════════════════════════
