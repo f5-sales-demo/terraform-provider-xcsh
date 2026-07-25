@@ -22,10 +22,11 @@ import (
 // verbatim as a JSON wire key (`"blocked_sevice"`) and again inside derived
 // identifiers (`BlockedSevice`, `schemaFleetBlockedSevicesListType`), so any
 // correction key that occurs inside a real property name silently renames an
-// API field. That is exactly what happened: `sevice`->`service` turned the
-// upstream-misspelled field `blocked_sevice` into `blocked_service`, which the
-// F5 XC API silently ignores, and `checkin`->`checking` broke the bot_defense
-// flow-label `checkin` property the same way.
+// API field. That is exactly what happened: the correction for the mis-typed
+// word "service" turned the upstream-misspelled field `blocked_sevice` into
+// `blocked_service`, which the F5 XC API silently ignores, and the correction
+// for "checking" broke the bot_defense flow-label `checkin` property the same
+// way.
 //
 // The spelling pass no longer touches internal/provider/, but the corrections
 // file is still applied to prose that is generated from these same property
@@ -121,15 +122,16 @@ func collectPropertyNames(node any, out map[string]struct{}) {
 // property name, compared case-insensitively.
 //
 //   - Substring, not equality, because `txt.replace` is a substring operation:
-//     `checkin` -> `checking` corrupts both the property `checkin` and the
-//     property `msg_hdr_checking_disabled` (-> `msg_hdr_checkingg_disabled`).
+//     the `checkin` -> `checking` entry corrupted both the property `checkin`
+//     and the property `msg_hdr_checking_disabled`.
 //   - Case-insensitive, because generated code carries each property name both
-//     verbatim (the wire key) and in CamelCase (Go identifiers), so `Sevice` is
-//     just as dangerous as `sevice`.
+//     verbatim (the wire key `blocked_sevice`) and inside CamelCase Go
+//     identifiers (`BlockedSevice`), so an upper-case key variant is exactly as
+//     dangerous as its lower-case twin.
 //   - Keys are compared EXACTLY AS WRITTEN, with no trimming. Space-padded keys
-//     such as `" ADN "` or `" defin "` cannot occur inside a property name, so
-//     they are correctly reported as safe; trimming them would invent false
-//     positives (` defin ` would "collide" with `api_definition`).
+//     such as `" ADN "` cannot occur inside a property name and are therefore
+//     correctly reported as safe; trimming them would invent false positives
+//     against longer property names such as `api_definition`.
 func TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames(t *testing.T) {
 	root := repoRootFromTest(t)
 
@@ -165,8 +167,8 @@ func TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames(t *testing.T) {
 		}
 		sort.Strings(hits)
 		failures = append(failures, fmt.Sprintf(
-			"  %q -> %q collides with spec propert%s: %s",
-			key, corrections[key], plural(len(hits)), strings.Join(hits, ", "),
+			"  %q -> %q collides with %d spec name(s): %s",
+			key, corrections[key], len(hits), strings.Join(hits, ", "),
 		))
 	}
 
@@ -176,11 +178,4 @@ func TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames(t *testing.T) {
 			"Remove the key, or narrow it (e.g. pad it with spaces) so it can only match prose.",
 			len(failures), strings.Join(failures, "\n"))
 	}
-}
-
-func plural(n int) string {
-	if n == 1 {
-		return "y"
-	}
-	return "ies"
 }

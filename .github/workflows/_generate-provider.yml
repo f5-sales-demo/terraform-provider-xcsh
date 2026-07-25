@@ -32,22 +32,26 @@ jobs:
           fetch-depth: 0
 
       - name: Download specs if not present
+        # inputs.spec-dir reaches the shell through env: — an ${{ }} expansion
+        # inside run: is a code-injection sink (zizmor template-injection).
+        # Shell-quoted at each use below.
         env:
           GH_TOKEN: ${{ github.token }}
           ENRICHED_REPO: f5-sales-demo/api-specs-enriched
+          SPEC_DIR: ${{ inputs.spec-dir }}
         run: |
-          SPEC_COUNT=$(find "${{ inputs.spec-dir }}" -name "*.json" -type f 2>/dev/null | wc -l)
+          SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f 2>/dev/null | wc -l)
           if [ "$SPEC_COUNT" -eq "0" ]; then
             echo "Specs not in tree (gitignored) — downloading latest from $ENRICHED_REPO"
-            mkdir -p "${{ inputs.spec-dir }}"
+            mkdir -p "${SPEC_DIR}"
             ASSET_ID=$(gh api "repos/$ENRICHED_REPO/releases" --jq \
               '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
             if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
               gh api "repos/$ENRICHED_REPO/releases/assets/$ASSET_ID" \
                 -H "Accept: application/octet-stream" > /tmp/specs.zip
-              unzip -o /tmp/specs.zip -d "${{ inputs.spec-dir }}"
+              unzip -o /tmp/specs.zip -d "${SPEC_DIR}"
               rm /tmp/specs.zip
-              SPEC_COUNT=$(find "${{ inputs.spec-dir }}" -name "*.json" -type f | wc -l)
+              SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f | wc -l)
               echo "Downloaded $SPEC_COUNT spec files"
             else
               echo "::warning::Could not find spec asset in latest release"
@@ -58,9 +62,11 @@ jobs:
 
       - name: Verify specs exist
         id: verify
+        env:
+          SPEC_DIR: ${{ inputs.spec-dir }}
         run: |
-          SPEC_COUNT=$(find "${{ inputs.spec-dir }}" -name "*.json" -type f 2>/dev/null | wc -l)
-          echo "Found ${SPEC_COUNT} OpenAPI spec files in ${{ inputs.spec-dir }}"
+          SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f 2>/dev/null | wc -l)
+          echo "Found ${SPEC_COUNT} OpenAPI spec files in ${SPEC_DIR}"
           if [ "$SPEC_COUNT" -eq "0" ]; then
             echo "No spec files found - skipping generation"
             echo "has_specs=false" >> "$GITHUB_OUTPUT"
@@ -77,9 +83,11 @@ jobs:
 
       - name: Run code generator
         if: steps.verify.outputs.has_specs == 'true'
+        env:
+          SPEC_DIR: ${{ inputs.spec-dir }}
         run: |
           echo "Running code generator..."
-          go run tools/generate-all-schemas.go --spec-dir=${{ inputs.spec-dir }}
+          go run tools/generate-all-schemas.go --spec-dir="${SPEC_DIR}"
 
       - name: Run go mod tidy
         if: steps.verify.outputs.has_specs == 'true'
@@ -91,7 +99,13 @@ jobs:
 
       - name: Run tests
         if: steps.verify.outputs.has_specs == 'true'
-        run: scripts/go-retry.sh 2 go test -v ./internal/...
+        # ./tools/... runs here as well as in _build-test.yml because this is the
+        # only job where the spec artifact is present:
+        # TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames (#1257) needs
+        # it and skips without it.
+        env:
+          XCSH_SPEC_DIR: ${{ inputs.spec-dir }}
+        run: scripts/go-retry.sh 2 go test -v ./internal/... ./tools/...
 
       - name: Check for changes
         id: check
