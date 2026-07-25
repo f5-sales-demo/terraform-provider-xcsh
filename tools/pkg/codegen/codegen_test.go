@@ -430,6 +430,9 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesEmptyMarkerListElement_Issue
 	}{
 		{"OriginPool", "Labels", "labels"},
 		{"HTTPLoadBalancer", "EndpointSubsets", "endpoint_subsets"},
+		// #1244: same class on securemesh_site_v2 — the server materializes labels {} on
+		// every azure.not_managed.node_list[].interface_list[] element.
+		{"SecuremeshSiteV2", "Labels", "labels"},
 	}
 	for _, c := range cases {
 		var sb strings.Builder
@@ -442,20 +445,23 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesEmptyMarkerListElement_Issue
 	}
 }
 
-// #1103 non-collision: seeding OriginPool.labels suppresses ONLY the origin_servers[]
-// empty-marker block. The top-level metadata.labels is a types.Map rendered by a
+// #1103 / #1244 non-collision: seeding a resource's "labels" suppresses ONLY the
+// empty-marker blocks (origin_pool origin_servers[].labels, securemesh_site_v2
+// interface_list[].labels). The top-level metadata.labels is a types.Map rendered by a
 // different path that never consults isImportDefaultSuppressed, so a map-typed "labels"
 // child must NOT acquire an empty-marker import-suppression guard.
 func TestRenderUnmarshalChild_MetadataLabelsMapNotSuppressed_Issue1103(t *testing.T) {
-	var sb strings.Builder
-	mapAttr := openapi.TerraformAttribute{GoName: "Labels", TfsdkTag: "labels", JsonName: "labels", Type: "map", ElementType: "string"}
-	renderUnmarshalChild(&sb, "OriginPool", "", mapAttr, "metaMap", "", "", "single", "\t")
-	got := sb.String()
-	if strings.Contains(got, "EmptyModel{}") {
-		t.Errorf("metadata.labels (types.Map) must not render as an empty-marker block; got:\n%s", got)
-	}
-	if strings.Contains(got, "if !isImport {") {
-		t.Errorf("metadata.labels (types.Map) must not acquire an empty-marker import-suppression guard; got:\n%s", got)
+	for _, rc := range []string{"OriginPool", "SecuremeshSiteV2"} {
+		var sb strings.Builder
+		mapAttr := openapi.TerraformAttribute{GoName: "Labels", TfsdkTag: "labels", JsonName: "labels", Type: "map", ElementType: "string"}
+		renderUnmarshalChild(&sb, rc, "", mapAttr, "metaMap", "", "", "single", "\t")
+		got := sb.String()
+		if strings.Contains(got, "EmptyModel{}") {
+			t.Errorf("%s metadata.labels (types.Map) must not render as an empty-marker block; got:\n%s", rc, got)
+		}
+		if strings.Contains(got, "if !isImport {") {
+			t.Errorf("%s metadata.labels (types.Map) must not acquire an empty-marker import-suppression guard; got:\n%s", rc, got)
+		}
 	}
 }
 

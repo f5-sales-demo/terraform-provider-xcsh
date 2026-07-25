@@ -162,6 +162,17 @@ var importDefaultSuppressionsSeed = map[string][]string{
 		"any_country",
 		"any_ip",
 	},
+	// #1244: same class as OriginPool.labels — labels {} is a plain optional empty-marker
+	// block (a label selector the schema models as empty-only) that the F5 XC API ALWAYS
+	// materializes on every azure.not_managed.node_list[].interface_list[] element, verified
+	// live on a single-node securemesh_site_v2 probe. A config that omits it (every real
+	// module does) re-plans `- labels {}` on whole-object import, so suppress it on import.
+	// Does NOT affect the top-level metadata.labels types.Map (a different read path that
+	// never consults isImportDefaultSuppressed) — all 13 nested labels in this resource are
+	// *SecuremeshSiteV2EmptyModel.
+	"SecuremeshSiteV2": {
+		"labels",
+	},
 	// SPol effort (service_policy coverage). Suppress ONLY the oneof base members the F5 XC
 	// API echoes when the module OMITS their parent — verified live by GETting a created
 	// service_policy (f5-sales-demo): a rule that declares no client/asn/ip matcher still
