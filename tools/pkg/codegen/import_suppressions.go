@@ -164,12 +164,21 @@ var importDefaultSuppressionsSeed = map[string][]string{
 	},
 	// #1244: same class as OriginPool.labels — labels {} is a plain optional empty-marker
 	// block (a label selector the schema models as empty-only) that the F5 XC API ALWAYS
-	// materializes on every azure.not_managed.node_list[].interface_list[] element, verified
-	// live on a single-node securemesh_site_v2 probe. A config that omits it (every real
-	// module does) re-plans `- labels {}` on whole-object import, so suppress it on import.
-	// Does NOT affect the top-level metadata.labels types.Map (a different read path that
-	// never consults isImportDefaultSuppressed) — all 13 nested labels in this resource are
-	// *SecuremeshSiteV2EmptyModel.
+	// materializes, verified live on a single-node azure not_managed securemesh_site_v2
+	// probe (azure.not_managed.node_list[].interface_list[].labels). A config that omits it
+	// (every real module does) re-plans `- labels {}` on whole-object import, so suppress it
+	// on import.
+	//
+	// Blast radius: suppression matches on the LEAF name, so this covers every nested
+	// `labels` in the resource — all 13 *SecuremeshSiteV2EmptyModel fields, i.e. the
+	// per-interface labels on all 11 not_managed provider arms (aws, azure, baremetal,
+	// equinix, gcp, kvm, nutanix, oci, openshift_virtualization, openstack, vmware) plus
+	// local_vrf.{slo,sli}_config.labels. Those 13 fields are rendered at 39 unmarshal sites,
+	// so regeneration adds 39 `if !isImport {` guards. Only the azure arm is live-verified;
+	// the others are the identical schema shape, and suppressing an empty marker the server
+	// re-applies is safe either way. Does NOT affect the top-level metadata.labels types.Map:
+	// that is a types.Map written by static ResourceTemplate text before the isImport marker
+	// is even read, and never consults isImportDefaultSuppressed.
 	"SecuremeshSiteV2": {
 		"labels",
 	},

@@ -536,12 +536,27 @@ var (
 	flagNSPrefix = flag.String("ns-prefix", "tf-discover", "Prefix for auto-created test namespace")
 )
 
+// strandedObjects records every discovery probe object whose DELETE never succeeded.
+// Discovery creates real objects in SHARED namespaces (securemesh_site_v2 lands in
+// "system", alongside the live demo sites — #1244), so a failed cleanup leaks a
+// tf-discover-* object forever. Anything recorded here fails the run (see main).
+var strandedObjects []string
+
 // ============================================================================
 // Main
 // ============================================================================
 
 func main() {
 	flag.Parse()
+
+	// Registered FIRST so it runs LAST (defers are LIFO): the test-namespace cleanup
+	// deferred below still gets to run before the process exits non-zero.
+	exitCode := 0
+	defer func() {
+		if exitCode != 0 {
+			os.Exit(exitCode)
+		}
+	}()
 
 	if !*flagAll && *flagResource == "" && *flagPattern == "" && !*flagValidate {
 		fmt.Println("Usage: go run tools/discover-defaults.go [options]")
@@ -704,6 +719,16 @@ func main() {
 	fmt.Printf("Skipped:         %d\n", db.Skipped)
 	fmt.Printf("Failed:          %d\n", db.Failed)
 	fmt.Printf("Output:          %s\n", *flagOutput)
+
+	// A leaked probe object in a shared namespace is a real defect, not a warning: fail the
+	// run (the monthly -all workflow) so it gets noticed and cleaned up.
+	if len(strandedObjects) > 0 {
+		fmt.Fprintf(os.Stderr, "\n!! %d discovery probe object(s) could not be deleted and are STRANDED:\n", len(strandedObjects))
+		for _, p := range strandedObjects {
+			fmt.Fprintf(os.Stderr, "!!   %s\n", p)
+		}
+		exitCode = 1
+	}
 }
 
 // ============================================================================
@@ -948,7 +973,19 @@ func cleanupResource(ctx context.Context, apiClient *client.Client, resourceName
 		fmt.Printf("  DELETE %s\n", deletePath)
 	}
 
-	_ = apiClient.Delete(ctx, deletePath)
+	// Retry a failing DELETE (transient 5xx, or the brief referential BAD_REQUEST the API
+	// returns while an object is still referenced) and never swallow the final error: an
+	// undeleted probe object is stranded in a shared namespace. Detach from the discovery
+	// deadline so cleanup still runs when that context is already spent.
+	cleanupCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 60*time.Second)
+	defer cancel()
+	if err := discovery.DeleteWithRetry(func() error {
+		return apiClient.Delete(cleanupCtx, deletePath)
+	}, 3, 2*time.Second); err != nil {
+		fmt.Fprintf(os.Stderr, "\n!! CLEANUP FAILED: DELETE %s after 3 attempts: %v\n", deletePath, err)
+		fmt.Fprintf(os.Stderr, "!! probe object %s is STRANDED and must be deleted by hand.\n\n", name)
+		strandedObjects = append(strandedObjects, deletePath)
+	}
 }
 
 func pluralizeResource(name string) string {
