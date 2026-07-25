@@ -225,8 +225,10 @@ jobs:
 
     steps:
       - name: Check runner availability
+        env:
+          RUNNER_NAME: ${{ runner.name }}
         run: |
-          echo "Running on self-hosted runner: ${{ runner.name }}"
+          echo "Running on self-hosted runner: ${RUNNER_NAME}"
           echo ""
           echo "Verifying F5 XC API connectivity..."
 
@@ -347,9 +349,10 @@ jobs:
 
       - name: Cleanup P12 certificate
         if: always() && steps.verify-creds.outputs.auth_method == 'p12'
+        env:
+          P12_DIR: ${{ steps.setup-p12.outputs.p12_dir }}
         run: |
           # Securely remove the temporary P12 file
-          P12_DIR="${{ steps.setup-p12.outputs.p12_dir }}"
           if [ -n "$P12_DIR" ] && [ -d "$P12_DIR" ]; then
             rm -rf "$P12_DIR"
             echo "✓ Temporary P12 certificate cleaned up"
@@ -467,21 +470,24 @@ jobs:
 
       - name: Cleanup P12 certificate
         if: always() && steps.setup-p12.outputs.p12_dir != ''
+        env:
+          P12_DIR: ${{ steps.setup-p12.outputs.p12_dir }}
         run: |
-          P12_DIR="${{ steps.setup-p12.outputs.p12_dir }}"
           if [ -n "$P12_DIR" ] && [ -d "$P12_DIR" ]; then
             rm -rf "$P12_DIR"
             echo "✓ Temporary P12 certificate cleaned up"
           fi
 
       - name: Post cleanup summary
+        env:
+          SWEPT_NAMESPACES: ${{ steps.sweep.outputs.swept_namespaces || '0' }}
         run: |
           {
             echo "## Resource Cleanup"
             echo ""
             echo "Sweepers ran to clean up test resources left behind by acceptance tests."
             echo ""
-            echo "- Namespaces cleaned: ${{ steps.sweep.outputs.swept_namespaces || '0' }}"
+            echo "- Namespaces cleaned: ${SWEPT_NAMESPACES}"
           } >> "$GITHUB_STEP_SUMMARY"
 
   # ═══════════════════════════════════════════════════════════════════════════

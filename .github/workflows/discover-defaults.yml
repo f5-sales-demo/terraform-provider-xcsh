@@ -82,8 +82,10 @@ jobs:
 
     steps:
       - name: Check runner availability
+        env:
+          RUNNER_NAME: ${{ runner.name }}
         run: |
-          echo "Running on self-hosted runner: ${{ runner.name }}"
+          echo "Running on self-hosted runner: ${RUNNER_NAME}"
           echo ""
           echo "Verifying VPN connectivity..."
           # The self-hosted runner should have VPN configured
@@ -199,6 +201,12 @@ jobs:
           inputs.mode != 'validate'
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          # Discovery counts reach the commit message and PR body as env rather than
+          # as `${{ }}` expansions inside the run body. The PR-body heredoc stays
+          # single-quoted because it contains backticks that must not be evaluated,
+          # so its values go in by placeholder substitution below.
+          RESOURCES_DISCOVERED: ${{ steps.discover.outputs.resources_discovered }}
+          RESOURCES_FAILED: ${{ steps.discover.outputs.resources_failed }}
         run: |
           # Configure git
           git config user.name "github-actions[bot]"
@@ -212,13 +220,13 @@ jobs:
           git add tools/api-defaults.json internal/mocks/generated_defaults.go
 
           # Commit
-          git commit -m "$(cat <<'EOF'
+          git commit -m "$(cat <<EOF
           chore: update API-discovered defaults
 
           Automated update from discover-defaults workflow.
 
-          Resources discovered: ${{ steps.discover.outputs.resources_discovered }}
-          Resources failed: ${{ steps.discover.outputs.resources_failed }}
+          Resources discovered: ${RESOURCES_DISCOVERED}
+          Resources failed: ${RESOURCES_FAILED}
 
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
@@ -229,10 +237,10 @@ jobs:
           # Push
           git push origin "$BRANCH"
 
-          # Create PR
-          gh pr create \
-            --title "chore: update API-discovered defaults" \
-            --body "$(cat <<'EOF'
+          # Create PR. The heredoc stays single-quoted so the backticks in the body
+          # below are not evaluated as command substitution; the two discovery counts
+          # are substituted in afterwards instead of being expanded here.
+          PR_BODY=$(cat <<'EOF'
           ## Summary
 
           Automated update of API-discovered default values.
@@ -244,8 +252,8 @@ jobs:
 
           ## Discovery Results
 
-          - Resources discovered: ${{ steps.discover.outputs.resources_discovered }}
-          - Resources failed: ${{ steps.discover.outputs.resources_failed }}
+          - Resources discovered: __RESOURCES_DISCOVERED__
+          - Resources failed: __RESOURCES_FAILED__
 
           ## Testing
 
@@ -255,7 +263,13 @@ jobs:
 
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
           EOF
-          )" \
+          )
+          PR_BODY=${PR_BODY//__RESOURCES_DISCOVERED__/$RESOURCES_DISCOVERED}
+          PR_BODY=${PR_BODY//__RESOURCES_FAILED__/$RESOURCES_FAILED}
+
+          gh pr create \
+            --title "chore: update API-discovered defaults" \
+            --body "$PR_BODY" \
             --label "automated,documentation"
 
       - name: Upload discovery log
@@ -276,14 +290,18 @@ jobs:
     if: always()
     steps:
       - name: Report results
+        env:
+          RESOURCES_DISCOVERED: ${{ needs.discover.outputs.resources_discovered || 'N/A' }}
+          RESOURCES_FAILED: ${{ needs.discover.outputs.resources_failed || 'N/A' }}
+          CHANGES_DETECTED: ${{ needs.discover.outputs.changes_detected || 'N/A' }}
         run: |
           echo "## API Default Discovery Results"
           echo ""
           echo "| Metric | Value |"
           echo "|--------|-------|"
-          echo "| Resources Discovered | ${{ needs.discover.outputs.resources_discovered || 'N/A' }} |"
-          echo "| Resources Failed | ${{ needs.discover.outputs.resources_failed || 'N/A' }} |"
-          echo "| Changes Detected | ${{ needs.discover.outputs.changes_detected || 'N/A' }} |"
+          echo "| Resources Discovered | ${RESOURCES_DISCOVERED} |"
+          echo "| Resources Failed | ${RESOURCES_FAILED} |"
+          echo "| Changes Detected | ${CHANGES_DETECTED} |"
           echo ""
 
           if [ "${{ needs.discover.result }}" = "failure" ]; then

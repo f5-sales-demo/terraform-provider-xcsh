@@ -60,9 +60,9 @@ jobs:
 
       - name: Calculate next version
         id: version
+        env:
+          LATEST_TAG: ${{ steps.get_tag.outputs.latest_tag }}
         run: |
-          LATEST_TAG="${{ steps.get_tag.outputs.latest_tag }}"
-
           # Remove 'v' prefix
           VERSION=${LATEST_TAG#v}
 
@@ -101,21 +101,28 @@ jobs:
           echo "Next version: $NEW_TAG"
 
       - name: Version Diagnostics
+        env:
+          RUN_ID: ${{ github.run_id }}
+          TRIGGER_SHA: ${{ github.sha }}
+          LATEST_TAG: ${{ steps.get_tag.outputs.latest_tag }}
+          NEW_TAG: ${{ steps.version.outputs.new_tag }}
+          BUMP: ${{ steps.version.outputs.bump }}
         run: |
           echo "=== VERSION DIAGNOSTICS (tag-release) ==="
-          echo "Workflow run ID: ${{ github.run_id }}"
-          echo "Triggered by SHA: ${{ github.sha }}"
+          echo "Workflow run ID: ${RUN_ID}"
+          echo "Triggered by SHA: ${TRIGGER_SHA}"
           echo "Current HEAD SHA: $(git rev-parse HEAD)"
-          echo "Latest git tag: ${{ steps.get_tag.outputs.latest_tag }}"
-          echo "Calculated next version: ${{ steps.version.outputs.new_tag }}"
-          echo "Version bump type: ${{ steps.version.outputs.bump }}"
-          echo "Tag exists check: $(git rev-parse ${{ steps.version.outputs.new_tag }} 2>/dev/null && echo 'YES - ALREADY EXISTS' || echo 'NO - WILL CREATE')"
+          echo "Latest git tag: ${LATEST_TAG}"
+          echo "Calculated next version: ${NEW_TAG}"
+          echo "Version bump type: ${BUMP}"
+          echo "Tag exists check: $(git rev-parse "$NEW_TAG" 2>/dev/null && echo 'YES - ALREADY EXISTS' || echo 'NO - WILL CREATE')"
           echo "============================================"
 
       - name: Check if tag exists
         id: check
+        env:
+          NEW_TAG: ${{ steps.version.outputs.new_tag }}
         run: |
-          NEW_TAG="${{ steps.version.outputs.new_tag }}"
           if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "Tag $NEW_TAG already exists"
@@ -129,9 +136,8 @@ jobs:
         if: steps.check.outputs.exists == 'false'
         env:
           LATEST_TAG: ${{ steps.get_tag.outputs.latest_tag }}
+          NEW_TAG: ${{ steps.version.outputs.new_tag }}
         run: |
-          NEW_TAG="${{ steps.version.outputs.new_tag }}"
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -187,9 +193,10 @@ jobs:
           ref: ${{ needs.tag.outputs.new_tag }}
 
       - name: Create MCP data tarball
+        env:
+          NEW_TAG: ${{ needs.tag.outputs.new_tag }}
         run: |
-          VERSION="${{ needs.tag.outputs.new_tag }}"
-          VERSION="${VERSION#v}"
+          VERSION="${NEW_TAG#v}"
 
           echo "Creating MCP data tarball for v${VERSION}..."
 
@@ -229,12 +236,12 @@ jobs:
       - name: Upload to GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_TAG: ${{ needs.tag.outputs.new_tag }}
         run: |
-          VERSION="${{ needs.tag.outputs.new_tag }}"
-          VERSION="${VERSION#v}"
+          VERSION="${NEW_TAG#v}"
 
-          gh release upload "${{ needs.tag.outputs.new_tag }}" \
+          gh release upload "$NEW_TAG" \
             "mcp-data-${VERSION}.tar.gz" \
             --clobber
 
-          echo "Uploaded mcp-data-${VERSION}.tar.gz to release ${{ needs.tag.outputs.new_tag }}"
+          echo "Uploaded mcp-data-${VERSION}.tar.gz to release ${NEW_TAG}"
