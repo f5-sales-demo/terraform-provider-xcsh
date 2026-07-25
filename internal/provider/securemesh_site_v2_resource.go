@@ -15375,8 +15375,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -15975,8 +15977,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -16575,8 +16579,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -17580,8 +17586,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -18183,8 +18191,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -18783,8 +18793,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -19045,8 +19057,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -19411,8 +19425,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -20234,8 +20250,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -20834,8 +20852,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -21456,8 +21476,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -22056,8 +22078,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -23250,8 +23274,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -23545,6 +23571,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		data.Description = types.StringNull()
 	}
 
+	// #1286: the API omits an empty metadata map entirely, so "no entries in the
+	// response" is ambiguous — it means either "never declared" or "declared empty".
+	// Nulling both makes a config that declares labels = {} drift (+ labels = {}) on
+	// every plan after apply, with no import involved. Resolve it from the prior
+	// value: a known-empty prior map stays an empty map, anything else (null = never
+	// declared, or unknown) becomes null. A prior map WITH entries still nulls, so a
+	// genuine out-of-band deletion is still reported as drift.
+	// The MapValueMust below cannot panic: it panics only on diagnostics, and with nil
+	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
+	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
+	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
+
 	// Filter out system-managed labels (ves.io/*) that are injected by the platform
 	if len(apiResource.Metadata.Labels) > 0 {
 		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
@@ -23554,9 +23592,13 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			if !resp.Diagnostics.HasError() {
 				data.Labels = labels
 			}
+		} else if priorLabelsEmpty {
+			data.Labels = types.MapValueMust(types.StringType, nil)
 		} else {
 			data.Labels = types.MapNull(types.StringType)
 		}
+	} else if priorLabelsEmpty {
+		data.Labels = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Labels = types.MapNull(types.StringType)
 	}
@@ -23567,6 +23609,8 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Annotations = annotations
 		}
+	} else if priorAnnotationsEmpty {
+		data.Annotations = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
@@ -24245,8 +24289,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -24845,8 +24891,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -25445,8 +25493,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -26450,8 +26500,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -27053,8 +27105,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -27653,8 +27707,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -27915,8 +27971,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -28281,8 +28339,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -29104,8 +29164,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -29704,8 +29766,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -30326,8 +30390,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -30926,8 +30992,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -32120,8 +32188,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -37211,8 +37281,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -37811,8 +37883,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -38411,8 +38485,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -39416,8 +39492,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -40019,8 +40097,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -40619,8 +40699,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -40881,8 +40963,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -41247,8 +41331,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -42070,8 +42156,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -42670,8 +42758,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -43292,8 +43382,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -43892,8 +43984,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -45086,8 +45180,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
