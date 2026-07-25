@@ -1,0 +1,225 @@
+// ---- struct fields ----
+	AdvertisedService []map[string]interface{} `json:"advertised_service"`
+	BlockedServices map[string]interface{} `json:"blocked_services"`
+	PublicAdvertisement bool `json:"public_advertisement,omitempty"`
+// ---- marshal (create) ----
+	if !data.AdvertisedService.IsNull() && !data.AdvertisedService.IsUnknown() {
+		var AdvertisedServiceElems []ZzWireProbeAdvertisedServiceModel
+		diags := data.AdvertisedService.ElementsAs(ctx, &AdvertisedServiceElems, false)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() && len(AdvertisedServiceElems) > 0 {
+			var AdvertisedServiceList []map[string]interface{}
+			for _, AdvertisedServiceItem := range AdvertisedServiceElems {
+				AdvertisedServiceItemMap := make(map[string]interface{})
+				if !AdvertisedServiceItem.Port.IsNull() && !AdvertisedServiceItem.Port.IsUnknown() {
+					AdvertisedServiceItemMap["port"] = AdvertisedServiceItem.Port.ValueInt64()
+				}
+				AdvertisedServiceList = append(AdvertisedServiceList, AdvertisedServiceItemMap)
+			}
+			createReq.Spec["advertised_service"] = AdvertisedServiceList
+		}
+	}
+	if data.BlockedServices != nil {
+		BlockedServicesMap := make(map[string]interface{})
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []ZzWireProbeBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if !BlockedServiceItem.BlockedServiceName.IsNull() && !BlockedServiceItem.BlockedServiceName.IsUnknown() {
+						BlockedServiceItemMap["blocked_service_name"] = BlockedServiceItem.BlockedServiceName.ValueString()
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				}
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
+			}
+		}
+		if data.BlockedServices.DisableLBSourceIPPersistence != nil {
+			BlockedServicesMap["disable_lb_source_ip_persistence"] = map[string]interface{}{}
+		}
+		if data.BlockedServices.SourceIPPersistence != nil {
+			BlockedServicesSourceIPPersistenceMap := make(map[string]interface{})
+			if !data.BlockedServices.SourceIPPersistence.PersistenceTimeout.IsNull() && !data.BlockedServices.SourceIPPersistence.PersistenceTimeout.IsUnknown() {
+				BlockedServicesSourceIPPersistenceMap["persistence_timeout"] = data.BlockedServices.SourceIPPersistence.PersistenceTimeout.ValueInt64()
+			}
+			BlockedServicesMap["source_ip_persistence"] = BlockedServicesSourceIPPersistenceMap
+		}
+		createReq.Spec["blocked_services"] = BlockedServicesMap
+	}
+	if !data.PublicAdvertisement.IsNull() && !data.PublicAdvertisement.IsUnknown() {
+		createReq.Spec["public_advertisement"] = data.PublicAdvertisement.ValueBool()
+	}
+// ---- marshal (update) ----
+	if !data.AdvertisedService.IsNull() && !data.AdvertisedService.IsUnknown() {
+		var AdvertisedServiceElems []ZzWireProbeAdvertisedServiceModel
+		diags := data.AdvertisedService.ElementsAs(ctx, &AdvertisedServiceElems, false)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() && len(AdvertisedServiceElems) > 0 {
+			var AdvertisedServiceList []map[string]interface{}
+			for _, AdvertisedServiceItem := range AdvertisedServiceElems {
+				AdvertisedServiceItemMap := make(map[string]interface{})
+				if !AdvertisedServiceItem.Port.IsNull() && !AdvertisedServiceItem.Port.IsUnknown() {
+					AdvertisedServiceItemMap["port"] = AdvertisedServiceItem.Port.ValueInt64()
+				}
+				AdvertisedServiceList = append(AdvertisedServiceList, AdvertisedServiceItemMap)
+			}
+			apiResource.Spec["advertised_service"] = AdvertisedServiceList
+		}
+	}
+	if data.BlockedServices != nil {
+		BlockedServicesMap := make(map[string]interface{})
+		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+			var BlockedServiceElems []ZzWireProbeBlockedServicesBlockedServiceModel
+			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
+				var BlockedServiceList []map[string]interface{}
+				for _, BlockedServiceItem := range BlockedServiceElems {
+					BlockedServiceItemMap := make(map[string]interface{})
+					if !BlockedServiceItem.BlockedServiceName.IsNull() && !BlockedServiceItem.BlockedServiceName.IsUnknown() {
+						BlockedServiceItemMap["blocked_service_name"] = BlockedServiceItem.BlockedServiceName.ValueString()
+					}
+					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
+						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					}
+					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+				}
+				BlockedServicesMap["blocked_service"] = BlockedServiceList
+			}
+		}
+		if data.BlockedServices.DisableLBSourceIPPersistence != nil {
+			BlockedServicesMap["disable_lb_source_ip_persistence"] = map[string]interface{}{}
+		}
+		if data.BlockedServices.SourceIPPersistence != nil {
+			BlockedServicesSourceIPPersistenceMap := make(map[string]interface{})
+			if !data.BlockedServices.SourceIPPersistence.PersistenceTimeout.IsNull() && !data.BlockedServices.SourceIPPersistence.PersistenceTimeout.IsUnknown() {
+				BlockedServicesSourceIPPersistenceMap["persistence_timeout"] = data.BlockedServices.SourceIPPersistence.PersistenceTimeout.ValueInt64()
+			}
+			BlockedServicesMap["source_ip_persistence"] = BlockedServicesSourceIPPersistenceMap
+		}
+		apiResource.Spec["blocked_services"] = BlockedServicesMap
+	}
+	if !data.PublicAdvertisement.IsNull() && !data.PublicAdvertisement.IsUnknown() {
+		apiResource.Spec["public_advertisement"] = data.PublicAdvertisement.ValueBool()
+	}
+// ---- unmarshal ----
+	if !isImport && (data.AdvertisedService.IsNull() || len(data.AdvertisedService.Elements()) == 0) {
+		data.AdvertisedService = types.ListNull(types.ObjectType{AttrTypes: ZzWireProbeAdvertisedServiceModelAttrTypes})
+	} else if listData, ok := apiResource.Spec["advertised_service"].([]interface{}); ok && len(listData) > 0 {
+		var AdvertisedServiceList []ZzWireProbeAdvertisedServiceModel
+		var existingAdvertisedServiceItems []ZzWireProbeAdvertisedServiceModel
+		if !data.AdvertisedService.IsNull() && !data.AdvertisedService.IsUnknown() {
+			data.AdvertisedService.ElementsAs(ctx, &existingAdvertisedServiceItems, false)
+		}
+		for listIdx, item := range listData {
+			_ = listIdx
+			if itemMap, ok := item.(map[string]interface{}); ok {
+				AdvertisedServiceList = append(AdvertisedServiceList, ZzWireProbeAdvertisedServiceModel{
+					Port: func() types.Int64 {
+						if v, ok := itemMap["port"].(float64); ok && v != 0 {
+							return types.Int64Value(int64(v))
+						}
+						return types.Int64Null()
+					}(),
+				})
+			}
+		}
+		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ZzWireProbeAdvertisedServiceModelAttrTypes}, AdvertisedServiceList)
+		resp.Diagnostics.Append(diags...)
+		if !resp.Diagnostics.HasError() {
+			data.AdvertisedService = listVal
+		}
+	} else {
+		data.AdvertisedService = types.ListNull(types.ObjectType{AttrTypes: ZzWireProbeAdvertisedServiceModelAttrTypes})
+	}
+	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
+		data.BlockedServices = &ZzWireProbeBlockedServicesModel{
+			BlockedService: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: ZzWireProbeBlockedServicesBlockedServiceModelAttrTypes})
+				}
+				var BlockedServiceExisting []ZzWireProbeBlockedServicesBlockedServiceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
+					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				}
+				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedServiceResult []ZzWireProbeBlockedServicesBlockedServiceModel
+					for BlockedServiceIdx, BlockedServiceItem := range rawList {
+						_ = BlockedServiceIdx
+						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
+							BlockedServiceResult = append(BlockedServiceResult, ZzWireProbeBlockedServicesBlockedServiceModel{
+								BlockedServiceName: func() types.String {
+									if v, ok := BlockedServiceItemMap["blocked_service_name"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+								NetworkType: func() types.String {
+									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+										return types.StringValue(v)
+									}
+									return types.StringNull()
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ZzWireProbeBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: ZzWireProbeBlockedServicesBlockedServiceModelAttrTypes})
+			}(),
+			DisableLBSourceIPPersistence: func() *ZzWireProbeEmptyModel {
+				if !isImport && data.BlockedServices != nil {
+					return data.BlockedServices.DisableLBSourceIPPersistence
+				}
+				if _, ok := blockData["disable_lb_source_ip_persistence"].(map[string]interface{}); ok {
+					return &ZzWireProbeEmptyModel{}
+				}
+				return nil
+			}(),
+			SourceIPPersistence: func() *ZzWireProbeBlockedServicesSourceIPPersistenceModel {
+				if !isImport && data.BlockedServices != nil && data.BlockedServices.SourceIPPersistence != nil {
+					return data.BlockedServices.SourceIPPersistence
+				}
+				if SourceIPPersistenceData, ok := blockData["source_ip_persistence"].(map[string]interface{}); ok {
+					return &ZzWireProbeBlockedServicesSourceIPPersistenceModel{
+						PersistenceTimeout: func() types.Int64 {
+							if !isImport && data.BlockedServices != nil && data.BlockedServices.SourceIPPersistence != nil && !data.BlockedServices.SourceIPPersistence.PersistenceTimeout.IsUnknown() {
+								return data.BlockedServices.SourceIPPersistence.PersistenceTimeout
+							}
+							if v, ok := SourceIPPersistenceData["persistence_timeout"].(float64); ok && v != 0 {
+								return types.Int64Value(int64(v))
+							}
+							return types.Int64Null()
+						}(),
+					}
+				}
+				return nil
+			}(),
+		}
+	}
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.PublicAdvertisement.IsNull() && !data.PublicAdvertisement.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
+	} else {
+		if v, ok := apiResource.Spec["public_advertisement"].(bool); ok {
+			data.PublicAdvertisement = types.BoolValue(v)
+		} else {
+			data.PublicAdvertisement = types.BoolNull()
+		}
+	}
+// ---- computed read-back ----
+	// Set computed fields from API response
+	if v, ok := created.Spec["public_advertisement"].(bool); ok {
+		data.PublicAdvertisement = types.BoolValue(v)
+	} else if data.PublicAdvertisement.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.PublicAdvertisement = types.BoolNull()
+	}
+	// If plan had a value, preserve it
