@@ -31,7 +31,6 @@ type RegistrationInfra struct {
 
 // RegistrationGetSpec is the registration's spec view.
 type RegistrationGetSpec struct {
-	Token    string               `json:"token,omitempty"`
 	Infra    RegistrationInfra    `json:"infra,omitempty"`
 	Passport RegistrationPassport `json:"passport,omitempty"`
 }
@@ -58,8 +57,6 @@ type RegistrationSystemMetadata struct {
 // ListRegistrationsBySite. Name is the approvable registration name
 // ("r-" + uid).
 type RegistrationListItem struct {
-	Tenant         string                     `json:"tenant,omitempty"`
-	Namespace      string                     `json:"namespace,omitempty"`
 	Name           string                     `json:"name,omitempty"`
 	UID            string                     `json:"uid,omitempty"`
 	SystemMetadata RegistrationSystemMetadata `json:"system_metadata,omitempty"`

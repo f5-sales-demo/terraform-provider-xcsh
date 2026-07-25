@@ -98,9 +98,6 @@ func TestListRegistrationsBySite_OneItem(t *testing.T) {
 	if item.GetSpec.Infra.Provider != "AZURE" {
 		t.Errorf("GetSpec.Infra.Provider = %q, want %q", item.GetSpec.Infra.Provider, "AZURE")
 	}
-	if item.GetSpec.Token == "" {
-		t.Error("GetSpec.Token = empty, want the registration token")
-	}
 	if item.Object.Status.CurrentState != "ONLINE" {
 		t.Errorf("Object.Status.CurrentState = %q, want %q", item.Object.Status.CurrentState, "ONLINE")
 	}

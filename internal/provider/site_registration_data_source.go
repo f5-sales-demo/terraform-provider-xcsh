@@ -13,8 +13,10 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
@@ -27,6 +29,31 @@ var (
 
 // defaultRegistrationNamespace is the namespace registrations live in.
 const defaultRegistrationNamespace = "system"
+
+// terminalRegistrationStates are the registrationObjectState values a
+// registration never leaves. F5 XC keeps such registrations indefinitely, and
+// registrations_by_site keeps returning them, so rebuilding a CE under the same
+// site name yields both the dead registration and the live one — with the same
+// cluster_name and the same hostname. They are the registrations that can never
+// be approved, so they are not candidates.
+//
+// The remaining registrationObjectState values — NOTSET, NEW, APPROVED,
+// ADMITTED, PENDING, ONLINE, UPGRADING, MAINTENANCE — are live or still moving
+// and stay candidates.
+var terminalRegistrationStates = map[string]struct{}{
+	"RETIRED":         {},
+	"FAILED":          {},
+	"FAILED_INACTIVE": {},
+	"DONE":            {},
+}
+
+// isTerminalRegistrationState reports whether state is one a registration never
+// leaves. An empty state is NOT terminal: a missing field must never turn a
+// real match into a miss.
+func isTerminalRegistrationState(state string) bool {
+	_, ok := terminalRegistrationStates[state]
+	return ok
+}
 
 func NewSiteRegistrationDataSource() datasource.DataSource {
 	return &SiteRegistrationDataSource{}
@@ -48,7 +75,6 @@ type SiteRegistrationDataSourceModel struct {
 	ClusterName  types.String `tfsdk:"cluster_name"`
 	ClusterSize  types.Int64  `tfsdk:"cluster_size"`
 	ProviderType types.String `tfsdk:"provider_type"`
-	Token        types.String `tfsdk:"token"`
 }
 
 func (d *SiteRegistrationDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -93,6 +119,13 @@ resource "xcsh_registration_approval" "ce" {
 				MarkdownDescription: "Namespace holding the registrations. Defaults to `system`, where site registrations live.",
 				Optional:            true,
 				Computed:            true,
+				// Reject an explicit empty string: the lookup would fall back to
+				// `system` but report "" back, and a consumer feeding that into
+				// xcsh_registration_approval.namespace would send an empty
+				// namespace. Omit the argument to get the default instead.
+				Validators: []validator.String{
+					stringvalidator.LengthAtLeast(1),
+				},
 			},
 			"hostname": schema.StringAttribute{
 				MarkdownDescription: "Node hostname used to pick one registration when a multi-node site has several. Optional for a single-node site; when omitted, the resolved node's hostname is returned here. Hostnames are only unique within a site.",
@@ -127,11 +160,6 @@ resource "xcsh_registration_approval" "ce" {
 				MarkdownDescription: "Infrastructure provider the CE reported, e.g. `AZURE`, `AWS`, `GCP`, `VMWARE`.",
 				Computed:            true,
 			},
-			"token": schema.StringAttribute{
-				MarkdownDescription: "Site token the CE registered with.",
-				Computed:            true,
-				Sensitive:           true,
-			},
 		},
 	}
 }
@@ -157,9 +185,16 @@ func (d *SiteRegistrationDataSource) Configure(ctx context.Context, req datasour
 // set it further narrows the candidates — hostnames are only unique within a
 // site, so this is a within-site discriminator.
 //
-// No candidate returns (nil, nil): a site whose CE has not registered yet is
-// the normal case, not an error. More than one candidate returns an error
-// naming the hostnames to choose between.
+// Registrations in a terminal state are then dropped. Rebuilding a CE under the
+// same site name leaves the old registration behind, and it reports the same
+// cluster_name and the same hostname as the fresh one, so neither filter above
+// can separate them: without this the rebuild would resolve to the ambiguity
+// error below and fail the consumer's whole plan.
+//
+// No candidate returns (nil, nil): a site whose CE has not registered yet — or
+// one whose only registrations are dead — is the normal case, not an error.
+// More than one live candidate returns an error naming the hostnames to choose
+// between.
 func selectRegistration(items []client.RegistrationListItem, siteName, hostname string) (*client.RegistrationListItem, error) {
 	var candidates []client.RegistrationListItem
 	for _, it := range items {
@@ -167,6 +202,9 @@ func selectRegistration(items []client.RegistrationListItem, siteName, hostname 
 			continue
 		}
 		if hostname != "" && it.GetSpec.Infra.Hostname != hostname {
+			continue
+		}
+		if isTerminalRegistrationState(it.Object.Status.CurrentState) {
 			continue
 		}
 		candidates = append(candidates, it)
@@ -257,10 +295,6 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 		data.ClusterName = types.StringNull()
 		data.ClusterSize = types.Int64Null()
 		data.ProviderType = types.StringNull()
-		data.Token = types.StringNull()
-		if data.Hostname.IsNull() {
-			data.Hostname = types.StringNull()
-		}
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 		return
 	}
@@ -273,15 +307,35 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 	data.ID = types.StringValue(match.Name)
 	data.Found = types.BoolValue(true)
 	data.Name = types.StringValue(match.Name)
-	data.UID = types.StringValue(uid)
-	data.State = types.StringValue(match.Object.Status.CurrentState)
-	data.ClusterName = types.StringValue(match.GetSpec.Passport.ClusterName)
-	data.ClusterSize = types.Int64Value(match.GetSpec.Passport.ClusterSize)
-	data.ProviderType = types.StringValue(match.GetSpec.Infra.Provider)
-	data.Token = types.StringValue(match.GetSpec.Token)
+	data.UID = stringOrNull(uid)
+	// Fields the API may omit are reported null rather than "" / 0, so a consumer
+	// can tell "not reported" from a real empty value (and to stay consistent with
+	// the not-found branch above).
+	data.State = stringOrNull(match.Object.Status.CurrentState)
+	data.ClusterName = stringOrNull(match.GetSpec.Passport.ClusterName)
+	data.ClusterSize = int64OrNull(match.GetSpec.Passport.ClusterSize)
+	data.ProviderType = stringOrNull(match.GetSpec.Infra.Provider)
 	if data.Hostname.IsNull() {
-		data.Hostname = types.StringValue(match.GetSpec.Infra.Hostname)
+		data.Hostname = stringOrNull(match.GetSpec.Infra.Hostname)
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
+}
+
+// stringOrNull maps an omitted (empty) API string to a null attribute value so
+// callers can distinguish "not reported" from a genuine empty string.
+func stringOrNull(s string) types.String {
+	if s == "" {
+		return types.StringNull()
+	}
+	return types.StringValue(s)
+}
+
+// int64OrNull maps an omitted (zero) API integer to a null attribute value.
+// cluster_size is never legitimately 0 for a registered node.
+func int64OrNull(i int64) types.Int64 {
+	if i == 0 {
+		return types.Int64Null()
+	}
+	return types.Int64Value(i)
 }
