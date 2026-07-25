@@ -382,7 +382,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 				Blocks: map[string]schema.Block{
 					"service_selector": schema.SingleNestedBlock{
-						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+						MarkdownDescription: "Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 						Attributes: map[string]schema.Attribute{
 							"expressions": schema.ListAttribute{
 								MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
@@ -419,7 +419,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				},
 			},
 			"where": schema.SingleNestedBlock{
-				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local..",
+				MarkdownDescription: "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when refering to site object * All site local..",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"site": schema.SingleNestedBlock{

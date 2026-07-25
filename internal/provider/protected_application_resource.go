@@ -909,12 +909,12 @@ var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFinancialServicesMo
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel represents flight block
 type ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel struct {
-	Checking *ProtectedApplicationEmptyModel `tfsdk:"checking"`
+	Checkin *ProtectedApplicationEmptyModel `tfsdk:"checkin"`
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModelAttrTypes defines the attribute types for ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel
 var ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModelAttrTypes = map[string]attr.Type{
-	"checking": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"checkin": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelProfileManagementModel represents profile_management block
@@ -1740,7 +1740,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "URI location for redirect reponse .",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -1841,7 +1841,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "URI location for redirect reponse .",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -2418,7 +2418,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category.",
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
-												"checking": schema.SingleNestedBlock{
+												"checkin": schema.SingleNestedBlock{
 													MarkdownDescription: "Enable this option",
 												},
 											},
@@ -2612,7 +2612,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "URI location for redirect reponse .",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -2713,7 +2713,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 											MarkdownDescription: "Redirect. Redirect.",
 											Attributes: map[string]schema.Attribute{
 												"location": schema.StringAttribute{
-													MarkdownDescription: "URI location for redirect response .",
+													MarkdownDescription: "URI location for redirect reponse .",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthAtMost(512),
@@ -3645,8 +3645,8 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.FlowLabel.Flight != nil {
 							CloudfrontProtectedEndpointsFlowLabelFlightMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.Flight.Checking != nil {
-								CloudfrontProtectedEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
+							if ProtectedEndpointsItem.FlowLabel.Flight.Checkin != nil {
+								CloudfrontProtectedEndpointsFlowLabelFlightMap["checkin"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["flight"] = CloudfrontProtectedEndpointsFlowLabelFlightMap
 						}
@@ -5474,11 +5474,11 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 												}
 												if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel{
-														Checking: func() *ProtectedApplicationEmptyModel {
+														Checkin: func() *ProtectedApplicationEmptyModel {
 															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
-																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checking
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checkin
 															}
-															if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+															if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
@@ -7788,11 +7788,11 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 												}
 												if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel{
-														Checking: func() *ProtectedApplicationEmptyModel {
+														Checkin: func() *ProtectedApplicationEmptyModel {
 															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
-																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checking
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checkin
 															}
-															if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+															if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
@@ -9259,8 +9259,8 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 						}
 						if ProtectedEndpointsItem.FlowLabel.Flight != nil {
 							CloudfrontProtectedEndpointsFlowLabelFlightMap := make(map[string]interface{})
-							if ProtectedEndpointsItem.FlowLabel.Flight.Checking != nil {
-								CloudfrontProtectedEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
+							if ProtectedEndpointsItem.FlowLabel.Flight.Checkin != nil {
+								CloudfrontProtectedEndpointsFlowLabelFlightMap["checkin"] = map[string]interface{}{}
 							}
 							CloudfrontProtectedEndpointsFlowLabelMap["flight"] = CloudfrontProtectedEndpointsFlowLabelFlightMap
 						}
@@ -11099,11 +11099,11 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 												}
 												if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 													return &ProtectedApplicationCloudfrontProtectedEndpointsFlowLabelFlightModel{
-														Checking: func() *ProtectedApplicationEmptyModel {
+														Checkin: func() *ProtectedApplicationEmptyModel {
 															if !isImport && len(ProtectedEndpointsExisting) > ProtectedEndpointsIdx && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel != nil && ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight != nil {
-																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checking
+																return ProtectedEndpointsExisting[ProtectedEndpointsIdx].FlowLabel.Flight.Checkin
 															}
-															if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+															if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																return &ProtectedApplicationEmptyModel{}
 															}
 															return nil
