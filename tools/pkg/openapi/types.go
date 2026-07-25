@@ -114,6 +114,19 @@ type Schema struct {
 	// POST, Read=sibling object Get, Delete=no-op — instead of CRUD. Injected by
 	// api-specs-enriched onto the request schema (schema-level, not operation-level).
 	XF5xcAction string `json:"x-f5xc-action"`
+
+	// XF5xcWireName records the property's ON-THE-WIRE JSON key when it differs
+	// from the property name. F5 ships several misspelled property names
+	// (blocked_sevice, public_advertisment, disable_lb_source_ip_persistance) and
+	// the wire key must stay misspelled — verified live: a PUT with
+	// `blocked_sevice` returns HTTP 200 and round-trips, while `blocked_service`
+	// is silently ignored by the server (#1257). The Terraform attribute name is
+	// ours to choose, so api-specs-enriched presents the CORRECTED spelling as the
+	// property name and records the original key here. Codegen derives the
+	// Terraform attribute, model field and docs from the property name, and uses
+	// this wire name for every marshal AND unmarshal key. Absent, the property
+	// name is the wire key, so the properties without it are unchanged. See #1323.
+	XF5xcWireName string `json:"x-f5xc-wire-name"`
 }
 
 // TerraformAttribute represents an attribute in a Terraform resource schema.
@@ -135,7 +148,7 @@ type TerraformAttribute struct {
 	PlanModifier       string
 	MaxDepth           int    // Track recursion depth to prevent infinite loops
 	IsSpecField        bool   // True if this is a spec field (not metadata)
-	JsonName           string // JSON field name from OpenAPI for API marshaling
+	JsonName           string // On-the-wire JSON key for API marshaling AND unmarshaling: Schema.WireName (x-f5xc-wire-name, else the property name). Never the Terraform name — see TfsdkTag.
 	GoType             string // Go type for client struct generation
 	UseDomainValidator bool   // True if name field should use DomainValidator (for DNS resources)
 
@@ -292,6 +305,26 @@ func (s *Schema) IsRequired(propertyName string) bool {
 // HasProperties returns true if the schema has properties defined.
 func (s *Schema) HasProperties() bool {
 	return len(s.Properties) > 0
+}
+
+// WireName returns the JSON key this property must use ON THE WIRE: the
+// x-f5xc-wire-name override when present, otherwise propName itself.
+//
+// It exists so codegen can split the two names that used to be one. The
+// Terraform attribute, model field and docs come from propName (which the buffer
+// zone spells correctly); every marshal and unmarshal key comes from this, so a
+// property F5 misspells keeps round-tripping. Both sides must use it: if only the
+// request used the wire key, the read-back would look up a key the API never
+// returns and the field would silently drift. See XF5xcWireName and #1323.
+//
+// The annotation is a fact about the PROPERTY, not about a component it $refs, so
+// callers must read it from the property schema before resolving any $ref — a
+// shared component must not rename every property that references it.
+func (s *Schema) WireName(propName string) string {
+	if s.XF5xcWireName != "" {
+		return s.XF5xcWireName
+	}
+	return propName
 }
 
 // =============================================================================

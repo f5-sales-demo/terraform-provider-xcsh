@@ -167,6 +167,13 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 	validationRules := schema.XVesValidationRules
 	complexity := schema.XF5XCComplexity
 	useCases := schema.XF5XCUseCases
+	// Resolved BEFORE any $ref resolution: x-f5xc-wire-name describes THIS property's
+	// on-the-wire key, so it must never be inherited from a referenced component (a
+	// shared component carrying it would otherwise rename every property that $refs
+	// it). Property-level annotations sit as siblings of $ref / allOf, so reading it
+	// here also covers the allOf-wrapped shape the real annotated properties use
+	// (e.g. advanced_options.disable_lb_source_ip_persistance). See #1323.
+	jsonName := schema.WireName(name)
 
 	// Handle allOf-wrapped $ref (OAS3 pattern for preserving sibling extensions alongside $ref)
 	if schema.Ref == "" && len(schema.AllOf) > 0 {
@@ -234,8 +241,8 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 		Optional:      !required,
 		OneOfGroup:    oneOfGroup,
 		MaxDepth:      depth,
-		IsSpecField:   true, // Attributes from OpenAPI spec are spec fields
-		JsonName:      name, // Original OpenAPI property name for JSON marshaling
+		IsSpecField:   true,     // Attributes from OpenAPI spec are spec fields
+		JsonName:      jsonName, // Wire key for JSON marshaling (x-f5xc-wire-name, else the property name)
 		ServerDefault: schema.XF5XCServerDefault,
 		Default:       schema.Default, // Store actual default value for metadata
 		// Enhanced metadata from enriched API specs

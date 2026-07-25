@@ -448,7 +448,7 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 			GoName:      naming.ToResourceTypeName(name),
 			TfsdkTag:    naming.ToSnakeCaseTerraform(name),
 			Type:        "string",
-			JsonName:    name,
+			JsonName:    prop.WireName(name), // x-f5xc-wire-name override, else the property name (#1323)
 			IsSpecField: true,
 		}
 		switch name {
