@@ -472,6 +472,7 @@ func (p *XCSHProvider) DataSources(ctx context.Context) []func() datasource.Data
 		NewShapeBotDefenseInstanceDataSource,
 		NewSiteDataSource,
 		NewSiteMeshGroupDataSource,
+		NewSiteRegistrationDataSource,
 		NewSrv6NetworkSliceDataSource,
 		NewSubnetDataSource,
 		NewTCPLoadBalancerDataSource,
