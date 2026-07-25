@@ -695,6 +695,71 @@ func TestUnmarshal_PreservesUnconfiguredList(t *testing.T) {
 	}
 }
 
+// #1286: the metadata read-back must distinguish "absent from config" from
+// "declared empty". A config that declares `labels = {}` (or `annotations = {}`)
+// gets no labels back from the F5 XC API, and nulling the attribute on every Read
+// makes a plain post-apply plan drift `+ labels = {}` forever — no import involved.
+// So when the API returns no entries: keep a KNOWN EMPTY prior value as an empty
+// map, and null it only when the prior value is itself null (never declared) or
+// unknown. A prior value with entries must still be nulled, so genuine
+// out-of-band deletion still shows as drift.
+func TestResourceTemplate_PreservesConfigDeclaredEmptyMetadataMap_Issue1286(t *testing.T) {
+	// Render a real resource file: the assertion is on emitted Go, not template text.
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "zz_metadata_probe",
+		TitleCase:          "ZZMetadataProbe",
+		Description:        "Probe.",
+		HasNamespaceInPath: true,
+		APIPath:            "/api/config/namespaces/%s/zz_metadata_probes",
+		APIPathItem:        "/api/config/namespaces/%s/zz_metadata_probes/%s",
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	b, err := os.ReadFile(filepath.Join(dir, "zz_metadata_probe_resource.go"))
+	if err != nil {
+		t.Fatalf("reading rendered resource: %v", err)
+	}
+	got := string(b)
+
+	// Isolate the Read body — the only place the API response overwrites metadata maps.
+	readIdx := strings.Index(got, ") Read(ctx context.Context")
+	if readIdx == -1 {
+		t.Fatal("rendered resource has no Read method")
+	}
+	read := got[readIdx:]
+	if end := strings.Index(read, ") Update(ctx context.Context"); end != -1 {
+		read = read[:end]
+	}
+
+	for _, attr := range []string{"Labels", "Annotations"} {
+		nullAssign := "data." + attr + " = types.MapNull(types.StringType)"
+		emptyAssign := "data." + attr + " = types.MapValueMust(types.StringType, nil)"
+		if !strings.Contains(read, emptyAssign) {
+			t.Errorf("Read must preserve a config-declared empty %s as an empty map (#1286); expected %q in:\n%s", attr, emptyAssign, read)
+		}
+		if !strings.Contains(read, nullAssign) {
+			t.Errorf("Read must still null %s when it was never declared (#1286); expected %q in:\n%s", attr, nullAssign, read)
+		}
+		// Every null assignment must be gated on the prior value being null/unknown —
+		// an unguarded null is exactly the #1286 drift.
+		for _, guard := range []string{
+			"data." + attr + ".IsNull()",
+			"data." + attr + ".IsUnknown()",
+			"len(data." + attr + ".Elements()) == 0",
+		} {
+			if !strings.Contains(read, guard) {
+				t.Errorf("Read must gate the %s null-vs-empty decision on the prior value (#1286); expected %q in:\n%s", attr, guard, read)
+			}
+		}
+	}
+}
+
 // Import mode is a one-shot: the generated Read must clear the isImport private-state marker,
 // otherwise every subsequent refresh re-enters import mode and drifts on server-managed fields.
 func TestResourceTemplate_ClearsImportMarkerAfterImport(t *testing.T) {
