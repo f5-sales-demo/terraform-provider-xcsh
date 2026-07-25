@@ -43,7 +43,8 @@ on:
 # GITHUB_TOKEN starts with no scopes; each job grants only what it consumes
 # (zizmor excessive-permissions). Verified: the only GITHUB_TOKEN consumers in
 # this workflow and its reusable callees are actions/checkout (contents: read),
-# the spec-asset download in _generate-provider.yml (contents: read) and the tag
+# the spec-asset downloads in _build-test.yml and _generate-provider.yml
+# (contents: read — api-specs-enriched is a public repo) and the tag
 # push / release upload / goreleaser release in _tag-release.yml
 # (contents: write). Every PR and issue mutation in create-regeneration-pr
 # authenticates with secrets.AUTO_MERGE_TOKEN, so pull-requests: write and
@@ -217,7 +218,7 @@ jobs:
       needs.detect-changes.outputs.should-process == 'true' &&
       needs.detect-changes.outputs.is-bot-commit != 'true'
     permissions:
-      contents: read # checkout, go build/test, golangci-lint — no API writes
+      contents: read # checkout, public-repo spec-asset read, go build/test, golangci-lint — no API writes
     uses: ./.github/workflows/_build-test.yml
     with:
       run-lint: true
@@ -523,8 +524,13 @@ jobs:
 
       - name: Close stale auto-regenerate PRs
         if: steps.check.outputs.has_changes == 'true'
+        # Repository context reaches the shell through env: — an ${{ }} expansion
+        # inside run: is a code-injection sink (zizmor template-injection), and
+        # the adjacent "Create branch and PR" step already routes github.sha this
+        # way. Shell-quoted at each use below.
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
           # Find and close any open auto-regenerate PRs (they're superseded by this new regeneration)
           echo "Checking for stale auto-regenerate PRs..."
@@ -532,8 +538,8 @@ jobs:
 
           if [ -n "$STALE_PRS" ]; then
             for PR in $STALE_PRS; do
-              echo "Closing stale auto-regenerate PR #$PR (superseded by commit ${{ github.sha }})"
-              gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${{ github.sha }}" || true
+              echo "Closing stale auto-regenerate PR #$PR (superseded by commit ${COMMIT_SHA})"
+              gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${COMMIT_SHA}" || true
               # Also delete the stale branch
               BRANCH=$(gh pr view "$PR" --json headRefName --jq '.headRefName')
               git push origin --delete "$BRANCH" 2>/dev/null || true

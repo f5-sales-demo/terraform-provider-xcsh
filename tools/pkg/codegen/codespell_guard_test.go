@@ -60,13 +60,11 @@ func codespellCorrections(t *testing.T, root string) map[string]string {
 // tools/generate-all-schemas.go discovers it (openapi.FindDomainSpecFiles over
 // the --spec-dir layout). Properties are collected recursively: nested objects,
 // array items and map values all contribute names that reach generated code.
-// Returns nil when the artifact is not present locally.
+//
+// specDir must already be a validated v2 spec directory; every problem from
+// here on is fatal, never a skip.
 func specPropertyNames(t *testing.T, specDir string) map[string]struct{} {
 	t.Helper()
-
-	if !openapi.IsV2SpecDirectory(specDir) {
-		return nil
-	}
 
 	files, err := openapi.FindDomainSpecFiles(specDir)
 	if err != nil {
@@ -121,9 +119,17 @@ func collectPropertyNames(node any, out map[string]struct{}) {
 // a key collides with a property when the key occurs as a SUBSTRING of the
 // property name, compared case-insensitively.
 //
-//   - Substring, not equality, because `txt.replace` is a substring operation:
-//     the `checkin` -> `checking` entry corrupted both the property `checkin`
-//     and the property `msg_hdr_checking_disabled`.
+//   - Substring, not equality, because `txt.replace` is a substring operation.
+//     The `checkin` -> `checking` entry shows both faces of that. SHIPPED
+//     damage: it renamed the bot_defense flow-label property `checkin` (51
+//     corrupted identifiers in internal/provider/) and, because `checkin` also
+//     occurs inside the ordinary word `checking`, it doubly-corrupted prose into
+//     `checkingg` (7 instances still in the tree, e.g. "during health checkingg"
+//     in healthcheck_resource.go). LATENT damage: the spec property
+//     `msg_hdr_checking_disabled` would become `msg_hdr_checkingg_disabled` by
+//     the same substring hit — it is not corrupted today only because nothing in
+//     generated Go emits that property yet. Equality matching would have missed
+//     both the prose and the latent case.
 //   - Case-insensitive, because generated code carries each property name both
 //     verbatim (the wire key `blocked_sevice`) and inside CamelCase Go
 //     identifiers (`BlockedSevice`), so an upper-case key variant is exactly as
@@ -135,16 +141,37 @@ func collectPropertyNames(node any, out map[string]struct{}) {
 func TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames(t *testing.T) {
 	root := repoRootFromTest(t)
 
-	specDir := os.Getenv("XCSH_SPEC_DIR")
-	if specDir == "" {
+	// XCSH_SPEC_DIR is how CI points this guard at the released spec bundle.
+	// When it is SET, a bad value is a hard failure: a configured-but-broken
+	// path that skipped would leave CI green while the guard never ran, which is
+	// precisely how #1257 shipped. Only an UNSET variable with no bundle at the
+	// generator's default location may skip.
+	configuredValue, configured := os.LookupEnv("XCSH_SPEC_DIR")
+	specDir := configuredValue
+	if !configured {
 		specDir = filepath.Join(root, "docs", "specifications", "api")
+	} else if !filepath.IsAbs(specDir) {
+		// A relative value is REPO-relative, like the generator's --spec-dir
+		// (which runs from the repo root). `go test` runs each test with its
+		// package directory as the working directory, so resolving it against
+		// the cwd would silently miss CI's own `XCSH_SPEC_DIR=docs/specifications/api`.
+		specDir = filepath.Join(root, specDir)
 	}
 
-	properties := specPropertyNames(t, specDir)
-	if properties == nil {
+	if !openapi.IsV2SpecDirectory(specDir) {
+		if configured {
+			reason := "it is not a v2 OpenAPI spec bundle (expected an index.json and a domains/ directory)"
+			if _, err := os.Stat(specDir); err != nil {
+				reason = fmt.Sprintf("it cannot be read: %v", err)
+			}
+			t.Fatalf("XCSH_SPEC_DIR=%q (resolved to %s) is set but %s.\n"+
+				"Point it at an unpacked api-specs-enriched release, or unset it — this guard must not skip once it is configured (#1257).",
+				configuredValue, specDir, reason)
+		}
 		t.Skipf("spec artifact not present at %s; set XCSH_SPEC_DIR to the released spec bundle to run this guard", specDir)
 	}
 
+	properties := specPropertyNames(t, specDir)
 	corrections := codespellCorrections(t, root)
 
 	keys := make([]string, 0, len(corrections))
