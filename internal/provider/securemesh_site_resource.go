@@ -89,24 +89,24 @@ var SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = m
 
 // SecuremeshSiteBlockedServicesModel represents blocked_services block
 type SecuremeshSiteBlockedServicesModel struct {
-	BlockedService types.List `tfsdk:"blocked_service"`
+	BlockedSevice types.List `tfsdk:"blocked_sevice"`
 }
 
 // SecuremeshSiteBlockedServicesModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesModel
 var SecuremeshSiteBlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}},
+	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes}},
 }
 
-// SecuremeshSiteBlockedServicesBlockedServiceModel represents blocked_service block
-type SecuremeshSiteBlockedServicesBlockedServiceModel struct {
+// SecuremeshSiteBlockedServicesBlockedSeviceModel represents blocked_sevice block
+type SecuremeshSiteBlockedServicesBlockedSeviceModel struct {
 	NetworkType      types.String              `tfsdk:"network_type"`
 	DNS              *SecuremeshSiteEmptyModel `tfsdk:"dns"`
 	SSH              *SecuremeshSiteEmptyModel `tfsdk:"ssh"`
 	WebUserInterface *SecuremeshSiteEmptyModel `tfsdk:"web_user_interface"`
 }
 
-// SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesBlockedServiceModel
-var SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
+// SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for SecuremeshSiteBlockedServicesBlockedSeviceModel
+var SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -1329,7 +1329,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 				MarkdownDescription: "[OneOf: blocked_services, default_blocked_services; Default: default_blocked_services] Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_service": schema.ListNestedBlock{
+					"blocked_sevice": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -1946,7 +1946,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 															MarkdownDescription: "IPV6AutoConfigRouterType.",
 															Attributes: map[string]schema.Attribute{
 																"network_prefix": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																	MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthAtMost(1024),
@@ -2976,29 +2976,29 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-			var BlockedServiceElems []SecuremeshSiteBlockedServicesBlockedServiceModel
-			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+		if !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+			var BlockedSeviceElems []SecuremeshSiteBlockedServicesBlockedSeviceModel
+			diags := data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceElems, false)
 			resp.Diagnostics.Append(diags...)
-			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
-				var BlockedServiceList []map[string]interface{}
-				for _, BlockedServiceItem := range BlockedServiceElems {
-					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
-						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+			if !resp.Diagnostics.HasError() && len(BlockedSeviceElems) > 0 {
+				var BlockedSeviceList []map[string]interface{}
+				for _, BlockedSeviceItem := range BlockedSeviceElems {
+					BlockedSeviceItemMap := make(map[string]interface{})
+					if BlockedSeviceItem.DNS != nil {
+						BlockedSeviceItemMap["dns"] = map[string]interface{}{}
 					}
-					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					if !BlockedSeviceItem.NetworkType.IsNull() && !BlockedSeviceItem.NetworkType.IsUnknown() {
+						BlockedSeviceItemMap["network_type"] = BlockedSeviceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
-						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					if BlockedSeviceItem.SSH != nil {
+						BlockedSeviceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
-						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					if BlockedSeviceItem.WebUserInterface != nil {
+						BlockedSeviceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
-					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+					BlockedSeviceList = append(BlockedSeviceList, BlockedSeviceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedSeviceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -4175,49 +4175,49 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() types.List {
-				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
-					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
+			BlockedSevice: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedSevice.IsNull() || len(data.BlockedServices.BlockedSevice.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes})
 				}
-				var BlockedServiceExisting []SecuremeshSiteBlockedServicesBlockedServiceModel
-				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				var BlockedSeviceExisting []SecuremeshSiteBlockedServicesBlockedSeviceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+					data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
-					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
-					for BlockedServiceIdx, BlockedServiceItem := range rawList {
-						_ = BlockedServiceIdx
-						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
-							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteBlockedServicesBlockedServiceModel{
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedSeviceResult []SecuremeshSiteBlockedServicesBlockedSeviceModel
+					for BlockedSeviceIdx, BlockedSeviceItem := range rawList {
+						_ = BlockedSeviceIdx
+						if BlockedSeviceItemMap, ok := BlockedSeviceItem.(map[string]interface{}); ok {
+							BlockedSeviceResult = append(BlockedSeviceResult, SecuremeshSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].DNS
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].DNS
 									}
-									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								NetworkType: func() types.String {
-									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+									if v, ok := BlockedSeviceItemMap["network_type"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].SSH
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].SSH
 									}
-									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].WebUserInterface
 									}
-									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
@@ -4225,10 +4225,10 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 							})
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes}, BlockedSeviceResult)
 					return listVal
 				}
-				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes})
 			}(),
 		}
 	}
@@ -6670,49 +6670,49 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() types.List {
-				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
-					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
+			BlockedSevice: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedSevice.IsNull() || len(data.BlockedServices.BlockedSevice.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes})
 				}
-				var BlockedServiceExisting []SecuremeshSiteBlockedServicesBlockedServiceModel
-				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				var BlockedSeviceExisting []SecuremeshSiteBlockedServicesBlockedSeviceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+					data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
-					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
-					for BlockedServiceIdx, BlockedServiceItem := range rawList {
-						_ = BlockedServiceIdx
-						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
-							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteBlockedServicesBlockedServiceModel{
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedSeviceResult []SecuremeshSiteBlockedServicesBlockedSeviceModel
+					for BlockedSeviceIdx, BlockedSeviceItem := range rawList {
+						_ = BlockedSeviceIdx
+						if BlockedSeviceItemMap, ok := BlockedSeviceItem.(map[string]interface{}); ok {
+							BlockedSeviceResult = append(BlockedSeviceResult, SecuremeshSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].DNS
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].DNS
 									}
-									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								NetworkType: func() types.String {
-									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+									if v, ok := BlockedSeviceItemMap["network_type"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].SSH
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].SSH
 									}
-									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].WebUserInterface
 									}
-									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
@@ -6720,10 +6720,10 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 							})
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes}, BlockedSeviceResult)
 					return listVal
 				}
-				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes})
 			}(),
 		}
 	}
@@ -9071,29 +9071,29 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-			var BlockedServiceElems []SecuremeshSiteBlockedServicesBlockedServiceModel
-			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+		if !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+			var BlockedSeviceElems []SecuremeshSiteBlockedServicesBlockedSeviceModel
+			diags := data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceElems, false)
 			resp.Diagnostics.Append(diags...)
-			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
-				var BlockedServiceList []map[string]interface{}
-				for _, BlockedServiceItem := range BlockedServiceElems {
-					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
-						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+			if !resp.Diagnostics.HasError() && len(BlockedSeviceElems) > 0 {
+				var BlockedSeviceList []map[string]interface{}
+				for _, BlockedSeviceItem := range BlockedSeviceElems {
+					BlockedSeviceItemMap := make(map[string]interface{})
+					if BlockedSeviceItem.DNS != nil {
+						BlockedSeviceItemMap["dns"] = map[string]interface{}{}
 					}
-					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					if !BlockedSeviceItem.NetworkType.IsNull() && !BlockedSeviceItem.NetworkType.IsUnknown() {
+						BlockedSeviceItemMap["network_type"] = BlockedSeviceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
-						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					if BlockedSeviceItem.SSH != nil {
+						BlockedSeviceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
-						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					if BlockedSeviceItem.WebUserInterface != nil {
+						BlockedSeviceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
-					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+					BlockedSeviceList = append(BlockedSeviceList, BlockedSeviceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedSeviceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -10281,49 +10281,49 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteBlockedServicesModel{
-			BlockedService: func() types.List {
-				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
-					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
+			BlockedSevice: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedSevice.IsNull() || len(data.BlockedServices.BlockedSevice.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes})
 				}
-				var BlockedServiceExisting []SecuremeshSiteBlockedServicesBlockedServiceModel
-				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				var BlockedSeviceExisting []SecuremeshSiteBlockedServicesBlockedSeviceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+					data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
-					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
-					for BlockedServiceIdx, BlockedServiceItem := range rawList {
-						_ = BlockedServiceIdx
-						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
-							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteBlockedServicesBlockedServiceModel{
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedSeviceResult []SecuremeshSiteBlockedServicesBlockedSeviceModel
+					for BlockedSeviceIdx, BlockedSeviceItem := range rawList {
+						_ = BlockedSeviceIdx
+						if BlockedSeviceItemMap, ok := BlockedSeviceItem.(map[string]interface{}); ok {
+							BlockedSeviceResult = append(BlockedSeviceResult, SecuremeshSiteBlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].DNS
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].DNS
 									}
-									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								NetworkType: func() types.String {
-									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+									if v, ok := BlockedSeviceItemMap["network_type"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].SSH
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].SSH
 									}
-									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteEmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].WebUserInterface
 									}
-									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteEmptyModel{}
 									}
 									return nil
@@ -10331,10 +10331,10 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 							})
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes}, BlockedSeviceResult)
 					return listVal
 				}
-				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedServiceModelAttrTypes})
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteBlockedServicesBlockedSeviceModelAttrTypes})
 			}(),
 		}
 	}
