@@ -16,10 +16,14 @@ on:
       - 'auto-regenerate/**'
       - 'openapi-update'
 
+# Least privilege: every job here only reads the repository. `statuses: write`
+# and `checks: write` were granted workflow-wide but nothing consumed them —
+# no job (nor the reusable _build-test.yml, which uses only checkout and
+# setup-go) writes a commit status or a check run; job check runs are created by
+# Actions itself, not through GITHUB_TOKEN. Grant either at the job level if a
+# job ever needs it, rather than workflow-wide.
 permissions:
   contents: read
-  statuses: write
-  checks: write
 
 # Cancel in-progress runs when new commits are pushed to the same PR/branch
 concurrency:
@@ -56,11 +60,16 @@ jobs:
           fetch-depth: 0
 
       - name: Check for generated files (CLAUDE.md Rule 1)
+        env:
+          # Passed via env, never expanded straight into the script: a template
+          # expansion inside run: is a code-injection sink (zizmor
+          # template-injection). Shell-quoted at each use below.
+          BASE_REF: ${{ github.base_ref }}
         run: |
           echo "Checking PR for generated files..."
 
           # Get list of added/modified files (deletions are fine — orphan cleanup)
-          CHANGED_FILES=$(git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD)
+          CHANGED_FILES=$(git diff --name-only --diff-filter=AM "origin/${BASE_REF}...HEAD")
 
           # Check if generator tools are modified - this allows docs/examples changes
           GENERATOR_TOOLS_MODIFIED=false
@@ -75,7 +84,7 @@ jobs:
           OLD_MODULE=""
           NEW_MODULE=""
           if echo "$CHANGED_FILES" | grep -qE "^go\.mod$"; then
-            OLD_MODULE=$(git show "origin/${{ github.base_ref }}:go.mod" 2>/dev/null | grep '^module ' | awk '{print $2}')
+            OLD_MODULE=$(git show "origin/${BASE_REF}:go.mod" 2>/dev/null | grep '^module ' | awk '{print $2}')
             NEW_MODULE=$(grep '^module ' go.mod | awk '{print $2}')
             if [ -n "$OLD_MODULE" ] && [ -n "$NEW_MODULE" ] && [ "$OLD_MODULE" != "$NEW_MODULE" ]; then
               echo "Module path renamed: $OLD_MODULE -> $NEW_MODULE"
@@ -109,8 +118,10 @@ jobs:
             "internal/provider/functions_registration.go"
             "internal/provider/addon_service_data_source.go"
             "internal/provider/addon_service_activation_status_data_source.go"
+            "internal/provider/site_registration_data_source.go"
             "examples/data-sources/addon_service/data-source.tf"
             "examples/data-sources/addon_service_activation_status/data-source.tf"
+            "examples/data-sources/site_registration/data-source.tf"
             # MkDocs documentation site index files (navigation, not provider docs)
             "docs/resources/index.md"
             "docs/data-sources/index.md"
@@ -165,7 +176,7 @@ jobs:
                 # Module rename: allow generated .go files only if their diff
                 # contains the old→new import path substitution
                 if [ "$MODULE_RENAMED" = true ] && echo "$file" | grep -qE "\.go$"; then
-                  CHANGED_LINES=$(git diff "origin/${{ github.base_ref }}" -- "$file" 2>/dev/null | grep -E '^[+-]' | grep -v '^[+-][+-][+-]')
+                  CHANGED_LINES=$(git diff "origin/${BASE_REF}" -- "$file" 2>/dev/null | grep -E '^[+-]' | grep -v '^[+-][+-][+-]')
                   if echo "$CHANGED_LINES" | grep -qF "\"$OLD_MODULE" && echo "$CHANGED_LINES" | grep -qF "\"$NEW_MODULE"; then
                     continue
                   fi
@@ -215,8 +226,11 @@ jobs:
 
       - name: Check if docs regeneration needed
         id: check
+        env:
+          # See the note on BASE_REF above: never expand a template into run:.
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
 
           # Check if any files that affect doc generation changed
           if echo "$CHANGED_FILES" | grep -qE "^internal/|^tools/|^templates/"; then
@@ -313,9 +327,12 @@ jobs:
 
       - name: Check if mock fixture regeneration needed
         id: check
+        env:
+          # See the note on BASE_REF above: never expand a template into run:.
+          BASE_REF: ${{ github.base_ref }}
         run: |
           # Check if files that affect mock generation changed
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD 2>/dev/null || echo "")
+          CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD" 2>/dev/null || echo "")
 
           if echo "$CHANGED_FILES" | grep -qE "^tools/api-defaults\.json$|^tools/generate-mock-fixtures\.go$|^internal/mocks/generated_defaults"; then
             echo "needs_validation=true" >> "$GITHUB_OUTPUT"
@@ -390,8 +407,11 @@ jobs:
 
       - name: Check if shell script validation needed
         id: check
+        env:
+          # See the note on BASE_REF above: never expand a template into run:.
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD 2>/dev/null || echo "")
+          CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD" 2>/dev/null || echo "")
 
           # Check if any shell scripts changed
           if echo "$CHANGED_FILES" | grep -qE "\.sh$"; then
@@ -430,8 +450,11 @@ jobs:
 
       - name: Check if Terraform validation needed
         id: check
+        env:
+          # See the note on BASE_REF above: never expand a template into run:.
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD 2>/dev/null || echo "")
+          CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD" 2>/dev/null || echo "")
 
           # Check if any Terraform files in examples/ changed
           if echo "$CHANGED_FILES" | grep -qE "^examples/.*\.tf$"; then

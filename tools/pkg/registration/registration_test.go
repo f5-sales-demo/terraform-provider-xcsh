@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/openapi"
 )
 
@@ -134,6 +135,55 @@ func TestGenerateProviderRegistration(t *testing.T) {
 	// Should NOT contain failed resource
 	if contains(contentStr, "NewFailedResourceResource") {
 		t.Error("did not expect NewFailedResourceResource in provider.go")
+	}
+}
+
+// Hand-written standalone data sources have no generated companion, so the
+// only thing wiring them into the provider is StandaloneDataSources. If an
+// entry is missing, the data source is silently absent from the released
+// provider; if an entry does not match its Go constructor, provider.go stops
+// compiling. Both are guarded here.
+func TestGenerateProviderRegistration_StandaloneDataSources(t *testing.T) {
+	outDir := t.TempDir()
+
+	GenerateProviderRegistration(nil, outDir)
+
+	content, err := os.ReadFile(filepath.Join(outDir, "provider.go"))
+	if err != nil {
+		t.Fatalf("provider.go was not created: %v", err)
+	}
+	contentStr := string(content)
+
+	// repoRoot is three levels up from tools/pkg/registration.
+	repoRoot := filepath.Join("..", "..", "..")
+
+	for _, ds := range StandaloneDataSources {
+		ctor := "New" + naming.ToResourceTypeName(ds) + "DataSource,"
+		if !contains(contentStr, ctor) {
+			t.Errorf("standalone data source %q: expected %s in provider.go DataSources()", ds, ctor)
+		}
+
+		implPath := filepath.Join(repoRoot, "internal", "provider", ds+"_data_source.go")
+		impl, err := os.ReadFile(implPath) //nolint:gosec // fixed path derived from the allowlist
+		if err != nil {
+			t.Errorf("standalone data source %q: no hand-written implementation at %s: %v", ds, implPath, err)
+			continue
+		}
+		if !contains(string(impl), "func New"+naming.ToResourceTypeName(ds)+"DataSource(") {
+			t.Errorf("standalone data source %q: %s does not define New%sDataSource — provider.go would not compile",
+				ds, implPath, naming.ToResourceTypeName(ds))
+		}
+		// Standalone files are hand-written and must never carry the
+		// generated-file header, or CleanOrphanGeneratedFiles deletes them.
+		if contains(string(impl), "DO NOT EDIT") {
+			t.Errorf("standalone data source %q: %s carries a DO NOT EDIT header and would be pruned as an orphan", ds, implPath)
+		}
+	}
+
+	// xcsh_site_registration resolves a CE's runtime registration name and is
+	// required by the registration-approval workflow.
+	if !contains(contentStr, "NewSiteRegistrationDataSource,") {
+		t.Error("expected NewSiteRegistrationDataSource in provider.go DataSources()")
 	}
 }
 
