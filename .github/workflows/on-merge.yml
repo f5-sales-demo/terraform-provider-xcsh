@@ -40,10 +40,16 @@ on:
     # Note: No paths-ignore - all changes should trigger workflow
     # Specific path filtering happens in detect-changes job
 
-permissions:
-  contents: write
-  pull-requests: write
-  issues: write
+# GITHUB_TOKEN starts with no scopes; each job grants only what it consumes
+# (zizmor excessive-permissions). Verified: the only GITHUB_TOKEN consumers in
+# this workflow and its reusable callees are actions/checkout (contents: read),
+# the spec-asset downloads in _build-test.yml and _generate-provider.yml
+# (contents: read — api-specs-enriched is a public repo) and the tag
+# push / release upload / goreleaser release in _tag-release.yml
+# (contents: write). Every PR and issue mutation in create-regeneration-pr
+# authenticates with secrets.AUTO_MERGE_TOKEN, so pull-requests: write and
+# issues: write had no consumer at all.
+permissions: {}
 
 concurrency:
   group: on-merge-${{ github.sha }}
@@ -56,6 +62,8 @@ jobs:
   detect-changes:
     name: Detect Changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # actions/checkout only
     outputs:
       specs-changed: ${{ steps.changes.outputs.specs }}
       code-changed: ${{ steps.changes.outputs.code }}
@@ -164,14 +172,16 @@ jobs:
 
       - name: Determine if processing should proceed
         id: should-process
+        # Step outputs reach the shell through env: — an ${{ }} expansion inside
+        # run: is a code-injection sink (zizmor template-injection).
+        env:
+          IS_BOT: ${{ steps.check-author.outputs.is_bot }}
+          SPECS: ${{ steps.changes.outputs.specs }}
+          CODE: ${{ steps.changes.outputs.code }}
+          TOOLS: ${{ steps.changes.outputs.tools }}
+          FUNCTIONS: ${{ steps.changes.outputs.functions }}
+          HAS_ANY_CHANGES: ${{ steps.changes.outputs.has_any_changes }}
         run: |
-          IS_BOT="${{ steps.check-author.outputs.is_bot }}"
-          SPECS="${{ steps.changes.outputs.specs }}"
-          CODE="${{ steps.changes.outputs.code }}"
-          TOOLS="${{ steps.changes.outputs.tools }}"
-          FUNCTIONS="${{ steps.changes.outputs.functions }}"
-          HAS_ANY_CHANGES="${{ steps.changes.outputs.has_any_changes }}"
-
           # Determine if regeneration would be needed
           NEEDS_REGEN="false"
           if [[ "$SPECS" == "true" || "$CODE" == "true" || "$TOOLS" == "true" || "$FUNCTIONS" == "true" ]]; then
@@ -207,6 +217,8 @@ jobs:
     if: |
       needs.detect-changes.outputs.should-process == 'true' &&
       needs.detect-changes.outputs.is-bot-commit != 'true'
+    permissions:
+      contents: read # checkout, public-repo spec-asset read, go build/test, golangci-lint — no API writes
     uses: ./.github/workflows/_build-test.yml
     with:
       run-lint: true
@@ -224,6 +236,8 @@ jobs:
       needs.detect-changes.outputs.is-bot-commit != 'true' &&
       (needs.detect-changes.outputs.specs-changed == 'true' ||
        needs.detect-changes.outputs.tools-changed == 'true')
+    permissions:
+      contents: read # checkout + gh api read of the api-specs-enriched release asset
     uses: ./.github/workflows/_generate-provider.yml
 
   # ===========================================================================
@@ -242,6 +256,8 @@ jobs:
        needs.detect-changes.outputs.tools-changed == 'true' ||
        needs.detect-changes.outputs.functions-changed == 'true' ||
        (needs.regenerate-provider.result == 'success' && needs.regenerate-provider.outputs.changed == 'true'))
+    permissions:
+      contents: read # checkout + tfplugindocs; no API writes
     uses: ./.github/workflows/_generate-docs.yml
 
   # ===========================================================================
@@ -261,6 +277,11 @@ jobs:
       ((needs.regenerate-provider.result == 'success' && needs.regenerate-provider.outputs.changed == 'true') ||
        (needs.regenerate-docs.result == 'success' && needs.regenerate-docs.outputs.changed == 'true'))
     runs-on: ubuntu-latest
+    # Branch push, issue creation, PR creation and auto-merge all authenticate
+    # with secrets.AUTO_MERGE_TOKEN (checkout too, with persist-credentials:
+    # false), so GITHUB_TOKEN needs no write scope here.
+    permissions:
+      contents: read
     outputs:
       pr-created: ${{ steps.create-pr.outputs.pr_created }}
       pr-number: ${{ steps.create-pr.outputs.pr_number }}
@@ -364,8 +385,22 @@ jobs:
         run: |
           pip install codespell --quiet
 
+          # The spelling passes below deliberately touch PROSE ONLY (docs/, examples/).
+          # internal/provider/ is excluded on purpose: identifiers in generated Go are
+          # wire contracts. A blind text replace there silently renamed API fields: the
+          # correction for the mis-typed word "service" turned the upstream-misspelled
+          # F5 XC field blocked_sevice into blocked_service, which the API silently
+          # ignores, and the correction for "checking" broke the bot_defense flow-label
+          # checkin property the same way. Commit 069611d2 ("auto-regenerate", which
+          # reported "Provider code: false") renamed blocked_sevice into
+          # blocked_service across every site resource purely through this step.
+          # See #1257; the regression guard is
+          # TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames in
+          # tools/pkg/codegen/codespell_guard_test.go. Spelling in generated Go must be
+          # fixed in the spec or the generator, never by rewriting the output.
+
           # 1. Auto-fix unambiguous spelling typos
-          codespell --write-changes docs/ examples/ internal/provider/ --quiet-level 2 || true
+          codespell --write-changes docs/ examples/ --quiet-level 2 || true
 
           # 2. Fix ambiguous typos + inject terraform blocks into examples missing them
           python3 -c "
@@ -377,12 +412,12 @@ jobs:
               with open('tools/codespell-corrections.json') as f:
                   corrections = json.load(f).get('corrections', {})
 
-          # Apply spelling corrections to all generated content
+          # Apply spelling corrections to generated prose only (see note above)
           for wrong, right in corrections.items():
-              for root in ['docs', 'examples', 'internal/provider']:
+              for root in ['docs', 'examples']:
                   for dirpath, _, filenames in os.walk(root):
                       for fn in filenames:
-                          if fn.endswith(('.md', '.tf', '.go')):
+                          if fn.endswith(('.md', '.tf')):
                               fp = os.path.join(dirpath, fn)
                               txt = open(fp).read()
                               fixed = txt.replace(wrong, right)
@@ -489,8 +524,13 @@ jobs:
 
       - name: Close stale auto-regenerate PRs
         if: steps.check.outputs.has_changes == 'true'
+        # Repository context reaches the shell through env: — an ${{ }} expansion
+        # inside run: is a code-injection sink (zizmor template-injection), and
+        # the adjacent "Create branch and PR" step already routes github.sha this
+        # way. Shell-quoted at each use below.
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          COMMIT_SHA: ${{ github.sha }}
         run: |
           # Find and close any open auto-regenerate PRs (they're superseded by this new regeneration)
           echo "Checking for stale auto-regenerate PRs..."
@@ -498,8 +538,8 @@ jobs:
 
           if [ -n "$STALE_PRS" ]; then
             for PR in $STALE_PRS; do
-              echo "Closing stale auto-regenerate PR #$PR (superseded by commit ${{ github.sha }})"
-              gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${{ github.sha }}" || true
+              echo "Closing stale auto-regenerate PR #$PR (superseded by commit ${COMMIT_SHA})"
+              gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${COMMIT_SHA}" || true
               # Also delete the stale branch
               BRANCH=$(gh pr view "$PR" --json headRefName --jq '.headRefName')
               git push origin --delete "$BRANCH" 2>/dev/null || true
@@ -511,11 +551,18 @@ jobs:
       - name: Create branch and PR
         id: create-pr
         if: steps.check.outputs.has_changes == 'true'
+        # Job outputs and repository context reach the shell through env: — an
+        # ${{ }} expansion inside run: is a code-injection sink (zizmor
+        # template-injection). Shell-quoted at each use below.
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          COMMIT_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+          PROVIDER_CHANGED: ${{ needs.regenerate-provider.outputs.changed || 'false' }}
+          DOCS_CHANGED: ${{ needs.regenerate-docs.outputs.changed || 'false' }}
         run: |
           # Create a unique branch name
-          BRANCH_NAME="auto-regenerate/${{ github.sha }}"
+          BRANCH_NAME="auto-regenerate/${COMMIT_SHA}"
 
           # Create and checkout new branch
           git checkout -b "$BRANCH_NAME"
@@ -523,11 +570,11 @@ jobs:
           # Commit the changes
           git commit -m "chore: auto-regenerate provider and documentation
 
-          Triggered by commit: ${{ github.sha }}
+          Triggered by commit: ${COMMIT_SHA}
 
           Changes regenerated:
-          - Provider code: ${{ needs.regenerate-provider.outputs.changed || 'false' }}
-          - Documentation: ${{ needs.regenerate-docs.outputs.changed || 'false' }}
+          - Provider code: ${PROVIDER_CHANGED}
+          - Documentation: ${DOCS_CHANGED}
 
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
@@ -535,17 +582,17 @@ jobs:
 
           # Push the branch (clear checkout extraheader and use PAT so push triggers CI)
           git config --unset-all http.https://github.com/.extraheader || true
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
           git push origin "$BRANCH_NAME"
 
           # Create a tracking issue (required by "Check linked issues" CI check)
           ISSUE_URL=$(gh issue create \
-            --title "chore: auto-regenerate provider from ${{ github.sha }}" \
-            --body "Automated regeneration triggered by commit ${{ github.sha }}.
+            --title "chore: auto-regenerate provider from ${COMMIT_SHA}" \
+            --body "Automated regeneration triggered by commit ${COMMIT_SHA}.
 
           Changes:
-          - Provider code: ${{ needs.regenerate-provider.outputs.changed || 'false' }}
-          - Documentation: ${{ needs.regenerate-docs.outputs.changed || 'false' }}" \
+          - Provider code: ${PROVIDER_CHANGED}
+          - Documentation: ${DOCS_CHANGED}" \
             --label "automated" \
             --label "regeneration")
           ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -oE '[0-9]+$')
@@ -556,11 +603,11 @@ jobs:
           Automated regeneration of provider code and/or documentation.
 
           ## Triggered By
-          Commit: ${{ github.sha }}
+          Commit: ${COMMIT_SHA}
 
           ## Changes
-          - Provider code regenerated: ${{ needs.regenerate-provider.outputs.changed || 'false' }}
-          - Documentation regenerated: ${{ needs.regenerate-docs.outputs.changed || 'false' }}
+          - Provider code regenerated: ${PROVIDER_CHANGED}
+          - Documentation regenerated: ${DOCS_CHANGED}
 
           Closes #${ISSUE_NUMBER}"
 
@@ -616,6 +663,8 @@ jobs:
           needs.create-regeneration-pr.result == 'skipped'
         )
       )
+    permissions:
+      contents: write # push the version tag, create the release, upload assets
     uses: ./.github/workflows/_tag-release.yml
     secrets:
       gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
@@ -629,27 +678,44 @@ jobs:
     needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, create-regeneration-pr, tag-release]
     if: always()
     runs-on: ubuntu-latest
+    permissions: {} # writes only to GITHUB_STEP_SUMMARY
     steps:
       - name: Print summary
+        # Job outputs reach the shell through env: — an ${{ }} expansion inside
+        # run: is a code-injection sink (zizmor template-injection).
+        env:
+          SHOULD_PROCESS: ${{ needs.detect-changes.outputs.should-process }}
+          IS_BOT_COMMIT: ${{ needs.detect-changes.outputs.is-bot-commit }}
+          NEEDS_REGENERATION: ${{ needs.detect-changes.outputs.needs-regeneration }}
+          SPECS_CHANGED: ${{ needs.detect-changes.outputs.specs-changed }}
+          CODE_CHANGED: ${{ needs.detect-changes.outputs.code-changed }}
+          TOOLS_CHANGED: ${{ needs.detect-changes.outputs.tools-changed }}
+          FUNCTIONS_CHANGED: ${{ needs.detect-changes.outputs.functions-changed }}
+          DOCS_CHANGED: ${{ needs.detect-changes.outputs.docs-changed }}
+          BUILD_TEST_RESULT: ${{ needs.build-test.result }}
+          PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
+          DOCS_RESULT: ${{ needs.regenerate-docs.result }}
+          PR_RESULT: ${{ needs.create-regeneration-pr.result }}
+          TAG_RELEASE_RESULT: ${{ needs.tag-release.result }}
         run: |
           {
             echo "## On-Merge Workflow Summary"
             echo ""
             echo "| Step | Result |"
             echo "|------|--------|"
-            echo "| Should Process | ${{ needs.detect-changes.outputs.should-process }} |"
-            echo "| Is Bot Commit | ${{ needs.detect-changes.outputs.is-bot-commit }} |"
-            echo "| Needs Regeneration | ${{ needs.detect-changes.outputs.needs-regeneration }} |"
-            echo "| Specs Changed | ${{ needs.detect-changes.outputs.specs-changed }} |"
-            echo "| Code Changed | ${{ needs.detect-changes.outputs.code-changed }} |"
-            echo "| Tools Changed | ${{ needs.detect-changes.outputs.tools-changed }} |"
-            echo "| Functions Changed | ${{ needs.detect-changes.outputs.functions-changed }} |"
-            echo "| Docs Changed | ${{ needs.detect-changes.outputs.docs-changed }} |"
-            echo "| Build/Test | ${{ needs.build-test.result }} |"
-            echo "| Provider Regenerated | ${{ needs.regenerate-provider.result }} |"
-            echo "| Docs Regenerated | ${{ needs.regenerate-docs.result }} |"
-            echo "| Regeneration PR Created | ${{ needs.create-regeneration-pr.result }} |"
-            echo "| Tagged/Released | ${{ needs.tag-release.result }} |"
+            echo "| Should Process | ${SHOULD_PROCESS} |"
+            echo "| Is Bot Commit | ${IS_BOT_COMMIT} |"
+            echo "| Needs Regeneration | ${NEEDS_REGENERATION} |"
+            echo "| Specs Changed | ${SPECS_CHANGED} |"
+            echo "| Code Changed | ${CODE_CHANGED} |"
+            echo "| Tools Changed | ${TOOLS_CHANGED} |"
+            echo "| Functions Changed | ${FUNCTIONS_CHANGED} |"
+            echo "| Docs Changed | ${DOCS_CHANGED} |"
+            echo "| Build/Test | ${BUILD_TEST_RESULT} |"
+            echo "| Provider Regenerated | ${PROVIDER_RESULT} |"
+            echo "| Docs Regenerated | ${DOCS_RESULT} |"
+            echo "| Regeneration PR Created | ${PR_RESULT} |"
+            echo "| Tagged/Released | ${TAG_RELEASE_RESULT} |"
             echo ""
             echo "### Delayed Tagging Logic"
             echo "- Bot commits -> Tag immediately (regeneration complete)"

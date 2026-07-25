@@ -18,10 +18,11 @@ on:
 
 # Least privilege: every job here only reads the repository. `statuses: write`
 # and `checks: write` were granted workflow-wide but nothing consumed them —
-# no job (nor the reusable _build-test.yml, which uses only checkout and
-# setup-go) writes a commit status or a check run; job check runs are created by
-# Actions itself, not through GITHUB_TOKEN. Grant either at the job level if a
-# job ever needs it, rather than workflow-wide.
+# no job (nor the reusable _build-test.yml, whose GITHUB_TOKEN use is checkout
+# plus a read of the public api-specs-enriched release asset) writes a commit
+# status or a check run; job check runs are created by Actions itself, not
+# through GITHUB_TOKEN. `contents: read` covers both. Grant anything more at the
+# job level if a job ever needs it, rather than workflow-wide.
 permissions:
   contents: read
 
@@ -477,4 +478,3 @@ jobs:
           echo "Checking Terraform formatting in examples/..."
           terraform fmt -check -diff -recursive examples/
           echo "Terraform formatting validated successfully"
-

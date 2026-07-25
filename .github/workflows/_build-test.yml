@@ -28,12 +28,64 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       success: ${{ steps.result.outputs.success }}
+    env:
+      # Gitignored working location for the released API spec bundle — the same
+      # path tools/generate-all-schemas.go defaults to.
+      SPEC_DIR: docs/specifications/api
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.ref || github.ref }}
           fetch-depth: 0
+
+      - name: Download API specs
+        # TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames (#1257)
+        # compares tools/codespell-corrections.json against real API property
+        # names, so it needs the released spec bundle. This job is the ONLY place
+        # the guard can block a bad correction key BEFORE merge: the
+        # _generate-provider.yml copy of this download runs post-merge (on-merge.yml
+        # triggers on push: main), so without this step a collision could merge
+        # and would only be caught on its way to a release.
+        #
+        # f5-sales-demo/api-specs-enriched is public, so github.token with the
+        # inherited contents: read is sufficient — no extra permission needed.
+        # A fetch failure is a HARD failure: degrading to a skipped guard is the
+        # exact defect class #1257 is about. The bundle is one ~9 MB zip and is
+        # skipped entirely when the specs are already in the tree.
+        #
+        # SPEC_DIR reaches the shell through env: — an ${{ }} expansion inside
+        # run: is a code-injection sink (zizmor template-injection). Shell-quoted
+        # at each use below.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ENRICHED_REPO: f5-sales-demo/api-specs-enriched
+        run: |
+          SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f 2>/dev/null | wc -l)
+          if [ "$SPEC_COUNT" -gt "0" ]; then
+            echo "Found $SPEC_COUNT existing spec files in ${SPEC_DIR}"
+            exit 0
+          fi
+
+          echo "Specs not in tree (gitignored) — downloading latest from $ENRICHED_REPO"
+          mkdir -p "${SPEC_DIR}"
+          ASSET_ID=$(gh api "repos/$ENRICHED_REPO/releases" --jq \
+            '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
+          if [ -z "$ASSET_ID" ] || [ "$ASSET_ID" = "null" ]; then
+            echo "::error::No spec asset found in the latest $ENRICHED_REPO release; the #1257 codespell collision guard cannot run without it"
+            exit 1
+          fi
+          gh api "repos/$ENRICHED_REPO/releases/assets/$ASSET_ID" \
+            -H "Accept: application/octet-stream" > /tmp/specs.zip
+          unzip -q -o /tmp/specs.zip -d "${SPEC_DIR}"
+          rm /tmp/specs.zip
+
+          SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f | wc -l)
+          echo "Downloaded $SPEC_COUNT spec files"
+          if [ "$SPEC_COUNT" -eq "0" ]; then
+            echo "::error::Spec asset unpacked to no JSON specs in ${SPEC_DIR}"
+            exit 1
+          fi
 
       - name: Set up Go
         uses: actions/setup-go@v7
@@ -50,6 +102,11 @@ jobs:
         run: scripts/go-retry.sh 3 go build -v .
 
       - name: Test
+        # XCSH_SPEC_DIR is deliberately always set: the #1257 guard hard-fails on
+        # a set-but-unusable path, so a broken download can never masquerade as a
+        # clean run.
+        env:
+          XCSH_SPEC_DIR: ${{ env.SPEC_DIR }}
         run: scripts/go-retry.sh 2 go test -v -race ./internal/... ./tools/...
 
       - name: Set result
