@@ -44,9 +44,11 @@ on:
   schedule:
     - cron: '0 6 1 * *'  # First day of month at 6am UTC
 
+# Least privilege by default: read-only at the workflow level. The `discover` job
+# raises this to write because it pushes a branch and opens a PR; `summary` only
+# prints, so it inherits read-only.
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 # Only one discovery run at a time
 concurrency:
@@ -67,6 +69,11 @@ jobs:
     runs-on: self-hosted
     # Allow manual runs to fail gracefully if runner unavailable
     continue-on-error: ${{ github.event_name == 'schedule' }}
+
+    # Pushes the discovery branch and opens the PR that carries the results.
+    permissions:
+      contents: write
+      pull-requests: write
 
     outputs:
       changes_detected: ${{ steps.check-changes.outputs.changes_detected }}
@@ -120,9 +127,14 @@ jobs:
           XCSH_API_URL: ${{ secrets.XCSH_API_URL }}
           XCSH_P12_FILE: ${{ secrets.XCSH_P12_FILE }}
           XCSH_P12_PASSWORD: ${{ secrets.XCSH_P12_PASSWORD }}
+          # `resource` is a free-text workflow_dispatch input, so interpolating it
+          # into the run body below would let it expand into executable shell.
+          # Both inputs come in as env and are read as inert shell variables.
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_RESOURCE: ${{ inputs.resource }}
         run: |
-          MODE="${{ inputs.mode || 'discover' }}"
-          RESOURCE="${{ inputs.resource }}"
+          MODE="${INPUT_MODE:-discover}"
+          RESOURCE="$INPUT_RESOURCE"
 
           echo "::group::Running discovery (mode: $MODE)"
 

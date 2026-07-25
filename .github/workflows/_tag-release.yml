@@ -34,6 +34,9 @@ jobs:
   tag:
     name: Create Version Tag
     runs-on: ubuntu-latest
+    # Pushes the new version tag.
+    permissions:
+      contents: write
     outputs:
       new_tag: ${{ steps.version.outputs.new_tag }}
       latest_tag: ${{ steps.get_tag.outputs.latest_tag }}
@@ -150,6 +153,9 @@ jobs:
     name: Create Release
     needs: tag
     if: needs.tag.outputs.created == 'true' && inputs.create-release
+    # goreleaser publishes the GitHub release; that is the only scope it needs.
+    permissions:
+      contents: write
     # Using our fork with updated action versions to fix cache 400 errors
     # Original: hashicorp/ghaction-terraform-provider-release/.github/workflows/community.yml@v5
     # Fork updates: checkout@v6.0.1, setup-go@v6.1.0, ghaction-import-gpg@v6.3.0
@@ -171,6 +177,9 @@ jobs:
     needs: [tag, release]
     if: needs.tag.outputs.created == 'true' && inputs.create-release
     runs-on: ubuntu-latest
+    # Attaches the MCP data tarball to the release via `gh release upload`.
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
