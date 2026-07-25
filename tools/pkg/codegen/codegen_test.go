@@ -430,6 +430,9 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesEmptyMarkerListElement_Issue
 	}{
 		{"OriginPool", "Labels", "labels"},
 		{"HTTPLoadBalancer", "EndpointSubsets", "endpoint_subsets"},
+		// #1244: same class on securemesh_site_v2 — the server materializes labels {} on
+		// every azure.not_managed.node_list[].interface_list[] element.
+		{"SecuremeshSiteV2", "Labels", "labels"},
 	}
 	for _, c := range cases {
 		var sb strings.Builder
@@ -442,20 +445,98 @@ func TestRenderUnmarshalSingleChild_ImportSuppressesEmptyMarkerListElement_Issue
 	}
 }
 
-// #1103 non-collision: seeding OriginPool.labels suppresses ONLY the origin_servers[]
-// empty-marker block. The top-level metadata.labels is a types.Map rendered by a
-// different path that never consults isImportDefaultSuppressed, so a map-typed "labels"
-// child must NOT acquire an empty-marker import-suppression guard.
-func TestRenderUnmarshalChild_MetadataLabelsMapNotSuppressed_Issue1103(t *testing.T) {
-	var sb strings.Builder
-	mapAttr := openapi.TerraformAttribute{GoName: "Labels", TfsdkTag: "labels", JsonName: "labels", Type: "map", ElementType: "string"}
-	renderUnmarshalChild(&sb, "OriginPool", "", mapAttr, "metaMap", "", "", "single", "\t")
-	got := sb.String()
-	if strings.Contains(got, "EmptyModel{}") {
-		t.Errorf("metadata.labels (types.Map) must not render as an empty-marker block; got:\n%s", got)
+// #1103 / #1244 non-collision: seeding a resource's "labels" suppresses ONLY the nested
+// empty-marker blocks (origin_pool origin_servers[].labels, securemesh_site_v2's 13
+// *EmptyModel labels). The top-level metadata `labels` is a types.Map emitted by static
+// ResourceTemplate text that never consults isImportDefaultSuppressed, and it is written
+// BEFORE the isImport marker is even read — so it must never acquire the suppression
+// guard. Render a real resource file (TitleCase SecuremeshSiteV2, so the seed is live)
+// carrying both shapes and assert the two paths differ: metadata unguarded, nested guarded.
+func TestResourceTemplate_MetadataLabelsMapNotImportSuppressed_Issue1244(t *testing.T) {
+	marker := func(go_, tfsdk string) openapi.TerraformAttribute {
+		return openapi.TerraformAttribute{GoName: go_, TfsdkTag: tfsdk, JsonName: tfsdk, IsBlock: true, NestedBlockType: "single"}
 	}
-	if strings.Contains(got, "if !isImport {") {
-		t.Errorf("metadata.labels (types.Map) must not acquire an empty-marker import-suppression guard; got:\n%s", got)
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "zz_labels_probe",
+		TitleCase:          "SecuremeshSiteV2",
+		Description:        "Probe.",
+		HasNamespaceInPath: true,
+		APIPath:            "/api/config/namespaces/%s/zz_labels_probes",
+		APIPathItem:        "/api/config/namespaces/%s/zz_labels_probes/%s",
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true},
+			// spec.azure.node_list[].labels {} — the nested empty-marker shape the #1244 seed targets.
+			{
+				Name: "azure", GoName: "Azure", TfsdkTag: "azure", JsonName: "azure",
+				IsBlock: true, NestedBlockType: "single", IsSpecField: true, Optional: true,
+				NestedAttributes: []openapi.TerraformAttribute{{
+					GoName: "NodeList", TfsdkTag: "node_list", JsonName: "node_list",
+					IsBlock: true, NestedBlockType: "list", Optional: true,
+					NestedAttributes: []openapi.TerraformAttribute{
+						{GoName: "NodeName", TfsdkTag: "node_name", JsonName: "node_name", Type: "string", Optional: true},
+						marker("Labels", "labels"),
+					},
+				}},
+			},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	b, err := os.ReadFile(filepath.Join(dir, "zz_labels_probe_resource.go"))
+	if err != nil {
+		t.Fatalf("reading rendered resource: %v", err)
+	}
+	got := string(b)
+
+	// Isolate the Read body — the only place the API response overwrites state.
+	readIdx := strings.Index(got, ") Read(ctx context.Context")
+	if readIdx == -1 {
+		t.Fatal("rendered resource has no Read method")
+	}
+	read := got[readIdx:]
+	if end := strings.Index(read, ") Update(ctx context.Context"); end != -1 {
+		read = read[:end]
+	}
+
+	// ---- top-level metadata labels/annotations: present, and NOT import-guarded ----
+	metaStart := strings.Index(read, "priorLabelsEmpty :=")
+	metaEnd := strings.Index(read, "isImport := false")
+	if metaStart == -1 || metaEnd == -1 || metaEnd <= metaStart {
+		t.Fatalf("cannot locate the metadata read-back region in the rendered Read:\n%s", read)
+	}
+	meta := read[metaStart:metaEnd]
+	for _, want := range []string{
+		"data.Labels = types.MapValueMust(types.StringType, nil)",
+		"data.Labels = types.MapNull(types.StringType)",
+		"data.Annotations = types.MapNull(types.StringType)",
+	} {
+		if !strings.Contains(meta, want) {
+			t.Errorf("metadata read-back must emit %q; region was:\n%s", want, meta)
+		}
+	}
+	// The region ends where isImport is declared, so any mention of it here means the
+	// metadata map read-back was pulled onto the import-suppression path (#1244 collision).
+	if strings.Contains(meta, "isImport") {
+		t.Errorf("metadata labels/annotations read-back must not be import-guarded (#1244 non-collision); region was:\n%s", meta)
+	}
+	if strings.Contains(meta, "EmptyModel") {
+		t.Errorf("metadata labels must stay a types.Map, never an empty-marker block; region was:\n%s", meta)
+	}
+
+	// ---- nested labels {} inside node_list[]: IS import-guarded by the #1244 seed ----
+	nestedStart := strings.Index(read, "Labels: func() *SecuremeshSiteV2EmptyModel {")
+	if nestedStart == -1 {
+		t.Fatalf("rendered Read has no nested labels empty-marker closure:\n%s", read)
+	}
+	nested := read[nestedStart:]
+	if end := strings.Index(nested, "}(),"); end != -1 {
+		nested = nested[:end]
+	}
+	if !strings.Contains(nested, "if !isImport {") {
+		t.Errorf("nested node_list[].labels {} must guard its response-populate with !isImport (#1244); closure was:\n%s", nested)
 	}
 }
 
@@ -686,6 +767,71 @@ func TestUnmarshal_PreservesUnconfiguredList(t *testing.T) {
 	}
 	if !strings.Contains(got, "return types.ListNull(types.ObjectType{AttrTypes: TestPrimaryGrpModelAttrTypes})") {
 		t.Errorf("expected canonical ListNull return for preserved grp, got:\n%s", got)
+	}
+}
+
+// #1286: the metadata read-back must distinguish "absent from config" from
+// "declared empty". A config that declares `labels = {}` (or `annotations = {}`)
+// gets no labels back from the F5 XC API, and nulling the attribute on every Read
+// makes a plain post-apply plan drift `+ labels = {}` forever — no import involved.
+// So when the API returns no entries: keep a KNOWN EMPTY prior value as an empty
+// map, and null it only when the prior value is itself null (never declared) or
+// unknown. A prior value with entries must still be nulled, so genuine
+// out-of-band deletion still shows as drift.
+func TestResourceTemplate_PreservesConfigDeclaredEmptyMetadataMap_Issue1286(t *testing.T) {
+	// Render a real resource file: the assertion is on emitted Go, not template text.
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "zz_metadata_probe",
+		TitleCase:          "ZZMetadataProbe",
+		Description:        "Probe.",
+		HasNamespaceInPath: true,
+		APIPath:            "/api/config/namespaces/%s/zz_metadata_probes",
+		APIPathItem:        "/api/config/namespaces/%s/zz_metadata_probes/%s",
+		Attributes: []openapi.TerraformAttribute{
+			{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true},
+			{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true},
+		},
+	}
+	dir := t.TempDir()
+	if err := GenerateResourceFile(tmpl, dir); err != nil {
+		t.Fatalf("GenerateResourceFile: %v", err)
+	}
+	b, err := os.ReadFile(filepath.Join(dir, "zz_metadata_probe_resource.go"))
+	if err != nil {
+		t.Fatalf("reading rendered resource: %v", err)
+	}
+	got := string(b)
+
+	// Isolate the Read body — the only place the API response overwrites metadata maps.
+	readIdx := strings.Index(got, ") Read(ctx context.Context")
+	if readIdx == -1 {
+		t.Fatal("rendered resource has no Read method")
+	}
+	read := got[readIdx:]
+	if end := strings.Index(read, ") Update(ctx context.Context"); end != -1 {
+		read = read[:end]
+	}
+
+	for _, attr := range []string{"Labels", "Annotations"} {
+		nullAssign := "data." + attr + " = types.MapNull(types.StringType)"
+		emptyAssign := "data." + attr + " = types.MapValueMust(types.StringType, nil)"
+		if !strings.Contains(read, emptyAssign) {
+			t.Errorf("Read must preserve a config-declared empty %s as an empty map (#1286); expected %q in:\n%s", attr, emptyAssign, read)
+		}
+		if !strings.Contains(read, nullAssign) {
+			t.Errorf("Read must still null %s when it was never declared (#1286); expected %q in:\n%s", attr, nullAssign, read)
+		}
+		// Every null assignment must be gated on the prior value being null/unknown —
+		// an unguarded null is exactly the #1286 drift.
+		for _, guard := range []string{
+			"data." + attr + ".IsNull()",
+			"data." + attr + ".IsUnknown()",
+			"len(data." + attr + ".Elements()) == 0",
+		} {
+			if !strings.Contains(read, guard) {
+				t.Errorf("Read must gate the %s null-vs-empty decision on the prior value (#1286); expected %q in:\n%s", attr, guard, read)
+			}
+		}
 	}
 }
 

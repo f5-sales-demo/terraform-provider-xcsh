@@ -465,6 +465,58 @@ var ResourceConfigs = map[string]MinimalConfig{
 			"dscp_value": 46,
 		},
 	},
+
+	// Secure Mesh Site v2 (#1244). A single-node `azure` `not_managed` site creates,
+	// reads and deletes with HTTP 200 and NO backing Azure VM, so its server defaults
+	// are discoverable — which is how the per-interface `labels {}` empty marker that
+	// caused #1244 gets auto-derived instead of hand-seeded. Minimal spec only: send
+	// nothing we want to DISCOVER as a default (interface_list[].labels, and the site
+	// oneof base members). Lives in the fixed "system" namespace (see the path switch
+	// in createAndGetResource / cleanupResource), never a per-run test namespace.
+	"securemesh_site_v2": {
+		Category:  CategoryCloudSite,
+		Namespace: false, // system namespace
+		RequiredSpec: map[string]interface{}{
+			"azure": map[string]interface{}{
+				"not_managed": map[string]interface{}{
+					"node_list": []interface{}{
+						map[string]interface{}{
+							"hostname": "tf-discover-node-01",
+							"type":     "Control",
+							"interface_list": []interface{}{
+								map[string]interface{}{
+									"name":               "eth0",
+									"ethernet_interface": map[string]interface{}{"device": "eth0"},
+									"network_option": map[string]interface{}{
+										"site_local_network": map[string]interface{}{},
+									},
+									"dhcp_client":      map[string]interface{}{},
+									"no_ipv6_address":  map[string]interface{}{},
+									"monitor_disabled": map[string]interface{}{},
+									"site_to_site_connectivity_interface_disabled": map[string]interface{}{},
+								},
+							},
+						},
+					},
+				},
+			},
+			"block_all_services": map[string]interface{}{},
+			"disable_ha":         map[string]interface{}{},
+			"dns_ntp_config": map[string]interface{}{
+				"f5_dns_default": map[string]interface{}{},
+				"f5_ntp_default": map[string]interface{}{},
+			},
+			"local_vrf": map[string]interface{}{
+				"default_config":     map[string]interface{}{},
+				"default_sli_config": map[string]interface{}{},
+			},
+			"performance_enhancement_mode": map[string]interface{}{
+				"perf_mode_l3_enhanced": map[string]interface{}{
+					"no_jumbo": map[string]interface{}{},
+				},
+			},
+		},
+	},
 }
 
 // ============================================================================
@@ -484,12 +536,27 @@ var (
 	flagNSPrefix = flag.String("ns-prefix", "tf-discover", "Prefix for auto-created test namespace")
 )
 
+// strandedObjects records every discovery probe object whose DELETE never succeeded.
+// Discovery creates real objects in SHARED namespaces (securemesh_site_v2 lands in
+// "system", alongside the live demo sites — #1244), so a failed cleanup leaks a
+// tf-discover-* object forever. Anything recorded here fails the run (see main).
+var strandedObjects []string
+
 // ============================================================================
 // Main
 // ============================================================================
 
 func main() {
 	flag.Parse()
+
+	// Registered FIRST so it runs LAST (defers are LIFO): the test-namespace cleanup
+	// deferred below still gets to run before the process exits non-zero.
+	exitCode := 0
+	defer func() {
+		if exitCode != 0 {
+			os.Exit(exitCode)
+		}
+	}()
 
 	if !*flagAll && *flagResource == "" && *flagPattern == "" && !*flagValidate {
 		fmt.Println("Usage: go run tools/discover-defaults.go [options]")
@@ -652,6 +719,16 @@ func main() {
 	fmt.Printf("Skipped:         %d\n", db.Skipped)
 	fmt.Printf("Failed:          %d\n", db.Failed)
 	fmt.Printf("Output:          %s\n", *flagOutput)
+
+	// A leaked probe object in a shared namespace is a real defect, not a warning: fail the
+	// run (the monthly -all workflow) so it gets noticed and cleaned up.
+	if len(strandedObjects) > 0 {
+		fmt.Fprintf(os.Stderr, "\n!! %d discovery probe object(s) could not be deleted and are STRANDED:\n", len(strandedObjects))
+		for _, p := range strandedObjects {
+			fmt.Fprintf(os.Stderr, "!!   %s\n", p)
+		}
+		exitCode = 1
+	}
 }
 
 // ============================================================================
@@ -838,6 +915,10 @@ func createAndGetResource(ctx context.Context, apiClient *client.Client, resourc
 	case "contact":
 		createPath = "/api/web/system/contacts"
 		getPath = fmt.Sprintf("/api/web/system/contacts/%s", name)
+	case "securemesh_site_v2":
+		// Site objects exist only in the fixed "system" namespace (#1244).
+		createPath = "/api/config/namespaces/system/securemesh_site_v2s"
+		getPath = fmt.Sprintf("/api/config/namespaces/system/securemesh_site_v2s/%s", name)
 	default:
 		// Most resources follow this pattern
 		pluralName := pluralizeResource(resourceName)
@@ -881,6 +962,8 @@ func cleanupResource(ctx context.Context, apiClient *client.Client, resourceName
 		deletePath = fmt.Sprintf("/api/web/namespaces/%s", name)
 	case "contact":
 		deletePath = fmt.Sprintf("/api/web/system/contacts/%s", name)
+	case "securemesh_site_v2":
+		deletePath = fmt.Sprintf("/api/config/namespaces/system/securemesh_site_v2s/%s", name)
 	default:
 		pluralName := pluralizeResource(resourceName)
 		deletePath = fmt.Sprintf("/api/config/namespaces/%s/%s/%s", namespace, pluralName, name)
@@ -890,7 +973,19 @@ func cleanupResource(ctx context.Context, apiClient *client.Client, resourceName
 		fmt.Printf("  DELETE %s\n", deletePath)
 	}
 
-	_ = apiClient.Delete(ctx, deletePath)
+	// Retry a failing DELETE (transient 5xx, or the brief referential BAD_REQUEST the API
+	// returns while an object is still referenced) and never swallow the final error: an
+	// undeleted probe object is stranded in a shared namespace. Detach from the discovery
+	// deadline so cleanup still runs when that context is already spent.
+	cleanupCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 60*time.Second)
+	defer cancel()
+	if err := discovery.DeleteWithRetry(func() error {
+		return apiClient.Delete(cleanupCtx, deletePath)
+	}, 3, 2*time.Second); err != nil {
+		fmt.Fprintf(os.Stderr, "\n!! CLEANUP FAILED: DELETE %s after 3 attempts: %v\n", deletePath, err)
+		fmt.Fprintf(os.Stderr, "!! probe object %s is STRANDED and must be deleted by hand.\n\n", name)
+		strandedObjects = append(strandedObjects, deletePath)
+	}
 }
 
 func pluralizeResource(name string) string {

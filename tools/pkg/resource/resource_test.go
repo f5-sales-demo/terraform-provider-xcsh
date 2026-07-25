@@ -131,6 +131,9 @@ func TestIsSkippedForAPITest(t *testing.T) {
 		{"gcp_vpc_site", true},       // Requires GCP credentials
 		{"cloud_credentials", true},  // Requires cloud provider secrets
 		{"securemesh_site", true},    // Requires physical hardware
+		// #1244: v2 is NOT skipped — a single-node azure not_managed site creates
+		// Azure-free (HTTP 200), so discover-defaults can derive its server defaults.
+		{"securemesh_site_v2", false},
 		{"fleet", true},              // Requires existing infrastructure
 		{"cminstance", true},         // Requires subscription
 		{"http_loadbalancer", false}, // Not in skip list
