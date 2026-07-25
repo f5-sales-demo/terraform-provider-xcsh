@@ -515,10 +515,10 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 				MarkdownDescription: "[OneOf: disabled, enabled] Enable this option",
 			},
 			"enabled": schema.SingleNestedBlock{
-				MarkdownDescription: "CloudLink AND Network Config.",
+				MarkdownDescription: "CloudLink ADN Network Config.",
 				Attributes: map[string]schema.Attribute{
 					"cloudlink_network_name": schema.StringAttribute{
-						MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
+						MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(64),
@@ -1312,6 +1312,18 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 		data.Description = types.StringNull()
 	}
 
+	// #1286: the API omits an empty metadata map entirely, so "no entries in the
+	// response" is ambiguous — it means either "never declared" or "declared empty".
+	// Nulling both makes a config that declares labels = {} drift (+ labels = {}) on
+	// every plan after apply, with no import involved. Resolve it from the prior
+	// value: a known-empty prior map stays an empty map, anything else (null = never
+	// declared, or unknown) becomes null. A prior map WITH entries still nulls, so a
+	// genuine out-of-band deletion is still reported as drift.
+	// The MapValueMust below cannot panic: it panics only on diagnostics, and with nil
+	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
+	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
+	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
+
 	// Filter out system-managed labels (ves.io/*) that are injected by the platform
 	if len(apiResource.Metadata.Labels) > 0 {
 		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
@@ -1321,9 +1333,13 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 			if !resp.Diagnostics.HasError() {
 				data.Labels = labels
 			}
+		} else if priorLabelsEmpty {
+			data.Labels = types.MapValueMust(types.StringType, nil)
 		} else {
 			data.Labels = types.MapNull(types.StringType)
 		}
+	} else if priorLabelsEmpty {
+		data.Labels = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Labels = types.MapNull(types.StringType)
 	}
@@ -1334,6 +1350,8 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 		if !resp.Diagnostics.HasError() {
 			data.Annotations = annotations
 		}
+	} else if priorAnnotationsEmpty {
+		data.Annotations = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}

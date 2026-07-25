@@ -1156,24 +1156,24 @@ var SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListVLANInterfaceModelAt
 
 // SecuremeshSiteV2BlockedServicesModel represents blocked_services block
 type SecuremeshSiteV2BlockedServicesModel struct {
-	BlockedService types.List `tfsdk:"blocked_service"`
+	BlockedSevice types.List `tfsdk:"blocked_sevice"`
 }
 
 // SecuremeshSiteV2BlockedServicesModelAttrTypes defines the attribute types for SecuremeshSiteV2BlockedServicesModel
 var SecuremeshSiteV2BlockedServicesModelAttrTypes = map[string]attr.Type{
-	"blocked_service": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}},
+	"blocked_sevice": types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes}},
 }
 
-// SecuremeshSiteV2BlockedServicesBlockedServiceModel represents blocked_service block
-type SecuremeshSiteV2BlockedServicesBlockedServiceModel struct {
+// SecuremeshSiteV2BlockedServicesBlockedSeviceModel represents blocked_sevice block
+type SecuremeshSiteV2BlockedServicesBlockedSeviceModel struct {
 	NetworkType      types.String                `tfsdk:"network_type"`
 	DNS              *SecuremeshSiteV2EmptyModel `tfsdk:"dns"`
 	SSH              *SecuremeshSiteV2EmptyModel `tfsdk:"ssh"`
 	WebUserInterface *SecuremeshSiteV2EmptyModel `tfsdk:"web_user_interface"`
 }
 
-// SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes defines the attribute types for SecuremeshSiteV2BlockedServicesBlockedServiceModel
-var SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes = map[string]attr.Type{
+// SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes defines the attribute types for SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+var SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes = map[string]attr.Type{
 	"network_type":       types.StringType,
 	"dns":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"ssh":                types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -4661,7 +4661,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"tunnel_type": schema.StringAttribute{
-				MarkdownDescription: "[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`. Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`.",
+				MarkdownDescription: "[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can operate in both IPsec and SSL, with IPsec being prefered over SSL. Tunnel is of type IPsec Tunnel is of type SSL. Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`. Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`.",
 				Optional:            true,
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
@@ -5055,7 +5055,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -5447,7 +5447,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -5839,7 +5839,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -6084,7 +6084,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "Disable node local services on this site.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
-					"blocked_service": schema.ListNestedBlock{
+					"blocked_sevice": schema.ListNestedBlock{
 						MarkdownDescription: "Disable Node Local Services. Blocking or denial configuration",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
@@ -6537,7 +6537,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -6932,7 +6932,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -7324,7 +7324,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -8294,7 +8294,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -8686,7 +8686,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -9090,7 +9090,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -9482,7 +9482,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -10259,7 +10259,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 																MarkdownDescription: "IPV6AutoConfigRouterType.",
 																Attributes: map[string]schema.Attribute{
 																	"network_prefix": schema.StringAttribute{
-																		MarkdownDescription: "Exclusive with [stateful] Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
+																		MarkdownDescription: "Exclusive with [stateful] Nework prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
 																		Optional:            true,
 																		Validators: []validator.String{
 																			stringvalidator.LengthAtMost(1024),
@@ -11563,29 +11563,29 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-			var BlockedServiceElems []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+		if !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+			var BlockedSeviceElems []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+			diags := data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceElems, false)
 			resp.Diagnostics.Append(diags...)
-			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
-				var BlockedServiceList []map[string]interface{}
-				for _, BlockedServiceItem := range BlockedServiceElems {
-					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
-						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+			if !resp.Diagnostics.HasError() && len(BlockedSeviceElems) > 0 {
+				var BlockedSeviceList []map[string]interface{}
+				for _, BlockedSeviceItem := range BlockedSeviceElems {
+					BlockedSeviceItemMap := make(map[string]interface{})
+					if BlockedSeviceItem.DNS != nil {
+						BlockedSeviceItemMap["dns"] = map[string]interface{}{}
 					}
-					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					if !BlockedSeviceItem.NetworkType.IsNull() && !BlockedSeviceItem.NetworkType.IsUnknown() {
+						BlockedSeviceItemMap["network_type"] = BlockedSeviceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
-						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					if BlockedSeviceItem.SSH != nil {
+						BlockedSeviceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
-						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					if BlockedSeviceItem.WebUserInterface != nil {
+						BlockedSeviceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
-					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+					BlockedSeviceList = append(BlockedSeviceList, BlockedSeviceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedSeviceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -15375,8 +15375,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -15975,8 +15977,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -16575,8 +16579,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -16805,49 +16811,49 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteV2BlockedServicesModel{
-			BlockedService: func() types.List {
-				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
-					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
+			BlockedSevice: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedSevice.IsNull() || len(data.BlockedServices.BlockedSevice.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes})
 				}
-				var BlockedServiceExisting []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				var BlockedSeviceExisting []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+					data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
-					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-					for BlockedServiceIdx, BlockedServiceItem := range rawList {
-						_ = BlockedServiceIdx
-						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
-							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteV2BlockedServicesBlockedServiceModel{
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedSeviceResult []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+					for BlockedSeviceIdx, BlockedSeviceItem := range rawList {
+						_ = BlockedSeviceIdx
+						if BlockedSeviceItemMap, ok := BlockedSeviceItem.(map[string]interface{}); ok {
+							BlockedSeviceResult = append(BlockedSeviceResult, SecuremeshSiteV2BlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].DNS
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].DNS
 									}
-									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
 								}(),
 								NetworkType: func() types.String {
-									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+									if v, ok := BlockedSeviceItemMap["network_type"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].SSH
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].SSH
 									}
-									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].WebUserInterface
 									}
-									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
@@ -16855,10 +16861,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							})
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes}, BlockedSeviceResult)
 					return listVal
 				}
-				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes})
 			}(),
 		}
 	}
@@ -17580,8 +17586,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -18183,8 +18191,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -18783,8 +18793,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -19045,8 +19057,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -19411,8 +19425,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -20234,8 +20250,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -20834,8 +20852,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -21456,8 +21476,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -22056,8 +22078,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -23250,8 +23274,10 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -23545,6 +23571,18 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		data.Description = types.StringNull()
 	}
 
+	// #1286: the API omits an empty metadata map entirely, so "no entries in the
+	// response" is ambiguous — it means either "never declared" or "declared empty".
+	// Nulling both makes a config that declares labels = {} drift (+ labels = {}) on
+	// every plan after apply, with no import involved. Resolve it from the prior
+	// value: a known-empty prior map stays an empty map, anything else (null = never
+	// declared, or unknown) becomes null. A prior map WITH entries still nulls, so a
+	// genuine out-of-band deletion is still reported as drift.
+	// The MapValueMust below cannot panic: it panics only on diagnostics, and with nil
+	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
+	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
+	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
+
 	// Filter out system-managed labels (ves.io/*) that are injected by the platform
 	if len(apiResource.Metadata.Labels) > 0 {
 		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
@@ -23554,9 +23592,13 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			if !resp.Diagnostics.HasError() {
 				data.Labels = labels
 			}
+		} else if priorLabelsEmpty {
+			data.Labels = types.MapValueMust(types.StringType, nil)
 		} else {
 			data.Labels = types.MapNull(types.StringType)
 		}
+	} else if priorLabelsEmpty {
+		data.Labels = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Labels = types.MapNull(types.StringType)
 	}
@@ -23567,6 +23609,8 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 		if !resp.Diagnostics.HasError() {
 			data.Annotations = annotations
 		}
+	} else if priorAnnotationsEmpty {
+		data.Annotations = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
@@ -24245,8 +24289,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -24845,8 +24891,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -25445,8 +25493,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -25675,49 +25725,49 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteV2BlockedServicesModel{
-			BlockedService: func() types.List {
-				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
-					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
+			BlockedSevice: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedSevice.IsNull() || len(data.BlockedServices.BlockedSevice.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes})
 				}
-				var BlockedServiceExisting []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				var BlockedSeviceExisting []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+					data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
-					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-					for BlockedServiceIdx, BlockedServiceItem := range rawList {
-						_ = BlockedServiceIdx
-						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
-							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteV2BlockedServicesBlockedServiceModel{
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedSeviceResult []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+					for BlockedSeviceIdx, BlockedSeviceItem := range rawList {
+						_ = BlockedSeviceIdx
+						if BlockedSeviceItemMap, ok := BlockedSeviceItem.(map[string]interface{}); ok {
+							BlockedSeviceResult = append(BlockedSeviceResult, SecuremeshSiteV2BlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].DNS
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].DNS
 									}
-									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
 								}(),
 								NetworkType: func() types.String {
-									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+									if v, ok := BlockedSeviceItemMap["network_type"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].SSH
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].SSH
 									}
-									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].WebUserInterface
 									}
-									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
@@ -25725,10 +25775,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							})
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes}, BlockedSeviceResult)
 					return listVal
 				}
-				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes})
 			}(),
 		}
 	}
@@ -26450,8 +26500,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -27053,8 +27105,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -27653,8 +27707,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -27915,8 +27971,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -28281,8 +28339,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -29104,8 +29164,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -29704,8 +29766,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -30326,8 +30390,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -30926,8 +30992,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -32120,8 +32188,10 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -33374,29 +33444,29 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	}
 	if data.BlockedServices != nil {
 		BlockedServicesMap := make(map[string]interface{})
-		if !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-			var BlockedServiceElems []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-			diags := data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceElems, false)
+		if !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+			var BlockedSeviceElems []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+			diags := data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceElems, false)
 			resp.Diagnostics.Append(diags...)
-			if !resp.Diagnostics.HasError() && len(BlockedServiceElems) > 0 {
-				var BlockedServiceList []map[string]interface{}
-				for _, BlockedServiceItem := range BlockedServiceElems {
-					BlockedServiceItemMap := make(map[string]interface{})
-					if BlockedServiceItem.DNS != nil {
-						BlockedServiceItemMap["dns"] = map[string]interface{}{}
+			if !resp.Diagnostics.HasError() && len(BlockedSeviceElems) > 0 {
+				var BlockedSeviceList []map[string]interface{}
+				for _, BlockedSeviceItem := range BlockedSeviceElems {
+					BlockedSeviceItemMap := make(map[string]interface{})
+					if BlockedSeviceItem.DNS != nil {
+						BlockedSeviceItemMap["dns"] = map[string]interface{}{}
 					}
-					if !BlockedServiceItem.NetworkType.IsNull() && !BlockedServiceItem.NetworkType.IsUnknown() {
-						BlockedServiceItemMap["network_type"] = BlockedServiceItem.NetworkType.ValueString()
+					if !BlockedSeviceItem.NetworkType.IsNull() && !BlockedSeviceItem.NetworkType.IsUnknown() {
+						BlockedSeviceItemMap["network_type"] = BlockedSeviceItem.NetworkType.ValueString()
 					}
-					if BlockedServiceItem.SSH != nil {
-						BlockedServiceItemMap["ssh"] = map[string]interface{}{}
+					if BlockedSeviceItem.SSH != nil {
+						BlockedSeviceItemMap["ssh"] = map[string]interface{}{}
 					}
-					if BlockedServiceItem.WebUserInterface != nil {
-						BlockedServiceItemMap["web_user_interface"] = map[string]interface{}{}
+					if BlockedSeviceItem.WebUserInterface != nil {
+						BlockedSeviceItemMap["web_user_interface"] = map[string]interface{}{}
 					}
-					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
+					BlockedSeviceList = append(BlockedSeviceList, BlockedSeviceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedSeviceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -37211,8 +37281,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -37811,8 +37883,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -38411,8 +38485,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -38641,49 +38717,49 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 	}
 	if blockData, ok := apiResource.Spec["blocked_services"].(map[string]interface{}); ok && (isImport || data.BlockedServices != nil) {
 		data.BlockedServices = &SecuremeshSiteV2BlockedServicesModel{
-			BlockedService: func() types.List {
-				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedService.IsNull() || len(data.BlockedServices.BlockedService.Elements()) == 0) {
-					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
+			BlockedSevice: func() types.List {
+				if !isImport && data.BlockedServices != nil && (data.BlockedServices.BlockedSevice.IsNull() || len(data.BlockedServices.BlockedSevice.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes})
 				}
-				var BlockedServiceExisting []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
-					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
+				var BlockedSeviceExisting []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedSevice.IsNull() && !data.BlockedServices.BlockedSevice.IsUnknown() {
+					data.BlockedServices.BlockedSevice.ElementsAs(ctx, &BlockedSeviceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
-					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
-					for BlockedServiceIdx, BlockedServiceItem := range rawList {
-						_ = BlockedServiceIdx
-						if BlockedServiceItemMap, ok := BlockedServiceItem.(map[string]interface{}); ok {
-							BlockedServiceResult = append(BlockedServiceResult, SecuremeshSiteV2BlockedServicesBlockedServiceModel{
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
+					var BlockedSeviceResult []SecuremeshSiteV2BlockedServicesBlockedSeviceModel
+					for BlockedSeviceIdx, BlockedSeviceItem := range rawList {
+						_ = BlockedSeviceIdx
+						if BlockedSeviceItemMap, ok := BlockedSeviceItem.(map[string]interface{}); ok {
+							BlockedSeviceResult = append(BlockedSeviceResult, SecuremeshSiteV2BlockedServicesBlockedSeviceModel{
 								DNS: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].DNS
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].DNS
 									}
-									if _, ok := BlockedServiceItemMap["dns"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["dns"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
 								}(),
 								NetworkType: func() types.String {
-									if v, ok := BlockedServiceItemMap["network_type"].(string); ok && v != "" {
+									if v, ok := BlockedSeviceItemMap["network_type"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
 								}(),
 								SSH: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].SSH
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].SSH
 									}
-									if _, ok := BlockedServiceItemMap["ssh"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["ssh"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
 								}(),
 								WebUserInterface: func() *SecuremeshSiteV2EmptyModel {
-									if !isImport && len(BlockedServiceExisting) > BlockedServiceIdx {
-										return BlockedServiceExisting[BlockedServiceIdx].WebUserInterface
+									if !isImport && len(BlockedSeviceExisting) > BlockedSeviceIdx {
+										return BlockedSeviceExisting[BlockedSeviceIdx].WebUserInterface
 									}
-									if _, ok := BlockedServiceItemMap["web_user_interface"].(map[string]interface{}); ok {
+									if _, ok := BlockedSeviceItemMap["web_user_interface"].(map[string]interface{}); ok {
 										return &SecuremeshSiteV2EmptyModel{}
 									}
 									return nil
@@ -38691,10 +38767,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							})
 						}
 					}
-					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes}, BlockedServiceResult)
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes}, BlockedSeviceResult)
 					return listVal
 				}
-				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedServiceModelAttrTypes})
+				return types.ListNull(types.ObjectType{AttrTypes: SecuremeshSiteV2BlockedServicesBlockedSeviceModelAttrTypes})
 			}(),
 		}
 	}
@@ -39416,8 +39492,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -40019,8 +40097,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -40619,8 +40699,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -40881,8 +40963,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SLIConfig != nil {
 								return data.LocalVrf.SLIConfig.Labels
 							}
-							if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SLIConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -41247,8 +41331,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							if !isImport && data.LocalVrf != nil && data.LocalVrf.SloConfig != nil {
 								return data.LocalVrf.SloConfig.Labels
 							}
-							if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2EmptyModel{}
+							if !isImport {
+								if _, ok := SloConfigData["labels"].(map[string]interface{}); ok {
+									return &SecuremeshSiteV2EmptyModel{}
+								}
 							}
 							return nil
 						}(),
@@ -42070,8 +42156,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -42670,8 +42758,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -43292,8 +43382,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -43892,8 +43984,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),
@@ -45086,8 +45180,10 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 																	if !isImport && len(InterfaceListExisting) > InterfaceListIdx {
 																		return InterfaceListExisting[InterfaceListIdx].Labels
 																	}
-																	if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-																		return &SecuremeshSiteV2EmptyModel{}
+																	if !isImport {
+																		if _, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
+																			return &SecuremeshSiteV2EmptyModel{}
+																		}
 																	}
 																	return nil
 																}(),

@@ -157,7 +157,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"unhealthy_threshold": schema.Int64Attribute{
-				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checkingg if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
+				MarkdownDescription: "Number of failed responses before declaring unhealthy. In other words, this is the number of unhealthy health checks required before a host is marked unhealthy. Note that for HTTP health checking if a host responds with 503 this threshold is ignored and the host is considered unhealthy immediately. Recommended: `1`.",
 				Required:            true,
 				Validators: []validator.Int64{
 					int64validator.Between(1, 16),
@@ -238,7 +238,7 @@ func (r *HealthcheckResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 					},
 					"path": schema.StringAttribute{
-						MarkdownDescription: "Specifies the HTTP path that will be requested during health checkingg. Recommended: `/`.",
+						MarkdownDescription: "Specifies the HTTP path that will be requested during health checking. Recommended: `/`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthBetween(1, 2048),
@@ -665,6 +665,18 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 		data.Description = types.StringNull()
 	}
 
+	// #1286: the API omits an empty metadata map entirely, so "no entries in the
+	// response" is ambiguous — it means either "never declared" or "declared empty".
+	// Nulling both makes a config that declares labels = {} drift (+ labels = {}) on
+	// every plan after apply, with no import involved. Resolve it from the prior
+	// value: a known-empty prior map stays an empty map, anything else (null = never
+	// declared, or unknown) becomes null. A prior map WITH entries still nulls, so a
+	// genuine out-of-band deletion is still reported as drift.
+	// The MapValueMust below cannot panic: it panics only on diagnostics, and with nil
+	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
+	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
+	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
+
 	// Filter out system-managed labels (ves.io/*) that are injected by the platform
 	if len(apiResource.Metadata.Labels) > 0 {
 		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
@@ -674,9 +686,13 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 			if !resp.Diagnostics.HasError() {
 				data.Labels = labels
 			}
+		} else if priorLabelsEmpty {
+			data.Labels = types.MapValueMust(types.StringType, nil)
 		} else {
 			data.Labels = types.MapNull(types.StringType)
 		}
+	} else if priorLabelsEmpty {
+		data.Labels = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Labels = types.MapNull(types.StringType)
 	}
@@ -687,6 +703,8 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 		if !resp.Diagnostics.HasError() {
 			data.Annotations = annotations
 		}
+	} else if priorAnnotationsEmpty {
+		data.Annotations = types.MapValueMust(types.StringType, nil)
 	} else {
 		data.Annotations = types.MapNull(types.StringType)
 	}
