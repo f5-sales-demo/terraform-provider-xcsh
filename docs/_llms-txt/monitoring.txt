@@ -1,6 +1,6 @@
 # Monitoring
 
-Log receivers, alert policies, APM, and global logging configuration
+Log receivers, alert policies, alert templates, and global logging configuration
 
 ## Resources
 
