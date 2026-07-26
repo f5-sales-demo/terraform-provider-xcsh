@@ -40,7 +40,6 @@ type ThirdPartyApplicationDataSourceModel struct {
 	DisableAPIDiscovery        types.String `tfsdk:"disable_api_discovery"`
 	EnableAPIDiscovery         types.String `tfsdk:"enable_api_discovery"`
 	SensitiveDataPolicy        types.String `tfsdk:"sensitive_data_policy"`
-	ServiceDiscovery           types.String `tfsdk:"service_discovery"`
 }
 
 func (d *ThirdPartyApplicationDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -99,10 +98,6 @@ func (d *ThirdPartyApplicationDataSource) Schema(ctx context.Context, req dataso
 			},
 			"sensitive_data_policy": schema.StringAttribute{
 				MarkdownDescription: "Policy configuration for this feature.",
-				Computed:            true,
-			},
-			"service_discovery": schema.StringAttribute{
-				MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 				Computed:            true,
 			},
 		},
@@ -198,11 +193,6 @@ func (d *ThirdPartyApplicationDataSource) Read(ctx context.Context, req datasour
 		data.SensitiveDataPolicy = types.StringValue(fmt.Sprintf("%v", v))
 	} else {
 		data.SensitiveDataPolicy = types.StringNull()
-	}
-	if v, ok := resource.Spec["service_discovery"]; ok && v != nil {
-		data.ServiceDiscovery = types.StringValue(fmt.Sprintf("%v", v))
-	} else {
-		data.ServiceDiscovery = types.StringNull()
 	}
 
 	resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)

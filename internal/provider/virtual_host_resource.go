@@ -1258,10 +1258,10 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"proxy": schema.StringAttribute{
-				MarkdownDescription: "[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY] ProxyType tells the type of proxy to install for the virtual host. Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of them should have '*' in domains when used with other VirtualHosts in same AdvertisePolicy) 1. Multiple TCP_PROXY_WITH_SNI and.. Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`.",
+				MarkdownDescription: "[Enum: UDP_PROXY|SMA_PROXY|DNS_PROXY|ZTNA_PROXY|UZTNA_PROXY|TMM_HTTP_PROXY|TMM_HTTPS_PROXY|TMM_TCP_PROXY|TMM_UDP_PROXY|TMM_QUIC_PROXY] ProxyType tells the type of proxy to install for the virtual host. Only the following combination of VirtualHosts within same AdvertisePolicy is permitted (None of them should have '*' in domains when used with other VirtualHosts in same AdvertisePolicy) 1. Multiple TCP_PROXY_WITH_SNI and.. Possible values are `UDP_PROXY`, `SMA_PROXY`, `DNS_PROXY`, `ZTNA_PROXY`, `UZTNA_PROXY`, `TMM_HTTP_PROXY`, `TMM_HTTPS_PROXY`, `TMM_TCP_PROXY`, `TMM_UDP_PROXY`, `TMM_QUIC_PROXY`.",
 				Required:            true,
 				Validators: []validator.String{
-					stringvalidator.OneOf("UDP_PROXY", "SMA_PROXY", "DNS_PROXY", "ZTNA_PROXY", "UZTNA_PROXY"),
+					stringvalidator.OneOf("UDP_PROXY", "SMA_PROXY", "DNS_PROXY", "ZTNA_PROXY", "UZTNA_PROXY", "TMM_HTTP_PROXY", "TMM_HTTPS_PROXY", "TMM_TCP_PROXY", "TMM_UDP_PROXY", "TMM_QUIC_PROXY"),
 				},
 			},
 			"server_name": schema.StringAttribute{
@@ -1627,7 +1627,7 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				},
 			},
 			"csrf_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
+				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_load_balancer_domains": schema.SingleNestedBlock{

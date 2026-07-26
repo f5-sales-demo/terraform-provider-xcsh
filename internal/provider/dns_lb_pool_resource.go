@@ -161,6 +161,7 @@ type DNSLBPoolCnamePoolMembersModel struct {
 	Domain           types.String `tfsdk:"domain"`
 	FinalTranslation types.Bool   `tfsdk:"final_translation"`
 	Name             types.String `tfsdk:"name"`
+	Priority         types.Int64  `tfsdk:"priority"`
 	Ratio            types.Int64  `tfsdk:"ratio"`
 }
 
@@ -169,6 +170,7 @@ var DNSLBPoolCnamePoolMembersModelAttrTypes = map[string]attr.Type{
 	"domain":            types.StringType,
 	"final_translation": types.BoolType,
 	"name":              types.StringType,
+	"priority":          types.Int64Type,
 	"ratio":             types.Int64Type,
 }
 
@@ -518,7 +520,7 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"domain": schema.StringAttribute{
-									MarkdownDescription: "Domain.",
+									MarkdownDescription: "Specifies the fully qualified domain name.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
@@ -535,8 +537,15 @@ func (r *DNSLBPoolResource) Schema(ctx context.Context, req resource.SchemaReque
 										stringvalidator.LengthBetween(1, 256),
 									},
 								},
+								"priority": schema.Int64Attribute{
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups.",
+									Optional:            true,
+									Validators: []validator.Int64{
+										int64validator.Between(0, 255),
+									},
+								},
 								"ratio": schema.Int64Attribute{
-									MarkdownDescription: "Load Balancing Ratio. Configuration parameter for ratio",
+									MarkdownDescription: "Used if the pool’s load balancing mode is set to Ratio-Member.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 100),
@@ -893,6 +902,9 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
 						MembersItemMap["name"] = MembersItem.Name.ValueString()
 					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
+					}
 					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
 						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
 					}
@@ -1229,6 +1241,12 @@ func (r *DNSLBPoolResource) Create(ctx context.Context, req resource.CreateReque
 										return types.StringValue(v)
 									}
 									return types.StringNull()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
 								}(),
 								Ratio: func() types.Int64 {
 									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
@@ -1738,6 +1756,12 @@ func (r *DNSLBPoolResource) Read(ctx context.Context, req resource.ReadRequest, 
 									}
 									return types.StringNull()
 								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
+								}(),
 								Ratio: func() types.Int64 {
 									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {
 										return types.Int64Value(int64(v))
@@ -2082,6 +2106,9 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 					}
 					if !MembersItem.Name.IsNull() && !MembersItem.Name.IsUnknown() {
 						MembersItemMap["name"] = MembersItem.Name.ValueString()
+					}
+					if !MembersItem.Priority.IsNull() && !MembersItem.Priority.IsUnknown() {
+						MembersItemMap["priority"] = MembersItem.Priority.ValueInt64()
 					}
 					if !MembersItem.Ratio.IsNull() && !MembersItem.Ratio.IsUnknown() {
 						MembersItemMap["ratio"] = MembersItem.Ratio.ValueInt64()
@@ -2437,6 +2464,12 @@ func (r *DNSLBPoolResource) Update(ctx context.Context, req resource.UpdateReque
 										return types.StringValue(v)
 									}
 									return types.StringNull()
+								}(),
+								Priority: func() types.Int64 {
+									if v, ok := MembersItemMap["priority"].(float64); ok && v != 0 {
+										return types.Int64Value(int64(v))
+									}
+									return types.Int64Null()
 								}(),
 								Ratio: func() types.Int64 {
 									if v, ok := MembersItemMap["ratio"].(float64); ok && v != 0 {

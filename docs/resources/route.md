@@ -116,7 +116,7 @@ A [`routes`](#routes) block supports the following:
 
 A [`bot_defense_JavaScript_injection`](#routes-bot-defense-JavaScript-injection) block (within [`routes`](#routes)) supports the following:
 
-<a id="location-95316f"></a>&#x2022; [`JavaScript_location`](#location-95316f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-95316f"></a>&#x2022; [`JavaScript_location`](#location-95316f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="tags-60ccf3"></a>&#x2022; [`JavaScript_tags`](#tags-60ccf3) - Optional Block<br>Select Add item to configure your JavaScript tag. If adding both Bot Adv and Fraud, the Bot JavaScript should be added first<br>See [JavaScript Tags](#tags-60ccf3) below.
 
@@ -353,7 +353,7 @@ Policy](#routes-route-destination-buffer-policy) below.
 (Macintosh; U; Intel macOS X 10.5<br>See [CORS Policy](#routes-route-destination-cors-policy) below.
 
 <a id="routes-route-destination-csrf-policy"></a>&#x2022; [`csrf_policy`](#routes-route-destination-csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin
-that caused the user agent to<br>See [CSRF Policy](#routes-route-destination-csrf-policy) below.
+that caused the user agent<br>See [CSRF Policy](#routes-route-destination-csrf-policy) below.
 
 <a id="routes-route-destination-destinations"></a>&#x2022; [`destinations`](#routes-route-destination-destinations) - Optional Block<br>When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured<br>See
 [Destinations](#routes-route-destination-destinations) below.

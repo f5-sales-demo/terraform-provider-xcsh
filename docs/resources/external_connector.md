@@ -60,9 +60,9 @@ resource "xcsh_external_connector" "example" {
 
 <a id="ce-site-reference"></a>&#x2022; [`ce_site_reference`](#ce-site-reference) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [CE Site Reference](#ce-site-reference) below for details.
 
-<a id="gre"></a>&#x2022; [`gre`](#gre) - Optional Block<br>GRE. External Connector with GRE tunnel<br>See [Gre](#gre) below for details.
-
-<a id="ipsec"></a>&#x2022; [`ipsec`](#ipsec) - Optional Block<br>IPsec. External Connector with IPsec tunnel<br>See [Ipsec](#ipsec) below for details.
+-> **One of the following:**
+&#x2022; <a id="gre"></a>[`gre`](#gre) - Optional Block<br>GRE. External Connector with GRE tunnel<br>See [Gre](#gre) below for details.
+<br><br>&#x2022; <a id="ipsec"></a>[`ipsec`](#ipsec) - Optional Block<br>IPsec. External Connector with IPsec tunnel<br>See [Ipsec](#ipsec) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -88,7 +88,7 @@ A [`ce_site_reference`](#ce-site-reference) block supports the following:
 
 A [`gre`](#gre) block supports the following:
 
-<a id="gre-gre-parameters"></a>&#x2022; [`gre_parameters`](#gre-gre-parameters) - Optional Block<br>X-displayName: 'GRE Tunnel Parameters' GRE configuration parameters required for GRE Connection type<br>See [Gre Parameters](#gre-gre-parameters) below.
+<a id="gre-gre-parameters"></a>&#x2022; [`gre_parameters`](#gre-gre-parameters) - Optional Block<br>GRE configuration parameters required for GRE Connection type<br>See [Gre Parameters](#gre-gre-parameters) below.
 
 #### Gre Gre Parameters
 
@@ -102,9 +102,9 @@ A [`gre_parameters`](#gre-gre-parameters) block (within [`gre`](#gre)) supports 
 
 <a id="gre-gre-parameters-site-local-network"></a>&#x2022; [`site_local_network`](#gre-gre-parameters-site-local-network) - Optional Block<br>Enable this option
 
-<a id="gre-gre-parameters-tunnel-eps"></a>&#x2022; [`tunnel_eps`](#gre-gre-parameters-tunnel-eps) - Optional Block<br>X-displayName: 'Tunnel Endpoint'Configure tunnel parameters, source, destination, IP addresses<br>See [Tunnel Eps](#gre-gre-parameters-tunnel-eps) below.
+<a id="gre-gre-parameters-tunnel-eps"></a>&#x2022; [`tunnel_eps`](#gre-gre-parameters-tunnel-eps) - Optional Block<br>Configure tunnel parameters, source, destination, IP addresses<br>See [Tunnel Eps](#gre-gre-parameters-tunnel-eps) below.
 
-<a id="gre-gre-parameters-tunnel-mtu"></a>&#x2022; [`tunnel_mtu`](#gre-gre-parameters-tunnel-mtu) - Optional Number<br>X-displayName: 'Tunnel MTU' Configure MTU for the GRE tunnel interface
+<a id="gre-gre-parameters-tunnel-mtu"></a>&#x2022; [`tunnel_mtu`](#gre-gre-parameters-tunnel-mtu) - Optional Number<br>Configure MTU for the GRE tunnel interface
 
 #### Gre Gre Parameters Peer IP Address
 

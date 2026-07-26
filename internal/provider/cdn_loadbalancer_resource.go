@@ -2144,12 +2144,12 @@ var CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServic
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel represents flight block
 type CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel struct {
-	Checking *CDNLoadBalancerEmptyModel `tfsdk:"checking"`
+	Checkin *CDNLoadBalancerEmptyModel `tfsdk:"checkin"`
 }
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes defines the attribute types for CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel
 var CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes = map[string]attr.Type{
-	"checking": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"checkin": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel represents profile_management block
@@ -4494,22 +4494,24 @@ var CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModelAttrTyp
 
 // CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel represents path block
 type CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel struct {
-	ExactValues   types.List `tfsdk:"exact_values"`
-	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
-	PrefixValues  types.List `tfsdk:"prefix_values"`
-	RegexValues   types.List `tfsdk:"regex_values"`
-	SuffixValues  types.List `tfsdk:"suffix_values"`
-	Transformers  types.List `tfsdk:"transformers"`
+	EncodedPathMatcher types.Bool `tfsdk:"encoded_path_matcher"`
+	ExactValues        types.List `tfsdk:"exact_values"`
+	InvertMatcher      types.Bool `tfsdk:"invert_matcher"`
+	PrefixValues       types.List `tfsdk:"prefix_values"`
+	RegexValues        types.List `tfsdk:"regex_values"`
+	SuffixValues       types.List `tfsdk:"suffix_values"`
+	Transformers       types.List `tfsdk:"transformers"`
 }
 
 // CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModelAttrTypes defines the attribute types for CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel
 var CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModelAttrTypes = map[string]attr.Type{
-	"exact_values":   types.ListType{ElemType: types.StringType},
-	"invert_matcher": types.BoolType,
-	"prefix_values":  types.ListType{ElemType: types.StringType},
-	"regex_values":   types.ListType{ElemType: types.StringType},
-	"suffix_values":  types.ListType{ElemType: types.StringType},
-	"transformers":   types.ListType{ElemType: types.StringType},
+	"encoded_path_matcher": types.BoolType,
+	"exact_values":         types.ListType{ElemType: types.StringType},
+	"invert_matcher":       types.BoolType,
+	"prefix_values":        types.ListType{ElemType: types.StringType},
+	"regex_values":         types.ListType{ElemType: types.StringType},
+	"suffix_values":        types.ListType{ElemType: types.StringType},
+	"transformers":         types.ListType{ElemType: types.StringType},
 }
 
 // CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel represents query_params block
@@ -7293,7 +7295,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -7452,7 +7454,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Insert Bot Defense JavaScript in all pages.",
 								Attributes: map[string]schema.Attribute{
 									"javascript_location": schema.StringAttribute{
-										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -7464,7 +7466,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 								MarkdownDescription: "Insert Bot Defense JavaScript in all pages with the exceptions.",
 								Attributes: map[string]schema.Attribute{
 									"javascript_location": schema.StringAttribute{
-										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -7647,7 +7649,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"javascript_location": schema.StringAttribute{
-													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -7973,7 +7975,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 													MarkdownDescription: "Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
-														"checking": schema.SingleNestedBlock{
+														"checkin": schema.SingleNestedBlock{
 															MarkdownDescription: "Enable this option",
 														},
 													},
@@ -8647,7 +8649,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				},
 			},
 			"csrf_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
+				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_load_balancer_domains": schema.SingleNestedBlock{
@@ -11111,6 +11113,10 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 												"path": schema.SingleNestedBlock{
 													MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
 													Attributes: map[string]schema.Attribute{
+														"encoded_path_matcher": schema.BoolAttribute{
+															MarkdownDescription: "Match against the encoded, escaped path.",
+															Optional:            true,
+														},
 														"exact_values": schema.ListAttribute{
 															MarkdownDescription: "List of exact path values to match the input HTTP path against.",
 															Optional:            true,
@@ -11580,7 +11586,7 @@ func (r *CDNLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -14204,8 +14210,8 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
 								BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
-									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checkin != nil {
+									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checkin"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsFlowLabelMap["flight"] = BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap
 							}
@@ -16477,6 +16483,9 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 							}
 							if RulesItem.Spec.Path != nil {
 								PolicyBasedChallengeRuleListRulesSpecPathMap := make(map[string]interface{})
+								if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+									PolicyBasedChallengeRuleListRulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+								}
 								if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -21519,11 +21528,11 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checking: func() *CDNLoadBalancerEmptyModel {
+																	Checkin: func() *CDNLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkin
 																		}
-																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -26312,6 +26321,15 @@ func (r *CDNLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
+																	EncodedPathMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+																		}
+																		if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
 																	ExactValues: func() types.List {
 																		if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																			var items []string
@@ -32081,11 +32099,11 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checking: func() *CDNLoadBalancerEmptyModel {
+																	Checkin: func() *CDNLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkin
 																		}
-																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -36874,6 +36892,15 @@ func (r *CDNLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
+																	EncodedPathMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+																		}
+																		if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
 																	ExactValues: func() types.List {
 																		if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																			var items []string
@@ -40326,8 +40353,8 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
 								BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
-									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checkin != nil {
+									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checkin"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsFlowLabelMap["flight"] = BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap
 							}
@@ -42599,6 +42626,9 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 							}
 							if RulesItem.Spec.Path != nil {
 								PolicyBasedChallengeRuleListRulesSpecPathMap := make(map[string]interface{})
+								if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+									PolicyBasedChallengeRuleListRulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+								}
 								if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -47652,11 +47682,11 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checking: func() *CDNLoadBalancerEmptyModel {
+																	Checkin: func() *CDNLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkin
 																		}
-																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																			return &CDNLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -52445,6 +52475,15 @@ func (r *CDNLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &CDNLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
+																	EncodedPathMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+																		}
+																		if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
 																	ExactValues: func() types.List {
 																		if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																			var items []string

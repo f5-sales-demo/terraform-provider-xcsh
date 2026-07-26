@@ -570,7 +570,7 @@ spec:
 
 <a id="cors-policy"></a>&#x2022; [`cors_policy`](#cors-policy) - Optional Block<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5
 
-<a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to
+<a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent
 
 <a id="data-guard-rules"></a>&#x2022; [`data_guard_rules`](#data-guard-rules) - Optional Block<br>Data Guard prevents responses from exposing sensitive information by masking the data. The system masks credit card numbers and social security numbers leaked from the application from within the HTTP response with a string of asterisks (*)
 
@@ -864,7 +864,7 @@ An [`api_protection_rules`](#api-protection-rules) block supports the following:
 
 An [`api_endpoint_rules`](#api-protection-rules-api-endpoint-rules) block (within [`api_protection_rules`](#api-protection-rules)) supports the following:
 
-<a id="action-389797"></a>&#x2022; [`action`](#action-389797) - Optional Block<br>X-displayName: 'API Protection Rule Action' The action to take if the input request matches the rule<br>See [Action](#action-389797) below.
+<a id="action-389797"></a>&#x2022; [`action`](#action-389797) - Optional Block<br>The action to take if the input request matches the rule<br>See [Action](#action-389797) below.
 
 <a id="domain-c69c3a"></a>&#x2022; [`any_domain`](#domain-c69c3a) - Optional Block<br>Enable this option
 
@@ -981,7 +981,7 @@ A [`metadata`](#metadata-46451b) block (within [`api_protection_rules.api_endpoi
 
 An [`api_groups_rules`](#api-protection-rules-api-groups-rules) block (within [`api_protection_rules`](#api-protection-rules)) supports the following:
 
-<a id="action-fa62d7"></a>&#x2022; [`action`](#action-fa62d7) - Optional Block<br>X-displayName: 'API Protection Rule Action' The action to take if the input request matches the rule<br>See [Action](#action-fa62d7) below.
+<a id="action-fa62d7"></a>&#x2022; [`action`](#action-fa62d7) - Optional Block<br>The action to take if the input request matches the rule<br>See [Action](#action-fa62d7) below.
 
 <a id="domain-b1276e"></a>&#x2022; [`any_domain`](#domain-b1276e) - Optional Block<br>Enable this option
 
@@ -1104,8 +1104,7 @@ An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
 <a id="api-rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#api-rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
 
-<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules)
-below.
+<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules) below.
 
 #### API Rate Limit API Endpoint Rules
 
@@ -1613,7 +1612,7 @@ An [`api_testing`](#api-testing) block supports the following:
 
 A [`domains`](#api-testing-domains) block (within [`api_testing`](#api-testing)) supports the following:
 
-<a id="methods-c3ca06"></a>&#x2022; [`allow_destructive_methods`](#methods-c3ca06) - Optional Bool<br>Enable to allow API test to execute destructive methods. Be cautious as these can alter or DELETE data
+<a id="methods-c3ca06"></a>&#x2022; [`allow_destructive_methods`](#methods-c3ca06) - Optional Bool<br>Enable to allow API Testing to execute against destructive methods. Use with caution as these may modify or DELETE data
 
 <a id="api-testing-domains-credentials"></a>&#x2022; [`credentials`](#api-testing-domains-credentials) - Optional Block<br>Add credentials for API testing to use in the selected environment<br>See [Credentials](#api-testing-domains-credentials) below.
 
@@ -1838,7 +1837,7 @@ JavaScript for telemetry collection is requested asynchronously, and it is non-c
 
 A [`js_insert_all_pages`](#bot-defense-policy-js-insert-all-pages) block (within [`bot_defense.policy`](#bot-defense-policy)) supports the following:
 
-<a id="location-3a398d"></a>&#x2022; [`JavaScript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-3a398d"></a>&#x2022; [`JavaScript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Policy Js Insert All Pages Except
 
@@ -1892,7 +1891,7 @@ A [`rules`](#rules-15d983) block (within [`bot_defense.policy.js_insertion_rules
 
 <a id="domain-834b0f"></a>&#x2022; [`domain`](#domain-834b0f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-834b0f) below.
 
-<a id="location-16277f"></a>&#x2022; [`JavaScript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-16277f"></a>&#x2022; [`JavaScript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-e15703"></a>&#x2022; [`metadata`](#metadata-e15703) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-e15703) below.
@@ -2058,11 +2057,9 @@ A [`mitigation`](#mitigation-cc96eb) block (within [`bot_defense.policy.protecte
 
 <a id="block-d25b81"></a>&#x2022; [`block`](#block-d25b81) - Optional Block<br>Block request and respond with custom content<br>See [Block](#block-d25b81) below.
 
-<a id="flag-50a52b"></a>&#x2022; [`flag`](#flag-50a52b) - Optional Block<br>X-displayName: 'Select Flag Bot Mitigation Action' Flag mitigation action<br>See [Flag](#flag-50a52b) below.
+<a id="flag-50a52b"></a>&#x2022; [`flag`](#flag-50a52b) - Optional Block<br>Select Flag Bot Mitigation Action. Flag mitigation action<br>See [Flag](#flag-50a52b) below.
 
-<a id="none-0d0333"></a>&#x2022; [`none`](#none-0d0333) - Optional Block<br>Enable this option
-
-<a id="redirect-2c8f41"></a>&#x2022; [`redirect`](#redirect-2c8f41) - Optional Block<br>X-displayName: 'Redirect bot mitigation' Redirect request to a custom URI<br>See [Redirect](#redirect-2c8f41) below.
+<a id="redirect-2c8f41"></a>&#x2022; [`redirect`](#redirect-2c8f41) - Optional Block<br>Redirect bot mitigation. Redirect request to a custom URI<br>See [Redirect](#redirect-2c8f41) below.
 
 #### Bot Defense Policy Protected App Endpoints Mitigation Block
 
@@ -2126,7 +2123,7 @@ A [`bot_defense_advanced`](#bot-defense-advanced) block supports the following:
 
 A [`js_insert_all_pages`](#pages-27f3ea) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
 
-<a id="location-f54ccc"></a>&#x2022; [`JavaScript_location`](#location-f54ccc) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-f54ccc"></a>&#x2022; [`JavaScript_location`](#location-f54ccc) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Advanced Js Insert All Pages Except
 
@@ -2180,7 +2177,7 @@ A [`rules`](#rules-24e5a0) block (within [`bot_defense_advanced.js_insertion_rul
 
 <a id="domain-ff2f2e"></a>&#x2022; [`domain`](#domain-ff2f2e) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-ff2f2e) below.
 
-<a id="location-20f540"></a>&#x2022; [`JavaScript_location`](#location-20f540) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-20f540"></a>&#x2022; [`JavaScript_location`](#location-20f540) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-43c6ee"></a>&#x2022; [`metadata`](#metadata-43c6ee) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-43c6ee) below.
@@ -2565,7 +2562,7 @@ An [`advanced_options`](#default-pool-advanced-options) block (within [`default_
 
 <a id="breaker-03c951"></a>&#x2022; [`disable_circuit_breaker`](#breaker-03c951) - Optional Block<br>Configuration parameter for disable circuit breaker
 
-<a id="persistance-83b4c4"></a>&#x2022; [`disable_lb_source_ip_persistance`](#persistance-83b4c4) - Optional Block<br>Enable this option
+<a id="persistence-ec3e4b"></a>&#x2022; [`disable_lb_source_ip_persistence`](#persistence-ec3e4b) - Optional Block<br>Enable this option
 
 <a id="detection-46546c"></a>&#x2022; [`disable_outlier_detection`](#detection-46546c) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
 
@@ -2573,7 +2570,7 @@ An [`advanced_options`](#default-pool-advanced-options) block (within [`default_
 
 <a id="subsets-b0bd38"></a>&#x2022; [`disable_subsets`](#subsets-b0bd38) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
 
-<a id="persistance-d799ee"></a>&#x2022; [`enable_lb_source_ip_persistance`](#persistance-d799ee) - Optional Block<br>Enable this option
+<a id="persistence-0cba1a"></a>&#x2022; [`enable_lb_source_ip_persistence`](#persistence-0cba1a) - Optional Block<br>Enable this option
 
 <a id="subsets-5a741c"></a>&#x2022; [`enable_subsets`](#subsets-5a741c) - Optional Block<br>Configure subset OPTIONS for origin pool<br>See [Enable Subsets](#subsets-5a741c) below.
 
@@ -2589,7 +2586,7 @@ An [`advanced_options`](#default-pool-advanced-options) block (within [`default_
 
 <a id="connection-081822"></a>&#x2022; [`no_request_limit_per_connection`](#connection-081822) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
 
-<a id="detection-c89e70"></a>&#x2022; [`outlier_detection`](#detection-c89e70) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1<br>See [Outlier
+<a id="detection-c89e70"></a>&#x2022; [`outlier_detection`](#detection-c89e70) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1<br>See [Outlier
 Detection](#detection-c89e70) below.
 
 <a id="threshold-61a03f"></a>&#x2022; [`panic_threshold`](#threshold-61a03f) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status
@@ -2678,7 +2675,7 @@ An [`origin_servers`](#default-pool-origin-servers) block (within [`default_pool
 
 <a id="service-060a80"></a>&#x2022; [`cbip_service`](#service-060a80) - Optional Block<br>Specify origin server with Classic BIG-IP Service (Virtual Server)<br>See [Cbip Service](#service-060a80) below.
 
-<a id="service-799005"></a>&#x2022; [`consul_service`](#service-799005) - Optional Block<br>Specify origin server with Hashi Corp Consul service name and site information<br>See [Consul Service](#service-799005) below.
+<a id="service-799005"></a>&#x2022; [`consul_service`](#service-799005) - Optional Block<br>Specify origin server with HashiCorp Consul service name and site information<br>See [Consul Service](#service-799005) below.
 
 <a id="object-12dd7f"></a>&#x2022; [`custom_endpoint_object`](#object-12dd7f) - Optional Block<br>Specify origin server with a reference to endpoint object<br>See [Custom Endpoint Object](#object-12dd7f) below.
 
@@ -3258,7 +3255,7 @@ A [`graphql_rules`](#graphql-rules) block supports the following:
 
 <a id="graphql-rules-exact-value"></a>&#x2022; [`exact_value`](#graphql-rules-exact-value) - Optional String<br>Exact domain name
 
-<a id="graphql-rules-graphql-settings"></a>&#x2022; [`graphql_settings`](#graphql-rules-graphql-settings) - Optional Block<br>X-displayName: 'GraphQL Settings' GraphQL configuration<br>See [GraphQL Settings](#graphql-rules-graphql-settings) below.
+<a id="graphql-rules-graphql-settings"></a>&#x2022; [`graphql_settings`](#graphql-rules-graphql-settings) - Optional Block<br>Configuration parameter for GraphQL settings<br>See [GraphQL Settings](#graphql-rules-graphql-settings) below.
 
 <a id="graphql-rules-metadata"></a>&#x2022; [`metadata`](#graphql-rules-metadata) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during
 create<br>See [Metadata](#graphql-rules-metadata) below.
@@ -3277,15 +3274,11 @@ A [`graphql_settings`](#graphql-rules-graphql-settings) block (within [`graphql_
 
 <a id="introspection-762fd0"></a>&#x2022; [`enable_introspection`](#introspection-762fd0) - Optional Block<br>Enable this option
 
-<a id="queries-f5cdb7"></a>&#x2022; [`max_batched_queries`](#queries-f5cdb7) - Optional Number<br>X-displayName: 'Maximum Batched Queries'Specify maximum number of queries in a single batched request
+<a id="queries-f5cdb7"></a>&#x2022; [`max_batched_queries`](#queries-f5cdb7) - Optional Number<br>Specify maximum number of queries in a single batched request
 
 <a id="depth-42541b"></a>&#x2022; [`max_depth`](#depth-42541b) - Optional Number<br>Specify maximum depth for the GraphQL query
 
-<a id="length-21ac73"></a>&#x2022; [`max_total_length`](#length-21ac73) - Optional Number<br>X-displayName: 'Maximum Total Length'Specify maximum length in bytes for the GraphQL query
-
-<a id="length-19fa3e"></a>&#x2022; [`max_value_length`](#length-19fa3e) - Optional Number<br>X-displayName: 'Maximum Value Length'Specify maximum value length in bytes for the GraphQL query
-
-<a id="name-e82fb5"></a>&#x2022; [`policy_name`](#name-e82fb5) - Optional String<br>X-displayName: 'Policy Name' Sets the BD Policy to use
+<a id="length-21ac73"></a>&#x2022; [`max_total_length`](#length-21ac73) - Optional Number<br>Specify maximum length in bytes for the GraphQL query
 
 #### GraphQL Rules Metadata
 
@@ -3703,7 +3696,7 @@ A [`js_challenge`](#js-challenge) block supports the following:
 
 A [`jwt_validation`](#jwt-validation) block supports the following:
 
-<a id="jwt-validation-action"></a>&#x2022; [`action`](#jwt-validation-action) - Optional Block<br>Action. X-displayName: 'Action'<br>See [Action](#jwt-validation-action) below.
+<a id="jwt-validation-action"></a>&#x2022; [`action`](#jwt-validation-action) - Optional Block<br>Action<br>See [Action](#jwt-validation-action) below.
 
 <a id="jwt-validation-authorization-server"></a>&#x2022; [`authorization_server`](#jwt-validation-authorization-server) - Optional Block<br>Reference to Authorization Server object<br>See [Authorization Server](#jwt-validation-authorization-server) below.
 
@@ -3897,7 +3890,7 @@ A [`malware_protection_settings`](#malware-protection-settings) block supports t
 
 A [`malware_protection_rules`](#rules-b2bf3e) block (within [`malware_protection_settings`](#malware-protection-settings)) supports the following:
 
-<a id="action-f0dc04"></a>&#x2022; [`action`](#action-f0dc04) - Optional Block<br>Action. X-displayName: 'Action'<br>See [Action](#action-f0dc04) below.
+<a id="action-f0dc04"></a>&#x2022; [`action`](#action-f0dc04) - Optional Block<br>Action<br>See [Action](#action-f0dc04) below.
 
 <a id="domain-7b5aea"></a>&#x2022; [`domain`](#domain-7b5aea) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-7b5aea) below.
 
@@ -4491,32 +4484,32 @@ A [`policies`](#rate-limit-policies-policies) block (within [`rate_limit.policie
 
 A [`rate_limiter`](#rate-limit-rate-limiter) block (within [`rate_limit`](#rate-limit)) supports the following:
 
-<a id="rate-limit-rate-limiter-action-block"></a>&#x2022; [`action_block`](#rate-limit-rate-limiter-action-block) - Optional Block<br>X-displayName: 'Rate Limit Block Action' Action where a user is blocked from making further requests after exceeding rate limit threshold<br>See [Action Block](#rate-limit-rate-limiter-action-block) below.
+<a id="rate-limit-rate-limiter-action-block"></a>&#x2022; [`action_block`](#rate-limit-rate-limiter-action-block) - Optional Block<br>Action where a user is blocked from making further requests after exceeding rate limit threshold<br>See [Action Block](#rate-limit-rate-limiter-action-block) below.
 
-<a id="multiplier-1bc2e7"></a>&#x2022; [`burst_multiplier`](#multiplier-1bc2e7) - Optional Number<br>X-displayName: 'Burst Multiplier' The maximum burst of requests to accommodate, expressed as a multiple of the rate
+<a id="multiplier-1bc2e7"></a>&#x2022; [`burst_multiplier`](#multiplier-1bc2e7) - Optional Number<br>The maximum burst of requests to accommodate, expressed as a multiple of the rate
 
 <a id="rate-limit-rate-limiter-disabled"></a>&#x2022; [`disabled`](#rate-limit-rate-limiter-disabled) - Optional Block<br>Enable this option
 
-<a id="rate-limit-rate-limiter-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#rate-limit-rate-limiter-leaky-bucket) - Optional Block<br>X-displayName: 'Leaky Bucket Rate Limiter' Leaky-Bucket is the default rate limiter algorithm for F5
+<a id="rate-limit-rate-limiter-leaky-bucket"></a>&#x2022; [`leaky_bucket`](#rate-limit-rate-limiter-leaky-bucket) - Optional Block<br>Leaky-Bucket is the default rate limiter algorithm for F5
 
 <a id="multiplier-07ace4"></a>&#x2022; [`period_multiplier`](#multiplier-07ace4) - Optional Number<br>Setting, combined with Per Period units, provides a duration. Server applies default when omitted
 
-<a id="rate-limit-rate-limiter-token-bucket"></a>&#x2022; [`token_bucket`](#rate-limit-rate-limiter-token-bucket) - Optional Block<br>X-displayName: 'Token Bucket Rate Limiter' Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
+<a id="rate-limit-rate-limiter-token-bucket"></a>&#x2022; [`token_bucket`](#rate-limit-rate-limiter-token-bucket) - Optional Block<br>Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits
 
-<a id="rate-limit-rate-limiter-total-number"></a>&#x2022; [`total_number`](#rate-limit-rate-limiter-total-number) - Optional Number<br>X-displayName: 'Number Of Requests'The total number of allowed requests per rate-limiting period
+<a id="rate-limit-rate-limiter-total-number"></a>&#x2022; [`total_number`](#rate-limit-rate-limiter-total-number) - Optional Number<br>The total number of allowed requests per rate-limiting period
 
-<a id="rate-limit-rate-limiter-unit"></a>&#x2022; [`unit`](#rate-limit-rate-limiter-unit) - Optional String  Defaults to `SECOND`<br>Possible values are `SECOND`, `MINUTE`, `HOUR`, `DAY`<br>[Enum: SECOND|MINUTE|HOUR|DAY] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate
-limit period unit is hours - DAY: Day Rate limit period unit is days
+<a id="rate-limit-rate-limiter-unit"></a>&#x2022; [`unit`](#rate-limit-rate-limiter-unit) - Optional String  Defaults to `SECOND`<br>Possible values are `SECOND`, `MINUTE`, `HOUR`<br>[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period
+unit is hours - DAY: Day Rate limit period unit is days
 
 #### Rate Limit Rate Limiter Action Block
 
 An [`action_block`](#rate-limit-rate-limiter-action-block) block (within [`rate_limit.rate_limiter`](#rate-limit-rate-limiter)) supports the following:
 
-<a id="hours-fe2333"></a>&#x2022; [`hours`](#hours-fe2333) - Optional Block<br>X-displayName: 'Hours' Input Duration Hours<br>See [Hours](#hours-fe2333) below.
+<a id="hours-fe2333"></a>&#x2022; [`hours`](#hours-fe2333) - Optional Block<br>Hours. Input Duration Hours<br>See [Hours](#hours-fe2333) below.
 
-<a id="minutes-c83f64"></a>&#x2022; [`minutes`](#minutes-c83f64) - Optional Block<br>X-displayName: 'Minutes' Input Duration Minutes<br>See [Minutes](#minutes-c83f64) below.
+<a id="minutes-c83f64"></a>&#x2022; [`minutes`](#minutes-c83f64) - Optional Block<br>Minutes. Input Duration Minutes<br>See [Minutes](#minutes-c83f64) below.
 
-<a id="seconds-8810ec"></a>&#x2022; [`seconds`](#seconds-8810ec) - Optional Block<br>X-displayName: 'Seconds' Input Duration Seconds<br>See [Seconds](#seconds-8810ec) below.
+<a id="seconds-8810ec"></a>&#x2022; [`seconds`](#seconds-8810ec) - Optional Block<br>Seconds. Input Duration Seconds<br>See [Seconds](#seconds-8810ec) below.
 
 #### Rate Limit Rate Limiter Action Block Hours
 
@@ -4786,7 +4779,7 @@ An [`advanced_options`](#routes-simple-route-advanced-options) block (within [`r
 <a id="policy-ba853e"></a>&#x2022; [`cors_policy`](#policy-ba853e) - Optional Block<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5<br>See [CORS
 Policy](#policy-ba853e) below.
 
-<a id="policy-7816d7"></a>&#x2022; [`csrf_policy`](#policy-7816d7) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to<br>See [CSRF
+<a id="policy-7816d7"></a>&#x2022; [`csrf_policy`](#policy-7816d7) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent<br>See [CSRF
 Policy](#policy-7816d7) below.
 
 <a id="policy-70b68a"></a>&#x2022; [`default_retry_policy`](#policy-70b68a) - Optional Block<br>Policy configuration for this feature

@@ -440,14 +440,14 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 				},
 			},
 			"gre": schema.SingleNestedBlock{
-				MarkdownDescription: "GRE. External Connector with GRE tunnel.",
+				MarkdownDescription: "[OneOf: gre, ipsec] GRE. External Connector with GRE tunnel.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"gre_parameters": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'GRE Tunnel Parameters' GRE configuration parameters required for GRE Connection type.",
+						MarkdownDescription: "GRE configuration parameters required for GRE Connection type.",
 						Attributes: map[string]schema.Attribute{
 							"tunnel_mtu": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Tunnel MTU' Configure MTU for the GRE tunnel interface.",
+								MarkdownDescription: "Configure MTU for the GRE tunnel interface.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.Between(512, 1370),
@@ -516,7 +516,7 @@ func (r *ExternalConnectorResource) Schema(ctx context.Context, req resource.Sch
 								MarkdownDescription: "Enable this option",
 							},
 							"tunnel_eps": schema.ListNestedBlock{
-								MarkdownDescription: "X-displayName: 'Tunnel Endpoint'Configure tunnel parameters, source, destination, IP addresses.",
+								MarkdownDescription: "Configure tunnel parameters, source, destination, IP addresses.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"interface": schema.StringAttribute{

@@ -124,14 +124,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
 
 #### Bond Device List
 
@@ -308,10 +308,6 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks
 
 <a id="deep-bf31a8"></a>Deeply nested **Networks** block collapsed for readability.
-
-#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Network Prefix Allocator
-
-<a id="deep-1e6601"></a>Deeply nested **Allocator** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Pools
 
@@ -577,7 +573,7 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 <a id="enhanced-31b8ac"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-31b8ac) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-31b8ac) below.
 
-<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-38f174) below.
 
 #### Performance Enhancement Mode Perf Mode L3 Enhanced
 
@@ -586,6 +582,14 @@ A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhanc
 <a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
 
 <a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced
+
+A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
+
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
 
 #### Sw
 

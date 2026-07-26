@@ -9,8 +9,6 @@ import (
 	"strings"
 	"time"
 
-	"regexp"
-
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
@@ -106,22 +104,14 @@ var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainModelAttrTypes =
 
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel represents password block
 type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel struct {
-	SecretEncodingType          types.String                                                                                          `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModelAttrTypes defines the attribute types for K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModel
 var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModelAttrTypes},
 }
 
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -138,20 +128,6 @@ var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfol
 	"store_provider":      types.StringType,
 }
 
-// K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel
-var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel represents clear_secret_info block
 type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -162,34 +138,6 @@ type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSe
 var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel represents vault_secret_info block
-type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModelAttrTypes defines the attribute types for K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel
-var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel
-var K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // K8SClusterInsecureRegistryListModel represents insecure_registry_list block
@@ -437,38 +385,10 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-													Attributes: map[string]schema.Attribute{
-														"secret_encoding_type": schema.StringAttribute{
-															MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-															Optional:            true,
-															Validators: []validator.String{
-																stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-															},
-														},
-													},
+													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-															Attributes: map[string]schema.Attribute{
-																"decryption_provider": schema.StringAttribute{
-																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																	Optional:            true,
-																},
-																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(4, 131072),
-																	},
-																},
-																"store_provider": schema.StringAttribute{
-																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																	Optional:            true,
-																},
-															},
-														},
-														"blindfold_secret_info_internal": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -488,7 +408,7 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 															},
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -499,47 +419,6 @@ func (r *K8SClusterResource) Schema(ctx context.Context, req resource.SchemaRequ
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 131072),
-																	},
-																},
-															},
-														},
-														"vault_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-															Attributes: map[string]schema.Attribute{
-																"key": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																	Optional:            true,
-																},
-																"location": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																	Optional:            true,
-																},
-																"provider_ref": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																	Optional:            true,
-																},
-																"secret_encoding": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-																"version": schema.Int64Attribute{
-																	MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																	Optional:            true,
-																},
-															},
-														},
-														"wingman_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-															Attributes: map[string]schema.Attribute{
-																"name": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(1, 63),
-																		stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																	},
 																},
 															},
@@ -925,19 +804,6 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 									}
 									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap
 								}
-								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-									}
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info_internal"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap
-								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
 									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -947,35 +813,6 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap["url"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.ValueString()
 									}
 									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["clear_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap
-								}
-								if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsUnknown() {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["secret_encoding_type"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.ValueString()
-								}
-								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap := make(map[string]interface{})
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["key"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["secret_encoding"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["version"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.ValueInt64()
-									}
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["vault_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap
-								}
-								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap := make(map[string]interface{})
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap["name"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.ValueString()
-									}
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["wingman_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap
 								}
 								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["password"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap
 							}
@@ -1243,34 +1080,6 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel {
 																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
 																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo
@@ -1285,71 +1094,6 @@ func (r *K8SClusterResource) Create(ctx context.Context, req resource.CreateRequ
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-																						return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -1839,34 +1583,6 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel {
 																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
 																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo
@@ -1881,71 +1597,6 @@ func (r *K8SClusterResource) Read(ctx context.Context, req resource.ReadRequest,
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-																						return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -2344,19 +1995,6 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 									}
 									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoMap
 								}
-								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap["store_provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-									}
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["blindfold_secret_info_internal"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalMap
-								}
 								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
 									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap := make(map[string]interface{})
 									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -2366,35 +2004,6 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap["url"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.ClearSecretInfo.URL.ValueString()
 									}
 									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["clear_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoMap
-								}
-								if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.IsUnknown() {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["secret_encoding_type"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.SecretEncodingType.ValueString()
-								}
-								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap := make(map[string]interface{})
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["key"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Key.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["location"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Location.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["provider"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Provider.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["secret_encoding"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.SecretEncoding.ValueString()
-									}
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap["version"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.ValueInt64()
-									}
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["vault_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoMap
-								}
-								if ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap := make(map[string]interface{})
-									if !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsNull() && !ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.IsUnknown() {
-										ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap["name"] = ClusterWideAppsItem.ArgoCd.LocalDomain.Password.WingmanSecretInfo.Name.ValueString()
-									}
-									ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap["wingman_secret_info"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoMap
 								}
 								ClusterWideAppListClusterWideAppsArgoCdLocalDomainMap["password"] = ClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordMap
 							}
@@ -2673,34 +2282,6 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordClearSecretInfoModel {
 																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo != nil {
 																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.ClearSecretInfo
@@ -2715,71 +2296,6 @@ func (r *K8SClusterResource) Update(ctx context.Context, req resource.UpdateRequ
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo != nil && !ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version.IsUnknown() {
-																						return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel {
-																		if !isImport && len(ClusterWideAppsExisting) > ClusterWideAppsIdx && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password != nil && ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo != nil {
-																			return ClusterWideAppsExisting[ClusterWideAppsIdx].ArgoCd.LocalDomain.Password.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &K8SClusterClusterWideAppListClusterWideAppsArgoCdLocalDomainPasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()

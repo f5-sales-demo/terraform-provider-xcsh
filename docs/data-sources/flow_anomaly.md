@@ -59,8 +59,8 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="last-enabled-time"></a>&#x2022; [`last_enabled_time`](#last-enabled-time) - Optional String<br>Last enabled time for flow anomaly add on service
 
-<a id="service-state"></a>&#x2022; [`service_state`](#service-state) - Optional String  Defaults to `AS_NONE`<br>Possible values are `AS_NONE`, `AS_PENDING`, `AS_SUBSCRIBED`, `AS_ERROR`<br>[Enum: AS_NONE|AS_PENDING|AS_SUBSCRIBED|AS_ERROR] X-displayName: 'Addon Service State' State of a service - AS_NONE: x-displayName: 'None' default state - AS_PENDING: x-displayName: 'Pending Subscription'
-initiated subscription request and is pending to activate (requested). - AS_SUBSCRIBED: x-displayName: 'Subscribed' successfully subscribed
+<a id="service-state"></a>&#x2022; [`service_state`](#service-state) - Optional String  Defaults to `AS_NONE`<br>Possible values are `AS_NONE`, `AS_PENDING`, `AS_SUBSCRIBED`, `AS_ERROR`<br>[Enum: AS_NONE|AS_PENDING|AS_SUBSCRIBED|AS_ERROR] State of a service default state initiated subscription request and is pending to activate (requested). Successfully subscribed service subscription request
+ended up in error state
 
 ---
 

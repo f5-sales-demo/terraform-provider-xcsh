@@ -366,7 +366,7 @@ func (r *EndpointResource) Schema(ctx context.Context, req resource.SchemaReques
 				MarkdownDescription: "Specifies whether endpoint service is discovered by name or labels.",
 				Attributes: map[string]schema.Attribute{
 					"discovery_type": schema.StringAttribute{
-						MarkdownDescription: "[Enum: INVALID_DISCOVERY|K8S|CONSUL|CLASSIC_BIGIP|THIRD_PARTY|NGINX_ONE] Specifies whether the discovery is from Kubernetes or Consul cluster Invalid Discovery mechanism Discover from Kubernetes cluster Discover from Consul service Discover from Classic BIG-IP Clusters Discover for Third Party Application. Possible values are `INVALID_DISCOVERY`, `K8S`, `CONSUL`, `CLASSIC_BIGIP`, `THIRD_PARTY`, `NGINX_ONE`. Defaults to `INVALID_DISCOVERY`.",
+						MarkdownDescription: "[Enum: INVALID_DISCOVERY|K8S|CONSUL|CLASSIC_BIGIP|THIRD_PARTY|NGINX_ONE] Specifies the type of discovery Invalid Discovery mechanism Discover from Kubernetes cluster Discover from Consul service Discover from Classic BIG-IP Clusters Discover for Third Party Application Discover from NGINX One. Possible values are `INVALID_DISCOVERY`, `K8S`, `CONSUL`, `CLASSIC_BIGIP`, `THIRD_PARTY`, `NGINX_ONE`. Defaults to `INVALID_DISCOVERY`.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.OneOf("INVALID_DISCOVERY", "K8S", "CONSUL", "CLASSIC_BIGIP", "THIRD_PARTY", "NGINX_ONE"),

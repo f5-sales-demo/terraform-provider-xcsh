@@ -83,6 +83,9 @@ spec:
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
+<a id="user-defined-api-discovery-policy"></a>&#x2022; [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy) - Optional Block<br>Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field<br>See [User Defined API Discovery
+Policy](#user-defined-api-discovery-policy) below for details.
+
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
@@ -110,6 +113,51 @@ A [`timeouts`](#timeouts) block supports the following:
 <a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+
+#### User Defined API Discovery Policy
+
+An [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy) block supports the following:
+
+<a id="rules-dd76e5"></a>&#x2022; [`discovery_rules`](#rules-dd76e5) - Optional Block  Defaults to `[]`<br>Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action.  Server applies default when omitted<br>See [Discovery Rules](#rules-dd76e5) below.
+
+<a id="exclusive-4742bd"></a>&#x2022; [`exclusive`](#exclusive-4742bd) - Optional Block<br>Exclusion Configuration. Configuration for exclusion action<br>See [Exclusive](#exclusive-4742bd) below.
+
+<a id="inclusive-21d99e"></a>&#x2022; [`inclusive`](#inclusive-21d99e) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+#### User Defined API Discovery Policy Discovery Rules
+
+A [`discovery_rules`](#rules-dd76e5) block (within [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy)) supports the following:
+
+<a id="labels-ec3e6a"></a>&#x2022; [`labels`](#labels-ec3e6a) - Optional Block<br>Map of string keys and values that can be used to organize and categorize the rule
+
+<a id="metadata-2771ad"></a>&#x2022; [`metadata`](#metadata-2771ad) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
+[Metadata](#metadata-2771ad) below.
+
+<a id="properties-412626"></a>&#x2022; [`rule_properties`](#properties-412626) - Optional Block<br>Determines whether matching endpoints are included in API Discovery or excluded<br>See [Rule Properties](#properties-412626) below.
+
+#### User Defined API Discovery Policy Discovery Rules Metadata
+
+<a id="deep-85c7f8"></a>Deeply nested **Metadata** block collapsed for readability.
+
+#### User Defined API Discovery Policy Discovery Rules Rule Properties
+
+<a id="deep-745c70"></a>Deeply nested **Properties** block collapsed for readability.
+
+#### User Defined API Discovery Policy Discovery Rules Rule Properties Exclusion
+
+<a id="deep-f734f9"></a>Deeply nested **Exclusion** block collapsed for readability.
+
+#### User Defined API Discovery Policy Discovery Rules Rule Properties HTTP Header Criteria
+
+<a id="deep-0a42b6"></a>Deeply nested **Criteria** block collapsed for readability.
+
+#### User Defined API Discovery Policy Exclusive
+
+An [`exclusive`](#exclusive-4742bd) block (within [`user_defined_api_discovery_policy`](#user-defined-api-discovery-policy)) supports the following:
+
+<a id="archive-d99f10"></a>&#x2022; [`archive`](#archive-d99f10) - Optional Block<br>Enable this option
+
+<a id="ignore-7880ba"></a>&#x2022; [`ignore`](#ignore-7880ba) - Optional Block<br>Enable this option
 
 ---
 

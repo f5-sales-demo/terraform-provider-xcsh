@@ -15,19 +15,19 @@ import (
 )
 
 var (
-	_ datasource.DataSource              = &APMDataSource{}
-	_ datasource.DataSourceWithConfigure = &APMDataSource{}
+	_ datasource.DataSource              = &DomainDataSource{}
+	_ datasource.DataSourceWithConfigure = &DomainDataSource{}
 )
 
-func NewAPMDataSource() datasource.DataSource {
-	return &APMDataSource{}
+func NewDomainDataSource() datasource.DataSource {
+	return &DomainDataSource{}
 }
 
-type APMDataSource struct {
+type DomainDataSource struct {
 	client *client.Client
 }
 
-type APMDataSourceModel struct {
+type DomainDataSourceModel struct {
 	ID          types.String `tfsdk:"id"`
 	Name        types.String `tfsdk:"name"`
 	Namespace   types.String `tfsdk:"namespace"`
@@ -36,28 +36,28 @@ type APMDataSourceModel struct {
 	Annotations types.Map    `tfsdk:"annotations"`
 }
 
-func (d *APMDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
-	resp.TypeName = req.ProviderTypeName + "_apm"
+func (d *DomainDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
+	resp.TypeName = req.ProviderTypeName + "_domain"
 }
 
-func (d *APMDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
+func (d *DomainDataSource) Schema(ctx context.Context, req datasource.SchemaRequest, resp *datasource.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		MarkdownDescription: "Manages new APM as a service with configured parameters. in F5 Distributed Cloud.",
+		MarkdownDescription: "Manages allowed domain. in F5 Distributed Cloud.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the resource.",
 				Computed:            true,
 			},
 			"name": schema.StringAttribute{
-				MarkdownDescription: "Name of the APM.",
+				MarkdownDescription: "Name of the Domain.",
 				Required:            true,
 			},
 			"namespace": schema.StringAttribute{
-				MarkdownDescription: "Namespace where the APM exists.",
+				MarkdownDescription: "Namespace where the Domain exists.",
 				Required:            true,
 			},
 			"description": schema.StringAttribute{
-				MarkdownDescription: "Description of the APM.",
+				MarkdownDescription: "Description of the Domain.",
 				Computed:            true,
 			},
 			"labels": schema.MapAttribute{
@@ -74,7 +74,7 @@ func (d *APMDataSource) Schema(ctx context.Context, req datasource.SchemaRequest
 	}
 }
 
-func (d *APMDataSource) Configure(ctx context.Context, req datasource.ConfigureRequest, resp *datasource.ConfigureResponse) {
+func (d *DomainDataSource) Configure(ctx context.Context, req datasource.ConfigureRequest, resp *datasource.ConfigureResponse) {
 	if req.ProviderData == nil {
 		return
 	}
@@ -86,16 +86,16 @@ func (d *APMDataSource) Configure(ctx context.Context, req datasource.ConfigureR
 	d.client = client
 }
 
-func (d *APMDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
-	var data APMDataSourceModel
+func (d *DomainDataSource) Read(ctx context.Context, req datasource.ReadRequest, resp *datasource.ReadResponse) {
+	var data DomainDataSourceModel
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 	if resp.Diagnostics.HasError() {
 		return
 	}
 
-	resource, err := d.client.GetAPM(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	resource, err := d.client.GetDomain(ctx, data.Namespace.ValueString(), data.Name.ValueString())
 	if err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read APM: %s", err))
+		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to read Domain: %s", err))
 		return
 	}
 

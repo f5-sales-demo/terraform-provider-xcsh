@@ -77,7 +77,7 @@ func (d *FlowAnomalyDataSource) Schema(ctx context.Context, req datasource.Schem
 				Computed:            true,
 			},
 			"service_state": schema.StringAttribute{
-				MarkdownDescription: "[Enum: AS_NONE|AS_PENDING|AS_SUBSCRIBED|AS_ERROR] X-displayName: 'Addon Service State' State of a service - AS_NONE: x-displayName: 'None' default state - AS_PENDING: x-displayName: 'Pending Subscription' initiated subscription request and is pending to activate (requested). - AS_SUBSCRIBED: x-displayName: 'Subscribed' successfully subscribed .. Possible values are `AS_NONE`, `AS_PENDING`, `AS_SUBSCRIBED`, `AS_ERROR`. Defaults to `AS_NONE`.",
+				MarkdownDescription: "[Enum: AS_NONE|AS_PENDING|AS_SUBSCRIBED|AS_ERROR] State of a service default state initiated subscription request and is pending to activate (requested). Successfully subscribed service subscription request ended up in error state. Possible values are `AS_NONE`, `AS_PENDING`, `AS_SUBSCRIBED`, `AS_ERROR`. Defaults to `AS_NONE`.",
 				Computed:            true,
 			},
 		},

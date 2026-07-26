@@ -368,7 +368,6 @@ type UDPLoadBalancerResourceModel struct {
 	Labels                             types.Map                                  `tfsdk:"labels"`
 	ID                                 types.String                               `tfsdk:"id"`
 	DNSVolterraManaged                 types.Bool                                 `tfsdk:"dns_volterra_managed"`
-	EnablePerPacketLoadBalancing       types.Bool                                 `tfsdk:"enable_per_packet_load_balancing"`
 	IdleTimeout                        types.Int64                                `tfsdk:"idle_timeout"`
 	ListenPort                         types.Int64                                `tfsdk:"listen_port"`
 	PortRanges                         types.String                               `tfsdk:"port_ranges"`
@@ -450,10 +449,6 @@ func (r *UDPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 			},
 			"dns_volterra_managed": schema.BoolAttribute{
 				MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain to be delegated to F5 Distributed Cloud using the Delegated Domain feature or a DNS CNAME record must be created in your DNS provider's portal.",
-				Required:            true,
-			},
-			"enable_per_packet_load_balancing": schema.BoolAttribute{
-				MarkdownDescription: "Per packet load balancing: If disabled (default): First packet identified by source IP/port and local IP/port is sent to an upstream server as the load balancing algorithm dictates, and subsequent packets with the same identity are forwarded to the same upstream server without recheckingg the..",
 				Required:            true,
 			},
 			"idle_timeout": schema.Int64Attribute{
@@ -1422,9 +1417,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 	if !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		createReq.Spec["dns_volterra_managed"] = data.DNSVolterraManaged.ValueBool()
 	}
-	if !data.EnablePerPacketLoadBalancing.IsNull() && !data.EnablePerPacketLoadBalancing.IsUnknown() {
-		createReq.Spec["enable_per_packet_load_balancing"] = data.EnablePerPacketLoadBalancing.ValueBool()
-	}
 	if !data.IdleTimeout.IsNull() && !data.IdleTimeout.IsUnknown() {
 		createReq.Spec["idle_timeout"] = data.IdleTimeout.ValueInt64()
 	}
@@ -1981,11 +1973,6 @@ func (r *UDPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 		data.DNSVolterraManaged = types.BoolValue(v)
 	} else {
 		data.DNSVolterraManaged = types.BoolNull()
-	}
-	if v, ok := apiResource.Spec["enable_per_packet_load_balancing"].(bool); ok {
-		data.EnablePerPacketLoadBalancing = types.BoolValue(v)
-	} else {
-		data.EnablePerPacketLoadBalancing = types.BoolNull()
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
@@ -2648,11 +2635,6 @@ func (r *UDPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 	} else {
 		data.DNSVolterraManaged = types.BoolNull()
 	}
-	if v, ok := apiResource.Spec["enable_per_packet_load_balancing"].(bool); ok {
-		data.EnablePerPacketLoadBalancing = types.BoolValue(v)
-	} else {
-		data.EnablePerPacketLoadBalancing = types.BoolNull()
-	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))
 	} else {
@@ -3019,9 +3001,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 	}
 	if !data.DNSVolterraManaged.IsNull() && !data.DNSVolterraManaged.IsUnknown() {
 		apiResource.Spec["dns_volterra_managed"] = data.DNSVolterraManaged.ValueBool()
-	}
-	if !data.EnablePerPacketLoadBalancing.IsNull() && !data.EnablePerPacketLoadBalancing.IsUnknown() {
-		apiResource.Spec["enable_per_packet_load_balancing"] = data.EnablePerPacketLoadBalancing.ValueBool()
 	}
 	if !data.IdleTimeout.IsNull() && !data.IdleTimeout.IsUnknown() {
 		apiResource.Spec["idle_timeout"] = data.IdleTimeout.ValueInt64()
@@ -3604,11 +3583,6 @@ func (r *UDPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 		data.DNSVolterraManaged = types.BoolValue(v)
 	} else {
 		data.DNSVolterraManaged = types.BoolNull()
-	}
-	if v, ok := apiResource.Spec["enable_per_packet_load_balancing"].(bool); ok {
-		data.EnablePerPacketLoadBalancing = types.BoolValue(v)
-	} else {
-		data.EnablePerPacketLoadBalancing = types.BoolNull()
 	}
 	if v, ok := apiResource.Spec["idle_timeout"].(float64); ok {
 		data.IdleTimeout = types.Int64Value(int64(v))

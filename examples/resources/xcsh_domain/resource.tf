@@ -1,4 +1,5 @@
-# APM Data Source Example
+# Domain Resource Example
+# Manages allowed domain.
 
 terraform {
   required_version = ">= 1.0"
@@ -11,12 +12,10 @@ terraform {
   }
 }
 
-# Look up an existing APM by name
-data "xcsh_apm" "example" {
-  name      = "example-apm"
+# Basic Domain configuration
+resource "xcsh_domain" "example" {
+  name      = "example-domain"
   namespace = "staging"
-}
 
-output "apm_id" {
-  value = data.xcsh_apm.example.id
+  allowed_domain = "example-value"
 }

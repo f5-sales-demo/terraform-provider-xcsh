@@ -33,10 +33,9 @@ resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
 
-  domains                          = ["example-value"]
-  dns_volterra_managed             = true
-  enable_per_packet_load_balancing = true
-  idle_timeout                     = 1
+  domains              = ["example-value"]
+  dns_volterra_managed = true
+  idle_timeout         = 1
 }
 ```
 
@@ -77,9 +76,6 @@ resource "xcsh_udp_loadbalancer" "example" {
 <a id="do-not-advertise"></a>&#x2022; [`do_not_advertise`](#do-not-advertise) - Optional Block<br>Configuration parameter for do not advertise
 
 <a id="domains"></a>&#x2022; [`domains`](#domains) - Required List<br>List of domains (host/authority header) that will be matched to this load balancer
-
-<a id="enable-per-packet-load-balancing"></a>&#x2022; [`enable_per_packet_load_balancing`](#enable-per-packet-load-balancing) - Required Bool<br>Per packet load balancing: If disabled (default): First packet identified by source IP/port and local IP/port is sent to an upstream server as the load balancing algorithm dictates, and subsequent packets with the same identity are forwarded to the same
-upstream server without recheckingg the
 
 -> **One of the following:**
 &#x2022; <a id="hash-policy-choice-random"></a>[`hash_policy_choice_random`](#hash-policy-choice-random) - Optional Block<br>Configuration parameter for hash policy choice random

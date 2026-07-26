@@ -49,11 +49,13 @@ data "xcsh_lma_region" "example" {
 
 In addition to all arguments above, the following attributes are exported:
 
+<a id="access-logs-s3-params"></a>&#x2022; [`access_logs_s3_params`](#access-logs-s3-params) - Optional String<br>Configuration parameter for access logs s3 params
+
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="aws-params"></a>&#x2022; [`aws_params`](#aws-params) - Optional String<br>AWS Params. AWS parameters
-
 <a id="ClickHouse-params"></a>&#x2022; [`clickhouse_params`](#ClickHouse-params) - Optional String<br>Configuration parameter for ClickHouse params
+
+<a id="country"></a>&#x2022; [`country`](#country) - Optional String<br>Country associated with this LMA region
 
 <a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 

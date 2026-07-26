@@ -54,13 +54,13 @@ type AWSTGWSiteEmptyModel struct {
 // AWSTGWSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AWSTGWSitePerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AWSTGWSiteEmptyModel                                        `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AWSTGWSitePerformanceEnhancementModeModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModeModel
 var AWSTGWSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -73,6 +73,18 @@ type AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
 var AWSTGWSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AWSTGWSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AWSTGWSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel
+var AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSiteAWSParametersModel represents aws_parameters block
@@ -129,22 +141,14 @@ var AWSTGWSiteAWSParametersModelAttrTypes = map[string]attr.Type{
 
 // AWSTGWSiteAWSParametersAdminPasswordModel represents admin_password block
 type AWSTGWSiteAWSParametersAdminPasswordModel struct {
-	SecretEncodingType          types.String                                                          `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // AWSTGWSiteAWSParametersAdminPasswordModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersAdminPasswordModel
 var AWSTGWSiteAWSParametersAdminPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModelAttrTypes},
 }
 
 // AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -161,20 +165,6 @@ var AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoModelAttrTypes = map[
 	"store_provider":      types.StringType,
 }
 
-// AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel
-var AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel represents clear_secret_info block
 type AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -185,34 +175,6 @@ type AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel struct {
 var AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel represents vault_secret_info block
-type AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel
-var AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel
-var AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // AWSTGWSiteAWSParametersAWSCredModel represents aws_cred block
@@ -375,7 +337,6 @@ var AWSTGWSiteAWSParametersNewTGWUserAssignedModelAttrTypes = map[string]attr.Ty
 
 // AWSTGWSiteAWSParametersNewVPCModel represents new_vpc block
 type AWSTGWSiteAWSParametersNewVPCModel struct {
-	AllocateIpv6 types.Bool            `tfsdk:"allocate_ipv6"`
 	NameTag      types.String          `tfsdk:"name_tag"`
 	PrimaryIpv4  types.String          `tfsdk:"primary_ipv4"`
 	Autogenerate *AWSTGWSiteEmptyModel `tfsdk:"autogenerate"`
@@ -383,10 +344,9 @@ type AWSTGWSiteAWSParametersNewVPCModel struct {
 
 // AWSTGWSiteAWSParametersNewVPCModelAttrTypes defines the attribute types for AWSTGWSiteAWSParametersNewVPCModel
 var AWSTGWSiteAWSParametersNewVPCModelAttrTypes = map[string]attr.Type{
-	"allocate_ipv6": types.BoolType,
-	"name_tag":      types.StringType,
-	"primary_ipv4":  types.StringType,
-	"autogenerate":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"name_tag":     types.StringType,
+	"primary_ipv4": types.StringType,
+	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSTGWSiteAWSParametersTGWCIDRModel represents tgw_cidr block
@@ -1327,6 +1287,15 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
 					},
 				},
 			},
@@ -1383,38 +1352,10 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-						Attributes: map[string]schema.Attribute{
-							"secret_encoding_type": schema.StringAttribute{
-								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-								},
-							},
-						},
+						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-								Attributes: map[string]schema.Attribute{
-									"decryption_provider": schema.StringAttribute{
-										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-										Optional:            true,
-									},
-									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.LengthBetween(4, 131072),
-										},
-									},
-									"store_provider": schema.StringAttribute{
-										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-										Optional:            true,
-									},
-								},
-							},
-							"blindfold_secret_info_internal": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1434,7 +1375,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1445,47 +1386,6 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
-										},
-									},
-								},
-							},
-							"vault_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-								Attributes: map[string]schema.Attribute{
-									"key": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-										Optional:            true,
-									},
-									"location": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-										Optional:            true,
-									},
-									"provider_ref": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-										Optional:            true,
-									},
-									"secret_encoding": schema.StringAttribute{
-										MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-										},
-									},
-									"version": schema.Int64Attribute{
-										MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-										Optional:            true,
-									},
-								},
-							},
-							"wingman_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-								Attributes: map[string]schema.Attribute{
-									"name": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 63),
-											stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 										},
 									},
 								},
@@ -1611,14 +1511,14 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Enter pre created security groups for slo(Site Local Outside) and sli(Site Local Inside) interface. Supported only for sites deployed on existing VPC.",
 						Attributes: map[string]schema.Attribute{
 							"inside_security_group_id": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Inside Security Group ID' Security Group ID to be attached to SLI(Site Local Inside) Interface.",
+								MarkdownDescription: "Security Group ID to be attached to SLI(Site Local Inside) Interface.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(20),
 								},
 							},
 							"outside_security_group_id": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Outside Security Group ID' Security Group ID to be attached to SLO(Site Local Outside) Interface.",
+								MarkdownDescription: "Security Group ID to be attached to SLO(Site Local Outside) Interface.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(20),
@@ -1645,7 +1545,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Enable this option",
 					},
 					"existing_tgw": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Existing TGW Type' Information needed for existing TGW.",
+						MarkdownDescription: "Configuration parameter for existing tgw.",
 						Attributes: map[string]schema.Attribute{
 							"tgw_asn": schema.Int64Attribute{
 								MarkdownDescription: "Enter TGW ASN. TGW ASN.",
@@ -1655,14 +1555,14 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								},
 							},
 							"tgw_id": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Existing TGW ID' Existing TGW ID.",
+								MarkdownDescription: "Existing TGW ID. Existing TGW ID.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(64),
 								},
 							},
 							"volterra_site_asn": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN.",
+								MarkdownDescription: "Enter F5XC Site ASN. F5XC Site ASN.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.AtMost(65535),
@@ -1674,7 +1574,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Enable this option",
 					},
 					"new_tgw": schema.SingleNestedBlock{
-						MarkdownDescription: "TGWParamsType. X-displayName: 'TGWParamsType'",
+						MarkdownDescription: "TGWParamsType.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"system_generated": schema.SingleNestedBlock{
@@ -1684,14 +1584,14 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								MarkdownDescription: "Information needed when ASNs are assigned by the user.",
 								Attributes: map[string]schema.Attribute{
 									"tgw_asn": schema.Int64Attribute{
-										MarkdownDescription: "X-displayName: 'Enter TGW ASN' TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.",
+										MarkdownDescription: "TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.",
 										Optional:            true,
 										Validators: []validator.Int64{
 											int64validator.AtMost(65534),
 										},
 									},
 									"volterra_site_asn": schema.Int64Attribute{
-										MarkdownDescription: "X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN.",
+										MarkdownDescription: "Enter F5XC Site ASN. F5XC Site ASN.",
 										Optional:            true,
 										Validators: []validator.Int64{
 											int64validator.AtMost(65535),
@@ -1702,12 +1602,8 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 					"new_vpc": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'AWS VPC Parameters' Parameters to create new AWS VPC.",
+						MarkdownDescription: "AWS VPC Parameters. Parameters to create new AWS VPC.",
 						Attributes: map[string]schema.Attribute{
-							"allocate_ipv6": schema.BoolAttribute{
-								MarkdownDescription: "X-displayName: 'Allocate IPv6 CIDR block from AWS' Allocate IPv6 CIDR block from AWS.",
-								Optional:            true,
-							},
 							"name_tag": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VPC Name.",
 								Optional:            true,
@@ -1837,10 +1733,10 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
-								MarkdownDescription: "CloudLink AND Network Config.",
+								MarkdownDescription: "CloudLink ADN Network Config.",
 								Attributes: map[string]schema.Attribute{
 									"cloudlink_network_name": schema.StringAttribute{
-										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
+										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
@@ -1983,7 +1879,7 @@ func (r *AWSTGWSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"private_connectivity": schema.SingleNestedBlock{
-				MarkdownDescription: "X-displayName: 'Private Connect Configuration' Private Connect Configuration.",
+				MarkdownDescription: "Configuration parameter for private connectivity.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
@@ -2923,7 +2819,14 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -2944,19 +2847,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				AWSParametersAdminPasswordMap["blindfold_secret_info"] = AWSParametersAdminPasswordBlindfoldSecretInfoMap
 			}
-			if data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal != nil {
-				AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-				if !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-					AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-					AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-					AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-				}
-				AWSParametersAdminPasswordMap["blindfold_secret_info_internal"] = AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap
-			}
 			if data.AWSParameters.AdminPassword.ClearSecretInfo != nil {
 				AWSParametersAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.AWSParameters.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AWSParameters.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -2966,35 +2856,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					AWSParametersAdminPasswordClearSecretInfoMap["url"] = data.AWSParameters.AdminPassword.ClearSecretInfo.URL.ValueString()
 				}
 				AWSParametersAdminPasswordMap["clear_secret_info"] = AWSParametersAdminPasswordClearSecretInfoMap
-			}
-			if !data.AWSParameters.AdminPassword.SecretEncodingType.IsNull() && !data.AWSParameters.AdminPassword.SecretEncodingType.IsUnknown() {
-				AWSParametersAdminPasswordMap["secret_encoding_type"] = data.AWSParameters.AdminPassword.SecretEncodingType.ValueString()
-			}
-			if data.AWSParameters.AdminPassword.VaultSecretInfo != nil {
-				AWSParametersAdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["key"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Key.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["location"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Location.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["provider"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Provider.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AWSParameters.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["version"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-				}
-				AWSParametersAdminPasswordMap["vault_secret_info"] = AWSParametersAdminPasswordVaultSecretInfoMap
-			}
-			if data.AWSParameters.AdminPassword.WingmanSecretInfo != nil {
-				AWSParametersAdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-				if !data.AWSParameters.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AWSParameters.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-					AWSParametersAdminPasswordWingmanSecretInfoMap["name"] = data.AWSParameters.AdminPassword.WingmanSecretInfo.Name.ValueString()
-				}
-				AWSParametersAdminPasswordMap["wingman_secret_info"] = AWSParametersAdminPasswordWingmanSecretInfoMap
 			}
 			AWSParametersMap["admin_password"] = AWSParametersAdminPasswordMap
 		}
@@ -3142,9 +3003,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		}
 		if data.AWSParameters.NewVPC != nil {
 			AWSParametersNewVPCMap := make(map[string]interface{})
-			if !data.AWSParameters.NewVPC.AllocateIpv6.IsNull() && !data.AWSParameters.NewVPC.AllocateIpv6.IsUnknown() {
-				AWSParametersNewVPCMap["allocate_ipv6"] = data.AWSParameters.NewVPC.AllocateIpv6.ValueBool()
-			}
 			if data.AWSParameters.NewVPC.Autogenerate != nil {
 				AWSParametersNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
@@ -3210,7 +3068,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -3959,12 +3817,31 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -4006,34 +3883,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal != nil {
-								return data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := AdminPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.ClearSecretInfo != nil {
 								return data.AWSParameters.AdminPassword.ClearSecretInfo
@@ -4048,71 +3897,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := AdminPasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.VaultSecretInfo != nil {
-								return data.AWSParameters.AdminPassword.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := AdminPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.VaultSecretInfo != nil && !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-											return data.AWSParameters.AdminPassword.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.WingmanSecretInfo != nil {
-								return data.AWSParameters.AdminPassword.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := AdminPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -4456,15 +4240,6 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewVPCModel{
-						AllocateIpv6: func() types.Bool {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil && !data.AWSParameters.NewVPC.AllocateIpv6.IsUnknown() {
-								return data.AWSParameters.NewVPC.AllocateIpv6
-							}
-							if v, ok := NewVPCData["allocate_ipv6"].(bool); ok {
-								return types.BoolValue(v)
-							}
-							return types.BoolNull()
-						}(),
 						Autogenerate: func() *AWSTGWSiteEmptyModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil {
 								return data.AWSParameters.NewVPC.Autogenerate
@@ -4569,7 +4344,7 @@ func (r *AWSTGWSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSTGWSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -6183,12 +5958,31 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -6230,34 +6024,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal != nil {
-								return data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := AdminPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.ClearSecretInfo != nil {
 								return data.AWSParameters.AdminPassword.ClearSecretInfo
@@ -6272,71 +6038,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := AdminPasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.VaultSecretInfo != nil {
-								return data.AWSParameters.AdminPassword.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := AdminPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.VaultSecretInfo != nil && !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-											return data.AWSParameters.AdminPassword.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.WingmanSecretInfo != nil {
-								return data.AWSParameters.AdminPassword.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := AdminPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -6680,15 +6381,6 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewVPCModel{
-						AllocateIpv6: func() types.Bool {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil && !data.AWSParameters.NewVPC.AllocateIpv6.IsUnknown() {
-								return data.AWSParameters.NewVPC.AllocateIpv6
-							}
-							if v, ok := NewVPCData["allocate_ipv6"].(bool); ok {
-								return types.BoolValue(v)
-							}
-							return types.BoolNull()
-						}(),
 						Autogenerate: func() *AWSTGWSiteEmptyModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil {
 								return data.AWSParameters.NewVPC.Autogenerate
@@ -6793,7 +6485,7 @@ func (r *AWSTGWSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSTGWSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -8338,7 +8030,14 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -8359,19 +8058,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				AWSParametersAdminPasswordMap["blindfold_secret_info"] = AWSParametersAdminPasswordBlindfoldSecretInfoMap
 			}
-			if data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal != nil {
-				AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-				if !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-					AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-					AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-					AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-				}
-				AWSParametersAdminPasswordMap["blindfold_secret_info_internal"] = AWSParametersAdminPasswordBlindfoldSecretInfoInternalMap
-			}
 			if data.AWSParameters.AdminPassword.ClearSecretInfo != nil {
 				AWSParametersAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.AWSParameters.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AWSParameters.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -8381,35 +8067,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					AWSParametersAdminPasswordClearSecretInfoMap["url"] = data.AWSParameters.AdminPassword.ClearSecretInfo.URL.ValueString()
 				}
 				AWSParametersAdminPasswordMap["clear_secret_info"] = AWSParametersAdminPasswordClearSecretInfoMap
-			}
-			if !data.AWSParameters.AdminPassword.SecretEncodingType.IsNull() && !data.AWSParameters.AdminPassword.SecretEncodingType.IsUnknown() {
-				AWSParametersAdminPasswordMap["secret_encoding_type"] = data.AWSParameters.AdminPassword.SecretEncodingType.ValueString()
-			}
-			if data.AWSParameters.AdminPassword.VaultSecretInfo != nil {
-				AWSParametersAdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["key"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Key.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["location"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Location.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["provider"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Provider.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AWSParameters.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-				}
-				if !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-					AWSParametersAdminPasswordVaultSecretInfoMap["version"] = data.AWSParameters.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-				}
-				AWSParametersAdminPasswordMap["vault_secret_info"] = AWSParametersAdminPasswordVaultSecretInfoMap
-			}
-			if data.AWSParameters.AdminPassword.WingmanSecretInfo != nil {
-				AWSParametersAdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-				if !data.AWSParameters.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AWSParameters.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-					AWSParametersAdminPasswordWingmanSecretInfoMap["name"] = data.AWSParameters.AdminPassword.WingmanSecretInfo.Name.ValueString()
-				}
-				AWSParametersAdminPasswordMap["wingman_secret_info"] = AWSParametersAdminPasswordWingmanSecretInfoMap
 			}
 			AWSParametersMap["admin_password"] = AWSParametersAdminPasswordMap
 		}
@@ -8557,9 +8214,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		}
 		if data.AWSParameters.NewVPC != nil {
 			AWSParametersNewVPCMap := make(map[string]interface{})
-			if !data.AWSParameters.NewVPC.AllocateIpv6.IsNull() && !data.AWSParameters.NewVPC.AllocateIpv6.IsUnknown() {
-				AWSParametersNewVPCMap["allocate_ipv6"] = data.AWSParameters.NewVPC.AllocateIpv6.ValueBool()
-			}
 			if data.AWSParameters.NewVPC.Autogenerate != nil {
 				AWSParametersNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
@@ -8625,7 +8279,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -9385,12 +9039,31 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *AWSTGWSiteEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &AWSTGWSiteEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &AWSTGWSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *AWSTGWSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &AWSTGWSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -9432,34 +9105,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal != nil {
-								return data.AWSParameters.AdminPassword.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := AdminPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordClearSecretInfoModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.ClearSecretInfo != nil {
 								return data.AWSParameters.AdminPassword.ClearSecretInfo
@@ -9474,71 +9119,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := AdminPasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.VaultSecretInfo != nil {
-								return data.AWSParameters.AdminPassword.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := AdminPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.VaultSecretInfo != nil && !data.AWSParameters.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-											return data.AWSParameters.AdminPassword.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.AdminPassword != nil && data.AWSParameters.AdminPassword.WingmanSecretInfo != nil {
-								return data.AWSParameters.AdminPassword.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := AdminPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &AWSTGWSiteAWSParametersAdminPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -9882,15 +9462,6 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSTGWSiteAWSParametersNewVPCModel{
-						AllocateIpv6: func() types.Bool {
-							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil && !data.AWSParameters.NewVPC.AllocateIpv6.IsUnknown() {
-								return data.AWSParameters.NewVPC.AllocateIpv6
-							}
-							if v, ok := NewVPCData["allocate_ipv6"].(bool); ok {
-								return types.BoolValue(v)
-							}
-							return types.BoolNull()
-						}(),
 						Autogenerate: func() *AWSTGWSiteEmptyModel {
 							if !isImport && data.AWSParameters != nil && data.AWSParameters.NewVPC != nil {
 								return data.AWSParameters.NewVPC.Autogenerate
@@ -9995,7 +9566,7 @@ func (r *AWSTGWSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSTGWSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx

@@ -92,9 +92,14 @@ resource "xcsh_fleet" "example" {
 <br><br>&#x2022; <a id="enable-gpu"></a>[`enable_gpu`](#enable-gpu) - Optional Block<br>Enable this option
 
 -> **One of the following:**
+&#x2022; <a id="disable-log-anonymization"></a>[`disable_log_anonymization`](#disable-log-anonymization) - Optional Block<br>Configuration parameter for disable log anonymization
+
+-> **One of the following:**
 &#x2022; <a id="disable-vm"></a>[`disable_vm`](#disable-vm) - Optional Block<br>Enable this option
 
 <a id="enable-default-fleet-config-download"></a>&#x2022; [`enable_default_fleet_config_download`](#enable-default-fleet-config-download) - Required Bool<br>Enable default fleet config, It must be set for storage config and GPU config
+
+<a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Block<br>Configuration parameter for enable log anonymization
 
 <a id="enable-vgpu"></a>&#x2022; [`enable_vgpu`](#enable-vgpu) - Optional Block<br>Licensing configuration for NVIDIA vGPU<br>See [Enable Vgpu](#enable-vgpu) below for details.
 
@@ -380,7 +385,7 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 <a id="enhanced-31b8ac"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-31b8ac) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-31b8ac) below.
 
-<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-38f174) below.
 
 #### Performance Enhancement Mode Perf Mode L3 Enhanced
 
@@ -389,6 +394,14 @@ A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhanc
 <a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
 
 <a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced
+
+A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
+
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
 
 #### Sriov Interfaces
 

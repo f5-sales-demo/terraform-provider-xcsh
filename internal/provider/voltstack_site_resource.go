@@ -493,55 +493,37 @@ var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCP
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel represents dhcp_networks block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel struct {
-	DgwAddress             types.String                                                                                                               `tfsdk:"dgw_address"`
-	DNSAddress             types.String                                                                                                               `tfsdk:"dns_address"`
-	NetworkPrefix          types.String                                                                                                               `tfsdk:"network_prefix"`
-	PoolSettings           types.String                                                                                                               `tfsdk:"pool_settings"`
-	FirstAddress           *VoltstackSiteEmptyModel                                                                                                   `tfsdk:"first_address"`
-	LastAddress            *VoltstackSiteEmptyModel                                                                                                   `tfsdk:"last_address"`
-	NetworkPrefixAllocator *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel `tfsdk:"network_prefix_allocator"`
-	Pools                  types.List                                                                                                                 `tfsdk:"pools"`
-	SameAsDgw              *VoltstackSiteEmptyModel                                                                                                   `tfsdk:"same_as_dgw"`
+	DgwAddress    types.String             `tfsdk:"dgw_address"`
+	DNSAddress    types.String             `tfsdk:"dns_address"`
+	NetworkPrefix types.String             `tfsdk:"network_prefix"`
+	PoolSettings  types.String             `tfsdk:"pool_settings"`
+	FirstAddress  *VoltstackSiteEmptyModel `tfsdk:"first_address"`
+	LastAddress   *VoltstackSiteEmptyModel `tfsdk:"last_address"`
+	Pools         types.List               `tfsdk:"pools"`
+	SameAsDgw     *VoltstackSiteEmptyModel `tfsdk:"same_as_dgw"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
-	"dgw_address":              types.StringType,
-	"dns_address":              types.StringType,
-	"network_prefix":           types.StringType,
-	"pool_settings":            types.StringType,
-	"first_address":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"last_address":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"network_prefix_allocator": types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes},
-	"pools":                    types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}},
-	"same_as_dgw":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel represents network_prefix_allocator block
-type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel struct {
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Tenant    types.String `tfsdk:"tenant"`
-}
-
-// VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel
-var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes = map[string]attr.Type{
-	"name":      types.StringType,
-	"namespace": types.StringType,
-	"tenant":    types.StringType,
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel represents pools block
 type VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel struct {
 	EndIP   types.String `tfsdk:"end_ip"`
-	Exclude types.Bool   `tfsdk:"exclude"`
 	StartIP types.String `tfsdk:"start_ip"`
 }
 
 // VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 var VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
 	"end_ip":   types.StringType,
-	"exclude":  types.BoolType,
 	"start_ip": types.StringType,
 }
 
@@ -1395,22 +1377,14 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageMod
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel represents iscsi_chap_password block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel struct {
-	SecretEncodingType          types.String                                                                                                                `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1422,20 +1396,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIs
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
 	"decryption_provider": types.StringType,
 	"location":            types.StringType,
 	"store_provider":      types.StringType,
@@ -1453,52 +1413,16 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIsc
 	"url":          types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel represents password block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel struct {
-	SecretEncodingType          types.String                                                                                                       `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1515,20 +1439,6 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePas
 	"store_provider":      types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel represents clear_secret_info block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -1539,34 +1449,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePa
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentModel represents netapp_trident block
@@ -1645,22 +1527,14 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel represents client_private_key block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel struct {
-	SecretEncodingType          types.String                                                                                                                                       `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1672,20 +1546,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTriden
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
 	"decryption_provider": types.StringType,
 	"location":            types.StringType,
 	"store_provider":      types.StringType,
@@ -1703,52 +1563,16 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 	"url":          types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel represents password block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel struct {
-	SecretEncodingType          types.String                                                                                                                               `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1765,20 +1589,6 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 	"store_provider":      types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel represents clear_secret_info block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -1789,34 +1599,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTriden
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel represents storage block
@@ -1953,22 +1735,14 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel represents client_private_key block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel struct {
-	SecretEncodingType          types.String                                                                                                                                       `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1980,20 +1754,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTriden
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
 	"decryption_provider": types.StringType,
 	"location":            types.StringType,
 	"store_provider":      types.StringType,
@@ -2011,52 +1771,16 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 	"url":          types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel represents password block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel struct {
-	SecretEncodingType          types.String                                                                                                                               `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -2073,20 +1797,6 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 	"store_provider":      types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel represents clear_secret_info block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -2097,34 +1807,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTriden
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel represents storage block
@@ -2193,22 +1875,14 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel represents chap_initiator_secret block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel struct {
-	SecretEncodingType          types.String                                                                                                                                                 `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -2220,20 +1894,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTriden
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
 	"decryption_provider": types.StringType,
 	"location":            types.StringType,
 	"store_provider":      types.StringType,
@@ -2251,52 +1911,16 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 	"url":          types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel represents chap_target_initiator_secret block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel struct {
-	SecretEncodingType          types.String                                                                                                                                                       `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -2313,20 +1937,6 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTrident
 	"store_provider":      types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel represents clear_secret_info block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -2337,34 +1947,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTriden
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanVolumeDefaultsModel represents volume_defaults block
@@ -2469,22 +2051,14 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOr
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel represents api_token block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel struct {
-	SecretEncodingType          types.String                                                                                                                                               `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -2501,20 +2075,6 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOr
 	"store_provider":      types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel represents clear_secret_info block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -2525,34 +2085,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceO
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeModel represents flash_blade block
@@ -2591,22 +2123,14 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOr
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel represents api_token block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel struct {
-	SecretEncodingType          types.String                                                                                                                                               `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModel
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModelAttrTypes},
 }
 
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -2623,20 +2147,6 @@ var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOr
 	"store_provider":      types.StringType,
 }
 
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel represents clear_secret_info block
 type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -2647,34 +2157,6 @@ type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceO
 var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel represents vault_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel represents wingman_secret_info block
-type VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel
-var VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListModel represents storage_interface_list block
@@ -2769,55 +2251,37 @@ var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorage
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel represents dhcp_networks block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel struct {
-	DgwAddress             types.String                                                                                                                            `tfsdk:"dgw_address"`
-	DNSAddress             types.String                                                                                                                            `tfsdk:"dns_address"`
-	NetworkPrefix          types.String                                                                                                                            `tfsdk:"network_prefix"`
-	PoolSettings           types.String                                                                                                                            `tfsdk:"pool_settings"`
-	FirstAddress           *VoltstackSiteEmptyModel                                                                                                                `tfsdk:"first_address"`
-	LastAddress            *VoltstackSiteEmptyModel                                                                                                                `tfsdk:"last_address"`
-	NetworkPrefixAllocator *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel `tfsdk:"network_prefix_allocator"`
-	Pools                  types.List                                                                                                                              `tfsdk:"pools"`
-	SameAsDgw              *VoltstackSiteEmptyModel                                                                                                                `tfsdk:"same_as_dgw"`
+	DgwAddress    types.String             `tfsdk:"dgw_address"`
+	DNSAddress    types.String             `tfsdk:"dns_address"`
+	NetworkPrefix types.String             `tfsdk:"network_prefix"`
+	PoolSettings  types.String             `tfsdk:"pool_settings"`
+	FirstAddress  *VoltstackSiteEmptyModel `tfsdk:"first_address"`
+	LastAddress   *VoltstackSiteEmptyModel `tfsdk:"last_address"`
+	Pools         types.List               `tfsdk:"pools"`
+	SameAsDgw     *VoltstackSiteEmptyModel `tfsdk:"same_as_dgw"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
-	"dgw_address":              types.StringType,
-	"dns_address":              types.StringType,
-	"network_prefix":           types.StringType,
-	"pool_settings":            types.StringType,
-	"first_address":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"last_address":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"network_prefix_allocator": types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes},
-	"pools":                    types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}},
-	"same_as_dgw":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel represents network_prefix_allocator block
-type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel struct {
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Tenant    types.String `tfsdk:"tenant"`
-}
-
-// VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel
-var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes = map[string]attr.Type{
-	"name":      types.StringType,
-	"namespace": types.StringType,
-	"tenant":    types.StringType,
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel represents pools block
 type VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel struct {
 	EndIP   types.String `tfsdk:"end_ip"`
-	Exclude types.Bool   `tfsdk:"exclude"`
 	StartIP types.String `tfsdk:"start_ip"`
 }
 
 // VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModel
 var VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
 	"end_ip":   types.StringType,
-	"exclude":  types.BoolType,
 	"start_ip": types.StringType,
 }
 
@@ -3187,14 +2651,46 @@ var VoltstackSiteLocalControlPlaneBGPConfigPeersExternalModelAttrTypes = map[str
 
 // VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel represents family_inet block
 type VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel struct {
-	DisableSpec *VoltstackSiteEmptyModel `tfsdk:"disable_spec"`
-	Enable      *VoltstackSiteEmptyModel `tfsdk:"enable"`
+	DisableSpec *VoltstackSiteEmptyModel                                                   `tfsdk:"disable_spec"`
+	Enable      *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel `tfsdk:"enable"`
 }
 
 // VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModelAttrTypes defines the attribute types for VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModel
 var VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetModelAttrTypes = map[string]attr.Type{
 	"disable_spec": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable":       types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModelAttrTypes},
+}
+
+// VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel represents enable block
+type VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel struct {
+	Aggregation types.List `tfsdk:"aggregation"`
+}
+
+// VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModelAttrTypes defines the attribute types for VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel
+var VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModelAttrTypes = map[string]attr.Type{
+	"aggregation": types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes}},
+}
+
+// VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel represents aggregation block
+type VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel struct {
+	IPPrefix types.String `tfsdk:"ip_prefix"`
+	Options  types.List   `tfsdk:"options"`
+}
+
+// VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes defines the attribute types for VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+var VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes = map[string]attr.Type{
+	"ip_prefix": types.StringType,
+	"options":   types.ListType{ElemType: types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}},
+}
+
+// VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel represents options block
+type VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel struct {
+	SummaryOnly *VoltstackSiteEmptyModel `tfsdk:"summary_only"`
+}
+
+// VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes defines the attribute types for VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+var VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes = map[string]attr.Type{
+	"summary_only": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // VoltstackSiteLocalControlPlaneBGPConfigPeersExternalInterfaceModel represents interface block
@@ -4139,36 +3635,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"last_address": schema.SingleNestedBlock{
 																		MarkdownDescription: "Enable this option",
 																	},
-																	"network_prefix_allocator": schema.SingleNestedBlock{
-																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-																		Attributes: map[string]schema.Attribute{
-																			"name": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-																				Optional:            true,
-																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 128),
-																				},
-																			},
-																			"namespace": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-																				Optional:            true,
-																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
-																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 63),
-																				},
-																			},
-																			"tenant": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Computed:            true,
-																				Validators: []validator.String{
-																					stringvalidator.LengthAtMost(64),
-																				},
-																			},
-																		},
-																	},
 																	"pools": schema.ListNestedBlock{
 																		MarkdownDescription: "List of non overlapping IP address ranges.",
 																		NestedObject: schema.NestedBlockObject{
@@ -4180,10 +3646,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																						stringvalidator.LengthAtMost(1024),
 																						validators.IPv4Validator(),
 																					},
-																				},
-																				"exclude": schema.BoolAttribute{
-																					MarkdownDescription: "X-displayName: 'Exclude' If exclude is true, IP addresses are not assigned from this range.",
-																					Optional:            true,
 																				},
 																				"start_ip": schema.StringAttribute{
 																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 0.0.0.5.",
@@ -4206,7 +3668,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 														},
 														"interface_ip_map": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Interface IPv4 Assignments' Specify static IPv4 addresses per node.",
+															MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"interface_ip_map": schema.SingleNestedBlock{
@@ -5399,38 +4861,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 											Blocks: map[string]schema.Block{
 												"iscsi_chap_password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-													Attributes: map[string]schema.Attribute{
-														"secret_encoding_type": schema.StringAttribute{
-															MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-															Optional:            true,
-															Validators: []validator.String{
-																stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-															},
-														},
-													},
+													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-															Attributes: map[string]schema.Attribute{
-																"decryption_provider": schema.StringAttribute{
-																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																	Optional:            true,
-																},
-																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(4, 131072),
-																	},
-																},
-																"store_provider": schema.StringAttribute{
-																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																	Optional:            true,
-																},
-															},
-														},
-														"blindfold_secret_info_internal": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5450,7 +4884,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5461,47 +4895,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 131072),
-																	},
-																},
-															},
-														},
-														"vault_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-															Attributes: map[string]schema.Attribute{
-																"key": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																	Optional:            true,
-																},
-																"location": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																	Optional:            true,
-																},
-																"provider_ref": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																	Optional:            true,
-																},
-																"secret_encoding": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-																"version": schema.Int64Attribute{
-																	MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																	Optional:            true,
-																},
-															},
-														},
-														"wingman_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-															Attributes: map[string]schema.Attribute{
-																"name": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(1, 63),
-																		stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																	},
 																},
 															},
@@ -5510,38 +4903,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 												},
 												"password": schema.SingleNestedBlock{
 													MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-													Attributes: map[string]schema.Attribute{
-														"secret_encoding_type": schema.StringAttribute{
-															MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-															Optional:            true,
-															Validators: []validator.String{
-																stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-															},
-														},
-													},
+													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"blindfold_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-															Attributes: map[string]schema.Attribute{
-																"decryption_provider": schema.StringAttribute{
-																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																	Optional:            true,
-																},
-																"location": schema.StringAttribute{
-																	MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(4, 131072),
-																	},
-																},
-																"store_provider": schema.StringAttribute{
-																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																	Optional:            true,
-																},
-															},
-														},
-														"blindfold_secret_info_internal": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+															MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 															Attributes: map[string]schema.Attribute{
 																"decryption_provider": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5561,7 +4926,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															},
 														},
 														"clear_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+															MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 															Attributes: map[string]schema.Attribute{
 																"provider_ref": schema.StringAttribute{
 																	MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5572,47 +4937,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 131072),
-																	},
-																},
-															},
-														},
-														"vault_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-															Attributes: map[string]schema.Attribute{
-																"key": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																	Optional:            true,
-																},
-																"location": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																	Optional:            true,
-																},
-																"provider_ref": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																	Optional:            true,
-																},
-																"secret_encoding": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-																"version": schema.Int64Attribute{
-																	MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																	Optional:            true,
-																},
-															},
-														},
-														"wingman_secret_info": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-															Attributes: map[string]schema.Attribute{
-																"name": schema.StringAttribute{
-																	MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.LengthBetween(1, 63),
-																		stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																	},
 																},
 															},
@@ -5741,38 +5065,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"client_private_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-															Attributes: map[string]schema.Attribute{
-																"secret_encoding_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-															},
+															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																	Attributes: map[string]schema.Attribute{
-																		"decryption_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(4, 131072),
-																			},
-																		},
-																		"store_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5792,7 +5088,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5803,47 +5099,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(1, 131072),
-																			},
-																		},
-																	},
-																},
-																"vault_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																	Attributes: map[string]schema.Attribute{
-																		"key": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																			Optional:            true,
-																		},
-																		"provider_ref": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																			Optional:            true,
-																		},
-																		"secret_encoding": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																		"version": schema.Int64Attribute{
-																			MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"wingman_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																	Attributes: map[string]schema.Attribute{
-																		"name": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(1, 63),
-																				stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																			},
 																		},
 																	},
@@ -5855,38 +5110,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"password": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-															Attributes: map[string]schema.Attribute{
-																"secret_encoding_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-															},
+															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																	Attributes: map[string]schema.Attribute{
-																		"decryption_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(4, 131072),
-																			},
-																		},
-																		"store_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5906,7 +5133,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5917,47 +5144,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(1, 131072),
-																			},
-																		},
-																	},
-																},
-																"vault_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																	Attributes: map[string]schema.Attribute{
-																		"key": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																			Optional:            true,
-																		},
-																		"provider_ref": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																			Optional:            true,
-																		},
-																		"secret_encoding": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																		"version": schema.Int64Attribute{
-																			MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"wingman_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																	Attributes: map[string]schema.Attribute{
-																		"name": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(1, 63),
-																				stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																			},
 																		},
 																	},
@@ -6217,38 +5403,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"client_private_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-															Attributes: map[string]schema.Attribute{
-																"secret_encoding_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-															},
+															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																	Attributes: map[string]schema.Attribute{
-																		"decryption_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(4, 131072),
-																			},
-																		},
-																		"store_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6268,7 +5426,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6279,47 +5437,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(1, 131072),
-																			},
-																		},
-																	},
-																},
-																"vault_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																	Attributes: map[string]schema.Attribute{
-																		"key": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																			Optional:            true,
-																		},
-																		"provider_ref": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																			Optional:            true,
-																		},
-																		"secret_encoding": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																		"version": schema.Int64Attribute{
-																			MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"wingman_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																	Attributes: map[string]schema.Attribute{
-																		"name": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(1, 63),
-																				stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																			},
 																		},
 																	},
@@ -6334,38 +5451,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 														},
 														"password": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-															Attributes: map[string]schema.Attribute{
-																"secret_encoding_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-															},
+															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																	Attributes: map[string]schema.Attribute{
-																		"decryption_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(4, 131072),
-																			},
-																		},
-																		"store_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6385,7 +5474,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6396,47 +5485,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(1, 131072),
-																			},
-																		},
-																	},
-																},
-																"vault_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																	Attributes: map[string]schema.Attribute{
-																		"key": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																			Optional:            true,
-																		},
-																		"provider_ref": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																			Optional:            true,
-																		},
-																		"secret_encoding": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																		"version": schema.Int64Attribute{
-																			MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"wingman_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																	Attributes: map[string]schema.Attribute{
-																		"name": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(1, 63),
-																				stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																			},
 																		},
 																	},
@@ -6547,38 +5595,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															Blocks: map[string]schema.Block{
 																"chap_initiator_secret": schema.SingleNestedBlock{
 																	MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-																	Attributes: map[string]schema.Attribute{
-																		"secret_encoding_type": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																	},
+																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"blindfold_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																			Attributes: map[string]schema.Attribute{
-																				"decryption_provider": schema.StringAttribute{
-																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																					Optional:            true,
-																				},
-																				"location": schema.StringAttribute{
-																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																					Optional:            true,
-																					Validators: []validator.String{
-																						stringvalidator.LengthBetween(4, 131072),
-																					},
-																				},
-																				"store_provider": schema.StringAttribute{
-																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																					Optional:            true,
-																				},
-																			},
-																		},
-																		"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																			MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																			Attributes: map[string]schema.Attribute{
 																				"decryption_provider": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6598,7 +5618,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			},
 																		},
 																		"clear_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																			MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																			Attributes: map[string]schema.Attribute{
 																				"provider_ref": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6609,47 +5629,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthBetween(1, 131072),
-																					},
-																				},
-																			},
-																		},
-																		"vault_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																			Attributes: map[string]schema.Attribute{
-																				"key": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																					Optional:            true,
-																				},
-																				"location": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																					Optional:            true,
-																				},
-																				"provider_ref": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																					Optional:            true,
-																				},
-																				"secret_encoding": schema.StringAttribute{
-																					MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																					Optional:            true,
-																					Validators: []validator.String{
-																						stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																					},
-																				},
-																				"version": schema.Int64Attribute{
-																					MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																					Optional:            true,
-																				},
-																			},
-																		},
-																		"wingman_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																			Attributes: map[string]schema.Attribute{
-																				"name": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																					Optional:            true,
-																					Validators: []validator.String{
-																						stringvalidator.LengthBetween(1, 63),
-																						stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																					},
 																				},
 																			},
@@ -6658,38 +5637,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																},
 																"chap_target_initiator_secret": schema.SingleNestedBlock{
 																	MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-																	Attributes: map[string]schema.Attribute{
-																		"secret_encoding_type": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																	},
+																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"blindfold_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																			Attributes: map[string]schema.Attribute{
-																				"decryption_provider": schema.StringAttribute{
-																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																					Optional:            true,
-																				},
-																				"location": schema.StringAttribute{
-																					MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																					Optional:            true,
-																					Validators: []validator.String{
-																						stringvalidator.LengthBetween(4, 131072),
-																					},
-																				},
-																				"store_provider": schema.StringAttribute{
-																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																					Optional:            true,
-																				},
-																			},
-																		},
-																		"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																			MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																			Attributes: map[string]schema.Attribute{
 																				"decryption_provider": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6709,7 +5660,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			},
 																		},
 																		"clear_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																			MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																			Attributes: map[string]schema.Attribute{
 																				"provider_ref": schema.StringAttribute{
 																					MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6720,47 +5671,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																					Optional:            true,
 																					Validators: []validator.String{
 																						stringvalidator.LengthBetween(1, 131072),
-																					},
-																				},
-																			},
-																		},
-																		"vault_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																			Attributes: map[string]schema.Attribute{
-																				"key": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																					Optional:            true,
-																				},
-																				"location": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																					Optional:            true,
-																				},
-																				"provider_ref": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																					Optional:            true,
-																				},
-																				"secret_encoding": schema.StringAttribute{
-																					MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																					Optional:            true,
-																					Validators: []validator.String{
-																						stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																					},
-																				},
-																				"version": schema.Int64Attribute{
-																					MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																					Optional:            true,
-																				},
-																			},
-																		},
-																		"wingman_secret_info": schema.SingleNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																			Attributes: map[string]schema.Attribute{
-																				"name": schema.StringAttribute{
-																					MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																					Optional:            true,
-																					Validators: []validator.String{
-																						stringvalidator.LengthBetween(1, 63),
-																						stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																					},
 																				},
 																			},
@@ -6932,38 +5842,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Blocks: map[string]schema.Block{
 																			"api_token": schema.SingleNestedBlock{
 																				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-																				Attributes: map[string]schema.Attribute{
-																					"secret_encoding_type": schema.StringAttribute{
-																						MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																						Optional:            true,
-																						Validators: []validator.String{
-																							stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																						},
-																					},
-																				},
+																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"blindfold_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																						Attributes: map[string]schema.Attribute{
-																							"decryption_provider": schema.StringAttribute{
-																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																								Optional:            true,
-																							},
-																							"location": schema.StringAttribute{
-																								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																								Optional:            true,
-																								Validators: []validator.String{
-																									stringvalidator.LengthBetween(4, 131072),
-																								},
-																							},
-																							"store_provider": schema.StringAttribute{
-																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																								Optional:            true,
-																							},
-																						},
-																					},
-																					"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																						Attributes: map[string]schema.Attribute{
 																							"decryption_provider": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6983,7 +5865,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																						},
 																					},
 																					"clear_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																						Attributes: map[string]schema.Attribute{
 																							"provider_ref": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6994,47 +5876,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(1, 131072),
-																								},
-																							},
-																						},
-																					},
-																					"vault_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																						Attributes: map[string]schema.Attribute{
-																							"key": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																								Optional:            true,
-																							},
-																							"location": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																								Optional:            true,
-																							},
-																							"provider_ref": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																								Optional:            true,
-																							},
-																							"secret_encoding": schema.StringAttribute{
-																								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																								Optional:            true,
-																								Validators: []validator.String{
-																									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																								},
-																							},
-																							"version": schema.Int64Attribute{
-																								MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																								Optional:            true,
-																							},
-																						},
-																					},
-																					"wingman_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																						Attributes: map[string]schema.Attribute{
-																							"name": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																								Optional:            true,
-																								Validators: []validator.String{
-																									stringvalidator.LengthBetween(1, 63),
-																									stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																								},
 																							},
 																						},
@@ -7103,38 +5944,10 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																		Blocks: map[string]schema.Block{
 																			"api_token": schema.SingleNestedBlock{
 																				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-																				Attributes: map[string]schema.Attribute{
-																					"secret_encoding_type": schema.StringAttribute{
-																						MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																						Optional:            true,
-																						Validators: []validator.String{
-																							stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																						},
-																					},
-																				},
+																				Attributes:          map[string]schema.Attribute{},
 																				Blocks: map[string]schema.Block{
 																					"blindfold_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																						Attributes: map[string]schema.Attribute{
-																							"decryption_provider": schema.StringAttribute{
-																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																								Optional:            true,
-																							},
-																							"location": schema.StringAttribute{
-																								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																								Optional:            true,
-																								Validators: []validator.String{
-																									stringvalidator.LengthBetween(4, 131072),
-																								},
-																							},
-																							"store_provider": schema.StringAttribute{
-																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																								Optional:            true,
-																							},
-																						},
-																					},
-																					"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																						Attributes: map[string]schema.Attribute{
 																							"decryption_provider": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -7154,7 +5967,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																						},
 																					},
 																					"clear_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																						Attributes: map[string]schema.Attribute{
 																							"provider_ref": schema.StringAttribute{
 																								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -7165,47 +5978,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																								Optional:            true,
 																								Validators: []validator.String{
 																									stringvalidator.LengthBetween(1, 131072),
-																								},
-																							},
-																						},
-																					},
-																					"vault_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																						Attributes: map[string]schema.Attribute{
-																							"key": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																								Optional:            true,
-																							},
-																							"location": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																								Optional:            true,
-																							},
-																							"provider_ref": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																								Optional:            true,
-																							},
-																							"secret_encoding": schema.StringAttribute{
-																								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																								Optional:            true,
-																								Validators: []validator.String{
-																									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																								},
-																							},
-																							"version": schema.Int64Attribute{
-																								MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																								Optional:            true,
-																							},
-																						},
-																					},
-																					"wingman_secret_info": schema.SingleNestedBlock{
-																						MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																						Attributes: map[string]schema.Attribute{
-																							"name": schema.StringAttribute{
-																								MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																								Optional:            true,
-																								Validators: []validator.String{
-																									stringvalidator.LengthBetween(1, 63),
-																									stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																								},
 																							},
 																						},
@@ -7344,36 +6116,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	"last_address": schema.SingleNestedBlock{
 																		MarkdownDescription: "Enable this option",
 																	},
-																	"network_prefix_allocator": schema.SingleNestedBlock{
-																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-																		Attributes: map[string]schema.Attribute{
-																			"name": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-																				Optional:            true,
-																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 128),
-																				},
-																			},
-																			"namespace": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-																				Optional:            true,
-																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
-																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 63),
-																				},
-																			},
-																			"tenant": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Computed:            true,
-																				Validators: []validator.String{
-																					stringvalidator.LengthAtMost(64),
-																				},
-																			},
-																		},
-																	},
 																	"pools": schema.ListNestedBlock{
 																		MarkdownDescription: "List of non overlapping IP address ranges.",
 																		NestedObject: schema.NestedBlockObject{
@@ -7385,10 +6127,6 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																						stringvalidator.LengthAtMost(1024),
 																						validators.IPv4Validator(),
 																					},
-																				},
-																				"exclude": schema.BoolAttribute{
-																					MarkdownDescription: "X-displayName: 'Exclude' If exclude is true, IP addresses are not assigned from this range.",
-																					Optional:            true,
 																				},
 																				"start_ip": schema.StringAttribute{
 																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 0.0.0.5.",
@@ -7411,7 +6149,7 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 														},
 														"interface_ip_map": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Interface IPv4 Assignments' Specify static IPv4 addresses per node.",
+															MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"interface_ip_map": schema.SingleNestedBlock{
@@ -7811,21 +6549,21 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Specify Number of missed packets to bring session down' .",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 255),
+														int64validator.Between(2, 255),
 													},
 												},
 												"receive_interval_milliseconds": schema.Int64Attribute{
 													MarkdownDescription: "BFD receive interval timer, in milliseconds .",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 255000),
+														int64validator.Between(300, 60000),
 													},
 												},
 												"transmit_interval_milliseconds": schema.Int64Attribute{
 													MarkdownDescription: "BFD transmit interval timer, in milliseconds .",
 													Optional:            true,
 													Validators: []validator.Int64{
-														int64validator.Between(1, 255000),
+														int64validator.Between(300, 60000),
 													},
 												},
 											},
@@ -7923,7 +6661,34 @@ func (r *VoltstackSiteResource) Schema(ctx context.Context, req resource.SchemaR
 															MarkdownDescription: "Enable this option",
 														},
 														"enable": schema.SingleNestedBlock{
-															MarkdownDescription: "Enable this option",
+															MarkdownDescription: "Unicast IPv4. IPv4 Unicast.",
+															Attributes:          map[string]schema.Attribute{},
+															Blocks: map[string]schema.Block{
+																"aggregation": schema.ListNestedBlock{
+																	MarkdownDescription: "BGP aggregation prefixes are shared among all peers, aggregation configured under any peer will take effect on all peers. Aggregation in BGP occurs only when more specific routes exist in the routing table and applies to outbound advertisements.",
+																	NestedObject: schema.NestedBlockObject{
+																		Attributes: map[string]schema.Attribute{
+																			"ip_prefix": schema.StringAttribute{
+																				MarkdownDescription: "IP Prefix. Specify IPv4 subnet for aggregation.",
+																				Optional:            true,
+																			},
+																		},
+																		Blocks: map[string]schema.Block{
+																			"options": schema.ListNestedBlock{
+																				MarkdownDescription: "Aggregation OPTIONS. Configuration parameter for options",
+																				NestedObject: schema.NestedBlockObject{
+																					Attributes: map[string]schema.Attribute{},
+																					Blocks: map[string]schema.Block{
+																						"summary_only": schema.SingleNestedBlock{
+																							MarkdownDescription: "Configuration parameter for summary only.",
+																						},
+																					},
+																				},
+																			},
+																		},
+																	},
+																},
+															},
 														},
 													},
 												},
@@ -8410,7 +7175,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -8735,19 +7500,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
 												DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 											}
-											if DHCPNetworksItem.NetworkPrefixAllocator != nil {
-												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["name"] = DHCPNetworksItem.NetworkPrefixAllocator.Name.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["namespace"] = DHCPNetworksItem.NetworkPrefixAllocator.Namespace.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["tenant"] = DHCPNetworksItem.NetworkPrefixAllocator.Tenant.ValueString()
-												}
-												DHCPNetworksItemMap["network_prefix_allocator"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap
-											}
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
@@ -8761,9 +7513,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 														PoolsItemMap := make(map[string]interface{})
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
 														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
@@ -9705,19 +8454,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap
-								}
 								if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoMap := make(map[string]interface{})
 									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -9727,35 +8463,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoMap
-								}
-								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.SecretEncodingType.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.SecretEncodingType.IsUnknown() {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["secret_encoding_type"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.SecretEncodingType.ValueString()
-								}
-								if StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Key.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["key"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Key.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Provider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Provider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.SecretEncoding.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["version"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.ValueInt64()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap
-								}
-								if StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo.Name.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo.Name.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoMap
 								}
 								CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageMap["iscsi_chap_password"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap
 							}
@@ -9777,19 +8484,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap
-								}
 								if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoMap := make(map[string]interface{})
 									if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -9799,35 +8493,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoMap
-								}
-								if !StorageDevicesItem.HpeStorage.Password.SecretEncodingType.IsNull() && !StorageDevicesItem.HpeStorage.Password.SecretEncodingType.IsUnknown() {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["secret_encoding_type"] = StorageDevicesItem.HpeStorage.Password.SecretEncodingType.ValueString()
-								}
-								if StorageDevicesItem.HpeStorage.Password.VaultSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Key.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["key"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Key.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Provider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Provider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.SecretEncoding.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["version"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Version.ValueInt64()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap
-								}
-								if StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo.Name.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo.Name.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoMap
 								}
 								CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageMap["password"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap
 							}
@@ -9881,19 +8546,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -9903,35 +8555,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["client_private_key"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap
 								}
@@ -9974,19 +8597,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -9996,35 +8606,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["password"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap
 								}
@@ -10173,19 +8754,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -10195,35 +8763,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["client_private_key"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap
 								}
@@ -10269,19 +8808,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -10291,35 +8817,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["password"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap
 								}
@@ -10417,19 +8914,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoMap
 										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap
-										}
 										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoMap := make(map[string]interface{})
 											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
@@ -10439,35 +8923,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoMap
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.SecretEncodingType.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.SecretEncodingType.ValueString()
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Key.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Key.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Provider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Provider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.SecretEncoding.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.SecretEncoding.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.ValueInt64()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo.Name.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo.Name.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoMap
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapMap["chap_initiator_secret"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap
 									}
@@ -10486,19 +8941,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoMap
 										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap
-										}
 										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoMap := make(map[string]interface{})
 											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
@@ -10508,35 +8950,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoMap
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.SecretEncodingType.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.SecretEncodingType.ValueString()
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Key.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Key.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Provider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Provider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.SecretEncoding.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.SecretEncoding.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.ValueInt64()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo.Name.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo.Name.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoMap
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapMap["chap_target_initiator_secret"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap
 									}
@@ -10643,19 +9056,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoMap
 													}
-													if FlashArraysItem.APIToken.BlindfoldSecretInfoInternal != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-														if !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-														}
-														if !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.Location.ValueString()
-														}
-														if !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap
-													}
 													if FlashArraysItem.APIToken.ClearSecretInfo != nil {
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoMap := make(map[string]interface{})
 														if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
@@ -10665,35 +9065,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoMap
-													}
-													if !FlashArraysItem.APIToken.SecretEncodingType.IsNull() && !FlashArraysItem.APIToken.SecretEncodingType.IsUnknown() {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["secret_encoding_type"] = FlashArraysItem.APIToken.SecretEncodingType.ValueString()
-													}
-													if FlashArraysItem.APIToken.VaultSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap := make(map[string]interface{})
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Key.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Key.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["key"] = FlashArraysItem.APIToken.VaultSecretInfo.Key.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["location"] = FlashArraysItem.APIToken.VaultSecretInfo.Location.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Provider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["provider"] = FlashArraysItem.APIToken.VaultSecretInfo.Provider.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.SecretEncoding.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.SecretEncoding.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["secret_encoding"] = FlashArraysItem.APIToken.VaultSecretInfo.SecretEncoding.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Version.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Version.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["version"] = FlashArraysItem.APIToken.VaultSecretInfo.Version.ValueInt64()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap
-													}
-													if FlashArraysItem.APIToken.WingmanSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoMap := make(map[string]interface{})
-														if !FlashArraysItem.APIToken.WingmanSecretInfo.Name.IsNull() && !FlashArraysItem.APIToken.WingmanSecretInfo.Name.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoMap["name"] = FlashArraysItem.APIToken.WingmanSecretInfo.Name.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoMap
 													}
 													FlashArraysItemMap["api_token"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap
 												}
@@ -10750,19 +9121,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoMap
 													}
-													if FlashBladesItem.APIToken.BlindfoldSecretInfoInternal != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-														if !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-														}
-														if !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.Location.ValueString()
-														}
-														if !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap
-													}
 													if FlashBladesItem.APIToken.ClearSecretInfo != nil {
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoMap := make(map[string]interface{})
 														if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
@@ -10772,35 +9130,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoMap
-													}
-													if !FlashBladesItem.APIToken.SecretEncodingType.IsNull() && !FlashBladesItem.APIToken.SecretEncodingType.IsUnknown() {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["secret_encoding_type"] = FlashBladesItem.APIToken.SecretEncodingType.ValueString()
-													}
-													if FlashBladesItem.APIToken.VaultSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap := make(map[string]interface{})
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Key.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Key.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["key"] = FlashBladesItem.APIToken.VaultSecretInfo.Key.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["location"] = FlashBladesItem.APIToken.VaultSecretInfo.Location.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Provider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["provider"] = FlashBladesItem.APIToken.VaultSecretInfo.Provider.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.SecretEncoding.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.SecretEncoding.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["secret_encoding"] = FlashBladesItem.APIToken.VaultSecretInfo.SecretEncoding.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Version.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Version.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["version"] = FlashBladesItem.APIToken.VaultSecretInfo.Version.ValueInt64()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap
-													}
-													if FlashBladesItem.APIToken.WingmanSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoMap := make(map[string]interface{})
-														if !FlashBladesItem.APIToken.WingmanSecretInfo.Name.IsNull() && !FlashBladesItem.APIToken.WingmanSecretInfo.Name.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoMap["name"] = FlashBladesItem.APIToken.WingmanSecretInfo.Name.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoMap
 													}
 													FlashBladesItemMap["api_token"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap
 												}
@@ -10907,19 +9236,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 											if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
 												DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 											}
-											if DHCPNetworksItem.NetworkPrefixAllocator != nil {
-												CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsUnknown() {
-													CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["name"] = DHCPNetworksItem.NetworkPrefixAllocator.Name.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsUnknown() {
-													CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["namespace"] = DHCPNetworksItem.NetworkPrefixAllocator.Namespace.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsUnknown() {
-													CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["tenant"] = DHCPNetworksItem.NetworkPrefixAllocator.Tenant.ValueString()
-												}
-												DHCPNetworksItemMap["network_prefix_allocator"] = CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap
-											}
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
@@ -10933,9 +9249,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 														PoolsItemMap := make(map[string]interface{})
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
 														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
@@ -11299,7 +9612,40 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 									LocalControlPlaneBGPConfigPeersExternalFamilyInetMap["disable"] = map[string]interface{}{}
 								}
 								if PeersItem.External.FamilyInet.Enable != nil {
-									LocalControlPlaneBGPConfigPeersExternalFamilyInetMap["enable"] = map[string]interface{}{}
+									LocalControlPlaneBGPConfigPeersExternalFamilyInetEnableMap := make(map[string]interface{})
+									if !PeersItem.External.FamilyInet.Enable.Aggregation.IsNull() && !PeersItem.External.FamilyInet.Enable.Aggregation.IsUnknown() {
+										var AggregationElems []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+										diags := PeersItem.External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(AggregationElems) > 0 {
+											var AggregationList []map[string]interface{}
+											for _, AggregationItem := range AggregationElems {
+												AggregationItemMap := make(map[string]interface{})
+												if !AggregationItem.IPPrefix.IsNull() && !AggregationItem.IPPrefix.IsUnknown() {
+													AggregationItemMap["ip_prefix"] = AggregationItem.IPPrefix.ValueString()
+												}
+												if !AggregationItem.Options.IsNull() && !AggregationItem.Options.IsUnknown() {
+													var OptionsElems []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+													diags := AggregationItem.Options.ElementsAs(ctx, &OptionsElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(OptionsElems) > 0 {
+														var OptionsList []map[string]interface{}
+														for _, OptionsItem := range OptionsElems {
+															OptionsItemMap := make(map[string]interface{})
+															if OptionsItem.SummaryOnly != nil {
+																OptionsItemMap["summary_only"] = map[string]interface{}{}
+															}
+															OptionsList = append(OptionsList, OptionsItemMap)
+														}
+														AggregationItemMap["options"] = OptionsList
+													}
+												}
+												AggregationList = append(AggregationList, AggregationItemMap)
+											}
+											LocalControlPlaneBGPConfigPeersExternalFamilyInetEnableMap["aggregation"] = AggregationList
+										}
+									}
+									LocalControlPlaneBGPConfigPeersExternalFamilyInetMap["enable"] = LocalControlPlaneBGPConfigPeersExternalFamilyInetEnableMap
 								}
 								LocalControlPlaneBGPConfigPeersExternalMap["family_inet"] = LocalControlPlaneBGPConfigPeersExternalFamilyInetMap
 							}
@@ -11640,7 +9986,7 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []VoltstackSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -12281,6 +10627,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														DHCPServer: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer
+															}
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
@@ -12351,31 +10700,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -12401,12 +10725,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -14401,34 +12719,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := IscsiChapPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
 																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
@@ -14443,71 +12733,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := IscsiChapPasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := IscsiChapPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
-																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := IscsiChapPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -14560,34 +12785,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
 																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
 																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
@@ -14602,71 +12799,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
-																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -14788,34 +12920,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
@@ -14830,71 +12934,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := ClientPrivateKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -14992,34 +13031,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
@@ -15034,71 +13045,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -15437,34 +13383,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
@@ -15479,71 +13397,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := ClientPrivateKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -15656,34 +13509,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
@@ -15698,71 +13523,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -15982,34 +13742,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								}
 																								return nil
 																							}(),
-																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal
-																								}
-																								if BlindfoldSecretInfoInternalData, ok := ChapInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel{
-																										DecryptionProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										StoreProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
 																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
 																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
@@ -16024,71 +13756,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										}(),
 																										URL: func() types.String {
 																											if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							SecretEncodingType: func() types.String {
-																								if v, ok := ChapInitiatorSecretData["secret_encoding_type"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo
-																								}
-																								if VaultSecretInfoData, ok := ChapInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel{
-																										Key: func() types.String {
-																											if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Provider: func() types.String {
-																											if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										SecretEncoding: func() types.String {
-																											if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Version: func() types.Int64 {
-																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version
-																											}
-																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																												return types.Int64Value(int64(v))
-																											}
-																											return types.Int64Null()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo
-																								}
-																								if WingmanSecretInfoData, ok := ChapInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel{
-																										Name: func() types.String {
-																											if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																												return types.StringValue(v)
 																											}
 																											return types.StringNull()
@@ -16135,34 +13802,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																								}
 																								return nil
 																							}(),
-																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal
-																								}
-																								if BlindfoldSecretInfoInternalData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel{
-																										DecryptionProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										StoreProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
 																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
 																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
@@ -16177,71 +13816,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																										}(),
 																										URL: func() types.String {
 																											if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							SecretEncodingType: func() types.String {
-																								if v, ok := ChapTargetInitiatorSecretData["secret_encoding_type"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo
-																								}
-																								if VaultSecretInfoData, ok := ChapTargetInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel{
-																										Key: func() types.String {
-																											if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Provider: func() types.String {
-																											if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										SecretEncoding: func() types.String {
-																											if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Version: func() types.Int64 {
-																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version
-																											}
-																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																												return types.Int64Value(int64(v))
-																											}
-																											return types.Int64Null()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo
-																								}
-																								if WingmanSecretInfoData, ok := ChapTargetInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel{
-																										Name: func() types.String {
-																											if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																												return types.StringValue(v)
 																											}
 																											return types.StringNull()
@@ -16481,34 +14055,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													}
 																													return nil
 																												}(),
-																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal
-																													}
-																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel{
-																															DecryptionProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															StoreProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
 																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
 																														return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
@@ -16523,71 +14069,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																															}(),
 																															URL: func() types.String {
 																																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												SecretEncodingType: func() types.String {
-																													if v, ok := APITokenData["secret_encoding_type"].(string); ok && v != "" {
-																														return types.StringValue(v)
-																													}
-																													return types.StringNull()
-																												}(),
-																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo
-																													}
-																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel{
-																															Key: func() types.String {
-																																if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Provider: func() types.String {
-																																if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															SecretEncoding: func() types.String {
-																																if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Version: func() types.Int64 {
-																																if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil && !FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
-																																	return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version
-																																}
-																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																																	return types.Int64Value(int64(v))
-																																}
-																																return types.Int64Null()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo
-																													}
-																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel{
-																															Name: func() types.String {
-																																if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																																	return types.StringValue(v)
 																																}
 																																return types.StringNull()
@@ -16714,34 +14195,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													}
 																													return nil
 																												}(),
-																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal
-																													}
-																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel{
-																															DecryptionProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															StoreProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
 																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
 																														return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
@@ -16756,71 +14209,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																															}(),
 																															URL: func() types.String {
 																																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												SecretEncodingType: func() types.String {
-																													if v, ok := APITokenData["secret_encoding_type"].(string); ok && v != "" {
-																														return types.StringValue(v)
-																													}
-																													return types.StringNull()
-																												}(),
-																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo
-																													}
-																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel{
-																															Key: func() types.String {
-																																if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Provider: func() types.String {
-																																if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															SecretEncoding: func() types.String {
-																																if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Version: func() types.Int64 {
-																																if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil && !FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
-																																	return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version
-																																}
-																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																																	return types.Int64Value(int64(v))
-																																}
-																																return types.Int64Null()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo
-																													}
-																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel{
-																															Name: func() types.String {
-																																if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																																	return types.StringValue(v)
 																																}
 																																return types.StringNull()
@@ -16929,6 +14317,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 				return nil
 			}(),
 			StorageInterfaceList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListModel {
+				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil {
+					return data.CustomStorageConfig.StorageInterfaceList
+				}
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
@@ -16988,6 +14379,9 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 															return nil
 														}(),
 														DHCPServer: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer
+															}
 															if DHCPServerData, ok := StorageInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
@@ -17058,31 +14452,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -17108,12 +14477,6 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -17935,12 +15298,72 @@ func (r *VoltstackSiteResource) Create(ctx context.Context, req resource.CreateR
 																		}
 																		return nil
 																	}(),
-																	Enable: func() *VoltstackSiteEmptyModel {
-																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																	Enable: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil {
 																			return PeersExisting[PeersIdx].External.FamilyInet.Enable
 																		}
-																		if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
-																			return &VoltstackSiteEmptyModel{}
+																		if EnableData, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
+																			return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel{
+																				Aggregation: func() types.List {
+																					if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil && (PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsNull() || len(PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+																					}
+																					var AggregationExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+																					if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil && !PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsNull() && !PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsUnknown() {
+																						PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationExisting, false)
+																					}
+																					if rawList, ok := EnableData["aggregation"].([]interface{}); ok && len(rawList) > 0 {
+																						var AggregationResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+																						for AggregationIdx, AggregationItem := range rawList {
+																							_ = AggregationIdx
+																							if AggregationItemMap, ok := AggregationItem.(map[string]interface{}); ok {
+																								AggregationResult = append(AggregationResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel{
+																									IPPrefix: func() types.String {
+																										if v, ok := AggregationItemMap["ip_prefix"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Options: func() types.List {
+																										if !isImport && len(AggregationExisting) > AggregationIdx && (AggregationExisting[AggregationIdx].Options.IsNull() || len(AggregationExisting[AggregationIdx].Options.Elements()) == 0) {
+																											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																										}
+																										var OptionsExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+																										if !isImport && len(AggregationExisting) > AggregationIdx && !AggregationExisting[AggregationIdx].Options.IsNull() && !AggregationExisting[AggregationIdx].Options.IsUnknown() {
+																											AggregationExisting[AggregationIdx].Options.ElementsAs(ctx, &OptionsExisting, false)
+																										}
+																										if rawList, ok := AggregationItemMap["options"].([]interface{}); ok && len(rawList) > 0 {
+																											var OptionsResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+																											for OptionsIdx, OptionsItem := range rawList {
+																												_ = OptionsIdx
+																												if OptionsItemMap, ok := OptionsItem.(map[string]interface{}); ok {
+																													OptionsResult = append(OptionsResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel{
+																														SummaryOnly: func() *VoltstackSiteEmptyModel {
+																															if !isImport && len(OptionsExisting) > OptionsIdx {
+																																return OptionsExisting[OptionsIdx].SummaryOnly
+																															}
+																															if _, ok := OptionsItemMap["summary_only"].(map[string]interface{}); ok {
+																																return &VoltstackSiteEmptyModel{}
+																															}
+																															return nil
+																														}(),
+																													})
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}, OptionsResult)
+																											return listVal
+																										}
+																										return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																									}(),
+																								})
+																							}
+																						}
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes}, AggregationResult)
+																						return listVal
+																					}
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+																				}(),
+																			}
 																		}
 																		return nil
 																	}(),
@@ -18649,7 +16072,7 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []VoltstackSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -19290,6 +16713,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														DHCPServer: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer
+															}
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
@@ -19360,31 +16786,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -19410,12 +16811,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -21410,34 +18805,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := IscsiChapPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
 																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
@@ -21452,71 +18819,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := IscsiChapPasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := IscsiChapPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
-																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := IscsiChapPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -21569,34 +18871,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
 																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
 																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
@@ -21611,71 +18885,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
-																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -21797,34 +19006,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
@@ -21839,71 +19020,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := ClientPrivateKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -22001,34 +19117,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
@@ -22043,71 +19131,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -22446,34 +19469,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
@@ -22488,71 +19483,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := ClientPrivateKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -22665,34 +19595,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
@@ -22707,71 +19609,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -22991,34 +19828,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								}
 																								return nil
 																							}(),
-																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal
-																								}
-																								if BlindfoldSecretInfoInternalData, ok := ChapInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel{
-																										DecryptionProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										StoreProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
 																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
 																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
@@ -23033,71 +19842,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										}(),
 																										URL: func() types.String {
 																											if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							SecretEncodingType: func() types.String {
-																								if v, ok := ChapInitiatorSecretData["secret_encoding_type"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo
-																								}
-																								if VaultSecretInfoData, ok := ChapInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel{
-																										Key: func() types.String {
-																											if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Provider: func() types.String {
-																											if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										SecretEncoding: func() types.String {
-																											if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Version: func() types.Int64 {
-																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version
-																											}
-																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																												return types.Int64Value(int64(v))
-																											}
-																											return types.Int64Null()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo
-																								}
-																								if WingmanSecretInfoData, ok := ChapInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel{
-																										Name: func() types.String {
-																											if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																												return types.StringValue(v)
 																											}
 																											return types.StringNull()
@@ -23144,34 +19888,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																								}
 																								return nil
 																							}(),
-																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal
-																								}
-																								if BlindfoldSecretInfoInternalData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel{
-																										DecryptionProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										StoreProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
 																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
 																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
@@ -23186,71 +19902,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																										}(),
 																										URL: func() types.String {
 																											if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							SecretEncodingType: func() types.String {
-																								if v, ok := ChapTargetInitiatorSecretData["secret_encoding_type"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo
-																								}
-																								if VaultSecretInfoData, ok := ChapTargetInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel{
-																										Key: func() types.String {
-																											if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Provider: func() types.String {
-																											if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										SecretEncoding: func() types.String {
-																											if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Version: func() types.Int64 {
-																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version
-																											}
-																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																												return types.Int64Value(int64(v))
-																											}
-																											return types.Int64Null()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo
-																								}
-																								if WingmanSecretInfoData, ok := ChapTargetInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel{
-																										Name: func() types.String {
-																											if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																												return types.StringValue(v)
 																											}
 																											return types.StringNull()
@@ -23490,34 +20141,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													}
 																													return nil
 																												}(),
-																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal
-																													}
-																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel{
-																															DecryptionProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															StoreProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
 																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
 																														return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
@@ -23532,71 +20155,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																															}(),
 																															URL: func() types.String {
 																																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												SecretEncodingType: func() types.String {
-																													if v, ok := APITokenData["secret_encoding_type"].(string); ok && v != "" {
-																														return types.StringValue(v)
-																													}
-																													return types.StringNull()
-																												}(),
-																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo
-																													}
-																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel{
-																															Key: func() types.String {
-																																if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Provider: func() types.String {
-																																if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															SecretEncoding: func() types.String {
-																																if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Version: func() types.Int64 {
-																																if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil && !FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
-																																	return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version
-																																}
-																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																																	return types.Int64Value(int64(v))
-																																}
-																																return types.Int64Null()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo
-																													}
-																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel{
-																															Name: func() types.String {
-																																if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																																	return types.StringValue(v)
 																																}
 																																return types.StringNull()
@@ -23723,34 +20281,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													}
 																													return nil
 																												}(),
-																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal
-																													}
-																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel{
-																															DecryptionProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															StoreProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
 																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
 																														return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
@@ -23765,71 +20295,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																															}(),
 																															URL: func() types.String {
 																																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												SecretEncodingType: func() types.String {
-																													if v, ok := APITokenData["secret_encoding_type"].(string); ok && v != "" {
-																														return types.StringValue(v)
-																													}
-																													return types.StringNull()
-																												}(),
-																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo
-																													}
-																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel{
-																															Key: func() types.String {
-																																if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Provider: func() types.String {
-																																if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															SecretEncoding: func() types.String {
-																																if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Version: func() types.Int64 {
-																																if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil && !FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
-																																	return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version
-																																}
-																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																																	return types.Int64Value(int64(v))
-																																}
-																																return types.Int64Null()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo
-																													}
-																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel{
-																															Name: func() types.String {
-																																if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																																	return types.StringValue(v)
 																																}
 																																return types.StringNull()
@@ -23938,6 +20403,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 				return nil
 			}(),
 			StorageInterfaceList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListModel {
+				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil {
+					return data.CustomStorageConfig.StorageInterfaceList
+				}
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
@@ -23997,6 +20465,9 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 															return nil
 														}(),
 														DHCPServer: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer
+															}
 															if DHCPServerData, ok := StorageInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
@@ -24067,31 +20538,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -24117,12 +20563,6 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -24944,12 +21384,72 @@ func (r *VoltstackSiteResource) Read(ctx context.Context, req resource.ReadReque
 																		}
 																		return nil
 																	}(),
-																	Enable: func() *VoltstackSiteEmptyModel {
-																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																	Enable: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil {
 																			return PeersExisting[PeersIdx].External.FamilyInet.Enable
 																		}
-																		if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
-																			return &VoltstackSiteEmptyModel{}
+																		if EnableData, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
+																			return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel{
+																				Aggregation: func() types.List {
+																					if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil && (PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsNull() || len(PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+																					}
+																					var AggregationExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+																					if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil && !PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsNull() && !PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsUnknown() {
+																						PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationExisting, false)
+																					}
+																					if rawList, ok := EnableData["aggregation"].([]interface{}); ok && len(rawList) > 0 {
+																						var AggregationResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+																						for AggregationIdx, AggregationItem := range rawList {
+																							_ = AggregationIdx
+																							if AggregationItemMap, ok := AggregationItem.(map[string]interface{}); ok {
+																								AggregationResult = append(AggregationResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel{
+																									IPPrefix: func() types.String {
+																										if v, ok := AggregationItemMap["ip_prefix"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Options: func() types.List {
+																										if !isImport && len(AggregationExisting) > AggregationIdx && (AggregationExisting[AggregationIdx].Options.IsNull() || len(AggregationExisting[AggregationIdx].Options.Elements()) == 0) {
+																											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																										}
+																										var OptionsExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+																										if !isImport && len(AggregationExisting) > AggregationIdx && !AggregationExisting[AggregationIdx].Options.IsNull() && !AggregationExisting[AggregationIdx].Options.IsUnknown() {
+																											AggregationExisting[AggregationIdx].Options.ElementsAs(ctx, &OptionsExisting, false)
+																										}
+																										if rawList, ok := AggregationItemMap["options"].([]interface{}); ok && len(rawList) > 0 {
+																											var OptionsResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+																											for OptionsIdx, OptionsItem := range rawList {
+																												_ = OptionsIdx
+																												if OptionsItemMap, ok := OptionsItem.(map[string]interface{}); ok {
+																													OptionsResult = append(OptionsResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel{
+																														SummaryOnly: func() *VoltstackSiteEmptyModel {
+																															if !isImport && len(OptionsExisting) > OptionsIdx {
+																																return OptionsExisting[OptionsIdx].SummaryOnly
+																															}
+																															if _, ok := OptionsItemMap["summary_only"].(map[string]interface{}); ok {
+																																return &VoltstackSiteEmptyModel{}
+																															}
+																															return nil
+																														}(),
+																													})
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}, OptionsResult)
+																											return listVal
+																										}
+																										return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																									}(),
+																								})
+																							}
+																						}
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes}, AggregationResult)
+																						return listVal
+																					}
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+																				}(),
+																			}
 																		}
 																		return nil
 																	}(),
@@ -25602,7 +22102,7 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -25927,19 +22427,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
 												DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 											}
-											if DHCPNetworksItem.NetworkPrefixAllocator != nil {
-												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["name"] = DHCPNetworksItem.NetworkPrefixAllocator.Name.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["namespace"] = DHCPNetworksItem.NetworkPrefixAllocator.Namespace.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["tenant"] = DHCPNetworksItem.NetworkPrefixAllocator.Tenant.ValueString()
-												}
-												DHCPNetworksItemMap["network_prefix_allocator"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap
-											}
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
@@ -25953,9 +22440,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 														PoolsItemMap := make(map[string]interface{})
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
 														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
@@ -26897,19 +23381,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalMap
-								}
 								if StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoMap := make(map[string]interface{})
 									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -26919,35 +23390,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.ClearSecretInfo.URL.ValueString()
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoMap
-								}
-								if !StorageDevicesItem.HpeStorage.IscsiChapPassword.SecretEncodingType.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.SecretEncodingType.IsUnknown() {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["secret_encoding_type"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.SecretEncodingType.ValueString()
-								}
-								if StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Key.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["key"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Key.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Provider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Provider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.SecretEncoding.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap["version"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.ValueInt64()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoMap
-								}
-								if StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo.Name.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.HpeStorage.IscsiChapPassword.WingmanSecretInfo.Name.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoMap
 								}
 								CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageMap["iscsi_chap_password"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordMap
 							}
@@ -26969,19 +23411,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoMap
 								}
-								if StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.HpeStorage.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalMap
-								}
 								if StorageDevicesItem.HpeStorage.Password.ClearSecretInfo != nil {
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoMap := make(map[string]interface{})
 									if !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -26991,35 +23420,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoMap["url"] = StorageDevicesItem.HpeStorage.Password.ClearSecretInfo.URL.ValueString()
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoMap
-								}
-								if !StorageDevicesItem.HpeStorage.Password.SecretEncodingType.IsNull() && !StorageDevicesItem.HpeStorage.Password.SecretEncodingType.IsUnknown() {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["secret_encoding_type"] = StorageDevicesItem.HpeStorage.Password.SecretEncodingType.ValueString()
-								}
-								if StorageDevicesItem.HpeStorage.Password.VaultSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Key.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["key"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Key.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Location.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["location"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Location.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Provider.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Provider.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.SecretEncoding.ValueString()
-									}
-									if !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap["version"] = StorageDevicesItem.HpeStorage.Password.VaultSecretInfo.Version.ValueInt64()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoMap
-								}
-								if StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo != nil {
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoMap := make(map[string]interface{})
-									if !StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo.Name.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.HpeStorage.Password.WingmanSecretInfo.Name.ValueString()
-									}
-									CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoMap
 								}
 								CustomStorageConfigStorageDeviceListStorageDevicesHpeStorageMap["password"] = CustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordMap
 							}
@@ -27073,19 +23473,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -27095,35 +23482,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["client_private_key"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyMap
 								}
@@ -27166,19 +23524,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -27188,35 +23533,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasMap["password"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordMap
 								}
@@ -27365,19 +23681,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -27387,35 +23690,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["client_private_key"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyMap
 								}
@@ -27461,19 +23735,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoMap
 									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalMap
-									}
 									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoMap := make(map[string]interface{})
 										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -27483,35 +23744,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo.URL.ValueString()
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoMap
-									}
-									if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.SecretEncodingType.IsUnknown() {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.SecretEncodingType.ValueString()
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Key.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Key.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Location.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Location.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Provider.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Provider.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.ValueInt64()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoMap
-									}
-									if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoMap := make(map[string]interface{})
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo.Name.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo.Name.ValueString()
-										}
-										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoMap
 									}
 									CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanMap["password"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordMap
 								}
@@ -27609,19 +23841,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoMap
 										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalMap
-										}
 										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoMap := make(map[string]interface{})
 											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
@@ -27631,35 +23850,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo.URL.ValueString()
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoMap
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.SecretEncodingType.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.SecretEncodingType.ValueString()
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Key.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Key.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Provider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Provider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.SecretEncoding.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.SecretEncoding.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.ValueInt64()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoMap
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo.Name.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo.Name.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoMap
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapMap["chap_initiator_secret"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretMap
 									}
@@ -27678,19 +23868,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoMap
 										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap["decryption_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap["store_provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalMap
-										}
 										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoMap := make(map[string]interface{})
 											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.Provider.IsUnknown() {
@@ -27700,35 +23877,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoMap["url"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo.URL.ValueString()
 											}
 											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoMap
-										}
-										if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.SecretEncodingType.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.SecretEncodingType.IsUnknown() {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["secret_encoding_type"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.SecretEncodingType.ValueString()
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Key.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Key.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["key"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Key.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Location.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Location.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["location"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Location.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Provider.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Provider.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["provider"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Provider.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.SecretEncoding.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.SecretEncoding.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["secret_encoding"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.SecretEncoding.ValueString()
-											}
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap["version"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.ValueInt64()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoMap
-										}
-										if StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoMap := make(map[string]interface{})
-											if !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo.Name.IsNull() && !StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo.Name.IsUnknown() {
-												CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoMap["name"] = StorageDevicesItem.NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo.Name.ValueString()
-											}
-											CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoMap
 										}
 										CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapMap["chap_target_initiator_secret"] = CustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretMap
 									}
@@ -27835,19 +23983,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoMap
 													}
-													if FlashArraysItem.APIToken.BlindfoldSecretInfoInternal != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-														if !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap["decryption_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-														}
-														if !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.Location.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap["location"] = FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.Location.ValueString()
-														}
-														if !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap["store_provider"] = FlashArraysItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalMap
-													}
 													if FlashArraysItem.APIToken.ClearSecretInfo != nil {
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoMap := make(map[string]interface{})
 														if !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
@@ -27857,35 +23992,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoMap["url"] = FlashArraysItem.APIToken.ClearSecretInfo.URL.ValueString()
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoMap
-													}
-													if !FlashArraysItem.APIToken.SecretEncodingType.IsNull() && !FlashArraysItem.APIToken.SecretEncodingType.IsUnknown() {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["secret_encoding_type"] = FlashArraysItem.APIToken.SecretEncodingType.ValueString()
-													}
-													if FlashArraysItem.APIToken.VaultSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap := make(map[string]interface{})
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Key.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Key.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["key"] = FlashArraysItem.APIToken.VaultSecretInfo.Key.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Location.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["location"] = FlashArraysItem.APIToken.VaultSecretInfo.Location.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Provider.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Provider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["provider"] = FlashArraysItem.APIToken.VaultSecretInfo.Provider.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.SecretEncoding.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.SecretEncoding.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["secret_encoding"] = FlashArraysItem.APIToken.VaultSecretInfo.SecretEncoding.ValueString()
-														}
-														if !FlashArraysItem.APIToken.VaultSecretInfo.Version.IsNull() && !FlashArraysItem.APIToken.VaultSecretInfo.Version.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap["version"] = FlashArraysItem.APIToken.VaultSecretInfo.Version.ValueInt64()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoMap
-													}
-													if FlashArraysItem.APIToken.WingmanSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoMap := make(map[string]interface{})
-														if !FlashArraysItem.APIToken.WingmanSecretInfo.Name.IsNull() && !FlashArraysItem.APIToken.WingmanSecretInfo.Name.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoMap["name"] = FlashArraysItem.APIToken.WingmanSecretInfo.Name.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoMap
 													}
 													FlashArraysItemMap["api_token"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenMap
 												}
@@ -27942,19 +24048,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["blindfold_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoMap
 													}
-													if FlashBladesItem.APIToken.BlindfoldSecretInfoInternal != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-														if !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap["decryption_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-														}
-														if !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.Location.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap["location"] = FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.Location.ValueString()
-														}
-														if !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap["store_provider"] = FlashBladesItem.APIToken.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["blindfold_secret_info_internal"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalMap
-													}
 													if FlashBladesItem.APIToken.ClearSecretInfo != nil {
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoMap := make(map[string]interface{})
 														if !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.ClearSecretInfo.Provider.IsUnknown() {
@@ -27964,35 +24057,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoMap["url"] = FlashBladesItem.APIToken.ClearSecretInfo.URL.ValueString()
 														}
 														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["clear_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoMap
-													}
-													if !FlashBladesItem.APIToken.SecretEncodingType.IsNull() && !FlashBladesItem.APIToken.SecretEncodingType.IsUnknown() {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["secret_encoding_type"] = FlashBladesItem.APIToken.SecretEncodingType.ValueString()
-													}
-													if FlashBladesItem.APIToken.VaultSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap := make(map[string]interface{})
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Key.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Key.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["key"] = FlashBladesItem.APIToken.VaultSecretInfo.Key.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Location.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Location.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["location"] = FlashBladesItem.APIToken.VaultSecretInfo.Location.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Provider.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Provider.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["provider"] = FlashBladesItem.APIToken.VaultSecretInfo.Provider.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.SecretEncoding.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.SecretEncoding.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["secret_encoding"] = FlashBladesItem.APIToken.VaultSecretInfo.SecretEncoding.ValueString()
-														}
-														if !FlashBladesItem.APIToken.VaultSecretInfo.Version.IsNull() && !FlashBladesItem.APIToken.VaultSecretInfo.Version.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap["version"] = FlashBladesItem.APIToken.VaultSecretInfo.Version.ValueInt64()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["vault_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoMap
-													}
-													if FlashBladesItem.APIToken.WingmanSecretInfo != nil {
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoMap := make(map[string]interface{})
-														if !FlashBladesItem.APIToken.WingmanSecretInfo.Name.IsNull() && !FlashBladesItem.APIToken.WingmanSecretInfo.Name.IsUnknown() {
-															CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoMap["name"] = FlashBladesItem.APIToken.WingmanSecretInfo.Name.ValueString()
-														}
-														CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap["wingman_secret_info"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoMap
 													}
 													FlashBladesItemMap["api_token"] = CustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenMap
 												}
@@ -28099,19 +24163,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 											if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
 												DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 											}
-											if DHCPNetworksItem.NetworkPrefixAllocator != nil {
-												CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsUnknown() {
-													CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["name"] = DHCPNetworksItem.NetworkPrefixAllocator.Name.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsUnknown() {
-													CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["namespace"] = DHCPNetworksItem.NetworkPrefixAllocator.Namespace.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsUnknown() {
-													CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["tenant"] = DHCPNetworksItem.NetworkPrefixAllocator.Tenant.ValueString()
-												}
-												DHCPNetworksItemMap["network_prefix_allocator"] = CustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap
-											}
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
@@ -28125,9 +24176,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 														PoolsItemMap := make(map[string]interface{})
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
 														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
@@ -28491,7 +24539,40 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 									LocalControlPlaneBGPConfigPeersExternalFamilyInetMap["disable"] = map[string]interface{}{}
 								}
 								if PeersItem.External.FamilyInet.Enable != nil {
-									LocalControlPlaneBGPConfigPeersExternalFamilyInetMap["enable"] = map[string]interface{}{}
+									LocalControlPlaneBGPConfigPeersExternalFamilyInetEnableMap := make(map[string]interface{})
+									if !PeersItem.External.FamilyInet.Enable.Aggregation.IsNull() && !PeersItem.External.FamilyInet.Enable.Aggregation.IsUnknown() {
+										var AggregationElems []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+										diags := PeersItem.External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationElems, false)
+										resp.Diagnostics.Append(diags...)
+										if !resp.Diagnostics.HasError() && len(AggregationElems) > 0 {
+											var AggregationList []map[string]interface{}
+											for _, AggregationItem := range AggregationElems {
+												AggregationItemMap := make(map[string]interface{})
+												if !AggregationItem.IPPrefix.IsNull() && !AggregationItem.IPPrefix.IsUnknown() {
+													AggregationItemMap["ip_prefix"] = AggregationItem.IPPrefix.ValueString()
+												}
+												if !AggregationItem.Options.IsNull() && !AggregationItem.Options.IsUnknown() {
+													var OptionsElems []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+													diags := AggregationItem.Options.ElementsAs(ctx, &OptionsElems, false)
+													resp.Diagnostics.Append(diags...)
+													if !resp.Diagnostics.HasError() && len(OptionsElems) > 0 {
+														var OptionsList []map[string]interface{}
+														for _, OptionsItem := range OptionsElems {
+															OptionsItemMap := make(map[string]interface{})
+															if OptionsItem.SummaryOnly != nil {
+																OptionsItemMap["summary_only"] = map[string]interface{}{}
+															}
+															OptionsList = append(OptionsList, OptionsItemMap)
+														}
+														AggregationItemMap["options"] = OptionsList
+													}
+												}
+												AggregationList = append(AggregationList, AggregationItemMap)
+											}
+											LocalControlPlaneBGPConfigPeersExternalFamilyInetEnableMap["aggregation"] = AggregationList
+										}
+									}
+									LocalControlPlaneBGPConfigPeersExternalFamilyInetMap["enable"] = LocalControlPlaneBGPConfigPeersExternalFamilyInetEnableMap
 								}
 								LocalControlPlaneBGPConfigPeersExternalMap["family_inet"] = LocalControlPlaneBGPConfigPeersExternalFamilyInetMap
 							}
@@ -28843,7 +24924,7 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []VoltstackSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -29484,6 +25565,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														DHCPServer: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer
+															}
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
@@ -29554,31 +25638,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &VoltstackSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -29604,12 +25663,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -31604,34 +27657,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := IscsiChapPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordClearSecretInfoModel {
 																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo != nil {
 																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.ClearSecretInfo
@@ -31646,71 +27671,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := IscsiChapPasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := IscsiChapPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version.IsUnknown() {
-																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.IscsiChapPassword.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := IscsiChapPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStorageIscsiChapPasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -31763,34 +27723,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		return nil
 																	}(),
-																	BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.BlindfoldSecretInfoInternal
-																		}
-																		if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordBlindfoldSecretInfoInternalModel{
-																				DecryptionProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				StoreProvider: func() types.String {
-																					if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
 																	ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordClearSecretInfoModel {
 																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo != nil {
 																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.ClearSecretInfo
@@ -31805,71 +27737,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																				}(),
 																				URL: func() types.String {
 																					if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	SecretEncodingType: func() types.String {
-																		if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
-																	VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo
-																		}
-																		if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordVaultSecretInfoModel{
-																				Key: func() types.String {
-																					if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Location: func() types.String {
-																					if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Provider: func() types.String {
-																					if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				SecretEncoding: func() types.String {
-																					if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				Version: func() types.Int64 {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version.IsUnknown() {
-																						return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.VaultSecretInfo.Version
-																					}
-																					if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																						return types.Int64Value(int64(v))
-																					}
-																					return types.Int64Null()
-																				}(),
-																			}
-																		}
-																		return nil
-																	}(),
-																	WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel {
-																		if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].HpeStorage != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password != nil && StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo != nil {
-																			return StorageDevicesExisting[StorageDevicesIdx].HpeStorage.Password.WingmanSecretInfo
-																		}
-																		if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																			return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesHpeStoragePasswordWingmanSecretInfoModel{
-																				Name: func() types.String {
-																					if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																						return types.StringValue(v)
 																					}
 																					return types.StringNull()
@@ -31991,34 +27858,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.ClearSecretInfo
@@ -32033,71 +27872,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := ClientPrivateKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.ClientPrivateKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasClientPrivateKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -32195,34 +27969,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.ClearSecretInfo
@@ -32237,71 +27983,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Password.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasPasswordWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -32640,34 +28321,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := ClientPrivateKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.ClearSecretInfo
@@ -32682,71 +28335,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := ClientPrivateKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := ClientPrivateKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.ClientPrivateKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := ClientPrivateKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanClientPrivateKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -32859,34 +28447,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordClearSecretInfoModel {
 																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo != nil {
 																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.ClearSecretInfo
@@ -32901,71 +28461,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version.IsUnknown() {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel {
-																					if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo != nil {
-																						return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Password.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanPasswordWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -33185,34 +28680,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								}
 																								return nil
 																							}(),
-																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.BlindfoldSecretInfoInternal
-																								}
-																								if BlindfoldSecretInfoInternalData, ok := ChapInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretBlindfoldSecretInfoInternalModel{
-																										DecryptionProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										StoreProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretClearSecretInfoModel {
 																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo != nil {
 																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.ClearSecretInfo
@@ -33227,71 +28694,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										}(),
 																										URL: func() types.String {
 																											if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							SecretEncodingType: func() types.String {
-																								if v, ok := ChapInitiatorSecretData["secret_encoding_type"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo
-																								}
-																								if VaultSecretInfoData, ok := ChapInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretVaultSecretInfoModel{
-																										Key: func() types.String {
-																											if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Provider: func() types.String {
-																											if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										SecretEncoding: func() types.String {
-																											if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Version: func() types.Int64 {
-																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.VaultSecretInfo.Version
-																											}
-																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																												return types.Int64Value(int64(v))
-																											}
-																											return types.Int64Null()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapInitiatorSecret.WingmanSecretInfo
-																								}
-																								if WingmanSecretInfoData, ok := ChapInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapInitiatorSecretWingmanSecretInfoModel{
-																										Name: func() types.String {
-																											if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																												return types.StringValue(v)
 																											}
 																											return types.StringNull()
@@ -33338,34 +28740,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																								}
 																								return nil
 																							}(),
-																							BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.BlindfoldSecretInfoInternal
-																								}
-																								if BlindfoldSecretInfoInternalData, ok := ChapTargetInitiatorSecretData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretBlindfoldSecretInfoInternalModel{
-																										DecryptionProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										StoreProvider: func() types.String {
-																											if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
 																							ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretClearSecretInfoModel {
 																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo != nil {
 																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.ClearSecretInfo
@@ -33380,71 +28754,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																										}(),
 																										URL: func() types.String {
 																											if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							SecretEncodingType: func() types.String {
-																								if v, ok := ChapTargetInitiatorSecretData["secret_encoding_type"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo
-																								}
-																								if VaultSecretInfoData, ok := ChapTargetInitiatorSecretData["vault_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretVaultSecretInfoModel{
-																										Key: func() types.String {
-																											if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Location: func() types.String {
-																											if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Provider: func() types.String {
-																											if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										SecretEncoding: func() types.String {
-																											if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																												return types.StringValue(v)
-																											}
-																											return types.StringNull()
-																										}(),
-																										Version: func() types.Int64 {
-																											if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version.IsUnknown() {
-																												return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.VaultSecretInfo.Version
-																											}
-																											if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																												return types.Int64Value(int64(v))
-																											}
-																											return types.Int64Null()
-																										}(),
-																									}
-																								}
-																								return nil
-																							}(),
-																							WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel {
-																								if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo != nil {
-																									return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.UseChap.ChapTargetInitiatorSecret.WingmanSecretInfo
-																								}
-																								if WingmanSecretInfoData, ok := ChapTargetInitiatorSecretData["wingman_secret_info"].(map[string]interface{}); ok {
-																									return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanUseChapChapTargetInitiatorSecretWingmanSecretInfoModel{
-																										Name: func() types.String {
-																											if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																												return types.StringValue(v)
 																											}
 																											return types.StringNull()
@@ -33684,34 +28993,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													}
 																													return nil
 																												}(),
-																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.BlindfoldSecretInfoInternal
-																													}
-																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenBlindfoldSecretInfoInternalModel{
-																															DecryptionProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															StoreProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenClearSecretInfoModel {
 																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo != nil {
 																														return FlashArraysExisting[FlashArraysIdx].APIToken.ClearSecretInfo
@@ -33726,71 +29007,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																															}(),
 																															URL: func() types.String {
 																																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												SecretEncodingType: func() types.String {
-																													if v, ok := APITokenData["secret_encoding_type"].(string); ok && v != "" {
-																														return types.StringValue(v)
-																													}
-																													return types.StringNull()
-																												}(),
-																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo
-																													}
-																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenVaultSecretInfoModel{
-																															Key: func() types.String {
-																																if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Provider: func() types.String {
-																																if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															SecretEncoding: func() types.String {
-																																if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Version: func() types.Int64 {
-																																if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo != nil && !FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
-																																	return FlashArraysExisting[FlashArraysIdx].APIToken.VaultSecretInfo.Version
-																																}
-																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																																	return types.Int64Value(int64(v))
-																																}
-																																return types.Int64Null()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel {
-																													if !isImport && len(FlashArraysExisting) > FlashArraysIdx && FlashArraysExisting[FlashArraysIdx].APIToken != nil && FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo != nil {
-																														return FlashArraysExisting[FlashArraysIdx].APIToken.WingmanSecretInfo
-																													}
-																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashArrayFlashArraysAPITokenWingmanSecretInfoModel{
-																															Name: func() types.String {
-																																if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																																	return types.StringValue(v)
 																																}
 																																return types.StringNull()
@@ -33917,34 +29133,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													}
 																													return nil
 																												}(),
-																												BlindfoldSecretInfoInternal: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.BlindfoldSecretInfoInternal
-																													}
-																													if BlindfoldSecretInfoInternalData, ok := APITokenData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenBlindfoldSecretInfoInternalModel{
-																															DecryptionProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															StoreProvider: func() types.String {
-																																if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
 																												ClearSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenClearSecretInfoModel {
 																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo != nil {
 																														return FlashBladesExisting[FlashBladesIdx].APIToken.ClearSecretInfo
@@ -33959,71 +29147,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																															}(),
 																															URL: func() types.String {
 																																if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												SecretEncodingType: func() types.String {
-																													if v, ok := APITokenData["secret_encoding_type"].(string); ok && v != "" {
-																														return types.StringValue(v)
-																													}
-																													return types.StringNull()
-																												}(),
-																												VaultSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo
-																													}
-																													if VaultSecretInfoData, ok := APITokenData["vault_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenVaultSecretInfoModel{
-																															Key: func() types.String {
-																																if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Location: func() types.String {
-																																if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Provider: func() types.String {
-																																if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															SecretEncoding: func() types.String {
-																																if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																																	return types.StringValue(v)
-																																}
-																																return types.StringNull()
-																															}(),
-																															Version: func() types.Int64 {
-																																if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo != nil && !FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version.IsUnknown() {
-																																	return FlashBladesExisting[FlashBladesIdx].APIToken.VaultSecretInfo.Version
-																																}
-																																if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																																	return types.Int64Value(int64(v))
-																																}
-																																return types.Int64Null()
-																															}(),
-																														}
-																													}
-																													return nil
-																												}(),
-																												WingmanSecretInfo: func() *VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel {
-																													if !isImport && len(FlashBladesExisting) > FlashBladesIdx && FlashBladesExisting[FlashBladesIdx].APIToken != nil && FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo != nil {
-																														return FlashBladesExisting[FlashBladesIdx].APIToken.WingmanSecretInfo
-																													}
-																													if WingmanSecretInfoData, ok := APITokenData["wingman_secret_info"].(map[string]interface{}); ok {
-																														return &VoltstackSiteCustomStorageConfigStorageDeviceListStorageDevicesPureServiceOrchestratorArraysFlashBladeFlashBladesAPITokenWingmanSecretInfoModel{
-																															Name: func() types.String {
-																																if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																																	return types.StringValue(v)
 																																}
 																																return types.StringNull()
@@ -34132,6 +29255,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 				return nil
 			}(),
 			StorageInterfaceList: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListModel {
+				if !isImport && data.CustomStorageConfig != nil && data.CustomStorageConfig.StorageInterfaceList != nil {
+					return data.CustomStorageConfig.StorageInterfaceList
+				}
 				if StorageInterfaceListData, ok := blockData["storage_interface_list"].(map[string]interface{}); ok {
 					return &VoltstackSiteCustomStorageConfigStorageInterfaceListModel{
 						StorageInterfaces: func() types.List {
@@ -34191,6 +29317,9 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 															return nil
 														}(),
 														DHCPServer: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel {
+															if !isImport && len(StorageInterfacesExisting) > StorageInterfacesIdx && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface != nil && StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer != nil {
+																return StorageInterfacesExisting[StorageInterfacesIdx].StorageInterface.DHCPServer
+															}
 															if DHCPServerData, ok := StorageInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *VoltstackSiteEmptyModel {
@@ -34261,31 +29390,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &VoltstackSiteCustomStorageConfigStorageInterfaceListStorageInterfacesStorageInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -34311,12 +29415,6 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -35138,12 +30236,72 @@ func (r *VoltstackSiteResource) Update(ctx context.Context, req resource.UpdateR
 																		}
 																		return nil
 																	}(),
-																	Enable: func() *VoltstackSiteEmptyModel {
-																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil {
+																	Enable: func() *VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel {
+																		if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil {
 																			return PeersExisting[PeersIdx].External.FamilyInet.Enable
 																		}
-																		if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
-																			return &VoltstackSiteEmptyModel{}
+																		if EnableData, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
+																			return &VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableModel{
+																				Aggregation: func() types.List {
+																					if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil && (PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsNull() || len(PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.Elements()) == 0) {
+																						return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+																					}
+																					var AggregationExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+																					if !isImport && len(PeersExisting) > PeersIdx && PeersExisting[PeersIdx].External != nil && PeersExisting[PeersIdx].External.FamilyInet != nil && PeersExisting[PeersIdx].External.FamilyInet.Enable != nil && !PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsNull() && !PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.IsUnknown() {
+																						PeersExisting[PeersIdx].External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationExisting, false)
+																					}
+																					if rawList, ok := EnableData["aggregation"].([]interface{}); ok && len(rawList) > 0 {
+																						var AggregationResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel
+																						for AggregationIdx, AggregationItem := range rawList {
+																							_ = AggregationIdx
+																							if AggregationItemMap, ok := AggregationItem.(map[string]interface{}); ok {
+																								AggregationResult = append(AggregationResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModel{
+																									IPPrefix: func() types.String {
+																										if v, ok := AggregationItemMap["ip_prefix"].(string); ok && v != "" {
+																											return types.StringValue(v)
+																										}
+																										return types.StringNull()
+																									}(),
+																									Options: func() types.List {
+																										if !isImport && len(AggregationExisting) > AggregationIdx && (AggregationExisting[AggregationIdx].Options.IsNull() || len(AggregationExisting[AggregationIdx].Options.Elements()) == 0) {
+																											return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																										}
+																										var OptionsExisting []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+																										if !isImport && len(AggregationExisting) > AggregationIdx && !AggregationExisting[AggregationIdx].Options.IsNull() && !AggregationExisting[AggregationIdx].Options.IsUnknown() {
+																											AggregationExisting[AggregationIdx].Options.ElementsAs(ctx, &OptionsExisting, false)
+																										}
+																										if rawList, ok := AggregationItemMap["options"].([]interface{}); ok && len(rawList) > 0 {
+																											var OptionsResult []VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel
+																											for OptionsIdx, OptionsItem := range rawList {
+																												_ = OptionsIdx
+																												if OptionsItemMap, ok := OptionsItem.(map[string]interface{}); ok {
+																													OptionsResult = append(OptionsResult, VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModel{
+																														SummaryOnly: func() *VoltstackSiteEmptyModel {
+																															if !isImport && len(OptionsExisting) > OptionsIdx {
+																																return OptionsExisting[OptionsIdx].SummaryOnly
+																															}
+																															if _, ok := OptionsItemMap["summary_only"].(map[string]interface{}); ok {
+																																return &VoltstackSiteEmptyModel{}
+																															}
+																															return nil
+																														}(),
+																													})
+																												}
+																											}
+																											listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}, OptionsResult)
+																											return listVal
+																										}
+																										return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																									}(),
+																								})
+																							}
+																						}
+																						listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes}, AggregationResult)
+																						return listVal
+																					}
+																					return types.ListNull(types.ObjectType{AttrTypes: VoltstackSiteLocalControlPlaneBGPConfigPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+																				}(),
+																			}
 																		}
 																		return nil
 																	}(),

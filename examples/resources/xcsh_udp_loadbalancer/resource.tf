@@ -17,8 +17,7 @@ resource "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
 
-  domains                          = ["example-value"]
-  dns_volterra_managed             = true
-  enable_per_packet_load_balancing = true
-  idle_timeout                     = 1
+  domains              = ["example-value"]
+  dns_volterra_managed = true
+  idle_timeout         = 1
 }

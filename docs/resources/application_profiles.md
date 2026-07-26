@@ -66,8 +66,6 @@ resource "xcsh_application_profiles" "example" {
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
-<a id="traffic-policies"></a>&#x2022; [`traffic_policies`](#traffic-policies) - Optional Block<br>Configuration parameter for traffic policies<br>See [Traffic Policies](#traffic-policies) below for details.
-
 <a id="virtual-server"></a>&#x2022; [`virtual_server`](#virtual-server) - Optional Block<br>Specifies configuration related to virtual server<br>See [Virtual Server](#virtual-server) below for details.
 
 ### Attributes Reference
@@ -120,20 +118,6 @@ A [`timeouts`](#timeouts) block supports the following:
 
 <a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
 
-#### Traffic Policies
-
-A [`traffic_policies`](#traffic-policies) block supports the following:
-
-<a id="traffic-policies-name"></a>&#x2022; [`name`](#traffic-policies-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="traffic-policies-namespace"></a>&#x2022; [`namespace`](#traffic-policies-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="traffic-policies-kind"></a>&#x2022; [`kind`](#traffic-policies-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
-<a id="traffic-policies-tenant"></a>&#x2022; [`tenant`](#traffic-policies-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-<a id="traffic-policies-uid"></a>&#x2022; [`uid`](#traffic-policies-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
-
 #### Virtual Server
 
 A [`virtual_server`](#virtual-server) block supports the following:
@@ -166,7 +150,9 @@ Pool](#virtual-server-default-pool) below.
 
 <a id="virtual-server-http"></a>&#x2022; [`http`](#virtual-server-http) - Optional Block<br>HTTP profiles<br>See [HTTP](#virtual-server-http) below.
 
-<a id="virtual-server-https"></a>&#x2022; [`https`](#virtual-server-https) - Optional Block<br>HTTPS profiles<br>See [HTTPS](#virtual-server-https) below.
+<a id="virtual-server-http3"></a>&#x2022; [`http3`](#virtual-server-http3) - Optional Block<br>HTTP/3 profiles<br>See [Http3](#virtual-server-http3) below.
+
+<a id="virtual-server-https"></a>&#x2022; [`https`](#virtual-server-https) - Optional Block<br>HTTP profiles<br>See [HTTPS](#virtual-server-https) below.
 
 <a id="down-c66a6b"></a>&#x2022; [`immediate_action_on_service_down`](#down-c66a6b) - Optional Block<br>Specifies the immediate action the BIG-IP system should respond with upon the receipt of the initial client's SYN packet, if the availability status of the virtual server is Offline or Unavailable. This is supported for the virtual server of Standard type and TCP protocol. The default is
 None<br>See [Immediate Action On Service Down](#down-c66a6b) below.
@@ -187,7 +173,7 @@ server to load balance<br>See [Port Translation](#virtual-server-port-translatio
 
 <a id="virtual-server-tcp"></a>&#x2022; [`tcp`](#virtual-server-tcp) - Optional Block<br>TCP profiles<br>See [TCP](#virtual-server-tcp) below.
 
-<a id="virtual-server-udp"></a>&#x2022; [`udp`](#virtual-server-udp) - Optional Block<br>These OPTIONS will be enhanced in future MR<br>See [UDP](#virtual-server-udp) below.
+<a id="virtual-server-udp"></a>&#x2022; [`udp`](#virtual-server-udp) - Optional Block<br>UDP profiles<br>See [UDP](#virtual-server-udp) below.
 
 <a id="virtual-server-virtual-server-state"></a>&#x2022; [`virtual_server_state`](#virtual-server-virtual-server-state) - Optional Block<br>Displays the current state on the object<br>See [Virtual Server State](#virtual-server-virtual-server-state) below.
 
@@ -341,9 +327,19 @@ A [`fix_profile`](#virtual-server-fix-profile) block (within [`virtual_server`](
 
 A [`http`](#virtual-server-http) block (within [`virtual_server`](#virtual-server)) supports the following:
 
+<a id="virtual-server-http-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#virtual-server-http-client-ssl-profile) - Optional Block<br>Client SSL Profile. Client-side configuration<br>See [Client SSL Profile](#virtual-server-http-client-ssl-profile) below.
+
+<a id="profile-25ccbc"></a>&#x2022; [`http2_client_profile`](#profile-25ccbc) - Optional Block<br>HTTP/2 Profile Client. Client-side configuration<br>See [Http2 Client Profile](#profile-25ccbc) below.
+
+<a id="profile-84a551"></a>&#x2022; [`http2_server_profile`](#profile-84a551) - Optional Block<br>Configuration parameter for http2 server profile<br>See [Http2 Server Profile](#profile-84a551) below.
+
 <a id="virtual-server-http-http-client-profile"></a>&#x2022; [`http_client_profile`](#virtual-server-http-http-client-profile) - Optional Block<br>HTTP Profile (Client). Client-side configuration<br>See [HTTP Client Profile](#virtual-server-http-http-client-profile) below.
 
 <a id="virtual-server-http-http-server-profile"></a>&#x2022; [`http_server_profile`](#virtual-server-http-http-server-profile) - Optional Block<br>Configuration parameter for HTTP server profile<br>See [HTTP Server Profile](#virtual-server-http-http-server-profile) below.
+
+<a id="virtual-server-http-ocsp-profile"></a>&#x2022; [`ocsp_profile`](#virtual-server-http-ocsp-profile) - Optional Block<br>Configuration parameter for OCSP profile<br>See [OCSP Profile](#virtual-server-http-ocsp-profile) below.
+
+<a id="virtual-server-http-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#virtual-server-http-server-ssl-profile) - Optional Block<br>Configuration parameter for server SSL profile<br>See [Server SSL Profile](#virtual-server-http-server-ssl-profile) below.
 
 <a id="virtual-server-http-stream-profile"></a>&#x2022; [`stream_profile`](#virtual-server-http-stream-profile) - Optional Block<br>Configuration parameter for stream profile<br>See [Stream Profile](#virtual-server-http-stream-profile) below.
 
@@ -354,6 +350,48 @@ A [`http`](#virtual-server-http) block (within [`virtual_server`](#virtual-serve
 <a id="profile-7d785f"></a>&#x2022; [`websocket_client_profile`](#profile-7d785f) - Optional Block<br>WebSocket Profile Client. Web-related configuration<br>See [WebSocket Client Profile](#profile-7d785f) below.
 
 <a id="profile-c1c198"></a>&#x2022; [`websocket_server_profile`](#profile-c1c198) - Optional Block<br>WebSocket Profile Server. Web-related configuration<br>See [WebSocket Server Profile](#profile-c1c198) below.
+
+#### Virtual Server HTTP Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-http-client-ssl-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="name-9fbfd6"></a>&#x2022; [`name`](#name-9fbfd6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-a3eea1"></a>&#x2022; [`namespace`](#namespace-a3eea1) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-0b8406"></a>&#x2022; [`kind`](#kind-0b8406) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-44f65e"></a>&#x2022; [`tenant`](#tenant-44f65e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-e3d89a"></a>&#x2022; [`uid`](#uid-e3d89a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Http2 Client Profile
+
+A [`http2_client_profile`](#profile-25ccbc) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="name-f2dc2d"></a>&#x2022; [`name`](#name-f2dc2d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-962ac6"></a>&#x2022; [`namespace`](#namespace-962ac6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-4c869e"></a>&#x2022; [`kind`](#kind-4c869e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-665cb2"></a>&#x2022; [`tenant`](#tenant-665cb2) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-f82a65"></a>&#x2022; [`uid`](#uid-f82a65) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Http2 Server Profile
+
+A [`http2_server_profile`](#profile-84a551) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="name-c52979"></a>&#x2022; [`name`](#name-c52979) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-211ed9"></a>&#x2022; [`namespace`](#namespace-211ed9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-397ca6"></a>&#x2022; [`kind`](#kind-397ca6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-3a3c72"></a>&#x2022; [`tenant`](#tenant-3a3c72) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-9ca111"></a>&#x2022; [`uid`](#uid-9ca111) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server HTTP HTTP Client Profile
 
@@ -382,6 +420,34 @@ A [`http_server_profile`](#virtual-server-http-http-server-profile) block (withi
 <a id="tenant-3b9be6"></a>&#x2022; [`tenant`](#tenant-3b9be6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="uid-c9f276"></a>&#x2022; [`uid`](#uid-c9f276) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP OCSP Profile
+
+An [`ocsp_profile`](#virtual-server-http-ocsp-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="virtual-server-http-ocsp-profile-name"></a>&#x2022; [`name`](#virtual-server-http-ocsp-profile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-9abb7a"></a>&#x2022; [`namespace`](#namespace-9abb7a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="virtual-server-http-ocsp-profile-kind"></a>&#x2022; [`kind`](#virtual-server-http-ocsp-profile-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="virtual-server-http-ocsp-profile-tenant"></a>&#x2022; [`tenant`](#virtual-server-http-ocsp-profile-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="virtual-server-http-ocsp-profile-uid"></a>&#x2022; [`uid`](#virtual-server-http-ocsp-profile-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTP Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-http-server-ssl-profile) block (within [`virtual_server.http`](#virtual-server-http)) supports the following:
+
+<a id="name-73a586"></a>&#x2022; [`name`](#name-73a586) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-7acd30"></a>&#x2022; [`namespace`](#namespace-7acd30) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-10449e"></a>&#x2022; [`kind`](#kind-10449e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-73869c"></a>&#x2022; [`tenant`](#tenant-73869c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-216c3a"></a>&#x2022; [`uid`](#uid-216c3a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server HTTP Stream Profile
 
@@ -453,13 +519,171 @@ A [`websocket_server_profile`](#profile-c1c198) block (within [`virtual_server.h
 
 <a id="uid-3d55b4"></a>&#x2022; [`uid`](#uid-3d55b4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
+#### Virtual Server Http3
+
+A [`http3`](#virtual-server-http3) block (within [`virtual_server`](#virtual-server)) supports the following:
+
+<a id="virtual-server-http3-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#virtual-server-http3-client-ssl-profile) - Optional Block<br>Client SSL Profile. Client-side configuration<br>See [Client SSL Profile](#virtual-server-http3-client-ssl-profile) below.
+
+<a id="virtual-server-http3-http3-profile"></a>&#x2022; [`http3_profile`](#virtual-server-http3-http3-profile) - Optional Block<br>Configuration parameter for http3 profile<br>See [Http3 Profile](#virtual-server-http3-http3-profile) below.
+
+<a id="profile-9c5325"></a>&#x2022; [`http_client_profile`](#profile-9c5325) - Optional Block<br>HTTP Profile (Client). Client-side configuration<br>See [HTTP Client Profile](#profile-9c5325) below.
+
+<a id="profile-180d91"></a>&#x2022; [`http_server_profile`](#profile-180d91) - Optional Block<br>Configuration parameter for HTTP server profile<br>See [HTTP Server Profile](#profile-180d91) below.
+
+<a id="virtual-server-http3-quic-profile"></a>&#x2022; [`quic_profile`](#virtual-server-http3-quic-profile) - Optional Block<br>Configuration parameter for QUIC profile<br>See [QUIC Profile](#virtual-server-http3-quic-profile) below.
+
+<a id="virtual-server-http3-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#virtual-server-http3-server-ssl-profile) - Optional Block<br>Configuration parameter for server SSL profile<br>See [Server SSL Profile](#virtual-server-http3-server-ssl-profile) below.
+
+<a id="virtual-server-http3-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#virtual-server-http3-tcp-server-profile) - Optional Block<br>Configuration parameter for TCP server profile<br>See [TCP Server Profile](#virtual-server-http3-tcp-server-profile) below.
+
+<a id="virtual-server-http3-udp-client-profile"></a>&#x2022; [`udp_client_profile`](#virtual-server-http3-udp-client-profile) - Optional Block<br>Protocol Profile (Client). Client-side configuration<br>See [UDP Client Profile](#virtual-server-http3-udp-client-profile) below.
+
+<a id="virtual-server-http3-udp-server-profile"></a>&#x2022; [`udp_server_profile`](#virtual-server-http3-udp-server-profile) - Optional Block<br>Configuration parameter for UDP server profile<br>See [UDP Server Profile](#virtual-server-http3-udp-server-profile) below.
+
+#### Virtual Server Http3 Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-http3-client-ssl-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-0af3d2"></a>&#x2022; [`name`](#name-0af3d2) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-fc9418"></a>&#x2022; [`namespace`](#namespace-fc9418) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-d33a21"></a>&#x2022; [`kind`](#kind-d33a21) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-d4c74e"></a>&#x2022; [`tenant`](#tenant-d4c74e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-b0b427"></a>&#x2022; [`uid`](#uid-b0b427) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 Http3 Profile
+
+A [`http3_profile`](#virtual-server-http3-http3-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="virtual-server-http3-http3-profile-name"></a>&#x2022; [`name`](#virtual-server-http3-http3-profile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-a1ec5b"></a>&#x2022; [`namespace`](#namespace-a1ec5b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="virtual-server-http3-http3-profile-kind"></a>&#x2022; [`kind`](#virtual-server-http3-http3-profile-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-5772ca"></a>&#x2022; [`tenant`](#tenant-5772ca) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="virtual-server-http3-http3-profile-uid"></a>&#x2022; [`uid`](#virtual-server-http3-http3-profile-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 HTTP Client Profile
+
+A [`http_client_profile`](#profile-9c5325) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-8cd45c"></a>&#x2022; [`name`](#name-8cd45c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-9329ca"></a>&#x2022; [`namespace`](#namespace-9329ca) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-b200b3"></a>&#x2022; [`kind`](#kind-b200b3) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-827337"></a>&#x2022; [`tenant`](#tenant-827337) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-22870f"></a>&#x2022; [`uid`](#uid-22870f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 HTTP Server Profile
+
+A [`http_server_profile`](#profile-180d91) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-3c0afd"></a>&#x2022; [`name`](#name-3c0afd) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-598718"></a>&#x2022; [`namespace`](#namespace-598718) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-b6ba7e"></a>&#x2022; [`kind`](#kind-b6ba7e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-ca2d87"></a>&#x2022; [`tenant`](#tenant-ca2d87) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-3bfccf"></a>&#x2022; [`uid`](#uid-3bfccf) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 QUIC Profile
+
+A [`quic_profile`](#virtual-server-http3-quic-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="virtual-server-http3-quic-profile-name"></a>&#x2022; [`name`](#virtual-server-http3-quic-profile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-453d07"></a>&#x2022; [`namespace`](#namespace-453d07) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="virtual-server-http3-quic-profile-kind"></a>&#x2022; [`kind`](#virtual-server-http3-quic-profile-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-3ad701"></a>&#x2022; [`tenant`](#tenant-3ad701) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="virtual-server-http3-quic-profile-uid"></a>&#x2022; [`uid`](#virtual-server-http3-quic-profile-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-http3-server-ssl-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-66d1a0"></a>&#x2022; [`name`](#name-66d1a0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-5ec033"></a>&#x2022; [`namespace`](#namespace-5ec033) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-ede38e"></a>&#x2022; [`kind`](#kind-ede38e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-0b7513"></a>&#x2022; [`tenant`](#tenant-0b7513) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-64289d"></a>&#x2022; [`uid`](#uid-64289d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 TCP Server Profile
+
+A [`tcp_server_profile`](#virtual-server-http3-tcp-server-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-252209"></a>&#x2022; [`name`](#name-252209) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-add8e9"></a>&#x2022; [`namespace`](#namespace-add8e9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-7b2269"></a>&#x2022; [`kind`](#kind-7b2269) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-a7b2c4"></a>&#x2022; [`tenant`](#tenant-a7b2c4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-8bcf4e"></a>&#x2022; [`uid`](#uid-8bcf4e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 UDP Client Profile
+
+An [`udp_client_profile`](#virtual-server-http3-udp-client-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-4e0381"></a>&#x2022; [`name`](#name-4e0381) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-678f0f"></a>&#x2022; [`namespace`](#namespace-678f0f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-748c9f"></a>&#x2022; [`kind`](#kind-748c9f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-b73cf2"></a>&#x2022; [`tenant`](#tenant-b73cf2) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-dff328"></a>&#x2022; [`uid`](#uid-dff328) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server Http3 UDP Server Profile
+
+An [`udp_server_profile`](#virtual-server-http3-udp-server-profile) block (within [`virtual_server.http3`](#virtual-server-http3)) supports the following:
+
+<a id="name-defbc6"></a>&#x2022; [`name`](#name-defbc6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-2014c0"></a>&#x2022; [`namespace`](#namespace-2014c0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-33651e"></a>&#x2022; [`kind`](#kind-33651e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-072d11"></a>&#x2022; [`tenant`](#tenant-072d11) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-5c13ad"></a>&#x2022; [`uid`](#uid-5c13ad) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
 #### Virtual Server HTTPS
 
 A [`https`](#virtual-server-https) block (within [`virtual_server`](#virtual-server)) supports the following:
 
+<a id="virtual-server-https-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#virtual-server-https-client-ssl-profile) - Optional Block<br>Client SSL Profile. Client-side configuration<br>See [Client SSL Profile](#virtual-server-https-client-ssl-profile) below.
+
+<a id="profile-80c201"></a>&#x2022; [`http2_client_profile`](#profile-80c201) - Optional Block<br>HTTP/2 Profile Client. Client-side configuration<br>See [Http2 Client Profile](#profile-80c201) below.
+
+<a id="profile-6d7cdc"></a>&#x2022; [`http2_server_profile`](#profile-6d7cdc) - Optional Block<br>Configuration parameter for http2 server profile<br>See [Http2 Server Profile](#profile-6d7cdc) below.
+
 <a id="profile-ff4940"></a>&#x2022; [`http_client_profile`](#profile-ff4940) - Optional Block<br>HTTP Profile (Client). Client-side configuration<br>See [HTTP Client Profile](#profile-ff4940) below.
 
 <a id="profile-cfab8d"></a>&#x2022; [`http_server_profile`](#profile-cfab8d) - Optional Block<br>Configuration parameter for HTTP server profile<br>See [HTTP Server Profile](#profile-cfab8d) below.
+
+<a id="virtual-server-https-ocsp-profile"></a>&#x2022; [`ocsp_profile`](#virtual-server-https-ocsp-profile) - Optional Block<br>Configuration parameter for OCSP profile<br>See [OCSP Profile](#virtual-server-https-ocsp-profile) below.
+
+<a id="virtual-server-https-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#virtual-server-https-server-ssl-profile) - Optional Block<br>Configuration parameter for server SSL profile<br>See [Server SSL Profile](#virtual-server-https-server-ssl-profile) below.
 
 <a id="virtual-server-https-stream-profile"></a>&#x2022; [`stream_profile`](#virtual-server-https-stream-profile) - Optional Block<br>Configuration parameter for stream profile<br>See [Stream Profile](#virtual-server-https-stream-profile) below.
 
@@ -470,6 +694,48 @@ A [`https`](#virtual-server-https) block (within [`virtual_server`](#virtual-ser
 <a id="profile-98f0ed"></a>&#x2022; [`websocket_client_profile`](#profile-98f0ed) - Optional Block<br>WebSocket Profile Client. Web-related configuration<br>See [WebSocket Client Profile](#profile-98f0ed) below.
 
 <a id="profile-44d87f"></a>&#x2022; [`websocket_server_profile`](#profile-44d87f) - Optional Block<br>WebSocket Profile Server. Web-related configuration<br>See [WebSocket Server Profile](#profile-44d87f) below.
+
+#### Virtual Server HTTPS Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-https-client-ssl-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="name-ce024d"></a>&#x2022; [`name`](#name-ce024d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-cd222b"></a>&#x2022; [`namespace`](#namespace-cd222b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-17b35f"></a>&#x2022; [`kind`](#kind-17b35f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-5cf54d"></a>&#x2022; [`tenant`](#tenant-5cf54d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-48f43c"></a>&#x2022; [`uid`](#uid-48f43c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Http2 Client Profile
+
+A [`http2_client_profile`](#profile-80c201) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="name-b8f927"></a>&#x2022; [`name`](#name-b8f927) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-38050b"></a>&#x2022; [`namespace`](#namespace-38050b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-dc75a5"></a>&#x2022; [`kind`](#kind-dc75a5) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-6b1d64"></a>&#x2022; [`tenant`](#tenant-6b1d64) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-f4832c"></a>&#x2022; [`uid`](#uid-f4832c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Http2 Server Profile
+
+A [`http2_server_profile`](#profile-6d7cdc) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="name-a535bd"></a>&#x2022; [`name`](#name-a535bd) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-3b8353"></a>&#x2022; [`namespace`](#namespace-3b8353) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-3e5f98"></a>&#x2022; [`kind`](#kind-3e5f98) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-16eae0"></a>&#x2022; [`tenant`](#tenant-16eae0) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-db4d71"></a>&#x2022; [`uid`](#uid-db4d71) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server HTTPS HTTP Client Profile
 
@@ -498,6 +764,34 @@ A [`http_server_profile`](#profile-cfab8d) block (within [`virtual_server.https`
 <a id="tenant-117279"></a>&#x2022; [`tenant`](#tenant-117279) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 <a id="uid-31d115"></a>&#x2022; [`uid`](#uid-31d115) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS OCSP Profile
+
+An [`ocsp_profile`](#virtual-server-https-ocsp-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="virtual-server-https-ocsp-profile-name"></a>&#x2022; [`name`](#virtual-server-https-ocsp-profile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-2ed57e"></a>&#x2022; [`namespace`](#namespace-2ed57e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="virtual-server-https-ocsp-profile-kind"></a>&#x2022; [`kind`](#virtual-server-https-ocsp-profile-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-b073f3"></a>&#x2022; [`tenant`](#tenant-b073f3) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="virtual-server-https-ocsp-profile-uid"></a>&#x2022; [`uid`](#virtual-server-https-ocsp-profile-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server HTTPS Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-https-server-ssl-profile) block (within [`virtual_server.https`](#virtual-server-https)) supports the following:
+
+<a id="name-ffcf5f"></a>&#x2022; [`name`](#name-ffcf5f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-e3744f"></a>&#x2022; [`namespace`](#namespace-e3744f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-7dc857"></a>&#x2022; [`kind`](#kind-7dc857) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-854412"></a>&#x2022; [`tenant`](#tenant-854412) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-3863fe"></a>&#x2022; [`uid`](#uid-3863fe) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server HTTPS Stream Profile
 
@@ -651,9 +945,57 @@ A [`statistics_profile`](#virtual-server-statistics-profile) block (within [`vir
 
 A [`tcp`](#virtual-server-tcp) block (within [`virtual_server`](#virtual-server)) supports the following:
 
+<a id="virtual-server-tcp-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#virtual-server-tcp-client-ssl-profile) - Optional Block<br>Client SSL Profile. Client-side configuration<br>See [Client SSL Profile](#virtual-server-tcp-client-ssl-profile) below.
+
+<a id="virtual-server-tcp-ocsp-profile"></a>&#x2022; [`ocsp_profile`](#virtual-server-tcp-ocsp-profile) - Optional Block<br>Configuration parameter for OCSP profile<br>See [OCSP Profile](#virtual-server-tcp-ocsp-profile) below.
+
+<a id="virtual-server-tcp-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#virtual-server-tcp-server-ssl-profile) - Optional Block<br>Configuration parameter for server SSL profile<br>See [Server SSL Profile](#virtual-server-tcp-server-ssl-profile) below.
+
 <a id="virtual-server-tcp-tcp-client-profile"></a>&#x2022; [`tcp_client_profile`](#virtual-server-tcp-tcp-client-profile) - Optional Block<br>Protocol Profile (Client). Client-side configuration<br>See [TCP Client Profile](#virtual-server-tcp-tcp-client-profile) below.
 
 <a id="virtual-server-tcp-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#virtual-server-tcp-tcp-server-profile) - Optional Block<br>Configuration parameter for TCP server profile<br>See [TCP Server Profile](#virtual-server-tcp-tcp-server-profile) below.
+
+#### Virtual Server TCP Client SSL Profile
+
+A [`client_ssl_profile`](#virtual-server-tcp-client-ssl-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="name-7b7d62"></a>&#x2022; [`name`](#name-7b7d62) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-bc8765"></a>&#x2022; [`namespace`](#namespace-bc8765) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-af61b5"></a>&#x2022; [`kind`](#kind-af61b5) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-321e6f"></a>&#x2022; [`tenant`](#tenant-321e6f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-b85fde"></a>&#x2022; [`uid`](#uid-b85fde) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP OCSP Profile
+
+An [`ocsp_profile`](#virtual-server-tcp-ocsp-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="virtual-server-tcp-ocsp-profile-name"></a>&#x2022; [`name`](#virtual-server-tcp-ocsp-profile-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-2410d1"></a>&#x2022; [`namespace`](#namespace-2410d1) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="virtual-server-tcp-ocsp-profile-kind"></a>&#x2022; [`kind`](#virtual-server-tcp-ocsp-profile-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="virtual-server-tcp-ocsp-profile-tenant"></a>&#x2022; [`tenant`](#virtual-server-tcp-ocsp-profile-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="virtual-server-tcp-ocsp-profile-uid"></a>&#x2022; [`uid`](#virtual-server-tcp-ocsp-profile-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server TCP Server SSL Profile
+
+A [`server_ssl_profile`](#virtual-server-tcp-server-ssl-profile) block (within [`virtual_server.tcp`](#virtual-server-tcp)) supports the following:
+
+<a id="name-109a36"></a>&#x2022; [`name`](#name-109a36) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-99c584"></a>&#x2022; [`namespace`](#namespace-99c584) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-2ebcbc"></a>&#x2022; [`kind`](#kind-2ebcbc) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-55e59a"></a>&#x2022; [`tenant`](#tenant-55e59a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-e57599"></a>&#x2022; [`uid`](#uid-e57599) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server TCP TCP Client Profile
 
@@ -687,37 +1029,69 @@ A [`tcp_server_profile`](#virtual-server-tcp-tcp-server-profile) block (within [
 
 An [`udp`](#virtual-server-udp) block (within [`virtual_server`](#virtual-server)) supports the following:
 
-<a id="virtual-server-udp-tcp-client-profile"></a>&#x2022; [`tcp_client_profile`](#virtual-server-udp-tcp-client-profile) - Optional Block<br>Protocol Profile (Client). Client-side configuration<br>See [TCP Client Profile](#virtual-server-udp-tcp-client-profile) below.
+<a id="virtual-server-udp-client-ssl-profile"></a>&#x2022; [`client_ssl_profile`](#virtual-server-udp-client-ssl-profile) - Optional Block<br>Client SSL Profile. Client-side configuration<br>See [Client SSL Profile](#virtual-server-udp-client-ssl-profile) below.
 
-<a id="virtual-server-udp-tcp-server-profile"></a>&#x2022; [`tcp_server_profile`](#virtual-server-udp-tcp-server-profile) - Optional Block<br>Configuration parameter for TCP server profile<br>See [TCP Server Profile](#virtual-server-udp-tcp-server-profile) below.
+<a id="virtual-server-udp-server-ssl-profile"></a>&#x2022; [`server_ssl_profile`](#virtual-server-udp-server-ssl-profile) - Optional Block<br>Configuration parameter for server SSL profile<br>See [Server SSL Profile](#virtual-server-udp-server-ssl-profile) below.
 
-#### Virtual Server UDP TCP Client Profile
+<a id="virtual-server-udp-udp-client-profile"></a>&#x2022; [`udp_client_profile`](#virtual-server-udp-udp-client-profile) - Optional Block<br>Protocol Profile (Client). Client-side configuration<br>See [UDP Client Profile](#virtual-server-udp-udp-client-profile) below.
 
-A [`tcp_client_profile`](#virtual-server-udp-tcp-client-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+<a id="virtual-server-udp-udp-server-profile"></a>&#x2022; [`udp_server_profile`](#virtual-server-udp-udp-server-profile) - Optional Block<br>Configuration parameter for UDP server profile<br>See [UDP Server Profile](#virtual-server-udp-udp-server-profile) below.
 
-<a id="name-5efa77"></a>&#x2022; [`name`](#name-5efa77) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+#### Virtual Server UDP Client SSL Profile
 
-<a id="namespace-03523d"></a>&#x2022; [`namespace`](#namespace-03523d) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+A [`client_ssl_profile`](#virtual-server-udp-client-ssl-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
 
-<a id="kind-31bc7a"></a>&#x2022; [`kind`](#kind-31bc7a) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+<a id="name-9d07b8"></a>&#x2022; [`name`](#name-9d07b8) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="tenant-0046b3"></a>&#x2022; [`tenant`](#tenant-0046b3) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="namespace-684585"></a>&#x2022; [`namespace`](#namespace-684585) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="uid-436acd"></a>&#x2022; [`uid`](#uid-436acd) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+<a id="kind-e010bb"></a>&#x2022; [`kind`](#kind-e010bb) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
 
-#### Virtual Server UDP TCP Server Profile
+<a id="tenant-f22a55"></a>&#x2022; [`tenant`](#tenant-f22a55) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
-A [`tcp_server_profile`](#virtual-server-udp-tcp-server-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+<a id="uid-8ae755"></a>&#x2022; [`uid`](#uid-8ae755) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
-<a id="name-e52d2e"></a>&#x2022; [`name`](#name-e52d2e) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+#### Virtual Server UDP Server SSL Profile
 
-<a id="namespace-febc30"></a>&#x2022; [`namespace`](#namespace-febc30) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+A [`server_ssl_profile`](#virtual-server-udp-server-ssl-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
 
-<a id="kind-8d4f69"></a>&#x2022; [`kind`](#kind-8d4f69) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+<a id="name-9d8e28"></a>&#x2022; [`name`](#name-9d8e28) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="tenant-b03c26"></a>&#x2022; [`tenant`](#tenant-b03c26) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="namespace-1a9fea"></a>&#x2022; [`namespace`](#namespace-1a9fea) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="uid-37cabc"></a>&#x2022; [`uid`](#uid-37cabc) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+<a id="kind-de55a5"></a>&#x2022; [`kind`](#kind-de55a5) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-e47c8b"></a>&#x2022; [`tenant`](#tenant-e47c8b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-d440ad"></a>&#x2022; [`uid`](#uid-d440ad) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server UDP UDP Client Profile
+
+An [`udp_client_profile`](#virtual-server-udp-udp-client-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+
+<a id="name-104486"></a>&#x2022; [`name`](#name-104486) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-372ff6"></a>&#x2022; [`namespace`](#namespace-372ff6) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-26d63b"></a>&#x2022; [`kind`](#kind-26d63b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-681d46"></a>&#x2022; [`tenant`](#tenant-681d46) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-320d99"></a>&#x2022; [`uid`](#uid-320d99) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
+
+#### Virtual Server UDP UDP Server Profile
+
+An [`udp_server_profile`](#virtual-server-udp-udp-server-profile) block (within [`virtual_server.udp`](#virtual-server-udp)) supports the following:
+
+<a id="name-265340"></a>&#x2022; [`name`](#name-265340) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-7223b9"></a>&#x2022; [`namespace`](#namespace-7223b9) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="kind-ffd736"></a>&#x2022; [`kind`](#kind-ffd736) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
+
+<a id="tenant-fdb2db"></a>&#x2022; [`tenant`](#tenant-fdb2db) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+<a id="uid-2dc1e4"></a>&#x2022; [`uid`](#uid-2dc1e4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
 
 #### Virtual Server Virtual Server State
 

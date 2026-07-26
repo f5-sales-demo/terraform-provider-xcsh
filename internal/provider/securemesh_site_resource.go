@@ -66,13 +66,13 @@ var SecuremeshSiteMasterNodeConfigurationModelAttrTypes = map[string]attr.Type{
 // SecuremeshSitePerformanceEnhancementModeModel represents performance_enhancement_mode block
 type SecuremeshSitePerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *SecuremeshSiteEmptyModel                                        `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // SecuremeshSitePerformanceEnhancementModeModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModeModel
 var SecuremeshSitePerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -85,6 +85,18 @@ type SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModel struct {
 var SecuremeshSitePerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *SecuremeshSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *SecuremeshSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel
+var SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteBlockedServicesModel represents blocked_services block
@@ -493,55 +505,37 @@ var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHC
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel represents dhcp_networks block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel struct {
-	DgwAddress             types.String                                                                                                                `tfsdk:"dgw_address"`
-	DNSAddress             types.String                                                                                                                `tfsdk:"dns_address"`
-	NetworkPrefix          types.String                                                                                                                `tfsdk:"network_prefix"`
-	PoolSettings           types.String                                                                                                                `tfsdk:"pool_settings"`
-	FirstAddress           *SecuremeshSiteEmptyModel                                                                                                   `tfsdk:"first_address"`
-	LastAddress            *SecuremeshSiteEmptyModel                                                                                                   `tfsdk:"last_address"`
-	NetworkPrefixAllocator *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel `tfsdk:"network_prefix_allocator"`
-	Pools                  types.List                                                                                                                  `tfsdk:"pools"`
-	SameAsDgw              *SecuremeshSiteEmptyModel                                                                                                   `tfsdk:"same_as_dgw"`
+	DgwAddress    types.String              `tfsdk:"dgw_address"`
+	DNSAddress    types.String              `tfsdk:"dns_address"`
+	NetworkPrefix types.String              `tfsdk:"network_prefix"`
+	PoolSettings  types.String              `tfsdk:"pool_settings"`
+	FirstAddress  *SecuremeshSiteEmptyModel `tfsdk:"first_address"`
+	LastAddress   *SecuremeshSiteEmptyModel `tfsdk:"last_address"`
+	Pools         types.List                `tfsdk:"pools"`
+	SameAsDgw     *SecuremeshSiteEmptyModel `tfsdk:"same_as_dgw"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksModelAttrTypes = map[string]attr.Type{
-	"dgw_address":              types.StringType,
-	"dns_address":              types.StringType,
-	"network_prefix":           types.StringType,
-	"pool_settings":            types.StringType,
-	"first_address":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"last_address":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"network_prefix_allocator": types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes},
-	"pools":                    types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}},
-	"same_as_dgw":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
-}
-
-// SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel represents network_prefix_allocator block
-type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel struct {
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Tenant    types.String `tfsdk:"tenant"`
-}
-
-// SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel
-var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModelAttrTypes = map[string]attr.Type{
-	"name":      types.StringType,
-	"namespace": types.StringType,
-	"tenant":    types.StringType,
+	"dgw_address":    types.StringType,
+	"dns_address":    types.StringType,
+	"network_prefix": types.StringType,
+	"pool_settings":  types.StringType,
+	"first_address":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"last_address":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"pools":          types.ListType{ElemType: types.ObjectType{AttrTypes: SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes}},
+	"same_as_dgw":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel represents pools block
 type SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel struct {
 	EndIP   types.String `tfsdk:"end_ip"`
-	Exclude types.Bool   `tfsdk:"exclude"`
 	StartIP types.String `tfsdk:"start_ip"`
 }
 
 // SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes defines the attribute types for SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModel
 var SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksPoolsModelAttrTypes = map[string]attr.Type{
 	"end_ip":   types.StringType,
-	"exclude":  types.BoolType,
 	"start_ip": types.StringType,
 }
 
@@ -1322,6 +1316,15 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
 					},
 				},
 			},
@@ -1858,36 +1861,6 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	"last_address": schema.SingleNestedBlock{
 																		MarkdownDescription: "Enable this option",
 																	},
-																	"network_prefix_allocator": schema.SingleNestedBlock{
-																		MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-																		Attributes: map[string]schema.Attribute{
-																			"name": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-																				Optional:            true,
-																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 128),
-																				},
-																			},
-																			"namespace": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-																				Optional:            true,
-																				Computed:            true,
-																				PlanModifiers: []planmodifier.String{
-																					stringplanmodifier.UseStateForUnknown(),
-																				},
-																				Validators: []validator.String{
-																					stringvalidator.LengthBetween(1, 63),
-																				},
-																			},
-																			"tenant": schema.StringAttribute{
-																				MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-																				Computed:            true,
-																				Validators: []validator.String{
-																					stringvalidator.LengthAtMost(64),
-																				},
-																			},
-																		},
-																	},
 																	"pools": schema.ListNestedBlock{
 																		MarkdownDescription: "List of non overlapping IP address ranges.",
 																		NestedObject: schema.NestedBlockObject{
@@ -1899,10 +1872,6 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																						stringvalidator.LengthAtMost(1024),
 																						validators.IPv4Validator(),
 																					},
-																				},
-																				"exclude": schema.BoolAttribute{
-																					MarkdownDescription: "X-displayName: 'Exclude' If exclude is true, IP addresses are not assigned from this range.",
-																					Optional:            true,
 																				},
 																				"start_ip": schema.StringAttribute{
 																					MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 0.0.0.5.",
@@ -1925,7 +1894,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 														},
 														"interface_ip_map": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Interface IPv4 Assignments' Specify static IPv4 addresses per node.",
+															MarkdownDescription: "Interface IPv4 Assignments. Specify static IPv4 addresses per node.",
 															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"interface_ip_map": schema.SingleNestedBlock{
@@ -2967,7 +2936,14 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -2998,7 +2974,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -3307,19 +3283,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 											if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
 												DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 											}
-											if DHCPNetworksItem.NetworkPrefixAllocator != nil {
-												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["name"] = DHCPNetworksItem.NetworkPrefixAllocator.Name.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["namespace"] = DHCPNetworksItem.NetworkPrefixAllocator.Namespace.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["tenant"] = DHCPNetworksItem.NetworkPrefixAllocator.Tenant.ValueString()
-												}
-												DHCPNetworksItemMap["network_prefix_allocator"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap
-											}
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
@@ -3333,9 +3296,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 														PoolsItemMap := make(map[string]interface{})
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
 														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
@@ -4157,12 +4117,31 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -4183,7 +4162,7 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -4609,6 +4588,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 				return nil
 			}(),
 			InterfaceList: func() *SecuremeshSiteCustomNetworkConfigInterfaceListModel {
+				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
+					return data.CustomNetworkConfig.InterfaceList
+				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -4796,6 +4778,9 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 															return nil
 														}(),
 														DHCPServer: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer
+															}
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *SecuremeshSiteEmptyModel {
@@ -4866,31 +4851,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -4916,12 +4876,6 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -6652,12 +6606,31 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -6678,7 +6651,7 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -7104,6 +7077,9 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 				return nil
 			}(),
 			InterfaceList: func() *SecuremeshSiteCustomNetworkConfigInterfaceListModel {
+				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
+					return data.CustomNetworkConfig.InterfaceList
+				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -7291,6 +7267,9 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 															return nil
 														}(),
 														DHCPServer: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer
+															}
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *SecuremeshSiteEmptyModel {
@@ -7361,31 +7340,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -7411,12 +7365,6 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {
@@ -9062,7 +9010,14 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -9093,7 +9048,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -9402,19 +9357,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 											if !DHCPNetworksItem.NetworkPrefix.IsNull() && !DHCPNetworksItem.NetworkPrefix.IsUnknown() {
 												DHCPNetworksItemMap["network_prefix"] = DHCPNetworksItem.NetworkPrefix.ValueString()
 											}
-											if DHCPNetworksItem.NetworkPrefixAllocator != nil {
-												CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap := make(map[string]interface{})
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Name.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["name"] = DHCPNetworksItem.NetworkPrefixAllocator.Name.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Namespace.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["namespace"] = DHCPNetworksItem.NetworkPrefixAllocator.Namespace.ValueString()
-												}
-												if !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsNull() && !DHCPNetworksItem.NetworkPrefixAllocator.Tenant.IsUnknown() {
-													CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap["tenant"] = DHCPNetworksItem.NetworkPrefixAllocator.Tenant.ValueString()
-												}
-												DHCPNetworksItemMap["network_prefix_allocator"] = CustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorMap
-											}
 											if !DHCPNetworksItem.PoolSettings.IsNull() && !DHCPNetworksItem.PoolSettings.IsUnknown() {
 												DHCPNetworksItemMap["pool_settings"] = DHCPNetworksItem.PoolSettings.ValueString()
 											}
@@ -9428,9 +9370,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 														PoolsItemMap := make(map[string]interface{})
 														if !PoolsItem.EndIP.IsNull() && !PoolsItem.EndIP.IsUnknown() {
 															PoolsItemMap["end_ip"] = PoolsItem.EndIP.ValueString()
-														}
-														if !PoolsItem.Exclude.IsNull() && !PoolsItem.Exclude.IsUnknown() {
-															PoolsItemMap["exclude"] = PoolsItem.Exclude.ValueBool()
 														}
 														if !PoolsItem.StartIP.IsNull() && !PoolsItem.StartIP.IsUnknown() {
 															PoolsItemMap["start_ip"] = PoolsItem.StartIP.ValueString()
@@ -10263,12 +10202,31 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSitePerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -10289,7 +10247,7 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -10715,6 +10673,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 				return nil
 			}(),
 			InterfaceList: func() *SecuremeshSiteCustomNetworkConfigInterfaceListModel {
+				if !isImport && data.CustomNetworkConfig != nil && data.CustomNetworkConfig.InterfaceList != nil {
+					return data.CustomNetworkConfig.InterfaceList
+				}
 				if InterfaceListData, ok := blockData["interface_list"].(map[string]interface{}); ok {
 					return &SecuremeshSiteCustomNetworkConfigInterfaceListModel{
 						Interfaces: func() types.List {
@@ -10902,6 +10863,9 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 															return nil
 														}(),
 														DHCPServer: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel {
+															if !isImport && len(InterfacesExisting) > InterfacesIdx && InterfacesExisting[InterfacesIdx].EthernetInterface != nil && InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer != nil {
+																return InterfacesExisting[InterfacesIdx].EthernetInterface.DHCPServer
+															}
 															if DHCPServerData, ok := EthernetInterfaceData["dhcp_server"].(map[string]interface{}); ok {
 																return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerModel{
 																	AutomaticFromEnd: func() *SecuremeshSiteEmptyModel {
@@ -10972,31 +10936,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																							}
 																							return types.StringNull()
 																						}(),
-																						NetworkPrefixAllocator: func() *SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel {
-																							if NetworkPrefixAllocatorData, ok := DHCPNetworksItemMap["network_prefix_allocator"].(map[string]interface{}); ok {
-																								return &SecuremeshSiteCustomNetworkConfigInterfaceListInterfacesEthernetInterfaceDHCPServerDHCPNetworksNetworkPrefixAllocatorModel{
-																									Name: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["name"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Namespace: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["namespace"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																									Tenant: func() types.String {
-																										if v, ok := NetworkPrefixAllocatorData["tenant"].(string); ok && v != "" {
-																											return types.StringValue(v)
-																										}
-																										return types.StringNull()
-																									}(),
-																								}
-																							}
-																							return nil
-																						}(),
 																						PoolSettings: func() types.String {
 																							if v, ok := DHCPNetworksItemMap["pool_settings"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -11022,12 +10961,6 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 																													return types.StringValue(v)
 																												}
 																												return types.StringNull()
-																											}(),
-																											Exclude: func() types.Bool {
-																												if v, ok := PoolsItemMap["exclude"].(bool); ok {
-																													return types.BoolValue(v)
-																												}
-																												return types.BoolNull()
 																											}(),
 																											StartIP: func() types.String {
 																												if v, ok := PoolsItemMap["start_ip"].(string); ok && v != "" {

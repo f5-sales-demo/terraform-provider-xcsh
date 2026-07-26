@@ -28,17 +28,18 @@ type LmaRegionDataSource struct {
 }
 
 type LmaRegionDataSourceModel struct {
-	ID               types.String `tfsdk:"id"`
-	Name             types.String `tfsdk:"name"`
-	Namespace        types.String `tfsdk:"namespace"`
-	Description      types.String `tfsdk:"description"`
-	Labels           types.Map    `tfsdk:"labels"`
-	Annotations      types.Map    `tfsdk:"annotations"`
-	AWSParams        types.String `tfsdk:"aws_params"`
-	ClickhouseParams types.String `tfsdk:"clickhouse_params"`
-	ElasticParams    types.String `tfsdk:"elastic_params"`
-	IsDefault        types.String `tfsdk:"is_default"`
-	KafkaParams      types.String `tfsdk:"kafka_params"`
+	ID                 types.String `tfsdk:"id"`
+	Name               types.String `tfsdk:"name"`
+	Namespace          types.String `tfsdk:"namespace"`
+	Description        types.String `tfsdk:"description"`
+	Labels             types.Map    `tfsdk:"labels"`
+	Annotations        types.Map    `tfsdk:"annotations"`
+	AccessLogsS3Params types.String `tfsdk:"access_logs_s3_params"`
+	ClickhouseParams   types.String `tfsdk:"clickhouse_params"`
+	Country            types.String `tfsdk:"country"`
+	ElasticParams      types.String `tfsdk:"elastic_params"`
+	IsDefault          types.String `tfsdk:"is_default"`
+	KafkaParams        types.String `tfsdk:"kafka_params"`
 }
 
 func (d *LmaRegionDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -75,12 +76,16 @@ func (d *LmaRegionDataSource) Schema(ctx context.Context, req datasource.SchemaR
 				Computed:            true,
 				ElementType:         types.StringType,
 			},
-			"aws_params": schema.StringAttribute{
-				MarkdownDescription: "AWS Params. AWS parameters.",
+			"access_logs_s3_params": schema.StringAttribute{
+				MarkdownDescription: "Configuration parameter for access logs s3 params.",
 				Computed:            true,
 			},
 			"clickhouse_params": schema.StringAttribute{
 				MarkdownDescription: "Configuration parameter for clickhouse params.",
+				Computed:            true,
+			},
+			"country": schema.StringAttribute{
+				MarkdownDescription: "Country associated with this LMA region.",
 				Computed:            true,
 			},
 			"elastic_params": schema.StringAttribute{
@@ -159,15 +164,20 @@ func (d *LmaRegionDataSource) Read(ctx context.Context, req datasource.ReadReque
 	}
 
 	// Map spec fields from API response
-	if v, ok := resource.Spec["aws_params"]; ok && v != nil {
-		data.AWSParams = types.StringValue(fmt.Sprintf("%v", v))
+	if v, ok := resource.Spec["access_logs_s3_params"]; ok && v != nil {
+		data.AccessLogsS3Params = types.StringValue(fmt.Sprintf("%v", v))
 	} else {
-		data.AWSParams = types.StringNull()
+		data.AccessLogsS3Params = types.StringNull()
 	}
 	if v, ok := resource.Spec["clickhouse_params"]; ok && v != nil {
 		data.ClickhouseParams = types.StringValue(fmt.Sprintf("%v", v))
 	} else {
 		data.ClickhouseParams = types.StringNull()
+	}
+	if v, ok := resource.Spec["country"]; ok && v != nil {
+		data.Country = types.StringValue(fmt.Sprintf("%v", v))
+	} else {
+		data.Country = types.StringNull()
 	}
 	if v, ok := resource.Spec["elastic_params"]; ok && v != nil {
 		data.ElasticParams = types.StringValue(fmt.Sprintf("%v", v))

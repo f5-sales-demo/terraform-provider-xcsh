@@ -54,22 +54,14 @@ type AzureVNETSiteEmptyModel struct {
 
 // AzureVNETSiteAdminPasswordModel represents admin_password block
 type AzureVNETSiteAdminPasswordModel struct {
-	SecretEncodingType          types.String                                                `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *AzureVNETSiteAdminPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *AzureVNETSiteAdminPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *AzureVNETSiteAdminPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *AzureVNETSiteAdminPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *AzureVNETSiteAdminPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *AzureVNETSiteAdminPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // AzureVNETSiteAdminPasswordModelAttrTypes defines the attribute types for AzureVNETSiteAdminPasswordModel
 var AzureVNETSiteAdminPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: AzureVNETSiteAdminPasswordClearSecretInfoModelAttrTypes},
 }
 
 // AzureVNETSiteAdminPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -86,20 +78,6 @@ var AzureVNETSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes = map[string]att
 	"store_provider":      types.StringType,
 }
 
-// AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel
-var AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // AzureVNETSiteAdminPasswordClearSecretInfoModel represents clear_secret_info block
 type AzureVNETSiteAdminPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -110,34 +88,6 @@ type AzureVNETSiteAdminPasswordClearSecretInfoModel struct {
 var AzureVNETSiteAdminPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// AzureVNETSiteAdminPasswordVaultSecretInfoModel represents vault_secret_info block
-type AzureVNETSiteAdminPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// AzureVNETSiteAdminPasswordVaultSecretInfoModelAttrTypes defines the attribute types for AzureVNETSiteAdminPasswordVaultSecretInfoModel
-var AzureVNETSiteAdminPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// AzureVNETSiteAdminPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type AzureVNETSiteAdminPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// AzureVNETSiteAdminPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for AzureVNETSiteAdminPasswordWingmanSecretInfoModel
-var AzureVNETSiteAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // AzureVNETSiteAzureCredModel represents azure_cred block
@@ -628,22 +578,14 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscripti
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModel represents authorized_key block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModel struct {
-	SecretEncodingType          types.String                                                                                                                 `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModel
 var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -660,20 +602,6 @@ var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscripti
 	"store_provider":      types.StringType,
 }
 
-// AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel
-var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel represents clear_secret_info block
 type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -684,34 +612,6 @@ type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscript
 var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel represents vault_secret_info block
-type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel
-var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel represents wingman_secret_info block
-type AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel
-var AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // AzureVNETSiteIngressEgressGwHubExpressRouteEnabledGatewaySubnetModel represents gateway_subnet block
@@ -1107,13 +1007,13 @@ var AzureVNETSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRo
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AzureVNETSiteEmptyModel                                                       `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModel
 var AzureVNETSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -1126,6 +1026,18 @@ type AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMod
 var AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel
+var AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AzureVNETSiteIngressEgressGwArModel represents ingress_egress_gw_ar block
@@ -1454,22 +1366,14 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscrip
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModel represents authorized_key block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModel struct {
-	SecretEncodingType          types.String                                                                                                                   `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModel
 var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1486,20 +1390,6 @@ var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscrip
 	"store_provider":      types.StringType,
 }
 
-// AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel
-var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel represents clear_secret_info block
 type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -1510,34 +1400,6 @@ type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscri
 var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel represents vault_secret_info block
-type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel
-var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel represents wingman_secret_info block
-type AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel
-var AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledGatewaySubnetModel represents gateway_subnet block
@@ -2023,13 +1885,13 @@ var AzureVNETSiteIngressEgressGwArOutsideStaticRoutesStaticRouteListCustomStatic
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AzureVNETSiteEmptyModel                                                         `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModel
 var AzureVNETSiteIngressEgressGwArPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -2042,6 +1904,18 @@ type AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedM
 var AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel
+var AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AzureVNETSiteIngressGwModel represents ingress_gw block
@@ -2123,13 +1997,13 @@ var AzureVNETSiteIngressGwAzNodesLocalSubnetSubnetParamModelAttrTypes = map[stri
 // AzureVNETSiteIngressGwPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AzureVNETSiteIngressGwPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AzureVNETSiteEmptyModel                                                 `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AzureVNETSiteIngressGwPerformanceEnhancementModeModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwPerformanceEnhancementModeModel
 var AzureVNETSiteIngressGwPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -2142,6 +2016,18 @@ type AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel str
 var AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel
+var AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AzureVNETSiteIngressGwArModel represents ingress_gw_ar block
@@ -2227,13 +2113,13 @@ var AzureVNETSiteIngressGwArNodeLocalSubnetSubnetParamModelAttrTypes = map[strin
 // AzureVNETSiteIngressGwArPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AzureVNETSiteIngressGwArPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AzureVNETSiteEmptyModel                                                   `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AzureVNETSiteIngressGwArPerformanceEnhancementModeModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwArPerformanceEnhancementModeModel
 var AzureVNETSiteIngressGwArPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -2246,6 +2132,18 @@ type AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModel s
 var AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AzureVNETSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AzureVNETSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel
+var AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AzureVNETSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
@@ -3446,38 +3344,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-				Attributes: map[string]schema.Attribute{
-					"secret_encoding_type": schema.StringAttribute{
-						MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-						Optional:            true,
-						Validators: []validator.String{
-							stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-						},
-					},
-				},
+				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blindfold_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-						Attributes: map[string]schema.Attribute{
-							"decryption_provider": schema.StringAttribute{
-								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-								Optional:            true,
-							},
-							"location": schema.StringAttribute{
-								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(4, 131072),
-								},
-							},
-							"store_provider": schema.StringAttribute{
-								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-								Optional:            true,
-							},
-						},
-					},
-					"blindfold_secret_info_internal": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 						Attributes: map[string]schema.Attribute{
 							"decryption_provider": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -3497,7 +3367,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						},
 					},
 					"clear_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 						Attributes: map[string]schema.Attribute{
 							"provider_ref": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -3508,47 +3378,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 131072),
-								},
-							},
-						},
-					},
-					"vault_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-						Attributes: map[string]schema.Attribute{
-							"key": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-								Optional:            true,
-							},
-							"location": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-								Optional:            true,
-							},
-							"provider_ref": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-								Optional:            true,
-							},
-							"secret_encoding": schema.StringAttribute{
-								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-								},
-							},
-							"version": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-								Optional:            true,
-							},
-						},
-					},
-					"wingman_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-						Attributes: map[string]schema.Attribute{
-							"name": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 63),
-									stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 								},
 							},
 						},
@@ -3686,7 +3515,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -4129,38 +3958,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"authorized_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-															Attributes: map[string]schema.Attribute{
-																"secret_encoding_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-															},
+															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																	Attributes: map[string]schema.Attribute{
-																		"decryption_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(4, 131072),
-																			},
-																		},
-																		"store_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -4180,7 +3981,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -4191,47 +3992,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(1, 131072),
-																			},
-																		},
-																	},
-																},
-																"vault_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																	Attributes: map[string]schema.Attribute{
-																		"key": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																			Optional:            true,
-																		},
-																		"provider_ref": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																			Optional:            true,
-																		},
-																		"secret_encoding": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																		"version": schema.Int64Attribute{
-																			MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"wingman_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																	Attributes: map[string]schema.Attribute{
-																		"name": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(1, 63),
-																				stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																			},
 																		},
 																	},
@@ -4317,10 +4077,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 									"site_registration_over_express_route": schema.SingleNestedBlock{
-										MarkdownDescription: "CloudLink AND Network Config.",
+										MarkdownDescription: "CloudLink ADN Network Config.",
 										Attributes: map[string]schema.Attribute{
 											"cloudlink_network_name": schema.StringAttribute{
-												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
+												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
@@ -4370,7 +4130,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"vnet_name": schema.StringAttribute{
-													MarkdownDescription: "X-displayName: 'Existing VNet Name'Name of existing VNet.",
+													MarkdownDescription: "Existing VNet Name. Name of existing VNet .",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -4762,6 +4522,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -4787,7 +4556,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -5136,38 +4905,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													Blocks: map[string]schema.Block{
 														"authorized_key": schema.SingleNestedBlock{
 															MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-															Attributes: map[string]schema.Attribute{
-																"secret_encoding_type": schema.StringAttribute{
-																	MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																	Optional:            true,
-																	Validators: []validator.String{
-																		stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																	},
-																},
-															},
+															Attributes:          map[string]schema.Attribute{},
 															Blocks: map[string]schema.Block{
 																"blindfold_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-																	Attributes: map[string]schema.Attribute{
-																		"decryption_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(4, 131072),
-																			},
-																		},
-																		"store_provider": schema.StringAttribute{
-																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"blindfold_secret_info_internal": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+																	MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 																	Attributes: map[string]schema.Attribute{
 																		"decryption_provider": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -5187,7 +4928,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																	},
 																},
 																"clear_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+																	MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 																	Attributes: map[string]schema.Attribute{
 																		"provider_ref": schema.StringAttribute{
 																			MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -5198,47 +4939,6 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 																			Optional:            true,
 																			Validators: []validator.String{
 																				stringvalidator.LengthBetween(1, 131072),
-																			},
-																		},
-																	},
-																},
-																"vault_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-																	Attributes: map[string]schema.Attribute{
-																		"key": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-																			Optional:            true,
-																		},
-																		"location": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-																			Optional:            true,
-																		},
-																		"provider_ref": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-																			Optional:            true,
-																		},
-																		"secret_encoding": schema.StringAttribute{
-																			MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-																			},
-																		},
-																		"version": schema.Int64Attribute{
-																			MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-																			Optional:            true,
-																		},
-																	},
-																},
-																"wingman_secret_info": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-																	Attributes: map[string]schema.Attribute{
-																		"name": schema.StringAttribute{
-																			MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-																			Optional:            true,
-																			Validators: []validator.String{
-																				stringvalidator.LengthBetween(1, 63),
-																				stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 																			},
 																		},
 																	},
@@ -5324,10 +5024,10 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 										},
 									},
 									"site_registration_over_express_route": schema.SingleNestedBlock{
-										MarkdownDescription: "CloudLink AND Network Config.",
+										MarkdownDescription: "CloudLink ADN Network Config.",
 										Attributes: map[string]schema.Attribute{
 											"cloudlink_network_name": schema.StringAttribute{
-												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
+												MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
 												Optional:            true,
 												Validators: []validator.String{
 													stringvalidator.LengthAtMost(64),
@@ -5377,7 +5077,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 													},
 												},
 												"vnet_name": schema.StringAttribute{
-													MarkdownDescription: "X-displayName: 'Existing VNet Name'Name of existing VNet.",
+													MarkdownDescription: "Existing VNet Name. Name of existing VNet .",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.LengthBetween(1, 64),
@@ -5872,6 +5572,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -5897,7 +5606,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted.",
+						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -5981,6 +5690,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -6000,7 +5718,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -6093,6 +5811,15 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -6225,7 +5952,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 							},
 							"vnet_name": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Existing VNet Name'Name of existing VNet.",
+								MarkdownDescription: "Existing VNet Name. Name of existing VNet .",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 64),
@@ -6242,7 +5969,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 						},
 					},
 					"new_vnet": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Azure VNet Parameters' Parameters to create a new Azure VNet.",
+						MarkdownDescription: "Azure VNet Parameters. Parameters to create a new Azure VNet.",
 						Attributes: map[string]schema.Attribute{
 							"name": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VNet Name.",
@@ -6252,7 +5979,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 								},
 							},
 							"primary_ipv4": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'IPv4 CIDR block'IPv4 CIDR block for this VNet. It has to be private address space.",
+								MarkdownDescription: "IPv4 CIDR block for this VNet. It has to be private address space.",
 								Optional:            true,
 							},
 						},
@@ -6278,7 +6005,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -6840,7 +6567,7 @@ func (r *AzureVNETSiteResource) Schema(ctx context.Context, req resource.SchemaR
 				},
 				Blocks: map[string]schema.Block{
 					"accelerated_networking": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
+						MarkdownDescription: "Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"disable_spec": schema.SingleNestedBlock{
@@ -7554,19 +7281,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 			}
 			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
-		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
-		}
 		if data.AdminPassword.ClearSecretInfo != nil {
 			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -7576,35 +7290,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
 			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
-		}
-		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
-			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
-		}
-		if data.AdminPassword.VaultSecretInfo != nil {
-			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-			}
-			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
-		}
-		if data.AdminPassword.WingmanSecretInfo != nil {
-			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
-			}
-			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		createReq.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -7645,7 +7330,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -7974,19 +7659,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
-									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -7996,35 +7668,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
 										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
-									}
-									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
-										}
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
 									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
@@ -8433,7 +8076,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
@@ -8669,19 +8319,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 										}
 										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
-									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -8691,35 +8328,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
 										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
-									}
-									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
-										}
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
 									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
@@ -9189,7 +8797,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwArMap["performance_enhancement_mode"] = IngressEgressGwArPerformanceEnhancementModeMap
 		}
@@ -9269,7 +8884,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
@@ -9340,7 +8962,14 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				IngressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwArMap["performance_enhancement_mode"] = IngressGwArPerformanceEnhancementModeMap
 		}
@@ -10300,34 +9929,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *AzureVNETSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -10342,71 +9943,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *AzureVNETSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *AzureVNETSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -10449,7 +9985,7 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AzureVNETSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -11138,34 +10674,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := AuthorizedKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel {
 																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo
@@ -11180,71 +10688,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := AuthorizedKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := AuthorizedKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil && !ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-																									return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := AuthorizedKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -12145,12 +11588,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -12622,34 +12084,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := AuthorizedKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel {
 																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo
@@ -12664,71 +12098,6 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := AuthorizedKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := AuthorizedKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil && !ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-																									return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := AuthorizedKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -13780,12 +13149,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -13965,12 +13353,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -14144,12 +13551,31 @@ func (r *AzureVNETSiteResource) Create(ctx context.Context, req resource.CreateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -16135,34 +15561,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *AzureVNETSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -16177,71 +15575,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *AzureVNETSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *AzureVNETSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -16284,7 +15617,7 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AzureVNETSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -16973,34 +16306,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := AuthorizedKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel {
 																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo
@@ -17015,71 +16320,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := AuthorizedKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := AuthorizedKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil && !ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-																									return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := AuthorizedKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -17980,12 +17220,31 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -18457,34 +17716,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := AuthorizedKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel {
 																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo
@@ -18499,71 +17730,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := AuthorizedKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := AuthorizedKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil && !ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-																									return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := AuthorizedKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -19615,12 +18781,31 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -19800,12 +18985,31 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -19979,12 +19183,31 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -21897,19 +21120,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			}
 			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
-		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
-		}
 		if data.AdminPassword.ClearSecretInfo != nil {
 			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -21919,35 +21129,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
 			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
-		}
-		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
-			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
-		}
-		if data.AdminPassword.VaultSecretInfo != nil {
-			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-			}
-			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
-		}
-		if data.AdminPassword.WingmanSecretInfo != nil {
-			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
-			}
-			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		apiResource.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -21988,7 +21169,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -22317,19 +21498,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
-									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -22339,35 +21507,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
 										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
-									}
-									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
-										}
-										IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
 									IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
@@ -22776,7 +21915,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
@@ -23012,19 +22158,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 										}
 										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoMap
 									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["decryption_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap["store_provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-										}
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["blindfold_secret_info_internal"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalMap
-									}
 									if ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap := make(map[string]interface{})
 										if !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.Provider.IsUnknown() {
@@ -23034,35 +22167,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap["url"] = ConnectionsItem.OtherSubscription.AuthorizedKey.ClearSecretInfo.URL.ValueString()
 										}
 										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["clear_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoMap
-									}
-									if !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.IsUnknown() {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["secret_encoding_type"] = ConnectionsItem.OtherSubscription.AuthorizedKey.SecretEncodingType.ValueString()
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["key"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Key.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["location"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Location.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["provider"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Provider.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["secret_encoding"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.SecretEncoding.ValueString()
-										}
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap["version"] = ConnectionsItem.OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.ValueInt64()
-										}
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["vault_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoMap
-									}
-									if ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap := make(map[string]interface{})
-										if !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsNull() && !ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.IsUnknown() {
-											IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap["name"] = ConnectionsItem.OtherSubscription.AuthorizedKey.WingmanSecretInfo.Name.ValueString()
-										}
-										IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap["wingman_secret_info"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoMap
 									}
 									IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionMap["authorized_key"] = IngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyMap
 								}
@@ -23532,7 +22636,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwArMap["performance_enhancement_mode"] = IngressEgressGwArPerformanceEnhancementModeMap
 		}
@@ -23612,7 +22723,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
@@ -23683,7 +22801,14 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				IngressGwArPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwArPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwArPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwArMap["performance_enhancement_mode"] = IngressGwArPerformanceEnhancementModeMap
 		}
@@ -24696,34 +23821,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *AzureVNETSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -24738,71 +23835,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *AzureVNETSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *AzureVNETSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &AzureVNETSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -24845,7 +23877,7 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AzureVNETSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -25534,34 +24566,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := AuthorizedKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel {
 																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo
@@ -25576,71 +24580,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := AuthorizedKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := AuthorizedKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil && !ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-																									return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := AuthorizedKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -26541,12 +25480,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -27018,34 +25976,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																					}
 																					return nil
 																				}(),
-																				BlindfoldSecretInfoInternal: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.BlindfoldSecretInfoInternal
-																					}
-																					if BlindfoldSecretInfoInternalData, ok := AuthorizedKeyData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyBlindfoldSecretInfoInternalModel{
-																							DecryptionProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							StoreProvider: func() types.String {
-																								if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
 																				ClearSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyClearSecretInfoModel {
 																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo != nil {
 																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.ClearSecretInfo
@@ -27060,71 +25990,6 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 																							}(),
 																							URL: func() types.String {
 																								if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				SecretEncodingType: func() types.String {
-																					if v, ok := AuthorizedKeyData["secret_encoding_type"].(string); ok && v != "" {
-																						return types.StringValue(v)
-																					}
-																					return types.StringNull()
-																				}(),
-																				VaultSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo
-																					}
-																					if VaultSecretInfoData, ok := AuthorizedKeyData["vault_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyVaultSecretInfoModel{
-																							Key: func() types.String {
-																								if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Location: func() types.String {
-																								if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Provider: func() types.String {
-																								if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							SecretEncoding: func() types.String {
-																								if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-																									return types.StringValue(v)
-																								}
-																								return types.StringNull()
-																							}(),
-																							Version: func() types.Int64 {
-																								if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo != nil && !ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version.IsUnknown() {
-																									return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.VaultSecretInfo.Version
-																								}
-																								if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-																									return types.Int64Value(int64(v))
-																								}
-																								return types.Int64Null()
-																							}(),
-																						}
-																					}
-																					return nil
-																				}(),
-																				WingmanSecretInfo: func() *AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel {
-																					if !isImport && len(ConnectionsExisting) > ConnectionsIdx && ConnectionsExisting[ConnectionsIdx].OtherSubscription != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey != nil && ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo != nil {
-																						return ConnectionsExisting[ConnectionsIdx].OtherSubscription.AuthorizedKey.WingmanSecretInfo
-																					}
-																					if WingmanSecretInfoData, ok := AuthorizedKeyData["wingman_secret_info"].(map[string]interface{}); ok {
-																						return &AzureVNETSiteIngressEgressGwArHubExpressRouteEnabledConnectionsOtherSubscriptionAuthorizedKeyWingmanSecretInfoModel{
-																							Name: func() types.String {
-																								if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 																									return types.StringValue(v)
 																								}
 																								return types.StringNull()
@@ -28176,12 +27041,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressEgressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressEgressGwAr != nil && data.IngressEgressGwAr.PerformanceEnhancementMode != nil && data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -28361,12 +27245,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -28540,12 +27443,31 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AzureVNETSiteEmptyModel {
-							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AzureVNETSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AzureVNETSiteIngressGwArPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AzureVNETSiteEmptyModel {
+										if !isImport && data.IngressGwAr != nil && data.IngressGwAr.PerformanceEnhancementMode != nil && data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGwAr.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AzureVNETSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),

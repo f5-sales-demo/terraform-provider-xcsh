@@ -91,7 +91,7 @@ resource "xcsh_cdn_loadbalancer" "example" {
 
 <a id="cors-policy"></a>&#x2022; [`cors_policy`](#cors-policy) - Optional Block<br>Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel macOS X 10.5
 
-<a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to
+<a id="csrf-policy"></a>&#x2022; [`csrf_policy`](#csrf-policy) - Optional Block<br>To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent
 
 <a id="custom-cache-rule"></a>&#x2022; [`custom_cache_rule`](#custom-cache-rule) - Optional Block<br>Custom Cache Rules. Caching policies for CDN
 
@@ -217,8 +217,7 @@ An [`api_rate_limit`](#api-rate-limit) block supports the following:
 
 <a id="api-rate-limit-no-ip-allowed-list"></a>&#x2022; [`no_ip_allowed_list`](#api-rate-limit-no-ip-allowed-list) - Optional Block<br>Enable this option
 
-<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules)
-below.
+<a id="api-rate-limit-server-url-rules"></a>&#x2022; [`server_url_rules`](#api-rate-limit-server-url-rules) - Optional Block<br>Set of rules for entire domain or base path that contain multiple endpoints. Order is matter as it uses first match policy. For matching also specific endpoints you can use the API endpoint rules set below<br>See [Server URL Rules](#api-rate-limit-server-url-rules) below.
 
 #### API Rate Limit API Endpoint Rules
 
@@ -815,7 +814,7 @@ JavaScript for telemetry collection is requested asynchronously, and it is non-c
 
 A [`js_insert_all_pages`](#bot-defense-policy-js-insert-all-pages) block (within [`bot_defense.policy`](#bot-defense-policy)) supports the following:
 
-<a id="location-3a398d"></a>&#x2022; [`JavaScript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-3a398d"></a>&#x2022; [`JavaScript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Policy Js Insert All Pages Except
 
@@ -869,7 +868,7 @@ A [`rules`](#rules-15d983) block (within [`bot_defense.policy.js_insertion_rules
 
 <a id="domain-834b0f"></a>&#x2022; [`domain`](#domain-834b0f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-834b0f) below.
 
-<a id="location-16277f"></a>&#x2022; [`JavaScript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+<a id="location-16277f"></a>&#x2022; [`JavaScript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-e15703"></a>&#x2022; [`metadata`](#metadata-e15703) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-e15703) below.

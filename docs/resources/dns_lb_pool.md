@@ -166,13 +166,15 @@ A [`health_check`](#cname-pool-health-check) block (within [`cname_pool`](#cname
 
 A [`members`](#cname-pool-members) block (within [`cname_pool`](#cname-pool)) supports the following:
 
-<a id="cname-pool-members-domain"></a>&#x2022; [`domain`](#cname-pool-members-domain) - Optional String<br>Domain
+<a id="cname-pool-members-domain"></a>&#x2022; [`domain`](#cname-pool-members-domain) - Optional String<br>Specifies the fully qualified domain name
 
 <a id="cname-pool-members-final-translation"></a>&#x2022; [`final_translation`](#cname-pool-members-final-translation) - Optional Bool<br>If this flag is true, the CNAME record will not be translated further
 
 <a id="cname-pool-members-name"></a>&#x2022; [`name`](#cname-pool-members-name) - Optional String<br>Name. Pool member name
 
-<a id="cname-pool-members-ratio"></a>&#x2022; [`ratio`](#cname-pool-members-ratio) - Optional Number<br>Load Balancing Ratio. Configuration parameter for ratio
+<a id="cname-pool-members-priority"></a>&#x2022; [`priority`](#cname-pool-members-priority) - Optional Number<br>Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups
+
+<a id="cname-pool-members-ratio"></a>&#x2022; [`ratio`](#cname-pool-members-ratio) - Optional Number<br>Used if the pool’s load balancing mode is set to Ratio-Member
 
 #### Mx Pool
 

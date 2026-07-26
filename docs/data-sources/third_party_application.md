@@ -69,8 +69,6 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="sensitive-data-policy"></a>&#x2022; [`sensitive_data_policy`](#sensitive-data-policy) - Optional String<br>Policy configuration for this feature
 
-<a id="service-discovery"></a>&#x2022; [`service_discovery`](#service-discovery) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
-
 ---
 
 ## Common Types
