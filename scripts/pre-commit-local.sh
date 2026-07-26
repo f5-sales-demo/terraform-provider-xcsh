@@ -27,9 +27,18 @@ if ! go vet ./...; then
   FAILED=1
 fi
 
-# go build
+# go vet for the tools/ generators, which carry //go:build ignore and are
+# therefore invisible to ./... (#1351)
+echo "[run] go vet (build-ignored generators)"
+if ! "$(dirname "$0")/vet-build-ignored-tools.sh"; then
+  FAILED=1
+fi
+
+# go build — every package, not just the root binary. `go build .` never
+# compiles internal/acctest (nothing outside tests imports it), which is how a
+# stale reference to a removed generated symbol reached main in #1351.
 echo "[run] go build"
-if ! go build -v .; then
+if ! go build -v ./...; then
   FAILED=1
 fi
 

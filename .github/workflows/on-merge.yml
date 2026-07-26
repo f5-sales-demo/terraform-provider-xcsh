@@ -362,7 +362,7 @@ jobs:
           go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
           echo "::endgroup::"
           scripts/go-retry.sh 3 go mod tidy
-          scripts/go-retry.sh 3 go build -v .
+          scripts/go-retry.sh 3 go build -v ./...
 
       - name: Regenerate documentation (if needed)
         # Regenerate docs if:
@@ -376,6 +376,38 @@ jobs:
           scripts/go-retry.sh 3 tfplugindocs generate --provider-name xcsh
           go run tools/transform-docs.go
           go run tools/generate-llms-txt.go
+
+      - name: Verify the regenerated tree compiles
+        # THE GATE THAT KEEPS main COMPILABLE (#1351).
+        #
+        # This job commits the regenerated tree, opens a PR and immediately turns
+        # on auto-merge. Auto-merge waits only for the REQUIRED checks — "check /
+        # Check linked issues", "lint / Lint Code Base" and "review /
+        # claude-review". "Build and Test" is not among them, so the regeneration
+        # PR can merge before that job has even finished, let alone passed.
+        #
+        # That is not hypothetical: PR #1339 merged at 03:38:06Z while its build
+        # job was still running; the job recorded the GetAPM/DeleteAPM compile
+        # failure at 03:38:56Z, fifty seconds too late, and main was broken.
+        #
+        # So the regeneration job has to prove the tree compiles BEFORE it hands
+        # anything to auto-merge. ./... rather than . because the packages that
+        # rot when upstream removes a schema — internal/acctest above all — are
+        # imported only by tests, and go vet on top because go build skips
+        # _test.go entirely. Failing here means no PR and a red on-merge run,
+        # which is the correct outcome: hand-written code has to catch up with
+        # codegen before the regeneration can land.
+        run: |
+          echo "::group::go build ./..."
+          go build ./...
+          echo "::endgroup::"
+          echo "::group::go vet ./..."
+          go vet ./...
+          echo "::endgroup::"
+          echo "::group::go vet (build-ignored generators)"
+          scripts/vet-build-ignored-tools.sh
+          echo "::endgroup::"
+          echo "Regenerated tree compiles (all packages, tests included)"
 
       - name: Clean build artifacts
         run: |

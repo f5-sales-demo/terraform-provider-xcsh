@@ -25,6 +25,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
@@ -140,7 +141,7 @@ var categoryDescriptions = map[string]string{
 	"Integrations":              "External integrations including code base and ticket tracking",
 	"Kubernetes":                "Container registries, workloads, and Kubernetes integrations",
 	"Load Balancing":            "HTTP/TCP/UDP/CDN load balancers, origin pools, health checks, and routing",
-	"Monitoring":                "Log receivers, alert policies, APM, and global logging configuration",
+	"Monitoring":                "Log receivers, alert policies, alert templates, and global logging configuration",
 	"Networking":                "Virtual networks, BGP, cloud connectivity, tunnels, and network interfaces",
 	"Organization":              "Namespaces, tenant configuration, and organizational settings",
 	"Security":                  "WAF, bot defense, rate limiting, firewall policies, and security controls",
@@ -199,6 +200,13 @@ func main() {
 		}
 	}
 	fmt.Printf("Generated %d L2 resource files\n", len(resources))
+
+	// Drop L2 files whose resource no longer exists. Without this the generator
+	// only ever adds and overwrites, so a resource removed upstream leaves its
+	// page behind for good: docs/_llms-txt/resources/apm.txt outlived the apm*
+	// schema family by several releases (#1351). generate-examples.go prunes its
+	// own orphans the same way.
+	pruneOrphanL2Files(resources)
 
 	// Generate L1 files (per-category)
 	for _, cat := range categories {
@@ -1068,6 +1076,26 @@ func buildCategoryDependencyChain(resources []ResourceInfo) string {
 		return ""
 	}
 	return strings.Join(chains, "\n")
+}
+
+// pruneOrphanL2Files removes docs/_llms-txt/resources/<name>.txt files that no
+// longer correspond to a documented resource. The pruning itself lives in
+// tools/pkg/codegen so it is unit-testable; this file carries //go:build ignore
+// and nothing in it can be tested in place.
+func pruneOrphanL2Files(resources []ResourceInfo) {
+	keep := make(map[string]bool, len(resources))
+	for _, res := range resources {
+		keep[res.Name] = true
+	}
+
+	removed, err := codegen.PruneOrphanFiles("docs/_llms-txt/resources", ".txt", keep)
+	for _, path := range removed {
+		fmt.Printf("Removed orphan L2 resource file: %s\n", path)
+	}
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error pruning orphan L2 files: %v\n", err)
+		os.Exit(1)
+	}
 }
 
 // generateL2 creates docs/_llms-txt/resources/<name>.txt

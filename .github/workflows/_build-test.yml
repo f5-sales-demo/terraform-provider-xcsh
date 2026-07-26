@@ -99,7 +99,26 @@ jobs:
           git diff --exit-code go.mod go.sum
 
       - name: Build
-        run: scripts/go-retry.sh 3 go build -v .
+        # EVERY package, not just the root one (#1351). `go build .` compiles
+        # main.go and whatever it transitively imports, which leaves the
+        # hand-written internal/acctest package — imported only by tests —
+        # uncompiled. main was left broken for exactly that reason: upstream
+        # removed the apm* schemas, codegen dropped the GetAPM/DeleteAPM client
+        # methods, and the hand-written acctest registry kept calling them while
+        # a green "Build" step said nothing.
+        run: scripts/go-retry.sh 3 go build -v ./...
+
+      - name: Vet
+        # go build ignores _test.go files; go vet type-checks them too, so this
+        # is the step that notices a test file referencing a symbol codegen no
+        # longer emits (#1351).
+        run: scripts/go-retry.sh 3 go vet ./...
+
+      - name: Vet build-ignored generators
+        # tools/*.go carry `//go:build ignore`, which hides them from ./...
+        # entirely. They are hand-written consumers of generated symbols, so they
+        # need the same type check (#1351).
+        run: scripts/vet-build-ignored-tools.sh
 
       - name: Test
         # XCSH_SPEC_DIR is deliberately always set: the #1257 guard hard-fails on
