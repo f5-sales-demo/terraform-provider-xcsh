@@ -1406,6 +1406,145 @@ func TestActionResourceApprove(t *testing.T) {
 	}
 }
 
+// The approve POST must carry the registration's own passport: without it F5
+// answers HTTP 500 "Validation approval: Passport is required" and the resource
+// can never create (#1355). This drives the WHOLE pipeline — the real approve
+// spec shape through ExtractActionResourceSchema into the generated Go — so it
+// covers the extractor, the server-derived declaration and both templates.
+func TestActionResourceCreateSendsServerDerivedPassport(t *testing.T) {
+	spec, extractAPIPath := actionApproveSpecForCodegen()
+
+	tmpl, err := schema.ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath)
+	if err != nil {
+		t.Fatalf("ExtractActionResourceSchema: %v", err)
+	}
+
+	outDir := t.TempDir()
+	clientDir := t.TempDir()
+	if err := GenerateActionResource(tmpl, outDir, clientDir); err != nil {
+		t.Fatalf("GenerateActionResource error: %v", err)
+	}
+	resBytes, err := os.ReadFile(filepath.Join(outDir, "registration_approval_resource.go"))
+	if err != nil {
+		t.Fatalf("reading resource file: %v", err)
+	}
+	res := string(resBytes)
+	typeBytes, err := os.ReadFile(filepath.Join(clientDir, "registration_approval_types.go"))
+	if err != nil {
+		t.Fatalf("reading types file: %v", err)
+	}
+	types := string(typeBytes)
+
+	// The request struct must be able to carry the passport, and must carry it
+	// as an opaque value: the server accepts only its own object echoed back, so
+	// it may not be flattened into a string.
+	if !regexp.MustCompile(`\bPassport\s+interface\{\}`).MatchString(types) {
+		t.Errorf("request struct must carry Passport as an opaque interface{} value; got:\n%s", types)
+	}
+	if !strings.Contains(types, `json:"passport,omitempty"`) {
+		t.Errorf("request struct Passport must marshal to the wire key \"passport\"; got:\n%s", types)
+	}
+
+	// Create must read the sibling registration and assign the passport from it.
+	create := funcBody(t, res, "Create")
+	for _, want := range []string{
+		"r.client.GetLenient(ctx,",
+		"/api/register/namespaces/%s/registrations/%s",
+		"client.LookupNestedField(",
+		"body.Passport =",
+	} {
+		if !strings.Contains(create, want) {
+			t.Errorf("Create missing server-derived passport marker %q; got:\n%s", want, create)
+		}
+	}
+	// At least one declared lookup path must address the registration's passport.
+	if !regexp.MustCompile(`"[a-z_.]*\.passport"`).MatchString(create) {
+		t.Errorf("Create must look the passport up by path in the registration read; got:\n%s", create)
+	}
+	// Order matters: the read has to happen BEFORE the approve POST.
+	readAt := strings.Index(create, "r.client.GetLenient(ctx,")
+	postAt := strings.Index(create, "r.client.Post(ctx,")
+	if readAt < 0 || postAt < 0 || readAt > postAt {
+		t.Errorf("Create must read the registration before POSTing the approve (readAt=%d postAt=%d); got:\n%s", readAt, postAt, create)
+	}
+	// A missing passport must fail loudly rather than repeat the silent 500.
+	if !strings.Contains(create, "resp.Diagnostics.AddError") || !strings.Contains(create, "passport") {
+		t.Errorf("Create must raise a diagnostic naming the passport when it cannot be derived; got:\n%s", create)
+	}
+
+	// Server-derived is not user input: no passport attribute, no model field.
+	if strings.Contains(res, `"passport": schema.StringAttribute`) {
+		t.Errorf("passport must not be exposed as a user-settable attribute; got:\n%s", res)
+	}
+	if regexp.MustCompile(`\bPassport\s+types\.String\b`).MatchString(res) {
+		t.Errorf("passport must not be a Terraform model field; got:\n%s", res)
+	}
+}
+
+// funcBody returns the source of the named method on the generated resource,
+// from its `func (r *…) <name>(` line to the next top-level `func ` line.
+func funcBody(t *testing.T, src, name string) string {
+	t.Helper()
+	start := regexp.MustCompile(`(?m)^func \(r \*[A-Za-z]+Resource\) ` + name + `\(`).FindStringIndex(src)
+	if start == nil {
+		t.Fatalf("method %s not found in generated source:\n%s", name, src)
+	}
+	rest := src[start[1]:]
+	if next := regexp.MustCompile(`(?m)^func `).FindStringIndex(rest); next != nil {
+		return rest[:next[0]]
+	}
+	return rest
+}
+
+// actionApproveSpecForCodegen mirrors the REAL registration approve request: a
+// camelCase "registrationApprovalReq" carrying x-f5xc-action, scalar string
+// props, object props (annotations, labels), non-enum $ref props (passport,
+// tunnel_type) and a $ref-enum state, plus the approve POST path and the plural
+// sibling GET path.
+func actionApproveSpecForCodegen() (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+	spec := &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				"registrationApprovalReq": {
+					Type:        "object",
+					XF5xcAction: "approve",
+					Properties: map[string]openapi.Schema{
+						"name":                    {Type: "string"},
+						"backup_connected_region": {Type: "string"},
+						"connected_region":        {Type: "string"},
+						"preferred_active_re":     {Type: "string"},
+						"annotations":             {Type: "object"},
+						"labels":                  {Type: "object"},
+						"passport":                {AllOf: []openapi.Schema{{Ref: "#/components/schemas/registrationPassport"}}},
+						"tunnel_type":             {AllOf: []openapi.Schema{{Ref: "#/components/schemas/schemaSiteToSiteTunnelType"}}},
+						"state":                   {Ref: "#/components/schemas/registrationObjectState"},
+					},
+				},
+			},
+		},
+		Paths: map[string]interface{}{
+			"/api/register/namespaces/{namespace}/registration/{name}/approve": map[string]interface{}{
+				"post": map[string]interface{}{
+					"requestBody": map[string]interface{}{
+						"content": map[string]interface{}{
+							"application/json": map[string]interface{}{
+								"schema": map[string]interface{}{
+									"$ref": "#/components/schemas/registrationApprovalReq",
+								},
+							},
+						},
+					},
+				},
+			},
+			"/api/register/namespaces/{namespace}/registrations/{name}": map[string]interface{}{
+				"get": map[string]interface{}{},
+			},
+		},
+	}
+	extractAPIPath := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
+	return spec, extractAPIPath
+}
+
 // repoRootFromTest returns the module root by walking up from this test file's
 // location (…/tools/pkg/codegen/codegen_test.go -> module root).
 func repoRootFromTest(t *testing.T) string {

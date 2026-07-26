@@ -14,6 +14,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"golang.org/x/crypto/pkcs12"
@@ -428,6 +429,44 @@ func (c *Client) GetLenient(ctx context.Context, path string, result interface{}
 		return json.Unmarshal(sanitizeControlChars(body), result)
 	}
 	return nil
+}
+
+// LookupNestedField walks a decoded JSON object along each dotted path in turn
+// and returns the first value present, together with whether one was found. The
+// value is returned exactly as decoded so it can be marshaled back to the API
+// byte-for-byte.
+//
+// Action resources use it to lift server-derived request fields out of the
+// object being acted on — the registration passport an approve must echo back
+// (#1355). Several paths are accepted because the same value appears at more
+// than one depth depending on the read: object.spec.gc_spec.passport is the
+// canonical object shape and spec.passport the flattened projection of the very
+// same registration. Ordering is significant: the first path that resolves wins.
+func LookupNestedField(obj map[string]interface{}, dottedPaths ...string) (interface{}, bool) {
+	for _, dotted := range dottedPaths {
+		if dotted == "" {
+			continue
+		}
+		var current interface{} = obj
+		resolved := true
+		for _, segment := range strings.Split(dotted, ".") {
+			node, ok := current.(map[string]interface{})
+			if !ok {
+				resolved = false
+				break
+			}
+			value, present := node[segment]
+			if !present || value == nil {
+				resolved = false
+				break
+			}
+			current = value
+		}
+		if resolved {
+			return current, true
+		}
+	}
+	return nil, false
 }
 
 // Post performs a POST request

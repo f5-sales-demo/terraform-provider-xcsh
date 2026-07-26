@@ -3,6 +3,7 @@
 package schema
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/namespace"
@@ -377,6 +378,158 @@ func TestActionResourceApprove(t *testing.T) {
 		if !wantAttrs[a.TfsdkTag] {
 			t.Errorf("unexpected attribute %q in action model", a.TfsdkTag)
 		}
+	}
+}
+
+// The approve API rejects a request that omits the registration's passport
+// ("Validation approval: Passport is required", HTTP 500 — #1355). The passport
+// is a fact about the registration, not user input: F5 accepts only the value it
+// already holds. So it must be extracted as a SERVER-DERIVED field — carried on
+// the request body and read back off the sibling object — and must NOT appear as
+// a user-settable Terraform attribute.
+func TestActionResourceDerivesPassportFromTheRegistration(t *testing.T) {
+	spec, extractAPIPath := actionApproveSpec()
+
+	result, err := ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	var passport *openapi.ActionDerivedField
+	for i := range result.ActionDerivedFields {
+		if result.ActionDerivedFields[i].Field == "passport" {
+			passport = &result.ActionDerivedFields[i]
+		}
+	}
+	if passport == nil {
+		t.Fatalf("passport must be a server-derived action field; got %+v", result.ActionDerivedFields)
+	}
+	if passport.GoName != "Passport" {
+		t.Errorf("passport GoName = %q, want Passport", passport.GoName)
+	}
+	if passport.JSONName != "passport" {
+		t.Errorf("passport JSONName = %q, want passport", passport.JSONName)
+	}
+	if len(passport.Sources) == 0 {
+		t.Fatal("passport must declare at least one lookup path into the sibling registration object")
+	}
+	// Every declared source must address the passport of the registration read.
+	for _, src := range passport.Sources {
+		if !strings.HasSuffix(src, ".passport") {
+			t.Errorf("passport source %q must address the object's passport field", src)
+		}
+	}
+
+	// Server-derived means NOT user input: no Terraform attribute, so no
+	// practitioner can supply a passport the API would reject.
+	if a := findAttr(result.Attributes, "passport"); a != nil {
+		t.Errorf("passport must not be a user-settable attribute; got %+v", a)
+	}
+}
+
+// A property the action request REQUIRES must never be silently discarded by the
+// attribute extractor. Dropping one is precisely how #1355 shipped: the filter
+// keyed on the Go type ("not a string, skip") rather than on whether the API
+// needs the field, so a required object vanished and every approve POSTed a 500.
+// The extractor now fails generation instead — loudly, at build time — unless the
+// required property is either a Terraform attribute or a declared server-derived
+// field.
+func TestActionResourceRequiredPropertyIsNeverSilentlyDropped(t *testing.T) {
+	// A required non-string property that is neither an attribute nor declared
+	// server-derived: generation must fail.
+	spec := actionGuardSpec(map[string]openapi.Schema{
+		"name": {Type: "string"},
+		"credentials": {
+			AllOf: []openapi.Schema{{Ref: "#/components/schemas/someCredentials"}},
+		},
+	}, []string{"name", "credentials"})
+
+	stub := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
+	_, err := ExtractActionResourceSchema(spec, "zz_guard_probe", stub)
+	if err == nil {
+		t.Fatal("expected an error: the required object property 'credentials' is not representable as an attribute and is not declared server-derived")
+	}
+	if !strings.Contains(err.Error(), "credentials") {
+		t.Errorf("error must name the dropped required property; got: %v", err)
+	}
+
+	// Positive control: with the same shape but the property NOT required, the
+	// existing skip is correct and generation succeeds. Without this the guard
+	// could be a blanket failure and the test above would be unfalsifiable.
+	ok := actionGuardSpec(map[string]openapi.Schema{
+		"name": {Type: "string"},
+		"credentials": {
+			AllOf: []openapi.Schema{{Ref: "#/components/schemas/someCredentials"}},
+		},
+	}, []string{"name"})
+	if _, err := ExtractActionResourceSchema(ok, "zz_guard_probe", stub); err != nil {
+		t.Fatalf("a non-required object property must still be skipped without error; got: %v", err)
+	}
+
+	// The spec also marks required with x-f5xc-required-for.create and
+	// x-ves-required rather than a `required` list, so both must trip the guard.
+	forCreate := actionGuardSpec(map[string]openapi.Schema{
+		"name": {Type: "string"},
+		"credentials": {
+			AllOf:            []openapi.Schema{{Ref: "#/components/schemas/someCredentials"}},
+			XF5XCRequiredFor: openapi.RequiredFor{Create: true},
+		},
+	}, nil)
+	if _, err := ExtractActionResourceSchema(forCreate, "zz_guard_probe", stub); err == nil {
+		t.Error("x-f5xc-required-for.create=true must trip the dropped-required-property guard")
+	}
+
+	vesRequired := actionGuardSpec(map[string]openapi.Schema{
+		"name": {Type: "string"},
+		"credentials": {
+			AllOf:        []openapi.Schema{{Ref: "#/components/schemas/someCredentials"}},
+			XVesRequired: "true",
+		},
+	}, nil)
+	if _, err := ExtractActionResourceSchema(vesRequired, "zz_guard_probe", stub); err == nil {
+		t.Error("x-ves-required=true must trip the dropped-required-property guard")
+	}
+}
+
+// The real registration approve request marks nothing required, so the guard must
+// not fire on it — the passport is covered by its server-derived declaration.
+func TestActionResourceGuardAcceptsTheRealApproveSchema(t *testing.T) {
+	spec, extractAPIPath := actionApproveSpec()
+	if _, err := ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath); err != nil {
+		t.Fatalf("the real approve schema must extract cleanly; got: %v", err)
+	}
+}
+
+// actionGuardSpec builds a minimal action spec with the supplied request-body
+// properties and `required` list, under a synthetic resource name that can never
+// collide with a real one.
+func actionGuardSpec(props map[string]openapi.Schema, required []string) *openapi.Spec {
+	return &openapi.Spec{
+		Components: openapi.Components{
+			Schemas: map[string]openapi.Schema{
+				"zzGuardProbeReq": {
+					Type:        "object",
+					XF5xcAction: "approve",
+					Required:    required,
+					Properties:  props,
+				},
+			},
+		},
+		Paths: map[string]interface{}{
+			"/api/register/namespaces/{namespace}/guard_probe/{name}/approve": map[string]interface{}{
+				"post": map[string]interface{}{
+					"requestBody": map[string]interface{}{
+						"content": map[string]interface{}{
+							"application/json": map[string]interface{}{
+								"schema": map[string]interface{}{
+									"$ref": "#/components/schemas/zzGuardProbeReq",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
 	}
 }
 

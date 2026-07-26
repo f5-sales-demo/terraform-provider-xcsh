@@ -319,6 +319,120 @@ func TestGetLenient_StripsRawControlChars(t *testing.T) {
 	}
 }
 
+// A CE registration read is the source of the passport the approve action must
+// echo back (#1355), and those payloads embed raw control bytes — the machine_id
+// carries a trailing newline and the infra blob has carried others. Reading the
+// passport therefore has to survive a lenient parse: this exercises the whole
+// path (GetLenient over a control-char body, then LookupNestedField down to
+// spec.gc_spec.passport) and asserts the object comes out intact and unmodified.
+func TestGetLenientRegistrationPassportSurvivesControlChars(t *testing.T) {
+	// \x01 and \x1f inside string values are invalid strict JSON; the passport
+	// itself sits behind them so a strict decode never reaches it.
+	rawBody := "{\"object\":{\"spec\":{\"gc_spec\":{" +
+		"\"infra\":{\"hostname\":\"ce\x01node\",\"machine_id\":\"36a6\x1f8825\"}," +
+		"\"passport\":{\"cluster_name\":\"ar-bgp-eastus03\",\"cluster_type\":\"ce\"," +
+		"\"cluster_size\":1,\"latitude\":36.66,\"longitude\":-78.38," +
+		"\"vpm_version\":\"gcr.download.volterra.io/volterraio/vpm@sha256:abc\"," +
+		"\"private_network_name\":\"\"}}}}}"
+
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(rawBody))
+	}))
+	defer server.Close()
+
+	client := NewClient(server.URL, "test-token")
+
+	// A strict Get cannot read this registration at all.
+	var strict map[string]interface{}
+	if err := client.Get(context.Background(), "/registrations/r-1", &strict); err == nil {
+		t.Fatal("expected a strict Get to fail on the raw control characters in a registration payload")
+	}
+
+	var obj map[string]interface{}
+	if err := client.GetLenient(context.Background(), "/registrations/r-1", &obj); err != nil {
+		t.Fatalf("GetLenient() error = %v", err)
+	}
+
+	got, ok := LookupNestedField(obj, "object.spec.gc_spec.passport")
+	if !ok {
+		t.Fatalf("passport not found in the leniently parsed registration: %+v", obj)
+	}
+	passport, ok := got.(map[string]interface{})
+	if !ok {
+		t.Fatalf("passport must decode as an object, got %T", got)
+	}
+	if passport["cluster_name"] != "ar-bgp-eastus03" {
+		t.Errorf("passport cluster_name = %v, want ar-bgp-eastus03", passport["cluster_name"])
+	}
+	if passport["cluster_size"] != float64(1) {
+		t.Errorf("passport cluster_size = %v (%T), want 1", passport["cluster_size"], passport["cluster_size"])
+	}
+	if passport["latitude"] != 36.66 {
+		t.Errorf("passport latitude = %v, want 36.66", passport["latitude"])
+	}
+	// The API accepts only its own passport echoed back, so every key it sent
+	// must survive — including the empty-string one that is easy to drop.
+	for _, key := range []string{"cluster_name", "cluster_type", "cluster_size", "latitude", "longitude", "vpm_version", "private_network_name"} {
+		if _, present := passport[key]; !present {
+			t.Errorf("passport lost key %q; the approve API rejects anything but its own object verbatim", key)
+		}
+	}
+}
+
+func TestLookupNestedField(t *testing.T) {
+	obj := map[string]interface{}{
+		"spec": map[string]interface{}{
+			"passport": map[string]interface{}{"cluster_name": "flat"},
+		},
+		"object": map[string]interface{}{
+			"spec": map[string]interface{}{
+				"gc_spec": map[string]interface{}{
+					"passport": map[string]interface{}{"cluster_name": "nested"},
+				},
+			},
+		},
+		"scalar": "not-an-object",
+	}
+
+	tests := []struct {
+		name  string
+		paths []string
+		want  interface{}
+		found bool
+	}{
+		{"nested path", []string{"object.spec.gc_spec.passport"}, map[string]interface{}{"cluster_name": "nested"}, true},
+		{"flat path", []string{"spec.passport"}, map[string]interface{}{"cluster_name": "flat"}, true},
+		{"first candidate wins", []string{"object.spec.gc_spec.passport", "spec.passport"}, map[string]interface{}{"cluster_name": "nested"}, true},
+		{"falls through to the next candidate", []string{"spec.gc_spec.passport", "spec.passport"}, map[string]interface{}{"cluster_name": "flat"}, true},
+		{"absent everywhere", []string{"spec.gc_spec.passport", "nope.passport"}, nil, false},
+		{"traversal through a scalar", []string{"scalar.passport"}, nil, false},
+		{"no paths", nil, nil, false},
+		{"empty path", []string{""}, nil, false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got, ok := LookupNestedField(obj, tt.paths...)
+			if ok != tt.found {
+				t.Fatalf("LookupNestedField(%v) found = %v, want %v", tt.paths, ok, tt.found)
+			}
+			if !tt.found {
+				return
+			}
+			gotJSON, _ := json.Marshal(got)
+			wantJSON, _ := json.Marshal(tt.want)
+			if string(gotJSON) != string(wantJSON) {
+				t.Errorf("LookupNestedField(%v) = %s, want %s", tt.paths, gotJSON, wantJSON)
+			}
+		})
+	}
+
+	if _, ok := LookupNestedField(nil, "spec.passport"); ok {
+		t.Error("LookupNestedField(nil) must report not-found")
+	}
+}
+
 func TestPostSuccess(t *testing.T) {
 	requestData := testResponse{Name: "new-resource"}
 	expectedResponse := testResponse{ID: "456", Name: "new-resource"}
