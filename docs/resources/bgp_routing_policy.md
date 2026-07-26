@@ -82,8 +82,6 @@ A [`rules`](#rules) block supports the following:
 
 An [`action`](#rules-action) block (within [`rules`](#rules)) supports the following:
 
-<a id="rules-action-aggregate"></a>&#x2022; [`aggregate`](#rules-action-aggregate) - Optional Block<br>Enable this option
-
 <a id="rules-action-allow"></a>&#x2022; [`allow`](#rules-action-allow) - Optional Block<br>Enable this option
 
 <a id="rules-action-as-path"></a>&#x2022; [`as_path`](#rules-action-as-path) - Optional String<br>AS-Path Prepending is generally used to influence incoming traffic

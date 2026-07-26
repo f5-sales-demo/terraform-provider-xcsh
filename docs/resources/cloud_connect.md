@@ -58,10 +58,8 @@ resource "xcsh_cloud_connect" "example" {
 
 ### Spec Argument Reference
 
-<a id="aws-provider"></a>&#x2022; [`aws_provider`](#aws-provider) - Optional Block<br>Configuration parameter for AWS provider<br>See [AWS Provider](#aws-provider) below for details.
-
 -> **One of the following:**
-&#x2022; <a id="aws-tgw-site"></a>[`aws_tgw_site`](#aws-tgw-site) - Optional Block<br>AWS TGW Site Type. Cloud Connect AWS TGW Site Type<br>See [AWS TGW Site](#aws-tgw-site) below for details.
+&#x2022; <a id="aws-provider"></a>[`aws_provider`](#aws-provider) - Optional Block<br>Configuration parameter for AWS provider<br>See [AWS Provider](#aws-provider) below for details.
 <br><br>&#x2022; <a id="Azure-vnet-site"></a>[`azure_vnet_site`](#Azure-vnet-site) - Optional Block<br>Azure VNET Site Type. Cloud Connect Azure VNET Site Type<br>See [Azure VNET Site](#Azure-vnet-site) below for details.
 
 <a id="segment"></a>&#x2022; [`segment`](#segment) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Segment](#segment) below for details.
@@ -137,72 +135,6 @@ A [`vpc_attachments`](#attachments-467d0a) block (within [`aws_provider.aws_tgw_
 #### AWS Provider AWS TGW Site VPC Attachments VPC List Default Route Selective Route Tables
 
 <a id="deep-907164"></a>Deeply nested **Tables** block collapsed for readability.
-
-#### AWS TGW Site
-
-An [`aws_tgw_site`](#aws-tgw-site) block supports the following:
-
-<a id="aws-tgw-site-cred"></a>&#x2022; [`cred`](#aws-tgw-site-cred) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cred](#aws-tgw-site-cred) below.
-
-<a id="aws-tgw-site-site"></a>&#x2022; [`site`](#aws-tgw-site-site) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Site](#aws-tgw-site-site) below.
-
-<a id="aws-tgw-site-vpc-attachments"></a>&#x2022; [`vpc_attachments`](#aws-tgw-site-vpc-attachments) - Optional Block<br>Configuration parameter for VPC attachments<br>See [VPC Attachments](#aws-tgw-site-vpc-attachments) below.
-
-#### AWS TGW Site Cred
-
-A [`cred`](#aws-tgw-site-cred) block (within [`aws_tgw_site`](#aws-tgw-site)) supports the following:
-
-<a id="aws-tgw-site-cred-name"></a>&#x2022; [`name`](#aws-tgw-site-cred-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="aws-tgw-site-cred-namespace"></a>&#x2022; [`namespace`](#aws-tgw-site-cred-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="aws-tgw-site-cred-tenant"></a>&#x2022; [`tenant`](#aws-tgw-site-cred-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-#### AWS TGW Site Site
-
-A [`site`](#aws-tgw-site-site) block (within [`aws_tgw_site`](#aws-tgw-site)) supports the following:
-
-<a id="aws-tgw-site-site-name"></a>&#x2022; [`name`](#aws-tgw-site-site-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="aws-tgw-site-site-namespace"></a>&#x2022; [`namespace`](#aws-tgw-site-site-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="aws-tgw-site-site-tenant"></a>&#x2022; [`tenant`](#aws-tgw-site-site-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-#### AWS TGW Site VPC Attachments
-
-A [`vpc_attachments`](#aws-tgw-site-vpc-attachments) block (within [`aws_tgw_site`](#aws-tgw-site)) supports the following:
-
-<a id="aws-tgw-site-vpc-attachments-vpc-list"></a>&#x2022; [`vpc_list`](#aws-tgw-site-vpc-attachments-vpc-list) - Optional Block<br>VPC List. Collection of items or values<br>See [VPC List](#aws-tgw-site-vpc-attachments-vpc-list) below.
-
-#### AWS TGW Site VPC Attachments VPC List
-
-A [`vpc_list`](#aws-tgw-site-vpc-attachments-vpc-list) block (within [`aws_tgw_site.vpc_attachments`](#aws-tgw-site-vpc-attachments)) supports the following:
-
-<a id="routing-287a5f"></a>&#x2022; [`custom_routing`](#routing-287a5f) - Optional Block<br>AWS Route Table List. AWS Route Table List<br>See [Custom Routing](#routing-287a5f) below.
-
-<a id="route-44d7f5"></a>&#x2022; [`default_route`](#route-44d7f5) - Optional Block<br>Configuration parameter for default route<br>See [Default Route](#route-44d7f5) below.
-
-<a id="labels-3555f3"></a>&#x2022; [`labels`](#labels-3555f3) - Optional Block<br>Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall
-
-<a id="routing-97ae2a"></a>&#x2022; [`manual_routing`](#routing-97ae2a) - Optional Block<br>Enable this option
-
-<a id="vpc-id-318c59"></a>&#x2022; [`vpc_id`](#vpc-id-318c59) - Optional String<br>Enter the VPC ID of the VPC to be attached
-
-#### AWS TGW Site VPC Attachments VPC List Custom Routing
-
-<a id="deep-7afad1"></a>Deeply nested **Routing** block collapsed for readability.
-
-#### AWS TGW Site VPC Attachments VPC List Custom Routing Route Tables
-
-<a id="deep-1de263"></a>Deeply nested **Tables** block collapsed for readability.
-
-#### AWS TGW Site VPC Attachments VPC List Default Route
-
-<a id="deep-005059"></a>Deeply nested **Route** block collapsed for readability.
-
-#### AWS TGW Site VPC Attachments VPC List Default Route Selective Route Tables
-
-<a id="deep-542618"></a>Deeply nested **Tables** block collapsed for readability.
 
 #### Azure VNET Site
 

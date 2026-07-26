@@ -48,16 +48,6 @@ type TenantConfigurationResource struct {
 type TenantConfigurationEmptyModel struct {
 }
 
-// TenantConfigurationBasicConfigurationModel represents basic_configuration block
-type TenantConfigurationBasicConfigurationModel struct {
-	DisplayName types.String `tfsdk:"display_name"`
-}
-
-// TenantConfigurationBasicConfigurationModelAttrTypes defines the attribute types for TenantConfigurationBasicConfigurationModel
-var TenantConfigurationBasicConfigurationModelAttrTypes = map[string]attr.Type{
-	"display_name": types.StringType,
-}
-
 // TenantConfigurationBruteForceDetectionModel represents brute_force_detection block
 type TenantConfigurationBruteForceDetectionModel struct {
 	MaxLoginFailures types.Int64 `tfsdk:"max_login_failures"`
@@ -65,16 +55,6 @@ type TenantConfigurationBruteForceDetectionModel struct {
 
 // TenantConfigurationBruteForceDetectionModelAttrTypes defines the attribute types for TenantConfigurationBruteForceDetectionModel
 var TenantConfigurationBruteForceDetectionModelAttrTypes = map[string]attr.Type{
-	"max_login_failures": types.Int64Type,
-}
-
-// TenantConfigurationBruteForceDetectionSettingsModel represents brute_force_detection_settings block
-type TenantConfigurationBruteForceDetectionSettingsModel struct {
-	MaxLoginFailures types.Int64 `tfsdk:"max_login_failures"`
-}
-
-// TenantConfigurationBruteForceDetectionSettingsModelAttrTypes defines the attribute types for TenantConfigurationBruteForceDetectionSettingsModel
-var TenantConfigurationBruteForceDetectionSettingsModelAttrTypes = map[string]attr.Type{
 	"max_login_failures": types.Int64Type,
 }
 
@@ -189,20 +169,18 @@ var TenantConfigurationUserSessionExpirationIdleTimeoutMinutesModelAttrTypes = m
 }
 
 type TenantConfigurationResourceModel struct {
-	Name                        types.String                                         `tfsdk:"name"`
-	Namespace                   types.String                                         `tfsdk:"namespace"`
-	Annotations                 types.Map                                            `tfsdk:"annotations"`
-	Description                 types.String                                         `tfsdk:"description"`
-	Disable                     types.Bool                                           `tfsdk:"disable"`
-	Labels                      types.Map                                            `tfsdk:"labels"`
-	ID                          types.String                                         `tfsdk:"id"`
-	Timeouts                    timeouts.Value                                       `tfsdk:"timeouts"`
-	BasicConfiguration          *TenantConfigurationBasicConfigurationModel          `tfsdk:"basic_configuration"`
-	BruteForceDetection         *TenantConfigurationBruteForceDetectionModel         `tfsdk:"brute_force_detection"`
-	BruteForceDetectionSettings *TenantConfigurationBruteForceDetectionSettingsModel `tfsdk:"brute_force_detection_settings"`
-	PasswordPolicy              *TenantConfigurationPasswordPolicyModel              `tfsdk:"password_policy"`
-	TenantDetails               *TenantConfigurationTenantDetailsModel               `tfsdk:"tenant_details"`
-	UserSessionExpiration       *TenantConfigurationUserSessionExpirationModel       `tfsdk:"user_session_expiration"`
+	Name                  types.String                                   `tfsdk:"name"`
+	Namespace             types.String                                   `tfsdk:"namespace"`
+	Annotations           types.Map                                      `tfsdk:"annotations"`
+	Description           types.String                                   `tfsdk:"description"`
+	Disable               types.Bool                                     `tfsdk:"disable"`
+	Labels                types.Map                                      `tfsdk:"labels"`
+	ID                    types.String                                   `tfsdk:"id"`
+	Timeouts              timeouts.Value                                 `tfsdk:"timeouts"`
+	BruteForceDetection   *TenantConfigurationBruteForceDetectionModel   `tfsdk:"brute_force_detection"`
+	PasswordPolicy        *TenantConfigurationPasswordPolicyModel        `tfsdk:"password_policy"`
+	TenantDetails         *TenantConfigurationTenantDetailsModel         `tfsdk:"tenant_details"`
+	UserSessionExpiration *TenantConfigurationUserSessionExpirationModel `tfsdk:"user_session_expiration"`
 }
 
 func (r *TenantConfigurationResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -266,32 +244,8 @@ func (r *TenantConfigurationResource) Schema(ctx context.Context, req resource.S
 				Update: true,
 				Delete: true,
 			}),
-			"basic_configuration": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for basic configuration.",
-				Attributes: map[string]schema.Attribute{
-					"display_name": schema.StringAttribute{
-						MarkdownDescription: "Changes the tenant name displayed during login without affecting your company’s domain name.",
-						Optional:            true,
-						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 255),
-						},
-					},
-				},
-			},
 			"brute_force_detection": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for brute force detection.",
-				Attributes: map[string]schema.Attribute{
-					"max_login_failures": schema.Int64Attribute{
-						MarkdownDescription: "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
-						Optional:            true,
-						Validators: []validator.Int64{
-							int64validator.AtMost(30),
-						},
-					},
-				},
-			},
-			"brute_force_detection_settings": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for brute force detection settings.",
 				Attributes: map[string]schema.Attribute{
 					"max_login_failures": schema.Int64Attribute{
 						MarkdownDescription: "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
@@ -541,26 +495,12 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.BasicConfiguration != nil {
-		BasicConfigurationMap := make(map[string]interface{})
-		if !data.BasicConfiguration.DisplayName.IsNull() && !data.BasicConfiguration.DisplayName.IsUnknown() {
-			BasicConfigurationMap["display_name"] = data.BasicConfiguration.DisplayName.ValueString()
-		}
-		createReq.Spec["basic_configuration"] = BasicConfigurationMap
-	}
 	if data.BruteForceDetection != nil {
 		BruteForceDetectionMap := make(map[string]interface{})
 		if !data.BruteForceDetection.MaxLoginFailures.IsNull() && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 			BruteForceDetectionMap["max_login_failures"] = data.BruteForceDetection.MaxLoginFailures.ValueInt64()
 		}
 		createReq.Spec["brute_force_detection"] = BruteForceDetectionMap
-	}
-	if data.BruteForceDetectionSettings != nil {
-		BruteForceDetectionSettingsMap := make(map[string]interface{})
-		if !data.BruteForceDetectionSettings.MaxLoginFailures.IsNull() && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-			BruteForceDetectionSettingsMap["max_login_failures"] = data.BruteForceDetectionSettings.MaxLoginFailures.ValueInt64()
-		}
-		createReq.Spec["brute_force_detection_settings"] = BruteForceDetectionSettingsMap
 	}
 	if data.PasswordPolicy != nil {
 		PasswordPolicyMap := make(map[string]interface{})
@@ -650,34 +590,11 @@ func (r *TenantConfigurationResource) Create(ctx context.Context, req resource.C
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["basic_configuration"].(map[string]interface{}); ok && (isImport || data.BasicConfiguration != nil) {
-		data.BasicConfiguration = &TenantConfigurationBasicConfigurationModel{
-			DisplayName: func() types.String {
-				if v, ok := blockData["display_name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetection != nil && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetection.MaxLoginFailures
-				}
-				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
-					return types.Int64Value(int64(v))
-				}
-				return types.Int64Null()
-			}(),
-		}
-	}
-	if blockData, ok := apiResource.Spec["brute_force_detection_settings"].(map[string]interface{}); ok && (isImport || data.BruteForceDetectionSettings != nil) {
-		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
-			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetectionSettings != nil && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
@@ -983,34 +900,11 @@ func (r *TenantConfigurationResource) Read(ctx context.Context, req resource.Rea
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["basic_configuration"].(map[string]interface{}); ok && (isImport || data.BasicConfiguration != nil) {
-		data.BasicConfiguration = &TenantConfigurationBasicConfigurationModel{
-			DisplayName: func() types.String {
-				if v, ok := blockData["display_name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetection != nil && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetection.MaxLoginFailures
-				}
-				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
-					return types.Int64Value(int64(v))
-				}
-				return types.Int64Null()
-			}(),
-		}
-	}
-	if blockData, ok := apiResource.Spec["brute_force_detection_settings"].(map[string]interface{}); ok && (isImport || data.BruteForceDetectionSettings != nil) {
-		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
-			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetectionSettings != nil && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))
@@ -1264,26 +1158,12 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 	}
 
 	// Marshal spec fields from Terraform state to API struct
-	if data.BasicConfiguration != nil {
-		BasicConfigurationMap := make(map[string]interface{})
-		if !data.BasicConfiguration.DisplayName.IsNull() && !data.BasicConfiguration.DisplayName.IsUnknown() {
-			BasicConfigurationMap["display_name"] = data.BasicConfiguration.DisplayName.ValueString()
-		}
-		apiResource.Spec["basic_configuration"] = BasicConfigurationMap
-	}
 	if data.BruteForceDetection != nil {
 		BruteForceDetectionMap := make(map[string]interface{})
 		if !data.BruteForceDetection.MaxLoginFailures.IsNull() && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 			BruteForceDetectionMap["max_login_failures"] = data.BruteForceDetection.MaxLoginFailures.ValueInt64()
 		}
 		apiResource.Spec["brute_force_detection"] = BruteForceDetectionMap
-	}
-	if data.BruteForceDetectionSettings != nil {
-		BruteForceDetectionSettingsMap := make(map[string]interface{})
-		if !data.BruteForceDetectionSettings.MaxLoginFailures.IsNull() && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-			BruteForceDetectionSettingsMap["max_login_failures"] = data.BruteForceDetectionSettings.MaxLoginFailures.ValueInt64()
-		}
-		apiResource.Spec["brute_force_detection_settings"] = BruteForceDetectionSettingsMap
 	}
 	if data.PasswordPolicy != nil {
 		PasswordPolicyMap := make(map[string]interface{})
@@ -1384,34 +1264,11 @@ func (r *TenantConfigurationResource) Update(ctx context.Context, req resource.U
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
-	if blockData, ok := apiResource.Spec["basic_configuration"].(map[string]interface{}); ok && (isImport || data.BasicConfiguration != nil) {
-		data.BasicConfiguration = &TenantConfigurationBasicConfigurationModel{
-			DisplayName: func() types.String {
-				if v, ok := blockData["display_name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["brute_force_detection"].(map[string]interface{}); ok && (isImport || data.BruteForceDetection != nil) {
 		data.BruteForceDetection = &TenantConfigurationBruteForceDetectionModel{
 			MaxLoginFailures: func() types.Int64 {
 				if !isImport && data.BruteForceDetection != nil && !data.BruteForceDetection.MaxLoginFailures.IsUnknown() {
 					return data.BruteForceDetection.MaxLoginFailures
-				}
-				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
-					return types.Int64Value(int64(v))
-				}
-				return types.Int64Null()
-			}(),
-		}
-	}
-	if blockData, ok := apiResource.Spec["brute_force_detection_settings"].(map[string]interface{}); ok && (isImport || data.BruteForceDetectionSettings != nil) {
-		data.BruteForceDetectionSettings = &TenantConfigurationBruteForceDetectionSettingsModel{
-			MaxLoginFailures: func() types.Int64 {
-				if !isImport && data.BruteForceDetectionSettings != nil && !data.BruteForceDetectionSettings.MaxLoginFailures.IsUnknown() {
-					return data.BruteForceDetectionSettings.MaxLoginFailures
 				}
 				if v, ok := blockData["max_login_failures"].(float64); ok && v != 0 {
 					return types.Int64Value(int64(v))

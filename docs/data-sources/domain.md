@@ -1,20 +1,20 @@
 ---
-page_title: "xcsh_apm Data Source - xcsh"
-subcategory: "Monitoring"
+page_title: "xcsh_domain Data Source - xcsh"
+subcategory: "Uncategorized"
 description: |-
-  Retrieves information about an existing APM as a service with configured parameters. in F5 Distributed Cloud.
+  Retrieves information about allowed domain. in F5 Distributed Cloud.
 ---
 
-# xcsh_apm (Data Source)
+# xcsh_domain (Data Source)
 
-Retrieves information about new APM as a service with configured parameters. in F5 Distributed Cloud. This is a read-only data source.
+Manages allowed domain. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# APM Data Source Example
+# Domain Data Source Example
 
 terraform {
   required_version = ">= 1.0"
@@ -27,9 +27,9 @@ terraform {
   }
 }
 
-# Look up an existing APM by name
-data "xcsh_apm" "example" {
-  name      = "example-apm"
+# Look up an existing Domain by name
+data "xcsh_domain" "example" {
+  name      = "example-domain"
   namespace = "staging"
 }
 ```
@@ -43,9 +43,9 @@ data "xcsh_apm" "example" {
 
 ### Metadata Argument Reference
 
-<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the APM
+<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Domain
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the APM exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Domain exists
 
 ### Attributes Reference
 
@@ -53,7 +53,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
 
-<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the APM
+<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Domain
 
 <a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
 

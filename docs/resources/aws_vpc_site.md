@@ -91,7 +91,7 @@ resource "xcsh_aws_vpc_site" "example" {
 -> **One of the following:**
 &#x2022; <a id="direct-connect-disabled"></a>[`direct_connect_disabled`](#direct-connect-disabled) - Optional Block<br>Enable this option
 <br><br>&#x2022; <a id="direct-connect-enabled"></a>[`direct_connect_enabled`](#direct-connect-enabled) - Optional Block<br>Direct Connect Configuration. Direct Connect Configuration<br>See [Direct Connect Enabled](#direct-connect-enabled) below for details.
-<br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>X-displayName: 'Private Connect Configuration' Private Connect Configuration
+<br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>Configuration parameter for private connectivity
 
 -> **One of the following:**
 &#x2022; <a id="disable-encryption"></a>[`disable_encryption`](#disable-encryption) - Optional Block<br>Configuration parameter for disable encryption
@@ -105,7 +105,7 @@ resource "xcsh_aws_vpc_site" "example" {
 &#x2022; <a id="egress-gateway-default"></a>[`egress_gateway_default`](#egress-gateway-default) - Optional Block<br>Configuration parameter for egress gateway default
 <br><br>&#x2022; <a id="egress-nat-gw"></a>[`egress_nat_gw`](#egress-nat-gw) - Optional Block<br>With this option, egress site traffic will be routed through an Network Address Translation(NAT) Gateway<br>See [Egress NAT Gw](#egress-nat-gw) below for details.
 
-<a id="egress-virtual-private-gateway"></a>&#x2022; [`egress_virtual_private_gateway`](#egress-virtual-private-gateway) - Optional Block<br>X-displayName: 'AWS Virtual Private Gateway choice' With this option, egress site traffic will be routed through an Virtual Private Gateway<br>See [Egress Virtual Private Gateway](#egress-virtual-private-gateway) below for details.
+<a id="egress-virtual-private-gateway"></a>&#x2022; [`egress_virtual_private_gateway`](#egress-virtual-private-gateway) - Optional Block<br>With this option, egress site traffic will be routed through an Virtual Private Gateway<br>See [Egress Virtual Private Gateway](#egress-virtual-private-gateway) below for details.
 
 <a id="enable-encryption"></a>&#x2022; [`enable_encryption`](#enable-encryption) - Optional Block<br>Configuration parameter for enable encryption<br>See [Enable Encryption](#enable-encryption) below for details.
 
@@ -161,18 +161,9 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`admin_password`](#admin-password) block supports the following:
 
-<a id="admin-password-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#admin-password-blindfold-secret-info) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#admin-password-blindfold-secret-info) below.
+<a id="admin-password-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#admin-password-blindfold-secret-info) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#admin-password-blindfold-secret-info) below.
 
-<a id="internal-7b413c"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-7b413c) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info Internal](#internal-7b413c) below.
-
-<a id="admin-password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#admin-password-clear-secret-info) - Optional Block<br>X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#admin-password-clear-secret-info) below.
-
-<a id="admin-password-secret-encoding-type"></a>&#x2022; [`secret_encoding_type`](#admin-password-secret-encoding-type) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management
-Service. - EncodingNone: x-displayName: 'None' No Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="admin-password-vault-secret-info"></a>&#x2022; [`vault_secret_info`](#admin-password-vault-secret-info) - Optional Block<br>X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault<br>See [Vault Secret Info](#admin-password-vault-secret-info) below.
-
-<a id="admin-password-wingman-secret-info"></a>&#x2022; [`wingman_secret_info`](#admin-password-wingman-secret-info) - Optional Block<br>X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret<br>See [Wingman Secret Info](#admin-password-wingman-secret-info) below.
+<a id="admin-password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#admin-password-clear-secret-info) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#admin-password-clear-secret-info) below.
 
 #### Admin Password Blindfold Secret Info
 
@@ -184,16 +175,6 @@ A [`blindfold_secret_info`](#admin-password-blindfold-secret-info) block (within
 
 <a id="provider-5c48c5"></a>&#x2022; [`store_provider`](#provider-5c48c5) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-#### Admin Password Blindfold Secret Info Internal
-
-A [`blindfold_secret_info_internal`](#internal-7b413c) block (within [`admin_password`](#admin-password)) supports the following:
-
-<a id="provider-0313c0"></a>&#x2022; [`decryption_provider`](#provider-0313c0) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
-
-<a id="location-f87690"></a>&#x2022; [`location`](#location-f87690) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
-
-<a id="provider-e573aa"></a>&#x2022; [`store_provider`](#provider-e573aa) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
-
 #### Admin Password Clear Secret Info
 
 A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin_password`](#admin-password)) supports the following:
@@ -201,27 +182,6 @@ A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin
 <a id="ref-e52931"></a>&#x2022; [`provider_ref`](#ref-e52931) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 <a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
-
-#### Admin Password Vault Secret Info
-
-A [`vault_secret_info`](#admin-password-vault-secret-info) block (within [`admin_password`](#admin-password)) supports the following:
-
-<a id="admin-password-vault-secret-info-key"></a>&#x2022; [`key`](#admin-password-vault-secret-info-key) - Optional String<br>X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key
-
-<a id="location-e9984d"></a>&#x2022; [`location`](#location-e9984d) - Optional String<br>X-displayName: 'Location'Path to secret in Vault
-
-<a id="ref-8e382f"></a>&#x2022; [`provider_ref`](#ref-8e382f) - Optional String<br>X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault
-
-<a id="encoding-70fa5a"></a>&#x2022; [`secret_encoding`](#encoding-70fa5a) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="version-25d490"></a>&#x2022; [`version`](#version-25d490) - Optional Number<br>X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned
-
-#### Admin Password Wingman Secret Info
-
-A [`wingman_secret_info`](#admin-password-wingman-secret-info) block (within [`admin_password`](#admin-password)) supports the following:
-
-<a id="admin-password-wingman-secret-info-name"></a>&#x2022; [`name`](#admin-password-wingman-secret-info-name) - Optional String<br>X-displayName: 'Name'Name of the secret
 
 #### AWS Cred
 
@@ -245,14 +205,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
 
 #### Coordinates
 
@@ -274,9 +234,9 @@ A [`custom_dns`](#custom-dns) block supports the following:
 
 A [`custom_security_group`](#custom-security-group) block supports the following:
 
-<a id="group-id-8e8adb"></a>&#x2022; [`inside_security_group_id`](#group-id-8e8adb) - Optional String<br>X-displayName: 'Inside Security Group ID' Security Group ID to be attached to SLI(Site Local Inside) Interface
+<a id="group-id-8e8adb"></a>&#x2022; [`inside_security_group_id`](#group-id-8e8adb) - Optional String<br>Security Group ID to be attached to SLI(Site Local Inside) Interface
 
-<a id="group-id-c3131b"></a>&#x2022; [`outside_security_group_id`](#group-id-c3131b) - Optional String<br>X-displayName: 'Outside Security Group ID' Security Group ID to be attached to SLO(Site Local Outside) Interface
+<a id="group-id-c3131b"></a>&#x2022; [`outside_security_group_id`](#group-id-c3131b) - Optional String<br>Security Group ID to be attached to SLO(Site Local Outside) Interface
 
 #### Direct Connect Enabled
 
@@ -319,13 +279,13 @@ A [`vif_list`](#list-d6c323) block (within [`direct_connect_enabled.hosted_vifs`
 
 An [`egress_nat_gw`](#egress-nat-gw) block supports the following:
 
-<a id="egress-nat-gw-nat-gw-id"></a>&#x2022; [`nat_gw_id`](#egress-nat-gw-nat-gw-id) - Optional String<br>X-displayName: 'Existing NAT Gateway ID'
+<a id="egress-nat-gw-nat-gw-id"></a>&#x2022; [`nat_gw_id`](#egress-nat-gw-nat-gw-id) - Optional String<br>Existing NAT Gateway ID
 
 #### Egress Virtual Private Gateway
 
 An [`egress_virtual_private_gateway`](#egress-virtual-private-gateway) block supports the following:
 
-<a id="egress-virtual-private-gateway-vgw-id"></a>&#x2022; [`vgw_id`](#egress-virtual-private-gateway-vgw-id) - Optional String<br>X-displayName: 'Existing Virtual Private Gateway ID'
+<a id="egress-virtual-private-gateway-vgw-id"></a>&#x2022; [`vgw_id`](#egress-virtual-private-gateway-vgw-id) - Optional String<br>Existing Virtual Private Gateway ID
 
 #### Enable Encryption
 
@@ -630,11 +590,15 @@ A [`performance_enhancement_mode`](#mode-4d23c2) block (within [`ingress_egress_
 
 <a id="enhanced-410f18"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-410f18) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-410f18) below.
 
-<a id="enhanced-90e2b5"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-90e2b5) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-90e2b5"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-90e2b5) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-90e2b5) below.
 
 #### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced
 
 <a id="deep-4a39a0"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-b9cc72"></a>Deeply nested **Enhanced** block collapsed for readability.
 
 #### Ingress Gw
 
@@ -694,11 +658,15 @@ A [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) blo
 
 <a id="enhanced-5a06c8"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-5a06c8) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-5a06c8) below.
 
-<a id="enhanced-6fdd43"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-6fdd43) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-6fdd43"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-6fdd43) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-6fdd43) below.
 
 #### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced
 
 <a id="deep-690f7e"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-4e15d8"></a>Deeply nested **Enhanced** block collapsed for readability.
 
 #### Kubernetes Upgrade Drain
 
@@ -1018,15 +986,13 @@ A [`storage_classes`](#classes-3dd6e4) block (within [`voltstack_cluster.storage
 
 A [`vpc`](#vpc) block supports the following:
 
-<a id="vpc-new-vpc"></a>&#x2022; [`new_vpc`](#vpc-new-vpc) - Optional Block<br>X-displayName: 'AWS VPC Parameters' Parameters to create new AWS VPC<br>See [New VPC](#vpc-new-vpc) below.
+<a id="vpc-new-vpc"></a>&#x2022; [`new_vpc`](#vpc-new-vpc) - Optional Block<br>AWS VPC Parameters. Parameters to create new AWS VPC<br>See [New VPC](#vpc-new-vpc) below.
 
 <a id="vpc-vpc-id"></a>&#x2022; [`vpc_id`](#vpc-vpc-id) - Optional String<br>Information about existing VPC ID
 
 #### VPC New VPC
 
 A [`new_vpc`](#vpc-new-vpc) block (within [`vpc`](#vpc)) supports the following:
-
-<a id="vpc-new-vpc-allocate-ipv6"></a>&#x2022; [`allocate_ipv6`](#vpc-new-vpc-allocate-ipv6) - Optional Bool<br>X-displayName: 'Allocate IPv6 CIDR block from AWS' Allocate IPv6 CIDR block from AWS
 
 <a id="vpc-new-vpc-autogenerate"></a>&#x2022; [`autogenerate`](#vpc-new-vpc-autogenerate) - Optional Block<br>Configuration parameter for autogenerate
 

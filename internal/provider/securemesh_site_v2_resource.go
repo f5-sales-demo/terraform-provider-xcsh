@@ -55,13 +55,13 @@ type SecuremeshSiteV2EmptyModel struct {
 // SecuremeshSiteV2PerformanceEnhancementModeModel represents performance_enhancement_mode block
 type SecuremeshSiteV2PerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *SecuremeshSiteV2EmptyModel                                        `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // SecuremeshSiteV2PerformanceEnhancementModeModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModeModel
 var SecuremeshSiteV2PerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -74,6 +74,18 @@ type SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModel struct {
 var SecuremeshSiteV2PerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *SecuremeshSiteV2EmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel
+var SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecuremeshSiteV2ActiveEnhancedFirewallPoliciesModel represents active_enhanced_firewall_policies block
@@ -138,22 +150,14 @@ var SecuremeshSiteV2AdminUserCredentialsModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2AdminUserCredentialsAdminPasswordModel represents admin_password block
 type SecuremeshSiteV2AdminUserCredentialsAdminPasswordModel struct {
-	SecretEncodingType          types.String                                                                       `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // SecuremeshSiteV2AdminUserCredentialsAdminPasswordModelAttrTypes defines the attribute types for SecuremeshSiteV2AdminUserCredentialsAdminPasswordModel
 var SecuremeshSiteV2AdminUserCredentialsAdminPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModelAttrTypes},
 }
 
 // SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -170,20 +174,6 @@ var SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoModelAtt
 	"store_provider":      types.StringType,
 }
 
-// SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel
-var SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel represents clear_secret_info block
 type SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -194,34 +184,6 @@ type SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel struc
 var SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel represents vault_secret_info block
-type SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModelAttrTypes defines the attribute types for SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel
-var SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel
-var SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // SecuremeshSiteV2AWSModel represents aws block
@@ -1202,22 +1164,14 @@ var SecuremeshSiteV2CustomProxyModelAttrTypes = map[string]attr.Type{
 
 // SecuremeshSiteV2CustomProxyPasswordModel represents password block
 type SecuremeshSiteV2CustomProxyPasswordModel struct {
-	SecretEncodingType          types.String                                                         `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // SecuremeshSiteV2CustomProxyPasswordModelAttrTypes defines the attribute types for SecuremeshSiteV2CustomProxyPasswordModel
 var SecuremeshSiteV2CustomProxyPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModelAttrTypes},
 }
 
 // SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -1234,20 +1188,6 @@ var SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoModelAttrTypes = map[s
 	"store_provider":      types.StringType,
 }
 
-// SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel
-var SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel represents clear_secret_info block
 type SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -1258,34 +1198,6 @@ type SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel struct {
 var SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel represents vault_secret_info block
-type SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModelAttrTypes defines the attribute types for SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel
-var SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel
-var SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // SecuremeshSiteV2CustomProxyBypassModel represents custom_proxy_bypass block
@@ -2638,20 +2550,6 @@ var SecuremeshSiteV2LocalVrfSloConfigStaticV6RoutesStaticRoutesNodeInterfaceList
 	"uid":       types.StringType,
 }
 
-// SecuremeshSiteV2LogReceiverModel represents log_receiver block
-type SecuremeshSiteV2LogReceiverModel struct {
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Tenant    types.String `tfsdk:"tenant"`
-}
-
-// SecuremeshSiteV2LogReceiverModelAttrTypes defines the attribute types for SecuremeshSiteV2LogReceiverModel
-var SecuremeshSiteV2LogReceiverModelAttrTypes = map[string]attr.Type{
-	"name":      types.StringType,
-	"namespace": types.StringType,
-	"tenant":    types.StringType,
-}
-
 // SecuremeshSiteV2LogReceiverWithNetModel represents log_receiver_with_net block
 type SecuremeshSiteV2LogReceiverWithNetModel struct {
 	LogReceiver          *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel `tfsdk:"log_receiver"`
@@ -3969,7 +3867,6 @@ var SecuremeshSiteV2SegmentVrfModelAttrTypes = map[string]attr.Type{
 // SecuremeshSiteV2SegmentVrfSegmentConfigModel represents segment_config block
 type SecuremeshSiteV2SegmentVrfSegmentConfigModel struct {
 	Nameserver          types.String                                                `tfsdk:"nameserver"`
-	NameserverV6        types.String                                                `tfsdk:"nameserver_v6"`
 	SecondaryNameserver types.String                                                `tfsdk:"secondary_nameserver"`
 	NoStaticRoutes      *SecuremeshSiteV2EmptyModel                                 `tfsdk:"no_static_routes"`
 	NoV6StaticRoutes    *SecuremeshSiteV2EmptyModel                                 `tfsdk:"no_v6_static_routes"`
@@ -3980,7 +3877,6 @@ type SecuremeshSiteV2SegmentVrfSegmentConfigModel struct {
 // SecuremeshSiteV2SegmentVrfSegmentConfigModelAttrTypes defines the attribute types for SecuremeshSiteV2SegmentVrfSegmentConfigModel
 var SecuremeshSiteV2SegmentVrfSegmentConfigModelAttrTypes = map[string]attr.Type{
 	"nameserver":           types.StringType,
-	"nameserver_v6":        types.StringType,
 	"secondary_nameserver": types.StringType,
 	"no_static_routes":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_v6_static_routes":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -4562,11 +4458,15 @@ type SecuremeshSiteV2ResourceModel struct {
 	CustomProxyBypass              *SecuremeshSiteV2CustomProxyBypassModel              `tfsdk:"custom_proxy_bypass"`
 	DcClusterGroupSLI              *SecuremeshSiteV2DcClusterGroupSLIModel              `tfsdk:"dc_cluster_group_sli"`
 	DcClusterGroupSlo              *SecuremeshSiteV2DcClusterGroupSloModel              `tfsdk:"dc_cluster_group_slo"`
+	DisableAdvancedDelivery        *SecuremeshSiteV2EmptyModel                          `tfsdk:"disable_advanced_delivery"`
 	DisableHA                      *SecuremeshSiteV2EmptyModel                          `tfsdk:"disable_ha"`
+	DisableLogAnonymization        *SecuremeshSiteV2EmptyModel                          `tfsdk:"disable_log_anonymization"`
 	DisableManagementNetwork       *SecuremeshSiteV2EmptyModel                          `tfsdk:"disable_management_network"`
 	DisableURLCategorization       *SecuremeshSiteV2EmptyModel                          `tfsdk:"disable_url_categorization"`
 	DNSNTPConfig                   *SecuremeshSiteV2DNSNTPConfigModel                   `tfsdk:"dns_ntp_config"`
+	EnableAdvancedDelivery         *SecuremeshSiteV2EmptyModel                          `tfsdk:"enable_advanced_delivery"`
 	EnableHA                       *SecuremeshSiteV2EmptyModel                          `tfsdk:"enable_ha"`
+	EnableLogAnonymization         *SecuremeshSiteV2EmptyModel                          `tfsdk:"enable_log_anonymization"`
 	EnableManagementNetwork        *SecuremeshSiteV2EmptyModel                          `tfsdk:"enable_management_network"`
 	EnableURLCategorization        *SecuremeshSiteV2EmptyModel                          `tfsdk:"enable_url_categorization"`
 	Equinix                        *SecuremeshSiteV2EquinixModel                        `tfsdk:"equinix"`
@@ -4575,7 +4475,6 @@ type SecuremeshSiteV2ResourceModel struct {
 	Kvm                            *SecuremeshSiteV2KvmModel                            `tfsdk:"kvm"`
 	LoadBalancing                  *SecuremeshSiteV2LoadBalancingModel                  `tfsdk:"load_balancing"`
 	LocalVrf                       *SecuremeshSiteV2LocalVrfModel                       `tfsdk:"local_vrf"`
-	LogReceiver                    *SecuremeshSiteV2LogReceiverModel                    `tfsdk:"log_receiver"`
 	LogReceiverWithNet             *SecuremeshSiteV2LogReceiverWithNetModel             `tfsdk:"log_receiver_with_net"`
 	LogsStreamingDisabled          *SecuremeshSiteV2EmptyModel                          `tfsdk:"logs_streaming_disabled"`
 	NoForwardProxy                 *SecuremeshSiteV2EmptyModel                          `tfsdk:"no_forward_proxy"`
@@ -4697,6 +4596,15 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
 					},
 				},
 			},
@@ -4790,38 +4698,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 				Blocks: map[string]schema.Block{
 					"admin_password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-						Attributes: map[string]schema.Attribute{
-							"secret_encoding_type": schema.StringAttribute{
-								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-								},
-							},
-						},
+						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-								Attributes: map[string]schema.Attribute{
-									"decryption_provider": schema.StringAttribute{
-										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-										Optional:            true,
-									},
-									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.LengthBetween(4, 131072),
-										},
-									},
-									"store_provider": schema.StringAttribute{
-										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-										Optional:            true,
-									},
-								},
-							},
-							"blindfold_secret_info_internal": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -4841,7 +4721,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								},
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -4856,53 +4736,12 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 							},
-							"vault_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-								Attributes: map[string]schema.Attribute{
-									"key": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-										Optional:            true,
-									},
-									"location": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-										Optional:            true,
-									},
-									"provider_ref": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-										Optional:            true,
-									},
-									"secret_encoding": schema.StringAttribute{
-										MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-										},
-									},
-									"version": schema.Int64Attribute{
-										MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-										Optional:            true,
-									},
-								},
-							},
-							"wingman_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-								Attributes: map[string]schema.Attribute{
-									"name": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 63),
-											stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
-										},
-									},
-								},
-							},
 						},
 					},
 				},
 			},
 			"aws": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: aws, azure, baremetal, equinix, gcp, kvm, nutanix, oci, openstack, vmware] AWS Provider Type. AWS Provider Type.",
+				MarkdownDescription: "[OneOf: aws, azure, baremetal, equinix, gcp, kvm, nutanix, oci, openshift_virtualization, openstack, vmware] AWS Provider Type. AWS Provider Type.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"not_managed": schema.SingleNestedBlock{
@@ -6143,38 +5982,10 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 					"password": schema.SingleNestedBlock{
 						MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-						Attributes: map[string]schema.Attribute{
-							"secret_encoding_type": schema.StringAttribute{
-								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-								},
-							},
-						},
+						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"blindfold_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-								Attributes: map[string]schema.Attribute{
-									"decryption_provider": schema.StringAttribute{
-										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-										Optional:            true,
-									},
-									"location": schema.StringAttribute{
-										MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.LengthBetween(4, 131072),
-										},
-									},
-									"store_provider": schema.StringAttribute{
-										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-										Optional:            true,
-									},
-								},
-							},
-							"blindfold_secret_info_internal": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+								MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 								Attributes: map[string]schema.Attribute{
 									"decryption_provider": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -6194,7 +6005,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 								},
 							},
 							"clear_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+								MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 								Attributes: map[string]schema.Attribute{
 									"provider_ref": schema.StringAttribute{
 										MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -6205,47 +6016,6 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthBetween(1, 131072),
-										},
-									},
-								},
-							},
-							"vault_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-								Attributes: map[string]schema.Attribute{
-									"key": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-										Optional:            true,
-									},
-									"location": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-										Optional:            true,
-									},
-									"provider_ref": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-										Optional:            true,
-									},
-									"secret_encoding": schema.StringAttribute{
-										MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-										},
-									},
-									"version": schema.Int64Attribute{
-										MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-										Optional:            true,
-									},
-								},
-							},
-							"wingman_secret_info": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-								Attributes: map[string]schema.Attribute{
-									"name": schema.StringAttribute{
-										MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-										Optional:            true,
-										Validators: []validator.String{
-											stringvalidator.LengthBetween(1, 63),
-											stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 										},
 									},
 								},
@@ -6327,8 +6097,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 			},
+			"disable_advanced_delivery": schema.SingleNestedBlock{
+				MarkdownDescription: "[OneOf: disable_advanced_delivery, enable_advanced_delivery; Default: disable_advanced_delivery] Configuration parameter for disable advanced delivery.",
+			},
 			"disable_ha": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: disable_ha, enable_ha; Default: disable_ha] Enable this option",
+			},
+			"disable_log_anonymization": schema.SingleNestedBlock{
+				MarkdownDescription: "[OneOf: disable_log_anonymization, enable_log_anonymization; Default: disable_log_anonymization] Configuration parameter for disable log anonymization.",
 			},
 			"disable_management_network": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: disable_management_network, enable_management_network; Default: disable_management_network] Configuration parameter for disable management network.",
@@ -6374,8 +6150,14 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 			},
+			"enable_advanced_delivery": schema.SingleNestedBlock{
+				MarkdownDescription: "Configuration parameter for enable advanced delivery.",
+			},
 			"enable_ha": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable this option",
+			},
+			"enable_log_anonymization": schema.SingleNestedBlock{
+				MarkdownDescription: "Configuration parameter for enable log anonymization.",
 			},
 			"enable_management_network": schema.SingleNestedBlock{
 				MarkdownDescription: "Configuration parameter for enable management network.",
@@ -7588,7 +7370,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
 						Attributes: map[string]schema.Attribute{
 							"nameserver": schema.StringAttribute{
-								MarkdownDescription: "Optional DNS V4 server IP to be used for name resolution.",
+								MarkdownDescription: "Optional IPv4 DNS server to be used for name resolution.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
@@ -7820,7 +7602,7 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Site Local Network Configuration. Site local network configuration.",
 						Attributes: map[string]schema.Attribute{
 							"nameserver": schema.StringAttribute{
-								MarkdownDescription: "Optional DNS V4 server IP to be used for name resolution.",
+								MarkdownDescription: "Optional IPv4 DNS server to be used for name resolution.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthAtMost(1024),
@@ -8050,38 +7832,8 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					},
 				},
 			},
-			"log_receiver": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: log_receiver, logs_streaming_disabled] Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
-				Attributes: map[string]schema.Attribute{
-					"name": schema.StringAttribute{
-						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-						Optional:            true,
-						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 128),
-						},
-					},
-					"namespace": schema.StringAttribute{
-						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-						Optional:            true,
-						Computed:            true,
-						PlanModifiers: []planmodifier.String{
-							stringplanmodifier.UseStateForUnknown(),
-						},
-						Validators: []validator.String{
-							stringvalidator.LengthBetween(1, 63),
-						},
-					},
-					"tenant": schema.StringAttribute{
-						MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-						Computed:            true,
-						Validators: []validator.String{
-							stringvalidator.LengthAtMost(64),
-						},
-					},
-				},
-			},
 			"log_receiver_with_net": schema.SingleNestedBlock{
-				MarkdownDescription: "Select log receiver for logs streaming with network option.",
+				MarkdownDescription: "[OneOf: log_receiver_with_net, logs_streaming_disabled] Select log receiver for logs streaming with network option.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"log_receiver": schema.SingleNestedBlock{
@@ -9751,19 +9503,15 @@ func (r *SecuremeshSiteV2Resource) Schema(ctx context.Context, req resource.Sche
 					Attributes: map[string]schema.Attribute{},
 					Blocks: map[string]schema.Block{
 						"segment_config": schema.SingleNestedBlock{
-							MarkdownDescription: "X-displayName: 'Segment Network Configuration' Segment Network Configuration.",
+							MarkdownDescription: "Segment Network Configuration. Segment Network Configuration.",
 							Attributes: map[string]schema.Attribute{
 								"nameserver": schema.StringAttribute{
-									MarkdownDescription: "X-displayName: 'DNS V4 Server' Optional DNS V4 server IP to be used for name resolution.",
+									MarkdownDescription: "Optional IPv4 DNS server to be used for name resolution.",
 									Optional:            true,
 									Validators: []validator.String{
 										stringvalidator.LengthAtMost(1024),
 										validators.IPv4Validator(),
 									},
-								},
-								"nameserver_v6": schema.StringAttribute{
-									MarkdownDescription: "X-displayName: 'DNS V6 Server' Optional DNS V6 server IP to be used for name resolution.",
-									Optional:            true,
 								},
 								"secondary_nameserver": schema.StringAttribute{
 									MarkdownDescription: "Optional Secondary IPv4 DNS server to be used for name resolution.",
@@ -10616,7 +10364,14 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -10689,19 +10444,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				AdminUserCredentialsAdminPasswordMap["blindfold_secret_info"] = AdminUserCredentialsAdminPasswordBlindfoldSecretInfoMap
 			}
-			if data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal != nil {
-				AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-				if !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-					AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-					AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-					AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-				}
-				AdminUserCredentialsAdminPasswordMap["blindfold_secret_info_internal"] = AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap
-			}
 			if data.AdminUserCredentials.AdminPassword.ClearSecretInfo != nil {
 				AdminUserCredentialsAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.AdminUserCredentials.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminUserCredentials.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -10711,35 +10453,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					AdminUserCredentialsAdminPasswordClearSecretInfoMap["url"] = data.AdminUserCredentials.AdminPassword.ClearSecretInfo.URL.ValueString()
 				}
 				AdminUserCredentialsAdminPasswordMap["clear_secret_info"] = AdminUserCredentialsAdminPasswordClearSecretInfoMap
-			}
-			if !data.AdminUserCredentials.AdminPassword.SecretEncodingType.IsNull() && !data.AdminUserCredentials.AdminPassword.SecretEncodingType.IsUnknown() {
-				AdminUserCredentialsAdminPasswordMap["secret_encoding_type"] = data.AdminUserCredentials.AdminPassword.SecretEncodingType.ValueString()
-			}
-			if data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil {
-				AdminUserCredentialsAdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["key"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Key.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["location"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Location.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["provider"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Provider.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["version"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-				}
-				AdminUserCredentialsAdminPasswordMap["vault_secret_info"] = AdminUserCredentialsAdminPasswordVaultSecretInfoMap
-			}
-			if data.AdminUserCredentials.AdminPassword.WingmanSecretInfo != nil {
-				AdminUserCredentialsAdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-				if !data.AdminUserCredentials.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminUserCredentials.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-					AdminUserCredentialsAdminPasswordWingmanSecretInfoMap["name"] = data.AdminUserCredentials.AdminPassword.WingmanSecretInfo.Name.ValueString()
-				}
-				AdminUserCredentialsAdminPasswordMap["wingman_secret_info"] = AdminUserCredentialsAdminPasswordWingmanSecretInfoMap
 			}
 			AdminUserCredentialsMap["admin_password"] = AdminUserCredentialsAdminPasswordMap
 		}
@@ -11585,7 +11298,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -11613,19 +11326,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				CustomProxyPasswordMap["blindfold_secret_info"] = CustomProxyPasswordBlindfoldSecretInfoMap
 			}
-			if data.CustomProxy.Password.BlindfoldSecretInfoInternal != nil {
-				CustomProxyPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-				if !data.CustomProxy.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.CustomProxy.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-					CustomProxyPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.CustomProxy.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-				}
-				if !data.CustomProxy.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !data.CustomProxy.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-					CustomProxyPasswordBlindfoldSecretInfoInternalMap["location"] = data.CustomProxy.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-				}
-				if !data.CustomProxy.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.CustomProxy.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-					CustomProxyPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.CustomProxy.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-				}
-				CustomProxyPasswordMap["blindfold_secret_info_internal"] = CustomProxyPasswordBlindfoldSecretInfoInternalMap
-			}
 			if data.CustomProxy.Password.ClearSecretInfo != nil {
 				CustomProxyPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.CustomProxy.Password.ClearSecretInfo.Provider.IsNull() && !data.CustomProxy.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -11635,35 +11335,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					CustomProxyPasswordClearSecretInfoMap["url"] = data.CustomProxy.Password.ClearSecretInfo.URL.ValueString()
 				}
 				CustomProxyPasswordMap["clear_secret_info"] = CustomProxyPasswordClearSecretInfoMap
-			}
-			if !data.CustomProxy.Password.SecretEncodingType.IsNull() && !data.CustomProxy.Password.SecretEncodingType.IsUnknown() {
-				CustomProxyPasswordMap["secret_encoding_type"] = data.CustomProxy.Password.SecretEncodingType.ValueString()
-			}
-			if data.CustomProxy.Password.VaultSecretInfo != nil {
-				CustomProxyPasswordVaultSecretInfoMap := make(map[string]interface{})
-				if !data.CustomProxy.Password.VaultSecretInfo.Key.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Key.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["key"] = data.CustomProxy.Password.VaultSecretInfo.Key.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.Location.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Location.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["location"] = data.CustomProxy.Password.VaultSecretInfo.Location.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.Provider.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Provider.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["provider"] = data.CustomProxy.Password.VaultSecretInfo.Provider.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.SecretEncoding.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["secret_encoding"] = data.CustomProxy.Password.VaultSecretInfo.SecretEncoding.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.Version.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Version.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["version"] = data.CustomProxy.Password.VaultSecretInfo.Version.ValueInt64()
-				}
-				CustomProxyPasswordMap["vault_secret_info"] = CustomProxyPasswordVaultSecretInfoMap
-			}
-			if data.CustomProxy.Password.WingmanSecretInfo != nil {
-				CustomProxyPasswordWingmanSecretInfoMap := make(map[string]interface{})
-				if !data.CustomProxy.Password.WingmanSecretInfo.Name.IsNull() && !data.CustomProxy.Password.WingmanSecretInfo.Name.IsUnknown() {
-					CustomProxyPasswordWingmanSecretInfoMap["name"] = data.CustomProxy.Password.WingmanSecretInfo.Name.ValueString()
-				}
-				CustomProxyPasswordMap["wingman_secret_info"] = CustomProxyPasswordWingmanSecretInfoMap
 			}
 			CustomProxyMap["password"] = CustomProxyPasswordMap
 		}
@@ -11715,8 +11386,14 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["dc_cluster_group_slo"] = DcClusterGroupSloMap
 	}
+	if data.DisableAdvancedDelivery != nil {
+		createReq.Spec["disable_advanced_delivery"] = map[string]interface{}{}
+	}
 	if data.DisableHA != nil {
 		createReq.Spec["disable_ha"] = map[string]interface{}{}
+	}
+	if data.DisableLogAnonymization != nil {
+		createReq.Spec["disable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.DisableManagementNetwork != nil {
 		createReq.Spec["disable_management_network"] = map[string]interface{}{}
@@ -11756,8 +11433,14 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["dns_ntp_config"] = DNSNTPConfigMap
 	}
+	if data.EnableAdvancedDelivery != nil {
+		createReq.Spec["enable_advanced_delivery"] = map[string]interface{}{}
+	}
 	if data.EnableHA != nil {
 		createReq.Spec["enable_ha"] = map[string]interface{}{}
+	}
+	if data.EnableLogAnonymization != nil {
+		createReq.Spec["enable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableManagementNetwork != nil {
 		createReq.Spec["enable_management_network"] = map[string]interface{}{}
@@ -12979,19 +12662,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 		}
 		createReq.Spec["local_vrf"] = LocalVrfMap
 	}
-	if data.LogReceiver != nil {
-		LogReceiverMap := make(map[string]interface{})
-		if !data.LogReceiver.Name.IsNull() && !data.LogReceiver.Name.IsUnknown() {
-			LogReceiverMap["name"] = data.LogReceiver.Name.ValueString()
-		}
-		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
-			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
-		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
-		createReq.Spec["log_receiver"] = LogReceiverMap
-	}
 	if data.LogReceiverWithNet != nil {
 		LogReceiverWithNetMap := make(map[string]interface{})
 		if data.LogReceiverWithNet.LogReceiver != nil {
@@ -14153,9 +13823,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 					if !SegmentVrfItem.SegmentConfig.Nameserver.IsNull() && !SegmentVrfItem.SegmentConfig.Nameserver.IsUnknown() {
 						SegmentVrfSegmentConfigMap["nameserver"] = SegmentVrfItem.SegmentConfig.Nameserver.ValueString()
 					}
-					if !SegmentVrfItem.SegmentConfig.NameserverV6.IsNull() && !SegmentVrfItem.SegmentConfig.NameserverV6.IsUnknown() {
-						SegmentVrfSegmentConfigMap["nameserver_v6"] = SegmentVrfItem.SegmentConfig.NameserverV6.ValueString()
-					}
 					if SegmentVrfItem.SegmentConfig.NoStaticRoutes != nil {
 						SegmentVrfSegmentConfigMap["no_static_routes"] = map[string]interface{}{}
 					}
@@ -14738,12 +14405,31 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteV2EmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2EmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -14873,34 +14559,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal != nil {
-								return data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := AdminPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel {
 							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.ClearSecretInfo != nil {
 								return data.AdminUserCredentials.AdminPassword.ClearSecretInfo
@@ -14915,71 +14573,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := AdminPasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil {
-								return data.AdminUserCredentials.AdminPassword.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := AdminPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-											return data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.WingmanSecretInfo != nil {
-								return data.AdminUserCredentials.AdminPassword.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := AdminPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -16819,7 +16412,7 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -16922,34 +16515,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.BlindfoldSecretInfoInternal != nil {
-								return data.CustomProxy.Password.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel {
 							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.ClearSecretInfo != nil {
 								return data.CustomProxy.Password.ClearSecretInfo
@@ -16964,71 +16529,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.VaultSecretInfo != nil {
-								return data.CustomProxy.Password.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.VaultSecretInfo != nil && !data.CustomProxy.Password.VaultSecretInfo.Version.IsUnknown() {
-											return data.CustomProxy.Password.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.WingmanSecretInfo != nil {
-								return data.CustomProxy.Password.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -17125,8 +16625,14 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
+	if _, ok := apiResource.Spec["disable_advanced_delivery"].(map[string]interface{}); ok && isImport && data.DisableAdvancedDelivery == nil {
+		data.DisableAdvancedDelivery = &SecuremeshSiteV2EmptyModel{}
+	}
 	if _, ok := apiResource.Spec["disable_ha"].(map[string]interface{}); ok && isImport && data.DisableHA == nil {
 		data.DisableHA = &SecuremeshSiteV2EmptyModel{}
+	}
+	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
+		data.DisableLogAnonymization = &SecuremeshSiteV2EmptyModel{}
 	}
 	if _, ok := apiResource.Spec["disable_management_network"].(map[string]interface{}); ok && isImport && data.DisableManagementNetwork == nil {
 		data.DisableManagementNetwork = &SecuremeshSiteV2EmptyModel{}
@@ -17202,8 +16708,14 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
+	if _, ok := apiResource.Spec["enable_advanced_delivery"].(map[string]interface{}); ok && isImport && data.EnableAdvancedDelivery == nil {
+		data.EnableAdvancedDelivery = &SecuremeshSiteV2EmptyModel{}
+	}
 	if _, ok := apiResource.Spec["enable_ha"].(map[string]interface{}); ok && isImport && data.EnableHA == nil {
 		data.EnableHA = &SecuremeshSiteV2EmptyModel{}
+	}
+	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
+		data.EnableLogAnonymization = &SecuremeshSiteV2EmptyModel{}
 	}
 	if _, ok := apiResource.Spec["enable_management_network"].(map[string]interface{}); ok && isImport && data.EnableManagementNetwork == nil {
 		data.EnableManagementNetwork = &SecuremeshSiteV2EmptyModel{}
@@ -19788,28 +19300,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["log_receiver"].(map[string]interface{}); ok && (isImport || data.LogReceiver != nil) {
-		data.LogReceiver = &SecuremeshSiteV2LogReceiverModel{
-			Name: func() types.String {
-				if v, ok := blockData["name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Namespace: func() types.String {
-				if v, ok := blockData["namespace"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Tenant: func() types.String {
-				if v, ok := blockData["tenant"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["log_receiver_with_net"].(map[string]interface{}); ok && (isImport || data.LogReceiverWithNet != nil) {
 		data.LogReceiverWithNet = &SecuremeshSiteV2LogReceiverWithNetModel{
 			LogReceiver: func() *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel {
@@ -22357,12 +21847,6 @@ func (r *SecuremeshSiteV2Resource) Create(ctx context.Context, req resource.Crea
 							return &SecuremeshSiteV2SegmentVrfSegmentConfigModel{
 								Nameserver: func() types.String {
 									if v, ok := SegmentConfigData["nameserver"].(string); ok && v != "" {
-										return types.StringValue(v)
-									}
-									return types.StringNull()
-								}(),
-								NameserverV6: func() types.String {
-									if v, ok := SegmentConfigData["nameserver_v6"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()
@@ -23652,12 +23136,31 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteV2EmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2EmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -23787,34 +23290,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal != nil {
-								return data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := AdminPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel {
 							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.ClearSecretInfo != nil {
 								return data.AdminUserCredentials.AdminPassword.ClearSecretInfo
@@ -23829,71 +23304,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := AdminPasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil {
-								return data.AdminUserCredentials.AdminPassword.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := AdminPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-											return data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.WingmanSecretInfo != nil {
-								return data.AdminUserCredentials.AdminPassword.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := AdminPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -25733,7 +25143,7 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -25836,34 +25246,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.BlindfoldSecretInfoInternal != nil {
-								return data.CustomProxy.Password.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel {
 							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.ClearSecretInfo != nil {
 								return data.CustomProxy.Password.ClearSecretInfo
@@ -25878,71 +25260,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.VaultSecretInfo != nil {
-								return data.CustomProxy.Password.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.VaultSecretInfo != nil && !data.CustomProxy.Password.VaultSecretInfo.Version.IsUnknown() {
-											return data.CustomProxy.Password.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.WingmanSecretInfo != nil {
-								return data.CustomProxy.Password.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -26039,8 +25356,14 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
+	if _, ok := apiResource.Spec["disable_advanced_delivery"].(map[string]interface{}); ok && isImport && data.DisableAdvancedDelivery == nil {
+		data.DisableAdvancedDelivery = &SecuremeshSiteV2EmptyModel{}
+	}
 	if _, ok := apiResource.Spec["disable_ha"].(map[string]interface{}); ok && isImport && data.DisableHA == nil {
 		data.DisableHA = &SecuremeshSiteV2EmptyModel{}
+	}
+	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
+		data.DisableLogAnonymization = &SecuremeshSiteV2EmptyModel{}
 	}
 	if _, ok := apiResource.Spec["disable_management_network"].(map[string]interface{}); ok && isImport && data.DisableManagementNetwork == nil {
 		data.DisableManagementNetwork = &SecuremeshSiteV2EmptyModel{}
@@ -26116,8 +25439,14 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
+	if _, ok := apiResource.Spec["enable_advanced_delivery"].(map[string]interface{}); ok && isImport && data.EnableAdvancedDelivery == nil {
+		data.EnableAdvancedDelivery = &SecuremeshSiteV2EmptyModel{}
+	}
 	if _, ok := apiResource.Spec["enable_ha"].(map[string]interface{}); ok && isImport && data.EnableHA == nil {
 		data.EnableHA = &SecuremeshSiteV2EmptyModel{}
+	}
+	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
+		data.EnableLogAnonymization = &SecuremeshSiteV2EmptyModel{}
 	}
 	if _, ok := apiResource.Spec["enable_management_network"].(map[string]interface{}); ok && isImport && data.EnableManagementNetwork == nil {
 		data.EnableManagementNetwork = &SecuremeshSiteV2EmptyModel{}
@@ -28702,28 +28031,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["log_receiver"].(map[string]interface{}); ok && (isImport || data.LogReceiver != nil) {
-		data.LogReceiver = &SecuremeshSiteV2LogReceiverModel{
-			Name: func() types.String {
-				if v, ok := blockData["name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Namespace: func() types.String {
-				if v, ok := blockData["namespace"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Tenant: func() types.String {
-				if v, ok := blockData["tenant"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["log_receiver_with_net"].(map[string]interface{}); ok && (isImport || data.LogReceiverWithNet != nil) {
 		data.LogReceiverWithNet = &SecuremeshSiteV2LogReceiverWithNetModel{
 			LogReceiver: func() *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel {
@@ -31275,12 +30582,6 @@ func (r *SecuremeshSiteV2Resource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return types.StringNull()
 								}(),
-								NameserverV6: func() types.String {
-									if v, ok := SegmentConfigData["nameserver_v6"].(string); ok && v != "" {
-										return types.StringValue(v)
-									}
-									return types.StringNull()
-								}(),
 								NoStaticRoutes: func() *SecuremeshSiteV2EmptyModel {
 									if !isImport && len(existingSegmentVrfItems) > listIdx && existingSegmentVrfItems[listIdx].SegmentConfig != nil {
 										return existingSegmentVrfItems[listIdx].SegmentConfig.NoStaticRoutes
@@ -32497,7 +31798,14 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -32570,19 +31878,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				AdminUserCredentialsAdminPasswordMap["blindfold_secret_info"] = AdminUserCredentialsAdminPasswordBlindfoldSecretInfoMap
 			}
-			if data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal != nil {
-				AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-				if !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-					AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-					AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-					AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-				}
-				AdminUserCredentialsAdminPasswordMap["blindfold_secret_info_internal"] = AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalMap
-			}
 			if data.AdminUserCredentials.AdminPassword.ClearSecretInfo != nil {
 				AdminUserCredentialsAdminPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.AdminUserCredentials.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminUserCredentials.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -32592,35 +31887,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					AdminUserCredentialsAdminPasswordClearSecretInfoMap["url"] = data.AdminUserCredentials.AdminPassword.ClearSecretInfo.URL.ValueString()
 				}
 				AdminUserCredentialsAdminPasswordMap["clear_secret_info"] = AdminUserCredentialsAdminPasswordClearSecretInfoMap
-			}
-			if !data.AdminUserCredentials.AdminPassword.SecretEncodingType.IsNull() && !data.AdminUserCredentials.AdminPassword.SecretEncodingType.IsUnknown() {
-				AdminUserCredentialsAdminPasswordMap["secret_encoding_type"] = data.AdminUserCredentials.AdminPassword.SecretEncodingType.ValueString()
-			}
-			if data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil {
-				AdminUserCredentialsAdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["key"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Key.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["location"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Location.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["provider"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Provider.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-				}
-				if !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-					AdminUserCredentialsAdminPasswordVaultSecretInfoMap["version"] = data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-				}
-				AdminUserCredentialsAdminPasswordMap["vault_secret_info"] = AdminUserCredentialsAdminPasswordVaultSecretInfoMap
-			}
-			if data.AdminUserCredentials.AdminPassword.WingmanSecretInfo != nil {
-				AdminUserCredentialsAdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-				if !data.AdminUserCredentials.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminUserCredentials.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-					AdminUserCredentialsAdminPasswordWingmanSecretInfoMap["name"] = data.AdminUserCredentials.AdminPassword.WingmanSecretInfo.Name.ValueString()
-				}
-				AdminUserCredentialsAdminPasswordMap["wingman_secret_info"] = AdminUserCredentialsAdminPasswordWingmanSecretInfoMap
 			}
 			AdminUserCredentialsMap["admin_password"] = AdminUserCredentialsAdminPasswordMap
 		}
@@ -33466,7 +32732,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -33494,19 +32760,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				CustomProxyPasswordMap["blindfold_secret_info"] = CustomProxyPasswordBlindfoldSecretInfoMap
 			}
-			if data.CustomProxy.Password.BlindfoldSecretInfoInternal != nil {
-				CustomProxyPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-				if !data.CustomProxy.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.CustomProxy.Password.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-					CustomProxyPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.CustomProxy.Password.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-				}
-				if !data.CustomProxy.Password.BlindfoldSecretInfoInternal.Location.IsNull() && !data.CustomProxy.Password.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-					CustomProxyPasswordBlindfoldSecretInfoInternalMap["location"] = data.CustomProxy.Password.BlindfoldSecretInfoInternal.Location.ValueString()
-				}
-				if !data.CustomProxy.Password.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.CustomProxy.Password.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-					CustomProxyPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.CustomProxy.Password.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-				}
-				CustomProxyPasswordMap["blindfold_secret_info_internal"] = CustomProxyPasswordBlindfoldSecretInfoInternalMap
-			}
 			if data.CustomProxy.Password.ClearSecretInfo != nil {
 				CustomProxyPasswordClearSecretInfoMap := make(map[string]interface{})
 				if !data.CustomProxy.Password.ClearSecretInfo.Provider.IsNull() && !data.CustomProxy.Password.ClearSecretInfo.Provider.IsUnknown() {
@@ -33516,35 +32769,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					CustomProxyPasswordClearSecretInfoMap["url"] = data.CustomProxy.Password.ClearSecretInfo.URL.ValueString()
 				}
 				CustomProxyPasswordMap["clear_secret_info"] = CustomProxyPasswordClearSecretInfoMap
-			}
-			if !data.CustomProxy.Password.SecretEncodingType.IsNull() && !data.CustomProxy.Password.SecretEncodingType.IsUnknown() {
-				CustomProxyPasswordMap["secret_encoding_type"] = data.CustomProxy.Password.SecretEncodingType.ValueString()
-			}
-			if data.CustomProxy.Password.VaultSecretInfo != nil {
-				CustomProxyPasswordVaultSecretInfoMap := make(map[string]interface{})
-				if !data.CustomProxy.Password.VaultSecretInfo.Key.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Key.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["key"] = data.CustomProxy.Password.VaultSecretInfo.Key.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.Location.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Location.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["location"] = data.CustomProxy.Password.VaultSecretInfo.Location.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.Provider.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Provider.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["provider"] = data.CustomProxy.Password.VaultSecretInfo.Provider.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.SecretEncoding.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.SecretEncoding.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["secret_encoding"] = data.CustomProxy.Password.VaultSecretInfo.SecretEncoding.ValueString()
-				}
-				if !data.CustomProxy.Password.VaultSecretInfo.Version.IsNull() && !data.CustomProxy.Password.VaultSecretInfo.Version.IsUnknown() {
-					CustomProxyPasswordVaultSecretInfoMap["version"] = data.CustomProxy.Password.VaultSecretInfo.Version.ValueInt64()
-				}
-				CustomProxyPasswordMap["vault_secret_info"] = CustomProxyPasswordVaultSecretInfoMap
-			}
-			if data.CustomProxy.Password.WingmanSecretInfo != nil {
-				CustomProxyPasswordWingmanSecretInfoMap := make(map[string]interface{})
-				if !data.CustomProxy.Password.WingmanSecretInfo.Name.IsNull() && !data.CustomProxy.Password.WingmanSecretInfo.Name.IsUnknown() {
-					CustomProxyPasswordWingmanSecretInfoMap["name"] = data.CustomProxy.Password.WingmanSecretInfo.Name.ValueString()
-				}
-				CustomProxyPasswordMap["wingman_secret_info"] = CustomProxyPasswordWingmanSecretInfoMap
 			}
 			CustomProxyMap["password"] = CustomProxyPasswordMap
 		}
@@ -33596,8 +32820,14 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["dc_cluster_group_slo"] = DcClusterGroupSloMap
 	}
+	if data.DisableAdvancedDelivery != nil {
+		apiResource.Spec["disable_advanced_delivery"] = map[string]interface{}{}
+	}
 	if data.DisableHA != nil {
 		apiResource.Spec["disable_ha"] = map[string]interface{}{}
+	}
+	if data.DisableLogAnonymization != nil {
+		apiResource.Spec["disable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.DisableManagementNetwork != nil {
 		apiResource.Spec["disable_management_network"] = map[string]interface{}{}
@@ -33637,8 +32867,14 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["dns_ntp_config"] = DNSNTPConfigMap
 	}
+	if data.EnableAdvancedDelivery != nil {
+		apiResource.Spec["enable_advanced_delivery"] = map[string]interface{}{}
+	}
 	if data.EnableHA != nil {
 		apiResource.Spec["enable_ha"] = map[string]interface{}{}
+	}
+	if data.EnableLogAnonymization != nil {
+		apiResource.Spec["enable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableManagementNetwork != nil {
 		apiResource.Spec["enable_management_network"] = map[string]interface{}{}
@@ -34860,19 +34096,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 		}
 		apiResource.Spec["local_vrf"] = LocalVrfMap
 	}
-	if data.LogReceiver != nil {
-		LogReceiverMap := make(map[string]interface{})
-		if !data.LogReceiver.Name.IsNull() && !data.LogReceiver.Name.IsUnknown() {
-			LogReceiverMap["name"] = data.LogReceiver.Name.ValueString()
-		}
-		if !data.LogReceiver.Namespace.IsNull() && !data.LogReceiver.Namespace.IsUnknown() {
-			LogReceiverMap["namespace"] = data.LogReceiver.Namespace.ValueString()
-		}
-		if !data.LogReceiver.Tenant.IsNull() && !data.LogReceiver.Tenant.IsUnknown() {
-			LogReceiverMap["tenant"] = data.LogReceiver.Tenant.ValueString()
-		}
-		apiResource.Spec["log_receiver"] = LogReceiverMap
-	}
 	if data.LogReceiverWithNet != nil {
 		LogReceiverWithNetMap := make(map[string]interface{})
 		if data.LogReceiverWithNet.LogReceiver != nil {
@@ -36034,9 +35257,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 					if !SegmentVrfItem.SegmentConfig.Nameserver.IsNull() && !SegmentVrfItem.SegmentConfig.Nameserver.IsUnknown() {
 						SegmentVrfSegmentConfigMap["nameserver"] = SegmentVrfItem.SegmentConfig.Nameserver.ValueString()
 					}
-					if !SegmentVrfItem.SegmentConfig.NameserverV6.IsNull() && !SegmentVrfItem.SegmentConfig.NameserverV6.IsUnknown() {
-						SegmentVrfSegmentConfigMap["nameserver_v6"] = SegmentVrfItem.SegmentConfig.NameserverV6.ValueString()
-					}
 					if SegmentVrfItem.SegmentConfig.NoStaticRoutes != nil {
 						SegmentVrfSegmentConfigMap["no_static_routes"] = map[string]interface{}{}
 					}
@@ -36644,12 +35864,31 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *SecuremeshSiteV2EmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &SecuremeshSiteV2EmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &SecuremeshSiteV2PerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *SecuremeshSiteV2EmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &SecuremeshSiteV2EmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -36779,34 +36018,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal != nil {
-								return data.AdminUserCredentials.AdminPassword.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := AdminPasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordClearSecretInfoModel {
 							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.ClearSecretInfo != nil {
 								return data.AdminUserCredentials.AdminPassword.ClearSecretInfo
@@ -36821,71 +36032,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := AdminPasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil {
-								return data.AdminUserCredentials.AdminPassword.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := AdminPasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.VaultSecretInfo != nil && !data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-											return data.AdminUserCredentials.AdminPassword.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel {
-							if !isImport && data.AdminUserCredentials != nil && data.AdminUserCredentials.AdminPassword != nil && data.AdminUserCredentials.AdminPassword.WingmanSecretInfo != nil {
-								return data.AdminUserCredentials.AdminPassword.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := AdminPasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2AdminUserCredentialsAdminPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -38725,7 +37871,7 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []SecuremeshSiteV2BlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -38828,34 +37974,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							}
 							return nil
 						}(),
-						BlindfoldSecretInfoInternal: func() *SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.BlindfoldSecretInfoInternal != nil {
-								return data.CustomProxy.Password.BlindfoldSecretInfoInternal
-							}
-							if BlindfoldSecretInfoInternalData, ok := PasswordData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordBlindfoldSecretInfoInternalModel{
-									DecryptionProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									StoreProvider: func() types.String {
-										if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
 						ClearSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordClearSecretInfoModel {
 							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.ClearSecretInfo != nil {
 								return data.CustomProxy.Password.ClearSecretInfo
@@ -38870,71 +37988,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 									}(),
 									URL: func() types.String {
 										if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						SecretEncodingType: func() types.String {
-							if v, ok := PasswordData["secret_encoding_type"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						VaultSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.VaultSecretInfo != nil {
-								return data.CustomProxy.Password.VaultSecretInfo
-							}
-							if VaultSecretInfoData, ok := PasswordData["vault_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordVaultSecretInfoModel{
-									Key: func() types.String {
-										if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Location: func() types.String {
-										if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Provider: func() types.String {
-										if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									SecretEncoding: func() types.String {
-										if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-											return types.StringValue(v)
-										}
-										return types.StringNull()
-									}(),
-									Version: func() types.Int64 {
-										if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.VaultSecretInfo != nil && !data.CustomProxy.Password.VaultSecretInfo.Version.IsUnknown() {
-											return data.CustomProxy.Password.VaultSecretInfo.Version
-										}
-										if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-											return types.Int64Value(int64(v))
-										}
-										return types.Int64Null()
-									}(),
-								}
-							}
-							return nil
-						}(),
-						WingmanSecretInfo: func() *SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel {
-							if !isImport && data.CustomProxy != nil && data.CustomProxy.Password != nil && data.CustomProxy.Password.WingmanSecretInfo != nil {
-								return data.CustomProxy.Password.WingmanSecretInfo
-							}
-							if WingmanSecretInfoData, ok := PasswordData["wingman_secret_info"].(map[string]interface{}); ok {
-								return &SecuremeshSiteV2CustomProxyPasswordWingmanSecretInfoModel{
-									Name: func() types.String {
-										if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 											return types.StringValue(v)
 										}
 										return types.StringNull()
@@ -39031,8 +38084,14 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
+	if _, ok := apiResource.Spec["disable_advanced_delivery"].(map[string]interface{}); ok && isImport && data.DisableAdvancedDelivery == nil {
+		data.DisableAdvancedDelivery = &SecuremeshSiteV2EmptyModel{}
+	}
 	if _, ok := apiResource.Spec["disable_ha"].(map[string]interface{}); ok && isImport && data.DisableHA == nil {
 		data.DisableHA = &SecuremeshSiteV2EmptyModel{}
+	}
+	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
+		data.DisableLogAnonymization = &SecuremeshSiteV2EmptyModel{}
 	}
 	if _, ok := apiResource.Spec["disable_management_network"].(map[string]interface{}); ok && isImport && data.DisableManagementNetwork == nil {
 		data.DisableManagementNetwork = &SecuremeshSiteV2EmptyModel{}
@@ -39108,8 +38167,14 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
+	if _, ok := apiResource.Spec["enable_advanced_delivery"].(map[string]interface{}); ok && isImport && data.EnableAdvancedDelivery == nil {
+		data.EnableAdvancedDelivery = &SecuremeshSiteV2EmptyModel{}
+	}
 	if _, ok := apiResource.Spec["enable_ha"].(map[string]interface{}); ok && isImport && data.EnableHA == nil {
 		data.EnableHA = &SecuremeshSiteV2EmptyModel{}
+	}
+	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
+		data.EnableLogAnonymization = &SecuremeshSiteV2EmptyModel{}
 	}
 	if _, ok := apiResource.Spec["enable_management_network"].(map[string]interface{}); ok && isImport && data.EnableManagementNetwork == nil {
 		data.EnableManagementNetwork = &SecuremeshSiteV2EmptyModel{}
@@ -41694,28 +40759,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 			}(),
 		}
 	}
-	if blockData, ok := apiResource.Spec["log_receiver"].(map[string]interface{}); ok && (isImport || data.LogReceiver != nil) {
-		data.LogReceiver = &SecuremeshSiteV2LogReceiverModel{
-			Name: func() types.String {
-				if v, ok := blockData["name"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Namespace: func() types.String {
-				if v, ok := blockData["namespace"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			Tenant: func() types.String {
-				if v, ok := blockData["tenant"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-		}
-	}
 	if blockData, ok := apiResource.Spec["log_receiver_with_net"].(map[string]interface{}); ok && (isImport || data.LogReceiverWithNet != nil) {
 		data.LogReceiverWithNet = &SecuremeshSiteV2LogReceiverWithNetModel{
 			LogReceiver: func() *SecuremeshSiteV2LogReceiverWithNetLogReceiverModel {
@@ -44263,12 +43306,6 @@ func (r *SecuremeshSiteV2Resource) Update(ctx context.Context, req resource.Upda
 							return &SecuremeshSiteV2SegmentVrfSegmentConfigModel{
 								Nameserver: func() types.String {
 									if v, ok := SegmentConfigData["nameserver"].(string); ok && v != "" {
-										return types.StringValue(v)
-									}
-									return types.StringNull()
-								}(),
-								NameserverV6: func() types.String {
-									if v, ok := SegmentConfigData["nameserver_v6"].(string); ok && v != "" {
 										return types.StringValue(v)
 									}
 									return types.StringNull()

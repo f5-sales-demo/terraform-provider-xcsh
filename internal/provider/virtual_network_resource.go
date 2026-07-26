@@ -247,13 +247,13 @@ func (r *VirtualNetworkResource) Schema(ctx context.Context, req resource.Schema
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
 											"node": schema.StringAttribute{
-												MarkdownDescription: "X-displayName: 'Node' Node name on this site.",
+												MarkdownDescription: "Node. Node name on this site.",
 												Optional:            true,
 											},
 										},
 										Blocks: map[string]schema.Block{
 											"interface": schema.ListNestedBlock{
-												MarkdownDescription: "X-displayName: 'Interface' Interface reference on this node.",
+												MarkdownDescription: "Interface. Interface reference on this node.",
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"kind": schema.StringAttribute{

@@ -19,6 +19,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-framework/resource/schema/boolplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/planmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
@@ -387,22 +388,24 @@ var ServicePolicyRuleMumActionModelAttrTypes = map[string]attr.Type{
 
 // ServicePolicyRulePathModel represents path block
 type ServicePolicyRulePathModel struct {
-	ExactValues   types.List `tfsdk:"exact_values"`
-	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
-	PrefixValues  types.List `tfsdk:"prefix_values"`
-	RegexValues   types.List `tfsdk:"regex_values"`
-	SuffixValues  types.List `tfsdk:"suffix_values"`
-	Transformers  types.List `tfsdk:"transformers"`
+	EncodedPathMatcher types.Bool `tfsdk:"encoded_path_matcher"`
+	ExactValues        types.List `tfsdk:"exact_values"`
+	InvertMatcher      types.Bool `tfsdk:"invert_matcher"`
+	PrefixValues       types.List `tfsdk:"prefix_values"`
+	RegexValues        types.List `tfsdk:"regex_values"`
+	SuffixValues       types.List `tfsdk:"suffix_values"`
+	Transformers       types.List `tfsdk:"transformers"`
 }
 
 // ServicePolicyRulePathModelAttrTypes defines the attribute types for ServicePolicyRulePathModel
 var ServicePolicyRulePathModelAttrTypes = map[string]attr.Type{
-	"exact_values":   types.ListType{ElemType: types.StringType},
-	"invert_matcher": types.BoolType,
-	"prefix_values":  types.ListType{ElemType: types.StringType},
-	"regex_values":   types.ListType{ElemType: types.StringType},
-	"suffix_values":  types.ListType{ElemType: types.StringType},
-	"transformers":   types.ListType{ElemType: types.StringType},
+	"encoded_path_matcher": types.BoolType,
+	"exact_values":         types.ListType{ElemType: types.StringType},
+	"invert_matcher":       types.BoolType,
+	"prefix_values":        types.ListType{ElemType: types.StringType},
+	"regex_values":         types.ListType{ElemType: types.StringType},
+	"suffix_values":        types.ListType{ElemType: types.StringType},
+	"transformers":         types.ListType{ElemType: types.StringType},
 }
 
 // ServicePolicyRuleQueryParamsModel represents query_params block
@@ -682,6 +685,7 @@ type ServicePolicyRuleResourceModel struct {
 	Action                types.String                                 `tfsdk:"action"`
 	ClientName            types.String                                 `tfsdk:"client_name"`
 	ExpirationTimestamp   types.String                                 `tfsdk:"expiration_timestamp"`
+	LogRuleEvaluation     types.Bool                                   `tfsdk:"log_rule_evaluation"`
 	Timeouts              timeouts.Value                               `tfsdk:"timeouts"`
 	AnyAsn                *ServicePolicyRuleEmptyModel                 `tfsdk:"any_asn"`
 	AnyClient             *ServicePolicyRuleEmptyModel                 `tfsdk:"any_client"`
@@ -795,6 +799,14 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 				Computed:            true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
+				},
+			},
+			"log_rule_evaluation": schema.BoolAttribute{
+				MarkdownDescription: "Log the rule match details along with the request and continue to evaluate rules in the sequence.",
+				Optional:            true,
+				Computed:            true,
+				PlanModifiers: []planmodifier.Bool{
+					boolplanmodifier.UseStateForUnknown(),
 				},
 			},
 		},
@@ -1335,6 +1347,10 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 			"path": schema.SingleNestedBlock{
 				MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
 				Attributes: map[string]schema.Attribute{
+					"encoded_path_matcher": schema.BoolAttribute{
+						MarkdownDescription: "Match against the encoded, escaped path.",
+						Optional:            true,
+					},
 					"exact_values": schema.ListAttribute{
 						MarkdownDescription: "List of exact path values to match the input HTTP path against.",
 						Optional:            true,
@@ -1581,11 +1597,11 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 						MarkdownDescription: "Enable this option",
 					},
 					"dst_segments": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Segment List' List of references to Segments.",
+						MarkdownDescription: "Configuration parameter for dst segments.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"segments": schema.ListNestedBlock{
-								MarkdownDescription: "X-displayName: 'Segments'Select list of segments.",
+								MarkdownDescription: "Segments. Select list of segments .",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -1625,11 +1641,11 @@ func (r *ServicePolicyRuleResource) Schema(ctx context.Context, req resource.Sch
 						MarkdownDescription: "Enable this option",
 					},
 					"src_segments": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Segment List' List of references to Segments.",
+						MarkdownDescription: "Configuration parameter for src segments.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"segments": schema.ListNestedBlock{
-								MarkdownDescription: "X-displayName: 'Segments'Select list of segments.",
+								MarkdownDescription: "Segments. Select list of segments .",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"name": schema.StringAttribute{
@@ -2385,6 +2401,9 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	}
 	if data.Path != nil {
 		PathMap := make(map[string]interface{})
+		if !data.Path.EncodedPathMatcher.IsNull() && !data.Path.EncodedPathMatcher.IsUnknown() {
+			PathMap["encoded_path_matcher"] = data.Path.EncodedPathMatcher.ValueBool()
+		}
 		if !data.Path.ExactValues.IsNull() && !data.Path.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -2751,6 +2770,9 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	}
 	if !data.ExpirationTimestamp.IsNull() && !data.ExpirationTimestamp.IsUnknown() {
 		createReq.Spec["expiration_timestamp"] = data.ExpirationTimestamp.ValueString()
+	}
+	if !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
+		createReq.Spec["log_rule_evaluation"] = data.LogRuleEvaluation.ValueBool()
 	}
 	if data.PortMatcher != nil {
 		PortMatcherMap := make(map[string]interface{})
@@ -3608,6 +3630,15 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 	}
 	if blockData, ok := apiResource.Spec["path"].(map[string]interface{}); ok && (isImport || data.Path != nil) {
 		data.Path = &ServicePolicyRulePathModel{
+			EncodedPathMatcher: func() types.Bool {
+				if !isImport && data.Path != nil && !data.Path.EncodedPathMatcher.IsUnknown() {
+					return data.Path.EncodedPathMatcher
+				}
+				if v, ok := blockData["encoded_path_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
 			ExactValues: func() types.List {
 				if v, ok := blockData["exact_values"].([]interface{}); ok && len(v) > 0 {
 					var items []string
@@ -4383,6 +4414,16 @@ func (r *ServicePolicyRuleResource) Create(ctx context.Context, req resource.Cre
 		data.ExpirationTimestamp = types.StringValue(v)
 	} else {
 		data.ExpirationTimestamp = types.StringNull()
+	}
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
+	} else {
+		if v, ok := apiResource.Spec["log_rule_evaluation"].(bool); ok {
+			data.LogRuleEvaluation = types.BoolValue(v)
+		} else {
+			data.LogRuleEvaluation = types.BoolNull()
+		}
 	}
 	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
 		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
@@ -5350,6 +5391,15 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	}
 	if blockData, ok := apiResource.Spec["path"].(map[string]interface{}); ok && (isImport || data.Path != nil) {
 		data.Path = &ServicePolicyRulePathModel{
+			EncodedPathMatcher: func() types.Bool {
+				if !isImport && data.Path != nil && !data.Path.EncodedPathMatcher.IsUnknown() {
+					return data.Path.EncodedPathMatcher
+				}
+				if v, ok := blockData["encoded_path_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
 			ExactValues: func() types.List {
 				if v, ok := blockData["exact_values"].([]interface{}); ok && len(v) > 0 {
 					var items []string
@@ -6126,6 +6176,16 @@ func (r *ServicePolicyRuleResource) Read(ctx context.Context, req resource.ReadR
 	} else {
 		data.ExpirationTimestamp = types.StringNull()
 	}
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
+	} else {
+		if v, ok := apiResource.Spec["log_rule_evaluation"].(bool); ok {
+			data.LogRuleEvaluation = types.BoolValue(v)
+		} else {
+			data.LogRuleEvaluation = types.BoolNull()
+		}
+	}
 	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
 		data.PortMatcher = &ServicePolicyRulePortMatcherModel{
 			InvertMatcher: func() types.Bool {
@@ -6667,6 +6727,9 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	}
 	if data.Path != nil {
 		PathMap := make(map[string]interface{})
+		if !data.Path.EncodedPathMatcher.IsNull() && !data.Path.EncodedPathMatcher.IsUnknown() {
+			PathMap["encoded_path_matcher"] = data.Path.EncodedPathMatcher.ValueBool()
+		}
 		if !data.Path.ExactValues.IsNull() && !data.Path.ExactValues.IsUnknown() {
 			var ExactValuesItems []string
 			diags := data.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -7034,6 +7097,9 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	if !data.ExpirationTimestamp.IsNull() && !data.ExpirationTimestamp.IsUnknown() {
 		apiResource.Spec["expiration_timestamp"] = data.ExpirationTimestamp.ValueString()
 	}
+	if !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
+		apiResource.Spec["log_rule_evaluation"] = data.LogRuleEvaluation.ValueBool()
+	}
 	if data.PortMatcher != nil {
 		PortMatcherMap := make(map[string]interface{})
 		if !data.PortMatcher.InvertMatcher.IsNull() && !data.PortMatcher.InvertMatcher.IsUnknown() {
@@ -7086,6 +7152,13 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	} else if data.ExpirationTimestamp.IsUnknown() {
 		// API didn't return value and plan was unknown - set to null
 		data.ExpirationTimestamp = types.StringNull()
+	}
+	// If plan had a value, preserve it
+	if v, ok := fetched.Spec["log_rule_evaluation"].(bool); ok {
+		data.LogRuleEvaluation = types.BoolValue(v)
+	} else if data.LogRuleEvaluation.IsUnknown() {
+		// API didn't return value and plan was unknown - set to null
+		data.LogRuleEvaluation = types.BoolNull()
 	}
 	// If plan had a value, preserve it
 
@@ -7922,6 +7995,15 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 	}
 	if blockData, ok := apiResource.Spec["path"].(map[string]interface{}); ok && (isImport || data.Path != nil) {
 		data.Path = &ServicePolicyRulePathModel{
+			EncodedPathMatcher: func() types.Bool {
+				if !isImport && data.Path != nil && !data.Path.EncodedPathMatcher.IsUnknown() {
+					return data.Path.EncodedPathMatcher
+				}
+				if v, ok := blockData["encoded_path_matcher"].(bool); ok {
+					return types.BoolValue(v)
+				}
+				return types.BoolNull()
+			}(),
 			ExactValues: func() types.List {
 				if v, ok := blockData["exact_values"].([]interface{}); ok && len(v) > 0 {
 					var items []string
@@ -8697,6 +8779,16 @@ func (r *ServicePolicyRuleResource) Update(ctx context.Context, req resource.Upd
 		data.ExpirationTimestamp = types.StringValue(v)
 	} else {
 		data.ExpirationTimestamp = types.StringNull()
+	}
+	// Top-level Optional bool: preserve prior state to avoid API default drift
+	if !isImport && !data.LogRuleEvaluation.IsNull() && !data.LogRuleEvaluation.IsUnknown() {
+		// Normal Read: preserve existing state value (do nothing)
+	} else {
+		if v, ok := apiResource.Spec["log_rule_evaluation"].(bool); ok {
+			data.LogRuleEvaluation = types.BoolValue(v)
+		} else {
+			data.LogRuleEvaluation = types.BoolNull()
+		}
 	}
 	if blockData, ok := apiResource.Spec["port_matcher"].(map[string]interface{}); ok && (isImport || data.PortMatcher != nil) {
 		data.PortMatcher = &ServicePolicyRulePortMatcherModel{

@@ -113,7 +113,7 @@ A [`js_insertion_rules`](#cloudflare-js-insertion-rules) block (within [`cloudfl
 <a id="list-8efdb9"></a>&#x2022; [`exclude_list`](#list-8efdb9) - Optional Block<br>Optional JavaScript insertions exclude list of domain and path matchers<br>See [Exclude List](#list-8efdb9) below.
 
 <a id="location-a9a4d9"></a>&#x2022; [`JavaScript_location`](#location-a9a4d9) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
-JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="path-301a4e"></a>&#x2022; [`js_download_path`](#path-301a4e) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
 
@@ -467,7 +467,7 @@ A [`js_insertion_rules`](#cloudfront-js-insertion-rules) block (within [`cloudfr
 <a id="list-72c274"></a>&#x2022; [`exclude_list`](#list-72c274) - Optional Block<br>Optional JavaScript insertions exclude list of domain and path matchers<br>See [Exclude List](#list-72c274) below.
 
 <a id="location-a1afce"></a>&#x2022; [`JavaScript_location`](#location-a1afce) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
-JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first &lt;script> tag
+JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="mode-062eb7"></a>&#x2022; [`JavaScript_mode`](#mode-062eb7) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested
 asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
@@ -692,7 +692,7 @@ A [`financial_services`](#services-6b999f) block (within [`cloudfront.protected_
 
 A [`flight`](#flight-3e8b83) block (within [`cloudfront.protected_endpoints.flow_label`](#label-36deaa)) supports the following:
 
-<a id="checking-28c280"></a>&#x2022; [`checking`](#checking-28c280) - Optional Block<br>Enable this option
+<a id="checkin-28c280"></a>&#x2022; [`checkin`](#checkin-28c280) - Optional Block<br>Enable this option
 
 #### Cloudfront Protected Endpoints Flow Label Profile Management
 

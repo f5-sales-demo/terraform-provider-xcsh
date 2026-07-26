@@ -88,8 +88,6 @@ A [`rules`](#rules) block supports the following:
 
 <a id="rules-name"></a>&#x2022; [`name`](#rules-name) - Optional String<br>Name. Name of the Rule
 
-<a id="rules-network-interface"></a>&#x2022; [`network_interface`](#rules-network-interface) - Optional Block<br>Configuration parameter for network interface<br>See [Network Interface](#rules-network-interface) below.
-
 <a id="rules-node-interface"></a>&#x2022; [`node_interface`](#rules-node-interface) - Optional Block<br>On multinode site, this type holds the information about per node interfaces<br>See [Node Interface](#rules-node-interface) below.
 
 <a id="rules-segment"></a>&#x2022; [`segment`](#rules-segment) - Optional Block<br>Segment Reference Type. Reference to Segment Object<br>See [Segment](#rules-segment) below.
@@ -166,13 +164,7 @@ A [`criteria`](#rules-criteria) block (within [`rules`](#rules)) supports the fo
 
 <a id="rules-criteria-destination-cidr"></a>&#x2022; [`destination_cidr`](#rules-criteria-destination-cidr) - Optional List<br>Destination IP. Destination IP of the packet to match
 
-<a id="rules-criteria-destination-port"></a>&#x2022; [`destination_port`](#rules-criteria-destination-port) - Optional Block<br>Port match of the request can be a range or a specific port<br>See [Destination Port](#rules-criteria-destination-port) below.
-
 <a id="rules-criteria-icmp"></a>&#x2022; [`icmp`](#rules-criteria-icmp) - Optional Block<br>Enable this option
-
-<a id="rules-criteria-protocol"></a>&#x2022; [`protocol`](#rules-criteria-protocol) - Optional String  Defaults to `ALL`<br>Possible values are `ALL`, `ICMP`, `TCP`, `UDP`<br>[Enum: ALL|ICMP|TCP|UDP] Protocols. Protocols like TCP, UDP
-
-<a id="rules-criteria-segment"></a>&#x2022; [`segment`](#rules-criteria-segment) - Optional Block<br>Segment Reference Type. Reference to Segment Object<br>See [Segment](#rules-criteria-segment) below.
 
 <a id="network-72821d"></a>&#x2022; [`site_local_inside_network`](#network-72821d) - Optional Block<br>Enable this option
 
@@ -180,53 +172,9 @@ A [`criteria`](#rules-criteria) block (within [`rules`](#rules)) supports the fo
 
 <a id="rules-criteria-source-cidr"></a>&#x2022; [`source_cidr`](#rules-criteria-source-cidr) - Optional List<br>Source IP. Source IP of the packet to match
 
-<a id="rules-criteria-source-port"></a>&#x2022; [`source_port`](#rules-criteria-source-port) - Optional Block<br>Port match of the request can be a range or a specific port<br>See [Source Port](#rules-criteria-source-port) below.
-
 <a id="rules-criteria-tcp"></a>&#x2022; [`tcp`](#rules-criteria-tcp) - Optional Block<br>Action to apply on the packet if the NAT rule is applied<br>See [TCP](#rules-criteria-tcp) below.
 
 <a id="rules-criteria-udp"></a>&#x2022; [`udp`](#rules-criteria-udp) - Optional Block<br>Action to apply on the packet if the NAT rule is applied<br>See [UDP](#rules-criteria-udp) below.
-
-<a id="rules-criteria-virtual-network"></a>&#x2022; [`virtual_network`](#rules-criteria-virtual-network) - Optional Block<br>Carries the reference to virtual network<br>See [Virtual Network](#rules-criteria-virtual-network) below.
-
-#### Rules Criteria Destination Port
-
-A [`destination_port`](#rules-criteria-destination-port) block (within [`rules.criteria`](#rules-criteria)) supports the following:
-
-<a id="match-408035"></a>&#x2022; [`no_port_match`](#match-408035) - Optional Block<br>Enable this option
-
-<a id="rules-criteria-destination-port-port"></a>&#x2022; [`port`](#rules-criteria-destination-port-port) - Optional Number<br>Exact Port to match
-
-<a id="ranges-c8d271"></a>&#x2022; [`port_ranges`](#ranges-c8d271) - Optional String<br>Port range to match
-
-#### Rules Criteria Segment
-
-A [`segment`](#rules-criteria-segment) block (within [`rules.criteria`](#rules-criteria)) supports the following:
-
-<a id="rules-criteria-segment-refs"></a>&#x2022; [`refs`](#rules-criteria-segment-refs) - Optional Block<br>Reference to Segment Object<br>See [Refs](#rules-criteria-segment-refs) below.
-
-#### Rules Criteria Segment Refs
-
-A [`refs`](#rules-criteria-segment-refs) block (within [`rules.criteria.segment`](#rules-criteria-segment)) supports the following:
-
-<a id="rules-criteria-segment-refs-name"></a>&#x2022; [`name`](#rules-criteria-segment-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="rules-criteria-segment-refs-namespace"></a>&#x2022; [`namespace`](#rules-criteria-segment-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="rules-criteria-segment-refs-kind"></a>&#x2022; [`kind`](#rules-criteria-segment-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
-<a id="rules-criteria-segment-refs-tenant"></a>&#x2022; [`tenant`](#rules-criteria-segment-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-<a id="rules-criteria-segment-refs-uid"></a>&#x2022; [`uid`](#rules-criteria-segment-refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
-
-#### Rules Criteria Source Port
-
-A [`source_port`](#rules-criteria-source-port) block (within [`rules.criteria`](#rules-criteria)) supports the following:
-
-<a id="match-b33190"></a>&#x2022; [`no_port_match`](#match-b33190) - Optional Block<br>Enable this option
-
-<a id="rules-criteria-source-port-port"></a>&#x2022; [`port`](#rules-criteria-source-port-port) - Optional Number<br>Exact Port to match
-
-<a id="rules-criteria-source-port-port-ranges"></a>&#x2022; [`port_ranges`](#rules-criteria-source-port-port-ranges) - Optional String<br>Port range to match
 
 #### Rules Criteria TCP
 
@@ -284,46 +232,6 @@ A [`source_port`](#rules-criteria-udp-source-port) block (within [`rules.criteri
 
 <a id="ranges-a44153"></a>&#x2022; [`port_ranges`](#ranges-a44153) - Optional String<br>Port range to match
 
-#### Rules Criteria Virtual Network
-
-A [`virtual_network`](#rules-criteria-virtual-network) block (within [`rules.criteria`](#rules-criteria)) supports the following:
-
-<a id="rules-criteria-virtual-network-refs"></a>&#x2022; [`refs`](#rules-criteria-virtual-network-refs) - Optional Block<br>Virtual Network Reference. Reference to virtual network<br>See [Refs](#rules-criteria-virtual-network-refs) below.
-
-#### Rules Criteria Virtual Network Refs
-
-A [`refs`](#rules-criteria-virtual-network-refs) block (within [`rules.criteria.virtual_network`](#rules-criteria-virtual-network)) supports the following:
-
-<a id="name-369d2b"></a>&#x2022; [`name`](#name-369d2b) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="namespace-a79f74"></a>&#x2022; [`namespace`](#namespace-a79f74) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="kind-8d8876"></a>&#x2022; [`kind`](#kind-8d8876) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
-<a id="tenant-79ff48"></a>&#x2022; [`tenant`](#tenant-79ff48) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-<a id="rules-criteria-virtual-network-refs-uid"></a>&#x2022; [`uid`](#rules-criteria-virtual-network-refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
-
-#### Rules Network Interface
-
-A [`network_interface`](#rules-network-interface) block (within [`rules`](#rules)) supports the following:
-
-<a id="rules-network-interface-refs"></a>&#x2022; [`refs`](#rules-network-interface-refs) - Optional Block<br>Reference to Network Interface Object<br>See [Refs](#rules-network-interface-refs) below.
-
-#### Rules Network Interface Refs
-
-A [`refs`](#rules-network-interface-refs) block (within [`rules.network_interface`](#rules-network-interface)) supports the following:
-
-<a id="rules-network-interface-refs-name"></a>&#x2022; [`name`](#rules-network-interface-refs-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="rules-network-interface-refs-namespace"></a>&#x2022; [`namespace`](#rules-network-interface-refs-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="rules-network-interface-refs-kind"></a>&#x2022; [`kind`](#rules-network-interface-refs-kind) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route')
-
-<a id="rules-network-interface-refs-tenant"></a>&#x2022; [`tenant`](#rules-network-interface-refs-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
-
-<a id="rules-network-interface-refs-uid"></a>&#x2022; [`uid`](#rules-network-interface-refs-uid) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid
-
 #### Rules Node Interface
 
 A [`node_interface`](#rules-node-interface) block (within [`rules`](#rules)) supports the following:
@@ -334,9 +242,9 @@ A [`node_interface`](#rules-node-interface) block (within [`rules`](#rules)) sup
 
 A [`list`](#rules-node-interface-list) block (within [`rules.node_interface`](#rules-node-interface)) supports the following:
 
-<a id="rules-node-interface-list-interface"></a>&#x2022; [`interface`](#rules-node-interface-list-interface) - Optional Block<br>X-displayName: 'Interface' Interface reference on this node<br>See [Interface](#rules-node-interface-list-interface) below.
+<a id="rules-node-interface-list-interface"></a>&#x2022; [`interface`](#rules-node-interface-list-interface) - Optional Block<br>Interface. Interface reference on this node<br>See [Interface](#rules-node-interface-list-interface) below.
 
-<a id="rules-node-interface-list-node"></a>&#x2022; [`node`](#rules-node-interface-list-node) - Optional String<br>X-displayName: 'Node' Node name on this site
+<a id="rules-node-interface-list-node"></a>&#x2022; [`node`](#rules-node-interface-list-node) - Optional String<br>Node. Node name on this site
 
 #### Rules Node Interface List Interface
 

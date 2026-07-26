@@ -92,24 +92,6 @@ var ApplicationProfilesIrulesModelAttrTypes = map[string]attr.Type{
 	"uid":       types.StringType,
 }
 
-// ApplicationProfilesTrafficPoliciesModel represents traffic_policies block
-type ApplicationProfilesTrafficPoliciesModel struct {
-	Kind      types.String `tfsdk:"kind"`
-	Name      types.String `tfsdk:"name"`
-	Namespace types.String `tfsdk:"namespace"`
-	Tenant    types.String `tfsdk:"tenant"`
-	Uid       types.String `tfsdk:"uid"`
-}
-
-// ApplicationProfilesTrafficPoliciesModelAttrTypes defines the attribute types for ApplicationProfilesTrafficPoliciesModel
-var ApplicationProfilesTrafficPoliciesModelAttrTypes = map[string]attr.Type{
-	"kind":      types.StringType,
-	"name":      types.StringType,
-	"namespace": types.StringType,
-	"tenant":    types.StringType,
-	"uid":       types.StringType,
-}
-
 // ApplicationProfilesVirtualServerModel represents virtual_server block
 type ApplicationProfilesVirtualServerModel struct {
 	ConnectionLimit              types.Int64                                                        `tfsdk:"connection_limit"`
@@ -125,6 +107,7 @@ type ApplicationProfilesVirtualServerModel struct {
 	FallbackPersistenceProfile   types.List                                                         `tfsdk:"fallback_persistence_profile"`
 	FixProfile                   types.List                                                         `tfsdk:"fix_profile"`
 	HTTP                         *ApplicationProfilesVirtualServerHTTPModel                         `tfsdk:"http"`
+	Http3                        *ApplicationProfilesVirtualServerHttp3Model                        `tfsdk:"http3"`
 	HTTPS                        *ApplicationProfilesVirtualServerHTTPSModel                        `tfsdk:"https"`
 	ImmediateActionOnServiceDown *ApplicationProfilesVirtualServerImmediateActionOnServiceDownModel `tfsdk:"immediate_action_on_service_down"`
 	LastHopPool                  types.List                                                         `tfsdk:"last_hop_pool"`
@@ -153,6 +136,7 @@ var ApplicationProfilesVirtualServerModelAttrTypes = map[string]attr.Type{
 	"fallback_persistence_profile":     types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFallbackPersistenceProfileModelAttrTypes}},
 	"fix_profile":                      types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerFixProfileModelAttrTypes}},
 	"http":                             types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPModelAttrTypes},
+	"http3":                            types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ModelAttrTypes},
 	"https":                            types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSModelAttrTypes},
 	"immediate_action_on_service_down": types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerImmediateActionOnServiceDownModelAttrTypes},
 	"last_hop_pool":                    types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerLastHopPoolModelAttrTypes}},
@@ -388,8 +372,13 @@ var ApplicationProfilesVirtualServerFixProfileModelAttrTypes = map[string]attr.T
 
 // ApplicationProfilesVirtualServerHTTPModel represents http block
 type ApplicationProfilesVirtualServerHTTPModel struct {
+	ClientSSLProfile       types.List `tfsdk:"client_ssl_profile"`
+	Http2ClientProfile     types.List `tfsdk:"http2_client_profile"`
+	Http2ServerProfile     types.List `tfsdk:"http2_server_profile"`
 	HTTPClientProfile      types.List `tfsdk:"http_client_profile"`
 	HTTPServerProfile      types.List `tfsdk:"http_server_profile"`
+	OCSPProfile            types.List `tfsdk:"ocsp_profile"`
+	ServerSSLProfile       types.List `tfsdk:"server_ssl_profile"`
 	StreamProfile          types.List `tfsdk:"stream_profile"`
 	TCPClientProfile       types.List `tfsdk:"tcp_client_profile"`
 	TCPServerProfile       types.List `tfsdk:"tcp_server_profile"`
@@ -399,13 +388,72 @@ type ApplicationProfilesVirtualServerHTTPModel struct {
 
 // ApplicationProfilesVirtualServerHTTPModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPModel
 var ApplicationProfilesVirtualServerHTTPModelAttrTypes = map[string]attr.Type{
+	"client_ssl_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes}},
+	"http2_client_profile":     types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes}},
+	"http2_server_profile":     types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes}},
 	"http_client_profile":      types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes}},
 	"http_server_profile":      types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes}},
+	"ocsp_profile":             types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes}},
+	"server_ssl_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes}},
 	"stream_profile":           types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPStreamProfileModelAttrTypes}},
 	"tcp_client_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPClientProfileModelAttrTypes}},
 	"tcp_server_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPTCPServerProfileModelAttrTypes}},
 	"websocket_client_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketClientProfileModelAttrTypes}},
 	"websocket_server_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes}},
+}
+
+// ApplicationProfilesVirtualServerHTTPClientSSLProfileModel represents client_ssl_profile block
+type ApplicationProfilesVirtualServerHTTPClientSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+var ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel represents http2_client_profile block
+type ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+var ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel represents http2_server_profile block
+type ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+var ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
 }
 
 // ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel represents http_client_profile block
@@ -437,6 +485,42 @@ type ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel struct {
 
 // ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPHTTPServerProfileModel
 var ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPOCSPProfileModel represents ocsp_profile block
+type ApplicationProfilesVirtualServerHTTPOCSPProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+var ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPServerSSLProfileModel represents server_ssl_profile block
+type ApplicationProfilesVirtualServerHTTPServerSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+var ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes = map[string]attr.Type{
 	"kind":      types.StringType,
 	"name":      types.StringType,
 	"namespace": types.StringType,
@@ -534,10 +618,203 @@ var ApplicationProfilesVirtualServerHTTPWebSocketServerProfileModelAttrTypes = m
 	"uid":       types.StringType,
 }
 
+// ApplicationProfilesVirtualServerHttp3Model represents http3 block
+type ApplicationProfilesVirtualServerHttp3Model struct {
+	ClientSSLProfile  types.List `tfsdk:"client_ssl_profile"`
+	Http3Profile      types.List `tfsdk:"http3_profile"`
+	HTTPClientProfile types.List `tfsdk:"http_client_profile"`
+	HTTPServerProfile types.List `tfsdk:"http_server_profile"`
+	QUICProfile       types.List `tfsdk:"quic_profile"`
+	ServerSSLProfile  types.List `tfsdk:"server_ssl_profile"`
+	TCPServerProfile  types.List `tfsdk:"tcp_server_profile"`
+	UDPClientProfile  types.List `tfsdk:"udp_client_profile"`
+	UDPServerProfile  types.List `tfsdk:"udp_server_profile"`
+}
+
+// ApplicationProfilesVirtualServerHttp3ModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3Model
+var ApplicationProfilesVirtualServerHttp3ModelAttrTypes = map[string]attr.Type{
+	"client_ssl_profile":  types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes}},
+	"http3_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes}},
+	"http_client_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes}},
+	"http_server_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes}},
+	"quic_profile":        types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes}},
+	"server_ssl_profile":  types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes}},
+	"tcp_server_profile":  types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes}},
+	"udp_client_profile":  types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes}},
+	"udp_server_profile":  types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes}},
+}
+
+// ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel represents client_ssl_profile block
+type ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+var ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3Http3ProfileModel represents http3_profile block
+type ApplicationProfilesVirtualServerHttp3Http3ProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+var ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel represents http_client_profile block
+type ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+var ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel represents http_server_profile block
+type ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+var ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3QUICProfileModel represents quic_profile block
+type ApplicationProfilesVirtualServerHttp3QUICProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3QUICProfileModel
+var ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel represents server_ssl_profile block
+type ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+var ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3TCPServerProfileModel represents tcp_server_profile block
+type ApplicationProfilesVirtualServerHttp3TCPServerProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+var ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3UDPClientProfileModel represents udp_client_profile block
+type ApplicationProfilesVirtualServerHttp3UDPClientProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+var ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHttp3UDPServerProfileModel represents udp_server_profile block
+type ApplicationProfilesVirtualServerHttp3UDPServerProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+var ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
 // ApplicationProfilesVirtualServerHTTPSModel represents https block
 type ApplicationProfilesVirtualServerHTTPSModel struct {
+	ClientSSLProfile       types.List `tfsdk:"client_ssl_profile"`
+	Http2ClientProfile     types.List `tfsdk:"http2_client_profile"`
+	Http2ServerProfile     types.List `tfsdk:"http2_server_profile"`
 	HTTPClientProfile      types.List `tfsdk:"http_client_profile"`
 	HTTPServerProfile      types.List `tfsdk:"http_server_profile"`
+	OCSPProfile            types.List `tfsdk:"ocsp_profile"`
+	ServerSSLProfile       types.List `tfsdk:"server_ssl_profile"`
 	StreamProfile          types.List `tfsdk:"stream_profile"`
 	TCPClientProfile       types.List `tfsdk:"tcp_client_profile"`
 	TCPServerProfile       types.List `tfsdk:"tcp_server_profile"`
@@ -547,13 +824,72 @@ type ApplicationProfilesVirtualServerHTTPSModel struct {
 
 // ApplicationProfilesVirtualServerHTTPSModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSModel
 var ApplicationProfilesVirtualServerHTTPSModelAttrTypes = map[string]attr.Type{
+	"client_ssl_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes}},
+	"http2_client_profile":     types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes}},
+	"http2_server_profile":     types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes}},
 	"http_client_profile":      types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes}},
 	"http_server_profile":      types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes}},
+	"ocsp_profile":             types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes}},
+	"server_ssl_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes}},
 	"stream_profile":           types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSStreamProfileModelAttrTypes}},
 	"tcp_client_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPClientProfileModelAttrTypes}},
 	"tcp_server_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSTCPServerProfileModelAttrTypes}},
 	"websocket_client_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketClientProfileModelAttrTypes}},
 	"websocket_server_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSWebSocketServerProfileModelAttrTypes}},
+}
+
+// ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel represents client_ssl_profile block
+type ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+var ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel represents http2_client_profile block
+type ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+var ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel represents http2_server_profile block
+type ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+var ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
 }
 
 // ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel represents http_client_profile block
@@ -585,6 +921,42 @@ type ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel struct {
 
 // ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModel
 var ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPSOCSPProfileModel represents ocsp_profile block
+type ApplicationProfilesVirtualServerHTTPSOCSPProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+var ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel represents server_ssl_profile block
+type ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+var ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes = map[string]attr.Type{
 	"kind":      types.StringType,
 	"name":      types.StringType,
 	"namespace": types.StringType,
@@ -790,14 +1162,74 @@ var ApplicationProfilesVirtualServerStatisticsProfileModelAttrTypes = map[string
 
 // ApplicationProfilesVirtualServerTCPModel represents tcp block
 type ApplicationProfilesVirtualServerTCPModel struct {
+	ClientSSLProfile types.List `tfsdk:"client_ssl_profile"`
+	OCSPProfile      types.List `tfsdk:"ocsp_profile"`
+	ServerSSLProfile types.List `tfsdk:"server_ssl_profile"`
 	TCPClientProfile types.List `tfsdk:"tcp_client_profile"`
 	TCPServerProfile types.List `tfsdk:"tcp_server_profile"`
 }
 
 // ApplicationProfilesVirtualServerTCPModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerTCPModel
 var ApplicationProfilesVirtualServerTCPModelAttrTypes = map[string]attr.Type{
+	"client_ssl_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes}},
+	"ocsp_profile":       types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes}},
+	"server_ssl_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes}},
 	"tcp_client_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes}},
 	"tcp_server_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes}},
+}
+
+// ApplicationProfilesVirtualServerTCPClientSSLProfileModel represents client_ssl_profile block
+type ApplicationProfilesVirtualServerTCPClientSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+var ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerTCPOCSPProfileModel represents ocsp_profile block
+type ApplicationProfilesVirtualServerTCPOCSPProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerTCPOCSPProfileModel
+var ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerTCPServerSSLProfileModel represents server_ssl_profile block
+type ApplicationProfilesVirtualServerTCPServerSSLProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+var ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
 }
 
 // ApplicationProfilesVirtualServerTCPTCPClientProfileModel represents tcp_client_profile block
@@ -838,18 +1270,22 @@ var ApplicationProfilesVirtualServerTCPTCPServerProfileModelAttrTypes = map[stri
 
 // ApplicationProfilesVirtualServerUDPModel represents udp block
 type ApplicationProfilesVirtualServerUDPModel struct {
-	TCPClientProfile types.List `tfsdk:"tcp_client_profile"`
-	TCPServerProfile types.List `tfsdk:"tcp_server_profile"`
+	ClientSSLProfile types.List `tfsdk:"client_ssl_profile"`
+	ServerSSLProfile types.List `tfsdk:"server_ssl_profile"`
+	UDPClientProfile types.List `tfsdk:"udp_client_profile"`
+	UDPServerProfile types.List `tfsdk:"udp_server_profile"`
 }
 
 // ApplicationProfilesVirtualServerUDPModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPModel
 var ApplicationProfilesVirtualServerUDPModelAttrTypes = map[string]attr.Type{
-	"tcp_client_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}},
-	"tcp_server_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}},
+	"client_ssl_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes}},
+	"server_ssl_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes}},
+	"udp_client_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes}},
+	"udp_server_profile": types.ListType{ElemType: types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes}},
 }
 
-// ApplicationProfilesVirtualServerUDPTCPClientProfileModel represents tcp_client_profile block
-type ApplicationProfilesVirtualServerUDPTCPClientProfileModel struct {
+// ApplicationProfilesVirtualServerUDPClientSSLProfileModel represents client_ssl_profile block
+type ApplicationProfilesVirtualServerUDPClientSSLProfileModel struct {
 	Kind      types.String `tfsdk:"kind"`
 	Name      types.String `tfsdk:"name"`
 	Namespace types.String `tfsdk:"namespace"`
@@ -857,8 +1293,8 @@ type ApplicationProfilesVirtualServerUDPTCPClientProfileModel struct {
 	Uid       types.String `tfsdk:"uid"`
 }
 
-// ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-var ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes = map[string]attr.Type{
+// ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+var ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes = map[string]attr.Type{
 	"kind":      types.StringType,
 	"name":      types.StringType,
 	"namespace": types.StringType,
@@ -866,8 +1302,8 @@ var ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes = map[stri
 	"uid":       types.StringType,
 }
 
-// ApplicationProfilesVirtualServerUDPTCPServerProfileModel represents tcp_server_profile block
-type ApplicationProfilesVirtualServerUDPTCPServerProfileModel struct {
+// ApplicationProfilesVirtualServerUDPServerSSLProfileModel represents server_ssl_profile block
+type ApplicationProfilesVirtualServerUDPServerSSLProfileModel struct {
 	Kind      types.String `tfsdk:"kind"`
 	Name      types.String `tfsdk:"name"`
 	Namespace types.String `tfsdk:"namespace"`
@@ -875,8 +1311,44 @@ type ApplicationProfilesVirtualServerUDPTCPServerProfileModel struct {
 	Uid       types.String `tfsdk:"uid"`
 }
 
-// ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-var ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes = map[string]attr.Type{
+// ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+var ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerUDPUDPClientProfileModel represents udp_client_profile block
+type ApplicationProfilesVirtualServerUDPUDPClientProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+var ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes = map[string]attr.Type{
+	"kind":      types.StringType,
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+	"uid":       types.StringType,
+}
+
+// ApplicationProfilesVirtualServerUDPUDPServerProfileModel represents udp_server_profile block
+type ApplicationProfilesVirtualServerUDPUDPServerProfileModel struct {
+	Kind      types.String `tfsdk:"kind"`
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+	Uid       types.String `tfsdk:"uid"`
+}
+
+// ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes defines the attribute types for ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+var ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes = map[string]attr.Type{
 	"kind":      types.StringType,
 	"name":      types.StringType,
 	"namespace": types.StringType,
@@ -908,7 +1380,6 @@ type ApplicationProfilesResourceModel struct {
 	AdvancedTCPProfile *ApplicationProfilesAdvancedTCPProfileModel `tfsdk:"advanced_tcp_profile"`
 	DDOSProfile        *ApplicationProfilesDDOSProfileModel        `tfsdk:"ddos_profile"`
 	Irules             types.List                                  `tfsdk:"irules"`
-	TrafficPolicies    types.List                                  `tfsdk:"traffic_policies"`
 	VirtualServer      *ApplicationProfilesVirtualServerModel      `tfsdk:"virtual_server"`
 }
 
@@ -999,41 +1470,6 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 			},
 			"irules": schema.ListNestedBlock{
 				MarkdownDescription: "OPTIONS for attaching iRules to BIG-IP Proxy.",
-				NestedObject: schema.NestedBlockObject{
-					Attributes: map[string]schema.Attribute{
-						"kind": schema.StringAttribute{
-							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
-							Computed:            true,
-						},
-						"name": schema.StringAttribute{
-							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
-							Optional:            true,
-						},
-						"namespace": schema.StringAttribute{
-							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
-							Optional:            true,
-							Computed:            true,
-							PlanModifiers: []planmodifier.String{
-								stringplanmodifier.UseStateForUnknown(),
-							},
-							Validators: []validator.String{
-								stringvalidator.LengthBetween(1, 63),
-								stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
-							},
-						},
-						"tenant": schema.StringAttribute{
-							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
-							Computed:            true,
-						},
-						"uid": schema.StringAttribute{
-							MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
-							Computed:            true,
-						},
-					},
-				},
-			},
-			"traffic_policies": schema.ListNestedBlock{
-				MarkdownDescription: "Configuration parameter for traffic policies.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"kind": schema.StringAttribute{
@@ -1429,6 +1865,111 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 						MarkdownDescription: "HTTP profiles.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
+							"client_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http2_client_profile": schema.ListNestedBlock{
+								MarkdownDescription: "HTTP/2 Profile Client. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http2_server_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for http2 server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
 							"http_client_profile": schema.ListNestedBlock{
 								MarkdownDescription: "HTTP Profile (Client). Client-side configuration",
 								NestedObject: schema.NestedBlockObject{
@@ -1466,6 +2007,76 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 							},
 							"http_server_profile": schema.ListNestedBlock{
 								MarkdownDescription: "Configuration parameter for http server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"ocsp_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for ocsp profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"server_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -1676,10 +2287,80 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 							},
 						},
 					},
-					"https": schema.SingleNestedBlock{
-						MarkdownDescription: "HTTPS profiles.",
+					"http3": schema.SingleNestedBlock{
+						MarkdownDescription: "HTTP/3 profiles.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
+							"client_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http3_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for http3 profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
 							"http_client_profile": schema.ListNestedBlock{
 								MarkdownDescription: "HTTP Profile (Client). Client-side configuration",
 								NestedObject: schema.NestedBlockObject{
@@ -1717,6 +2398,432 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 							},
 							"http_server_profile": schema.ListNestedBlock{
 								MarkdownDescription: "Configuration parameter for http server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"quic_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for quic profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"server_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"tcp_server_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for tcp server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"udp_client_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"udp_server_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for udp server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+						},
+					},
+					"https": schema.SingleNestedBlock{
+						MarkdownDescription: "HTTP profiles.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"client_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http2_client_profile": schema.ListNestedBlock{
+								MarkdownDescription: "HTTP/2 Profile Client. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http2_server_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for http2 server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http_client_profile": schema.ListNestedBlock{
+								MarkdownDescription: "HTTP Profile (Client). Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"http_server_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for http server profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"ocsp_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for ocsp profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"server_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -2090,6 +3197,111 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 						MarkdownDescription: "TCP profiles.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
+							"client_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"ocsp_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for ocsp profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"server_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
 							"tcp_client_profile": schema.ListNestedBlock{
 								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
 								NestedObject: schema.NestedBlockObject{
@@ -2163,10 +3375,80 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 						},
 					},
 					"udp": schema.SingleNestedBlock{
-						MarkdownDescription: "These OPTIONS will be enhanced in future MR.",
+						MarkdownDescription: "UDP profiles.",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
-							"tcp_client_profile": schema.ListNestedBlock{
+							"client_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Client SSL Profile. Client-side configuration",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"server_ssl_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for server ssl profile.",
+								NestedObject: schema.NestedBlockObject{
+									Attributes: map[string]schema.Attribute{
+										"kind": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
+											Computed:            true,
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+											Optional:            true,
+										},
+										"namespace": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+											Optional:            true,
+											Computed:            true,
+											PlanModifiers: []planmodifier.String{
+												stringplanmodifier.UseStateForUnknown(),
+											},
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+												stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
+											},
+										},
+										"tenant": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+											Computed:            true,
+										},
+										"uid": schema.StringAttribute{
+											MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+											Computed:            true,
+										},
+									},
+								},
+							},
+							"udp_client_profile": schema.ListNestedBlock{
 								MarkdownDescription: "Protocol Profile (Client). Client-side configuration",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
@@ -2201,8 +3483,8 @@ func (r *ApplicationProfilesResource) Schema(ctx context.Context, req resource.S
 									},
 								},
 							},
-							"tcp_server_profile": schema.ListNestedBlock{
-								MarkdownDescription: "Configuration parameter for tcp server profile.",
+							"udp_server_profile": schema.ListNestedBlock{
+								MarkdownDescription: "Configuration parameter for udp server profile.",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"kind": schema.StringAttribute{
@@ -2404,34 +3686,6 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				IrulesList = append(IrulesList, IrulesItemMap)
 			}
 			createReq.Spec["irules"] = IrulesList
-		}
-	}
-	if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-		var TrafficPoliciesElems []ApplicationProfilesTrafficPoliciesModel
-		diags := data.TrafficPolicies.ElementsAs(ctx, &TrafficPoliciesElems, false)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(TrafficPoliciesElems) > 0 {
-			var TrafficPoliciesList []map[string]interface{}
-			for _, TrafficPoliciesItem := range TrafficPoliciesElems {
-				TrafficPoliciesItemMap := make(map[string]interface{})
-				if !TrafficPoliciesItem.Kind.IsNull() && !TrafficPoliciesItem.Kind.IsUnknown() {
-					TrafficPoliciesItemMap["kind"] = TrafficPoliciesItem.Kind.ValueString()
-				}
-				if !TrafficPoliciesItem.Name.IsNull() && !TrafficPoliciesItem.Name.IsUnknown() {
-					TrafficPoliciesItemMap["name"] = TrafficPoliciesItem.Name.ValueString()
-				}
-				if !TrafficPoliciesItem.Namespace.IsNull() && !TrafficPoliciesItem.Namespace.IsUnknown() {
-					TrafficPoliciesItemMap["namespace"] = TrafficPoliciesItem.Namespace.ValueString()
-				}
-				if !TrafficPoliciesItem.Tenant.IsNull() && !TrafficPoliciesItem.Tenant.IsUnknown() {
-					TrafficPoliciesItemMap["tenant"] = TrafficPoliciesItem.Tenant.ValueString()
-				}
-				if !TrafficPoliciesItem.Uid.IsNull() && !TrafficPoliciesItem.Uid.IsUnknown() {
-					TrafficPoliciesItemMap["uid"] = TrafficPoliciesItem.Uid.ValueString()
-				}
-				TrafficPoliciesList = append(TrafficPoliciesList, TrafficPoliciesItemMap)
-			}
-			createReq.Spec["traffic_policies"] = TrafficPoliciesList
 		}
 	}
 	if data.VirtualServer != nil {
@@ -2690,6 +3944,90 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.HTTP != nil {
 			VirtualServerHTTPMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTP.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTP.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+				diags := data.VirtualServer.HTTP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerHTTPMap["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTP.Http2ClientProfile.IsUnknown() {
+				var Http2ClientProfileElems []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+				diags := data.VirtualServer.HTTP.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ClientProfileElems) > 0 {
+					var Http2ClientProfileList []map[string]interface{}
+					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
+						Http2ClientProfileItemMap := make(map[string]interface{})
+						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
+							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
+						}
+						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
+							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
+						}
+						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
+							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
+						}
+						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
+							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
+						}
+						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
+							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
+						}
+						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
+					}
+					VirtualServerHTTPMap["http2_client_profile"] = Http2ClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTP.Http2ServerProfile.IsUnknown() {
+				var Http2ServerProfileElems []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+				diags := data.VirtualServer.HTTP.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ServerProfileElems) > 0 {
+					var Http2ServerProfileList []map[string]interface{}
+					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
+						Http2ServerProfileItemMap := make(map[string]interface{})
+						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
+							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
+						}
+						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
+							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
+						}
+						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
+							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
+						}
+						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
+							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
+						}
+						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
+							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
+						}
+						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
+					}
+					VirtualServerHTTPMap["http2_server_profile"] = Http2ServerProfileList
+				}
+			}
 			if !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
 				diags := data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -2744,6 +4082,62 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
 					VirtualServerHTTPMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.OCSPProfile.IsNull() && !data.VirtualServer.HTTP.OCSPProfile.IsUnknown() {
+				var OCSPProfileElems []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+				diags := data.VirtualServer.HTTP.OCSPProfile.ElementsAs(ctx, &OCSPProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OCSPProfileElems) > 0 {
+					var OCSPProfileList []map[string]interface{}
+					for _, OCSPProfileItem := range OCSPProfileElems {
+						OCSPProfileItemMap := make(map[string]interface{})
+						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
+							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
+						}
+						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
+							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
+						}
+						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
+							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
+						}
+						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
+							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
+						}
+						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
+							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
+						}
+						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
+					}
+					VirtualServerHTTPMap["ocsp_profile"] = OCSPProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTP.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+				diags := data.VirtualServer.HTTP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerHTTPMap["server_ssl_profile"] = ServerSSLProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
@@ -2888,8 +4282,348 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			}
 			VirtualServerMap["http"] = VirtualServerHTTPMap
 		}
+		if data.VirtualServer.Http3 != nil {
+			VirtualServerHttp3Map := make(map[string]interface{})
+			if !data.VirtualServer.Http3.ClientSSLProfile.IsNull() && !data.VirtualServer.Http3.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+				diags := data.VirtualServer.Http3.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerHttp3Map["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.Http3Profile.IsNull() && !data.VirtualServer.Http3.Http3Profile.IsUnknown() {
+				var Http3ProfileElems []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+				diags := data.VirtualServer.Http3.Http3Profile.ElementsAs(ctx, &Http3ProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http3ProfileElems) > 0 {
+					var Http3ProfileList []map[string]interface{}
+					for _, Http3ProfileItem := range Http3ProfileElems {
+						Http3ProfileItemMap := make(map[string]interface{})
+						if !Http3ProfileItem.Kind.IsNull() && !Http3ProfileItem.Kind.IsUnknown() {
+							Http3ProfileItemMap["kind"] = Http3ProfileItem.Kind.ValueString()
+						}
+						if !Http3ProfileItem.Name.IsNull() && !Http3ProfileItem.Name.IsUnknown() {
+							Http3ProfileItemMap["name"] = Http3ProfileItem.Name.ValueString()
+						}
+						if !Http3ProfileItem.Namespace.IsNull() && !Http3ProfileItem.Namespace.IsUnknown() {
+							Http3ProfileItemMap["namespace"] = Http3ProfileItem.Namespace.ValueString()
+						}
+						if !Http3ProfileItem.Tenant.IsNull() && !Http3ProfileItem.Tenant.IsUnknown() {
+							Http3ProfileItemMap["tenant"] = Http3ProfileItem.Tenant.ValueString()
+						}
+						if !Http3ProfileItem.Uid.IsNull() && !Http3ProfileItem.Uid.IsUnknown() {
+							Http3ProfileItemMap["uid"] = Http3ProfileItem.Uid.ValueString()
+						}
+						Http3ProfileList = append(Http3ProfileList, Http3ProfileItemMap)
+					}
+					VirtualServerHttp3Map["http3_profile"] = Http3ProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.HTTPClientProfile.IsNull() && !data.VirtualServer.Http3.HTTPClientProfile.IsUnknown() {
+				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+				diags := data.VirtualServer.Http3.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPClientProfileElems) > 0 {
+					var HTTPClientProfileList []map[string]interface{}
+					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
+						HTTPClientProfileItemMap := make(map[string]interface{})
+						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
+							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
+						}
+						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
+							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
+						}
+						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
+							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
+						}
+						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
+							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
+						}
+						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
+							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
+						}
+						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
+					}
+					VirtualServerHttp3Map["http_client_profile"] = HTTPClientProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.HTTPServerProfile.IsNull() && !data.VirtualServer.Http3.HTTPServerProfile.IsUnknown() {
+				var HTTPServerProfileElems []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+				diags := data.VirtualServer.Http3.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPServerProfileElems) > 0 {
+					var HTTPServerProfileList []map[string]interface{}
+					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
+						HTTPServerProfileItemMap := make(map[string]interface{})
+						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
+							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
+						}
+						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
+							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
+						}
+						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
+							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
+						}
+						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
+							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
+						}
+						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
+							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
+						}
+						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
+					}
+					VirtualServerHttp3Map["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.QUICProfile.IsNull() && !data.VirtualServer.Http3.QUICProfile.IsUnknown() {
+				var QUICProfileElems []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+				diags := data.VirtualServer.Http3.QUICProfile.ElementsAs(ctx, &QUICProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(QUICProfileElems) > 0 {
+					var QUICProfileList []map[string]interface{}
+					for _, QUICProfileItem := range QUICProfileElems {
+						QUICProfileItemMap := make(map[string]interface{})
+						if !QUICProfileItem.Kind.IsNull() && !QUICProfileItem.Kind.IsUnknown() {
+							QUICProfileItemMap["kind"] = QUICProfileItem.Kind.ValueString()
+						}
+						if !QUICProfileItem.Name.IsNull() && !QUICProfileItem.Name.IsUnknown() {
+							QUICProfileItemMap["name"] = QUICProfileItem.Name.ValueString()
+						}
+						if !QUICProfileItem.Namespace.IsNull() && !QUICProfileItem.Namespace.IsUnknown() {
+							QUICProfileItemMap["namespace"] = QUICProfileItem.Namespace.ValueString()
+						}
+						if !QUICProfileItem.Tenant.IsNull() && !QUICProfileItem.Tenant.IsUnknown() {
+							QUICProfileItemMap["tenant"] = QUICProfileItem.Tenant.ValueString()
+						}
+						if !QUICProfileItem.Uid.IsNull() && !QUICProfileItem.Uid.IsUnknown() {
+							QUICProfileItemMap["uid"] = QUICProfileItem.Uid.ValueString()
+						}
+						QUICProfileList = append(QUICProfileList, QUICProfileItemMap)
+					}
+					VirtualServerHttp3Map["quic_profile"] = QUICProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.ServerSSLProfile.IsNull() && !data.VirtualServer.Http3.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+				diags := data.VirtualServer.Http3.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerHttp3Map["server_ssl_profile"] = ServerSSLProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.TCPServerProfile.IsNull() && !data.VirtualServer.Http3.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+				diags := data.VirtualServer.Http3.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					VirtualServerHttp3Map["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.UDPClientProfile.IsNull() && !data.VirtualServer.Http3.UDPClientProfile.IsUnknown() {
+				var UDPClientProfileElems []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+				diags := data.VirtualServer.Http3.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPClientProfileElems) > 0 {
+					var UDPClientProfileList []map[string]interface{}
+					for _, UDPClientProfileItem := range UDPClientProfileElems {
+						UDPClientProfileItemMap := make(map[string]interface{})
+						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
+							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
+						}
+						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
+							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
+						}
+						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
+							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
+						}
+						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
+							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
+						}
+						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
+							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
+						}
+						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
+					}
+					VirtualServerHttp3Map["udp_client_profile"] = UDPClientProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.UDPServerProfile.IsNull() && !data.VirtualServer.Http3.UDPServerProfile.IsUnknown() {
+				var UDPServerProfileElems []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+				diags := data.VirtualServer.Http3.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPServerProfileElems) > 0 {
+					var UDPServerProfileList []map[string]interface{}
+					for _, UDPServerProfileItem := range UDPServerProfileElems {
+						UDPServerProfileItemMap := make(map[string]interface{})
+						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
+							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
+						}
+						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
+							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
+						}
+						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
+							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
+						}
+						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
+							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
+						}
+						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
+							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
+						}
+						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
+					}
+					VirtualServerHttp3Map["udp_server_profile"] = UDPServerProfileList
+				}
+			}
+			VirtualServerMap["http3"] = VirtualServerHttp3Map
+		}
 		if data.VirtualServer.HTTPS != nil {
 			VirtualServerHTTPSMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+				diags := data.VirtualServer.HTTPS.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerHTTPSMap["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ClientProfile.IsUnknown() {
+				var Http2ClientProfileElems []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+				diags := data.VirtualServer.HTTPS.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ClientProfileElems) > 0 {
+					var Http2ClientProfileList []map[string]interface{}
+					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
+						Http2ClientProfileItemMap := make(map[string]interface{})
+						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
+							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
+						}
+						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
+							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
+						}
+						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
+							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
+						}
+						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
+							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
+						}
+						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
+							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
+						}
+						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
+					}
+					VirtualServerHTTPSMap["http2_client_profile"] = Http2ClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ServerProfile.IsUnknown() {
+				var Http2ServerProfileElems []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+				diags := data.VirtualServer.HTTPS.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ServerProfileElems) > 0 {
+					var Http2ServerProfileList []map[string]interface{}
+					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
+						Http2ServerProfileItemMap := make(map[string]interface{})
+						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
+							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
+						}
+						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
+							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
+						}
+						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
+							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
+						}
+						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
+							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
+						}
+						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
+							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
+						}
+						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
+					}
+					VirtualServerHTTPSMap["http2_server_profile"] = Http2ServerProfileList
+				}
+			}
 			if !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
 				diags := data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -2944,6 +4678,62 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
 					VirtualServerHTTPSMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.OCSPProfile.IsNull() && !data.VirtualServer.HTTPS.OCSPProfile.IsUnknown() {
+				var OCSPProfileElems []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+				diags := data.VirtualServer.HTTPS.OCSPProfile.ElementsAs(ctx, &OCSPProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OCSPProfileElems) > 0 {
+					var OCSPProfileList []map[string]interface{}
+					for _, OCSPProfileItem := range OCSPProfileElems {
+						OCSPProfileItemMap := make(map[string]interface{})
+						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
+							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
+						}
+						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
+							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
+						}
+						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
+							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
+						}
+						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
+							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
+						}
+						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
+							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
+						}
+						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
+					}
+					VirtualServerHTTPSMap["ocsp_profile"] = OCSPProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+				diags := data.VirtualServer.HTTPS.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerHTTPSMap["server_ssl_profile"] = ServerSSLProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
@@ -3220,6 +5010,90 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.TCP != nil {
 			VirtualServerTCPMap := make(map[string]interface{})
+			if !data.VirtualServer.TCP.ClientSSLProfile.IsNull() && !data.VirtualServer.TCP.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+				diags := data.VirtualServer.TCP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerTCPMap["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.TCP.OCSPProfile.IsNull() && !data.VirtualServer.TCP.OCSPProfile.IsUnknown() {
+				var OCSPProfileElems []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+				diags := data.VirtualServer.TCP.OCSPProfile.ElementsAs(ctx, &OCSPProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OCSPProfileElems) > 0 {
+					var OCSPProfileList []map[string]interface{}
+					for _, OCSPProfileItem := range OCSPProfileElems {
+						OCSPProfileItemMap := make(map[string]interface{})
+						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
+							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
+						}
+						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
+							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
+						}
+						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
+							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
+						}
+						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
+							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
+						}
+						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
+							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
+						}
+						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
+					}
+					VirtualServerTCPMap["ocsp_profile"] = OCSPProfileList
+				}
+			}
+			if !data.VirtualServer.TCP.ServerSSLProfile.IsNull() && !data.VirtualServer.TCP.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+				diags := data.VirtualServer.TCP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerTCPMap["server_ssl_profile"] = ServerSSLProfileList
+				}
+			}
 			if !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
 				var TCPClientProfileElems []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
 				diags := data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
@@ -3280,60 +5154,116 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 		if data.VirtualServer.UDP != nil {
 			VirtualServerUDPMap := make(map[string]interface{})
-			if !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
-				var TCPClientProfileElems []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-				diags := data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+			if !data.VirtualServer.UDP.ClientSSLProfile.IsNull() && !data.VirtualServer.UDP.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+				diags := data.VirtualServer.UDP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
 				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
-					var TCPClientProfileList []map[string]interface{}
-					for _, TCPClientProfileItem := range TCPClientProfileElems {
-						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
 						}
-						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
-							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
-						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
-							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
 						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
 						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
-						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
-					VirtualServerUDPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerUDPMap["client_ssl_profile"] = ClientSSLProfileList
 				}
 			}
-			if !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
-				var TCPServerProfileElems []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-				diags := data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+			if !data.VirtualServer.UDP.ServerSSLProfile.IsNull() && !data.VirtualServer.UDP.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+				diags := data.VirtualServer.UDP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
 				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
-					var TCPServerProfileList []map[string]interface{}
-					for _, TCPServerProfileItem := range TCPServerProfileElems {
-						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
 						}
-						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
-							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
-						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
-							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
 						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
 						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
-						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
-					VirtualServerUDPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerUDPMap["server_ssl_profile"] = ServerSSLProfileList
+				}
+			}
+			if !data.VirtualServer.UDP.UDPClientProfile.IsNull() && !data.VirtualServer.UDP.UDPClientProfile.IsUnknown() {
+				var UDPClientProfileElems []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+				diags := data.VirtualServer.UDP.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPClientProfileElems) > 0 {
+					var UDPClientProfileList []map[string]interface{}
+					for _, UDPClientProfileItem := range UDPClientProfileElems {
+						UDPClientProfileItemMap := make(map[string]interface{})
+						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
+							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
+						}
+						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
+							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
+						}
+						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
+							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
+						}
+						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
+							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
+						}
+						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
+							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
+						}
+						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
+					}
+					VirtualServerUDPMap["udp_client_profile"] = UDPClientProfileList
+				}
+			}
+			if !data.VirtualServer.UDP.UDPServerProfile.IsNull() && !data.VirtualServer.UDP.UDPServerProfile.IsUnknown() {
+				var UDPServerProfileElems []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+				diags := data.VirtualServer.UDP.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPServerProfileElems) > 0 {
+					var UDPServerProfileList []map[string]interface{}
+					for _, UDPServerProfileItem := range UDPServerProfileElems {
+						UDPServerProfileItemMap := make(map[string]interface{})
+						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
+							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
+						}
+						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
+							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
+						}
+						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
+							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
+						}
+						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
+							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
+						}
+						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
+							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
+						}
+						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
+					}
+					VirtualServerUDPMap["udp_server_profile"] = UDPServerProfileList
 				}
 			}
 			VirtualServerMap["udp"] = VirtualServerUDPMap
@@ -3462,59 +5392,6 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 		}
 	} else {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
-	}
-	if !isImport && (data.TrafficPolicies.IsNull() || len(data.TrafficPolicies.Elements()) == 0) {
-		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
-	} else if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
-		var TrafficPoliciesList []ApplicationProfilesTrafficPoliciesModel
-		var existingTrafficPoliciesItems []ApplicationProfilesTrafficPoliciesModel
-		if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-			data.TrafficPolicies.ElementsAs(ctx, &existingTrafficPoliciesItems, false)
-		}
-		for listIdx, item := range listData {
-			_ = listIdx
-			if itemMap, ok := item.(map[string]interface{}); ok {
-				TrafficPoliciesList = append(TrafficPoliciesList, ApplicationProfilesTrafficPoliciesModel{
-					Kind: func() types.String {
-						if v, ok := itemMap["kind"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Name: func() types.String {
-						if v, ok := itemMap["name"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Namespace: func() types.String {
-						if v, ok := itemMap["namespace"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Tenant: func() types.String {
-						if v, ok := itemMap["tenant"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Uid: func() types.String {
-						if v, ok := itemMap["uid"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-				})
-			}
-		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, TrafficPoliciesList)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.TrafficPolicies = listVal
-		}
-	} else {
-		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
@@ -4067,6 +5944,162 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTP.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTP.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+						}(),
 						HTTPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
@@ -4170,6 +6203,110 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.OCSPProfile.IsNull() || len(data.VirtualServer.HTTP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.OCSPProfile.IsNull() && !data.VirtualServer.HTTP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
@@ -4435,9 +6572,640 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 				}
 				return nil
 			}(),
+			Http3: func() *ApplicationProfilesVirtualServerHttp3Model {
+				if Http3Data, ok := blockData["http3"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHttp3Model{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ClientSSLProfile.IsNull() || len(data.VirtualServer.Http3.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ClientSSLProfile.IsNull() && !data.VirtualServer.Http3.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+						}(),
+						Http3Profile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.Http3Profile.IsNull() || len(data.VirtualServer.Http3.Http3Profile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+							}
+							var Http3ProfileExisting []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.Http3Profile.IsNull() && !data.VirtualServer.Http3.Http3Profile.IsUnknown() {
+								data.VirtualServer.Http3.Http3Profile.ElementsAs(ctx, &Http3ProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http3_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http3ProfileResult []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+								for Http3ProfileIdx, Http3ProfileItem := range rawList {
+									_ = Http3ProfileIdx
+									if Http3ProfileItemMap, ok := Http3ProfileItem.(map[string]interface{}); ok {
+										Http3ProfileResult = append(Http3ProfileResult, ApplicationProfilesVirtualServerHttp3Http3ProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http3ProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http3ProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http3ProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http3ProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http3ProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes}, Http3ProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+						}(),
+						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPClientProfile.IsNull() || len(data.VirtualServer.Http3.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPClientProfile.IsNull() && !data.VirtualServer.Http3.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPServerProfile.IsNull() || len(data.VirtualServer.Http3.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPServerProfile.IsNull() && !data.VirtualServer.Http3.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+						}(),
+						QUICProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.QUICProfile.IsNull() || len(data.VirtualServer.Http3.QUICProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+							}
+							var QUICProfileExisting []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.QUICProfile.IsNull() && !data.VirtualServer.Http3.QUICProfile.IsUnknown() {
+								data.VirtualServer.Http3.QUICProfile.ElementsAs(ctx, &QUICProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["quic_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var QUICProfileResult []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+								for QUICProfileIdx, QUICProfileItem := range rawList {
+									_ = QUICProfileIdx
+									if QUICProfileItemMap, ok := QUICProfileItem.(map[string]interface{}); ok {
+										QUICProfileResult = append(QUICProfileResult, ApplicationProfilesVirtualServerHttp3QUICProfileModel{
+											Kind: func() types.String {
+												if v, ok := QUICProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := QUICProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := QUICProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := QUICProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := QUICProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes}, QUICProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ServerSSLProfile.IsNull() || len(data.VirtualServer.Http3.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ServerSSLProfile.IsNull() && !data.VirtualServer.Http3.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.TCPServerProfile.IsNull() || len(data.VirtualServer.Http3.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.TCPServerProfile.IsNull() && !data.VirtualServer.Http3.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHttp3TCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPClientProfile.IsNull() || len(data.VirtualServer.Http3.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPClientProfile.IsNull() && !data.VirtualServer.Http3.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerHttp3UDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPServerProfile.IsNull() || len(data.VirtualServer.Http3.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPServerProfile.IsNull() && !data.VirtualServer.Http3.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerHttp3UDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+						}(),
 						HTTPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
@@ -4541,6 +7309,110 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.OCSPProfile.IsNull() || len(data.VirtualServer.HTTPS.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.OCSPProfile.IsNull() && !data.VirtualServer.HTTPS.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPSOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
@@ -5095,6 +7967,162 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ClientSSLProfile.IsNull() || len(data.VirtualServer.TCP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ClientSSLProfile.IsNull() && !data.VirtualServer.TCP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerTCPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.OCSPProfile.IsNull() || len(data.VirtualServer.TCP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.OCSPProfile.IsNull() && !data.VirtualServer.TCP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.TCP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := TCPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerTCPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ServerSSLProfile.IsNull() || len(data.VirtualServer.TCP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ServerSSLProfile.IsNull() && !data.VirtualServer.TCP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerTCPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+						}(),
 						TCPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
@@ -5206,46 +8234,46 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
-						TCPClientProfile: func() types.List {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPClientProfile.IsNull() || len(data.VirtualServer.UDP.TCPClientProfile.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ClientSSLProfile.IsNull() || len(data.VirtualServer.UDP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
 							}
-							var TCPClientProfileExisting []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
-								data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ClientSSLProfile.IsNull() && !data.VirtualServer.UDP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
 							}
-							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
-								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
-									_ = TCPClientProfileIdx
-									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
-										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
+							if rawList, ok := UDPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerUDPClientSSLProfileModel{
 											Kind: func() types.String {
-												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Namespace: func() types.String {
-												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Tenant: func() types.String {
-												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Uid: func() types.String {
-												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5253,51 +8281,51 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 										})
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
 								return listVal
 							}
-							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
 						}(),
-						TCPServerProfile: func() types.List {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPServerProfile.IsNull() || len(data.VirtualServer.UDP.TCPServerProfile.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ServerSSLProfile.IsNull() || len(data.VirtualServer.UDP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
 							}
-							var TCPServerProfileExisting []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
-								data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ServerSSLProfile.IsNull() && !data.VirtualServer.UDP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
 							}
-							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
-								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
-									_ = TCPServerProfileIdx
-									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
-										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
+							if rawList, ok := UDPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerUDPServerSSLProfileModel{
 											Kind: func() types.String {
-												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Namespace: func() types.String {
-												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Tenant: func() types.String {
-												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Uid: func() types.String {
-												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -5305,10 +8333,114 @@ func (r *ApplicationProfilesResource) Create(ctx context.Context, req resource.C
 										})
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
 								return listVal
 							}
-							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPClientProfile.IsNull() || len(data.VirtualServer.UDP.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPClientProfile.IsNull() && !data.VirtualServer.UDP.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerUDPUDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPServerProfile.IsNull() || len(data.VirtualServer.UDP.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPServerProfile.IsNull() && !data.VirtualServer.UDP.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerUDPUDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
 						}(),
 					}
 				}
@@ -5561,59 +8693,6 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 	} else {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
 	}
-	if !isImport && (data.TrafficPolicies.IsNull() || len(data.TrafficPolicies.Elements()) == 0) {
-		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
-	} else if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
-		var TrafficPoliciesList []ApplicationProfilesTrafficPoliciesModel
-		var existingTrafficPoliciesItems []ApplicationProfilesTrafficPoliciesModel
-		if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-			data.TrafficPolicies.ElementsAs(ctx, &existingTrafficPoliciesItems, false)
-		}
-		for listIdx, item := range listData {
-			_ = listIdx
-			if itemMap, ok := item.(map[string]interface{}); ok {
-				TrafficPoliciesList = append(TrafficPoliciesList, ApplicationProfilesTrafficPoliciesModel{
-					Kind: func() types.String {
-						if v, ok := itemMap["kind"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Name: func() types.String {
-						if v, ok := itemMap["name"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Namespace: func() types.String {
-						if v, ok := itemMap["namespace"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Tenant: func() types.String {
-						if v, ok := itemMap["tenant"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Uid: func() types.String {
-						if v, ok := itemMap["uid"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-				})
-			}
-		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, TrafficPoliciesList)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.TrafficPolicies = listVal
-		}
-	} else {
-		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
-	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
 			AddressTranslation: func() *ApplicationProfilesVirtualServerAddressTranslationModel {
@@ -6165,6 +9244,162 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTP.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTP.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+						}(),
 						HTTPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
@@ -6268,6 +9503,110 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.OCSPProfile.IsNull() || len(data.VirtualServer.HTTP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.OCSPProfile.IsNull() && !data.VirtualServer.HTTP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
@@ -6533,9 +9872,640 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 				}
 				return nil
 			}(),
+			Http3: func() *ApplicationProfilesVirtualServerHttp3Model {
+				if Http3Data, ok := blockData["http3"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHttp3Model{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ClientSSLProfile.IsNull() || len(data.VirtualServer.Http3.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ClientSSLProfile.IsNull() && !data.VirtualServer.Http3.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+						}(),
+						Http3Profile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.Http3Profile.IsNull() || len(data.VirtualServer.Http3.Http3Profile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+							}
+							var Http3ProfileExisting []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.Http3Profile.IsNull() && !data.VirtualServer.Http3.Http3Profile.IsUnknown() {
+								data.VirtualServer.Http3.Http3Profile.ElementsAs(ctx, &Http3ProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http3_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http3ProfileResult []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+								for Http3ProfileIdx, Http3ProfileItem := range rawList {
+									_ = Http3ProfileIdx
+									if Http3ProfileItemMap, ok := Http3ProfileItem.(map[string]interface{}); ok {
+										Http3ProfileResult = append(Http3ProfileResult, ApplicationProfilesVirtualServerHttp3Http3ProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http3ProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http3ProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http3ProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http3ProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http3ProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes}, Http3ProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+						}(),
+						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPClientProfile.IsNull() || len(data.VirtualServer.Http3.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPClientProfile.IsNull() && !data.VirtualServer.Http3.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPServerProfile.IsNull() || len(data.VirtualServer.Http3.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPServerProfile.IsNull() && !data.VirtualServer.Http3.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+						}(),
+						QUICProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.QUICProfile.IsNull() || len(data.VirtualServer.Http3.QUICProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+							}
+							var QUICProfileExisting []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.QUICProfile.IsNull() && !data.VirtualServer.Http3.QUICProfile.IsUnknown() {
+								data.VirtualServer.Http3.QUICProfile.ElementsAs(ctx, &QUICProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["quic_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var QUICProfileResult []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+								for QUICProfileIdx, QUICProfileItem := range rawList {
+									_ = QUICProfileIdx
+									if QUICProfileItemMap, ok := QUICProfileItem.(map[string]interface{}); ok {
+										QUICProfileResult = append(QUICProfileResult, ApplicationProfilesVirtualServerHttp3QUICProfileModel{
+											Kind: func() types.String {
+												if v, ok := QUICProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := QUICProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := QUICProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := QUICProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := QUICProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes}, QUICProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ServerSSLProfile.IsNull() || len(data.VirtualServer.Http3.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ServerSSLProfile.IsNull() && !data.VirtualServer.Http3.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.TCPServerProfile.IsNull() || len(data.VirtualServer.Http3.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.TCPServerProfile.IsNull() && !data.VirtualServer.Http3.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHttp3TCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPClientProfile.IsNull() || len(data.VirtualServer.Http3.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPClientProfile.IsNull() && !data.VirtualServer.Http3.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerHttp3UDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPServerProfile.IsNull() || len(data.VirtualServer.Http3.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPServerProfile.IsNull() && !data.VirtualServer.Http3.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerHttp3UDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+						}(),
 						HTTPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
@@ -6639,6 +10609,110 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.OCSPProfile.IsNull() || len(data.VirtualServer.HTTPS.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.OCSPProfile.IsNull() && !data.VirtualServer.HTTPS.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPSOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
@@ -7193,6 +11267,162 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ClientSSLProfile.IsNull() || len(data.VirtualServer.TCP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ClientSSLProfile.IsNull() && !data.VirtualServer.TCP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerTCPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.OCSPProfile.IsNull() || len(data.VirtualServer.TCP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.OCSPProfile.IsNull() && !data.VirtualServer.TCP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.TCP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := TCPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerTCPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ServerSSLProfile.IsNull() || len(data.VirtualServer.TCP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ServerSSLProfile.IsNull() && !data.VirtualServer.TCP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerTCPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+						}(),
 						TCPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
@@ -7304,46 +11534,46 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
-						TCPClientProfile: func() types.List {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPClientProfile.IsNull() || len(data.VirtualServer.UDP.TCPClientProfile.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ClientSSLProfile.IsNull() || len(data.VirtualServer.UDP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
 							}
-							var TCPClientProfileExisting []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
-								data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ClientSSLProfile.IsNull() && !data.VirtualServer.UDP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
 							}
-							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
-								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
-									_ = TCPClientProfileIdx
-									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
-										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
+							if rawList, ok := UDPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerUDPClientSSLProfileModel{
 											Kind: func() types.String {
-												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Namespace: func() types.String {
-												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Tenant: func() types.String {
-												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Uid: func() types.String {
-												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -7351,51 +11581,51 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 										})
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
 								return listVal
 							}
-							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
 						}(),
-						TCPServerProfile: func() types.List {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPServerProfile.IsNull() || len(data.VirtualServer.UDP.TCPServerProfile.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ServerSSLProfile.IsNull() || len(data.VirtualServer.UDP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
 							}
-							var TCPServerProfileExisting []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
-								data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ServerSSLProfile.IsNull() && !data.VirtualServer.UDP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
 							}
-							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
-								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
-									_ = TCPServerProfileIdx
-									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
-										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
+							if rawList, ok := UDPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerUDPServerSSLProfileModel{
 											Kind: func() types.String {
-												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Namespace: func() types.String {
-												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Tenant: func() types.String {
-												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Uid: func() types.String {
-												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -7403,10 +11633,114 @@ func (r *ApplicationProfilesResource) Read(ctx context.Context, req resource.Rea
 										})
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
 								return listVal
 							}
-							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPClientProfile.IsNull() || len(data.VirtualServer.UDP.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPClientProfile.IsNull() && !data.VirtualServer.UDP.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerUDPUDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPServerProfile.IsNull() || len(data.VirtualServer.UDP.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPServerProfile.IsNull() && !data.VirtualServer.UDP.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerUDPUDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
 						}(),
 					}
 				}
@@ -7556,34 +11890,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				IrulesList = append(IrulesList, IrulesItemMap)
 			}
 			apiResource.Spec["irules"] = IrulesList
-		}
-	}
-	if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-		var TrafficPoliciesElems []ApplicationProfilesTrafficPoliciesModel
-		diags := data.TrafficPolicies.ElementsAs(ctx, &TrafficPoliciesElems, false)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() && len(TrafficPoliciesElems) > 0 {
-			var TrafficPoliciesList []map[string]interface{}
-			for _, TrafficPoliciesItem := range TrafficPoliciesElems {
-				TrafficPoliciesItemMap := make(map[string]interface{})
-				if !TrafficPoliciesItem.Kind.IsNull() && !TrafficPoliciesItem.Kind.IsUnknown() {
-					TrafficPoliciesItemMap["kind"] = TrafficPoliciesItem.Kind.ValueString()
-				}
-				if !TrafficPoliciesItem.Name.IsNull() && !TrafficPoliciesItem.Name.IsUnknown() {
-					TrafficPoliciesItemMap["name"] = TrafficPoliciesItem.Name.ValueString()
-				}
-				if !TrafficPoliciesItem.Namespace.IsNull() && !TrafficPoliciesItem.Namespace.IsUnknown() {
-					TrafficPoliciesItemMap["namespace"] = TrafficPoliciesItem.Namespace.ValueString()
-				}
-				if !TrafficPoliciesItem.Tenant.IsNull() && !TrafficPoliciesItem.Tenant.IsUnknown() {
-					TrafficPoliciesItemMap["tenant"] = TrafficPoliciesItem.Tenant.ValueString()
-				}
-				if !TrafficPoliciesItem.Uid.IsNull() && !TrafficPoliciesItem.Uid.IsUnknown() {
-					TrafficPoliciesItemMap["uid"] = TrafficPoliciesItem.Uid.ValueString()
-				}
-				TrafficPoliciesList = append(TrafficPoliciesList, TrafficPoliciesItemMap)
-			}
-			apiResource.Spec["traffic_policies"] = TrafficPoliciesList
 		}
 	}
 	if data.VirtualServer != nil {
@@ -7842,6 +12148,90 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.HTTP != nil {
 			VirtualServerHTTPMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTP.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTP.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+				diags := data.VirtualServer.HTTP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerHTTPMap["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTP.Http2ClientProfile.IsUnknown() {
+				var Http2ClientProfileElems []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+				diags := data.VirtualServer.HTTP.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ClientProfileElems) > 0 {
+					var Http2ClientProfileList []map[string]interface{}
+					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
+						Http2ClientProfileItemMap := make(map[string]interface{})
+						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
+							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
+						}
+						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
+							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
+						}
+						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
+							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
+						}
+						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
+							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
+						}
+						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
+							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
+						}
+						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
+					}
+					VirtualServerHTTPMap["http2_client_profile"] = Http2ClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTP.Http2ServerProfile.IsUnknown() {
+				var Http2ServerProfileElems []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+				diags := data.VirtualServer.HTTP.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ServerProfileElems) > 0 {
+					var Http2ServerProfileList []map[string]interface{}
+					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
+						Http2ServerProfileItemMap := make(map[string]interface{})
+						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
+							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
+						}
+						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
+							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
+						}
+						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
+							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
+						}
+						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
+							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
+						}
+						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
+							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
+						}
+						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
+					}
+					VirtualServerHTTPMap["http2_server_profile"] = Http2ServerProfileList
+				}
+			}
 			if !data.VirtualServer.HTTP.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTP.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPHTTPClientProfileModel
 				diags := data.VirtualServer.HTTP.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -7896,6 +12286,62 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
 					VirtualServerHTTPMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.OCSPProfile.IsNull() && !data.VirtualServer.HTTP.OCSPProfile.IsUnknown() {
+				var OCSPProfileElems []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+				diags := data.VirtualServer.HTTP.OCSPProfile.ElementsAs(ctx, &OCSPProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OCSPProfileElems) > 0 {
+					var OCSPProfileList []map[string]interface{}
+					for _, OCSPProfileItem := range OCSPProfileElems {
+						OCSPProfileItemMap := make(map[string]interface{})
+						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
+							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
+						}
+						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
+							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
+						}
+						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
+							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
+						}
+						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
+							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
+						}
+						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
+							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
+						}
+						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
+					}
+					VirtualServerHTTPMap["ocsp_profile"] = OCSPProfileList
+				}
+			}
+			if !data.VirtualServer.HTTP.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTP.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+				diags := data.VirtualServer.HTTP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerHTTPMap["server_ssl_profile"] = ServerSSLProfileList
 				}
 			}
 			if !data.VirtualServer.HTTP.StreamProfile.IsNull() && !data.VirtualServer.HTTP.StreamProfile.IsUnknown() {
@@ -8040,8 +12486,348 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			}
 			VirtualServerMap["http"] = VirtualServerHTTPMap
 		}
+		if data.VirtualServer.Http3 != nil {
+			VirtualServerHttp3Map := make(map[string]interface{})
+			if !data.VirtualServer.Http3.ClientSSLProfile.IsNull() && !data.VirtualServer.Http3.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+				diags := data.VirtualServer.Http3.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerHttp3Map["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.Http3Profile.IsNull() && !data.VirtualServer.Http3.Http3Profile.IsUnknown() {
+				var Http3ProfileElems []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+				diags := data.VirtualServer.Http3.Http3Profile.ElementsAs(ctx, &Http3ProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http3ProfileElems) > 0 {
+					var Http3ProfileList []map[string]interface{}
+					for _, Http3ProfileItem := range Http3ProfileElems {
+						Http3ProfileItemMap := make(map[string]interface{})
+						if !Http3ProfileItem.Kind.IsNull() && !Http3ProfileItem.Kind.IsUnknown() {
+							Http3ProfileItemMap["kind"] = Http3ProfileItem.Kind.ValueString()
+						}
+						if !Http3ProfileItem.Name.IsNull() && !Http3ProfileItem.Name.IsUnknown() {
+							Http3ProfileItemMap["name"] = Http3ProfileItem.Name.ValueString()
+						}
+						if !Http3ProfileItem.Namespace.IsNull() && !Http3ProfileItem.Namespace.IsUnknown() {
+							Http3ProfileItemMap["namespace"] = Http3ProfileItem.Namespace.ValueString()
+						}
+						if !Http3ProfileItem.Tenant.IsNull() && !Http3ProfileItem.Tenant.IsUnknown() {
+							Http3ProfileItemMap["tenant"] = Http3ProfileItem.Tenant.ValueString()
+						}
+						if !Http3ProfileItem.Uid.IsNull() && !Http3ProfileItem.Uid.IsUnknown() {
+							Http3ProfileItemMap["uid"] = Http3ProfileItem.Uid.ValueString()
+						}
+						Http3ProfileList = append(Http3ProfileList, Http3ProfileItemMap)
+					}
+					VirtualServerHttp3Map["http3_profile"] = Http3ProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.HTTPClientProfile.IsNull() && !data.VirtualServer.Http3.HTTPClientProfile.IsUnknown() {
+				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+				diags := data.VirtualServer.Http3.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPClientProfileElems) > 0 {
+					var HTTPClientProfileList []map[string]interface{}
+					for _, HTTPClientProfileItem := range HTTPClientProfileElems {
+						HTTPClientProfileItemMap := make(map[string]interface{})
+						if !HTTPClientProfileItem.Kind.IsNull() && !HTTPClientProfileItem.Kind.IsUnknown() {
+							HTTPClientProfileItemMap["kind"] = HTTPClientProfileItem.Kind.ValueString()
+						}
+						if !HTTPClientProfileItem.Name.IsNull() && !HTTPClientProfileItem.Name.IsUnknown() {
+							HTTPClientProfileItemMap["name"] = HTTPClientProfileItem.Name.ValueString()
+						}
+						if !HTTPClientProfileItem.Namespace.IsNull() && !HTTPClientProfileItem.Namespace.IsUnknown() {
+							HTTPClientProfileItemMap["namespace"] = HTTPClientProfileItem.Namespace.ValueString()
+						}
+						if !HTTPClientProfileItem.Tenant.IsNull() && !HTTPClientProfileItem.Tenant.IsUnknown() {
+							HTTPClientProfileItemMap["tenant"] = HTTPClientProfileItem.Tenant.ValueString()
+						}
+						if !HTTPClientProfileItem.Uid.IsNull() && !HTTPClientProfileItem.Uid.IsUnknown() {
+							HTTPClientProfileItemMap["uid"] = HTTPClientProfileItem.Uid.ValueString()
+						}
+						HTTPClientProfileList = append(HTTPClientProfileList, HTTPClientProfileItemMap)
+					}
+					VirtualServerHttp3Map["http_client_profile"] = HTTPClientProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.HTTPServerProfile.IsNull() && !data.VirtualServer.Http3.HTTPServerProfile.IsUnknown() {
+				var HTTPServerProfileElems []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+				diags := data.VirtualServer.Http3.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(HTTPServerProfileElems) > 0 {
+					var HTTPServerProfileList []map[string]interface{}
+					for _, HTTPServerProfileItem := range HTTPServerProfileElems {
+						HTTPServerProfileItemMap := make(map[string]interface{})
+						if !HTTPServerProfileItem.Kind.IsNull() && !HTTPServerProfileItem.Kind.IsUnknown() {
+							HTTPServerProfileItemMap["kind"] = HTTPServerProfileItem.Kind.ValueString()
+						}
+						if !HTTPServerProfileItem.Name.IsNull() && !HTTPServerProfileItem.Name.IsUnknown() {
+							HTTPServerProfileItemMap["name"] = HTTPServerProfileItem.Name.ValueString()
+						}
+						if !HTTPServerProfileItem.Namespace.IsNull() && !HTTPServerProfileItem.Namespace.IsUnknown() {
+							HTTPServerProfileItemMap["namespace"] = HTTPServerProfileItem.Namespace.ValueString()
+						}
+						if !HTTPServerProfileItem.Tenant.IsNull() && !HTTPServerProfileItem.Tenant.IsUnknown() {
+							HTTPServerProfileItemMap["tenant"] = HTTPServerProfileItem.Tenant.ValueString()
+						}
+						if !HTTPServerProfileItem.Uid.IsNull() && !HTTPServerProfileItem.Uid.IsUnknown() {
+							HTTPServerProfileItemMap["uid"] = HTTPServerProfileItem.Uid.ValueString()
+						}
+						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
+					}
+					VirtualServerHttp3Map["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.QUICProfile.IsNull() && !data.VirtualServer.Http3.QUICProfile.IsUnknown() {
+				var QUICProfileElems []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+				diags := data.VirtualServer.Http3.QUICProfile.ElementsAs(ctx, &QUICProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(QUICProfileElems) > 0 {
+					var QUICProfileList []map[string]interface{}
+					for _, QUICProfileItem := range QUICProfileElems {
+						QUICProfileItemMap := make(map[string]interface{})
+						if !QUICProfileItem.Kind.IsNull() && !QUICProfileItem.Kind.IsUnknown() {
+							QUICProfileItemMap["kind"] = QUICProfileItem.Kind.ValueString()
+						}
+						if !QUICProfileItem.Name.IsNull() && !QUICProfileItem.Name.IsUnknown() {
+							QUICProfileItemMap["name"] = QUICProfileItem.Name.ValueString()
+						}
+						if !QUICProfileItem.Namespace.IsNull() && !QUICProfileItem.Namespace.IsUnknown() {
+							QUICProfileItemMap["namespace"] = QUICProfileItem.Namespace.ValueString()
+						}
+						if !QUICProfileItem.Tenant.IsNull() && !QUICProfileItem.Tenant.IsUnknown() {
+							QUICProfileItemMap["tenant"] = QUICProfileItem.Tenant.ValueString()
+						}
+						if !QUICProfileItem.Uid.IsNull() && !QUICProfileItem.Uid.IsUnknown() {
+							QUICProfileItemMap["uid"] = QUICProfileItem.Uid.ValueString()
+						}
+						QUICProfileList = append(QUICProfileList, QUICProfileItemMap)
+					}
+					VirtualServerHttp3Map["quic_profile"] = QUICProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.ServerSSLProfile.IsNull() && !data.VirtualServer.Http3.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+				diags := data.VirtualServer.Http3.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerHttp3Map["server_ssl_profile"] = ServerSSLProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.TCPServerProfile.IsNull() && !data.VirtualServer.Http3.TCPServerProfile.IsUnknown() {
+				var TCPServerProfileElems []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+				diags := data.VirtualServer.Http3.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
+					var TCPServerProfileList []map[string]interface{}
+					for _, TCPServerProfileItem := range TCPServerProfileElems {
+						TCPServerProfileItemMap := make(map[string]interface{})
+						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
+							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+						}
+						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
+							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						}
+						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
+							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						}
+						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
+							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						}
+						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
+							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						}
+						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+					}
+					VirtualServerHttp3Map["tcp_server_profile"] = TCPServerProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.UDPClientProfile.IsNull() && !data.VirtualServer.Http3.UDPClientProfile.IsUnknown() {
+				var UDPClientProfileElems []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+				diags := data.VirtualServer.Http3.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPClientProfileElems) > 0 {
+					var UDPClientProfileList []map[string]interface{}
+					for _, UDPClientProfileItem := range UDPClientProfileElems {
+						UDPClientProfileItemMap := make(map[string]interface{})
+						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
+							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
+						}
+						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
+							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
+						}
+						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
+							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
+						}
+						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
+							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
+						}
+						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
+							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
+						}
+						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
+					}
+					VirtualServerHttp3Map["udp_client_profile"] = UDPClientProfileList
+				}
+			}
+			if !data.VirtualServer.Http3.UDPServerProfile.IsNull() && !data.VirtualServer.Http3.UDPServerProfile.IsUnknown() {
+				var UDPServerProfileElems []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+				diags := data.VirtualServer.Http3.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPServerProfileElems) > 0 {
+					var UDPServerProfileList []map[string]interface{}
+					for _, UDPServerProfileItem := range UDPServerProfileElems {
+						UDPServerProfileItemMap := make(map[string]interface{})
+						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
+							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
+						}
+						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
+							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
+						}
+						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
+							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
+						}
+						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
+							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
+						}
+						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
+							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
+						}
+						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
+					}
+					VirtualServerHttp3Map["udp_server_profile"] = UDPServerProfileList
+				}
+			}
+			VirtualServerMap["http3"] = VirtualServerHttp3Map
+		}
 		if data.VirtualServer.HTTPS != nil {
 			VirtualServerHTTPSMap := make(map[string]interface{})
+			if !data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+				diags := data.VirtualServer.HTTPS.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerHTTPSMap["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ClientProfile.IsUnknown() {
+				var Http2ClientProfileElems []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+				diags := data.VirtualServer.HTTPS.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ClientProfileElems) > 0 {
+					var Http2ClientProfileList []map[string]interface{}
+					for _, Http2ClientProfileItem := range Http2ClientProfileElems {
+						Http2ClientProfileItemMap := make(map[string]interface{})
+						if !Http2ClientProfileItem.Kind.IsNull() && !Http2ClientProfileItem.Kind.IsUnknown() {
+							Http2ClientProfileItemMap["kind"] = Http2ClientProfileItem.Kind.ValueString()
+						}
+						if !Http2ClientProfileItem.Name.IsNull() && !Http2ClientProfileItem.Name.IsUnknown() {
+							Http2ClientProfileItemMap["name"] = Http2ClientProfileItem.Name.ValueString()
+						}
+						if !Http2ClientProfileItem.Namespace.IsNull() && !Http2ClientProfileItem.Namespace.IsUnknown() {
+							Http2ClientProfileItemMap["namespace"] = Http2ClientProfileItem.Namespace.ValueString()
+						}
+						if !Http2ClientProfileItem.Tenant.IsNull() && !Http2ClientProfileItem.Tenant.IsUnknown() {
+							Http2ClientProfileItemMap["tenant"] = Http2ClientProfileItem.Tenant.ValueString()
+						}
+						if !Http2ClientProfileItem.Uid.IsNull() && !Http2ClientProfileItem.Uid.IsUnknown() {
+							Http2ClientProfileItemMap["uid"] = Http2ClientProfileItem.Uid.ValueString()
+						}
+						Http2ClientProfileList = append(Http2ClientProfileList, Http2ClientProfileItemMap)
+					}
+					VirtualServerHTTPSMap["http2_client_profile"] = Http2ClientProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ServerProfile.IsUnknown() {
+				var Http2ServerProfileElems []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+				diags := data.VirtualServer.HTTPS.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(Http2ServerProfileElems) > 0 {
+					var Http2ServerProfileList []map[string]interface{}
+					for _, Http2ServerProfileItem := range Http2ServerProfileElems {
+						Http2ServerProfileItemMap := make(map[string]interface{})
+						if !Http2ServerProfileItem.Kind.IsNull() && !Http2ServerProfileItem.Kind.IsUnknown() {
+							Http2ServerProfileItemMap["kind"] = Http2ServerProfileItem.Kind.ValueString()
+						}
+						if !Http2ServerProfileItem.Name.IsNull() && !Http2ServerProfileItem.Name.IsUnknown() {
+							Http2ServerProfileItemMap["name"] = Http2ServerProfileItem.Name.ValueString()
+						}
+						if !Http2ServerProfileItem.Namespace.IsNull() && !Http2ServerProfileItem.Namespace.IsUnknown() {
+							Http2ServerProfileItemMap["namespace"] = Http2ServerProfileItem.Namespace.ValueString()
+						}
+						if !Http2ServerProfileItem.Tenant.IsNull() && !Http2ServerProfileItem.Tenant.IsUnknown() {
+							Http2ServerProfileItemMap["tenant"] = Http2ServerProfileItem.Tenant.ValueString()
+						}
+						if !Http2ServerProfileItem.Uid.IsNull() && !Http2ServerProfileItem.Uid.IsUnknown() {
+							Http2ServerProfileItemMap["uid"] = Http2ServerProfileItem.Uid.ValueString()
+						}
+						Http2ServerProfileList = append(Http2ServerProfileList, Http2ServerProfileItemMap)
+					}
+					VirtualServerHTTPSMap["http2_server_profile"] = Http2ServerProfileList
+				}
+			}
 			if !data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() && !data.VirtualServer.HTTPS.HTTPClientProfile.IsUnknown() {
 				var HTTPClientProfileElems []ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModel
 				diags := data.VirtualServer.HTTPS.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileElems, false)
@@ -8096,6 +12882,62 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 						HTTPServerProfileList = append(HTTPServerProfileList, HTTPServerProfileItemMap)
 					}
 					VirtualServerHTTPSMap["http_server_profile"] = HTTPServerProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.OCSPProfile.IsNull() && !data.VirtualServer.HTTPS.OCSPProfile.IsUnknown() {
+				var OCSPProfileElems []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+				diags := data.VirtualServer.HTTPS.OCSPProfile.ElementsAs(ctx, &OCSPProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OCSPProfileElems) > 0 {
+					var OCSPProfileList []map[string]interface{}
+					for _, OCSPProfileItem := range OCSPProfileElems {
+						OCSPProfileItemMap := make(map[string]interface{})
+						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
+							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
+						}
+						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
+							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
+						}
+						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
+							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
+						}
+						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
+							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
+						}
+						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
+							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
+						}
+						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
+					}
+					VirtualServerHTTPSMap["ocsp_profile"] = OCSPProfileList
+				}
+			}
+			if !data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+				diags := data.VirtualServer.HTTPS.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerHTTPSMap["server_ssl_profile"] = ServerSSLProfileList
 				}
 			}
 			if !data.VirtualServer.HTTPS.StreamProfile.IsNull() && !data.VirtualServer.HTTPS.StreamProfile.IsUnknown() {
@@ -8372,6 +13214,90 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.TCP != nil {
 			VirtualServerTCPMap := make(map[string]interface{})
+			if !data.VirtualServer.TCP.ClientSSLProfile.IsNull() && !data.VirtualServer.TCP.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+				diags := data.VirtualServer.TCP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
+						}
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
+						}
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
+						}
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
+						}
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
+						}
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
+					}
+					VirtualServerTCPMap["client_ssl_profile"] = ClientSSLProfileList
+				}
+			}
+			if !data.VirtualServer.TCP.OCSPProfile.IsNull() && !data.VirtualServer.TCP.OCSPProfile.IsUnknown() {
+				var OCSPProfileElems []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+				diags := data.VirtualServer.TCP.OCSPProfile.ElementsAs(ctx, &OCSPProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(OCSPProfileElems) > 0 {
+					var OCSPProfileList []map[string]interface{}
+					for _, OCSPProfileItem := range OCSPProfileElems {
+						OCSPProfileItemMap := make(map[string]interface{})
+						if !OCSPProfileItem.Kind.IsNull() && !OCSPProfileItem.Kind.IsUnknown() {
+							OCSPProfileItemMap["kind"] = OCSPProfileItem.Kind.ValueString()
+						}
+						if !OCSPProfileItem.Name.IsNull() && !OCSPProfileItem.Name.IsUnknown() {
+							OCSPProfileItemMap["name"] = OCSPProfileItem.Name.ValueString()
+						}
+						if !OCSPProfileItem.Namespace.IsNull() && !OCSPProfileItem.Namespace.IsUnknown() {
+							OCSPProfileItemMap["namespace"] = OCSPProfileItem.Namespace.ValueString()
+						}
+						if !OCSPProfileItem.Tenant.IsNull() && !OCSPProfileItem.Tenant.IsUnknown() {
+							OCSPProfileItemMap["tenant"] = OCSPProfileItem.Tenant.ValueString()
+						}
+						if !OCSPProfileItem.Uid.IsNull() && !OCSPProfileItem.Uid.IsUnknown() {
+							OCSPProfileItemMap["uid"] = OCSPProfileItem.Uid.ValueString()
+						}
+						OCSPProfileList = append(OCSPProfileList, OCSPProfileItemMap)
+					}
+					VirtualServerTCPMap["ocsp_profile"] = OCSPProfileList
+				}
+			}
+			if !data.VirtualServer.TCP.ServerSSLProfile.IsNull() && !data.VirtualServer.TCP.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+				diags := data.VirtualServer.TCP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
+						}
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
+						}
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
+						}
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
+						}
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
+						}
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
+					}
+					VirtualServerTCPMap["server_ssl_profile"] = ServerSSLProfileList
+				}
+			}
 			if !data.VirtualServer.TCP.TCPClientProfile.IsNull() && !data.VirtualServer.TCP.TCPClientProfile.IsUnknown() {
 				var TCPClientProfileElems []ApplicationProfilesVirtualServerTCPTCPClientProfileModel
 				diags := data.VirtualServer.TCP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
@@ -8432,60 +13358,116 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 		if data.VirtualServer.UDP != nil {
 			VirtualServerUDPMap := make(map[string]interface{})
-			if !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
-				var TCPClientProfileElems []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-				diags := data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileElems, false)
+			if !data.VirtualServer.UDP.ClientSSLProfile.IsNull() && !data.VirtualServer.UDP.ClientSSLProfile.IsUnknown() {
+				var ClientSSLProfileElems []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+				diags := data.VirtualServer.UDP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileElems, false)
 				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(TCPClientProfileElems) > 0 {
-					var TCPClientProfileList []map[string]interface{}
-					for _, TCPClientProfileItem := range TCPClientProfileElems {
-						TCPClientProfileItemMap := make(map[string]interface{})
-						if !TCPClientProfileItem.Kind.IsNull() && !TCPClientProfileItem.Kind.IsUnknown() {
-							TCPClientProfileItemMap["kind"] = TCPClientProfileItem.Kind.ValueString()
+				if !resp.Diagnostics.HasError() && len(ClientSSLProfileElems) > 0 {
+					var ClientSSLProfileList []map[string]interface{}
+					for _, ClientSSLProfileItem := range ClientSSLProfileElems {
+						ClientSSLProfileItemMap := make(map[string]interface{})
+						if !ClientSSLProfileItem.Kind.IsNull() && !ClientSSLProfileItem.Kind.IsUnknown() {
+							ClientSSLProfileItemMap["kind"] = ClientSSLProfileItem.Kind.ValueString()
 						}
-						if !TCPClientProfileItem.Name.IsNull() && !TCPClientProfileItem.Name.IsUnknown() {
-							TCPClientProfileItemMap["name"] = TCPClientProfileItem.Name.ValueString()
+						if !ClientSSLProfileItem.Name.IsNull() && !ClientSSLProfileItem.Name.IsUnknown() {
+							ClientSSLProfileItemMap["name"] = ClientSSLProfileItem.Name.ValueString()
 						}
-						if !TCPClientProfileItem.Namespace.IsNull() && !TCPClientProfileItem.Namespace.IsUnknown() {
-							TCPClientProfileItemMap["namespace"] = TCPClientProfileItem.Namespace.ValueString()
+						if !ClientSSLProfileItem.Namespace.IsNull() && !ClientSSLProfileItem.Namespace.IsUnknown() {
+							ClientSSLProfileItemMap["namespace"] = ClientSSLProfileItem.Namespace.ValueString()
 						}
-						if !TCPClientProfileItem.Tenant.IsNull() && !TCPClientProfileItem.Tenant.IsUnknown() {
-							TCPClientProfileItemMap["tenant"] = TCPClientProfileItem.Tenant.ValueString()
+						if !ClientSSLProfileItem.Tenant.IsNull() && !ClientSSLProfileItem.Tenant.IsUnknown() {
+							ClientSSLProfileItemMap["tenant"] = ClientSSLProfileItem.Tenant.ValueString()
 						}
-						if !TCPClientProfileItem.Uid.IsNull() && !TCPClientProfileItem.Uid.IsUnknown() {
-							TCPClientProfileItemMap["uid"] = TCPClientProfileItem.Uid.ValueString()
+						if !ClientSSLProfileItem.Uid.IsNull() && !ClientSSLProfileItem.Uid.IsUnknown() {
+							ClientSSLProfileItemMap["uid"] = ClientSSLProfileItem.Uid.ValueString()
 						}
-						TCPClientProfileList = append(TCPClientProfileList, TCPClientProfileItemMap)
+						ClientSSLProfileList = append(ClientSSLProfileList, ClientSSLProfileItemMap)
 					}
-					VirtualServerUDPMap["tcp_client_profile"] = TCPClientProfileList
+					VirtualServerUDPMap["client_ssl_profile"] = ClientSSLProfileList
 				}
 			}
-			if !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
-				var TCPServerProfileElems []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-				diags := data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileElems, false)
+			if !data.VirtualServer.UDP.ServerSSLProfile.IsNull() && !data.VirtualServer.UDP.ServerSSLProfile.IsUnknown() {
+				var ServerSSLProfileElems []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+				diags := data.VirtualServer.UDP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileElems, false)
 				resp.Diagnostics.Append(diags...)
-				if !resp.Diagnostics.HasError() && len(TCPServerProfileElems) > 0 {
-					var TCPServerProfileList []map[string]interface{}
-					for _, TCPServerProfileItem := range TCPServerProfileElems {
-						TCPServerProfileItemMap := make(map[string]interface{})
-						if !TCPServerProfileItem.Kind.IsNull() && !TCPServerProfileItem.Kind.IsUnknown() {
-							TCPServerProfileItemMap["kind"] = TCPServerProfileItem.Kind.ValueString()
+				if !resp.Diagnostics.HasError() && len(ServerSSLProfileElems) > 0 {
+					var ServerSSLProfileList []map[string]interface{}
+					for _, ServerSSLProfileItem := range ServerSSLProfileElems {
+						ServerSSLProfileItemMap := make(map[string]interface{})
+						if !ServerSSLProfileItem.Kind.IsNull() && !ServerSSLProfileItem.Kind.IsUnknown() {
+							ServerSSLProfileItemMap["kind"] = ServerSSLProfileItem.Kind.ValueString()
 						}
-						if !TCPServerProfileItem.Name.IsNull() && !TCPServerProfileItem.Name.IsUnknown() {
-							TCPServerProfileItemMap["name"] = TCPServerProfileItem.Name.ValueString()
+						if !ServerSSLProfileItem.Name.IsNull() && !ServerSSLProfileItem.Name.IsUnknown() {
+							ServerSSLProfileItemMap["name"] = ServerSSLProfileItem.Name.ValueString()
 						}
-						if !TCPServerProfileItem.Namespace.IsNull() && !TCPServerProfileItem.Namespace.IsUnknown() {
-							TCPServerProfileItemMap["namespace"] = TCPServerProfileItem.Namespace.ValueString()
+						if !ServerSSLProfileItem.Namespace.IsNull() && !ServerSSLProfileItem.Namespace.IsUnknown() {
+							ServerSSLProfileItemMap["namespace"] = ServerSSLProfileItem.Namespace.ValueString()
 						}
-						if !TCPServerProfileItem.Tenant.IsNull() && !TCPServerProfileItem.Tenant.IsUnknown() {
-							TCPServerProfileItemMap["tenant"] = TCPServerProfileItem.Tenant.ValueString()
+						if !ServerSSLProfileItem.Tenant.IsNull() && !ServerSSLProfileItem.Tenant.IsUnknown() {
+							ServerSSLProfileItemMap["tenant"] = ServerSSLProfileItem.Tenant.ValueString()
 						}
-						if !TCPServerProfileItem.Uid.IsNull() && !TCPServerProfileItem.Uid.IsUnknown() {
-							TCPServerProfileItemMap["uid"] = TCPServerProfileItem.Uid.ValueString()
+						if !ServerSSLProfileItem.Uid.IsNull() && !ServerSSLProfileItem.Uid.IsUnknown() {
+							ServerSSLProfileItemMap["uid"] = ServerSSLProfileItem.Uid.ValueString()
 						}
-						TCPServerProfileList = append(TCPServerProfileList, TCPServerProfileItemMap)
+						ServerSSLProfileList = append(ServerSSLProfileList, ServerSSLProfileItemMap)
 					}
-					VirtualServerUDPMap["tcp_server_profile"] = TCPServerProfileList
+					VirtualServerUDPMap["server_ssl_profile"] = ServerSSLProfileList
+				}
+			}
+			if !data.VirtualServer.UDP.UDPClientProfile.IsNull() && !data.VirtualServer.UDP.UDPClientProfile.IsUnknown() {
+				var UDPClientProfileElems []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+				diags := data.VirtualServer.UDP.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPClientProfileElems) > 0 {
+					var UDPClientProfileList []map[string]interface{}
+					for _, UDPClientProfileItem := range UDPClientProfileElems {
+						UDPClientProfileItemMap := make(map[string]interface{})
+						if !UDPClientProfileItem.Kind.IsNull() && !UDPClientProfileItem.Kind.IsUnknown() {
+							UDPClientProfileItemMap["kind"] = UDPClientProfileItem.Kind.ValueString()
+						}
+						if !UDPClientProfileItem.Name.IsNull() && !UDPClientProfileItem.Name.IsUnknown() {
+							UDPClientProfileItemMap["name"] = UDPClientProfileItem.Name.ValueString()
+						}
+						if !UDPClientProfileItem.Namespace.IsNull() && !UDPClientProfileItem.Namespace.IsUnknown() {
+							UDPClientProfileItemMap["namespace"] = UDPClientProfileItem.Namespace.ValueString()
+						}
+						if !UDPClientProfileItem.Tenant.IsNull() && !UDPClientProfileItem.Tenant.IsUnknown() {
+							UDPClientProfileItemMap["tenant"] = UDPClientProfileItem.Tenant.ValueString()
+						}
+						if !UDPClientProfileItem.Uid.IsNull() && !UDPClientProfileItem.Uid.IsUnknown() {
+							UDPClientProfileItemMap["uid"] = UDPClientProfileItem.Uid.ValueString()
+						}
+						UDPClientProfileList = append(UDPClientProfileList, UDPClientProfileItemMap)
+					}
+					VirtualServerUDPMap["udp_client_profile"] = UDPClientProfileList
+				}
+			}
+			if !data.VirtualServer.UDP.UDPServerProfile.IsNull() && !data.VirtualServer.UDP.UDPServerProfile.IsUnknown() {
+				var UDPServerProfileElems []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+				diags := data.VirtualServer.UDP.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileElems, false)
+				resp.Diagnostics.Append(diags...)
+				if !resp.Diagnostics.HasError() && len(UDPServerProfileElems) > 0 {
+					var UDPServerProfileList []map[string]interface{}
+					for _, UDPServerProfileItem := range UDPServerProfileElems {
+						UDPServerProfileItemMap := make(map[string]interface{})
+						if !UDPServerProfileItem.Kind.IsNull() && !UDPServerProfileItem.Kind.IsUnknown() {
+							UDPServerProfileItemMap["kind"] = UDPServerProfileItem.Kind.ValueString()
+						}
+						if !UDPServerProfileItem.Name.IsNull() && !UDPServerProfileItem.Name.IsUnknown() {
+							UDPServerProfileItemMap["name"] = UDPServerProfileItem.Name.ValueString()
+						}
+						if !UDPServerProfileItem.Namespace.IsNull() && !UDPServerProfileItem.Namespace.IsUnknown() {
+							UDPServerProfileItemMap["namespace"] = UDPServerProfileItem.Namespace.ValueString()
+						}
+						if !UDPServerProfileItem.Tenant.IsNull() && !UDPServerProfileItem.Tenant.IsUnknown() {
+							UDPServerProfileItemMap["tenant"] = UDPServerProfileItem.Tenant.ValueString()
+						}
+						if !UDPServerProfileItem.Uid.IsNull() && !UDPServerProfileItem.Uid.IsUnknown() {
+							UDPServerProfileItemMap["uid"] = UDPServerProfileItem.Uid.ValueString()
+						}
+						UDPServerProfileList = append(UDPServerProfileList, UDPServerProfileItemMap)
+					}
+					VirtualServerUDPMap["udp_server_profile"] = UDPServerProfileList
 				}
 			}
 			VirtualServerMap["udp"] = VirtualServerUDPMap
@@ -8625,59 +13607,6 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 		}
 	} else {
 		data.Irules = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesIrulesModelAttrTypes})
-	}
-	if !isImport && (data.TrafficPolicies.IsNull() || len(data.TrafficPolicies.Elements()) == 0) {
-		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
-	} else if listData, ok := apiResource.Spec["traffic_policies"].([]interface{}); ok && len(listData) > 0 {
-		var TrafficPoliciesList []ApplicationProfilesTrafficPoliciesModel
-		var existingTrafficPoliciesItems []ApplicationProfilesTrafficPoliciesModel
-		if !data.TrafficPolicies.IsNull() && !data.TrafficPolicies.IsUnknown() {
-			data.TrafficPolicies.ElementsAs(ctx, &existingTrafficPoliciesItems, false)
-		}
-		for listIdx, item := range listData {
-			_ = listIdx
-			if itemMap, ok := item.(map[string]interface{}); ok {
-				TrafficPoliciesList = append(TrafficPoliciesList, ApplicationProfilesTrafficPoliciesModel{
-					Kind: func() types.String {
-						if v, ok := itemMap["kind"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Name: func() types.String {
-						if v, ok := itemMap["name"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Namespace: func() types.String {
-						if v, ok := itemMap["namespace"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Tenant: func() types.String {
-						if v, ok := itemMap["tenant"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-					Uid: func() types.String {
-						if v, ok := itemMap["uid"].(string); ok && v != "" {
-							return types.StringValue(v)
-						}
-						return types.StringNull()
-					}(),
-				})
-			}
-		}
-		listVal, diags := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes}, TrafficPoliciesList)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.TrafficPolicies = listVal
-		}
-	} else {
-		data.TrafficPolicies = types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesTrafficPoliciesModelAttrTypes})
 	}
 	if blockData, ok := apiResource.Spec["virtual_server"].(map[string]interface{}); ok && (isImport || data.VirtualServer != nil) {
 		data.VirtualServer = &ApplicationProfilesVirtualServerModel{
@@ -9230,6 +14159,162 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			HTTP: func() *ApplicationProfilesVirtualServerHTTPModel {
 				if HTTPData, ok := blockData["http"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTP.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTP.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTP.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTP.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHttp2ServerProfileModelAttrTypes})
+						}(),
 						HTTPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTP.HTTPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPClientProfileModelAttrTypes})
@@ -9333,6 +14418,110 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.OCSPProfile.IsNull() || len(data.VirtualServer.HTTP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.OCSPProfile.IsNull() && !data.VirtualServer.HTTP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && !data.VirtualServer.HTTP.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPServerSSLProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTP != nil && (data.VirtualServer.HTTP.StreamProfile.IsNull() || len(data.VirtualServer.HTTP.StreamProfile.Elements()) == 0) {
@@ -9598,9 +14787,640 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 				}
 				return nil
 			}(),
+			Http3: func() *ApplicationProfilesVirtualServerHttp3Model {
+				if Http3Data, ok := blockData["http3"].(map[string]interface{}); ok {
+					return &ApplicationProfilesVirtualServerHttp3Model{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ClientSSLProfile.IsNull() || len(data.VirtualServer.Http3.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ClientSSLProfile.IsNull() && !data.VirtualServer.Http3.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHttp3ClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ClientSSLProfileModelAttrTypes})
+						}(),
+						Http3Profile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.Http3Profile.IsNull() || len(data.VirtualServer.Http3.Http3Profile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+							}
+							var Http3ProfileExisting []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.Http3Profile.IsNull() && !data.VirtualServer.Http3.Http3Profile.IsUnknown() {
+								data.VirtualServer.Http3.Http3Profile.ElementsAs(ctx, &Http3ProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http3_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http3ProfileResult []ApplicationProfilesVirtualServerHttp3Http3ProfileModel
+								for Http3ProfileIdx, Http3ProfileItem := range rawList {
+									_ = Http3ProfileIdx
+									if Http3ProfileItemMap, ok := Http3ProfileItem.(map[string]interface{}); ok {
+										Http3ProfileResult = append(Http3ProfileResult, ApplicationProfilesVirtualServerHttp3Http3ProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http3ProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http3ProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http3ProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http3ProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http3ProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes}, Http3ProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3Http3ProfileModelAttrTypes})
+						}(),
+						HTTPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPClientProfile.IsNull() || len(data.VirtualServer.Http3.HTTPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+							}
+							var HTTPClientProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPClientProfile.IsNull() && !data.VirtualServer.Http3.HTTPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPClientProfile.ElementsAs(ctx, &HTTPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPClientProfileResult []ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel
+								for HTTPClientProfileIdx, HTTPClientProfileItem := range rawList {
+									_ = HTTPClientProfileIdx
+									if HTTPClientProfileItemMap, ok := HTTPClientProfileItem.(map[string]interface{}); ok {
+										HTTPClientProfileResult = append(HTTPClientProfileResult, ApplicationProfilesVirtualServerHttp3HTTPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes}, HTTPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPClientProfileModelAttrTypes})
+						}(),
+						HTTPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.HTTPServerProfile.IsNull() || len(data.VirtualServer.Http3.HTTPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+							}
+							var HTTPServerProfileExisting []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.HTTPServerProfile.IsNull() && !data.VirtualServer.Http3.HTTPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.HTTPServerProfile.ElementsAs(ctx, &HTTPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["http_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var HTTPServerProfileResult []ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel
+								for HTTPServerProfileIdx, HTTPServerProfileItem := range rawList {
+									_ = HTTPServerProfileIdx
+									if HTTPServerProfileItemMap, ok := HTTPServerProfileItem.(map[string]interface{}); ok {
+										HTTPServerProfileResult = append(HTTPServerProfileResult, ApplicationProfilesVirtualServerHttp3HTTPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := HTTPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes}, HTTPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3HTTPServerProfileModelAttrTypes})
+						}(),
+						QUICProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.QUICProfile.IsNull() || len(data.VirtualServer.Http3.QUICProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+							}
+							var QUICProfileExisting []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.QUICProfile.IsNull() && !data.VirtualServer.Http3.QUICProfile.IsUnknown() {
+								data.VirtualServer.Http3.QUICProfile.ElementsAs(ctx, &QUICProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["quic_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var QUICProfileResult []ApplicationProfilesVirtualServerHttp3QUICProfileModel
+								for QUICProfileIdx, QUICProfileItem := range rawList {
+									_ = QUICProfileIdx
+									if QUICProfileItemMap, ok := QUICProfileItem.(map[string]interface{}); ok {
+										QUICProfileResult = append(QUICProfileResult, ApplicationProfilesVirtualServerHttp3QUICProfileModel{
+											Kind: func() types.String {
+												if v, ok := QUICProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := QUICProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := QUICProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := QUICProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := QUICProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes}, QUICProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3QUICProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.ServerSSLProfile.IsNull() || len(data.VirtualServer.Http3.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.ServerSSLProfile.IsNull() && !data.VirtualServer.Http3.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.Http3.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHttp3ServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3ServerSSLProfileModelAttrTypes})
+						}(),
+						TCPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.TCPServerProfile.IsNull() || len(data.VirtualServer.Http3.TCPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+							}
+							var TCPServerProfileExisting []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.TCPServerProfile.IsNull() && !data.VirtualServer.Http3.TCPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var TCPServerProfileResult []ApplicationProfilesVirtualServerHttp3TCPServerProfileModel
+								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
+									_ = TCPServerProfileIdx
+									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
+										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerHttp3TCPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3TCPServerProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPClientProfile.IsNull() || len(data.VirtualServer.Http3.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPClientProfile.IsNull() && !data.VirtualServer.Http3.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerHttp3UDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerHttp3UDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && (data.VirtualServer.Http3.UDPServerProfile.IsNull() || len(data.VirtualServer.Http3.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.Http3 != nil && !data.VirtualServer.Http3.UDPServerProfile.IsNull() && !data.VirtualServer.Http3.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.Http3.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := Http3Data["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerHttp3UDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerHttp3UDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHttp3UDPServerProfileModelAttrTypes})
+						}(),
+					}
+				}
+				return nil
+			}(),
 			HTTPS: func() *ApplicationProfilesVirtualServerHTTPSModel {
 				if HTTPSData, ok := blockData["https"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerHTTPSModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ClientSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerHTTPSClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSClientSSLProfileModelAttrTypes})
+						}(),
+						Http2ClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+							}
+							var Http2ClientProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ClientProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ClientProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ClientProfile.ElementsAs(ctx, &Http2ClientProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ClientProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel
+								for Http2ClientProfileIdx, Http2ClientProfileItem := range rawList {
+									_ = Http2ClientProfileIdx
+									if Http2ClientProfileItemMap, ok := Http2ClientProfileItem.(map[string]interface{}); ok {
+										Http2ClientProfileResult = append(Http2ClientProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes}, Http2ClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ClientProfileModelAttrTypes})
+						}(),
+						Http2ServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() || len(data.VirtualServer.HTTPS.Http2ServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+							}
+							var Http2ServerProfileExisting []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.Http2ServerProfile.IsNull() && !data.VirtualServer.HTTPS.Http2ServerProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.Http2ServerProfile.ElementsAs(ctx, &Http2ServerProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["http2_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var Http2ServerProfileResult []ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel
+								for Http2ServerProfileIdx, Http2ServerProfileItem := range rawList {
+									_ = Http2ServerProfileIdx
+									if Http2ServerProfileItemMap, ok := Http2ServerProfileItem.(map[string]interface{}); ok {
+										Http2ServerProfileResult = append(Http2ServerProfileResult, ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := Http2ServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes}, Http2ServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHttp2ServerProfileModelAttrTypes})
+						}(),
 						HTTPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.HTTPClientProfile.IsNull() || len(data.VirtualServer.HTTPS.HTTPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPClientProfileModelAttrTypes})
@@ -9704,6 +15524,110 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 								return listVal
 							}
 							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSHTTPServerProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.OCSPProfile.IsNull() || len(data.VirtualServer.HTTPS.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.OCSPProfile.IsNull() && !data.VirtualServer.HTTPS.OCSPProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerHTTPSOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerHTTPSOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() || len(data.VirtualServer.HTTPS.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && !data.VirtualServer.HTTPS.ServerSSLProfile.IsNull() && !data.VirtualServer.HTTPS.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.HTTPS.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := HTTPSData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerHTTPSServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerHTTPSServerSSLProfileModelAttrTypes})
 						}(),
 						StreamProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.HTTPS != nil && (data.VirtualServer.HTTPS.StreamProfile.IsNull() || len(data.VirtualServer.HTTPS.StreamProfile.Elements()) == 0) {
@@ -10258,6 +16182,162 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			TCP: func() *ApplicationProfilesVirtualServerTCPModel {
 				if TCPData, ok := blockData["tcp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerTCPModel{
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ClientSSLProfile.IsNull() || len(data.VirtualServer.TCP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+							}
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ClientSSLProfile.IsNull() && !data.VirtualServer.TCP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerTCPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerTCPClientSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPClientSSLProfileModelAttrTypes})
+						}(),
+						OCSPProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.OCSPProfile.IsNull() || len(data.VirtualServer.TCP.OCSPProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+							}
+							var OCSPProfileExisting []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.OCSPProfile.IsNull() && !data.VirtualServer.TCP.OCSPProfile.IsUnknown() {
+								data.VirtualServer.TCP.OCSPProfile.ElementsAs(ctx, &OCSPProfileExisting, false)
+							}
+							if rawList, ok := TCPData["ocsp_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var OCSPProfileResult []ApplicationProfilesVirtualServerTCPOCSPProfileModel
+								for OCSPProfileIdx, OCSPProfileItem := range rawList {
+									_ = OCSPProfileIdx
+									if OCSPProfileItemMap, ok := OCSPProfileItem.(map[string]interface{}); ok {
+										OCSPProfileResult = append(OCSPProfileResult, ApplicationProfilesVirtualServerTCPOCSPProfileModel{
+											Kind: func() types.String {
+												if v, ok := OCSPProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := OCSPProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := OCSPProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := OCSPProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := OCSPProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes}, OCSPProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPOCSPProfileModelAttrTypes})
+						}(),
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.ServerSSLProfile.IsNull() || len(data.VirtualServer.TCP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+							}
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && !data.VirtualServer.TCP.ServerSSLProfile.IsNull() && !data.VirtualServer.TCP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.TCP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
+							}
+							if rawList, ok := TCPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerTCPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerTCPServerSSLProfileModel{
+											Kind: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPServerSSLProfileModelAttrTypes})
+						}(),
 						TCPClientProfile: func() types.List {
 							if !isImport && data.VirtualServer != nil && data.VirtualServer.TCP != nil && (data.VirtualServer.TCP.TCPClientProfile.IsNull() || len(data.VirtualServer.TCP.TCPClientProfile.Elements()) == 0) {
 								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerTCPTCPClientProfileModelAttrTypes})
@@ -10369,46 +16449,46 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 			UDP: func() *ApplicationProfilesVirtualServerUDPModel {
 				if UDPData, ok := blockData["udp"].(map[string]interface{}); ok {
 					return &ApplicationProfilesVirtualServerUDPModel{
-						TCPClientProfile: func() types.List {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPClientProfile.IsNull() || len(data.VirtualServer.UDP.TCPClientProfile.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+						ClientSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ClientSSLProfile.IsNull() || len(data.VirtualServer.UDP.ClientSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
 							}
-							var TCPClientProfileExisting []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPClientProfile.IsNull() && !data.VirtualServer.UDP.TCPClientProfile.IsUnknown() {
-								data.VirtualServer.UDP.TCPClientProfile.ElementsAs(ctx, &TCPClientProfileExisting, false)
+							var ClientSSLProfileExisting []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ClientSSLProfile.IsNull() && !data.VirtualServer.UDP.ClientSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ClientSSLProfile.ElementsAs(ctx, &ClientSSLProfileExisting, false)
 							}
-							if rawList, ok := UDPData["tcp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
-								var TCPClientProfileResult []ApplicationProfilesVirtualServerUDPTCPClientProfileModel
-								for TCPClientProfileIdx, TCPClientProfileItem := range rawList {
-									_ = TCPClientProfileIdx
-									if TCPClientProfileItemMap, ok := TCPClientProfileItem.(map[string]interface{}); ok {
-										TCPClientProfileResult = append(TCPClientProfileResult, ApplicationProfilesVirtualServerUDPTCPClientProfileModel{
+							if rawList, ok := UDPData["client_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ClientSSLProfileResult []ApplicationProfilesVirtualServerUDPClientSSLProfileModel
+								for ClientSSLProfileIdx, ClientSSLProfileItem := range rawList {
+									_ = ClientSSLProfileIdx
+									if ClientSSLProfileItemMap, ok := ClientSSLProfileItem.(map[string]interface{}); ok {
+										ClientSSLProfileResult = append(ClientSSLProfileResult, ApplicationProfilesVirtualServerUDPClientSSLProfileModel{
 											Kind: func() types.String {
-												if v, ok := TCPClientProfileItemMap["kind"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["kind"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := TCPClientProfileItemMap["name"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Namespace: func() types.String {
-												if v, ok := TCPClientProfileItemMap["namespace"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Tenant: func() types.String {
-												if v, ok := TCPClientProfileItemMap["tenant"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["tenant"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Uid: func() types.String {
-												if v, ok := TCPClientProfileItemMap["uid"].(string); ok && v != "" {
+												if v, ok := ClientSSLProfileItemMap["uid"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -10416,51 +16496,51 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 										})
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes}, TCPClientProfileResult)
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes}, ClientSSLProfileResult)
 								return listVal
 							}
-							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPClientProfileModelAttrTypes})
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPClientSSLProfileModelAttrTypes})
 						}(),
-						TCPServerProfile: func() types.List {
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.TCPServerProfile.IsNull() || len(data.VirtualServer.UDP.TCPServerProfile.Elements()) == 0) {
-								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+						ServerSSLProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.ServerSSLProfile.IsNull() || len(data.VirtualServer.UDP.ServerSSLProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
 							}
-							var TCPServerProfileExisting []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.TCPServerProfile.IsNull() && !data.VirtualServer.UDP.TCPServerProfile.IsUnknown() {
-								data.VirtualServer.UDP.TCPServerProfile.ElementsAs(ctx, &TCPServerProfileExisting, false)
+							var ServerSSLProfileExisting []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.ServerSSLProfile.IsNull() && !data.VirtualServer.UDP.ServerSSLProfile.IsUnknown() {
+								data.VirtualServer.UDP.ServerSSLProfile.ElementsAs(ctx, &ServerSSLProfileExisting, false)
 							}
-							if rawList, ok := UDPData["tcp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
-								var TCPServerProfileResult []ApplicationProfilesVirtualServerUDPTCPServerProfileModel
-								for TCPServerProfileIdx, TCPServerProfileItem := range rawList {
-									_ = TCPServerProfileIdx
-									if TCPServerProfileItemMap, ok := TCPServerProfileItem.(map[string]interface{}); ok {
-										TCPServerProfileResult = append(TCPServerProfileResult, ApplicationProfilesVirtualServerUDPTCPServerProfileModel{
+							if rawList, ok := UDPData["server_ssl_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var ServerSSLProfileResult []ApplicationProfilesVirtualServerUDPServerSSLProfileModel
+								for ServerSSLProfileIdx, ServerSSLProfileItem := range rawList {
+									_ = ServerSSLProfileIdx
+									if ServerSSLProfileItemMap, ok := ServerSSLProfileItem.(map[string]interface{}); ok {
+										ServerSSLProfileResult = append(ServerSSLProfileResult, ApplicationProfilesVirtualServerUDPServerSSLProfileModel{
 											Kind: func() types.String {
-												if v, ok := TCPServerProfileItemMap["kind"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["kind"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Name: func() types.String {
-												if v, ok := TCPServerProfileItemMap["name"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["name"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Namespace: func() types.String {
-												if v, ok := TCPServerProfileItemMap["namespace"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["namespace"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Tenant: func() types.String {
-												if v, ok := TCPServerProfileItemMap["tenant"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["tenant"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
 											}(),
 											Uid: func() types.String {
-												if v, ok := TCPServerProfileItemMap["uid"].(string); ok && v != "" {
+												if v, ok := ServerSSLProfileItemMap["uid"].(string); ok && v != "" {
 													return types.StringValue(v)
 												}
 												return types.StringNull()
@@ -10468,10 +16548,114 @@ func (r *ApplicationProfilesResource) Update(ctx context.Context, req resource.U
 										})
 									}
 								}
-								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes}, TCPServerProfileResult)
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes}, ServerSSLProfileResult)
 								return listVal
 							}
-							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPTCPServerProfileModelAttrTypes})
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPServerSSLProfileModelAttrTypes})
+						}(),
+						UDPClientProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPClientProfile.IsNull() || len(data.VirtualServer.UDP.UDPClientProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+							}
+							var UDPClientProfileExisting []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPClientProfile.IsNull() && !data.VirtualServer.UDP.UDPClientProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPClientProfile.ElementsAs(ctx, &UDPClientProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_client_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPClientProfileResult []ApplicationProfilesVirtualServerUDPUDPClientProfileModel
+								for UDPClientProfileIdx, UDPClientProfileItem := range rawList {
+									_ = UDPClientProfileIdx
+									if UDPClientProfileItemMap, ok := UDPClientProfileItem.(map[string]interface{}); ok {
+										UDPClientProfileResult = append(UDPClientProfileResult, ApplicationProfilesVirtualServerUDPUDPClientProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPClientProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPClientProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPClientProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPClientProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPClientProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes}, UDPClientProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPClientProfileModelAttrTypes})
+						}(),
+						UDPServerProfile: func() types.List {
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && (data.VirtualServer.UDP.UDPServerProfile.IsNull() || len(data.VirtualServer.UDP.UDPServerProfile.Elements()) == 0) {
+								return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
+							}
+							var UDPServerProfileExisting []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+							if !isImport && data.VirtualServer != nil && data.VirtualServer.UDP != nil && !data.VirtualServer.UDP.UDPServerProfile.IsNull() && !data.VirtualServer.UDP.UDPServerProfile.IsUnknown() {
+								data.VirtualServer.UDP.UDPServerProfile.ElementsAs(ctx, &UDPServerProfileExisting, false)
+							}
+							if rawList, ok := UDPData["udp_server_profile"].([]interface{}); ok && len(rawList) > 0 {
+								var UDPServerProfileResult []ApplicationProfilesVirtualServerUDPUDPServerProfileModel
+								for UDPServerProfileIdx, UDPServerProfileItem := range rawList {
+									_ = UDPServerProfileIdx
+									if UDPServerProfileItemMap, ok := UDPServerProfileItem.(map[string]interface{}); ok {
+										UDPServerProfileResult = append(UDPServerProfileResult, ApplicationProfilesVirtualServerUDPUDPServerProfileModel{
+											Kind: func() types.String {
+												if v, ok := UDPServerProfileItemMap["kind"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := UDPServerProfileItemMap["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Namespace: func() types.String {
+												if v, ok := UDPServerProfileItemMap["namespace"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Tenant: func() types.String {
+												if v, ok := UDPServerProfileItemMap["tenant"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Uid: func() types.String {
+												if v, ok := UDPServerProfileItemMap["uid"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										})
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes}, UDPServerProfileResult)
+								return listVal
+							}
+							return types.ListNull(types.ObjectType{AttrTypes: ApplicationProfilesVirtualServerUDPUDPServerProfileModelAttrTypes})
 						}(),
 					}
 				}

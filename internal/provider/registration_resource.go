@@ -13,6 +13,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/int64validator"
+	"github.com/hashicorp/terraform-plugin-framework-validators/listvalidator"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
@@ -62,6 +63,7 @@ type RegistrationInfraModel struct {
 	Provider         types.String                         `tfsdk:"provider_ref"`
 	Timestamp        types.String                         `tfsdk:"timestamp"`
 	Zone             types.String                         `tfsdk:"zone"`
+	BondConfig       *RegistrationInfraBondConfigModel    `tfsdk:"bond_config"`
 	HwInfo           *RegistrationInfraHwInfoModel        `tfsdk:"hw_info"`
 	Interfaces       *RegistrationEmptyModel              `tfsdk:"interfaces"`
 	InternetProxy    *RegistrationInfraInternetProxyModel `tfsdk:"internet_proxy"`
@@ -80,10 +82,25 @@ var RegistrationInfraModelAttrTypes = map[string]attr.Type{
 	"provider_ref":      types.StringType,
 	"timestamp":         types.StringType,
 	"zone":              types.StringType,
+	"bond_config":       types.ObjectType{AttrTypes: RegistrationInfraBondConfigModelAttrTypes},
 	"hw_info":           types.ObjectType{AttrTypes: RegistrationInfraHwInfoModelAttrTypes},
 	"interfaces":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"internet_proxy":    types.ObjectType{AttrTypes: RegistrationInfraInternetProxyModelAttrTypes},
 	"sw_info":           types.ObjectType{AttrTypes: RegistrationInfraSwInfoModelAttrTypes},
+}
+
+// RegistrationInfraBondConfigModel represents bond_config block
+type RegistrationInfraBondConfigModel struct {
+	Interfaces types.List   `tfsdk:"interfaces"`
+	Mode       types.String `tfsdk:"mode"`
+	Name       types.String `tfsdk:"name"`
+}
+
+// RegistrationInfraBondConfigModelAttrTypes defines the attribute types for RegistrationInfraBondConfigModel
+var RegistrationInfraBondConfigModelAttrTypes = map[string]attr.Type{
+	"interfaces": types.ListType{ElemType: types.StringType},
+	"mode":       types.StringType,
+	"name":       types.StringType,
 }
 
 // RegistrationInfraHwInfoModel represents hw_info block
@@ -561,6 +578,33 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 					},
 				},
 				Blocks: map[string]schema.Block{
+					"bond_config": schema.SingleNestedBlock{
+						MarkdownDescription: "Bond device configuration for VPM registration.",
+						Attributes: map[string]schema.Attribute{
+							"interfaces": schema.ListAttribute{
+								MarkdownDescription: "Member Interfaces. .",
+								Optional:            true,
+								ElementType:         types.StringType,
+								Validators: []validator.List{
+									listvalidator.SizeBetween(1, 8),
+								},
+							},
+							"mode": schema.StringAttribute{
+								MarkdownDescription: "[Enum: BOND_MODE_UNSPECIFIED|ACTIVE_BACKUP|LACP_802_3AD] Bonding mode for bond device configuration Bond mode is not specified Active-backup bond mode (one interface active, others as backup) IEEE 802.3ad Dynamic link aggregation (LACP). Possible values are `BOND_MODE_UNSPECIFIED`, `ACTIVE_BACKUP`, `LACP_802_3AD`. Defaults to `BOND_MODE_UNSPECIFIED`.",
+								Optional:            true,
+								Validators: []validator.String{
+									stringvalidator.OneOf("BOND_MODE_UNSPECIFIED", "ACTIVE_BACKUP", "LACP_802_3AD"),
+								},
+							},
+							"name": schema.StringAttribute{
+								MarkdownDescription: "Bond Name.",
+								Optional:            true,
+								Validators: []validator.String{
+									stringvalidator.LengthBetween(1, 64),
+								},
+							},
+						},
+					},
 					"hw_info": schema.SingleNestedBlock{
 						MarkdownDescription: "OsInfo holds information about host OS and HW.",
 						Attributes: map[string]schema.Attribute{
@@ -1187,6 +1231,23 @@ func (r *RegistrationResource) Create(ctx context.Context, req resource.CreateRe
 		if !data.Infra.AvailabilityZone.IsNull() && !data.Infra.AvailabilityZone.IsUnknown() {
 			InfraMap["availability_zone"] = data.Infra.AvailabilityZone.ValueString()
 		}
+		if data.Infra.BondConfig != nil {
+			InfraBondConfigMap := make(map[string]interface{})
+			if !data.Infra.BondConfig.Interfaces.IsNull() && !data.Infra.BondConfig.Interfaces.IsUnknown() {
+				var InterfacesItems []string
+				diags := data.Infra.BondConfig.Interfaces.ElementsAs(ctx, &InterfacesItems, false)
+				if !diags.HasError() {
+					InfraBondConfigMap["interfaces"] = InterfacesItems
+				}
+			}
+			if !data.Infra.BondConfig.Mode.IsNull() && !data.Infra.BondConfig.Mode.IsUnknown() {
+				InfraBondConfigMap["mode"] = data.Infra.BondConfig.Mode.ValueString()
+			}
+			if !data.Infra.BondConfig.Name.IsNull() && !data.Infra.BondConfig.Name.IsUnknown() {
+				InfraBondConfigMap["name"] = data.Infra.BondConfig.Name.ValueString()
+			}
+			InfraMap["bond_config"] = InfraBondConfigMap
+		}
 		if !data.Infra.CertifiedHw.IsNull() && !data.Infra.CertifiedHw.IsUnknown() {
 			InfraMap["certified_hw"] = data.Infra.CertifiedHw.ValueString()
 		}
@@ -1619,6 +1680,41 @@ func (r *RegistrationResource) Create(ctx context.Context, req resource.CreateRe
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+			BondConfig: func() *RegistrationInfraBondConfigModel {
+				if !isImport && data.Infra != nil && data.Infra.BondConfig != nil {
+					return data.Infra.BondConfig
+				}
+				if BondConfigData, ok := blockData["bond_config"].(map[string]interface{}); ok {
+					return &RegistrationInfraBondConfigModel{
+						Interfaces: func() types.List {
+							if v, ok := BondConfigData["interfaces"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						Mode: func() types.String {
+							if v, ok := BondConfigData["mode"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Name: func() types.String {
+							if v, ok := BondConfigData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
 			}(),
 			CertifiedHw: func() types.String {
 				if v, ok := blockData["certified_hw"].(string); ok && v != "" {
@@ -2607,6 +2703,41 @@ func (r *RegistrationResource) Read(ctx context.Context, req resource.ReadReques
 				}
 				return types.StringNull()
 			}(),
+			BondConfig: func() *RegistrationInfraBondConfigModel {
+				if !isImport && data.Infra != nil && data.Infra.BondConfig != nil {
+					return data.Infra.BondConfig
+				}
+				if BondConfigData, ok := blockData["bond_config"].(map[string]interface{}); ok {
+					return &RegistrationInfraBondConfigModel{
+						Interfaces: func() types.List {
+							if v, ok := BondConfigData["interfaces"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						Mode: func() types.String {
+							if v, ok := BondConfigData["mode"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Name: func() types.String {
+							if v, ok := BondConfigData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
+			}(),
 			CertifiedHw: func() types.String {
 				if v, ok := blockData["certified_hw"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -3537,6 +3668,23 @@ func (r *RegistrationResource) Update(ctx context.Context, req resource.UpdateRe
 		if !data.Infra.AvailabilityZone.IsNull() && !data.Infra.AvailabilityZone.IsUnknown() {
 			InfraMap["availability_zone"] = data.Infra.AvailabilityZone.ValueString()
 		}
+		if data.Infra.BondConfig != nil {
+			InfraBondConfigMap := make(map[string]interface{})
+			if !data.Infra.BondConfig.Interfaces.IsNull() && !data.Infra.BondConfig.Interfaces.IsUnknown() {
+				var InterfacesItems []string
+				diags := data.Infra.BondConfig.Interfaces.ElementsAs(ctx, &InterfacesItems, false)
+				if !diags.HasError() {
+					InfraBondConfigMap["interfaces"] = InterfacesItems
+				}
+			}
+			if !data.Infra.BondConfig.Mode.IsNull() && !data.Infra.BondConfig.Mode.IsUnknown() {
+				InfraBondConfigMap["mode"] = data.Infra.BondConfig.Mode.ValueString()
+			}
+			if !data.Infra.BondConfig.Name.IsNull() && !data.Infra.BondConfig.Name.IsUnknown() {
+				InfraBondConfigMap["name"] = data.Infra.BondConfig.Name.ValueString()
+			}
+			InfraMap["bond_config"] = InfraBondConfigMap
+		}
 		if !data.Infra.CertifiedHw.IsNull() && !data.Infra.CertifiedHw.IsUnknown() {
 			InfraMap["certified_hw"] = data.Infra.CertifiedHw.ValueString()
 		}
@@ -3980,6 +4128,41 @@ func (r *RegistrationResource) Update(ctx context.Context, req resource.UpdateRe
 					return types.StringValue(v)
 				}
 				return types.StringNull()
+			}(),
+			BondConfig: func() *RegistrationInfraBondConfigModel {
+				if !isImport && data.Infra != nil && data.Infra.BondConfig != nil {
+					return data.Infra.BondConfig
+				}
+				if BondConfigData, ok := blockData["bond_config"].(map[string]interface{}); ok {
+					return &RegistrationInfraBondConfigModel{
+						Interfaces: func() types.List {
+							if v, ok := BondConfigData["interfaces"].([]interface{}); ok && len(v) > 0 {
+								var items []string
+								for _, item := range v {
+									if s, ok := item.(string); ok {
+										items = append(items, s)
+									}
+								}
+								listVal, _ := types.ListValueFrom(ctx, types.StringType, items)
+								return listVal
+							}
+							return types.ListNull(types.StringType)
+						}(),
+						Mode: func() types.String {
+							if v, ok := BondConfigData["mode"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+						Name: func() types.String {
+							if v, ok := BondConfigData["name"].(string); ok && v != "" {
+								return types.StringValue(v)
+							}
+							return types.StringNull()
+						}(),
+					}
+				}
+				return nil
 			}(),
 			CertifiedHw: func() types.String {
 				if v, ok := blockData["certified_hw"].(string); ok && v != "" {

@@ -65,7 +65,6 @@ type BGPRoutingPolicyRulesActionModel struct {
 	AsPath          types.String                               `tfsdk:"as_path"`
 	LocalPreference types.Int64                                `tfsdk:"local_preference"`
 	Metric          types.Int64                                `tfsdk:"metric"`
-	Aggregate       *BGPRoutingPolicyEmptyModel                `tfsdk:"aggregate"`
 	Allow           *BGPRoutingPolicyEmptyModel                `tfsdk:"allow"`
 	Community       *BGPRoutingPolicyRulesActionCommunityModel `tfsdk:"community"`
 	Deny            *BGPRoutingPolicyEmptyModel                `tfsdk:"deny"`
@@ -76,7 +75,6 @@ var BGPRoutingPolicyRulesActionModelAttrTypes = map[string]attr.Type{
 	"as_path":          types.StringType,
 	"local_preference": types.Int64Type,
 	"metric":           types.Int64Type,
-	"aggregate":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"allow":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"community":        types.ObjectType{AttrTypes: BGPRoutingPolicyRulesActionCommunityModelAttrTypes},
 	"deny":             types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -224,22 +222,19 @@ func (r *BGPRoutingPolicyResource) Schema(ctx context.Context, req resource.Sche
 							MarkdownDescription: "Action to be enforced if the BGP route matches the rule.",
 							Attributes: map[string]schema.Attribute{
 								"as_path": schema.StringAttribute{
-									MarkdownDescription: "Exclusive with [aggregate allow community deny local_preference metric] AS-Path Prepending is generally used to influence incoming traffic.",
+									MarkdownDescription: "Exclusive with [allow community deny local_preference metric] AS-Path Prepending is generally used to influence incoming traffic.",
 									Optional:            true,
 								},
 								"local_preference": schema.Int64Attribute{
-									MarkdownDescription: "Exclusive with [aggregate allow as_path community deny metric] BGP Local Preference is generally used to influence outgoing traffic.",
+									MarkdownDescription: "Exclusive with [allow as_path community deny metric] BGP Local Preference is generally used to influence outgoing traffic.",
 									Optional:            true,
 								},
 								"metric": schema.Int64Attribute{
-									MarkdownDescription: "Exclusive with [aggregate allow as_path community deny local_preference] The Multi-Exit Discriminator metric to indicate the preferred path to AS.",
+									MarkdownDescription: "Exclusive with [allow as_path community deny local_preference] The Multi-Exit Discriminator metric to indicate the preferred path to AS.",
 									Optional:            true,
 								},
 							},
 							Blocks: map[string]schema.Block{
-								"aggregate": schema.SingleNestedBlock{
-									MarkdownDescription: "Enable this option",
-								},
 								"allow": schema.SingleNestedBlock{
 									MarkdownDescription: "Enable this option",
 								},
@@ -436,9 +431,6 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.Action != nil {
 					RulesActionMap := make(map[string]interface{})
-					if RulesItem.Action.Aggregate != nil {
-						RulesActionMap["aggregate"] = map[string]interface{}{}
-					}
 					if RulesItem.Action.Allow != nil {
 						RulesActionMap["allow"] = map[string]interface{}{}
 					}
@@ -547,15 +539,6 @@ func (r *BGPRoutingPolicyResource) Create(ctx context.Context, req resource.Crea
 					Action: func() *BGPRoutingPolicyRulesActionModel {
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &BGPRoutingPolicyRulesActionModel{
-								Aggregate: func() *BGPRoutingPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
-										return existingRulesItems[listIdx].Action.Aggregate
-									}
-									if _, ok := ActionData["aggregate"].(map[string]interface{}); ok {
-										return &BGPRoutingPolicyEmptyModel{}
-									}
-									return nil
-								}(),
 								Allow: func() *BGPRoutingPolicyEmptyModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
 										return existingRulesItems[listIdx].Action.Allow
@@ -863,15 +846,6 @@ func (r *BGPRoutingPolicyResource) Read(ctx context.Context, req resource.ReadRe
 					Action: func() *BGPRoutingPolicyRulesActionModel {
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &BGPRoutingPolicyRulesActionModel{
-								Aggregate: func() *BGPRoutingPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
-										return existingRulesItems[listIdx].Action.Aggregate
-									}
-									if _, ok := ActionData["aggregate"].(map[string]interface{}); ok {
-										return &BGPRoutingPolicyEmptyModel{}
-									}
-									return nil
-								}(),
 								Allow: func() *BGPRoutingPolicyEmptyModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
 										return existingRulesItems[listIdx].Action.Allow
@@ -1122,9 +1096,6 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 				RulesItemMap := make(map[string]interface{})
 				if RulesItem.Action != nil {
 					RulesActionMap := make(map[string]interface{})
-					if RulesItem.Action.Aggregate != nil {
-						RulesActionMap["aggregate"] = map[string]interface{}{}
-					}
 					if RulesItem.Action.Allow != nil {
 						RulesActionMap["allow"] = map[string]interface{}{}
 					}
@@ -1244,15 +1215,6 @@ func (r *BGPRoutingPolicyResource) Update(ctx context.Context, req resource.Upda
 					Action: func() *BGPRoutingPolicyRulesActionModel {
 						if ActionData, ok := itemMap["action"].(map[string]interface{}); ok {
 							return &BGPRoutingPolicyRulesActionModel{
-								Aggregate: func() *BGPRoutingPolicyEmptyModel {
-									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
-										return existingRulesItems[listIdx].Action.Aggregate
-									}
-									if _, ok := ActionData["aggregate"].(map[string]interface{}); ok {
-										return &BGPRoutingPolicyEmptyModel{}
-									}
-									return nil
-								}(),
 								Allow: func() *BGPRoutingPolicyEmptyModel {
 									if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Action != nil {
 										return existingRulesItems[listIdx].Action.Allow

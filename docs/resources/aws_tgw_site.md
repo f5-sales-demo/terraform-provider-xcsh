@@ -73,7 +73,7 @@ resource "xcsh_aws_tgw_site" "example" {
 -> **One of the following:**
 &#x2022; <a id="direct-connect-disabled"></a>[`direct_connect_disabled`](#direct-connect-disabled) - Optional Block<br>Enable this option
 <br><br>&#x2022; <a id="direct-connect-enabled"></a>[`direct_connect_enabled`](#direct-connect-enabled) - Optional Block<br>Direct Connect Configuration. Direct Connect Configuration<br>See [Direct Connect Enabled](#direct-connect-enabled) below for details.
-<br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>X-displayName: 'Private Connect Configuration' Private Connect Configuration
+<br><br>&#x2022; <a id="private-connectivity"></a>[`private_connectivity`](#private-connectivity) - Optional Block<br>Configuration parameter for private connectivity
 
 <a id="kubernetes-upgrade-drain"></a>&#x2022; [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) - Optional Block<br>Specify how worker nodes within a site will be upgraded<br>See [Kubernetes Upgrade Drain](#kubernetes-upgrade-drain) below for details.
 
@@ -84,7 +84,7 @@ resource "xcsh_aws_tgw_site" "example" {
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
 configuration for upto 7<br>See [Offline Survivability Mode](#offline-survivability-mode) below for details.
 
-<a id="os"></a>&#x2022; [`os`](#os) - Optional Block<br>Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions
+<a id="os"></a>&#x2022; [`os`](#os) - Optional Block<br>Select the F5XC Operating System Version for the site. By default, latest available OS Version will be used. Refer to release notes to find required released OS versions<br>See [OS](#os) below for details.
 
 <a id="performance-enhancement-mode"></a>&#x2022; [`performance_enhancement_mode`](#performance-enhancement-mode) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
 
@@ -132,15 +132,15 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 <a id="aws-parameters-enable-internet-vip"></a>&#x2022; [`enable_internet_vip`](#aws-parameters-enable-internet-vip) - Optional Block<br>Enable this option
 
-<a id="aws-parameters-existing-tgw"></a>&#x2022; [`existing_tgw`](#aws-parameters-existing-tgw) - Optional Block<br>X-displayName: 'Existing TGW Type' Information needed for existing TGW<br>See [Existing TGW](#aws-parameters-existing-tgw) below.
+<a id="aws-parameters-existing-tgw"></a>&#x2022; [`existing_tgw`](#aws-parameters-existing-tgw) - Optional Block<br>Configuration parameter for existing TGW<br>See [Existing TGW](#aws-parameters-existing-tgw) below.
 
 <a id="aws-parameters-f5xc-security-group"></a>&#x2022; [`f5xc_security_group`](#aws-parameters-f5xc-security-group) - Optional Block<br>Enable this option
 
 <a id="aws-parameters-instance-type"></a>&#x2022; [`instance_type`](#aws-parameters-instance-type) - Optional String<br>Instance size based on the performance
 
-<a id="aws-parameters-new-tgw"></a>&#x2022; [`new_tgw`](#aws-parameters-new-tgw) - Optional Block<br>TGWParamsType. X-displayName: 'TGWParamsType'<br>See [New TGW](#aws-parameters-new-tgw) below.
+<a id="aws-parameters-new-tgw"></a>&#x2022; [`new_tgw`](#aws-parameters-new-tgw) - Optional Block<br>TGWParamsType<br>See [New TGW](#aws-parameters-new-tgw) below.
 
-<a id="aws-parameters-new-vpc"></a>&#x2022; [`new_vpc`](#aws-parameters-new-vpc) - Optional Block<br>X-displayName: 'AWS VPC Parameters' Parameters to create new AWS VPC<br>See [New VPC](#aws-parameters-new-vpc) below.
+<a id="aws-parameters-new-vpc"></a>&#x2022; [`new_vpc`](#aws-parameters-new-vpc) - Optional Block<br>AWS VPC Parameters. Parameters to create new AWS VPC<br>See [New VPC](#aws-parameters-new-vpc) below.
 
 <a id="aws-parameters-no-worker-nodes"></a>&#x2022; [`no_worker_nodes`](#aws-parameters-no-worker-nodes) - Optional Block<br>Configuration parameter for no worker nodes
 
@@ -160,18 +160,9 @@ An [`aws_parameters`](#aws-parameters) block supports the following:
 
 An [`admin_password`](#aws-parameters-admin-password) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
-<a id="info-d7b5d3"></a>&#x2022; [`blindfold_secret_info`](#info-d7b5d3) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-d7b5d3) below.
+<a id="info-d7b5d3"></a>&#x2022; [`blindfold_secret_info`](#info-d7b5d3) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-d7b5d3) below.
 
-<a id="internal-bc8d30"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-bc8d30) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info Internal](#internal-bc8d30) below.
-
-<a id="info-fb7899"></a>&#x2022; [`clear_secret_info`](#info-fb7899) - Optional Block<br>X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-fb7899) below.
-
-<a id="type-45ba88"></a>&#x2022; [`secret_encoding_type`](#type-45ba88) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="info-a03c75"></a>&#x2022; [`vault_secret_info`](#info-a03c75) - Optional Block<br>X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault<br>See [Vault Secret Info](#info-a03c75) below.
-
-<a id="info-52a706"></a>&#x2022; [`wingman_secret_info`](#info-52a706) - Optional Block<br>X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret<br>See [Wingman Secret Info](#info-52a706) below.
+<a id="info-fb7899"></a>&#x2022; [`clear_secret_info`](#info-fb7899) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-fb7899) below.
 
 #### AWS Parameters Admin Password Blindfold Secret Info
 
@@ -183,10 +174,6 @@ A [`blindfold_secret_info`](#info-d7b5d3) block (within [`aws_parameters.admin_p
 
 <a id="provider-a4fa33"></a>&#x2022; [`store_provider`](#provider-a4fa33) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-#### AWS Parameters Admin Password Blindfold Secret Info Internal
-
-<a id="deep-1976a3"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### AWS Parameters Admin Password Clear Secret Info
 
 A [`clear_secret_info`](#info-fb7899) block (within [`aws_parameters.admin_password`](#aws-parameters-admin-password)) supports the following:
@@ -194,27 +181,6 @@ A [`clear_secret_info`](#info-fb7899) block (within [`aws_parameters.admin_passw
 <a id="ref-3acced"></a>&#x2022; [`provider_ref`](#ref-3acced) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 <a id="url-af0d7f"></a>&#x2022; [`url`](#url-af0d7f) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
-
-#### AWS Parameters Admin Password Vault Secret Info
-
-A [`vault_secret_info`](#info-a03c75) block (within [`aws_parameters.admin_password`](#aws-parameters-admin-password)) supports the following:
-
-<a id="key-eccd70"></a>&#x2022; [`key`](#key-eccd70) - Optional String<br>X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key
-
-<a id="location-050143"></a>&#x2022; [`location`](#location-050143) - Optional String<br>X-displayName: 'Location'Path to secret in Vault
-
-<a id="ref-6963b7"></a>&#x2022; [`provider_ref`](#ref-6963b7) - Optional String<br>X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault
-
-<a id="encoding-19317d"></a>&#x2022; [`secret_encoding`](#encoding-19317d) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="version-3a669c"></a>&#x2022; [`version`](#version-3a669c) - Optional Number<br>X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned
-
-#### AWS Parameters Admin Password Wingman Secret Info
-
-A [`wingman_secret_info`](#info-52a706) block (within [`aws_parameters.admin_password`](#aws-parameters-admin-password)) supports the following:
-
-<a id="name-c8019b"></a>&#x2022; [`name`](#name-c8019b) - Optional String<br>X-displayName: 'Name'Name of the secret
 
 #### AWS Parameters AWS Cred
 
@@ -280,9 +246,9 @@ A [`workload_subnet`](#aws-parameters-az-nodes-workload-subnet) block (within [`
 
 A [`custom_security_group`](#aws-parameters-custom-security-group) block (within [`aws_parameters`](#aws-parameters)) supports the following:
 
-<a id="group-id-ae4148"></a>&#x2022; [`inside_security_group_id`](#group-id-ae4148) - Optional String<br>X-displayName: 'Inside Security Group ID' Security Group ID to be attached to SLI(Site Local Inside) Interface
+<a id="group-id-ae4148"></a>&#x2022; [`inside_security_group_id`](#group-id-ae4148) - Optional String<br>Security Group ID to be attached to SLI(Site Local Inside) Interface
 
-<a id="group-id-53cd44"></a>&#x2022; [`outside_security_group_id`](#group-id-53cd44) - Optional String<br>X-displayName: 'Outside Security Group ID' Security Group ID to be attached to SLO(Site Local Outside) Interface
+<a id="group-id-53cd44"></a>&#x2022; [`outside_security_group_id`](#group-id-53cd44) - Optional String<br>Security Group ID to be attached to SLO(Site Local Outside) Interface
 
 #### AWS Parameters Enable Encryption
 
@@ -296,9 +262,9 @@ An [`existing_tgw`](#aws-parameters-existing-tgw) block (within [`aws_parameters
 
 <a id="aws-parameters-existing-tgw-tgw-asn"></a>&#x2022; [`tgw_asn`](#aws-parameters-existing-tgw-tgw-asn) - Optional Number<br>Enter TGW ASN. TGW ASN
 
-<a id="aws-parameters-existing-tgw-tgw-id"></a>&#x2022; [`tgw_id`](#aws-parameters-existing-tgw-tgw-id) - Optional String<br>X-displayName: 'Existing TGW ID' Existing TGW ID
+<a id="aws-parameters-existing-tgw-tgw-id"></a>&#x2022; [`tgw_id`](#aws-parameters-existing-tgw-tgw-id) - Optional String<br>Existing TGW ID. Existing TGW ID
 
-<a id="asn-c966c9"></a>&#x2022; [`volterra_site_asn`](#asn-c966c9) - Optional Number<br>X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN
+<a id="asn-c966c9"></a>&#x2022; [`volterra_site_asn`](#asn-c966c9) - Optional Number<br>Enter F5XC Site ASN. F5XC Site ASN
 
 #### AWS Parameters New TGW
 
@@ -312,15 +278,13 @@ A [`new_tgw`](#aws-parameters-new-tgw) block (within [`aws_parameters`](#aws-par
 
 An [`user_assigned`](#aws-parameters-new-tgw-user-assigned) block (within [`aws_parameters.new_tgw`](#aws-parameters-new-tgw)) supports the following:
 
-<a id="asn-773b20"></a>&#x2022; [`tgw_asn`](#asn-773b20) - Optional Number<br>X-displayName: 'Enter TGW ASN' TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534
+<a id="asn-773b20"></a>&#x2022; [`tgw_asn`](#asn-773b20) - Optional Number<br>TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534
 
-<a id="asn-12be2e"></a>&#x2022; [`volterra_site_asn`](#asn-12be2e) - Optional Number<br>X-displayName: 'Enter F5XC Site ASN' F5XC Site ASN
+<a id="asn-12be2e"></a>&#x2022; [`volterra_site_asn`](#asn-12be2e) - Optional Number<br>Enter F5XC Site ASN. F5XC Site ASN
 
 #### AWS Parameters New VPC
 
 A [`new_vpc`](#aws-parameters-new-vpc) block (within [`aws_parameters`](#aws-parameters)) supports the following:
-
-<a id="aws-parameters-new-vpc-allocate-ipv6"></a>&#x2022; [`allocate_ipv6`](#aws-parameters-new-vpc-allocate-ipv6) - Optional Bool<br>X-displayName: 'Allocate IPv6 CIDR block from AWS' Allocate IPv6 CIDR block from AWS
 
 <a id="aws-parameters-new-vpc-autogenerate"></a>&#x2022; [`autogenerate`](#aws-parameters-new-vpc-autogenerate) - Optional Block<br>Configuration parameter for autogenerate
 
@@ -346,14 +310,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
 
 #### Coordinates
 
@@ -460,7 +424,7 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 <a id="enhanced-31b8ac"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-31b8ac) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-31b8ac) below.
 
-<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-38f174) below.
 
 #### Performance Enhancement Mode Perf Mode L3 Enhanced
 
@@ -469,6 +433,14 @@ A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhanc
 <a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
 
 <a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced
+
+A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
+
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
 
 #### Private Connectivity
 

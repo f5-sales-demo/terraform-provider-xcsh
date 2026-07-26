@@ -169,7 +169,27 @@ A [`family_inet`](#peers-external-family-inet) block (within [`peers.external`](
 
 <a id="peers-external-family-inet-disable-spec"></a>&#x2022; [`disable_spec`](#peers-external-family-inet-disable-spec) - Optional Block<br>Enable this option
 
-<a id="peers-external-family-inet-enable"></a>&#x2022; [`enable`](#peers-external-family-inet-enable) - Optional Block<br>Enable this option
+<a id="peers-external-family-inet-enable"></a>&#x2022; [`enable`](#peers-external-family-inet-enable) - Optional Block<br>Unicast IPv4. IPv4 Unicast<br>See [Enable](#peers-external-family-inet-enable) below.
+
+#### Peers External Family Inet Enable
+
+An [`enable`](#peers-external-family-inet-enable) block (within [`peers.external.family_inet`](#peers-external-family-inet)) supports the following:
+
+<a id="aggregation-2d5370"></a>&#x2022; [`aggregation`](#aggregation-2d5370) - Optional Block<br>BGP aggregation prefixes are shared among all peers, aggregation configured under any peer will take effect on all peers. Aggregation in BGP occurs only when more specific routes exist in the routing table and applies to outbound advertisements<br>See [Aggregation](#aggregation-2d5370) below.
+
+#### Peers External Family Inet Enable Aggregation
+
+An [`aggregation`](#aggregation-2d5370) block (within [`peers.external.family_inet.enable`](#peers-external-family-inet-enable)) supports the following:
+
+<a id="prefix-4afbc5"></a>&#x2022; [`ip_prefix`](#prefix-4afbc5) - Optional String<br>IP Prefix. Specify IPv4 subnet for aggregation
+
+<a id="options-053359"></a>&#x2022; [`options`](#options-053359) - Optional Block<br>Aggregation OPTIONS. Configuration parameter for options<br>See [Options](#options-053359) below.
+
+#### Peers External Family Inet Enable Aggregation Options
+
+An [`options`](#options-053359) block (within [`peers.external.family_inet.enable.aggregation`](#aggregation-2d5370)) supports the following:
+
+<a id="only-e69ba2"></a>&#x2022; [`summary_only`](#only-e69ba2) - Optional Block<br>Configuration parameter for summary only
 
 #### Peers External Interface
 

@@ -166,21 +166,9 @@ A [`cluster_wide_apps`](#cluster-wide-app-list-cluster-wide-apps) block (within 
 
 <a id="deep-1b02f5"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain Password Blindfold Secret Info Internal
-
-<a id="deep-9395cb"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain Password Clear Secret Info
 
 <a id="deep-5d2d98"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain Password Vault Secret Info
-
-<a id="deep-bd89e9"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Cluster Wide App List Cluster Wide Apps Argo Cd Local Domain Password Wingman Secret Info
-
-<a id="deep-ba2d15"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Insecure Registry List
 

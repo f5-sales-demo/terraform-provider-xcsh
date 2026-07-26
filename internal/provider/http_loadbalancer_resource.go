@@ -3377,12 +3377,12 @@ var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFinancialServi
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel represents flight block
 type HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel struct {
-	Checking *HTTPLoadBalancerEmptyModel `tfsdk:"checking"`
+	Checkin *HTTPLoadBalancerEmptyModel `tfsdk:"checkin"`
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel
 var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModelAttrTypes = map[string]attr.Type{
-	"checking": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"checkin": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelProfileManagementModel represents profile_management block
@@ -3495,7 +3495,6 @@ var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMetadataModelAttrTypes 
 type HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel struct {
 	Block    *HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel    `tfsdk:"block"`
 	Flag     *HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel     `tfsdk:"flag"`
-	None     *HTTPLoadBalancerEmptyModel                                                   `tfsdk:"none"`
 	Redirect *HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModel `tfsdk:"redirect"`
 }
 
@@ -3503,22 +3502,19 @@ type HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModel struct
 var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationModelAttrTypes = map[string]attr.Type{
 	"block":    types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModelAttrTypes},
 	"flag":     types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModelAttrTypes},
-	"none":     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"redirect": types.ObjectType{AttrTypes: HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationRedirectModelAttrTypes},
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel represents block block
 type HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel struct {
-	Body     types.String `tfsdk:"body"`
-	BodyHash types.String `tfsdk:"body_hash"`
-	Status   types.String `tfsdk:"status"`
+	Body   types.String `tfsdk:"body"`
+	Status types.String `tfsdk:"status"`
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModelAttrTypes defines the attribute types for HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModel
 var HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationBlockModelAttrTypes = map[string]attr.Type{
-	"body":      types.StringType,
-	"body_hash": types.StringType,
-	"status":    types.StringType,
+	"body":   types.StringType,
+	"status": types.StringType,
 }
 
 // HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsMitigationFlagModel represents flag block
@@ -4409,11 +4405,11 @@ type HTTPLoadBalancerDefaultPoolAdvancedOptionsModel struct {
 	CircuitBreaker               *HTTPLoadBalancerDefaultPoolAdvancedOptionsCircuitBreakerModel   `tfsdk:"circuit_breaker"`
 	DefaultCircuitBreaker        *HTTPLoadBalancerEmptyModel                                      `tfsdk:"default_circuit_breaker"`
 	DisableCircuitBreaker        *HTTPLoadBalancerEmptyModel                                      `tfsdk:"disable_circuit_breaker"`
-	DisableLBSourceIPPersistance *HTTPLoadBalancerEmptyModel                                      `tfsdk:"disable_lb_source_ip_persistance"`
+	DisableLBSourceIPPersistence *HTTPLoadBalancerEmptyModel                                      `tfsdk:"disable_lb_source_ip_persistence"`
 	DisableOutlierDetection      *HTTPLoadBalancerEmptyModel                                      `tfsdk:"disable_outlier_detection"`
 	DisableProxyProtocol         *HTTPLoadBalancerEmptyModel                                      `tfsdk:"disable_proxy_protocol"`
 	DisableSubsets               *HTTPLoadBalancerEmptyModel                                      `tfsdk:"disable_subsets"`
-	EnableLBSourceIPPersistance  *HTTPLoadBalancerEmptyModel                                      `tfsdk:"enable_lb_source_ip_persistance"`
+	EnableLBSourceIPPersistence  *HTTPLoadBalancerEmptyModel                                      `tfsdk:"enable_lb_source_ip_persistence"`
 	EnableSubsets                *HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsModel    `tfsdk:"enable_subsets"`
 	Http1Config                  *HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigModel      `tfsdk:"http1_config"`
 	Http2Options                 *HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp2OptionsModel     `tfsdk:"http2_options"`
@@ -4434,11 +4430,11 @@ var HTTPLoadBalancerDefaultPoolAdvancedOptionsModelAttrTypes = map[string]attr.T
 	"circuit_breaker":                  types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolAdvancedOptionsCircuitBreakerModelAttrTypes},
 	"default_circuit_breaker":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_circuit_breaker":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_lb_source_ip_persistance": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_lb_source_ip_persistence": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_outlier_detection":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_proxy_protocol":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_subsets":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_lb_source_ip_persistance":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_lb_source_ip_persistence":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_subsets":                   types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsModelAttrTypes},
 	"http1_config":                     types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp1ConfigModelAttrTypes},
 	"http2_options":                    types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolAdvancedOptionsHttp2OptionsModelAttrTypes},
@@ -5674,8 +5670,6 @@ type HTTPLoadBalancerGraphqlRulesGraphqlSettingsModel struct {
 	MaxBatchedQueries    types.Int64                 `tfsdk:"max_batched_queries"`
 	MaxDepth             types.Int64                 `tfsdk:"max_depth"`
 	MaxTotalLength       types.Int64                 `tfsdk:"max_total_length"`
-	MaxValueLength       types.Int64                 `tfsdk:"max_value_length"`
-	PolicyName           types.String                `tfsdk:"policy_name"`
 	DisableIntrospection *HTTPLoadBalancerEmptyModel `tfsdk:"disable_introspection"`
 	EnableIntrospection  *HTTPLoadBalancerEmptyModel `tfsdk:"enable_introspection"`
 }
@@ -5685,8 +5679,6 @@ var HTTPLoadBalancerGraphqlRulesGraphqlSettingsModelAttrTypes = map[string]attr.
 	"max_batched_queries":   types.Int64Type,
 	"max_depth":             types.Int64Type,
 	"max_total_length":      types.Int64Type,
-	"max_value_length":      types.Int64Type,
-	"policy_name":           types.StringType,
 	"disable_introspection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_introspection":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
@@ -7415,22 +7407,24 @@ var HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecIPPrefixListModelAttrTy
 
 // HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel represents path block
 type HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel struct {
-	ExactValues   types.List `tfsdk:"exact_values"`
-	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
-	PrefixValues  types.List `tfsdk:"prefix_values"`
-	RegexValues   types.List `tfsdk:"regex_values"`
-	SuffixValues  types.List `tfsdk:"suffix_values"`
-	Transformers  types.List `tfsdk:"transformers"`
+	EncodedPathMatcher types.Bool `tfsdk:"encoded_path_matcher"`
+	ExactValues        types.List `tfsdk:"exact_values"`
+	InvertMatcher      types.Bool `tfsdk:"invert_matcher"`
+	PrefixValues       types.List `tfsdk:"prefix_values"`
+	RegexValues        types.List `tfsdk:"regex_values"`
+	SuffixValues       types.List `tfsdk:"suffix_values"`
+	Transformers       types.List `tfsdk:"transformers"`
 }
 
 // HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModelAttrTypes defines the attribute types for HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel
 var HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModelAttrTypes = map[string]attr.Type{
-	"exact_values":   types.ListType{ElemType: types.StringType},
-	"invert_matcher": types.BoolType,
-	"prefix_values":  types.ListType{ElemType: types.StringType},
-	"regex_values":   types.ListType{ElemType: types.StringType},
-	"suffix_values":  types.ListType{ElemType: types.StringType},
-	"transformers":   types.ListType{ElemType: types.StringType},
+	"encoded_path_matcher": types.BoolType,
+	"exact_values":         types.ListType{ElemType: types.StringType},
+	"invert_matcher":       types.BoolType,
+	"prefix_values":        types.ListType{ElemType: types.StringType},
+	"regex_values":         types.ListType{ElemType: types.StringType},
+	"suffix_values":        types.ListType{ElemType: types.StringType},
+	"transformers":         types.ListType{ElemType: types.StringType},
 }
 
 // HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecQueryParamsModel represents query_params block
@@ -9973,7 +9967,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							},
 							Blocks: map[string]schema.Block{
 								"action": schema.SingleNestedBlock{
-									MarkdownDescription: "X-displayName: 'API Protection Rule Action' The action to take if the input request matches the rule.",
+									MarkdownDescription: "The action to take if the input request matches the rule.",
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"allow": schema.SingleNestedBlock{
@@ -10464,7 +10458,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							},
 							Blocks: map[string]schema.Block{
 								"action": schema.SingleNestedBlock{
-									MarkdownDescription: "X-displayName: 'API Protection Rule Action' The action to take if the input request matches the rule.",
+									MarkdownDescription: "The action to take if the input request matches the rule.",
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"allow": schema.SingleNestedBlock{
@@ -11151,10 +11145,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"unit": schema.StringAttribute{
-											MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR|DAY] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`, `DAY`. Defaults to `SECOND`.",
+											MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.OneOf("SECOND", "MINUTE", "HOUR", "DAY"),
+												stringvalidator.OneOf("SECOND", "MINUTE", "HOUR"),
 											},
 										},
 									},
@@ -12210,10 +12204,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"unit": schema.StringAttribute{
-											MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR|DAY] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`, `DAY`. Defaults to `SECOND`.",
+											MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
 											Optional:            true,
 											Validators: []validator.String{
-												stringvalidator.OneOf("SECOND", "MINUTE", "HOUR", "DAY"),
+												stringvalidator.OneOf("SECOND", "MINUTE", "HOUR"),
 											},
 										},
 									},
@@ -13000,7 +12994,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
 								"allow_destructive_methods": schema.BoolAttribute{
-									MarkdownDescription: "Enable to allow API test to execute destructive methods. Be cautious as these can alter or DELETE data.",
+									MarkdownDescription: "Enable to allow API Testing to execute against destructive methods. Use with caution as these may modify or DELETE data.",
 									Optional:            true,
 								},
 								"domain": schema.StringAttribute{
@@ -13310,7 +13304,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -13469,7 +13463,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Insert Bot Defense JavaScript in all pages.",
 								Attributes: map[string]schema.Attribute{
 									"javascript_location": schema.StringAttribute{
-										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -13481,7 +13475,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Insert Bot Defense JavaScript in all pages with the exceptions.",
 								Attributes: map[string]schema.Attribute{
 									"javascript_location": schema.StringAttribute{
-										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+										MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -13664,7 +13658,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
 												"javascript_location": schema.StringAttribute{
-													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -13895,15 +13889,15 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																	MarkdownDescription: "Enable this option",
 																},
 																"transaction_result": schema.SingleNestedBlock{
-																	MarkdownDescription: "X-displayName: 'Bot Defense Transaction Result Type' Bot Defense Transaction ResultType.",
+																	MarkdownDescription: "Bot Defense Transaction Result Type. Bot Defense Transaction ResultType.",
 																	Attributes:          map[string]schema.Attribute{},
 																	Blocks: map[string]schema.Block{
 																		"failure_conditions": schema.ListNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Failure Conditions' Failure Conditions.",
+																			MarkdownDescription: "Failure Conditions. Failure Conditions.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
-																						MarkdownDescription: "X-displayName: 'Header Name' A case-insensitive HTTP header name.",
+																						MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																						Optional:            true,
 																						Validators: []validator.String{
 																							stringvalidator.LengthBetween(1, 63),
@@ -13928,11 +13922,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																			},
 																		},
 																		"success_conditions": schema.ListNestedBlock{
-																			MarkdownDescription: "X-displayName: 'Success Conditions' Success Conditions.",
+																			MarkdownDescription: "Success Conditions. Success Conditions.",
 																			NestedObject: schema.NestedBlockObject{
 																				Attributes: map[string]schema.Attribute{
 																					"name": schema.StringAttribute{
-																						MarkdownDescription: "X-displayName: 'Header Name' A case-insensitive HTTP header name.",
+																						MarkdownDescription: "Header Name. A case-insensitive HTTP header name.",
 																						Optional:            true,
 																						Validators: []validator.String{
 																							stringvalidator.LengthBetween(1, 63),
@@ -13990,7 +13984,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													MarkdownDescription: "Bot Defense Flow Label Flight Category. Bot Defense Flow Label Flight Category.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
-														"checking": schema.SingleNestedBlock{
+														"checkin": schema.SingleNestedBlock{
 															MarkdownDescription: "Enable this option",
 														},
 													},
@@ -14163,10 +14157,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 																stringvalidator.LengthAtMost(4096),
 															},
 														},
-														"body_hash": schema.StringAttribute{
-															MarkdownDescription: "X-displayName: 'Body Hash' Represents the corresponding MD5 Hash for the body message.",
-															Optional:            true,
-														},
 														"status": schema.StringAttribute{
 															MarkdownDescription: "[Enum: EmptyStatusCode|Continue|OK|Created|Accepted|NonAuthoritativeInformation|NoContent|ResetContent|PartialContent|MultiStatus|AlreadyReported|IMUsed|MultipleChoices|MovedPermanently|Found|SeeOther|NotModified|UseProxy|TemporaryRedirect|PermanentRedirect|BadRequest|Unauthorized|PaymentRequired|Forbidden|NotFound|MethodNotAllowed|NotAcceptable|ProxyAuthenticationRequired|RequestTimeout|Conflict|Gone|LengthRequired|PreconditionFailed|PayloadTooLarge|URITooLong|UnsupportedMediaType|RangeNotSatisfiable|ExpectationFailed|MisdirectedRequest|UnprocessableEntity|Locked|FailedDependency|UpgradeRequired|PreconditionRequired|TooManyRequests|RequestHeaderFieldsTooLarge|InternalServerError|NotImplemented|BadGateway|ServiceUnavailable|GatewayTimeout|HTTPVersionNotSupported|VariantAlsoNegotiates|InsufficientStorage|LoopDetected|NotExtended|NetworkAuthenticationRequired] HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status.. Possible values are `EmptyStatusCode`, `Continue`, `OK`, `Created`, `Accepted`, `NonAuthoritativeInformation`, `NoContent`, `ResetContent`, `PartialContent`, `MultiStatus`, `AlreadyReported`, `IMUsed`, `MultipleChoices`, `MovedPermanently`, `Found`, `SeeOther`, `NotModified`, `UseProxy`, `TemporaryRedirect`, `PermanentRedirect`, `BadRequest`, `Unauthorized`, `PaymentRequired`, `Forbidden`, `NotFound`, `MethodNotAllowed`, `NotAcceptable`, `ProxyAuthenticationRequired`, `RequestTimeout`, `Conflict`, `Gone`, `LengthRequired`, `PreconditionFailed`, `PayloadTooLarge`, `URITooLong`, `UnsupportedMediaType`, `RangeNotSatisfiable`, `ExpectationFailed`, `MisdirectedRequest`, `UnprocessableEntity`, `Locked`, `FailedDependency`, `UpgradeRequired`, `PreconditionRequired`, `TooManyRequests`, `RequestHeaderFieldsTooLarge`, `InternalServerError`, `NotImplemented`, `BadGateway`, `ServiceUnavailable`, `GatewayTimeout`, `HTTPVersionNotSupported`, `VariantAlsoNegotiates`, `InsufficientStorage`, `LoopDetected`, `NotExtended`, `NetworkAuthenticationRequired`. Defaults to `EmptyStatusCode`.",
 															Optional:            true,
@@ -14177,11 +14167,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 													},
 												},
 												"flag": schema.SingleNestedBlock{
-													MarkdownDescription: "X-displayName: 'Select Flag Bot Mitigation Action' Flag mitigation action.",
+													MarkdownDescription: "Select Flag Bot Mitigation Action. Flag mitigation action.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"append_headers": schema.SingleNestedBlock{
-															MarkdownDescription: "X-displayName: 'Append Flag Mitigation Headers' Append flag mitigation headers to forwarded request.",
+															MarkdownDescription: "Append flag mitigation headers to forwarded request.",
 															Attributes: map[string]schema.Attribute{
 																"auto_type_header_name": schema.StringAttribute{
 																	MarkdownDescription: "Case-insensitive HTTP header name.",
@@ -14204,11 +14194,8 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 												},
-												"none": schema.SingleNestedBlock{
-													MarkdownDescription: "Enable this option",
-												},
 												"redirect": schema.SingleNestedBlock{
-													MarkdownDescription: "X-displayName: 'Redirect bot mitigation' Redirect request to a custom URI.",
+													MarkdownDescription: "Redirect bot mitigation. Redirect request to a custom URI.",
 													Attributes: map[string]schema.Attribute{
 														"uri": schema.StringAttribute{
 															MarkdownDescription: "URI location for redirect may be relative or absolute.",
@@ -14341,7 +14328,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Insert Bot Defense JavaScript in all pages.",
 						Attributes: map[string]schema.Attribute{
 							"javascript_location": schema.StringAttribute{
-								MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+								MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -14353,7 +14340,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Insert Bot Defense JavaScript in all pages with the exceptions.",
 						Attributes: map[string]schema.Attribute{
 							"javascript_location": schema.StringAttribute{
-								MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+								MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -14536,7 +14523,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
 										"javascript_location": schema.StringAttribute{
-											MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+											MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 											Optional:            true,
 											Validators: []validator.String{
 												stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -15138,7 +15125,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"csrf_policy": schema.SingleNestedBlock{
-				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
+				MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"all_load_balancer_domains": schema.SingleNestedBlock{
@@ -15492,7 +15479,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							"disable_circuit_breaker": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for disable circuit breaker.",
 							},
-							"disable_lb_source_ip_persistance": schema.SingleNestedBlock{
+							"disable_lb_source_ip_persistence": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
 							},
 							"disable_outlier_detection": schema.SingleNestedBlock{
@@ -15504,7 +15491,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							"disable_subsets": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for disable subsets. Defaults to `map[]`. Server applies default when omitted.",
 							},
-							"enable_lb_source_ip_persistance": schema.SingleNestedBlock{
+							"enable_lb_source_ip_persistence": schema.SingleNestedBlock{
 								MarkdownDescription: "Enable this option",
 							},
 							"enable_subsets": schema.SingleNestedBlock{
@@ -15583,7 +15570,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Configuration parameter for no request limit per connection. Defaults to `map[]`. Server applies default when omitted.",
 							},
 							"outlier_detection": schema.SingleNestedBlock{
-								MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1.",
+								MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
 								Attributes: map[string]schema.Attribute{
 									"base_ejection_time": schema.Int64Attribute{
 										MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
@@ -15686,7 +15673,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"consul_service": schema.SingleNestedBlock{
-									MarkdownDescription: "Specify origin server with Hashi Corp Consul service name and site information.",
+									MarkdownDescription: "Specify origin server with HashiCorp Consul service name and site information.",
 									Attributes: map[string]schema.Attribute{
 										"service_name": schema.StringAttribute{
 											MarkdownDescription: "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
@@ -17184,10 +17171,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							MarkdownDescription: "Enable this option",
 						},
 						"graphql_settings": schema.SingleNestedBlock{
-							MarkdownDescription: "X-displayName: 'GraphQL Settings' GraphQL configuration.",
+							MarkdownDescription: "Configuration parameter for graphql settings.",
 							Attributes: map[string]schema.Attribute{
 								"max_batched_queries": schema.Int64Attribute{
-									MarkdownDescription: "X-displayName: 'Maximum Batched Queries'Specify maximum number of queries in a single batched request.",
+									MarkdownDescription: "Specify maximum number of queries in a single batched request.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 20),
@@ -17201,19 +17188,11 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 								"max_total_length": schema.Int64Attribute{
-									MarkdownDescription: "X-displayName: 'Maximum Total Length'Specify maximum length in bytes for the GraphQL query.",
+									MarkdownDescription: "Specify maximum length in bytes for the GraphQL query.",
 									Optional:            true,
 									Validators: []validator.Int64{
 										int64validator.Between(0, 16386),
 									},
-								},
-								"max_value_length": schema.Int64Attribute{
-									MarkdownDescription: "X-displayName: 'Maximum Value Length'Specify maximum value length in bytes for the GraphQL query.",
-									Optional:            true,
-								},
-								"policy_name": schema.StringAttribute{
-									MarkdownDescription: "X-displayName: 'Policy Name' Sets the BD Policy to use.",
-									Optional:            true,
 								},
 							},
 							Blocks: map[string]schema.Block{
@@ -18084,7 +18063,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"action": schema.SingleNestedBlock{
-						MarkdownDescription: "Action. X-displayName: 'Action'",
+						MarkdownDescription: "Action",
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"block": schema.SingleNestedBlock{
@@ -18288,7 +18267,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 							},
 							Blocks: map[string]schema.Block{
 								"action": schema.SingleNestedBlock{
-									MarkdownDescription: "Action. X-displayName: 'Action'",
+									MarkdownDescription: "Action",
 									Attributes:          map[string]schema.Attribute{},
 									Blocks: map[string]schema.Block{
 										"block": schema.SingleNestedBlock{
@@ -19571,6 +19550,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 												"path": schema.SingleNestedBlock{
 													MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
 													Attributes: map[string]schema.Attribute{
+														"encoded_path_matcher": schema.BoolAttribute{
+															MarkdownDescription: "Match against the encoded, escaped path.",
+															Optional:            true,
+														},
 														"exact_values": schema.ListAttribute{
 															MarkdownDescription: "List of exact path values to match the input HTTP path against.",
 															Optional:            true,
@@ -19884,7 +19867,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Tuple consisting of a rate limit period unit and the total number of allowed requests for that period.",
 						Attributes: map[string]schema.Attribute{
 							"burst_multiplier": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Burst Multiplier' The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
+								MarkdownDescription: "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.AtMost(100),
@@ -19902,27 +19885,27 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								},
 							},
 							"total_number": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Number Of Requests'The total number of allowed requests per rate-limiting period.",
+								MarkdownDescription: "The total number of allowed requests per rate-limiting period.",
 								Optional:            true,
 								Validators: []validator.Int64{
 									int64validator.AtMost(8192),
 								},
 							},
 							"unit": schema.StringAttribute{
-								MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR|DAY] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`, `DAY`. Defaults to `SECOND`.",
+								MarkdownDescription: "[Enum: SECOND|MINUTE|HOUR] Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days. Possible values are `SECOND`, `MINUTE`, `HOUR`. Defaults to `SECOND`.",
 								Optional:            true,
 								Validators: []validator.String{
-									stringvalidator.OneOf("SECOND", "MINUTE", "HOUR", "DAY"),
+									stringvalidator.OneOf("SECOND", "MINUTE", "HOUR"),
 								},
 							},
 						},
 						Blocks: map[string]schema.Block{
 							"action_block": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Rate Limit Block Action' Action where a user is blocked from making further requests after exceeding rate limit threshold.",
+								MarkdownDescription: "Action where a user is blocked from making further requests after exceeding rate limit threshold.",
 								Attributes:          map[string]schema.Attribute{},
 								Blocks: map[string]schema.Block{
 									"hours": schema.SingleNestedBlock{
-										MarkdownDescription: "X-displayName: 'Hours' Input Duration Hours.",
+										MarkdownDescription: "Hours. Input Duration Hours.",
 										Attributes: map[string]schema.Attribute{
 											"duration": schema.Int64Attribute{
 												MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -19934,7 +19917,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 									},
 									"minutes": schema.SingleNestedBlock{
-										MarkdownDescription: "X-displayName: 'Minutes' Input Duration Minutes.",
+										MarkdownDescription: "Minutes. Input Duration Minutes.",
 										Attributes: map[string]schema.Attribute{
 											"duration": schema.Int64Attribute{
 												MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -19946,7 +19929,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 									},
 									"seconds": schema.SingleNestedBlock{
-										MarkdownDescription: "X-displayName: 'Seconds' Input Duration Seconds.",
+										MarkdownDescription: "Seconds. Input Duration Seconds.",
 										Attributes: map[string]schema.Attribute{
 											"duration": schema.Int64Attribute{
 												MarkdownDescription: "Duration. Configuration parameter for duration",
@@ -19963,10 +19946,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 								MarkdownDescription: "Enable this option",
 							},
 							"leaky_bucket": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Leaky Bucket Rate Limiter' Leaky-Bucket is the default rate limiter algorithm for F5.",
+								MarkdownDescription: "Leaky-Bucket is the default rate limiter algorithm for F5.",
 							},
 							"token_bucket": schema.SingleNestedBlock{
-								MarkdownDescription: "X-displayName: 'Token Bucket Rate Limiter' Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits.",
+								MarkdownDescription: "Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits.",
 							},
 						},
 					},
@@ -20487,7 +20470,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "Bot Defense Javascript Injection Configuration for inline bot defense deployments.",
 											Attributes: map[string]schema.Attribute{
 												"javascript_location": schema.StringAttribute{
-													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first &lt;script> tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
+													MarkdownDescription: "[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after <HEAD> tag Insert JavaScript after </title> tag. Insert JavaScript before first tag. Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`. Defaults to `AFTER_HEAD`.",
 													Optional:            true,
 													Validators: []validator.String{
 														stringvalidator.OneOf("AFTER_HEAD", "AFTER_TITLE_END", "BEFORE_SCRIPT"),
@@ -20605,7 +20588,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											},
 										},
 										"csrf_policy": schema.SingleNestedBlock{
-											MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to..",
+											MarkdownDescription: "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent..",
 											Attributes:          map[string]schema.Attribute{},
 											Blocks: map[string]schema.Block{
 												"all_load_balancer_domains": schema.SingleNestedBlock{
@@ -21810,7 +21793,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
 						"actions": schema.ListAttribute{
-							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule. Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
+							MarkdownDescription: "[Enum: SKIP_PROCESSING_WAF|SKIP_PROCESSING_BOT|SKIP_PROCESSING_MUM|SKIP_PROCESSING_IP_REPUTATION|SKIP_PROCESSING_API_PROTECTION|SKIP_PROCESSING_OAS_VALIDATION|SKIP_PROCESSING_DDOS_PROTECTION|SKIP_PROCESSING_THREAT_MESH|SKIP_PROCESSING_MALWARE_PROTECTION] Actions that should be taken when client identifier matches the rule . Possible values are `SKIP_PROCESSING_WAF`, `SKIP_PROCESSING_BOT`, `SKIP_PROCESSING_MUM`, `SKIP_PROCESSING_IP_REPUTATION`, `SKIP_PROCESSING_API_PROTECTION`, `SKIP_PROCESSING_OAS_VALIDATION`, `SKIP_PROCESSING_DDOS_PROTECTION`, `SKIP_PROCESSING_THREAT_MESH`, `SKIP_PROCESSING_MALWARE_PROTECTION`. Defaults to `SKIP_PROCESSING_WAF`.",
 							Optional:            true,
 							ElementType:         types.StringType,
 							Validators: []validator.List{
@@ -22211,7 +22194,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Exclusive with [default_rps_threshold] Configure custom RPS threshold.",
 						Optional:            true,
 						Validators: []validator.Int64{
-							int64validator.Between(1, 20000),
+							int64validator.Between(1, 50000),
 						},
 					},
 				},
@@ -25880,8 +25863,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
 								BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
-									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checkin != nil {
+									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checkin"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsFlowLabelMap["flight"] = BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap
 							}
@@ -26033,9 +26016,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 								if !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsUnknown() {
 									BotDefensePolicyProtectedAppEndpointsMitigationBlockMap["body"] = ProtectedAppEndpointsItem.Mitigation.Block.Body.ValueString()
 								}
-								if !ProtectedAppEndpointsItem.Mitigation.Block.BodyHash.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.BodyHash.IsUnknown() {
-									BotDefensePolicyProtectedAppEndpointsMitigationBlockMap["body_hash"] = ProtectedAppEndpointsItem.Mitigation.Block.BodyHash.ValueString()
-								}
 								if !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsUnknown() {
 									BotDefensePolicyProtectedAppEndpointsMitigationBlockMap["status"] = ProtectedAppEndpointsItem.Mitigation.Block.Status.ValueString()
 								}
@@ -26057,9 +26037,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									BotDefensePolicyProtectedAppEndpointsMitigationFlagMap["no_headers"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsMitigationMap["flag"] = BotDefensePolicyProtectedAppEndpointsMitigationFlagMap
-							}
-							if ProtectedAppEndpointsItem.Mitigation.None != nil {
-								BotDefensePolicyProtectedAppEndpointsMitigationMap["none"] = map[string]interface{}{}
 							}
 							if ProtectedAppEndpointsItem.Mitigation.Redirect != nil {
 								BotDefensePolicyProtectedAppEndpointsMitigationRedirectMap := make(map[string]interface{})
@@ -26904,7 +26881,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if data.DefaultPool.AdvancedOptions.DisableCircuitBreaker != nil {
 				DefaultPoolAdvancedOptionsMap["disable_circuit_breaker"] = map[string]interface{}{}
 			}
-			if data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistance != nil {
+			if data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistence != nil {
 				DefaultPoolAdvancedOptionsMap["disable_lb_source_ip_persistance"] = map[string]interface{}{}
 			}
 			if data.DefaultPool.AdvancedOptions.DisableOutlierDetection != nil {
@@ -26916,7 +26893,7 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 			if data.DefaultPool.AdvancedOptions.DisableSubsets != nil {
 				DefaultPoolAdvancedOptionsMap["disable_subsets"] = map[string]interface{}{}
 			}
-			if data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistance != nil {
+			if data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistence != nil {
 				DefaultPoolAdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 			}
 			if data.DefaultPool.AdvancedOptions.EnableSubsets != nil {
@@ -27994,12 +27971,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					if !GraphqlRulesItem.GraphqlSettings.MaxTotalLength.IsNull() && !GraphqlRulesItem.GraphqlSettings.MaxTotalLength.IsUnknown() {
 						GraphqlRulesGraphqlSettingsMap["max_total_length"] = GraphqlRulesItem.GraphqlSettings.MaxTotalLength.ValueInt64()
-					}
-					if !GraphqlRulesItem.GraphqlSettings.MaxValueLength.IsNull() && !GraphqlRulesItem.GraphqlSettings.MaxValueLength.IsUnknown() {
-						GraphqlRulesGraphqlSettingsMap["max_value_length"] = GraphqlRulesItem.GraphqlSettings.MaxValueLength.ValueInt64()
-					}
-					if !GraphqlRulesItem.GraphqlSettings.PolicyName.IsNull() && !GraphqlRulesItem.GraphqlSettings.PolicyName.IsUnknown() {
-						GraphqlRulesGraphqlSettingsMap["policy_name"] = GraphqlRulesItem.GraphqlSettings.PolicyName.ValueString()
 					}
 					GraphqlRulesItemMap["graphql_settings"] = GraphqlRulesGraphqlSettingsMap
 				}
@@ -29708,6 +29679,9 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							if RulesItem.Spec.Path != nil {
 								PolicyBasedChallengeRuleListRulesSpecPathMap := make(map[string]interface{})
+								if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+									PolicyBasedChallengeRuleListRulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+								}
 								if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -38599,11 +38573,11 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checking: func() *HTTPLoadBalancerEmptyModel {
+																	Checkin: func() *HTTPLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkin
 																		}
-																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -38971,12 +38945,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		}
 																		return types.StringNull()
 																	}(),
-																	BodyHash: func() types.String {
-																		if v, ok := BlockData["body_hash"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
 																	Status: func() types.String {
 																		if v, ok := BlockData["status"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -39025,15 +38993,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 																		return nil
 																	}(),
 																}
-															}
-															return nil
-														}(),
-														None: func() *HTTPLoadBalancerEmptyModel {
-															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil {
-																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.None
-															}
-															if _, ok := MitigationData["none"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
@@ -40778,9 +40737,9 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							return nil
 						}(),
-						DisableLBSourceIPPersistance: func() *HTTPLoadBalancerEmptyModel {
+						DisableLBSourceIPPersistence: func() *HTTPLoadBalancerEmptyModel {
 							if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-								return data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistance
+								return data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistence
 							}
 							if _, ok := AdvancedOptionsData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 								return &HTTPLoadBalancerEmptyModel{}
@@ -40814,9 +40773,9 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 							}
 							return nil
 						}(),
-						EnableLBSourceIPPersistance: func() *HTTPLoadBalancerEmptyModel {
+						EnableLBSourceIPPersistence: func() *HTTPLoadBalancerEmptyModel {
 							if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-								return data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistance
+								return data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistence
 							}
 							if _, ok := AdvancedOptionsData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 								return &HTTPLoadBalancerEmptyModel{}
@@ -43143,21 +43102,6 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
-								}(),
-								MaxValueLength: func() types.Int64 {
-									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxValueLength.IsUnknown() {
-										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxValueLength
-									}
-									if v, ok := GraphqlSettingsData["max_value_length"].(float64); ok && v != 0 {
-										return types.Int64Value(int64(v))
-									}
-									return types.Int64Null()
-								}(),
-								PolicyName: func() types.String {
-									if v, ok := GraphqlSettingsData["policy_name"].(string); ok && v != "" {
-										return types.StringValue(v)
-									}
-									return types.StringNull()
 								}(),
 							}
 						}
@@ -46901,6 +46845,15 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
+																	EncodedPathMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+																		}
+																		if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
 																	ExactValues: func() types.List {
 																		if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																			var items []string
@@ -58104,11 +58057,11 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checking: func() *HTTPLoadBalancerEmptyModel {
+																	Checkin: func() *HTTPLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkin
 																		}
-																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -58476,12 +58429,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		}
 																		return types.StringNull()
 																	}(),
-																	BodyHash: func() types.String {
-																		if v, ok := BlockData["body_hash"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
 																	Status: func() types.String {
 																		if v, ok := BlockData["status"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -58530,15 +58477,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 																		return nil
 																	}(),
 																}
-															}
-															return nil
-														}(),
-														None: func() *HTTPLoadBalancerEmptyModel {
-															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil {
-																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.None
-															}
-															if _, ok := MitigationData["none"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
@@ -60283,9 +60221,9 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							return nil
 						}(),
-						DisableLBSourceIPPersistance: func() *HTTPLoadBalancerEmptyModel {
+						DisableLBSourceIPPersistence: func() *HTTPLoadBalancerEmptyModel {
 							if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-								return data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistance
+								return data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistence
 							}
 							if _, ok := AdvancedOptionsData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 								return &HTTPLoadBalancerEmptyModel{}
@@ -60319,9 +60257,9 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 							}
 							return nil
 						}(),
-						EnableLBSourceIPPersistance: func() *HTTPLoadBalancerEmptyModel {
+						EnableLBSourceIPPersistence: func() *HTTPLoadBalancerEmptyModel {
 							if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-								return data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistance
+								return data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistence
 							}
 							if _, ok := AdvancedOptionsData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 								return &HTTPLoadBalancerEmptyModel{}
@@ -62648,21 +62586,6 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
-								}(),
-								MaxValueLength: func() types.Int64 {
-									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxValueLength.IsUnknown() {
-										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxValueLength
-									}
-									if v, ok := GraphqlSettingsData["max_value_length"].(float64); ok && v != 0 {
-										return types.Int64Value(int64(v))
-									}
-									return types.Int64Null()
-								}(),
-								PolicyName: func() types.String {
-									if v, ok := GraphqlSettingsData["policy_name"].(string); ok && v != "" {
-										return types.StringValue(v)
-									}
-									return types.StringNull()
 								}(),
 							}
 						}
@@ -66406,6 +66329,15 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
+																	EncodedPathMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+																		}
+																		if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
 																	ExactValues: func() types.List {
 																		if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																			var items []string
@@ -74053,8 +73985,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							if ProtectedAppEndpointsItem.FlowLabel.Flight != nil {
 								BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap := make(map[string]interface{})
-								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checking != nil {
-									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checking"] = map[string]interface{}{}
+								if ProtectedAppEndpointsItem.FlowLabel.Flight.Checkin != nil {
+									BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap["checkin"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsFlowLabelMap["flight"] = BotDefensePolicyProtectedAppEndpointsFlowLabelFlightMap
 							}
@@ -74206,9 +74138,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 								if !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Body.IsUnknown() {
 									BotDefensePolicyProtectedAppEndpointsMitigationBlockMap["body"] = ProtectedAppEndpointsItem.Mitigation.Block.Body.ValueString()
 								}
-								if !ProtectedAppEndpointsItem.Mitigation.Block.BodyHash.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.BodyHash.IsUnknown() {
-									BotDefensePolicyProtectedAppEndpointsMitigationBlockMap["body_hash"] = ProtectedAppEndpointsItem.Mitigation.Block.BodyHash.ValueString()
-								}
 								if !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsNull() && !ProtectedAppEndpointsItem.Mitigation.Block.Status.IsUnknown() {
 									BotDefensePolicyProtectedAppEndpointsMitigationBlockMap["status"] = ProtectedAppEndpointsItem.Mitigation.Block.Status.ValueString()
 								}
@@ -74230,9 +74159,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									BotDefensePolicyProtectedAppEndpointsMitigationFlagMap["no_headers"] = map[string]interface{}{}
 								}
 								BotDefensePolicyProtectedAppEndpointsMitigationMap["flag"] = BotDefensePolicyProtectedAppEndpointsMitigationFlagMap
-							}
-							if ProtectedAppEndpointsItem.Mitigation.None != nil {
-								BotDefensePolicyProtectedAppEndpointsMitigationMap["none"] = map[string]interface{}{}
 							}
 							if ProtectedAppEndpointsItem.Mitigation.Redirect != nil {
 								BotDefensePolicyProtectedAppEndpointsMitigationRedirectMap := make(map[string]interface{})
@@ -75077,7 +75003,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if data.DefaultPool.AdvancedOptions.DisableCircuitBreaker != nil {
 				DefaultPoolAdvancedOptionsMap["disable_circuit_breaker"] = map[string]interface{}{}
 			}
-			if data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistance != nil {
+			if data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistence != nil {
 				DefaultPoolAdvancedOptionsMap["disable_lb_source_ip_persistance"] = map[string]interface{}{}
 			}
 			if data.DefaultPool.AdvancedOptions.DisableOutlierDetection != nil {
@@ -75089,7 +75015,7 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 			if data.DefaultPool.AdvancedOptions.DisableSubsets != nil {
 				DefaultPoolAdvancedOptionsMap["disable_subsets"] = map[string]interface{}{}
 			}
-			if data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistance != nil {
+			if data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistence != nil {
 				DefaultPoolAdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 			}
 			if data.DefaultPool.AdvancedOptions.EnableSubsets != nil {
@@ -76167,12 +76093,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					if !GraphqlRulesItem.GraphqlSettings.MaxTotalLength.IsNull() && !GraphqlRulesItem.GraphqlSettings.MaxTotalLength.IsUnknown() {
 						GraphqlRulesGraphqlSettingsMap["max_total_length"] = GraphqlRulesItem.GraphqlSettings.MaxTotalLength.ValueInt64()
-					}
-					if !GraphqlRulesItem.GraphqlSettings.MaxValueLength.IsNull() && !GraphqlRulesItem.GraphqlSettings.MaxValueLength.IsUnknown() {
-						GraphqlRulesGraphqlSettingsMap["max_value_length"] = GraphqlRulesItem.GraphqlSettings.MaxValueLength.ValueInt64()
-					}
-					if !GraphqlRulesItem.GraphqlSettings.PolicyName.IsNull() && !GraphqlRulesItem.GraphqlSettings.PolicyName.IsUnknown() {
-						GraphqlRulesGraphqlSettingsMap["policy_name"] = GraphqlRulesItem.GraphqlSettings.PolicyName.ValueString()
 					}
 					GraphqlRulesItemMap["graphql_settings"] = GraphqlRulesGraphqlSettingsMap
 				}
@@ -77881,6 +77801,9 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							if RulesItem.Spec.Path != nil {
 								PolicyBasedChallengeRuleListRulesSpecPathMap := make(map[string]interface{})
+								if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+									PolicyBasedChallengeRuleListRulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+								}
 								if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 									var ExactValuesItems []string
 									diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -86790,11 +86713,11 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															}
 															if FlightData, ok := FlowLabelData["flight"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerBotDefensePolicyProtectedAppEndpointsFlowLabelFlightModel{
-																	Checking: func() *HTTPLoadBalancerEmptyModel {
+																	Checkin: func() *HTTPLoadBalancerEmptyModel {
 																		if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel != nil && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight != nil {
-																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checking
+																			return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].FlowLabel.Flight.Checkin
 																		}
-																		if _, ok := FlightData["checking"].(map[string]interface{}); ok {
+																		if _, ok := FlightData["checkin"].(map[string]interface{}); ok {
 																			return &HTTPLoadBalancerEmptyModel{}
 																		}
 																		return nil
@@ -87162,12 +87085,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		}
 																		return types.StringNull()
 																	}(),
-																	BodyHash: func() types.String {
-																		if v, ok := BlockData["body_hash"].(string); ok && v != "" {
-																			return types.StringValue(v)
-																		}
-																		return types.StringNull()
-																	}(),
 																	Status: func() types.String {
 																		if v, ok := BlockData["status"].(string); ok && v != "" {
 																			return types.StringValue(v)
@@ -87216,15 +87133,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 																		return nil
 																	}(),
 																}
-															}
-															return nil
-														}(),
-														None: func() *HTTPLoadBalancerEmptyModel {
-															if !isImport && len(ProtectedAppEndpointsExisting) > ProtectedAppEndpointsIdx && ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation != nil {
-																return ProtectedAppEndpointsExisting[ProtectedAppEndpointsIdx].Mitigation.None
-															}
-															if _, ok := MitigationData["none"].(map[string]interface{}); ok {
-																return &HTTPLoadBalancerEmptyModel{}
 															}
 															return nil
 														}(),
@@ -88969,9 +88877,9 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							return nil
 						}(),
-						DisableLBSourceIPPersistance: func() *HTTPLoadBalancerEmptyModel {
+						DisableLBSourceIPPersistence: func() *HTTPLoadBalancerEmptyModel {
 							if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-								return data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistance
+								return data.DefaultPool.AdvancedOptions.DisableLBSourceIPPersistence
 							}
 							if _, ok := AdvancedOptionsData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 								return &HTTPLoadBalancerEmptyModel{}
@@ -89005,9 +88913,9 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 							}
 							return nil
 						}(),
-						EnableLBSourceIPPersistance: func() *HTTPLoadBalancerEmptyModel {
+						EnableLBSourceIPPersistence: func() *HTTPLoadBalancerEmptyModel {
 							if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil {
-								return data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistance
+								return data.DefaultPool.AdvancedOptions.EnableLBSourceIPPersistence
 							}
 							if _, ok := AdvancedOptionsData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 								return &HTTPLoadBalancerEmptyModel{}
@@ -91334,21 +91242,6 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										return types.Int64Value(int64(v))
 									}
 									return types.Int64Null()
-								}(),
-								MaxValueLength: func() types.Int64 {
-									if !isImport && len(existingGraphqlRulesItems) > listIdx && existingGraphqlRulesItems[listIdx].GraphqlSettings != nil && !existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxValueLength.IsUnknown() {
-										return existingGraphqlRulesItems[listIdx].GraphqlSettings.MaxValueLength
-									}
-									if v, ok := GraphqlSettingsData["max_value_length"].(float64); ok && v != 0 {
-										return types.Int64Value(int64(v))
-									}
-									return types.Int64Null()
-								}(),
-								PolicyName: func() types.String {
-									if v, ok := GraphqlSettingsData["policy_name"].(string); ok && v != "" {
-										return types.StringValue(v)
-									}
-									return types.StringNull()
 								}(),
 							}
 						}
@@ -95092,6 +94985,15 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 															}
 															if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 																return &HTTPLoadBalancerPolicyBasedChallengeRuleListRulesSpecPathModel{
+																	EncodedPathMatcher: func() types.Bool {
+																		if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																			return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+																		}
+																		if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																			return types.BoolValue(v)
+																		}
+																		return types.BoolNull()
+																	}(),
 																	ExactValues: func() types.List {
 																		if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																			var items []string

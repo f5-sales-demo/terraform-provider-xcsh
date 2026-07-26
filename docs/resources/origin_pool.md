@@ -304,7 +304,7 @@ Breaker](#advanced-options-circuit-breaker) below.
 
 <a id="breaker-222fdc"></a>&#x2022; [`disable_circuit_breaker`](#breaker-222fdc) - Optional Block<br>Configuration parameter for disable circuit breaker
 
-<a id="persistance-1139ff"></a>&#x2022; [`disable_lb_source_ip_persistance`](#persistance-1139ff) - Optional Block<br>Enable this option
+<a id="persistence-6480b1"></a>&#x2022; [`disable_lb_source_ip_persistence`](#persistence-6480b1) - Optional Block<br>Enable this option
 
 <a id="detection-c26369"></a>&#x2022; [`disable_outlier_detection`](#detection-c26369) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable outlier detection.  Server applies default when omitted
 
@@ -312,7 +312,7 @@ Breaker](#advanced-options-circuit-breaker) below.
 
 <a id="advanced-options-disable-subsets"></a>&#x2022; [`disable_subsets`](#advanced-options-disable-subsets) - Optional Block  Defaults to `map[]`<br>Configuration parameter for disable subsets.  Server applies default when omitted
 
-<a id="persistance-62e70d"></a>&#x2022; [`enable_lb_source_ip_persistance`](#persistance-62e70d) - Optional Block<br>Enable this option
+<a id="persistence-cbaef1"></a>&#x2022; [`enable_lb_source_ip_persistence`](#persistence-cbaef1) - Optional Block<br>Enable this option
 
 <a id="advanced-options-enable-subsets"></a>&#x2022; [`enable_subsets`](#advanced-options-enable-subsets) - Optional Block<br>Configure subset OPTIONS for origin pool<br>See [Enable Subsets](#advanced-options-enable-subsets) below.
 
@@ -329,7 +329,7 @@ Breaker](#advanced-options-circuit-breaker) below.
 <a id="connection-9ed841"></a>&#x2022; [`no_request_limit_per_connection`](#connection-9ed841) - Optional Block  Defaults to `map[]`<br>Configuration parameter for no request limit per connection.  Server applies default when omitted
 
 <a id="advanced-options-outlier-detection"></a>&#x2022; [`outlier_detection`](#advanced-options-outlier-detection) - Optional Block<br>Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health
-checkingg. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
+checking. Algorithm 1<br>See [Outlier Detection](#advanced-options-outlier-detection) below.
 
 <a id="advanced-options-panic-threshold"></a>&#x2022; [`panic_threshold`](#advanced-options-panic-threshold) - Optional Number<br>Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status
 
@@ -429,7 +429,7 @@ An [`origin_servers`](#origin-servers) block supports the following:
 
 <a id="origin-servers-cbip-service"></a>&#x2022; [`cbip_service`](#origin-servers-cbip-service) - Optional Block<br>Specify origin server with Classic BIG-IP Service (Virtual Server)<br>See [Cbip Service](#origin-servers-cbip-service) below.
 
-<a id="origin-servers-consul-service"></a>&#x2022; [`consul_service`](#origin-servers-consul-service) - Optional Block<br>Specify origin server with Hashi Corp Consul service name and site information<br>See [Consul Service](#origin-servers-consul-service) below.
+<a id="origin-servers-consul-service"></a>&#x2022; [`consul_service`](#origin-servers-consul-service) - Optional Block<br>Specify origin server with HashiCorp Consul service name and site information<br>See [Consul Service](#origin-servers-consul-service) below.
 
 <a id="origin-servers-custom-endpoint-object"></a>&#x2022; [`custom_endpoint_object`](#origin-servers-custom-endpoint-object) - Optional Block<br>Specify origin server with a reference to endpoint object<br>See [Custom Endpoint Object](#origin-servers-custom-endpoint-object) below.
 

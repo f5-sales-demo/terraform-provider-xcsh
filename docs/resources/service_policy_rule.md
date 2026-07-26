@@ -108,6 +108,8 @@ criteria are satisfied
 
 <a id="label-matcher"></a>&#x2022; [`label_matcher`](#label-matcher) - Optional Block<br>Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name<br>See [Label Matcher](#label-matcher) below for details.
 
+<a id="log-rule-evaluation"></a>&#x2022; [`log_rule_evaluation`](#log-rule-evaluation) - Optional Bool<br>Log the rule match details along with the request and continue to evaluate rules in the sequence
+
 <a id="mum-action"></a>&#x2022; [`mum_action`](#mum-action) - Optional Block<br>Modify behavior for a matching request. The modification could be to entirely skip processing<br>See [Mum Action](#mum-action) below for details.
 
 <a id="path"></a>&#x2022; [`path`](#path) - Optional Block<br>Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions<br>See [Path](#path) below for details.
@@ -372,6 +374,8 @@ A [`mum_action`](#mum-action) block supports the following:
 
 A [`path`](#path) block supports the following:
 
+<a id="path-encoded-path-matcher"></a>&#x2022; [`encoded_path_matcher`](#path-encoded-path-matcher) - Optional Bool<br>Match against the encoded, escaped path
+
 <a id="path-exact-values"></a>&#x2022; [`exact_values`](#path-exact-values) - Optional List<br>List of exact path values to match the input HTTP path against
 
 <a id="path-invert-matcher"></a>&#x2022; [`invert_matcher`](#path-invert-matcher) - Optional Bool<br>Invert Path Matcher. Invert the match result
@@ -478,19 +482,19 @@ A [`segment_policy`](#segment-policy) block supports the following:
 
 <a id="segment-policy-dst-any"></a>&#x2022; [`dst_any`](#segment-policy-dst-any) - Optional Block<br>Enable this option
 
-<a id="segment-policy-dst-segments"></a>&#x2022; [`dst_segments`](#segment-policy-dst-segments) - Optional Block<br>X-displayName: 'Segment List' List of references to Segments<br>See [Dst Segments](#segment-policy-dst-segments) below.
+<a id="segment-policy-dst-segments"></a>&#x2022; [`dst_segments`](#segment-policy-dst-segments) - Optional Block<br>Configuration parameter for dst segments<br>See [Dst Segments](#segment-policy-dst-segments) below.
 
 <a id="segment-policy-intra-segment"></a>&#x2022; [`intra_segment`](#segment-policy-intra-segment) - Optional Block<br>Configuration parameter for intra segment
 
 <a id="segment-policy-src-any"></a>&#x2022; [`src_any`](#segment-policy-src-any) - Optional Block<br>Enable this option
 
-<a id="segment-policy-src-segments"></a>&#x2022; [`src_segments`](#segment-policy-src-segments) - Optional Block<br>X-displayName: 'Segment List' List of references to Segments<br>See [Src Segments](#segment-policy-src-segments) below.
+<a id="segment-policy-src-segments"></a>&#x2022; [`src_segments`](#segment-policy-src-segments) - Optional Block<br>Configuration parameter for src segments<br>See [Src Segments](#segment-policy-src-segments) below.
 
 #### Segment Policy Dst Segments
 
 A [`dst_segments`](#segment-policy-dst-segments) block (within [`segment_policy`](#segment-policy)) supports the following:
 
-<a id="segment-policy-dst-segments-segments"></a>&#x2022; [`segments`](#segment-policy-dst-segments-segments) - Optional Block<br>X-displayName: 'Segments'Select list of segments<br>See [Segments](#segment-policy-dst-segments-segments) below.
+<a id="segment-policy-dst-segments-segments"></a>&#x2022; [`segments`](#segment-policy-dst-segments-segments) - Optional Block<br>Segments. Select list of segments<br>See [Segments](#segment-policy-dst-segments-segments) below.
 
 #### Segment Policy Dst Segments Segments
 
@@ -506,7 +510,7 @@ A [`segments`](#segment-policy-dst-segments-segments) block (within [`segment_po
 
 A [`src_segments`](#segment-policy-src-segments) block (within [`segment_policy`](#segment-policy)) supports the following:
 
-<a id="segment-policy-src-segments-segments"></a>&#x2022; [`segments`](#segment-policy-src-segments-segments) - Optional Block<br>X-displayName: 'Segments'Select list of segments<br>See [Segments](#segment-policy-src-segments-segments) below.
+<a id="segment-policy-src-segments-segments"></a>&#x2022; [`segments`](#segment-policy-src-segments-segments) - Optional Block<br>Segments. Select list of segments<br>See [Segments](#segment-policy-src-segments-segments) below.
 
 #### Segment Policy Src Segments Segments
 

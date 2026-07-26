@@ -1069,6 +1069,18 @@ var GlobalLogReceiverQradarReceiverUseTLSMtlsEnableKeyURLClearSecretInfoModelAtt
 	"url":          types.StringType,
 }
 
+// GlobalLogReceiverRequestLogsModel represents request_logs block
+type GlobalLogReceiverRequestLogsModel struct {
+	Sampled   *GlobalLogReceiverEmptyModel `tfsdk:"sampled"`
+	Unsampled *GlobalLogReceiverEmptyModel `tfsdk:"unsampled"`
+}
+
+// GlobalLogReceiverRequestLogsModelAttrTypes defines the attribute types for GlobalLogReceiverRequestLogsModel
+var GlobalLogReceiverRequestLogsModelAttrTypes = map[string]attr.Type{
+	"sampled":   types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"unsampled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 // GlobalLogReceiverS3ReceiverModel represents s3_receiver block
 type GlobalLogReceiverS3ReceiverModel struct {
 	AWSRegion       types.String                                     `tfsdk:"aws_region"`
@@ -1387,7 +1399,7 @@ type GlobalLogReceiverResourceModel struct {
 	NsAll                  *GlobalLogReceiverEmptyModel                  `tfsdk:"ns_all"`
 	NsList                 *GlobalLogReceiverNsListModel                 `tfsdk:"ns_list"`
 	QradarReceiver         *GlobalLogReceiverQradarReceiverModel         `tfsdk:"qradar_receiver"`
-	RequestLogs            *GlobalLogReceiverEmptyModel                  `tfsdk:"request_logs"`
+	RequestLogs            *GlobalLogReceiverRequestLogsModel            `tfsdk:"request_logs"`
 	S3Receiver             *GlobalLogReceiverS3ReceiverModel             `tfsdk:"s3_receiver"`
 	SecurityEvents         *GlobalLogReceiverEmptyModel                  `tfsdk:"security_events"`
 	SplunkReceiver         *GlobalLogReceiverSplunkReceiverModel         `tfsdk:"splunk_receiver"`
@@ -2723,7 +2735,16 @@ func (r *GlobalLogReceiverResource) Schema(ctx context.Context, req resource.Sch
 				},
 			},
 			"request_logs": schema.SingleNestedBlock{
-				MarkdownDescription: "Configuration parameter for request logs.",
+				MarkdownDescription: "Configuration for request logs with sampling choice. Allows selection between sampled (default) or unsampled (full) request logs.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"sampled": schema.SingleNestedBlock{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+					},
+					"unsampled": schema.SingleNestedBlock{
+						MarkdownDescription: "Enable this option",
+					},
+				},
 			},
 			"s3_receiver": schema.SingleNestedBlock{
 				MarkdownDescription: "S3 Configuration for Global Log Receiver.",
@@ -4028,7 +4049,14 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 		createReq.Spec["qradar_receiver"] = QradarReceiverMap
 	}
 	if data.RequestLogs != nil {
-		createReq.Spec["request_logs"] = map[string]interface{}{}
+		RequestLogsMap := make(map[string]interface{})
+		if data.RequestLogs.Sampled != nil {
+			RequestLogsMap["sampled"] = map[string]interface{}{}
+		}
+		if data.RequestLogs.Unsampled != nil {
+			RequestLogsMap["unsampled"] = map[string]interface{}{}
+		}
+		createReq.Spec["request_logs"] = RequestLogsMap
 	}
 	if data.S3Receiver != nil {
 		S3ReceiverMap := make(map[string]interface{})
@@ -6266,8 +6294,27 @@ func (r *GlobalLogReceiverResource) Create(ctx context.Context, req resource.Cre
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && isImport && data.RequestLogs == nil {
-		data.RequestLogs = &GlobalLogReceiverEmptyModel{}
+	if blockData, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && (isImport || data.RequestLogs != nil) {
+		data.RequestLogs = &GlobalLogReceiverRequestLogsModel{
+			Sampled: func() *GlobalLogReceiverEmptyModel {
+				if !isImport && data.RequestLogs != nil {
+					return data.RequestLogs.Sampled
+				}
+				if _, ok := blockData["sampled"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverEmptyModel{}
+				}
+				return nil
+			}(),
+			Unsampled: func() *GlobalLogReceiverEmptyModel {
+				if !isImport && data.RequestLogs != nil {
+					return data.RequestLogs.Unsampled
+				}
+				if _, ok := blockData["unsampled"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
 		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{
@@ -8930,8 +8977,27 @@ func (r *GlobalLogReceiverResource) Read(ctx context.Context, req resource.ReadR
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && isImport && data.RequestLogs == nil {
-		data.RequestLogs = &GlobalLogReceiverEmptyModel{}
+	if blockData, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && (isImport || data.RequestLogs != nil) {
+		data.RequestLogs = &GlobalLogReceiverRequestLogsModel{
+			Sampled: func() *GlobalLogReceiverEmptyModel {
+				if !isImport && data.RequestLogs != nil {
+					return data.RequestLogs.Sampled
+				}
+				if _, ok := blockData["sampled"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverEmptyModel{}
+				}
+				return nil
+			}(),
+			Unsampled: func() *GlobalLogReceiverEmptyModel {
+				if !isImport && data.RequestLogs != nil {
+					return data.RequestLogs.Unsampled
+				}
+				if _, ok := blockData["unsampled"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
 		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{
@@ -10385,7 +10451,14 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 		apiResource.Spec["qradar_receiver"] = QradarReceiverMap
 	}
 	if data.RequestLogs != nil {
-		apiResource.Spec["request_logs"] = map[string]interface{}{}
+		RequestLogsMap := make(map[string]interface{})
+		if data.RequestLogs.Sampled != nil {
+			RequestLogsMap["sampled"] = map[string]interface{}{}
+		}
+		if data.RequestLogs.Unsampled != nil {
+			RequestLogsMap["unsampled"] = map[string]interface{}{}
+		}
+		apiResource.Spec["request_logs"] = RequestLogsMap
 	}
 	if data.S3Receiver != nil {
 		S3ReceiverMap := make(map[string]interface{})
@@ -12634,8 +12707,27 @@ func (r *GlobalLogReceiverResource) Update(ctx context.Context, req resource.Upd
 			}(),
 		}
 	}
-	if _, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && isImport && data.RequestLogs == nil {
-		data.RequestLogs = &GlobalLogReceiverEmptyModel{}
+	if blockData, ok := apiResource.Spec["request_logs"].(map[string]interface{}); ok && (isImport || data.RequestLogs != nil) {
+		data.RequestLogs = &GlobalLogReceiverRequestLogsModel{
+			Sampled: func() *GlobalLogReceiverEmptyModel {
+				if !isImport && data.RequestLogs != nil {
+					return data.RequestLogs.Sampled
+				}
+				if _, ok := blockData["sampled"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverEmptyModel{}
+				}
+				return nil
+			}(),
+			Unsampled: func() *GlobalLogReceiverEmptyModel {
+				if !isImport && data.RequestLogs != nil {
+					return data.RequestLogs.Unsampled
+				}
+				if _, ok := blockData["unsampled"].(map[string]interface{}); ok {
+					return &GlobalLogReceiverEmptyModel{}
+				}
+				return nil
+			}(),
+		}
 	}
 	if blockData, ok := apiResource.Spec["s3_receiver"].(map[string]interface{}); ok && (isImport || data.S3Receiver != nil) {
 		data.S3Receiver = &GlobalLogReceiverS3ReceiverModel{

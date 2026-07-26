@@ -47,6 +47,102 @@ type APIDiscoveryResource struct {
 type APIDiscoveryEmptyModel struct {
 }
 
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyModel represents user_defined_api_discovery_policy block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyModel struct {
+	DiscoveryRules types.List                                               `tfsdk:"discovery_rules"`
+	Exclusive      *APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel `tfsdk:"exclusive"`
+	Inclusive      *APIDiscoveryEmptyModel                                  `tfsdk:"inclusive"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyModelAttrTypes = map[string]attr.Type{
+	"discovery_rules": types.ListType{ElemType: types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes}},
+	"exclusive":       types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModelAttrTypes},
+	"inclusive":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel represents discovery_rules block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel struct {
+	Labels         *APIDiscoveryEmptyModel                                                     `tfsdk:"labels"`
+	Metadata       *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel       `tfsdk:"metadata"`
+	RuleProperties *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel `tfsdk:"rule_properties"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes = map[string]attr.Type{
+	"labels":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"metadata":        types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModelAttrTypes},
+	"rule_properties": types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModelAttrTypes},
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel represents metadata block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel struct {
+	DescriptionSpec types.String `tfsdk:"description_spec"`
+	Name            types.String `tfsdk:"name"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModelAttrTypes = map[string]attr.Type{
+	"description_spec": types.StringType,
+	"name":             types.StringType,
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel represents rule_properties block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel struct {
+	Pattern            types.String                                                                                  `tfsdk:"pattern"`
+	Exclusion          *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel          `tfsdk:"exclusion"`
+	HTTPHeaderCriteria *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel `tfsdk:"http_header_criteria"`
+	Inclusion          *APIDiscoveryEmptyModel                                                                       `tfsdk:"inclusion"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModelAttrTypes = map[string]attr.Type{
+	"pattern":              types.StringType,
+	"exclusion":            types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModelAttrTypes},
+	"http_header_criteria": types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModelAttrTypes},
+	"inclusion":            types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel represents exclusion block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel struct {
+	Archive *APIDiscoveryEmptyModel `tfsdk:"archive"`
+	Ignore  *APIDiscoveryEmptyModel `tfsdk:"ignore"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModelAttrTypes = map[string]attr.Type{
+	"archive": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ignore":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel represents http_header_criteria block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel struct {
+	FieldName types.String `tfsdk:"field_name"`
+	Location  types.String `tfsdk:"location"`
+	MatchType types.String `tfsdk:"match_type"`
+	Value     types.String `tfsdk:"value"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModelAttrTypes = map[string]attr.Type{
+	"field_name": types.StringType,
+	"location":   types.StringType,
+	"match_type": types.StringType,
+	"value":      types.StringType,
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel represents exclusive block
+type APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel struct {
+	Archive *APIDiscoveryEmptyModel `tfsdk:"archive"`
+	Ignore  *APIDiscoveryEmptyModel `tfsdk:"ignore"`
+}
+
+// APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel
+var APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModelAttrTypes = map[string]attr.Type{
+	"archive": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"ignore":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
 // APIDiscoveryCustomAuthTypesModel represents custom_auth_types block
 type APIDiscoveryCustomAuthTypesModel struct {
 	ParameterName types.String `tfsdk:"parameter_name"`
@@ -60,15 +156,16 @@ var APIDiscoveryCustomAuthTypesModelAttrTypes = map[string]attr.Type{
 }
 
 type APIDiscoveryResourceModel struct {
-	Name            types.String   `tfsdk:"name"`
-	Namespace       types.String   `tfsdk:"namespace"`
-	Annotations     types.Map      `tfsdk:"annotations"`
-	Description     types.String   `tfsdk:"description"`
-	Disable         types.Bool     `tfsdk:"disable"`
-	Labels          types.Map      `tfsdk:"labels"`
-	ID              types.String   `tfsdk:"id"`
-	Timeouts        timeouts.Value `tfsdk:"timeouts"`
-	CustomAuthTypes types.List     `tfsdk:"custom_auth_types"`
+	Name                          types.String                                    `tfsdk:"name"`
+	Namespace                     types.String                                    `tfsdk:"namespace"`
+	Annotations                   types.Map                                       `tfsdk:"annotations"`
+	Description                   types.String                                    `tfsdk:"description"`
+	Disable                       types.Bool                                      `tfsdk:"disable"`
+	Labels                        types.Map                                       `tfsdk:"labels"`
+	ID                            types.String                                    `tfsdk:"id"`
+	Timeouts                      timeouts.Value                                  `tfsdk:"timeouts"`
+	UserDefinedAPIDiscoveryPolicy *APIDiscoveryUserDefinedAPIDiscoveryPolicyModel `tfsdk:"user_defined_api_discovery_policy"`
+	CustomAuthTypes               types.List                                      `tfsdk:"custom_auth_types"`
 }
 
 func (r *APIDiscoveryResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
@@ -132,6 +229,119 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 				Update: true,
 				Delete: true,
 			}),
+			"user_defined_api_discovery_policy": schema.SingleNestedBlock{
+				MarkdownDescription: "Rules are evaluated sequentially, top to bottom. If no rules are added, all traffic will be discovered or ignored based on the selection in the 'Default Behaviour of the Rule Set' field.",
+				Attributes:          map[string]schema.Attribute{},
+				Blocks: map[string]schema.Block{
+					"discovery_rules": schema.ListNestedBlock{
+						MarkdownDescription: "Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action. Defaults to `[]`. Server applies default when omitted.",
+						NestedObject: schema.NestedBlockObject{
+							Attributes: map[string]schema.Attribute{},
+							Blocks: map[string]schema.Block{
+								"labels": schema.SingleNestedBlock{
+									MarkdownDescription: "Map of string keys and values that can be used to organize and categorize the rule.",
+								},
+								"metadata": schema.SingleNestedBlock{
+									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
+									Attributes: map[string]schema.Attribute{
+										"description_spec": schema.StringAttribute{
+											MarkdownDescription: "Description. Human readable description.",
+											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.LengthAtMost(256),
+											},
+										},
+										"name": schema.StringAttribute{
+											MarkdownDescription: "Name of the message. The value of name has to follow DNS-1035 format.",
+											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.LengthBetween(1, 63),
+											},
+										},
+									},
+								},
+								"rule_properties": schema.SingleNestedBlock{
+									MarkdownDescription: "Determines whether matching endpoints are included in API Discovery or excluded.",
+									Attributes: map[string]schema.Attribute{
+										"pattern": schema.StringAttribute{
+											MarkdownDescription: "Exclusive with [http_header_criteria] Patterns are matched against the request path to identify endpoints by path structure, file extension, or version prefix. Endpoints that match this pattern are affected by the rule.",
+											Optional:            true,
+											Validators: []validator.String{
+												stringvalidator.LengthAtMost(512),
+											},
+										},
+									},
+									Blocks: map[string]schema.Block{
+										"exclusion": schema.SingleNestedBlock{
+											MarkdownDescription: "Exclusion Configuration. Configuration for exclusion action.",
+											Attributes:          map[string]schema.Attribute{},
+											Blocks: map[string]schema.Block{
+												"archive": schema.SingleNestedBlock{
+													MarkdownDescription: "Enable this option",
+												},
+												"ignore": schema.SingleNestedBlock{
+													MarkdownDescription: "Enable this option",
+												},
+											},
+										},
+										"http_header_criteria": schema.SingleNestedBlock{
+											MarkdownDescription: "Configuration parameter for http header criteria.",
+											Attributes: map[string]schema.Attribute{
+												"field_name": schema.StringAttribute{
+													MarkdownDescription: "HTTP Header Name. .",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthAtMost(256),
+													},
+												},
+												"location": schema.StringAttribute{
+													MarkdownDescription: "[Enum: REQUEST|RESPONSE] Specifies whether the rule criteria should be evaluated against request or response Applies the rule to incoming traffic from the client. Applies the rule to outgoing traffic sent back to the client. Possible values are `REQUEST`, `RESPONSE`. Defaults to `REQUEST`.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.OneOf("REQUEST", "RESPONSE"),
+													},
+												},
+												"match_type": schema.StringAttribute{
+													MarkdownDescription: "[Enum: EXACT_MATCH|SUBSTRING|REGEX] Specifies how the value should be matched. Possible values are `EXACT_MATCH`, `SUBSTRING`, `REGEX`. Defaults to `EXACT_MATCH`.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.OneOf("EXACT_MATCH", "SUBSTRING", "REGEX"),
+													},
+												},
+												"value": schema.StringAttribute{
+													MarkdownDescription: "Value.",
+													Optional:            true,
+													Validators: []validator.String{
+														stringvalidator.LengthAtMost(1024),
+													},
+												},
+											},
+										},
+										"inclusion": schema.SingleNestedBlock{
+											MarkdownDescription: "Enable this option",
+										},
+									},
+								},
+							},
+						},
+					},
+					"exclusive": schema.SingleNestedBlock{
+						MarkdownDescription: "Exclusion Configuration. Configuration for exclusion action.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"archive": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"ignore": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
+					},
+					"inclusive": schema.SingleNestedBlock{
+						MarkdownDescription: "Enable this option. Defaults to `map[]`. Server applies default when omitted.",
+					},
+				},
+			},
 			"custom_auth_types": schema.ListNestedBlock{
 				MarkdownDescription: "Select your custom authentication types to be detected in the API discovery. Defaults to `[]`. Server applies default when omitted.",
 				NestedObject: schema.NestedBlockObject{
@@ -259,6 +469,85 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 	}
 
 	// Marshal spec fields from Terraform state to API struct
+	if data.UserDefinedAPIDiscoveryPolicy != nil {
+		UserDefinedAPIDiscoveryPolicyMap := make(map[string]interface{})
+		if !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsUnknown() {
+			var DiscoveryRulesElems []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+			diags := data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.ElementsAs(ctx, &DiscoveryRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DiscoveryRulesElems) > 0 {
+				var DiscoveryRulesList []map[string]interface{}
+				for _, DiscoveryRulesItem := range DiscoveryRulesElems {
+					DiscoveryRulesItemMap := make(map[string]interface{})
+					if DiscoveryRulesItem.Labels != nil {
+						DiscoveryRulesItemMap["labels"] = map[string]interface{}{}
+					}
+					if DiscoveryRulesItem.Metadata != nil {
+						UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap := make(map[string]interface{})
+						if !DiscoveryRulesItem.Metadata.DescriptionSpec.IsNull() && !DiscoveryRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap["description"] = DiscoveryRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !DiscoveryRulesItem.Metadata.Name.IsNull() && !DiscoveryRulesItem.Metadata.Name.IsUnknown() {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap["name"] = DiscoveryRulesItem.Metadata.Name.ValueString()
+						}
+						DiscoveryRulesItemMap["metadata"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap
+					}
+					if DiscoveryRulesItem.RuleProperties != nil {
+						UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap := make(map[string]interface{})
+						if DiscoveryRulesItem.RuleProperties.Exclusion != nil {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap := make(map[string]interface{})
+							if DiscoveryRulesItem.RuleProperties.Exclusion.Archive != nil {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["archive"] = map[string]interface{}{}
+							}
+							if DiscoveryRulesItem.RuleProperties.Exclusion.Ignore != nil {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["ignore"] = map[string]interface{}{}
+							}
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["exclusion"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap
+						}
+						if DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria != nil {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap := make(map[string]interface{})
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.FieldName.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.FieldName.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["field_name"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.FieldName.ValueString()
+							}
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Location.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Location.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["location"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Location.ValueString()
+							}
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.MatchType.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.MatchType.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["match_type"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.MatchType.ValueString()
+							}
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Value.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Value.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["value"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Value.ValueString()
+							}
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["http_header_criteria"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap
+						}
+						if DiscoveryRulesItem.RuleProperties.Inclusion != nil {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["inclusion"] = map[string]interface{}{}
+						}
+						if !DiscoveryRulesItem.RuleProperties.Pattern.IsNull() && !DiscoveryRulesItem.RuleProperties.Pattern.IsUnknown() {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["pattern"] = DiscoveryRulesItem.RuleProperties.Pattern.ValueString()
+						}
+						DiscoveryRulesItemMap["rule_properties"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap
+					}
+					DiscoveryRulesList = append(DiscoveryRulesList, DiscoveryRulesItemMap)
+				}
+				UserDefinedAPIDiscoveryPolicyMap["discovery_rules"] = DiscoveryRulesList
+			}
+		}
+		if data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+			UserDefinedAPIDiscoveryPolicyExclusiveMap := make(map[string]interface{})
+			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive != nil {
+				UserDefinedAPIDiscoveryPolicyExclusiveMap["archive"] = map[string]interface{}{}
+			}
+			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore != nil {
+				UserDefinedAPIDiscoveryPolicyExclusiveMap["ignore"] = map[string]interface{}{}
+			}
+			UserDefinedAPIDiscoveryPolicyMap["exclusive"] = UserDefinedAPIDiscoveryPolicyExclusiveMap
+		}
+		if data.UserDefinedAPIDiscoveryPolicy.Inclusive != nil {
+			UserDefinedAPIDiscoveryPolicyMap["inclusive"] = map[string]interface{}{}
+		}
+		createReq.Spec["user_defined_api_discovery_policy"] = UserDefinedAPIDiscoveryPolicyMap
+	}
 	if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
 		var CustomAuthTypesElems []APIDiscoveryCustomAuthTypesModel
 		diags := data.CustomAuthTypes.ElementsAs(ctx, &CustomAuthTypesElems, false)
@@ -291,6 +580,181 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 	// This ensures computed nested fields (like tenant in Object Reference blocks) have known values
 	isImport := false // Create is never an import
 	_ = isImport      // May be unused if resource has no blocks needing import detection
+	if blockData, ok := apiResource.Spec["user_defined_api_discovery_policy"].(map[string]interface{}); ok && (isImport || data.UserDefinedAPIDiscoveryPolicy != nil) {
+		data.UserDefinedAPIDiscoveryPolicy = &APIDiscoveryUserDefinedAPIDiscoveryPolicyModel{
+			DiscoveryRules: func() types.List {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && (data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() || len(data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes})
+				}
+				var DiscoveryRulesExisting []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsUnknown() {
+					data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.ElementsAs(ctx, &DiscoveryRulesExisting, false)
+				}
+				if rawList, ok := blockData["discovery_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var DiscoveryRulesResult []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+					for DiscoveryRulesIdx, DiscoveryRulesItem := range rawList {
+						_ = DiscoveryRulesIdx
+						if DiscoveryRulesItemMap, ok := DiscoveryRulesItem.(map[string]interface{}); ok {
+							DiscoveryRulesResult = append(DiscoveryRulesResult, APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel{
+								Labels: func() *APIDiscoveryEmptyModel {
+									if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
+										return DiscoveryRulesExisting[DiscoveryRulesIdx].Labels
+									}
+									if _, ok := DiscoveryRulesItemMap["labels"].(map[string]interface{}); ok {
+										return &APIDiscoveryEmptyModel{}
+									}
+									return nil
+								}(),
+								Metadata: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel {
+									if MetadataData, ok := DiscoveryRulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RuleProperties: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel {
+									if RulePropertiesData, ok := DiscoveryRulesItemMap["rule_properties"].(map[string]interface{}); ok {
+										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel{
+											Exclusion: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion
+												}
+												if ExclusionData, ok := RulePropertiesData["exclusion"].(map[string]interface{}); ok {
+													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel{
+														Archive: func() *APIDiscoveryEmptyModel {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive
+															}
+															if _, ok := ExclusionData["archive"].(map[string]interface{}); ok {
+																return &APIDiscoveryEmptyModel{}
+															}
+															return nil
+														}(),
+														Ignore: func() *APIDiscoveryEmptyModel {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore
+															}
+															if _, ok := ExclusionData["ignore"].(map[string]interface{}); ok {
+																return &APIDiscoveryEmptyModel{}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											HTTPHeaderCriteria: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.HTTPHeaderCriteria != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.HTTPHeaderCriteria
+												}
+												if HTTPHeaderCriteriaData, ok := RulePropertiesData["http_header_criteria"].(map[string]interface{}); ok {
+													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel{
+														FieldName: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["field_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														MatchType: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["match_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Value: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Inclusion: func() *APIDiscoveryEmptyModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion
+												}
+												if _, ok := RulePropertiesData["inclusion"].(map[string]interface{}); ok {
+													return &APIDiscoveryEmptyModel{}
+												}
+												return nil
+											}(),
+											Pattern: func() types.String {
+												if v, ok := RulePropertiesData["pattern"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes}, DiscoveryRulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes})
+			}(),
+			Exclusive: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+					return data.UserDefinedAPIDiscoveryPolicy.Exclusive
+				}
+				if ExclusiveData, ok := blockData["exclusive"].(map[string]interface{}); ok {
+					return &APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel{
+						Archive: func() *APIDiscoveryEmptyModel {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive
+							}
+							if _, ok := ExclusiveData["archive"].(map[string]interface{}); ok {
+								return &APIDiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						Ignore: func() *APIDiscoveryEmptyModel {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore
+							}
+							if _, ok := ExclusiveData["ignore"].(map[string]interface{}); ok {
+								return &APIDiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Inclusive: func() *APIDiscoveryEmptyModel {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil {
+					return data.UserDefinedAPIDiscoveryPolicy.Inclusive
+				}
+				if _, ok := blockData["inclusive"].(map[string]interface{}); ok {
+					return &APIDiscoveryEmptyModel{}
+				}
+				return nil
+			}(),
+		}
+	}
 	if !isImport && (data.CustomAuthTypes.IsNull() || len(data.CustomAuthTypes.Elements()) == 0) {
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
@@ -437,6 +901,181 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 		isImport = true
 	}
 	_ = isImport // May be unused if resource has no blocks needing import detection
+	if blockData, ok := apiResource.Spec["user_defined_api_discovery_policy"].(map[string]interface{}); ok && (isImport || data.UserDefinedAPIDiscoveryPolicy != nil) {
+		data.UserDefinedAPIDiscoveryPolicy = &APIDiscoveryUserDefinedAPIDiscoveryPolicyModel{
+			DiscoveryRules: func() types.List {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && (data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() || len(data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes})
+				}
+				var DiscoveryRulesExisting []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsUnknown() {
+					data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.ElementsAs(ctx, &DiscoveryRulesExisting, false)
+				}
+				if rawList, ok := blockData["discovery_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var DiscoveryRulesResult []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+					for DiscoveryRulesIdx, DiscoveryRulesItem := range rawList {
+						_ = DiscoveryRulesIdx
+						if DiscoveryRulesItemMap, ok := DiscoveryRulesItem.(map[string]interface{}); ok {
+							DiscoveryRulesResult = append(DiscoveryRulesResult, APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel{
+								Labels: func() *APIDiscoveryEmptyModel {
+									if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
+										return DiscoveryRulesExisting[DiscoveryRulesIdx].Labels
+									}
+									if _, ok := DiscoveryRulesItemMap["labels"].(map[string]interface{}); ok {
+										return &APIDiscoveryEmptyModel{}
+									}
+									return nil
+								}(),
+								Metadata: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel {
+									if MetadataData, ok := DiscoveryRulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RuleProperties: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel {
+									if RulePropertiesData, ok := DiscoveryRulesItemMap["rule_properties"].(map[string]interface{}); ok {
+										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel{
+											Exclusion: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion
+												}
+												if ExclusionData, ok := RulePropertiesData["exclusion"].(map[string]interface{}); ok {
+													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel{
+														Archive: func() *APIDiscoveryEmptyModel {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive
+															}
+															if _, ok := ExclusionData["archive"].(map[string]interface{}); ok {
+																return &APIDiscoveryEmptyModel{}
+															}
+															return nil
+														}(),
+														Ignore: func() *APIDiscoveryEmptyModel {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore
+															}
+															if _, ok := ExclusionData["ignore"].(map[string]interface{}); ok {
+																return &APIDiscoveryEmptyModel{}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											HTTPHeaderCriteria: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.HTTPHeaderCriteria != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.HTTPHeaderCriteria
+												}
+												if HTTPHeaderCriteriaData, ok := RulePropertiesData["http_header_criteria"].(map[string]interface{}); ok {
+													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel{
+														FieldName: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["field_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														MatchType: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["match_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Value: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Inclusion: func() *APIDiscoveryEmptyModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion
+												}
+												if _, ok := RulePropertiesData["inclusion"].(map[string]interface{}); ok {
+													return &APIDiscoveryEmptyModel{}
+												}
+												return nil
+											}(),
+											Pattern: func() types.String {
+												if v, ok := RulePropertiesData["pattern"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes}, DiscoveryRulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes})
+			}(),
+			Exclusive: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+					return data.UserDefinedAPIDiscoveryPolicy.Exclusive
+				}
+				if ExclusiveData, ok := blockData["exclusive"].(map[string]interface{}); ok {
+					return &APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel{
+						Archive: func() *APIDiscoveryEmptyModel {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive
+							}
+							if _, ok := ExclusiveData["archive"].(map[string]interface{}); ok {
+								return &APIDiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						Ignore: func() *APIDiscoveryEmptyModel {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore
+							}
+							if _, ok := ExclusiveData["ignore"].(map[string]interface{}); ok {
+								return &APIDiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Inclusive: func() *APIDiscoveryEmptyModel {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil {
+					return data.UserDefinedAPIDiscoveryPolicy.Inclusive
+				}
+				if _, ok := blockData["inclusive"].(map[string]interface{}); ok {
+					return &APIDiscoveryEmptyModel{}
+				}
+				return nil
+			}(),
+		}
+	}
 	if !isImport && (data.CustomAuthTypes.IsNull() || len(data.CustomAuthTypes.Elements()) == 0) {
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {
@@ -531,6 +1170,85 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 	}
 
 	// Marshal spec fields from Terraform state to API struct
+	if data.UserDefinedAPIDiscoveryPolicy != nil {
+		UserDefinedAPIDiscoveryPolicyMap := make(map[string]interface{})
+		if !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsUnknown() {
+			var DiscoveryRulesElems []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+			diags := data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.ElementsAs(ctx, &DiscoveryRulesElems, false)
+			resp.Diagnostics.Append(diags...)
+			if !resp.Diagnostics.HasError() && len(DiscoveryRulesElems) > 0 {
+				var DiscoveryRulesList []map[string]interface{}
+				for _, DiscoveryRulesItem := range DiscoveryRulesElems {
+					DiscoveryRulesItemMap := make(map[string]interface{})
+					if DiscoveryRulesItem.Labels != nil {
+						DiscoveryRulesItemMap["labels"] = map[string]interface{}{}
+					}
+					if DiscoveryRulesItem.Metadata != nil {
+						UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap := make(map[string]interface{})
+						if !DiscoveryRulesItem.Metadata.DescriptionSpec.IsNull() && !DiscoveryRulesItem.Metadata.DescriptionSpec.IsUnknown() {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap["description"] = DiscoveryRulesItem.Metadata.DescriptionSpec.ValueString()
+						}
+						if !DiscoveryRulesItem.Metadata.Name.IsNull() && !DiscoveryRulesItem.Metadata.Name.IsUnknown() {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap["name"] = DiscoveryRulesItem.Metadata.Name.ValueString()
+						}
+						DiscoveryRulesItemMap["metadata"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap
+					}
+					if DiscoveryRulesItem.RuleProperties != nil {
+						UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap := make(map[string]interface{})
+						if DiscoveryRulesItem.RuleProperties.Exclusion != nil {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap := make(map[string]interface{})
+							if DiscoveryRulesItem.RuleProperties.Exclusion.Archive != nil {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["archive"] = map[string]interface{}{}
+							}
+							if DiscoveryRulesItem.RuleProperties.Exclusion.Ignore != nil {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap["ignore"] = map[string]interface{}{}
+							}
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["exclusion"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionMap
+						}
+						if DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria != nil {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap := make(map[string]interface{})
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.FieldName.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.FieldName.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["field_name"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.FieldName.ValueString()
+							}
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Location.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Location.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["location"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Location.ValueString()
+							}
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.MatchType.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.MatchType.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["match_type"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.MatchType.ValueString()
+							}
+							if !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Value.IsNull() && !DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Value.IsUnknown() {
+								UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap["value"] = DiscoveryRulesItem.RuleProperties.HTTPHeaderCriteria.Value.ValueString()
+							}
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["http_header_criteria"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaMap
+						}
+						if DiscoveryRulesItem.RuleProperties.Inclusion != nil {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["inclusion"] = map[string]interface{}{}
+						}
+						if !DiscoveryRulesItem.RuleProperties.Pattern.IsNull() && !DiscoveryRulesItem.RuleProperties.Pattern.IsUnknown() {
+							UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap["pattern"] = DiscoveryRulesItem.RuleProperties.Pattern.ValueString()
+						}
+						DiscoveryRulesItemMap["rule_properties"] = UserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesMap
+					}
+					DiscoveryRulesList = append(DiscoveryRulesList, DiscoveryRulesItemMap)
+				}
+				UserDefinedAPIDiscoveryPolicyMap["discovery_rules"] = DiscoveryRulesList
+			}
+		}
+		if data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+			UserDefinedAPIDiscoveryPolicyExclusiveMap := make(map[string]interface{})
+			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive != nil {
+				UserDefinedAPIDiscoveryPolicyExclusiveMap["archive"] = map[string]interface{}{}
+			}
+			if data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore != nil {
+				UserDefinedAPIDiscoveryPolicyExclusiveMap["ignore"] = map[string]interface{}{}
+			}
+			UserDefinedAPIDiscoveryPolicyMap["exclusive"] = UserDefinedAPIDiscoveryPolicyExclusiveMap
+		}
+		if data.UserDefinedAPIDiscoveryPolicy.Inclusive != nil {
+			UserDefinedAPIDiscoveryPolicyMap["inclusive"] = map[string]interface{}{}
+		}
+		apiResource.Spec["user_defined_api_discovery_policy"] = UserDefinedAPIDiscoveryPolicyMap
+	}
 	if !data.CustomAuthTypes.IsNull() && !data.CustomAuthTypes.IsUnknown() {
 		var CustomAuthTypesElems []APIDiscoveryCustomAuthTypesModel
 		diags := data.CustomAuthTypes.ElementsAs(ctx, &CustomAuthTypesElems, false)
@@ -574,6 +1292,181 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 	apiResource = fetched // Use GET response which includes all computed fields
 	isImport := false     // Update is never an import
 	_ = isImport          // May be unused if resource has no blocks needing import detection
+	if blockData, ok := apiResource.Spec["user_defined_api_discovery_policy"].(map[string]interface{}); ok && (isImport || data.UserDefinedAPIDiscoveryPolicy != nil) {
+		data.UserDefinedAPIDiscoveryPolicy = &APIDiscoveryUserDefinedAPIDiscoveryPolicyModel{
+			DiscoveryRules: func() types.List {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && (data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() || len(data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.Elements()) == 0) {
+					return types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes})
+				}
+				var DiscoveryRulesExisting []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsNull() && !data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.IsUnknown() {
+					data.UserDefinedAPIDiscoveryPolicy.DiscoveryRules.ElementsAs(ctx, &DiscoveryRulesExisting, false)
+				}
+				if rawList, ok := blockData["discovery_rules"].([]interface{}); ok && len(rawList) > 0 {
+					var DiscoveryRulesResult []APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
+					for DiscoveryRulesIdx, DiscoveryRulesItem := range rawList {
+						_ = DiscoveryRulesIdx
+						if DiscoveryRulesItemMap, ok := DiscoveryRulesItem.(map[string]interface{}); ok {
+							DiscoveryRulesResult = append(DiscoveryRulesResult, APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel{
+								Labels: func() *APIDiscoveryEmptyModel {
+									if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
+										return DiscoveryRulesExisting[DiscoveryRulesIdx].Labels
+									}
+									if _, ok := DiscoveryRulesItemMap["labels"].(map[string]interface{}); ok {
+										return &APIDiscoveryEmptyModel{}
+									}
+									return nil
+								}(),
+								Metadata: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel {
+									if MetadataData, ok := DiscoveryRulesItemMap["metadata"].(map[string]interface{}); ok {
+										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel{
+											DescriptionSpec: func() types.String {
+												if v, ok := MetadataData["description"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+											Name: func() types.String {
+												if v, ok := MetadataData["name"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+								RuleProperties: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel {
+									if RulePropertiesData, ok := DiscoveryRulesItemMap["rule_properties"].(map[string]interface{}); ok {
+										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel{
+											Exclusion: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion
+												}
+												if ExclusionData, ok := RulePropertiesData["exclusion"].(map[string]interface{}); ok {
+													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesExclusionModel{
+														Archive: func() *APIDiscoveryEmptyModel {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Archive
+															}
+															if _, ok := ExclusionData["archive"].(map[string]interface{}); ok {
+																return &APIDiscoveryEmptyModel{}
+															}
+															return nil
+														}(),
+														Ignore: func() *APIDiscoveryEmptyModel {
+															if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion != nil {
+																return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Exclusion.Ignore
+															}
+															if _, ok := ExclusionData["ignore"].(map[string]interface{}); ok {
+																return &APIDiscoveryEmptyModel{}
+															}
+															return nil
+														}(),
+													}
+												}
+												return nil
+											}(),
+											HTTPHeaderCriteria: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.HTTPHeaderCriteria != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.HTTPHeaderCriteria
+												}
+												if HTTPHeaderCriteriaData, ok := RulePropertiesData["http_header_criteria"].(map[string]interface{}); ok {
+													return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesHTTPHeaderCriteriaModel{
+														FieldName: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["field_name"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Location: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["location"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														MatchType: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["match_type"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+														Value: func() types.String {
+															if v, ok := HTTPHeaderCriteriaData["value"].(string); ok && v != "" {
+																return types.StringValue(v)
+															}
+															return types.StringNull()
+														}(),
+													}
+												}
+												return nil
+											}(),
+											Inclusion: func() *APIDiscoveryEmptyModel {
+												if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx && DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties != nil {
+													return DiscoveryRulesExisting[DiscoveryRulesIdx].RuleProperties.Inclusion
+												}
+												if _, ok := RulePropertiesData["inclusion"].(map[string]interface{}); ok {
+													return &APIDiscoveryEmptyModel{}
+												}
+												return nil
+											}(),
+											Pattern: func() types.String {
+												if v, ok := RulePropertiesData["pattern"].(string); ok && v != "" {
+													return types.StringValue(v)
+												}
+												return types.StringNull()
+											}(),
+										}
+									}
+									return nil
+								}(),
+							})
+						}
+					}
+					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes}, DiscoveryRulesResult)
+					return listVal
+				}
+				return types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes})
+			}(),
+			Exclusive: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+					return data.UserDefinedAPIDiscoveryPolicy.Exclusive
+				}
+				if ExclusiveData, ok := blockData["exclusive"].(map[string]interface{}); ok {
+					return &APIDiscoveryUserDefinedAPIDiscoveryPolicyExclusiveModel{
+						Archive: func() *APIDiscoveryEmptyModel {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Archive
+							}
+							if _, ok := ExclusiveData["archive"].(map[string]interface{}); ok {
+								return &APIDiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+						Ignore: func() *APIDiscoveryEmptyModel {
+							if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil && data.UserDefinedAPIDiscoveryPolicy.Exclusive != nil {
+								return data.UserDefinedAPIDiscoveryPolicy.Exclusive.Ignore
+							}
+							if _, ok := ExclusiveData["ignore"].(map[string]interface{}); ok {
+								return &APIDiscoveryEmptyModel{}
+							}
+							return nil
+						}(),
+					}
+				}
+				return nil
+			}(),
+			Inclusive: func() *APIDiscoveryEmptyModel {
+				if !isImport && data.UserDefinedAPIDiscoveryPolicy != nil {
+					return data.UserDefinedAPIDiscoveryPolicy.Inclusive
+				}
+				if _, ok := blockData["inclusive"].(map[string]interface{}); ok {
+					return &APIDiscoveryEmptyModel{}
+				}
+				return nil
+			}(),
+		}
+	}
 	if !isImport && (data.CustomAuthTypes.IsNull() || len(data.CustomAuthTypes.Elements()) == 0) {
 		data.CustomAuthTypes = types.ListNull(types.ObjectType{AttrTypes: APIDiscoveryCustomAuthTypesModelAttrTypes})
 	} else if listData, ok := apiResource.Spec["custom_auth_types"].([]interface{}); ok && len(listData) > 0 {

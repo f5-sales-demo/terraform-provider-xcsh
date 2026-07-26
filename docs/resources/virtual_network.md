@@ -106,9 +106,9 @@ A [`node_interface`](#static-routes-node-interface) block (within [`static_route
 
 A [`list`](#static-routes-node-interface-list) block (within [`static_routes.node_interface`](#static-routes-node-interface)) supports the following:
 
-<a id="interface-94c51c"></a>&#x2022; [`interface`](#interface-94c51c) - Optional Block<br>X-displayName: 'Interface' Interface reference on this node<br>See [Interface](#interface-94c51c) below.
+<a id="interface-94c51c"></a>&#x2022; [`interface`](#interface-94c51c) - Optional Block<br>Interface. Interface reference on this node<br>See [Interface](#interface-94c51c) below.
 
-<a id="static-routes-node-interface-list-node"></a>&#x2022; [`node`](#static-routes-node-interface-list-node) - Optional String<br>X-displayName: 'Node' Node name on this site
+<a id="static-routes-node-interface-list-node"></a>&#x2022; [`node`](#static-routes-node-interface-list-node) - Optional String<br>Node. Node name on this site
 
 #### Static Routes Node Interface List Interface
 

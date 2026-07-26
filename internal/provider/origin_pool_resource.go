@@ -558,11 +558,11 @@ type OriginPoolAdvancedOptionsModel struct {
 	CircuitBreaker               *OriginPoolAdvancedOptionsCircuitBreakerModel   `tfsdk:"circuit_breaker"`
 	DefaultCircuitBreaker        *OriginPoolEmptyModel                           `tfsdk:"default_circuit_breaker"`
 	DisableCircuitBreaker        *OriginPoolEmptyModel                           `tfsdk:"disable_circuit_breaker"`
-	DisableLBSourceIPPersistance *OriginPoolEmptyModel                           `tfsdk:"disable_lb_source_ip_persistance"`
+	DisableLBSourceIPPersistence *OriginPoolEmptyModel                           `tfsdk:"disable_lb_source_ip_persistence"`
 	DisableOutlierDetection      *OriginPoolEmptyModel                           `tfsdk:"disable_outlier_detection"`
 	DisableProxyProtocol         *OriginPoolEmptyModel                           `tfsdk:"disable_proxy_protocol"`
 	DisableSubsets               *OriginPoolEmptyModel                           `tfsdk:"disable_subsets"`
-	EnableLBSourceIPPersistance  *OriginPoolEmptyModel                           `tfsdk:"enable_lb_source_ip_persistance"`
+	EnableLBSourceIPPersistence  *OriginPoolEmptyModel                           `tfsdk:"enable_lb_source_ip_persistence"`
 	EnableSubsets                *OriginPoolAdvancedOptionsEnableSubsetsModel    `tfsdk:"enable_subsets"`
 	Http1Config                  *OriginPoolAdvancedOptionsHttp1ConfigModel      `tfsdk:"http1_config"`
 	Http2Options                 *OriginPoolAdvancedOptionsHttp2OptionsModel     `tfsdk:"http2_options"`
@@ -583,11 +583,11 @@ var OriginPoolAdvancedOptionsModelAttrTypes = map[string]attr.Type{
 	"circuit_breaker":                  types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsCircuitBreakerModelAttrTypes},
 	"default_circuit_breaker":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_circuit_breaker":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"disable_lb_source_ip_persistance": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"disable_lb_source_ip_persistence": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_outlier_detection":        types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_proxy_protocol":           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"disable_subsets":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable_lb_source_ip_persistance":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable_lb_source_ip_persistence":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_subsets":                   types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes},
 	"http1_config":                     types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsHttp1ConfigModelAttrTypes},
 	"http2_options":                    types.ObjectType{AttrTypes: OriginPoolAdvancedOptionsHttp2OptionsModelAttrTypes},
@@ -1058,7 +1058,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 						},
 						"consul_service": schema.SingleNestedBlock{
-							MarkdownDescription: "Specify origin server with Hashi Corp Consul service name and site information.",
+							MarkdownDescription: "Specify origin server with HashiCorp Consul service name and site information.",
 							Attributes: map[string]schema.Attribute{
 								"service_name": schema.StringAttribute{
 									MarkdownDescription: "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
@@ -1816,7 +1816,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"disable_circuit_breaker": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable circuit breaker.",
 					},
-					"disable_lb_source_ip_persistance": schema.SingleNestedBlock{
+					"disable_lb_source_ip_persistence": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"disable_outlier_detection": schema.SingleNestedBlock{
@@ -1828,7 +1828,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 					"disable_subsets": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for disable subsets. Defaults to `map[]`. Server applies default when omitted.",
 					},
-					"enable_lb_source_ip_persistance": schema.SingleNestedBlock{
+					"enable_lb_source_ip_persistence": schema.SingleNestedBlock{
 						MarkdownDescription: "Enable this option",
 					},
 					"enable_subsets": schema.SingleNestedBlock{
@@ -1907,7 +1907,7 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 						MarkdownDescription: "Configuration parameter for no request limit per connection. Defaults to `map[]`. Server applies default when omitted.",
 					},
 					"outlier_detection": schema.SingleNestedBlock{
-						MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checkingg. Algorithm 1.",
+						MarkdownDescription: "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1.",
 						Attributes: map[string]schema.Attribute{
 							"base_ejection_time": schema.Int64Attribute{
 								MarkdownDescription: "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail.",
@@ -2767,7 +2767,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if data.AdvancedOptions.DisableCircuitBreaker != nil {
 			AdvancedOptionsMap["disable_circuit_breaker"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableLBSourceIPPersistance != nil {
+		if data.AdvancedOptions.DisableLBSourceIPPersistence != nil {
 			AdvancedOptionsMap["disable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.DisableOutlierDetection != nil {
@@ -2779,7 +2779,7 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		if data.AdvancedOptions.DisableSubsets != nil {
 			AdvancedOptionsMap["disable_subsets"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.EnableLBSourceIPPersistance != nil {
+		if data.AdvancedOptions.EnableLBSourceIPPersistence != nil {
 			AdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.EnableSubsets != nil {
@@ -3996,9 +3996,9 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			DisableLBSourceIPPersistance: func() *OriginPoolEmptyModel {
+			DisableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
 				if !isImport && data.AdvancedOptions != nil {
-					return data.AdvancedOptions.DisableLBSourceIPPersistance
+					return data.AdvancedOptions.DisableLBSourceIPPersistence
 				}
 				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 					return &OriginPoolEmptyModel{}
@@ -4036,9 +4036,9 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			EnableLBSourceIPPersistance: func() *OriginPoolEmptyModel {
+			EnableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
 				if !isImport && data.AdvancedOptions != nil {
-					return data.AdvancedOptions.EnableLBSourceIPPersistance
+					return data.AdvancedOptions.EnableLBSourceIPPersistence
 				}
 				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 					return &OriginPoolEmptyModel{}
@@ -5766,9 +5766,9 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			DisableLBSourceIPPersistance: func() *OriginPoolEmptyModel {
+			DisableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
 				if !isImport && data.AdvancedOptions != nil {
-					return data.AdvancedOptions.DisableLBSourceIPPersistance
+					return data.AdvancedOptions.DisableLBSourceIPPersistence
 				}
 				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 					return &OriginPoolEmptyModel{}
@@ -5806,9 +5806,9 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			EnableLBSourceIPPersistance: func() *OriginPoolEmptyModel {
+			EnableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
 				if !isImport && data.AdvancedOptions != nil {
-					return data.AdvancedOptions.EnableLBSourceIPPersistance
+					return data.AdvancedOptions.EnableLBSourceIPPersistence
 				}
 				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 					return &OriginPoolEmptyModel{}
@@ -7015,7 +7015,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if data.AdvancedOptions.DisableCircuitBreaker != nil {
 			AdvancedOptionsMap["disable_circuit_breaker"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.DisableLBSourceIPPersistance != nil {
+		if data.AdvancedOptions.DisableLBSourceIPPersistence != nil {
 			AdvancedOptionsMap["disable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.DisableOutlierDetection != nil {
@@ -7027,7 +7027,7 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		if data.AdvancedOptions.DisableSubsets != nil {
 			AdvancedOptionsMap["disable_subsets"] = map[string]interface{}{}
 		}
-		if data.AdvancedOptions.EnableLBSourceIPPersistance != nil {
+		if data.AdvancedOptions.EnableLBSourceIPPersistence != nil {
 			AdvancedOptionsMap["enable_lb_source_ip_persistance"] = map[string]interface{}{}
 		}
 		if data.AdvancedOptions.EnableSubsets != nil {
@@ -8283,9 +8283,9 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			DisableLBSourceIPPersistance: func() *OriginPoolEmptyModel {
+			DisableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
 				if !isImport && data.AdvancedOptions != nil {
-					return data.AdvancedOptions.DisableLBSourceIPPersistance
+					return data.AdvancedOptions.DisableLBSourceIPPersistence
 				}
 				if _, ok := blockData["disable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 					return &OriginPoolEmptyModel{}
@@ -8323,9 +8323,9 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			EnableLBSourceIPPersistance: func() *OriginPoolEmptyModel {
+			EnableLBSourceIPPersistence: func() *OriginPoolEmptyModel {
 				if !isImport && data.AdvancedOptions != nil {
-					return data.AdvancedOptions.EnableLBSourceIPPersistance
+					return data.AdvancedOptions.EnableLBSourceIPPersistence
 				}
 				if _, ok := blockData["enable_lb_source_ip_persistance"].(map[string]interface{}); ok {
 					return &OriginPoolEmptyModel{}

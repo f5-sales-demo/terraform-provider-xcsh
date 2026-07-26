@@ -54,13 +54,13 @@ type FleetEmptyModel struct {
 // FleetPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type FleetPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *FleetPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *FleetEmptyModel                                        `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *FleetPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // FleetPerformanceEnhancementModeModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModeModel
 var FleetPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // FleetPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -73,6 +73,18 @@ type FleetPerformanceEnhancementModePerfModeL3EnhancedModel struct {
 var FleetPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// FleetPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type FleetPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *FleetEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *FleetEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for FleetPerformanceEnhancementModePerfModeL7EnhancedModel
+var FleetPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // FleetBlockedServicesModel represents blocked_services block
@@ -1530,8 +1542,10 @@ type FleetResourceModel struct {
 	DenyAllUsb                       *FleetEmptyModel                      `tfsdk:"deny_all_usb"`
 	DeviceList                       *FleetDeviceListModel                 `tfsdk:"device_list"`
 	DisableGPU                       *FleetEmptyModel                      `tfsdk:"disable_gpu"`
+	DisableLogAnonymization          *FleetEmptyModel                      `tfsdk:"disable_log_anonymization"`
 	DisableVM                        *FleetEmptyModel                      `tfsdk:"disable_vm"`
 	EnableGPU                        *FleetEmptyModel                      `tfsdk:"enable_gpu"`
+	EnableLogAnonymization           *FleetEmptyModel                      `tfsdk:"enable_log_anonymization"`
 	EnableVgpu                       *FleetEnableVgpuModel                 `tfsdk:"enable_vgpu"`
 	EnableVM                         *FleetEmptyModel                      `tfsdk:"enable_vm"`
 	InsideVirtualNetwork             types.List                            `tfsdk:"inside_virtual_network"`
@@ -1656,6 +1670,15 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 					},
 					"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 						MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"jumbo_disabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+							"jumbo_enabled": schema.SingleNestedBlock{
+								MarkdownDescription: "Enable this option",
+							},
+						},
 					},
 				},
 			},
@@ -1900,11 +1923,17 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			"disable_gpu": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: disable_gpu, enable_gpu, enable_vgpu; Default: disable_gpu] Configuration parameter for disable gpu.",
 			},
+			"disable_log_anonymization": schema.SingleNestedBlock{
+				MarkdownDescription: "[OneOf: disable_log_anonymization, enable_log_anonymization; Default: disable_log_anonymization] Configuration parameter for disable log anonymization.",
+			},
 			"disable_vm": schema.SingleNestedBlock{
 				MarkdownDescription: "[OneOf: disable_vm, enable_vm; Default: disable_vm] Enable this option",
 			},
 			"enable_gpu": schema.SingleNestedBlock{
 				MarkdownDescription: "Enable this option",
+			},
+			"enable_log_anonymization": schema.SingleNestedBlock{
+				MarkdownDescription: "Configuration parameter for enable log anonymization.",
 			},
 			"enable_vgpu": schema.SingleNestedBlock{
 				MarkdownDescription: "Licensing configuration for NVIDIA vGPU.",
@@ -3975,7 +4004,14 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		createReq.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -4149,11 +4185,17 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if data.DisableGPU != nil {
 		createReq.Spec["disable_gpu"] = map[string]interface{}{}
 	}
+	if data.DisableLogAnonymization != nil {
+		createReq.Spec["disable_log_anonymization"] = map[string]interface{}{}
+	}
 	if data.DisableVM != nil {
 		createReq.Spec["disable_vm"] = map[string]interface{}{}
 	}
 	if data.EnableGPU != nil {
 		createReq.Spec["enable_gpu"] = map[string]interface{}{}
+	}
+	if data.EnableLogAnonymization != nil {
+		createReq.Spec["enable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableVgpu != nil {
 		EnableVgpuMap := make(map[string]interface{})
@@ -5478,12 +5520,31 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *FleetEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &FleetEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -5792,11 +5853,17 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
 		data.DisableGPU = &FleetEmptyModel{}
 	}
+	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
+		data.DisableLogAnonymization = &FleetEmptyModel{}
+	}
 	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
 		data.DisableVM = &FleetEmptyModel{}
 	}
 	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
 		data.EnableGPU = &FleetEmptyModel{}
+	}
+	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
+		data.EnableLogAnonymization = &FleetEmptyModel{}
 	}
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
@@ -8600,12 +8667,31 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *FleetEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &FleetEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -8914,11 +9000,17 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
 		data.DisableGPU = &FleetEmptyModel{}
 	}
+	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
+		data.DisableLogAnonymization = &FleetEmptyModel{}
+	}
 	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
 		data.DisableVM = &FleetEmptyModel{}
 	}
 	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
 		data.EnableGPU = &FleetEmptyModel{}
+	}
+	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
+		data.EnableLogAnonymization = &FleetEmptyModel{}
 	}
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{
@@ -11651,7 +11743,14 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 			PerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = PerformanceEnhancementModePerfModeL3EnhancedMap
 		}
 		if data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+			PerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+			}
+			if data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+				PerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+			}
+			PerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = PerformanceEnhancementModePerfModeL7EnhancedMap
 		}
 		apiResource.Spec["performance_enhancement_mode"] = PerformanceEnhancementModeMap
 	}
@@ -11825,11 +11924,17 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	if data.DisableGPU != nil {
 		apiResource.Spec["disable_gpu"] = map[string]interface{}{}
 	}
+	if data.DisableLogAnonymization != nil {
+		apiResource.Spec["disable_log_anonymization"] = map[string]interface{}{}
+	}
 	if data.DisableVM != nil {
 		apiResource.Spec["disable_vm"] = map[string]interface{}{}
 	}
 	if data.EnableGPU != nil {
 		apiResource.Spec["enable_gpu"] = map[string]interface{}{}
+	}
+	if data.EnableLogAnonymization != nil {
+		apiResource.Spec["enable_log_anonymization"] = map[string]interface{}{}
 	}
 	if data.EnableVgpu != nil {
 		EnableVgpuMap := make(map[string]interface{})
@@ -13165,12 +13270,31 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 				}
 				return nil
 			}(),
-			PerfModeL7Enhanced: func() *FleetEmptyModel {
-				if !isImport && data.PerformanceEnhancementMode != nil {
+			PerfModeL7Enhanced: func() *FleetPerformanceEnhancementModePerfModeL7EnhancedModel {
+				if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 					return data.PerformanceEnhancementMode.PerfModeL7Enhanced
 				}
-				if _, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-					return &FleetEmptyModel{}
+				if PerfModeL7EnhancedData, ok := blockData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+					return &FleetPerformanceEnhancementModePerfModeL7EnhancedModel{
+						JumboDisabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+						JumboEnabled: func() *FleetEmptyModel {
+							if !isImport && data.PerformanceEnhancementMode != nil && data.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+								return data.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+							}
+							if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+								return &FleetEmptyModel{}
+							}
+							return nil
+						}(),
+					}
 				}
 				return nil
 			}(),
@@ -13479,11 +13603,17 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 	if _, ok := apiResource.Spec["disable_gpu"].(map[string]interface{}); ok && isImport && data.DisableGPU == nil {
 		data.DisableGPU = &FleetEmptyModel{}
 	}
+	if _, ok := apiResource.Spec["disable_log_anonymization"].(map[string]interface{}); ok && isImport && data.DisableLogAnonymization == nil {
+		data.DisableLogAnonymization = &FleetEmptyModel{}
+	}
 	if _, ok := apiResource.Spec["disable_vm"].(map[string]interface{}); ok && isImport && data.DisableVM == nil {
 		data.DisableVM = &FleetEmptyModel{}
 	}
 	if _, ok := apiResource.Spec["enable_gpu"].(map[string]interface{}); ok && isImport && data.EnableGPU == nil {
 		data.EnableGPU = &FleetEmptyModel{}
+	}
+	if _, ok := apiResource.Spec["enable_log_anonymization"].(map[string]interface{}); ok && isImport && data.EnableLogAnonymization == nil {
+		data.EnableLogAnonymization = &FleetEmptyModel{}
 	}
 	if blockData, ok := apiResource.Spec["enable_vgpu"].(map[string]interface{}); ok && (isImport || data.EnableVgpu != nil) {
 		data.EnableVgpu = &FleetEnableVgpuModel{

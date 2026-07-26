@@ -58,11 +58,7 @@ resource "xcsh_tenant_configuration" "example" {
 
 ### Spec Argument Reference
 
-<a id="basic-configuration"></a>&#x2022; [`basic_configuration`](#basic-configuration) - Optional Block<br>Configuration parameter for basic configuration<br>See [Basic Configuration](#basic-configuration) below for details.
-
 <a id="brute-force-detection"></a>&#x2022; [`brute_force_detection`](#brute-force-detection) - Optional Block<br>Configuration parameter for brute force detection<br>See [Brute Force Detection](#brute-force-detection) below for details.
-
-<a id="brute-force-detection-settings"></a>&#x2022; [`brute_force_detection_settings`](#brute-force-detection-settings) - Optional Block<br>Configuration parameter for brute force detection settings<br>See [Brute Force Detection Settings](#brute-force-detection-settings) below for details.
 
 <a id="password-policy"></a>&#x2022; [`password_policy`](#password-policy) - Optional Block<br>Policy configuration for this feature<br>See [Password Policy](#password-policy) below for details.
 
@@ -81,23 +77,11 @@ In addition to all arguments above, the following attributes are exported:
 
 ---
 
-#### Basic Configuration
-
-A [`basic_configuration`](#basic-configuration) block supports the following:
-
-<a id="basic-configuration-display-name"></a>&#x2022; [`display_name`](#basic-configuration-display-name) - Optional String<br>Changes the tenant name displayed during login without affecting your company’s domain name
-
 #### Brute Force Detection
 
 A [`brute_force_detection`](#brute-force-detection) block supports the following:
 
 <a id="failures-0ea5eb"></a>&#x2022; [`max_login_failures`](#failures-0ea5eb) - Optional Number<br>How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes
-
-#### Brute Force Detection Settings
-
-A [`brute_force_detection_settings`](#brute-force-detection-settings) block supports the following:
-
-<a id="failures-2f4305"></a>&#x2022; [`max_login_failures`](#failures-2f4305) - Optional Number<br>How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes
 
 #### Password Policy
 

@@ -377,6 +377,8 @@ Claims](#rule-list-rules-spec-jwt-claims) below.
 <a id="rule-list-rules-spec-label-matcher"></a>&#x2022; [`label_matcher`](#rule-list-rules-spec-label-matcher) - Optional Block<br>Label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name<br>See [Label
 Matcher](#rule-list-rules-spec-label-matcher) below.
 
+<a id="evaluation-09bc21"></a>&#x2022; [`log_rule_evaluation`](#evaluation-09bc21) - Optional Bool<br>Log the rule match details along with the request and continue to evaluate rules in the sequence
+
 <a id="rule-list-rules-spec-mum-action"></a>&#x2022; [`mum_action`](#rule-list-rules-spec-mum-action) - Optional Block<br>Modify behavior for a matching request. The modification could be to entirely skip processing<br>See [Mum Action](#rule-list-rules-spec-mum-action) below.
 
 <a id="rule-list-rules-spec-path"></a>&#x2022; [`path`](#rule-list-rules-spec-path) - Optional Block<br>Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions<br>See
@@ -623,6 +625,8 @@ A [`mum_action`](#rule-list-rules-spec-mum-action) block (within [`rule_list.rul
 
 A [`path`](#rule-list-rules-spec-path) block (within [`rule_list.rules.spec`](#rule-list-rules-spec)) supports the following:
 
+<a id="matcher-588d90"></a>&#x2022; [`encoded_path_matcher`](#matcher-588d90) - Optional Bool<br>Match against the encoded, escaped path
+
 <a id="rule-list-rules-spec-path-exact-values"></a>&#x2022; [`exact_values`](#rule-list-rules-spec-path-exact-values) - Optional List<br>List of exact path values to match the input HTTP path against
 
 <a id="matcher-895246"></a>&#x2022; [`invert_matcher`](#matcher-895246) - Optional Bool<br>Invert Path Matcher. Invert the match result
@@ -730,13 +734,13 @@ A [`segment_policy`](#rule-list-rules-spec-segment-policy) block (within [`rule_
 
 <a id="any-9c58b4"></a>&#x2022; [`dst_any`](#any-9c58b4) - Optional Block<br>Enable this option
 
-<a id="segments-478f34"></a>&#x2022; [`dst_segments`](#segments-478f34) - Optional Block<br>X-displayName: 'Segment List' List of references to Segments<br>See [Dst Segments](#segments-478f34) below.
+<a id="segments-478f34"></a>&#x2022; [`dst_segments`](#segments-478f34) - Optional Block<br>Configuration parameter for dst segments<br>See [Dst Segments](#segments-478f34) below.
 
 <a id="segment-431a3a"></a>&#x2022; [`intra_segment`](#segment-431a3a) - Optional Block<br>Configuration parameter for intra segment
 
 <a id="any-f3d551"></a>&#x2022; [`src_any`](#any-f3d551) - Optional Block<br>Enable this option
 
-<a id="segments-191ada"></a>&#x2022; [`src_segments`](#segments-191ada) - Optional Block<br>X-displayName: 'Segment List' List of references to Segments<br>See [Src Segments](#segments-191ada) below.
+<a id="segments-191ada"></a>&#x2022; [`src_segments`](#segments-191ada) - Optional Block<br>Configuration parameter for src segments<br>See [Src Segments](#segments-191ada) below.
 
 #### Rule List Rules Spec Segment Policy Dst Segments
 

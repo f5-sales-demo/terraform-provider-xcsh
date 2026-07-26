@@ -160,14 +160,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
 
 #### Bond Device List
 
@@ -364,10 +364,6 @@ An [`interfaces`](#interfaces-e1b75d) block (within [`custom_network_config.inte
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks
 
 <a id="deep-bf31a8"></a>Deeply nested **Networks** block collapsed for readability.
-
-#### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Network Prefix Allocator
-
-<a id="deep-1e6601"></a>Deeply nested **Allocator** block collapsed for readability.
 
 #### Custom Network Config Interface List Interfaces Ethernet Interface DHCP Server DHCP Networks Pools
 
@@ -676,21 +672,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-f77edf"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Hpe Storage iSCSI Chap Password Blindfold Secret Info Internal
-
-<a id="deep-136efc"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Hpe Storage iSCSI Chap Password Clear Secret Info
 
 <a id="deep-686dd8"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Hpe Storage iSCSI Chap Password Vault Secret Info
-
-<a id="deep-a82e23"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Hpe Storage iSCSI Chap Password Wingman Secret Info
-
-<a id="deep-c41d3c"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Hpe Storage Password
 
@@ -700,21 +684,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-ee9e32"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Hpe Storage Password Blindfold Secret Info Internal
-
-<a id="deep-e26028"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Hpe Storage Password Clear Secret Info
 
 <a id="deep-760daf"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Hpe Storage Password Vault Secret Info
-
-<a id="deep-1036e5"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Hpe Storage Password Wingman Secret Info
-
-<a id="deep-b78422"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident
 
@@ -736,21 +708,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-0e3cea"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Client Private Key Blindfold Secret Info Internal
-
-<a id="deep-2f6d0e"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Client Private Key Clear Secret Info
 
 <a id="deep-cbaec1"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Client Private Key Vault Secret Info
-
-<a id="deep-0f58e2"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Client Private Key Wingman Secret Info
-
-<a id="deep-55fe95"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Password
 
@@ -760,21 +720,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-f73282"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Password Blindfold Secret Info Internal
-
-<a id="deep-34dad3"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Password Clear Secret Info
 
 <a id="deep-463ae9"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Password Vault Secret Info
-
-<a id="deep-2aefd4"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Password Wingman Secret Info
-
-<a id="deep-960ddf"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap Nas Storage
 
@@ -800,21 +748,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-62b559"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Client Private Key Blindfold Secret Info Internal
-
-<a id="deep-1850f1"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Client Private Key Clear Secret Info
 
 <a id="deep-d4b4e5"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Client Private Key Vault Secret Info
-
-<a id="deep-e0b9c9"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Client Private Key Wingman Secret Info
-
-<a id="deep-cb409f"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password
 
@@ -824,21 +760,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-d8c267"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password Blindfold Secret Info Internal
-
-<a id="deep-c13269"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password Clear Secret Info
 
 <a id="deep-377c01"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password Vault Secret Info
-
-<a id="deep-551ce8"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Password Wingman Secret Info
-
-<a id="deep-80da83"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Storage
 
@@ -860,21 +784,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-1d0179"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Initiator Secret Blindfold Secret Info Internal
-
-<a id="deep-8c17ba"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Initiator Secret Clear Secret Info
 
 <a id="deep-88af7d"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Initiator Secret Vault Secret Info
-
-<a id="deep-299cf6"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Initiator Secret Wingman Secret Info
-
-<a id="deep-f2c79e"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Target Initiator Secret
 
@@ -884,21 +796,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-507702"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Target Initiator Secret Blindfold Secret Info Internal
-
-<a id="deep-d437cf"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Target Initiator Secret Clear Secret Info
 
 <a id="deep-695e52"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Target Initiator Secret Vault Secret Info
-
-<a id="deep-0e0b30"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Use Chap Chap Target Initiator Secret Wingman Secret Info
-
-<a id="deep-1b3739"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Netapp Trident Netapp Backend Ontap San Volume Defaults
 
@@ -928,21 +828,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-72906c"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Array Flash Arrays API Token Blindfold Secret Info Internal
-
-<a id="deep-c0c5a5"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Array Flash Arrays API Token Clear Secret Info
 
 <a id="deep-723fac"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Array Flash Arrays API Token Vault Secret Info
-
-<a id="deep-ca39e0"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Array Flash Arrays API Token Wingman Secret Info
-
-<a id="deep-548c40"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Blade
 
@@ -960,21 +848,9 @@ A [`storage_device_list`](#list-650498) block (within [`custom_storage_config`](
 
 <a id="deep-87b319"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Blade Flash Blades API Token Blindfold Secret Info Internal
-
-<a id="deep-b3a8ed"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Blade Flash Blades API Token Clear Secret Info
 
 <a id="deep-c49b2f"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Blade Flash Blades API Token Vault Secret Info
-
-<a id="deep-ac0261"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Custom Storage Config Storage Device List Storage Devices Pure Service Orchestrator Arrays Flash Blade Flash Blades API Token Wingman Secret Info
-
-<a id="deep-7356cc"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List
 
@@ -997,10 +873,6 @@ A [`storage_interface_list`](#list-c6bbef) block (within [`custom_storage_config
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks
 
 <a id="deep-7d9c8d"></a>Deeply nested **Networks** block collapsed for readability.
-
-#### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks Network Prefix Allocator
-
-<a id="deep-1c9094"></a>Deeply nested **Allocator** block collapsed for readability.
 
 #### Custom Storage Config Storage Interface List Storage Interfaces Storage Interface DHCP Server DHCP Networks Pools
 
@@ -1202,6 +1074,18 @@ An [`external`](#external-a31b05) block (within [`local_control_plane.bgp_config
 #### Local Control Plane BGP Config Peers External Family Inet
 
 <a id="deep-473e79"></a>Deeply nested **Inet** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Family Inet Enable
+
+<a id="deep-1d01d1"></a>Deeply nested **Enable** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Family Inet Enable Aggregation
+
+<a id="deep-fcd513"></a>Deeply nested **Aggregation** block collapsed for readability.
+
+#### Local Control Plane BGP Config Peers External Family Inet Enable Aggregation Options
+
+<a id="deep-e72730"></a>Deeply nested **Options** block collapsed for readability.
 
 #### Local Control Plane BGP Config Peers External Interface
 

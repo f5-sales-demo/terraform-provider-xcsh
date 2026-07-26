@@ -77,6 +77,7 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 <br><br>&#x2022; <a id="kvm"></a>[`kvm`](#kvm) - Optional Block<br>KVM Provider Type. KVM Provider Type
 <br><br>&#x2022; <a id="nutanix"></a>[`nutanix`](#nutanix) - Optional Block<br>Nutanix Provider Type. Nutanix Provider Type
 <br><br>&#x2022; <a id="oci"></a>[`oci`](#oci) - Optional Block<br>OCI Provider Type. OCI Provider Type
+<br><br>&#x2022; <a id="openshift-virtualization"></a>[`openshift_virtualization`](#openshift-virtualization) - Optional Block<br>Configuration parameter for openshift virtualization
 <br><br>&#x2022; <a id="openstack"></a>[`openstack`](#openstack) - Optional Block<br>Openstack Provider Type. Openstack Provider Type
 <br><br>&#x2022; <a id="vmware"></a>[`vmware`](#vmware) - Optional Block<br>VMware Provider Type. VMware Provider Type
 
@@ -99,7 +100,13 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 <br><br>&#x2022; <a id="no-s2s-connectivity-slo"></a>[`no_s2s_connectivity_slo`](#no-s2s-connectivity-slo) - Optional Block<br>Configuration parameter for no S2S connectivity slo
 
 -> **One of the following:**
+&#x2022; <a id="disable-advanced-delivery"></a>[`disable_advanced_delivery`](#disable-advanced-delivery) - Optional Block<br>Configuration parameter for disable advanced delivery
+
+-> **One of the following:**
 &#x2022; <a id="disable-ha"></a>[`disable_ha`](#disable-ha) - Optional Block<br>Enable this option
+
+-> **One of the following:**
+&#x2022; <a id="disable-log-anonymization"></a>[`disable_log_anonymization`](#disable-log-anonymization) - Optional Block<br>Configuration parameter for disable log anonymization
 
 -> **One of the following:**
 &#x2022; <a id="disable-management-network"></a>[`disable_management_network`](#disable-management-network) - Optional Block<br>Configuration parameter for disable management network
@@ -109,7 +116,11 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 
 <a id="dns-ntp-config"></a>&#x2022; [`dns_ntp_config`](#dns-ntp-config) - Optional Block<br>Specify DNS and NTP servers that will be used by the nodes in this Customer Edge site
 
+<a id="enable-advanced-delivery"></a>&#x2022; [`enable_advanced_delivery`](#enable-advanced-delivery) - Optional Block<br>Configuration parameter for enable advanced delivery
+
 <a id="enable-ha"></a>&#x2022; [`enable_ha`](#enable-ha) - Optional Block<br>Enable this option
+
+<a id="enable-log-anonymization"></a>&#x2022; [`enable_log_anonymization`](#enable-log-anonymization) - Optional Block<br>Configuration parameter for enable log anonymization
 
 <a id="enable-management-network"></a>&#x2022; [`enable_management_network`](#enable-management-network) - Optional Block<br>Configuration parameter for enable management network
 
@@ -120,10 +131,8 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 <a id="local-vrf"></a>&#x2022; [`local_vrf`](#local-vrf) - Optional Block<br>There can be two local VRFs on each site. The Site Local Outside (SLO) local VRF is used to connect WAN side workloads to this site and to connect the site to F5 Distributed Cloud for management. All sites are required to have an SLO local VRF
 
 -> **One of the following:**
-&#x2022; <a id="log-receiver"></a>[`log_receiver`](#log-receiver) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
+&#x2022; <a id="log-receiver-with-net"></a>[`log_receiver_with_net`](#log-receiver-with-net) - Optional Block<br>Select log receiver for logs streaming with network option
 <br><br>&#x2022; <a id="logs-streaming-disabled"></a>[`logs_streaming_disabled`](#logs-streaming-disabled) - Optional Block<br>Enable this option
-
-<a id="log-receiver-with-net"></a>&#x2022; [`log_receiver_with_net`](#log-receiver-with-net) - Optional Block<br>Select log receiver for logs streaming with network option
 
 <a id="no-forward-proxy"></a>&#x2022; [`no_forward_proxy`](#no-forward-proxy) - Optional Block<br>Configuration parameter for no forward proxy
 
@@ -135,8 +144,6 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 
 <a id="offline-survivability-mode"></a>&#x2022; [`offline_survivability_mode`](#offline-survivability-mode) - Optional Block<br>Offline Survivability allows the Site to continue functioning normally without traffic loss during periods of connectivity loss to the Regional Edge (RE) or the Global Controller (GC). When this feature is enabled, a site can continue to function as is with existing
 configuration for upto 7
-
-<a id="openshift-virtualization"></a>&#x2022; [`openshift_virtualization`](#openshift-virtualization) - Optional Block<br>Configuration parameter for openshift virtualization
 
 <a id="performance-enhancement-mode"></a>&#x2022; [`performance_enhancement_mode`](#performance-enhancement-mode) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default
 
@@ -209,38 +216,17 @@ An [`admin_user_credentials`](#admin-user-credentials) block supports the follow
 
 An [`admin_password`](#admin-user-credentials-admin-password) block (within [`admin_user_credentials`](#admin-user-credentials)) supports the following:
 
-<a id="info-710bcb"></a>&#x2022; [`blindfold_secret_info`](#info-710bcb) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-710bcb) below.
+<a id="info-710bcb"></a>&#x2022; [`blindfold_secret_info`](#info-710bcb) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-710bcb) below.
 
-<a id="internal-3185a2"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-3185a2) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info Internal](#internal-3185a2) below.
-
-<a id="info-32b90f"></a>&#x2022; [`clear_secret_info`](#info-32b90f) - Optional Block<br>X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-32b90f) below.
-
-<a id="type-04d0a9"></a>&#x2022; [`secret_encoding_type`](#type-04d0a9) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="info-ab9b09"></a>&#x2022; [`vault_secret_info`](#info-ab9b09) - Optional Block<br>X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault<br>See [Vault Secret Info](#info-ab9b09) below.
-
-<a id="info-77e390"></a>&#x2022; [`wingman_secret_info`](#info-77e390) - Optional Block<br>X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret<br>See [Wingman Secret Info](#info-77e390) below.
+<a id="info-32b90f"></a>&#x2022; [`clear_secret_info`](#info-32b90f) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-32b90f) below.
 
 #### Admin User Credentials Admin Password Blindfold Secret Info
 
 <a id="deep-6962e1"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Admin User Credentials Admin Password Blindfold Secret Info Internal
-
-<a id="deep-62ec9f"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Admin User Credentials Admin Password Clear Secret Info
 
 <a id="deep-463d43"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Admin User Credentials Admin Password Vault Secret Info
-
-<a id="deep-903cb3"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Admin User Credentials Admin Password Wingman Secret Info
-
-<a id="deep-a668e9"></a>Deeply nested **Info** block collapsed for readability.
 
 #### AWS
 
@@ -671,14 +657,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
 
 #### Custom Proxy
 
@@ -700,18 +686,9 @@ A [`custom_proxy`](#custom-proxy) block supports the following:
 
 A [`password`](#custom-proxy-password) block (within [`custom_proxy`](#custom-proxy)) supports the following:
 
-<a id="info-a3e566"></a>&#x2022; [`blindfold_secret_info`](#info-a3e566) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-a3e566) below.
+<a id="info-a3e566"></a>&#x2022; [`blindfold_secret_info`](#info-a3e566) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-a3e566) below.
 
-<a id="internal-89f596"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-89f596) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info Internal](#internal-89f596) below.
-
-<a id="custom-proxy-password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#custom-proxy-password-clear-secret-info) - Optional Block<br>X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#custom-proxy-password-clear-secret-info) below.
-
-<a id="type-3829a7"></a>&#x2022; [`secret_encoding_type`](#type-3829a7) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="custom-proxy-password-vault-secret-info"></a>&#x2022; [`vault_secret_info`](#custom-proxy-password-vault-secret-info) - Optional Block<br>X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault<br>See [Vault Secret Info](#custom-proxy-password-vault-secret-info) below.
-
-<a id="info-4fb343"></a>&#x2022; [`wingman_secret_info`](#info-4fb343) - Optional Block<br>X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret<br>See [Wingman Secret Info](#info-4fb343) below.
+<a id="custom-proxy-password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#custom-proxy-password-clear-secret-info) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#custom-proxy-password-clear-secret-info) below.
 
 #### Custom Proxy Password Blindfold Secret Info
 
@@ -723,16 +700,6 @@ A [`blindfold_secret_info`](#info-a3e566) block (within [`custom_proxy.password`
 
 <a id="provider-d70f6e"></a>&#x2022; [`store_provider`](#provider-d70f6e) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-#### Custom Proxy Password Blindfold Secret Info Internal
-
-A [`blindfold_secret_info_internal`](#internal-89f596) block (within [`custom_proxy.password`](#custom-proxy-password)) supports the following:
-
-<a id="provider-12a515"></a>&#x2022; [`decryption_provider`](#provider-12a515) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
-
-<a id="location-bad240"></a>&#x2022; [`location`](#location-bad240) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
-
-<a id="provider-25fbf4"></a>&#x2022; [`store_provider`](#provider-25fbf4) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
-
 #### Custom Proxy Password Clear Secret Info
 
 A [`clear_secret_info`](#custom-proxy-password-clear-secret-info) block (within [`custom_proxy.password`](#custom-proxy-password)) supports the following:
@@ -740,27 +707,6 @@ A [`clear_secret_info`](#custom-proxy-password-clear-secret-info) block (within 
 <a id="ref-35707d"></a>&#x2022; [`provider_ref`](#ref-35707d) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 <a id="url-0071f9"></a>&#x2022; [`url`](#url-0071f9) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
-
-#### Custom Proxy Password Vault Secret Info
-
-A [`vault_secret_info`](#custom-proxy-password-vault-secret-info) block (within [`custom_proxy.password`](#custom-proxy-password)) supports the following:
-
-<a id="key-bb47d0"></a>&#x2022; [`key`](#key-bb47d0) - Optional String<br>X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key
-
-<a id="location-8d6eea"></a>&#x2022; [`location`](#location-8d6eea) - Optional String<br>X-displayName: 'Location'Path to secret in Vault
-
-<a id="ref-d29a42"></a>&#x2022; [`provider_ref`](#ref-d29a42) - Optional String<br>X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault
-
-<a id="encoding-8008c1"></a>&#x2022; [`secret_encoding`](#encoding-8008c1) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="version-4bc3ea"></a>&#x2022; [`version`](#version-4bc3ea) - Optional Number<br>X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned
-
-#### Custom Proxy Password Wingman Secret Info
-
-A [`wingman_secret_info`](#info-4fb343) block (within [`custom_proxy.password`](#custom-proxy-password)) supports the following:
-
-<a id="name-b7cf93"></a>&#x2022; [`name`](#name-b7cf93) - Optional String<br>X-displayName: 'Name'Name of the secret
 
 #### Custom Proxy Bypass
 
@@ -1253,7 +1199,7 @@ A [`sli_config`](#local-vrf-sli-config) block (within [`local_vrf`](#local-vrf))
 
 <a id="local-vrf-sli-config-labels"></a>&#x2022; [`labels`](#local-vrf-sli-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
 
-<a id="local-vrf-sli-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-sli-config-nameserver) - Optional String<br>Optional DNS V4 server IP to be used for name resolution
+<a id="local-vrf-sli-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-sli-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
 <a id="local-vrf-sli-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#local-vrf-sli-config-no-static-routes) - Optional Block<br>Configuration parameter for no static routes
 
@@ -1317,7 +1263,7 @@ A [`slo_config`](#local-vrf-slo-config) block (within [`local_vrf`](#local-vrf))
 
 <a id="local-vrf-slo-config-labels"></a>&#x2022; [`labels`](#local-vrf-slo-config-labels) - Optional Block<br>Add Labels for this network, these labels can be used in firewall policy
 
-<a id="local-vrf-slo-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-slo-config-nameserver) - Optional String<br>Optional DNS V4 server IP to be used for name resolution
+<a id="local-vrf-slo-config-nameserver"></a>&#x2022; [`nameserver`](#local-vrf-slo-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
 <a id="local-vrf-slo-config-no-static-routes"></a>&#x2022; [`no_static_routes`](#local-vrf-slo-config-no-static-routes) - Optional Block<br>Configuration parameter for no static routes
 
@@ -1374,16 +1320,6 @@ A [`static_v6_routes`](#local-vrf-slo-config-static-v6-routes) block (within [`l
 #### Local Vrf Slo Config Static V6 Routes Static Routes Node Interface List Interface
 
 <a id="deep-86b9dc"></a>Deeply nested **Interface** block collapsed for readability.
-
-#### Log Receiver
-
-A [`log_receiver`](#log-receiver) block supports the following:
-
-<a id="log-receiver-name"></a>&#x2022; [`name`](#log-receiver-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
-
-<a id="log-receiver-namespace"></a>&#x2022; [`namespace`](#log-receiver-namespace) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
-
-<a id="log-receiver-tenant"></a>&#x2022; [`tenant`](#log-receiver-tenant) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Log Receiver With Net
 
@@ -1936,7 +1872,7 @@ A [`performance_enhancement_mode`](#performance-enhancement-mode) block supports
 
 <a id="enhanced-31b8ac"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-31b8ac) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-31b8ac) below.
 
-<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-38f174"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-38f174) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-38f174) below.
 
 #### Performance Enhancement Mode Perf Mode L3 Enhanced
 
@@ -1945,6 +1881,14 @@ A [`perf_mode_l3_enhanced`](#enhanced-31b8ac) block (within [`performance_enhanc
 <a id="jumbo-7ba5b8"></a>&#x2022; [`jumbo`](#jumbo-7ba5b8) - Optional Block<br>Enable this option
 
 <a id="jumbo-95338e"></a>&#x2022; [`no_jumbo`](#jumbo-95338e) - Optional Block<br>Enable this option
+
+#### Performance Enhancement Mode Perf Mode L7 Enhanced
+
+A [`perf_mode_l7_enhanced`](#enhanced-38f174) block (within [`performance_enhancement_mode`](#performance-enhancement-mode)) supports the following:
+
+<a id="disabled-0c2193"></a>&#x2022; [`jumbo_disabled`](#disabled-0c2193) - Optional Block<br>Enable this option
+
+<a id="enabled-a434b3"></a>&#x2022; [`jumbo_enabled`](#enabled-a434b3) - Optional Block<br>Enable this option
 
 #### RE Select
 
@@ -1966,15 +1910,13 @@ A [`specific_re`](#re-select-specific-re) block (within [`re_select`](#re-select
 
 A [`segment_vrf`](#segment-vrf) block supports the following:
 
-<a id="segment-vrf-segment-config"></a>&#x2022; [`segment_config`](#segment-vrf-segment-config) - Optional Block<br>X-displayName: 'Segment Network Configuration' Segment Network Configuration<br>See [Segment Config](#segment-vrf-segment-config) below.
+<a id="segment-vrf-segment-config"></a>&#x2022; [`segment_config`](#segment-vrf-segment-config) - Optional Block<br>Segment Network Configuration. Segment Network Configuration<br>See [Segment Config](#segment-vrf-segment-config) below.
 
 #### Segment Vrf Segment Config
 
 A [`segment_config`](#segment-vrf-segment-config) block (within [`segment_vrf`](#segment-vrf)) supports the following:
 
-<a id="segment-vrf-segment-config-nameserver"></a>&#x2022; [`nameserver`](#segment-vrf-segment-config-nameserver) - Optional String<br>X-displayName: 'DNS V4 Server' Optional DNS V4 server IP to be used for name resolution
-
-<a id="nameserver-v6-449f0a"></a>&#x2022; [`nameserver_v6`](#nameserver-v6-449f0a) - Optional String<br>X-displayName: 'DNS V6 Server' Optional DNS V6 server IP to be used for name resolution
+<a id="segment-vrf-segment-config-nameserver"></a>&#x2022; [`nameserver`](#segment-vrf-segment-config-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution
 
 <a id="routes-e44bf3"></a>&#x2022; [`no_static_routes`](#routes-e44bf3) - Optional Block<br>Configuration parameter for no static routes
 

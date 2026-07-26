@@ -82,6 +82,8 @@ An [`infra`](#infra) block supports the following:
 
 <a id="infra-availability-zone"></a>&#x2022; [`availability_zone`](#infra-availability-zone) - Optional String<br>Availability Zone is a high-availability offering that protects your applications and data from datacenter failures
 
+<a id="infra-bond-config"></a>&#x2022; [`bond_config`](#infra-bond-config) - Optional Block<br>Bond device configuration for VPM registration<br>See [Bond Config](#infra-bond-config) below.
+
 <a id="infra-certified-hw"></a>&#x2022; [`certified_hw`](#infra-certified-hw) - Optional String<br>Certified HW name used to map with F5XC certified_hardware definition
 
 <a id="infra-domain"></a>&#x2022; [`domain`](#infra-domain) - Optional String<br>Machine domain. It's used for Kubernetes cloud provider when domain must be different than F5 Distributed Cloud
@@ -109,6 +111,17 @@ cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was n
 <a id="infra-timestamp"></a>&#x2022; [`timestamp`](#infra-timestamp) - Optional String<br>It's used to verify machine have acceptable time difference from server
 
 <a id="infra-zone"></a>&#x2022; [`zone`](#infra-zone) - Optional String<br>Instance zone (or region), depends on provider
+
+#### Infra Bond Config
+
+A [`bond_config`](#infra-bond-config) block (within [`infra`](#infra)) supports the following:
+
+<a id="infra-bond-config-interfaces"></a>&#x2022; [`interfaces`](#infra-bond-config-interfaces) - Optional List<br>Member Interfaces
+
+<a id="infra-bond-config-mode"></a>&#x2022; [`mode`](#infra-bond-config-mode) - Optional String  Defaults to `BOND_MODE_UNSPECIFIED`<br>Possible values are `BOND_MODE_UNSPECIFIED`, `ACTIVE_BACKUP`, `LACP_802_3AD`<br>[Enum: BOND_MODE_UNSPECIFIED|ACTIVE_BACKUP|LACP_802_3AD] Bonding mode for bond device configuration Bond mode is not specified Active-backup bond mode (one interface active, others as
+backup) IEEE 802.3ad Dynamic link aggregation (LACP)
+
+<a id="infra-bond-config-name"></a>&#x2022; [`name`](#infra-bond-config-name) - Optional String<br>Bond Name
 
 #### Infra Hw Info
 

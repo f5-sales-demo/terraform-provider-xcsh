@@ -54,22 +54,14 @@ type AWSVPCSiteEmptyModel struct {
 
 // AWSVPCSiteAdminPasswordModel represents admin_password block
 type AWSVPCSiteAdminPasswordModel struct {
-	SecretEncodingType          types.String                                             `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *AWSVPCSiteAdminPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *AWSVPCSiteAdminPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *AWSVPCSiteAdminPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *AWSVPCSiteAdminPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *AWSVPCSiteAdminPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *AWSVPCSiteAdminPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // AWSVPCSiteAdminPasswordModelAttrTypes defines the attribute types for AWSVPCSiteAdminPasswordModel
 var AWSVPCSiteAdminPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: AWSVPCSiteAdminPasswordClearSecretInfoModelAttrTypes},
 }
 
 // AWSVPCSiteAdminPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -86,20 +78,6 @@ var AWSVPCSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes = map[string]attr.T
 	"store_provider":      types.StringType,
 }
 
-// AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel
-var AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // AWSVPCSiteAdminPasswordClearSecretInfoModel represents clear_secret_info block
 type AWSVPCSiteAdminPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -110,34 +88,6 @@ type AWSVPCSiteAdminPasswordClearSecretInfoModel struct {
 var AWSVPCSiteAdminPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// AWSVPCSiteAdminPasswordVaultSecretInfoModel represents vault_secret_info block
-type AWSVPCSiteAdminPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// AWSVPCSiteAdminPasswordVaultSecretInfoModelAttrTypes defines the attribute types for AWSVPCSiteAdminPasswordVaultSecretInfoModel
-var AWSVPCSiteAdminPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// AWSVPCSiteAdminPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type AWSVPCSiteAdminPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// AWSVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for AWSVPCSiteAdminPasswordWingmanSecretInfoModel
-var AWSVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // AWSVPCSiteAWSCredModel represents aws_cred block
@@ -941,13 +891,13 @@ var AWSVPCSiteIngressEgressGwOutsideStaticRoutesStaticRouteListCustomStaticRoute
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AWSVPCSiteEmptyModel                                                       `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModel
 var AWSVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -960,6 +910,18 @@ type AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel 
 var AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AWSVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AWSVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel
+var AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSVPCSiteIngressGwModel represents ingress_gw block
@@ -1043,13 +1005,13 @@ var AWSVPCSiteIngressGwAzNodesLocalSubnetSubnetParamModelAttrTypes = map[string]
 // AWSVPCSiteIngressGwPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type AWSVPCSiteIngressGwPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *AWSVPCSiteEmptyModel                                                 `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // AWSVPCSiteIngressGwPerformanceEnhancementModeModelAttrTypes defines the attribute types for AWSVPCSiteIngressGwPerformanceEnhancementModeModel
 var AWSVPCSiteIngressGwPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -1062,6 +1024,18 @@ type AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct
 var AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *AWSVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *AWSVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel
+var AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // AWSVPCSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
@@ -1626,7 +1600,6 @@ var AWSVPCSiteVPCModelAttrTypes = map[string]attr.Type{
 
 // AWSVPCSiteVPCNewVPCModel represents new_vpc block
 type AWSVPCSiteVPCNewVPCModel struct {
-	AllocateIpv6 types.Bool            `tfsdk:"allocate_ipv6"`
 	NameTag      types.String          `tfsdk:"name_tag"`
 	PrimaryIpv4  types.String          `tfsdk:"primary_ipv4"`
 	Autogenerate *AWSVPCSiteEmptyModel `tfsdk:"autogenerate"`
@@ -1634,10 +1607,9 @@ type AWSVPCSiteVPCNewVPCModel struct {
 
 // AWSVPCSiteVPCNewVPCModelAttrTypes defines the attribute types for AWSVPCSiteVPCNewVPCModel
 var AWSVPCSiteVPCNewVPCModelAttrTypes = map[string]attr.Type{
-	"allocate_ipv6": types.BoolType,
-	"name_tag":      types.StringType,
-	"primary_ipv4":  types.StringType,
-	"autogenerate":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"name_tag":     types.StringType,
+	"primary_ipv4": types.StringType,
+	"autogenerate": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 type AWSVPCSiteResourceModel struct {
@@ -1808,38 +1780,10 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-				Attributes: map[string]schema.Attribute{
-					"secret_encoding_type": schema.StringAttribute{
-						MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-						Optional:            true,
-						Validators: []validator.String{
-							stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-						},
-					},
-				},
+				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blindfold_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-						Attributes: map[string]schema.Attribute{
-							"decryption_provider": schema.StringAttribute{
-								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-								Optional:            true,
-							},
-							"location": schema.StringAttribute{
-								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(4, 131072),
-								},
-							},
-							"store_provider": schema.StringAttribute{
-								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-								Optional:            true,
-							},
-						},
-					},
-					"blindfold_secret_info_internal": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 						Attributes: map[string]schema.Attribute{
 							"decryption_provider": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1859,7 +1803,7 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 					"clear_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 						Attributes: map[string]schema.Attribute{
 							"provider_ref": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1870,47 +1814,6 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 131072),
-								},
-							},
-						},
-					},
-					"vault_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-						Attributes: map[string]schema.Attribute{
-							"key": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-								Optional:            true,
-							},
-							"location": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-								Optional:            true,
-							},
-							"provider_ref": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-								Optional:            true,
-							},
-							"secret_encoding": schema.StringAttribute{
-								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-								},
-							},
-							"version": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-								Optional:            true,
-							},
-						},
-					},
-					"wingman_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-						Attributes: map[string]schema.Attribute{
-							"name": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 63),
-									stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 								},
 							},
 						},
@@ -2019,14 +1922,14 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "[OneOf: custom_security_group, f5xc_security_group] Enter pre created security groups for slo(Site Local Outside) and sli(Site Local Inside) interface. Supported only for sites deployed on existing VPC.",
 				Attributes: map[string]schema.Attribute{
 					"inside_security_group_id": schema.StringAttribute{
-						MarkdownDescription: "X-displayName: 'Inside Security Group ID' Security Group ID to be attached to SLI(Site Local Inside) Interface.",
+						MarkdownDescription: "Security Group ID to be attached to SLI(Site Local Inside) Interface.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(20),
 						},
 					},
 					"outside_security_group_id": schema.StringAttribute{
-						MarkdownDescription: "X-displayName: 'Outside Security Group ID' Security Group ID to be attached to SLO(Site Local Outside) Interface.",
+						MarkdownDescription: "Security Group ID to be attached to SLO(Site Local Outside) Interface.",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(20),
@@ -2060,10 +1963,10 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						Attributes:          map[string]schema.Attribute{},
 						Blocks: map[string]schema.Block{
 							"site_registration_over_direct_connect": schema.SingleNestedBlock{
-								MarkdownDescription: "CloudLink AND Network Config.",
+								MarkdownDescription: "CloudLink ADN Network Config.",
 								Attributes: map[string]schema.Attribute{
 									"cloudlink_network_name": schema.StringAttribute{
-										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support.",
+										MarkdownDescription: "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
 										Optional:            true,
 										Validators: []validator.String{
 											stringvalidator.LengthAtMost(64),
@@ -2120,7 +2023,7 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "With this option, egress site traffic will be routed through an Network Address Translation(NAT) Gateway.",
 				Attributes: map[string]schema.Attribute{
 					"nat_gw_id": schema.StringAttribute{
-						MarkdownDescription: "X-displayName: 'Existing NAT Gateway ID'.",
+						MarkdownDescription: "Existing NAT Gateway ID. Exclusive with []",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(21),
@@ -2129,10 +2032,10 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"egress_virtual_private_gateway": schema.SingleNestedBlock{
-				MarkdownDescription: "X-displayName: 'AWS Virtual Private Gateway choice' With this option, egress site traffic will be routed through an Virtual Private Gateway.",
+				MarkdownDescription: "With this option, egress site traffic will be routed through an Virtual Private Gateway.",
 				Attributes: map[string]schema.Attribute{
 					"vgw_id": schema.StringAttribute{
-						MarkdownDescription: "X-displayName: 'Existing Virtual Private Gateway ID'.",
+						MarkdownDescription: "Existing Virtual Private Gateway ID. Exclusive with []",
 						Optional:            true,
 						Validators: []validator.String{
 							stringvalidator.LengthAtMost(21),
@@ -2947,6 +2850,15 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -3055,6 +2967,15 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -3165,7 +3086,7 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 			},
 			"private_connectivity": schema.SingleNestedBlock{
-				MarkdownDescription: "X-displayName: 'Private Connect Configuration' Private Connect Configuration.",
+				MarkdownDescription: "Configuration parameter for private connectivity.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
@@ -3800,12 +3721,8 @@ func (r *AWSVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				},
 				Blocks: map[string]schema.Block{
 					"new_vpc": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'AWS VPC Parameters' Parameters to create new AWS VPC.",
+						MarkdownDescription: "AWS VPC Parameters. Parameters to create new AWS VPC.",
 						Attributes: map[string]schema.Attribute{
-							"allocate_ipv6": schema.BoolAttribute{
-								MarkdownDescription: "X-displayName: 'Allocate IPv6 CIDR block from AWS' Allocate IPv6 CIDR block from AWS.",
-								Optional:            true,
-							},
 							"name_tag": schema.StringAttribute{
 								MarkdownDescription: "Exclusive with [autogenerate] Specify the VPC Name.",
 								Optional:            true,
@@ -3964,19 +3881,6 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
-		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
-		}
 		if data.AdminPassword.ClearSecretInfo != nil {
 			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -3986,35 +3890,6 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
 			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
-		}
-		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
-			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
-		}
-		if data.AdminPassword.VaultSecretInfo != nil {
-			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-			}
-			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
-		}
-		if data.AdminPassword.WingmanSecretInfo != nil {
-			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
-			}
-			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		createReq.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -4058,7 +3933,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -4728,7 +4603,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
@@ -4811,7 +4693,14 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
@@ -5310,9 +5199,6 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 		VPCMap := make(map[string]interface{})
 		if data.VPC.NewVPC != nil {
 			VPCNewVPCMap := make(map[string]interface{})
-			if !data.VPC.NewVPC.AllocateIpv6.IsNull() && !data.VPC.NewVPC.AllocateIpv6.IsUnknown() {
-				VPCNewVPCMap["allocate_ipv6"] = data.VPC.NewVPC.AllocateIpv6.ValueBool()
-			}
 			if data.VPC.NewVPC.Autogenerate != nil {
 				VPCNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
@@ -5399,34 +5285,6 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *AWSVPCSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -5441,71 +5299,6 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *AWSVPCSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *AWSVPCSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -5551,7 +5344,7 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSVPCSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -6928,12 +6721,31 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -7122,12 +6934,31 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -8129,15 +7960,6 @@ func (r *AWSVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVPCNewVPCModel{
-						AllocateIpv6: func() types.Bool {
-							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil && !data.VPC.NewVPC.AllocateIpv6.IsUnknown() {
-								return data.VPC.NewVPC.AllocateIpv6
-							}
-							if v, ok := NewVPCData["allocate_ipv6"].(bool); ok {
-								return types.BoolValue(v)
-							}
-							return types.BoolNull()
-						}(),
 						Autogenerate: func() *AWSVPCSiteEmptyModel {
 							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil {
 								return data.VPC.NewVPC.Autogenerate
@@ -8347,34 +8169,6 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *AWSVPCSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -8389,71 +8183,6 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *AWSVPCSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *AWSVPCSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -8499,7 +8228,7 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSVPCSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -9876,12 +9605,31 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -10070,12 +9818,31 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -11077,15 +10844,6 @@ func (r *AWSVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVPCNewVPCModel{
-						AllocateIpv6: func() types.Bool {
-							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil && !data.VPC.NewVPC.AllocateIpv6.IsUnknown() {
-								return data.VPC.NewVPC.AllocateIpv6
-							}
-							if v, ok := NewVPCData["allocate_ipv6"].(bool); ok {
-								return types.BoolValue(v)
-							}
-							return types.BoolNull()
-						}(),
 						Autogenerate: func() *AWSVPCSiteEmptyModel {
 							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil {
 								return data.VPC.NewVPC.Autogenerate
@@ -11222,19 +10980,6 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
-		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
-		}
 		if data.AdminPassword.ClearSecretInfo != nil {
 			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -11244,35 +10989,6 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
 			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
-		}
-		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
-			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
-		}
-		if data.AdminPassword.VaultSecretInfo != nil {
-			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-			}
-			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
-		}
-		if data.AdminPassword.WingmanSecretInfo != nil {
-			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
-			}
-			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		apiResource.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -11316,7 +11032,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -11986,7 +11702,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
@@ -12069,7 +11792,14 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
@@ -12568,9 +12298,6 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 		VPCMap := make(map[string]interface{})
 		if data.VPC.NewVPC != nil {
 			VPCNewVPCMap := make(map[string]interface{})
-			if !data.VPC.NewVPC.AllocateIpv6.IsNull() && !data.VPC.NewVPC.AllocateIpv6.IsUnknown() {
-				VPCNewVPCMap["allocate_ipv6"] = data.VPC.NewVPC.AllocateIpv6.ValueBool()
-			}
 			if data.VPC.NewVPC.Autogenerate != nil {
 				VPCNewVPCMap["autogenerate"] = map[string]interface{}{}
 			}
@@ -12682,34 +12409,6 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *AWSVPCSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -12724,71 +12423,6 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *AWSVPCSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *AWSVPCSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &AWSVPCSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -12834,7 +12468,7 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []AWSVPCSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -14211,12 +13845,31 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AWSVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -14405,12 +14058,31 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *AWSVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &AWSVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &AWSVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *AWSVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &AWSVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -15412,15 +15084,6 @@ func (r *AWSVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				if NewVPCData, ok := blockData["new_vpc"].(map[string]interface{}); ok {
 					return &AWSVPCSiteVPCNewVPCModel{
-						AllocateIpv6: func() types.Bool {
-							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil && !data.VPC.NewVPC.AllocateIpv6.IsUnknown() {
-								return data.VPC.NewVPC.AllocateIpv6
-							}
-							if v, ok := NewVPCData["allocate_ipv6"].(bool); ok {
-								return types.BoolValue(v)
-							}
-							return types.BoolNull()
-						}(),
 						Autogenerate: func() *AWSVPCSiteEmptyModel {
 							if !isImport && data.VPC != nil && data.VPC.NewVPC != nil {
 								return data.VPC.NewVPC.Autogenerate

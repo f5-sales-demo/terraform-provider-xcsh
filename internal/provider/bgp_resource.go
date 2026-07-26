@@ -140,14 +140,46 @@ var BGPPeersExternalModelAttrTypes = map[string]attr.Type{
 
 // BGPPeersExternalFamilyInetModel represents family_inet block
 type BGPPeersExternalFamilyInetModel struct {
-	DisableSpec *BGPEmptyModel `tfsdk:"disable_spec"`
-	Enable      *BGPEmptyModel `tfsdk:"enable"`
+	DisableSpec *BGPEmptyModel                         `tfsdk:"disable_spec"`
+	Enable      *BGPPeersExternalFamilyInetEnableModel `tfsdk:"enable"`
 }
 
 // BGPPeersExternalFamilyInetModelAttrTypes defines the attribute types for BGPPeersExternalFamilyInetModel
 var BGPPeersExternalFamilyInetModelAttrTypes = map[string]attr.Type{
 	"disable_spec": types.ObjectType{AttrTypes: map[string]attr.Type{}},
-	"enable":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"enable":       types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableModelAttrTypes},
+}
+
+// BGPPeersExternalFamilyInetEnableModel represents enable block
+type BGPPeersExternalFamilyInetEnableModel struct {
+	Aggregation types.List `tfsdk:"aggregation"`
+}
+
+// BGPPeersExternalFamilyInetEnableModelAttrTypes defines the attribute types for BGPPeersExternalFamilyInetEnableModel
+var BGPPeersExternalFamilyInetEnableModelAttrTypes = map[string]attr.Type{
+	"aggregation": types.ListType{ElemType: types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes}},
+}
+
+// BGPPeersExternalFamilyInetEnableAggregationModel represents aggregation block
+type BGPPeersExternalFamilyInetEnableAggregationModel struct {
+	IPPrefix types.String `tfsdk:"ip_prefix"`
+	Options  types.List   `tfsdk:"options"`
+}
+
+// BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes defines the attribute types for BGPPeersExternalFamilyInetEnableAggregationModel
+var BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes = map[string]attr.Type{
+	"ip_prefix": types.StringType,
+	"options":   types.ListType{ElemType: types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}},
+}
+
+// BGPPeersExternalFamilyInetEnableAggregationOptionsModel represents options block
+type BGPPeersExternalFamilyInetEnableAggregationOptionsModel struct {
+	SummaryOnly *BGPEmptyModel `tfsdk:"summary_only"`
+}
+
+// BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes defines the attribute types for BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+var BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes = map[string]attr.Type{
+	"summary_only": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // BGPPeersExternalInterfaceModel represents interface block
@@ -447,21 +479,21 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 									MarkdownDescription: "Specify Number of missed packets to bring session down' .",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.Between(1, 255),
+										int64validator.Between(2, 255),
 									},
 								},
 								"receive_interval_milliseconds": schema.Int64Attribute{
 									MarkdownDescription: "BFD receive interval timer, in milliseconds .",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.Between(1, 255000),
+										int64validator.Between(300, 60000),
 									},
 								},
 								"transmit_interval_milliseconds": schema.Int64Attribute{
 									MarkdownDescription: "BFD transmit interval timer, in milliseconds .",
 									Optional:            true,
 									Validators: []validator.Int64{
-										int64validator.Between(1, 255000),
+										int64validator.Between(300, 60000),
 									},
 								},
 							},
@@ -559,7 +591,34 @@ func (r *BGPResource) Schema(ctx context.Context, req resource.SchemaRequest, re
 											MarkdownDescription: "Enable this option",
 										},
 										"enable": schema.SingleNestedBlock{
-											MarkdownDescription: "Enable this option",
+											MarkdownDescription: "Unicast IPv4. IPv4 Unicast.",
+											Attributes:          map[string]schema.Attribute{},
+											Blocks: map[string]schema.Block{
+												"aggregation": schema.ListNestedBlock{
+													MarkdownDescription: "BGP aggregation prefixes are shared among all peers, aggregation configured under any peer will take effect on all peers. Aggregation in BGP occurs only when more specific routes exist in the routing table and applies to outbound advertisements.",
+													NestedObject: schema.NestedBlockObject{
+														Attributes: map[string]schema.Attribute{
+															"ip_prefix": schema.StringAttribute{
+																MarkdownDescription: "IP Prefix. Specify IPv4 subnet for aggregation.",
+																Optional:            true,
+															},
+														},
+														Blocks: map[string]schema.Block{
+															"options": schema.ListNestedBlock{
+																MarkdownDescription: "Aggregation OPTIONS. Configuration parameter for options",
+																NestedObject: schema.NestedBlockObject{
+																	Attributes: map[string]schema.Attribute{},
+																	Blocks: map[string]schema.Block{
+																		"summary_only": schema.SingleNestedBlock{
+																			MarkdownDescription: "Configuration parameter for summary only.",
+																		},
+																	},
+																},
+															},
+														},
+													},
+												},
+											},
 										},
 									},
 								},
@@ -1047,7 +1106,40 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 							PeersExternalFamilyInetMap["disable"] = map[string]interface{}{}
 						}
 						if PeersItem.External.FamilyInet.Enable != nil {
-							PeersExternalFamilyInetMap["enable"] = map[string]interface{}{}
+							PeersExternalFamilyInetEnableMap := make(map[string]interface{})
+							if !PeersItem.External.FamilyInet.Enable.Aggregation.IsNull() && !PeersItem.External.FamilyInet.Enable.Aggregation.IsUnknown() {
+								var AggregationElems []BGPPeersExternalFamilyInetEnableAggregationModel
+								diags := PeersItem.External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(AggregationElems) > 0 {
+									var AggregationList []map[string]interface{}
+									for _, AggregationItem := range AggregationElems {
+										AggregationItemMap := make(map[string]interface{})
+										if !AggregationItem.IPPrefix.IsNull() && !AggregationItem.IPPrefix.IsUnknown() {
+											AggregationItemMap["ip_prefix"] = AggregationItem.IPPrefix.ValueString()
+										}
+										if !AggregationItem.Options.IsNull() && !AggregationItem.Options.IsUnknown() {
+											var OptionsElems []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+											diags := AggregationItem.Options.ElementsAs(ctx, &OptionsElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(OptionsElems) > 0 {
+												var OptionsList []map[string]interface{}
+												for _, OptionsItem := range OptionsElems {
+													OptionsItemMap := make(map[string]interface{})
+													if OptionsItem.SummaryOnly != nil {
+														OptionsItemMap["summary_only"] = map[string]interface{}{}
+													}
+													OptionsList = append(OptionsList, OptionsItemMap)
+												}
+												AggregationItemMap["options"] = OptionsList
+											}
+										}
+										AggregationList = append(AggregationList, AggregationItemMap)
+									}
+									PeersExternalFamilyInetEnableMap["aggregation"] = AggregationList
+								}
+							}
+							PeersExternalFamilyInetMap["enable"] = PeersExternalFamilyInetEnableMap
 						}
 						PeersExternalMap["family_inet"] = PeersExternalFamilyInetMap
 					}
@@ -1471,12 +1563,72 @@ func (r *BGPResource) Create(ctx context.Context, req resource.CreateRequest, re
 												}
 												return nil
 											}(),
-											Enable: func() *BGPEmptyModel {
-												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+											Enable: func() *BGPPeersExternalFamilyInetEnableModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil {
 													return existingPeersItems[listIdx].External.FamilyInet.Enable
 												}
-												if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
-													return &BGPEmptyModel{}
+												if EnableData, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
+													return &BGPPeersExternalFamilyInetEnableModel{
+														Aggregation: func() types.List {
+															if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil && (existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsNull() || len(existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+															}
+															var AggregationExisting []BGPPeersExternalFamilyInetEnableAggregationModel
+															if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil && !existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsNull() && !existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsUnknown() {
+																existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationExisting, false)
+															}
+															if rawList, ok := EnableData["aggregation"].([]interface{}); ok && len(rawList) > 0 {
+																var AggregationResult []BGPPeersExternalFamilyInetEnableAggregationModel
+																for AggregationIdx, AggregationItem := range rawList {
+																	_ = AggregationIdx
+																	if AggregationItemMap, ok := AggregationItem.(map[string]interface{}); ok {
+																		AggregationResult = append(AggregationResult, BGPPeersExternalFamilyInetEnableAggregationModel{
+																			IPPrefix: func() types.String {
+																				if v, ok := AggregationItemMap["ip_prefix"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Options: func() types.List {
+																				if !isImport && len(AggregationExisting) > AggregationIdx && (AggregationExisting[AggregationIdx].Options.IsNull() || len(AggregationExisting[AggregationIdx].Options.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																				}
+																				var OptionsExisting []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+																				if !isImport && len(AggregationExisting) > AggregationIdx && !AggregationExisting[AggregationIdx].Options.IsNull() && !AggregationExisting[AggregationIdx].Options.IsUnknown() {
+																					AggregationExisting[AggregationIdx].Options.ElementsAs(ctx, &OptionsExisting, false)
+																				}
+																				if rawList, ok := AggregationItemMap["options"].([]interface{}); ok && len(rawList) > 0 {
+																					var OptionsResult []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+																					for OptionsIdx, OptionsItem := range rawList {
+																						_ = OptionsIdx
+																						if OptionsItemMap, ok := OptionsItem.(map[string]interface{}); ok {
+																							OptionsResult = append(OptionsResult, BGPPeersExternalFamilyInetEnableAggregationOptionsModel{
+																								SummaryOnly: func() *BGPEmptyModel {
+																									if !isImport && len(OptionsExisting) > OptionsIdx {
+																										return OptionsExisting[OptionsIdx].SummaryOnly
+																									}
+																									if _, ok := OptionsItemMap["summary_only"].(map[string]interface{}); ok {
+																										return &BGPEmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}, OptionsResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes}, AggregationResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+														}(),
+													}
 												}
 												return nil
 											}(),
@@ -2286,12 +2438,72 @@ func (r *BGPResource) Read(ctx context.Context, req resource.ReadRequest, resp *
 												}
 												return nil
 											}(),
-											Enable: func() *BGPEmptyModel {
-												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+											Enable: func() *BGPPeersExternalFamilyInetEnableModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil {
 													return existingPeersItems[listIdx].External.FamilyInet.Enable
 												}
-												if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
-													return &BGPEmptyModel{}
+												if EnableData, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
+													return &BGPPeersExternalFamilyInetEnableModel{
+														Aggregation: func() types.List {
+															if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil && (existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsNull() || len(existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+															}
+															var AggregationExisting []BGPPeersExternalFamilyInetEnableAggregationModel
+															if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil && !existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsNull() && !existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsUnknown() {
+																existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationExisting, false)
+															}
+															if rawList, ok := EnableData["aggregation"].([]interface{}); ok && len(rawList) > 0 {
+																var AggregationResult []BGPPeersExternalFamilyInetEnableAggregationModel
+																for AggregationIdx, AggregationItem := range rawList {
+																	_ = AggregationIdx
+																	if AggregationItemMap, ok := AggregationItem.(map[string]interface{}); ok {
+																		AggregationResult = append(AggregationResult, BGPPeersExternalFamilyInetEnableAggregationModel{
+																			IPPrefix: func() types.String {
+																				if v, ok := AggregationItemMap["ip_prefix"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Options: func() types.List {
+																				if !isImport && len(AggregationExisting) > AggregationIdx && (AggregationExisting[AggregationIdx].Options.IsNull() || len(AggregationExisting[AggregationIdx].Options.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																				}
+																				var OptionsExisting []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+																				if !isImport && len(AggregationExisting) > AggregationIdx && !AggregationExisting[AggregationIdx].Options.IsNull() && !AggregationExisting[AggregationIdx].Options.IsUnknown() {
+																					AggregationExisting[AggregationIdx].Options.ElementsAs(ctx, &OptionsExisting, false)
+																				}
+																				if rawList, ok := AggregationItemMap["options"].([]interface{}); ok && len(rawList) > 0 {
+																					var OptionsResult []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+																					for OptionsIdx, OptionsItem := range rawList {
+																						_ = OptionsIdx
+																						if OptionsItemMap, ok := OptionsItem.(map[string]interface{}); ok {
+																							OptionsResult = append(OptionsResult, BGPPeersExternalFamilyInetEnableAggregationOptionsModel{
+																								SummaryOnly: func() *BGPEmptyModel {
+																									if !isImport && len(OptionsExisting) > OptionsIdx {
+																										return OptionsExisting[OptionsIdx].SummaryOnly
+																									}
+																									if _, ok := OptionsItemMap["summary_only"].(map[string]interface{}); ok {
+																										return &BGPEmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}, OptionsResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes}, AggregationResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+														}(),
+													}
 												}
 												return nil
 											}(),
@@ -2960,7 +3172,40 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 							PeersExternalFamilyInetMap["disable"] = map[string]interface{}{}
 						}
 						if PeersItem.External.FamilyInet.Enable != nil {
-							PeersExternalFamilyInetMap["enable"] = map[string]interface{}{}
+							PeersExternalFamilyInetEnableMap := make(map[string]interface{})
+							if !PeersItem.External.FamilyInet.Enable.Aggregation.IsNull() && !PeersItem.External.FamilyInet.Enable.Aggregation.IsUnknown() {
+								var AggregationElems []BGPPeersExternalFamilyInetEnableAggregationModel
+								diags := PeersItem.External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(AggregationElems) > 0 {
+									var AggregationList []map[string]interface{}
+									for _, AggregationItem := range AggregationElems {
+										AggregationItemMap := make(map[string]interface{})
+										if !AggregationItem.IPPrefix.IsNull() && !AggregationItem.IPPrefix.IsUnknown() {
+											AggregationItemMap["ip_prefix"] = AggregationItem.IPPrefix.ValueString()
+										}
+										if !AggregationItem.Options.IsNull() && !AggregationItem.Options.IsUnknown() {
+											var OptionsElems []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+											diags := AggregationItem.Options.ElementsAs(ctx, &OptionsElems, false)
+											resp.Diagnostics.Append(diags...)
+											if !resp.Diagnostics.HasError() && len(OptionsElems) > 0 {
+												var OptionsList []map[string]interface{}
+												for _, OptionsItem := range OptionsElems {
+													OptionsItemMap := make(map[string]interface{})
+													if OptionsItem.SummaryOnly != nil {
+														OptionsItemMap["summary_only"] = map[string]interface{}{}
+													}
+													OptionsList = append(OptionsList, OptionsItemMap)
+												}
+												AggregationItemMap["options"] = OptionsList
+											}
+										}
+										AggregationList = append(AggregationList, AggregationItemMap)
+									}
+									PeersExternalFamilyInetEnableMap["aggregation"] = AggregationList
+								}
+							}
+							PeersExternalFamilyInetMap["enable"] = PeersExternalFamilyInetEnableMap
 						}
 						PeersExternalMap["family_inet"] = PeersExternalFamilyInetMap
 					}
@@ -3395,12 +3640,72 @@ func (r *BGPResource) Update(ctx context.Context, req resource.UpdateRequest, re
 												}
 												return nil
 											}(),
-											Enable: func() *BGPEmptyModel {
-												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil {
+											Enable: func() *BGPPeersExternalFamilyInetEnableModel {
+												if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil {
 													return existingPeersItems[listIdx].External.FamilyInet.Enable
 												}
-												if _, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
-													return &BGPEmptyModel{}
+												if EnableData, ok := FamilyInetData["enable"].(map[string]interface{}); ok {
+													return &BGPPeersExternalFamilyInetEnableModel{
+														Aggregation: func() types.List {
+															if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil && (existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsNull() || len(existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+															}
+															var AggregationExisting []BGPPeersExternalFamilyInetEnableAggregationModel
+															if !isImport && len(existingPeersItems) > listIdx && existingPeersItems[listIdx].External != nil && existingPeersItems[listIdx].External.FamilyInet != nil && existingPeersItems[listIdx].External.FamilyInet.Enable != nil && !existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsNull() && !existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.IsUnknown() {
+																existingPeersItems[listIdx].External.FamilyInet.Enable.Aggregation.ElementsAs(ctx, &AggregationExisting, false)
+															}
+															if rawList, ok := EnableData["aggregation"].([]interface{}); ok && len(rawList) > 0 {
+																var AggregationResult []BGPPeersExternalFamilyInetEnableAggregationModel
+																for AggregationIdx, AggregationItem := range rawList {
+																	_ = AggregationIdx
+																	if AggregationItemMap, ok := AggregationItem.(map[string]interface{}); ok {
+																		AggregationResult = append(AggregationResult, BGPPeersExternalFamilyInetEnableAggregationModel{
+																			IPPrefix: func() types.String {
+																				if v, ok := AggregationItemMap["ip_prefix"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Options: func() types.List {
+																				if !isImport && len(AggregationExisting) > AggregationIdx && (AggregationExisting[AggregationIdx].Options.IsNull() || len(AggregationExisting[AggregationIdx].Options.Elements()) == 0) {
+																					return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																				}
+																				var OptionsExisting []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+																				if !isImport && len(AggregationExisting) > AggregationIdx && !AggregationExisting[AggregationIdx].Options.IsNull() && !AggregationExisting[AggregationIdx].Options.IsUnknown() {
+																					AggregationExisting[AggregationIdx].Options.ElementsAs(ctx, &OptionsExisting, false)
+																				}
+																				if rawList, ok := AggregationItemMap["options"].([]interface{}); ok && len(rawList) > 0 {
+																					var OptionsResult []BGPPeersExternalFamilyInetEnableAggregationOptionsModel
+																					for OptionsIdx, OptionsItem := range rawList {
+																						_ = OptionsIdx
+																						if OptionsItemMap, ok := OptionsItem.(map[string]interface{}); ok {
+																							OptionsResult = append(OptionsResult, BGPPeersExternalFamilyInetEnableAggregationOptionsModel{
+																								SummaryOnly: func() *BGPEmptyModel {
+																									if !isImport && len(OptionsExisting) > OptionsIdx {
+																										return OptionsExisting[OptionsIdx].SummaryOnly
+																									}
+																									if _, ok := OptionsItemMap["summary_only"].(map[string]interface{}); ok {
+																										return &BGPEmptyModel{}
+																									}
+																									return nil
+																								}(),
+																							})
+																						}
+																					}
+																					listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes}, OptionsResult)
+																					return listVal
+																				}
+																				return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationOptionsModelAttrTypes})
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes}, AggregationResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: BGPPeersExternalFamilyInetEnableAggregationModelAttrTypes})
+														}(),
+													}
 												}
 												return nil
 											}(),

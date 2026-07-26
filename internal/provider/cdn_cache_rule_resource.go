@@ -444,42 +444,42 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 															MarkdownDescription: "Operator",
 															Attributes: map[string]schema.Attribute{
 																"contains": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must contain.",
+																	MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The header value must include the specified value as a substring.",
 																	Optional:            true,
 																},
 																"does_not_contain": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not contain.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The header value must not include the specified value as a substring.",
 																	Optional:            true,
 																},
 																"does_not_end_with": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not end with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The header value must not end with the specified value.",
 																	Optional:            true,
 																},
 																"does_not_equal": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not equal.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] The header value must not match the specified value.",
 																	Optional:            true,
 																},
 																"does_not_start_with": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] Field must not start with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] The header value must not begin with the specified value.",
 																	Optional:            true,
 																},
 																"endswith": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] Field must end with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] The header value must end with the specified value.",
 																	Optional:            true,
 																},
 																"equals": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] Field must exactly match.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] The header value must exactly match the specified value.",
 																	Optional:            true,
 																},
 																"match_regex": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] Field matches PCRE 1 compliant regular expression.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] The header value must match the specified regular expression pattern.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 256),
 																	},
 																},
 																"startswith": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] Field must start with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] The header value must begin with the specified value.",
 																	Optional:            true,
 																},
 															},
@@ -492,7 +492,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"name": schema.StringAttribute{
-															MarkdownDescription: "Case-sensitive cookie name.",
+															MarkdownDescription: "Enter the name of the cookie to match .",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 63),
@@ -504,42 +504,42 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 															MarkdownDescription: "Operator",
 															Attributes: map[string]schema.Attribute{
 																"contains": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must contain.",
+																	MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The cookie value must include the specified value as a substring.",
 																	Optional:            true,
 																},
 																"does_not_contain": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not contain.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The cookie value must not include the specified value as a substring.",
 																	Optional:            true,
 																},
 																"does_not_end_with": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not end with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The cookie value must not end with the specified value.",
 																	Optional:            true,
 																},
 																"does_not_equal": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not equal.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] The cookie value must not match the specified value.",
 																	Optional:            true,
 																},
 																"does_not_start_with": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] Field must not start with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] The cookie value must not begin with the specified value.",
 																	Optional:            true,
 																},
 																"endswith": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] Field must end with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] The cookie value must end with the specified value.",
 																	Optional:            true,
 																},
 																"equals": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] Field must exactly match.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] The cookie value must exactly match the specified value.",
 																	Optional:            true,
 																},
 																"match_regex": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] Field matches PCRE 1 compliant regular expression.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] The cookie value must match the specified regular expression pattern in PCRE format.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 256),
 																	},
 																},
 																"startswith": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] Field must start with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] The cookie value must begin with the specified value.",
 																	Optional:            true,
 																},
 															},
@@ -555,42 +555,42 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 														MarkdownDescription: "Operator",
 														Attributes: map[string]schema.Attribute{
 															"contains": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must contain.",
+																MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The path must include the specified value as a substring, up to the filename.",
 																Optional:            true,
 															},
 															"does_not_contain": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not contain.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The path must not include the specified value as a substring, up to the filename.",
 																Optional:            true,
 															},
 															"does_not_end_with": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not end with.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The path must not end with the specified value, up to the filename.",
 																Optional:            true,
 															},
 															"does_not_equal": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not equal.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] The path must not match the specified value, up to the filename.",
 																Optional:            true,
 															},
 															"does_not_start_with": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] Field must not start with.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] The path must not begin with the specified value, up to the filename.",
 																Optional:            true,
 															},
 															"endswith": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] Field must end with.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] The path must end with the specified value, up to the filename.",
 																Optional:            true,
 															},
 															"equals": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] Field must exactly match.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] The path must exactly match the specified value, up to the filename.",
 																Optional:            true,
 															},
 															"match_regex": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] Field matches PCRE 1 compliant regular expression.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] The path must match the specified regular expression pattern in PCRE format.",
 																Optional:            true,
 																Validators: []validator.String{
 																	stringvalidator.LengthBetween(1, 256),
 																},
 															},
 															"startswith": schema.StringAttribute{
-																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] Field must start with.",
+																MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] The path must begin with the specified value, up to the filename.",
 																Optional:            true,
 															},
 														},
@@ -602,7 +602,7 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 												NestedObject: schema.NestedBlockObject{
 													Attributes: map[string]schema.Attribute{
 														"key": schema.StringAttribute{
-															MarkdownDescription: "Query parameter key In the above example, assignee_username is the key .",
+															MarkdownDescription: "The name of the query parameter to match .",
 															Optional:            true,
 															Validators: []validator.String{
 																stringvalidator.LengthBetween(1, 256),
@@ -614,42 +614,42 @@ func (r *CDNCacheRuleResource) Schema(ctx context.Context, req resource.SchemaRe
 															MarkdownDescription: "Operator",
 															Attributes: map[string]schema.Attribute{
 																"contains": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must contain.",
+																	MarkdownDescription: "Exclusive with [DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The query parameter value must include the specified value as a substring.",
 																	Optional:            true,
 																},
 																"does_not_contain": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not contain.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The query parameter value must not include the specified value as a substring.",
 																	Optional:            true,
 																},
 																"does_not_end_with": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not end with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex Startswith] The query parameter value must not end with the specified value.",
 																	Optional:            true,
 																},
 																"does_not_equal": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] Field must not equal.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotStartWith Endswith Equals MatchRegex Startswith] The query parameter value must not match the specified value.",
 																	Optional:            true,
 																},
 																"does_not_start_with": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] Field must not start with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual Endswith Equals MatchRegex Startswith] The query parameter value must not begin with the specified value.",
 																	Optional:            true,
 																},
 																"endswith": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] Field must end with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Equals MatchRegex Startswith] The query parameter value must end with the specified value.",
 																	Optional:            true,
 																},
 																"equals": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] Field must exactly match.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith MatchRegex Startswith] The query parameter value must exactly match the specified value.",
 																	Optional:            true,
 																},
 																"match_regex": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] Field matches PCRE 1 compliant regular expression.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals Startswith] The query parameter value must match the specified regular expression pattern in PCRE format.",
 																	Optional:            true,
 																	Validators: []validator.String{
 																		stringvalidator.LengthBetween(1, 256),
 																	},
 																},
 																"startswith": schema.StringAttribute{
-																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] Field must start with.",
+																	MarkdownDescription: "Exclusive with [Contains DoesNotContain DoesNotEndWith DoesNotEqual DoesNotStartWith Endswith Equals MatchRegex] The query parameter value must begin with the specified value.",
 																	Optional:            true,
 																},
 															},

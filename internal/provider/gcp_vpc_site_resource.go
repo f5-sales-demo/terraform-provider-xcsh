@@ -53,22 +53,14 @@ type GCPVPCSiteEmptyModel struct {
 
 // GCPVPCSiteAdminPasswordModel represents admin_password block
 type GCPVPCSiteAdminPasswordModel struct {
-	SecretEncodingType          types.String                                             `tfsdk:"secret_encoding_type"`
-	BlindfoldSecretInfo         *GCPVPCSiteAdminPasswordBlindfoldSecretInfoModel         `tfsdk:"blindfold_secret_info"`
-	BlindfoldSecretInfoInternal *GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel `tfsdk:"blindfold_secret_info_internal"`
-	ClearSecretInfo             *GCPVPCSiteAdminPasswordClearSecretInfoModel             `tfsdk:"clear_secret_info"`
-	VaultSecretInfo             *GCPVPCSiteAdminPasswordVaultSecretInfoModel             `tfsdk:"vault_secret_info"`
-	WingmanSecretInfo           *GCPVPCSiteAdminPasswordWingmanSecretInfoModel           `tfsdk:"wingman_secret_info"`
+	BlindfoldSecretInfo *GCPVPCSiteAdminPasswordBlindfoldSecretInfoModel `tfsdk:"blindfold_secret_info"`
+	ClearSecretInfo     *GCPVPCSiteAdminPasswordClearSecretInfoModel     `tfsdk:"clear_secret_info"`
 }
 
 // GCPVPCSiteAdminPasswordModelAttrTypes defines the attribute types for GCPVPCSiteAdminPasswordModel
 var GCPVPCSiteAdminPasswordModelAttrTypes = map[string]attr.Type{
-	"secret_encoding_type":           types.StringType,
-	"blindfold_secret_info":          types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes},
-	"blindfold_secret_info_internal": types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes},
-	"clear_secret_info":              types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordClearSecretInfoModelAttrTypes},
-	"vault_secret_info":              types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordVaultSecretInfoModelAttrTypes},
-	"wingman_secret_info":            types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes},
+	"blindfold_secret_info": types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes},
+	"clear_secret_info":     types.ObjectType{AttrTypes: GCPVPCSiteAdminPasswordClearSecretInfoModelAttrTypes},
 }
 
 // GCPVPCSiteAdminPasswordBlindfoldSecretInfoModel represents blindfold_secret_info block
@@ -85,20 +77,6 @@ var GCPVPCSiteAdminPasswordBlindfoldSecretInfoModelAttrTypes = map[string]attr.T
 	"store_provider":      types.StringType,
 }
 
-// GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel represents blindfold_secret_info_internal block
-type GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel struct {
-	DecryptionProvider types.String `tfsdk:"decryption_provider"`
-	Location           types.String `tfsdk:"location"`
-	StoreProvider      types.String `tfsdk:"store_provider"`
-}
-
-// GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes defines the attribute types for GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel
-var GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModelAttrTypes = map[string]attr.Type{
-	"decryption_provider": types.StringType,
-	"location":            types.StringType,
-	"store_provider":      types.StringType,
-}
-
 // GCPVPCSiteAdminPasswordClearSecretInfoModel represents clear_secret_info block
 type GCPVPCSiteAdminPasswordClearSecretInfoModel struct {
 	Provider types.String `tfsdk:"provider_ref"`
@@ -109,34 +87,6 @@ type GCPVPCSiteAdminPasswordClearSecretInfoModel struct {
 var GCPVPCSiteAdminPasswordClearSecretInfoModelAttrTypes = map[string]attr.Type{
 	"provider_ref": types.StringType,
 	"url":          types.StringType,
-}
-
-// GCPVPCSiteAdminPasswordVaultSecretInfoModel represents vault_secret_info block
-type GCPVPCSiteAdminPasswordVaultSecretInfoModel struct {
-	Key            types.String `tfsdk:"key"`
-	Location       types.String `tfsdk:"location"`
-	Provider       types.String `tfsdk:"provider_ref"`
-	SecretEncoding types.String `tfsdk:"secret_encoding"`
-	Version        types.Int64  `tfsdk:"version"`
-}
-
-// GCPVPCSiteAdminPasswordVaultSecretInfoModelAttrTypes defines the attribute types for GCPVPCSiteAdminPasswordVaultSecretInfoModel
-var GCPVPCSiteAdminPasswordVaultSecretInfoModelAttrTypes = map[string]attr.Type{
-	"key":             types.StringType,
-	"location":        types.StringType,
-	"provider_ref":    types.StringType,
-	"secret_encoding": types.StringType,
-	"version":         types.Int64Type,
-}
-
-// GCPVPCSiteAdminPasswordWingmanSecretInfoModel represents wingman_secret_info block
-type GCPVPCSiteAdminPasswordWingmanSecretInfoModel struct {
-	Name types.String `tfsdk:"name"`
-}
-
-// GCPVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes defines the attribute types for GCPVPCSiteAdminPasswordWingmanSecretInfoModel
-var GCPVPCSiteAdminPasswordWingmanSecretInfoModelAttrTypes = map[string]attr.Type{
-	"name": types.StringType,
 }
 
 // GCPVPCSiteBlockedServicesModel represents blocked_services block
@@ -858,13 +808,13 @@ var GCPVPCSiteIngressEgressGwOutsideSubnetNewSubnetModelAttrTypes = map[string]a
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *GCPVPCSiteEmptyModel                                                       `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModel
 var GCPVPCSiteIngressEgressGwPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -877,6 +827,18 @@ type GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModel 
 var GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *GCPVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *GCPVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel
+var GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteIngressGwModel represents ingress_gw block
@@ -970,13 +932,13 @@ var GCPVPCSiteIngressGwLocalSubnetNewSubnetModelAttrTypes = map[string]attr.Type
 // GCPVPCSiteIngressGwPerformanceEnhancementModeModel represents performance_enhancement_mode block
 type GCPVPCSiteIngressGwPerformanceEnhancementModeModel struct {
 	PerfModeL3Enhanced *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel `tfsdk:"perf_mode_l3_enhanced"`
-	PerfModeL7Enhanced *GCPVPCSiteEmptyModel                                                 `tfsdk:"perf_mode_l7_enhanced"`
+	PerfModeL7Enhanced *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel `tfsdk:"perf_mode_l7_enhanced"`
 }
 
 // GCPVPCSiteIngressGwPerformanceEnhancementModeModelAttrTypes defines the attribute types for GCPVPCSiteIngressGwPerformanceEnhancementModeModel
 var GCPVPCSiteIngressGwPerformanceEnhancementModeModelAttrTypes = map[string]attr.Type{
 	"perf_mode_l3_enhanced": types.ObjectType{AttrTypes: GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes},
-	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"perf_mode_l7_enhanced": types.ObjectType{AttrTypes: GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes},
 }
 
 // GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel represents perf_mode_l3_enhanced block
@@ -989,6 +951,18 @@ type GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModel struct
 var GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL3EnhancedModelAttrTypes = map[string]attr.Type{
 	"jumbo":    types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"no_jumbo": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+}
+
+// GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel represents perf_mode_l7_enhanced block
+type GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel struct {
+	JumboDisabled *GCPVPCSiteEmptyModel `tfsdk:"jumbo_disabled"`
+	JumboEnabled  *GCPVPCSiteEmptyModel `tfsdk:"jumbo_enabled"`
+}
+
+// GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes defines the attribute types for GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel
+var GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModelAttrTypes = map[string]attr.Type{
+	"jumbo_disabled": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"jumbo_enabled":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // GCPVPCSiteKubernetesUpgradeDrainModel represents kubernetes_upgrade_drain block
@@ -1684,38 +1658,10 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 			}),
 			"admin_password": schema.SingleNestedBlock{
 				MarkdownDescription: "SecretType is used in an object to indicate a sensitive/confidential field.",
-				Attributes: map[string]schema.Attribute{
-					"secret_encoding_type": schema.StringAttribute{
-						MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-						Optional:            true,
-						Validators: []validator.String{
-							stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-						},
-					},
-				},
+				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"blindfold_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
-						Attributes: map[string]schema.Attribute{
-							"decryption_provider": schema.StringAttribute{
-								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
-								Optional:            true,
-							},
-							"location": schema.StringAttribute{
-								MarkdownDescription: "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location .",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(4, 131072),
-								},
-							},
-							"store_provider": schema.StringAttribute{
-								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
-								Optional:            true,
-							},
-						},
-					},
-					"blindfold_secret_info_internal": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+						MarkdownDescription: "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
 						Attributes: map[string]schema.Attribute{
 							"decryption_provider": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
@@ -1735,7 +1681,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 						},
 					},
 					"clear_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+						MarkdownDescription: "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
 						Attributes: map[string]schema.Attribute{
 							"provider_ref": schema.StringAttribute{
 								MarkdownDescription: "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
@@ -1746,47 +1692,6 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 								Optional:            true,
 								Validators: []validator.String{
 									stringvalidator.LengthBetween(1, 131072),
-								},
-							},
-						},
-					},
-					"vault_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault.",
-						Attributes: map[string]schema.Attribute{
-							"key": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key.",
-								Optional:            true,
-							},
-							"location": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Location'Path to secret in Vault.",
-								Optional:            true,
-							},
-							"provider_ref": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault.",
-								Optional:            true,
-							},
-							"secret_encoding": schema.StringAttribute{
-								MarkdownDescription: "[Enum: EncodingNone|EncodingBase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No Encoding - EncodingBase64: Base64 x-displayName: 'Base64' Base64 encoding. Possible values are `EncodingNone`, `EncodingBase64`. Defaults to `EncodingNone`.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.OneOf("EncodingNone", "EncodingBase64"),
-								},
-							},
-							"version": schema.Int64Attribute{
-								MarkdownDescription: "X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned.",
-								Optional:            true,
-							},
-						},
-					},
-					"wingman_secret_info": schema.SingleNestedBlock{
-						MarkdownDescription: "X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret.",
-						Attributes: map[string]schema.Attribute{
-							"name": schema.StringAttribute{
-								MarkdownDescription: "X-displayName: 'Name'Name of the secret.",
-								Optional:            true,
-								Validators: []validator.String{
-									stringvalidator.LengthBetween(1, 63),
-									stringvalidator.RegexMatches(regexp.MustCompile(`^[a-z]([-a-z0-9]*[a-z0-9])?$`), ""),
 								},
 							},
 						},
@@ -2703,6 +2608,15 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -2824,6 +2738,15 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"perf_mode_l7_enhanced": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for perf mode l7 enhanced.",
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"jumbo_disabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+									"jumbo_enabled": schema.SingleNestedBlock{
+										MarkdownDescription: "Enable this option",
+									},
+								},
 							},
 						},
 					},
@@ -2931,7 +2854,7 @@ func (r *GCPVPCSiteResource) Schema(ctx context.Context, req resource.SchemaRequ
 				MarkdownDescription: "[OneOf: private_connect_disabled, private_connectivity] Enable this option",
 			},
 			"private_connectivity": schema.SingleNestedBlock{
-				MarkdownDescription: "X-displayName: 'Private Connect Configuration' Private Connect Configuration.",
+				MarkdownDescription: "Configuration parameter for private connectivity.",
 				Attributes:          map[string]schema.Attribute{},
 				Blocks: map[string]schema.Block{
 					"cloud_link": schema.SingleNestedBlock{
@@ -3693,19 +3616,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
-		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
-		}
 		if data.AdminPassword.ClearSecretInfo != nil {
 			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -3715,35 +3625,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
 			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
-		}
-		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
-			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
-		}
-		if data.AdminPassword.VaultSecretInfo != nil {
-			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-			}
-			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
-		}
-		if data.AdminPassword.WingmanSecretInfo != nil {
-			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
-			}
-			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		createReq.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -3774,7 +3655,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		createReq.Spec["blocked_services"] = BlockedServicesMap
@@ -4359,7 +4240,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
@@ -4441,7 +4329,14 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
@@ -4993,34 +4888,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *GCPVPCSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -5035,71 +4902,6 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *GCPVPCSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *GCPVPCSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -5123,7 +4925,7 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -6340,12 +6142,31 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -6536,12 +6357,31 @@ func (r *GCPVPCSiteResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -7697,34 +7537,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *GCPVPCSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -7739,71 +7551,6 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *GCPVPCSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *GCPVPCSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -7827,7 +7574,7 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -9044,12 +8791,31 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -9240,12 +9006,31 @@ func (r *GCPVPCSiteResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -10328,19 +10113,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			AdminPasswordMap["blindfold_secret_info"] = AdminPasswordBlindfoldSecretInfoMap
 		}
-		if data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-			AdminPasswordBlindfoldSecretInfoInternalMap := make(map[string]interface{})
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["decryption_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.DecryptionProvider.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.Location.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["location"] = data.AdminPassword.BlindfoldSecretInfoInternal.Location.ValueString()
-			}
-			if !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsNull() && !data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.IsUnknown() {
-				AdminPasswordBlindfoldSecretInfoInternalMap["store_provider"] = data.AdminPassword.BlindfoldSecretInfoInternal.StoreProvider.ValueString()
-			}
-			AdminPasswordMap["blindfold_secret_info_internal"] = AdminPasswordBlindfoldSecretInfoInternalMap
-		}
 		if data.AdminPassword.ClearSecretInfo != nil {
 			AdminPasswordClearSecretInfoMap := make(map[string]interface{})
 			if !data.AdminPassword.ClearSecretInfo.Provider.IsNull() && !data.AdminPassword.ClearSecretInfo.Provider.IsUnknown() {
@@ -10350,35 +10122,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				AdminPasswordClearSecretInfoMap["url"] = data.AdminPassword.ClearSecretInfo.URL.ValueString()
 			}
 			AdminPasswordMap["clear_secret_info"] = AdminPasswordClearSecretInfoMap
-		}
-		if !data.AdminPassword.SecretEncodingType.IsNull() && !data.AdminPassword.SecretEncodingType.IsUnknown() {
-			AdminPasswordMap["secret_encoding_type"] = data.AdminPassword.SecretEncodingType.ValueString()
-		}
-		if data.AdminPassword.VaultSecretInfo != nil {
-			AdminPasswordVaultSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.VaultSecretInfo.Key.IsNull() && !data.AdminPassword.VaultSecretInfo.Key.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["key"] = data.AdminPassword.VaultSecretInfo.Key.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Location.IsNull() && !data.AdminPassword.VaultSecretInfo.Location.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["location"] = data.AdminPassword.VaultSecretInfo.Location.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Provider.IsNull() && !data.AdminPassword.VaultSecretInfo.Provider.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["provider"] = data.AdminPassword.VaultSecretInfo.Provider.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsNull() && !data.AdminPassword.VaultSecretInfo.SecretEncoding.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["secret_encoding"] = data.AdminPassword.VaultSecretInfo.SecretEncoding.ValueString()
-			}
-			if !data.AdminPassword.VaultSecretInfo.Version.IsNull() && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-				AdminPasswordVaultSecretInfoMap["version"] = data.AdminPassword.VaultSecretInfo.Version.ValueInt64()
-			}
-			AdminPasswordMap["vault_secret_info"] = AdminPasswordVaultSecretInfoMap
-		}
-		if data.AdminPassword.WingmanSecretInfo != nil {
-			AdminPasswordWingmanSecretInfoMap := make(map[string]interface{})
-			if !data.AdminPassword.WingmanSecretInfo.Name.IsNull() && !data.AdminPassword.WingmanSecretInfo.Name.IsUnknown() {
-				AdminPasswordWingmanSecretInfoMap["name"] = data.AdminPassword.WingmanSecretInfo.Name.ValueString()
-			}
-			AdminPasswordMap["wingman_secret_info"] = AdminPasswordWingmanSecretInfoMap
 		}
 		apiResource.Spec["admin_password"] = AdminPasswordMap
 	}
@@ -10409,7 +10152,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					BlockedServiceList = append(BlockedServiceList, BlockedServiceItemMap)
 				}
-				BlockedServicesMap["blocked_service"] = BlockedServiceList
+				BlockedServicesMap["blocked_sevice"] = BlockedServiceList
 			}
 		}
 		apiResource.Spec["blocked_services"] = BlockedServicesMap
@@ -10994,7 +10737,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressEgressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressEgressGwMap["performance_enhancement_mode"] = IngressEgressGwPerformanceEnhancementModeMap
 		}
@@ -11076,7 +10826,14 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				IngressGwPerformanceEnhancementModeMap["perf_mode_l3_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL3EnhancedMap
 			}
 			if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
-				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = map[string]interface{}{}
+				IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap := make(map[string]interface{})
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_disabled"] = map[string]interface{}{}
+				}
+				if data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled != nil {
+					IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap["jumbo_enabled"] = map[string]interface{}{}
+				}
+				IngressGwPerformanceEnhancementModeMap["perf_mode_l7_enhanced"] = IngressGwPerformanceEnhancementModePerfModeL7EnhancedMap
 			}
 			IngressGwMap["performance_enhancement_mode"] = IngressGwPerformanceEnhancementModeMap
 		}
@@ -11639,34 +11396,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return nil
 			}(),
-			BlindfoldSecretInfoInternal: func() *GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.BlindfoldSecretInfoInternal != nil {
-					return data.AdminPassword.BlindfoldSecretInfoInternal
-				}
-				if BlindfoldSecretInfoInternalData, ok := blockData["blindfold_secret_info_internal"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordBlindfoldSecretInfoInternalModel{
-						DecryptionProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["decryption_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						StoreProvider: func() types.String {
-							if v, ok := BlindfoldSecretInfoInternalData["store_provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
 			ClearSecretInfo: func() *GCPVPCSiteAdminPasswordClearSecretInfoModel {
 				if !isImport && data.AdminPassword != nil && data.AdminPassword.ClearSecretInfo != nil {
 					return data.AdminPassword.ClearSecretInfo
@@ -11681,71 +11410,6 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 						}(),
 						URL: func() types.String {
 							if v, ok := ClearSecretInfoData["url"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			SecretEncodingType: func() types.String {
-				if v, ok := blockData["secret_encoding_type"].(string); ok && v != "" {
-					return types.StringValue(v)
-				}
-				return types.StringNull()
-			}(),
-			VaultSecretInfo: func() *GCPVPCSiteAdminPasswordVaultSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil {
-					return data.AdminPassword.VaultSecretInfo
-				}
-				if VaultSecretInfoData, ok := blockData["vault_secret_info"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordVaultSecretInfoModel{
-						Key: func() types.String {
-							if v, ok := VaultSecretInfoData["key"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Location: func() types.String {
-							if v, ok := VaultSecretInfoData["location"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Provider: func() types.String {
-							if v, ok := VaultSecretInfoData["provider"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						SecretEncoding: func() types.String {
-							if v, ok := VaultSecretInfoData["secret_encoding"].(string); ok && v != "" {
-								return types.StringValue(v)
-							}
-							return types.StringNull()
-						}(),
-						Version: func() types.Int64 {
-							if !isImport && data.AdminPassword != nil && data.AdminPassword.VaultSecretInfo != nil && !data.AdminPassword.VaultSecretInfo.Version.IsUnknown() {
-								return data.AdminPassword.VaultSecretInfo.Version
-							}
-							if v, ok := VaultSecretInfoData["version"].(float64); ok && v != 0 {
-								return types.Int64Value(int64(v))
-							}
-							return types.Int64Null()
-						}(),
-					}
-				}
-				return nil
-			}(),
-			WingmanSecretInfo: func() *GCPVPCSiteAdminPasswordWingmanSecretInfoModel {
-				if !isImport && data.AdminPassword != nil && data.AdminPassword.WingmanSecretInfo != nil {
-					return data.AdminPassword.WingmanSecretInfo
-				}
-				if WingmanSecretInfoData, ok := blockData["wingman_secret_info"].(map[string]interface{}); ok {
-					return &GCPVPCSiteAdminPasswordWingmanSecretInfoModel{
-						Name: func() types.String {
-							if v, ok := WingmanSecretInfoData["name"].(string); ok && v != "" {
 								return types.StringValue(v)
 							}
 							return types.StringNull()
@@ -11769,7 +11433,7 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 				if !isImport && data.BlockedServices != nil && !data.BlockedServices.BlockedService.IsNull() && !data.BlockedServices.BlockedService.IsUnknown() {
 					data.BlockedServices.BlockedService.ElementsAs(ctx, &BlockedServiceExisting, false)
 				}
-				if rawList, ok := blockData["blocked_service"].([]interface{}); ok && len(rawList) > 0 {
+				if rawList, ok := blockData["blocked_sevice"].([]interface{}); ok && len(rawList) > 0 {
 					var BlockedServiceResult []GCPVPCSiteBlockedServicesBlockedServiceModel
 					for BlockedServiceIdx, BlockedServiceItem := range rawList {
 						_ = BlockedServiceIdx
@@ -12986,12 +12650,31 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &GCPVPCSiteIngressEgressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressEgressGw != nil && data.IngressEgressGw.PerformanceEnhancementMode != nil && data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressEgressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),
@@ -13182,12 +12865,31 @@ func (r *GCPVPCSiteResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							return nil
 						}(),
-						PerfModeL7Enhanced: func() *GCPVPCSiteEmptyModel {
-							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil {
+						PerfModeL7Enhanced: func() *GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel {
+							if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
 								return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced
 							}
-							if _, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
-								return &GCPVPCSiteEmptyModel{}
+							if PerfModeL7EnhancedData, ok := PerformanceEnhancementModeData["perf_mode_l7_enhanced"].(map[string]interface{}); ok {
+								return &GCPVPCSiteIngressGwPerformanceEnhancementModePerfModeL7EnhancedModel{
+									JumboDisabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboDisabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_disabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+									JumboEnabled: func() *GCPVPCSiteEmptyModel {
+										if !isImport && data.IngressGw != nil && data.IngressGw.PerformanceEnhancementMode != nil && data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced != nil {
+											return data.IngressGw.PerformanceEnhancementMode.PerfModeL7Enhanced.JumboEnabled
+										}
+										if _, ok := PerfModeL7EnhancedData["jumbo_enabled"].(map[string]interface{}); ok {
+											return &GCPVPCSiteEmptyModel{}
+										}
+										return nil
+									}(),
+								}
 							}
 							return nil
 						}(),

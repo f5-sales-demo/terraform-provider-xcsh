@@ -142,18 +142,9 @@ In addition to all arguments above, the following attributes are exported:
 
 An [`admin_password`](#admin-password) block supports the following:
 
-<a id="admin-password-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#admin-password-blindfold-secret-info) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#admin-password-blindfold-secret-info) below.
+<a id="admin-password-blindfold-secret-info"></a>&#x2022; [`blindfold_secret_info`](#admin-password-blindfold-secret-info) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#admin-password-blindfold-secret-info) below.
 
-<a id="internal-7b413c"></a>&#x2022; [`blindfold_secret_info_internal`](#internal-7b413c) - Optional Block<br>X-displayName: 'Blindfold Secret' BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info Internal](#internal-7b413c) below.
-
-<a id="admin-password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#admin-password-clear-secret-info) - Optional Block<br>X-displayName: 'In-Clear Secret' ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#admin-password-clear-secret-info) below.
-
-<a id="admin-password-secret-encoding-type"></a>&#x2022; [`secret_encoding_type`](#admin-password-secret-encoding-type) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management
-Service. - EncodingNone: x-displayName: 'None' No Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="admin-password-vault-secret-info"></a>&#x2022; [`vault_secret_info`](#admin-password-vault-secret-info) - Optional Block<br>X-displayName: 'Vault Secret' VaultSecretInfoType specifies information about the Secret managed by Hashicorp Vault<br>See [Vault Secret Info](#admin-password-vault-secret-info) below.
-
-<a id="admin-password-wingman-secret-info"></a>&#x2022; [`wingman_secret_info`](#admin-password-wingman-secret-info) - Optional Block<br>X-displayName: 'Wingman Secret' WingmanSecretInfoType specifies the handle to the wingman secret<br>See [Wingman Secret Info](#admin-password-wingman-secret-info) below.
+<a id="admin-password-clear-secret-info"></a>&#x2022; [`clear_secret_info`](#admin-password-clear-secret-info) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#admin-password-clear-secret-info) below.
 
 #### Admin Password Blindfold Secret Info
 
@@ -165,16 +156,6 @@ A [`blindfold_secret_info`](#admin-password-blindfold-secret-info) block (within
 
 <a id="provider-5c48c5"></a>&#x2022; [`store_provider`](#provider-5c48c5) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-#### Admin Password Blindfold Secret Info Internal
-
-A [`blindfold_secret_info_internal`](#internal-7b413c) block (within [`admin_password`](#admin-password)) supports the following:
-
-<a id="provider-0313c0"></a>&#x2022; [`decryption_provider`](#provider-0313c0) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
-
-<a id="location-f87690"></a>&#x2022; [`location`](#location-f87690) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
-
-<a id="provider-e573aa"></a>&#x2022; [`store_provider`](#provider-e573aa) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
-
 #### Admin Password Clear Secret Info
 
 A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin_password`](#admin-password)) supports the following:
@@ -182,27 +163,6 @@ A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin
 <a id="ref-e52931"></a>&#x2022; [`provider_ref`](#ref-e52931) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 <a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
-
-#### Admin Password Vault Secret Info
-
-A [`vault_secret_info`](#admin-password-vault-secret-info) block (within [`admin_password`](#admin-password)) supports the following:
-
-<a id="admin-password-vault-secret-info-key"></a>&#x2022; [`key`](#admin-password-vault-secret-info-key) - Optional String<br>X-displayName: 'Key' Key of the individual secret. Vault Secrets are stored as key-value pair. If user is only interested in one value from the map, this field should be set to the corresponding key
-
-<a id="location-e9984d"></a>&#x2022; [`location`](#location-e9984d) - Optional String<br>X-displayName: 'Location'Path to secret in Vault
-
-<a id="ref-8e382f"></a>&#x2022; [`provider_ref`](#ref-8e382f) - Optional String<br>X-displayName: 'Provider'Name of the Secret Management Access object that contains information about the backend Vault
-
-<a id="encoding-70fa5a"></a>&#x2022; [`secret_encoding`](#encoding-70fa5a) - Optional String  Defaults to `EncodingNone`<br>Possible values are `EncodingNone`, `Encodingbase64`<br>[Enum: EncodingNone|Encodingbase64] X-displayName: 'Secret Encoding' SecretEncodingType defines the encoding type of the secret before handled by the Secret Management Service. - EncodingNone: x-displayName: 'None' No
-Encoding - Encodingbase64: base64 x-displayName: 'base64' base64 encoding
-
-<a id="version-25d490"></a>&#x2022; [`version`](#version-25d490) - Optional Number<br>X-displayName: 'Version' Version of the secret to be fetched. As vault secrets are versioned, user can specify this field to fetch specific version. If not provided latest version will be returned
-
-#### Admin Password Wingman Secret Info
-
-A [`wingman_secret_info`](#admin-password-wingman-secret-info) block (within [`admin_password`](#admin-password)) supports the following:
-
-<a id="admin-password-wingman-secret-info-name"></a>&#x2022; [`name`](#admin-password-wingman-secret-info-name) - Optional String<br>X-displayName: 'Name'Name of the secret
 
 #### Azure Cred
 
@@ -226,14 +186,14 @@ A [`blocked_service`](#blocked-services-blocked-service) block (within [`blocked
 
 <a id="blocked-services-blocked-service-dns"></a>&#x2022; [`dns`](#blocked-services-blocked-service-dns) - Optional Block<br>Enable this option
 
-<a id="type-808ec9"></a>&#x2022; [`network_type`](#type-808ec9) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+<a id="type-5b1d65"></a>&#x2022; [`network_type`](#type-5b1d65) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
 `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
 VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
 Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
 
 <a id="blocked-services-blocked-service-ssh"></a>&#x2022; [`ssh`](#blocked-services-blocked-service-ssh) - Optional Block<br>Enable this option
 
-<a id="interface-e57e21"></a>&#x2022; [`web_user_interface`](#interface-e57e21) - Optional Block<br>Enable this option
+<a id="interface-1ff33c"></a>&#x2022; [`web_user_interface`](#interface-1ff33c) - Optional Block<br>Enable this option
 
 #### Coordinates
 
@@ -263,7 +223,7 @@ An [`enable_encryption`](#enable-encryption) block supports the following:
 
 An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
-<a id="networking-28fc87"></a>&#x2022; [`accelerated_networking`](#networking-28fc87) - Optional Block<br>X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-28fc87) below.
+<a id="networking-28fc87"></a>&#x2022; [`accelerated_networking`](#networking-28fc87) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-28fc87) below.
 
 <a id="policies-4e1d03"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-4e1d03) - Optional Block<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion<br>See [Active Enhanced Firewall Policies](#policies-4e1d03) below.
 
@@ -483,21 +443,9 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="deep-a418eb"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key Blindfold Secret Info Internal
-
-<a id="deep-e03020"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key Clear Secret Info
 
 <a id="deep-a1a294"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key Vault Secret Info
-
-<a id="deep-36de4c"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Ingress Egress Gw Hub Express Route Enabled Connections Other Subscription Authorized Key Wingman Secret Info
-
-<a id="deep-7d40ea"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Ingress Egress Gw Hub Express Route Enabled Gateway Subnet
 
@@ -549,7 +497,7 @@ A [`vnet`](#ingress-egress-gw-hub-spoke-vnets-vnet) block (within [`ingress_egre
 
 <a id="group-e35b03"></a>&#x2022; [`resource_group`](#group-e35b03) - Optional String<br>Resource group of existing VNET
 
-<a id="name-7ba5bf"></a>&#x2022; [`vnet_name`](#name-7ba5bf) - Optional String<br>X-displayName: 'Existing VNET Name'Name of existing VNET
+<a id="name-7ba5bf"></a>&#x2022; [`vnet_name`](#name-7ba5bf) - Optional String<br>Existing VNET Name. Name of existing VNET
 
 #### Ingress Egress Gw Inside Static Routes
 
@@ -649,17 +597,21 @@ A [`performance_enhancement_mode`](#mode-4d23c2) block (within [`ingress_egress_
 
 <a id="enhanced-410f18"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-410f18) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-410f18) below.
 
-<a id="enhanced-90e2b5"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-90e2b5) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-90e2b5"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-90e2b5) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-90e2b5) below.
 
 #### Ingress Egress Gw Performance Enhancement Mode Perf Mode L3 Enhanced
 
 <a id="deep-4a39a0"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Egress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-b9cc72"></a>Deeply nested **Enhanced** block collapsed for readability.
+
 #### Ingress Egress Gw Ar
 
 An [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) block supports the following:
 
-<a id="networking-017a12"></a>&#x2022; [`accelerated_networking`](#networking-017a12) - Optional Block<br>X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-017a12) below.
+<a id="networking-017a12"></a>&#x2022; [`accelerated_networking`](#networking-017a12) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-017a12) below.
 
 <a id="policies-191004"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-191004) - Optional Block<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion<br>See [Active Enhanced Firewall Policies](#policies-191004) below.
 
@@ -807,21 +759,9 @@ A [`hub`](#ingress-egress-gw-ar-hub) block (within [`ingress_egress_gw_ar`](#ing
 
 <a id="deep-af12fa"></a>Deeply nested **Info** block collapsed for readability.
 
-#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key Blindfold Secret Info Internal
-
-<a id="deep-ddc44c"></a>Deeply nested **Internal** block collapsed for readability.
-
 #### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key Clear Secret Info
 
 <a id="deep-d3a5d0"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key Vault Secret Info
-
-<a id="deep-808188"></a>Deeply nested **Info** block collapsed for readability.
-
-#### Ingress Egress Gw Ar Hub Express Route Enabled Connections Other Subscription Authorized Key Wingman Secret Info
-
-<a id="deep-3bced9"></a>Deeply nested **Info** block collapsed for readability.
 
 #### Ingress Egress Gw Ar Hub Express Route Enabled Gateway Subnet
 
@@ -1011,17 +951,21 @@ A [`performance_enhancement_mode`](#mode-81547a) block (within [`ingress_egress_
 
 <a id="enhanced-514f84"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-514f84) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-514f84) below.
 
-<a id="enhanced-890d99"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-890d99) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-890d99"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-890d99) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-890d99) below.
 
 #### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced
 
 <a id="deep-fcdd56"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Egress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-c39f80"></a>Deeply nested **Enhanced** block collapsed for readability.
+
 #### Ingress Gw
 
 An [`ingress_gw`](#ingress-gw) block supports the following:
 
-<a id="ingress-gw-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#ingress-gw-accelerated-networking) - Optional Block<br>X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted<br>See [Accelerated Networking](#ingress-gw-accelerated-networking) below.
+<a id="ingress-gw-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#ingress-gw-accelerated-networking) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen. Server applies default when omitted<br>See [Accelerated Networking](#ingress-gw-accelerated-networking) below.
 
 <a id="ingress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-gw-az-nodes) below.
 
@@ -1073,17 +1017,21 @@ A [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) blo
 
 <a id="enhanced-5a06c8"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-5a06c8) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-5a06c8) below.
 
-<a id="enhanced-6fdd43"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-6fdd43) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-6fdd43"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-6fdd43) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-6fdd43) below.
 
 #### Ingress Gw Performance Enhancement Mode Perf Mode L3 Enhanced
 
 <a id="deep-690f7e"></a>Deeply nested **Enhanced** block collapsed for readability.
 
+#### Ingress Gw Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-4e15d8"></a>Deeply nested **Enhanced** block collapsed for readability.
+
 #### Ingress Gw Ar
 
 An [`ingress_gw_ar`](#ingress-gw-ar) block supports the following:
 
-<a id="ingress-gw-ar-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#ingress-gw-ar-accelerated-networking) - Optional Block<br>X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#ingress-gw-ar-accelerated-networking) below.
+<a id="ingress-gw-ar-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#ingress-gw-ar-accelerated-networking) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#ingress-gw-ar-accelerated-networking) below.
 
 <a id="ingress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `Azure-byol-voltmesh`
 
@@ -1139,11 +1087,15 @@ A [`performance_enhancement_mode`](#mode-2270b9) block (within [`ingress_gw_ar`]
 
 <a id="enhanced-2005f7"></a>&#x2022; [`perf_mode_l3_enhanced`](#enhanced-2005f7) - Optional Block<br>Configuration parameter for perf mode l3 enhanced<br>See [Perf Mode L3 Enhanced](#enhanced-2005f7) below.
 
-<a id="enhanced-3a1161"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-3a1161) - Optional Block<br>Configuration parameter for perf mode l7 enhanced
+<a id="enhanced-3a1161"></a>&#x2022; [`perf_mode_l7_enhanced`](#enhanced-3a1161) - Optional Block<br>Configuration parameter for perf mode l7 enhanced<br>See [Perf Mode L7 Enhanced](#enhanced-3a1161) below.
 
 #### Ingress Gw Ar Performance Enhancement Mode Perf Mode L3 Enhanced
 
 <a id="deep-c7f2da"></a>Deeply nested **Enhanced** block collapsed for readability.
+
+#### Ingress Gw Ar Performance Enhancement Mode Perf Mode L7 Enhanced
+
+<a id="deep-dcd8f3"></a>Deeply nested **Enhanced** block collapsed for readability.
 
 #### Kubernetes Upgrade Drain
 
@@ -1217,7 +1169,7 @@ A [`vnet`](#vnet) block supports the following:
 
 <a id="vnet-existing-vnet"></a>&#x2022; [`existing_vnet`](#vnet-existing-vnet) - Optional Block<br>Resource group and name of existing Azure VNET<br>See [Existing VNET](#vnet-existing-vnet) below.
 
-<a id="vnet-new-vnet"></a>&#x2022; [`new_vnet`](#vnet-new-vnet) - Optional Block<br>X-displayName: 'Azure VNET Parameters' Parameters to create a new Azure VNET<br>See [New VNET](#vnet-new-vnet) below.
+<a id="vnet-new-vnet"></a>&#x2022; [`new_vnet`](#vnet-new-vnet) - Optional Block<br>Azure VNET Parameters. Parameters to create a new Azure VNET<br>See [New VNET](#vnet-new-vnet) below.
 
 #### VNET Existing VNET
 
@@ -1229,7 +1181,7 @@ An [`existing_vnet`](#vnet-existing-vnet) block (within [`vnet`](#vnet)) support
 
 <a id="vnet-existing-vnet-resource-group"></a>&#x2022; [`resource_group`](#vnet-existing-vnet-resource-group) - Optional String<br>Resource group of existing VNET
 
-<a id="vnet-existing-vnet-vnet-name"></a>&#x2022; [`vnet_name`](#vnet-existing-vnet-vnet-name) - Optional String<br>X-displayName: 'Existing VNET Name'Name of existing VNET
+<a id="vnet-existing-vnet-vnet-name"></a>&#x2022; [`vnet_name`](#vnet-existing-vnet-vnet-name) - Optional String<br>Existing VNET Name. Name of existing VNET
 
 #### VNET New VNET
 
@@ -1239,13 +1191,13 @@ A [`new_vnet`](#vnet-new-vnet) block (within [`vnet`](#vnet)) supports the follo
 
 <a id="vnet-new-vnet-name"></a>&#x2022; [`name`](#vnet-new-vnet-name) - Optional String<br>Specify the VNET Name
 
-<a id="vnet-new-vnet-primary-ipv4"></a>&#x2022; [`primary_ipv4`](#vnet-new-vnet-primary-ipv4) - Optional String<br>X-displayName: 'IPv4 CIDR block'IPv4 CIDR block for this VNET. It has to be private address space
+<a id="vnet-new-vnet-primary-ipv4"></a>&#x2022; [`primary_ipv4`](#vnet-new-vnet-primary-ipv4) - Optional String<br>IPv4 CIDR block for this VNET. It has to be private address space
 
 #### Voltstack Cluster
 
 A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
-<a id="networking-7aaa63"></a>&#x2022; [`accelerated_networking`](#networking-7aaa63) - Optional Block<br>X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-7aaa63) below.
+<a id="networking-7aaa63"></a>&#x2022; [`accelerated_networking`](#networking-7aaa63) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-7aaa63) below.
 
 <a id="policies-a80edf"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-a80edf) - Optional Block<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion<br>See [Active Enhanced Firewall Policies](#policies-a80edf) below.
 
@@ -1471,7 +1423,7 @@ A [`storage_classes`](#classes-3dd6e4) block (within [`voltstack_cluster.storage
 
 A [`voltstack_cluster_ar`](#voltstack-cluster-ar) block supports the following:
 
-<a id="networking-5bbd2a"></a>&#x2022; [`accelerated_networking`](#networking-5bbd2a) - Optional Block<br>X-displayName: 'Accelerated Networking Type'Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-5bbd2a) below.
+<a id="networking-5bbd2a"></a>&#x2022; [`accelerated_networking`](#networking-5bbd2a) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#networking-5bbd2a) below.
 
 <a id="policies-af1ab1"></a>&#x2022; [`active_enhanced_firewall_policies`](#policies-af1ab1) - Optional Block<br>List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion<br>See [Active Enhanced Firewall Policies](#policies-af1ab1) below.
 

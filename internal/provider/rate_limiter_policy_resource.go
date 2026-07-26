@@ -113,6 +113,7 @@ type RateLimiterPolicyRulesSpecModel struct {
 	IPMatcher         *RateLimiterPolicyRulesSpecIPMatcherModel         `tfsdk:"ip_matcher"`
 	IPPrefixList      *RateLimiterPolicyRulesSpecIPPrefixListModel      `tfsdk:"ip_prefix_list"`
 	Path              *RateLimiterPolicyRulesSpecPathModel              `tfsdk:"path"`
+	SegmentPolicy     *RateLimiterPolicyRulesSpecSegmentPolicyModel     `tfsdk:"segment_policy"`
 }
 
 // RateLimiterPolicyRulesSpecModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecModel
@@ -132,6 +133,7 @@ var RateLimiterPolicyRulesSpecModelAttrTypes = map[string]attr.Type{
 	"ip_matcher":          types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPMatcherModelAttrTypes},
 	"ip_prefix_list":      types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecIPPrefixListModelAttrTypes},
 	"path":                types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecPathModelAttrTypes},
+	"segment_policy":      types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyModelAttrTypes},
 }
 
 // RateLimiterPolicyRulesSpecAsnListModel represents asn_list block
@@ -298,22 +300,90 @@ var RateLimiterPolicyRulesSpecIPPrefixListModelAttrTypes = map[string]attr.Type{
 
 // RateLimiterPolicyRulesSpecPathModel represents path block
 type RateLimiterPolicyRulesSpecPathModel struct {
-	ExactValues   types.List `tfsdk:"exact_values"`
-	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
-	PrefixValues  types.List `tfsdk:"prefix_values"`
-	RegexValues   types.List `tfsdk:"regex_values"`
-	SuffixValues  types.List `tfsdk:"suffix_values"`
-	Transformers  types.List `tfsdk:"transformers"`
+	EncodedPathMatcher types.Bool `tfsdk:"encoded_path_matcher"`
+	ExactValues        types.List `tfsdk:"exact_values"`
+	InvertMatcher      types.Bool `tfsdk:"invert_matcher"`
+	PrefixValues       types.List `tfsdk:"prefix_values"`
+	RegexValues        types.List `tfsdk:"regex_values"`
+	SuffixValues       types.List `tfsdk:"suffix_values"`
+	Transformers       types.List `tfsdk:"transformers"`
 }
 
 // RateLimiterPolicyRulesSpecPathModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecPathModel
 var RateLimiterPolicyRulesSpecPathModelAttrTypes = map[string]attr.Type{
-	"exact_values":   types.ListType{ElemType: types.StringType},
-	"invert_matcher": types.BoolType,
-	"prefix_values":  types.ListType{ElemType: types.StringType},
-	"regex_values":   types.ListType{ElemType: types.StringType},
-	"suffix_values":  types.ListType{ElemType: types.StringType},
-	"transformers":   types.ListType{ElemType: types.StringType},
+	"encoded_path_matcher": types.BoolType,
+	"exact_values":         types.ListType{ElemType: types.StringType},
+	"invert_matcher":       types.BoolType,
+	"prefix_values":        types.ListType{ElemType: types.StringType},
+	"regex_values":         types.ListType{ElemType: types.StringType},
+	"suffix_values":        types.ListType{ElemType: types.StringType},
+	"transformers":         types.ListType{ElemType: types.StringType},
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicyModel represents segment_policy block
+type RateLimiterPolicyRulesSpecSegmentPolicyModel struct {
+	DstAny       *RateLimiterPolicyEmptyModel                             `tfsdk:"dst_any"`
+	DstSegments  *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel `tfsdk:"dst_segments"`
+	IntraSegment *RateLimiterPolicyEmptyModel                             `tfsdk:"intra_segment"`
+	SrcAny       *RateLimiterPolicyEmptyModel                             `tfsdk:"src_any"`
+	SrcSegments  *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel `tfsdk:"src_segments"`
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicyModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecSegmentPolicyModel
+var RateLimiterPolicyRulesSpecSegmentPolicyModelAttrTypes = map[string]attr.Type{
+	"dst_any":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"dst_segments":  types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModelAttrTypes},
+	"intra_segment": types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"src_any":       types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"src_segments":  types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModelAttrTypes},
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel represents dst_segments block
+type RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel struct {
+	Segments types.List `tfsdk:"segments"`
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel
+var RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModelAttrTypes = map[string]attr.Type{
+	"segments": types.ListType{ElemType: types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes}},
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel represents segments block
+type RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+var RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel represents src_segments block
+type RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel struct {
+	Segments types.List `tfsdk:"segments"`
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel
+var RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModelAttrTypes = map[string]attr.Type{
+	"segments": types.ListType{ElemType: types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes}},
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel represents segments block
+type RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel struct {
+	Name      types.String `tfsdk:"name"`
+	Namespace types.String `tfsdk:"namespace"`
+	Tenant    types.String `tfsdk:"tenant"`
+}
+
+// RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes defines the attribute types for RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+var RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes = map[string]attr.Type{
+	"name":      types.StringType,
+	"namespace": types.StringType,
+	"tenant":    types.StringType,
 }
 
 type RateLimiterPolicyResourceModel struct {
@@ -744,6 +814,10 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 								"path": schema.SingleNestedBlock{
 									MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
 									Attributes: map[string]schema.Attribute{
+										"encoded_path_matcher": schema.BoolAttribute{
+											MarkdownDescription: "Match against the encoded, escaped path.",
+											Optional:            true,
+										},
 										"exact_values": schema.ListAttribute{
 											MarkdownDescription: "List of exact path values to match the input HTTP path against.",
 											Optional:            true,
@@ -786,6 +860,97 @@ func (r *RateLimiterPolicyResource) Schema(ctx context.Context, req resource.Sch
 											ElementType:         types.StringType,
 											Validators: []validator.List{
 												listvalidator.SizeAtMost(9),
+											},
+										},
+									},
+								},
+								"segment_policy": schema.SingleNestedBlock{
+									MarkdownDescription: "Configure source and destination segment for policy.",
+									Attributes:          map[string]schema.Attribute{},
+									Blocks: map[string]schema.Block{
+										"dst_any": schema.SingleNestedBlock{
+											MarkdownDescription: "Enable this option",
+										},
+										"dst_segments": schema.SingleNestedBlock{
+											MarkdownDescription: "Configuration parameter for dst segments.",
+											Attributes:          map[string]schema.Attribute{},
+											Blocks: map[string]schema.Block{
+												"segments": schema.ListNestedBlock{
+													MarkdownDescription: "Segments. Select list of segments .",
+													NestedObject: schema.NestedBlockObject{
+														Attributes: map[string]schema.Attribute{
+															"name": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+																Optional:            true,
+																Validators: []validator.String{
+																	stringvalidator.LengthBetween(1, 128),
+																},
+															},
+															"namespace": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+																Optional:            true,
+																Computed:            true,
+																PlanModifiers: []planmodifier.String{
+																	stringplanmodifier.UseStateForUnknown(),
+																},
+																Validators: []validator.String{
+																	stringvalidator.LengthBetween(1, 63),
+																},
+															},
+															"tenant": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+																Computed:            true,
+																Validators: []validator.String{
+																	stringvalidator.LengthAtMost(64),
+																},
+															},
+														},
+													},
+												},
+											},
+										},
+										"intra_segment": schema.SingleNestedBlock{
+											MarkdownDescription: "Configuration parameter for intra segment.",
+										},
+										"src_any": schema.SingleNestedBlock{
+											MarkdownDescription: "Enable this option",
+										},
+										"src_segments": schema.SingleNestedBlock{
+											MarkdownDescription: "Configuration parameter for src segments.",
+											Attributes:          map[string]schema.Attribute{},
+											Blocks: map[string]schema.Block{
+												"segments": schema.ListNestedBlock{
+													MarkdownDescription: "Segments. Select list of segments .",
+													NestedObject: schema.NestedBlockObject{
+														Attributes: map[string]schema.Attribute{
+															"name": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+																Optional:            true,
+																Validators: []validator.String{
+																	stringvalidator.LengthBetween(1, 128),
+																},
+															},
+															"namespace": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+																Optional:            true,
+																Computed:            true,
+																PlanModifiers: []planmodifier.String{
+																	stringplanmodifier.UseStateForUnknown(),
+																},
+																Validators: []validator.String{
+																	stringvalidator.LengthBetween(1, 63),
+																},
+															},
+															"tenant": schema.StringAttribute{
+																MarkdownDescription: "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+																Computed:            true,
+																Validators: []validator.String{
+																	stringvalidator.LengthAtMost(64),
+																},
+															},
+														},
+													},
+												},
 											},
 										},
 									},
@@ -1171,6 +1336,9 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 					}
 					if RulesItem.Spec.Path != nil {
 						RulesSpecPathMap := make(map[string]interface{})
+						if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+							RulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+						}
 						if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -1210,6 +1378,71 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 							}
 						}
 						RulesSpecMap["path"] = RulesSpecPathMap
+					}
+					if RulesItem.Spec.SegmentPolicy != nil {
+						RulesSpecSegmentPolicyMap := make(map[string]interface{})
+						if RulesItem.Spec.SegmentPolicy.DstAny != nil {
+							RulesSpecSegmentPolicyMap["dst_any"] = map[string]interface{}{}
+						}
+						if RulesItem.Spec.SegmentPolicy.DstSegments != nil {
+							RulesSpecSegmentPolicyDstSegmentsMap := make(map[string]interface{})
+							if !RulesItem.Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !RulesItem.Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+								var SegmentsElems []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+								diags := RulesItem.Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SegmentsElems) > 0 {
+									var SegmentsList []map[string]interface{}
+									for _, SegmentsItem := range SegmentsElems {
+										SegmentsItemMap := make(map[string]interface{})
+										if !SegmentsItem.Name.IsNull() && !SegmentsItem.Name.IsUnknown() {
+											SegmentsItemMap["name"] = SegmentsItem.Name.ValueString()
+										}
+										if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
+											SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
+										}
+										if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
+											SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
+										}
+										SegmentsList = append(SegmentsList, SegmentsItemMap)
+									}
+									RulesSpecSegmentPolicyDstSegmentsMap["segments"] = SegmentsList
+								}
+							}
+							RulesSpecSegmentPolicyMap["dst_segments"] = RulesSpecSegmentPolicyDstSegmentsMap
+						}
+						if RulesItem.Spec.SegmentPolicy.IntraSegment != nil {
+							RulesSpecSegmentPolicyMap["intra_segment"] = map[string]interface{}{}
+						}
+						if RulesItem.Spec.SegmentPolicy.SrcAny != nil {
+							RulesSpecSegmentPolicyMap["src_any"] = map[string]interface{}{}
+						}
+						if RulesItem.Spec.SegmentPolicy.SrcSegments != nil {
+							RulesSpecSegmentPolicySrcSegmentsMap := make(map[string]interface{})
+							if !RulesItem.Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !RulesItem.Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+								var SegmentsElems []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+								diags := RulesItem.Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SegmentsElems) > 0 {
+									var SegmentsList []map[string]interface{}
+									for _, SegmentsItem := range SegmentsElems {
+										SegmentsItemMap := make(map[string]interface{})
+										if !SegmentsItem.Name.IsNull() && !SegmentsItem.Name.IsUnknown() {
+											SegmentsItemMap["name"] = SegmentsItem.Name.ValueString()
+										}
+										if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
+											SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
+										}
+										if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
+											SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
+										}
+										SegmentsList = append(SegmentsList, SegmentsItemMap)
+									}
+									RulesSpecSegmentPolicySrcSegmentsMap["segments"] = SegmentsList
+								}
+							}
+							RulesSpecSegmentPolicyMap["src_segments"] = RulesSpecSegmentPolicySrcSegmentsMap
+						}
+						RulesSpecMap["segment_policy"] = RulesSpecSegmentPolicyMap
 					}
 					RulesItemMap["spec"] = RulesSpecMap
 				}
@@ -1780,6 +2013,15 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 									}
 									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecPathModel{
+											EncodedPathMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil && !existingRulesItems[listIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.Path.EncodedPathMatcher
+												}
+												if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
 											ExactValues: func() types.List {
 												if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 													var items []string
@@ -1853,6 +2095,134 @@ func (r *RateLimiterPolicyResource) Create(ctx context.Context, req resource.Cre
 													return listVal
 												}
 												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SegmentPolicy: func() *RateLimiterPolicyRulesSpecSegmentPolicyModel {
+									if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecSegmentPolicyModel{
+											DstAny: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny
+												}
+												if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											DstSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel {
+												if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel{
+														Segments: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments != nil && (existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+															}
+															var SegmentsExisting []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+															}
+															if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																var SegmentsResult []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																for SegmentsIdx, SegmentsItem := range rawList {
+																	_ = SegmentsIdx
+																	if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																		SegmentsResult = append(SegmentsResult, RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
+																			Name: func() types.String {
+																				if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IntraSegment: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment
+												}
+												if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											SrcAny: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny
+												}
+												if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											SrcSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel {
+												if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel{
+														Segments: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments != nil && (existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+															}
+															var SegmentsExisting []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+															}
+															if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																var SegmentsResult []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																for SegmentsIdx, SegmentsItem := range rawList {
+																	_ = SegmentsIdx
+																	if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																		SegmentsResult = append(SegmentsResult, RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
+																			Name: func() types.String {
+																				if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
@@ -2535,6 +2905,15 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 									}
 									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecPathModel{
+											EncodedPathMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil && !existingRulesItems[listIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.Path.EncodedPathMatcher
+												}
+												if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
 											ExactValues: func() types.List {
 												if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 													var items []string
@@ -2608,6 +2987,134 @@ func (r *RateLimiterPolicyResource) Read(ctx context.Context, req resource.ReadR
 													return listVal
 												}
 												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SegmentPolicy: func() *RateLimiterPolicyRulesSpecSegmentPolicyModel {
+									if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecSegmentPolicyModel{
+											DstAny: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny
+												}
+												if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											DstSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel {
+												if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel{
+														Segments: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments != nil && (existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+															}
+															var SegmentsExisting []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+															}
+															if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																var SegmentsResult []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																for SegmentsIdx, SegmentsItem := range rawList {
+																	_ = SegmentsIdx
+																	if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																		SegmentsResult = append(SegmentsResult, RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
+																			Name: func() types.String {
+																				if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IntraSegment: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment
+												}
+												if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											SrcAny: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny
+												}
+												if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											SrcSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel {
+												if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel{
+														Segments: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments != nil && (existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+															}
+															var SegmentsExisting []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+															}
+															if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																var SegmentsResult []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																for SegmentsIdx, SegmentsItem := range rawList {
+																	_ = SegmentsIdx
+																	if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																		SegmentsResult = append(SegmentsResult, RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
+																			Name: func() types.String {
+																				if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}
@@ -2962,6 +3469,9 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 					}
 					if RulesItem.Spec.Path != nil {
 						RulesSpecPathMap := make(map[string]interface{})
+						if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+							RulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+						}
 						if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 							var ExactValuesItems []string
 							diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -3001,6 +3511,71 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 							}
 						}
 						RulesSpecMap["path"] = RulesSpecPathMap
+					}
+					if RulesItem.Spec.SegmentPolicy != nil {
+						RulesSpecSegmentPolicyMap := make(map[string]interface{})
+						if RulesItem.Spec.SegmentPolicy.DstAny != nil {
+							RulesSpecSegmentPolicyMap["dst_any"] = map[string]interface{}{}
+						}
+						if RulesItem.Spec.SegmentPolicy.DstSegments != nil {
+							RulesSpecSegmentPolicyDstSegmentsMap := make(map[string]interface{})
+							if !RulesItem.Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !RulesItem.Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+								var SegmentsElems []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+								diags := RulesItem.Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SegmentsElems) > 0 {
+									var SegmentsList []map[string]interface{}
+									for _, SegmentsItem := range SegmentsElems {
+										SegmentsItemMap := make(map[string]interface{})
+										if !SegmentsItem.Name.IsNull() && !SegmentsItem.Name.IsUnknown() {
+											SegmentsItemMap["name"] = SegmentsItem.Name.ValueString()
+										}
+										if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
+											SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
+										}
+										if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
+											SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
+										}
+										SegmentsList = append(SegmentsList, SegmentsItemMap)
+									}
+									RulesSpecSegmentPolicyDstSegmentsMap["segments"] = SegmentsList
+								}
+							}
+							RulesSpecSegmentPolicyMap["dst_segments"] = RulesSpecSegmentPolicyDstSegmentsMap
+						}
+						if RulesItem.Spec.SegmentPolicy.IntraSegment != nil {
+							RulesSpecSegmentPolicyMap["intra_segment"] = map[string]interface{}{}
+						}
+						if RulesItem.Spec.SegmentPolicy.SrcAny != nil {
+							RulesSpecSegmentPolicyMap["src_any"] = map[string]interface{}{}
+						}
+						if RulesItem.Spec.SegmentPolicy.SrcSegments != nil {
+							RulesSpecSegmentPolicySrcSegmentsMap := make(map[string]interface{})
+							if !RulesItem.Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !RulesItem.Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+								var SegmentsElems []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+								diags := RulesItem.Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsElems, false)
+								resp.Diagnostics.Append(diags...)
+								if !resp.Diagnostics.HasError() && len(SegmentsElems) > 0 {
+									var SegmentsList []map[string]interface{}
+									for _, SegmentsItem := range SegmentsElems {
+										SegmentsItemMap := make(map[string]interface{})
+										if !SegmentsItem.Name.IsNull() && !SegmentsItem.Name.IsUnknown() {
+											SegmentsItemMap["name"] = SegmentsItem.Name.ValueString()
+										}
+										if !SegmentsItem.Namespace.IsNull() && !SegmentsItem.Namespace.IsUnknown() {
+											SegmentsItemMap["namespace"] = SegmentsItem.Namespace.ValueString()
+										}
+										if !SegmentsItem.Tenant.IsNull() && !SegmentsItem.Tenant.IsUnknown() {
+											SegmentsItemMap["tenant"] = SegmentsItem.Tenant.ValueString()
+										}
+										SegmentsList = append(SegmentsList, SegmentsItemMap)
+									}
+									RulesSpecSegmentPolicySrcSegmentsMap["segments"] = SegmentsList
+								}
+							}
+							RulesSpecSegmentPolicyMap["src_segments"] = RulesSpecSegmentPolicySrcSegmentsMap
+						}
+						RulesSpecMap["segment_policy"] = RulesSpecSegmentPolicyMap
 					}
 					RulesItemMap["spec"] = RulesSpecMap
 				}
@@ -3589,6 +4164,15 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 									}
 									if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 										return &RateLimiterPolicyRulesSpecPathModel{
+											EncodedPathMatcher: func() types.Bool {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.Path != nil && !existingRulesItems[listIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+													return existingRulesItems[listIdx].Spec.Path.EncodedPathMatcher
+												}
+												if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
 											ExactValues: func() types.List {
 												if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 													var items []string
@@ -3662,6 +4246,134 @@ func (r *RateLimiterPolicyResource) Update(ctx context.Context, req resource.Upd
 													return listVal
 												}
 												return types.ListNull(types.StringType)
+											}(),
+										}
+									}
+									return nil
+								}(),
+								SegmentPolicy: func() *RateLimiterPolicyRulesSpecSegmentPolicyModel {
+									if SegmentPolicyData, ok := SpecData["segment_policy"].(map[string]interface{}); ok {
+										return &RateLimiterPolicyRulesSpecSegmentPolicyModel{
+											DstAny: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.DstAny
+												}
+												if _, ok := SegmentPolicyData["dst_any"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											DstSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel {
+												if DstSegmentsData, ok := SegmentPolicyData["dst_segments"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsModel{
+														Segments: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments != nil && (existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() || len(existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+															}
+															var SegmentsExisting []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsNull() && !existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.IsUnknown() {
+																existingRulesItems[listIdx].Spec.SegmentPolicy.DstSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+															}
+															if rawList, ok := DstSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																var SegmentsResult []RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel
+																for SegmentsIdx, SegmentsItem := range rawList {
+																	_ = SegmentsIdx
+																	if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																		SegmentsResult = append(SegmentsResult, RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModel{
+																			Name: func() types.String {
+																				if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicyDstSegmentsSegmentsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
+											}(),
+											IntraSegment: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.IntraSegment
+												}
+												if _, ok := SegmentPolicyData["intra_segment"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											SrcAny: func() *RateLimiterPolicyEmptyModel {
+												if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil {
+													return existingRulesItems[listIdx].Spec.SegmentPolicy.SrcAny
+												}
+												if _, ok := SegmentPolicyData["src_any"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyEmptyModel{}
+												}
+												return nil
+											}(),
+											SrcSegments: func() *RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel {
+												if SrcSegmentsData, ok := SegmentPolicyData["src_segments"].(map[string]interface{}); ok {
+													return &RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsModel{
+														Segments: func() types.List {
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments != nil && (existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() || len(existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.Elements()) == 0) {
+																return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+															}
+															var SegmentsExisting []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+															if !isImport && len(existingRulesItems) > listIdx && existingRulesItems[listIdx].Spec != nil && existingRulesItems[listIdx].Spec.SegmentPolicy != nil && existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments != nil && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsNull() && !existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.IsUnknown() {
+																existingRulesItems[listIdx].Spec.SegmentPolicy.SrcSegments.Segments.ElementsAs(ctx, &SegmentsExisting, false)
+															}
+															if rawList, ok := SrcSegmentsData["segments"].([]interface{}); ok && len(rawList) > 0 {
+																var SegmentsResult []RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel
+																for SegmentsIdx, SegmentsItem := range rawList {
+																	_ = SegmentsIdx
+																	if SegmentsItemMap, ok := SegmentsItem.(map[string]interface{}); ok {
+																		SegmentsResult = append(SegmentsResult, RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModel{
+																			Name: func() types.String {
+																				if v, ok := SegmentsItemMap["name"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Namespace: func() types.String {
+																				if v, ok := SegmentsItemMap["namespace"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																			Tenant: func() types.String {
+																				if v, ok := SegmentsItemMap["tenant"].(string); ok && v != "" {
+																					return types.StringValue(v)
+																				}
+																				return types.StringNull()
+																			}(),
+																		})
+																	}
+																}
+																listVal, _ := types.ListValueFrom(ctx, types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes}, SegmentsResult)
+																return listVal
+															}
+															return types.ListNull(types.ObjectType{AttrTypes: RateLimiterPolicyRulesSpecSegmentPolicySrcSegmentsSegmentsModelAttrTypes})
+														}(),
+													}
+												}
+												return nil
 											}(),
 										}
 									}

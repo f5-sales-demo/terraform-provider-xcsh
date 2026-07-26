@@ -156,6 +156,8 @@ below.
 <a id="rules-spec-path"></a>&#x2022; [`path`](#rules-spec-path) - Optional Block<br>Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions<br>See [Path](#rules-spec-path)
 below.
 
+<a id="rules-spec-segment-policy"></a>&#x2022; [`segment_policy`](#rules-spec-segment-policy) - Optional Block<br>Configure source and destination segment for policy<br>See [Segment Policy](#rules-spec-segment-policy) below.
+
 #### Rules Spec Asn List
 
 An [`asn_list`](#rules-spec-asn-list) block (within [`rules.spec`](#rules-spec)) supports the following:
@@ -285,6 +287,8 @@ An [`ip_prefix_list`](#rules-spec-ip-prefix-list) block (within [`rules.spec`](#
 
 A [`path`](#rules-spec-path) block (within [`rules.spec`](#rules-spec)) supports the following:
 
+<a id="rules-spec-path-encoded-path-matcher"></a>&#x2022; [`encoded_path_matcher`](#rules-spec-path-encoded-path-matcher) - Optional Bool<br>Match against the encoded, escaped path
+
 <a id="rules-spec-path-exact-values"></a>&#x2022; [`exact_values`](#rules-spec-path-exact-values) - Optional List<br>List of exact path values to match the input HTTP path against
 
 <a id="rules-spec-path-invert-matcher"></a>&#x2022; [`invert_matcher`](#rules-spec-path-invert-matcher) - Optional Bool<br>Invert Path Matcher. Invert the match result
@@ -296,6 +300,52 @@ A [`path`](#rules-spec-path) block (within [`rules.spec`](#rules-spec)) supports
 <a id="rules-spec-path-suffix-values"></a>&#x2022; [`suffix_values`](#rules-spec-path-suffix-values) - Optional List<br>List of path suffix values to match the input HTTP path against
 
 <a id="rules-spec-path-transformers"></a>&#x2022; [`transformers`](#rules-spec-path-transformers) - Optional List<br>See [Transformers](#common-transformers)<br> Ordered list of transformers (starting from index 0) to be applied to the path before matching
+
+#### Rules Spec Segment Policy
+
+A [`segment_policy`](#rules-spec-segment-policy) block (within [`rules.spec`](#rules-spec)) supports the following:
+
+<a id="rules-spec-segment-policy-dst-any"></a>&#x2022; [`dst_any`](#rules-spec-segment-policy-dst-any) - Optional Block<br>Enable this option
+
+<a id="rules-spec-segment-policy-dst-segments"></a>&#x2022; [`dst_segments`](#rules-spec-segment-policy-dst-segments) - Optional Block<br>Configuration parameter for dst segments<br>See [Dst Segments](#rules-spec-segment-policy-dst-segments) below.
+
+<a id="rules-spec-segment-policy-intra-segment"></a>&#x2022; [`intra_segment`](#rules-spec-segment-policy-intra-segment) - Optional Block<br>Configuration parameter for intra segment
+
+<a id="rules-spec-segment-policy-src-any"></a>&#x2022; [`src_any`](#rules-spec-segment-policy-src-any) - Optional Block<br>Enable this option
+
+<a id="rules-spec-segment-policy-src-segments"></a>&#x2022; [`src_segments`](#rules-spec-segment-policy-src-segments) - Optional Block<br>Configuration parameter for src segments<br>See [Src Segments](#rules-spec-segment-policy-src-segments) below.
+
+#### Rules Spec Segment Policy Dst Segments
+
+A [`dst_segments`](#rules-spec-segment-policy-dst-segments) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+<a id="segments-bebd2d"></a>&#x2022; [`segments`](#segments-bebd2d) - Optional Block<br>Segments. Select list of segments<br>See [Segments](#segments-bebd2d) below.
+
+#### Rules Spec Segment Policy Dst Segments Segments
+
+A [`segments`](#segments-bebd2d) block (within [`rules.spec.segment_policy.dst_segments`](#rules-spec-segment-policy-dst-segments)) supports the following:
+
+<a id="name-0b1b06"></a>&#x2022; [`name`](#name-0b1b06) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-dbb362"></a>&#x2022; [`namespace`](#namespace-dbb362) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-da28d3"></a>&#x2022; [`tenant`](#tenant-da28d3) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+
+#### Rules Spec Segment Policy Src Segments
+
+A [`src_segments`](#rules-spec-segment-policy-src-segments) block (within [`rules.spec.segment_policy`](#rules-spec-segment-policy)) supports the following:
+
+<a id="segments-6cf5c1"></a>&#x2022; [`segments`](#segments-6cf5c1) - Optional Block<br>Segments. Select list of segments<br>See [Segments](#segments-6cf5c1) below.
+
+#### Rules Spec Segment Policy Src Segments Segments
+
+A [`segments`](#segments-6cf5c1) block (within [`rules.spec.segment_policy.src_segments`](#rules-spec-segment-policy-src-segments)) supports the following:
+
+<a id="name-6da63f"></a>&#x2022; [`name`](#name-6da63f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
+
+<a id="namespace-c6605f"></a>&#x2022; [`namespace`](#namespace-c6605f) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+
+<a id="tenant-febeda"></a>&#x2022; [`tenant`](#tenant-febeda) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Server Name Matcher
 

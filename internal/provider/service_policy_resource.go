@@ -242,6 +242,7 @@ type ServicePolicyRuleListRulesSpecModel struct {
 	Action                types.String                                              `tfsdk:"action"`
 	ClientName            types.String                                              `tfsdk:"client_name"`
 	ExpirationTimestamp   types.String                                              `tfsdk:"expiration_timestamp"`
+	LogRuleEvaluation     types.Bool                                                `tfsdk:"log_rule_evaluation"`
 	AnyAsn                *ServicePolicyEmptyModel                                  `tfsdk:"any_asn"`
 	AnyClient             *ServicePolicyEmptyModel                                  `tfsdk:"any_client"`
 	AnyIP                 *ServicePolicyEmptyModel                                  `tfsdk:"any_ip"`
@@ -279,6 +280,7 @@ var ServicePolicyRuleListRulesSpecModelAttrTypes = map[string]attr.Type{
 	"action":                  types.StringType,
 	"client_name":             types.StringType,
 	"expiration_timestamp":    types.StringType,
+	"log_rule_evaluation":     types.BoolType,
 	"any_asn":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any_client":              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"any_ip":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -651,22 +653,24 @@ var ServicePolicyRuleListRulesSpecMumActionModelAttrTypes = map[string]attr.Type
 
 // ServicePolicyRuleListRulesSpecPathModel represents path block
 type ServicePolicyRuleListRulesSpecPathModel struct {
-	ExactValues   types.List `tfsdk:"exact_values"`
-	InvertMatcher types.Bool `tfsdk:"invert_matcher"`
-	PrefixValues  types.List `tfsdk:"prefix_values"`
-	RegexValues   types.List `tfsdk:"regex_values"`
-	SuffixValues  types.List `tfsdk:"suffix_values"`
-	Transformers  types.List `tfsdk:"transformers"`
+	EncodedPathMatcher types.Bool `tfsdk:"encoded_path_matcher"`
+	ExactValues        types.List `tfsdk:"exact_values"`
+	InvertMatcher      types.Bool `tfsdk:"invert_matcher"`
+	PrefixValues       types.List `tfsdk:"prefix_values"`
+	RegexValues        types.List `tfsdk:"regex_values"`
+	SuffixValues       types.List `tfsdk:"suffix_values"`
+	Transformers       types.List `tfsdk:"transformers"`
 }
 
 // ServicePolicyRuleListRulesSpecPathModelAttrTypes defines the attribute types for ServicePolicyRuleListRulesSpecPathModel
 var ServicePolicyRuleListRulesSpecPathModelAttrTypes = map[string]attr.Type{
-	"exact_values":   types.ListType{ElemType: types.StringType},
-	"invert_matcher": types.BoolType,
-	"prefix_values":  types.ListType{ElemType: types.StringType},
-	"regex_values":   types.ListType{ElemType: types.StringType},
-	"suffix_values":  types.ListType{ElemType: types.StringType},
-	"transformers":   types.ListType{ElemType: types.StringType},
+	"encoded_path_matcher": types.BoolType,
+	"exact_values":         types.ListType{ElemType: types.StringType},
+	"invert_matcher":       types.BoolType,
+	"prefix_values":        types.ListType{ElemType: types.StringType},
+	"regex_values":         types.ListType{ElemType: types.StringType},
+	"suffix_values":        types.ListType{ElemType: types.StringType},
+	"transformers":         types.ListType{ElemType: types.StringType},
 }
 
 // ServicePolicyRuleListRulesSpecPortMatcherModel represents port_matcher block
@@ -1376,6 +1380,10 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 											MarkdownDescription: "Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.",
 											Optional:            true,
 										},
+										"log_rule_evaluation": schema.BoolAttribute{
+											MarkdownDescription: "Log the rule match details along with the request and continue to evaluate rules in the sequence.",
+											Optional:            true,
+										},
 									},
 									Blocks: map[string]schema.Block{
 										"any_asn": schema.SingleNestedBlock{
@@ -1924,6 +1932,10 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 										"path": schema.SingleNestedBlock{
 											MarkdownDescription: "Path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
 											Attributes: map[string]schema.Attribute{
+												"encoded_path_matcher": schema.BoolAttribute{
+													MarkdownDescription: "Match against the encoded, escaped path.",
+													Optional:            true,
+												},
 												"exact_values": schema.ListAttribute{
 													MarkdownDescription: "List of exact path values to match the input HTTP path against.",
 													Optional:            true,
@@ -2187,11 +2199,11 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Enable this option",
 												},
 												"dst_segments": schema.SingleNestedBlock{
-													MarkdownDescription: "X-displayName: 'Segment List' List of references to Segments.",
+													MarkdownDescription: "Configuration parameter for dst segments.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"segments": schema.ListNestedBlock{
-															MarkdownDescription: "X-displayName: 'Segments'Select list of segments.",
+															MarkdownDescription: "Segments. Select list of segments .",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"name": schema.StringAttribute{
@@ -2231,11 +2243,11 @@ func (r *ServicePolicyResource) Schema(ctx context.Context, req resource.SchemaR
 													MarkdownDescription: "Enable this option",
 												},
 												"src_segments": schema.SingleNestedBlock{
-													MarkdownDescription: "X-displayName: 'Segment List' List of references to Segments.",
+													MarkdownDescription: "Configuration parameter for src segments.",
 													Attributes:          map[string]schema.Attribute{},
 													Blocks: map[string]schema.Block{
 														"segments": schema.ListNestedBlock{
-															MarkdownDescription: "X-displayName: 'Segments'Select list of segments.",
+															MarkdownDescription: "Segments. Select list of segments .",
 															NestedObject: schema.NestedBlockObject{
 																Attributes: map[string]schema.Attribute{
 																	"name": schema.StringAttribute{
@@ -3278,6 +3290,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 							}
 							RuleListRulesSpecMap["label_matcher"] = RuleListRulesSpecLabelMatcherMap
 						}
+						if !RulesItem.Spec.LogRuleEvaluation.IsNull() && !RulesItem.Spec.LogRuleEvaluation.IsUnknown() {
+							RuleListRulesSpecMap["log_rule_evaluation"] = RulesItem.Spec.LogRuleEvaluation.ValueBool()
+						}
 						if RulesItem.Spec.MumAction != nil {
 							RuleListRulesSpecMumActionMap := make(map[string]interface{})
 							if RulesItem.Spec.MumAction.Default != nil {
@@ -3290,6 +3305,9 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 						}
 						if RulesItem.Spec.Path != nil {
 							RuleListRulesSpecPathMap := make(map[string]interface{})
+							if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+								RuleListRulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+							}
 							if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -5129,6 +5147,15 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												return nil
 											}(),
+											LogRuleEvaluation: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.LogRuleEvaluation.IsUnknown() {
+													return RulesExisting[RulesIdx].Spec.LogRuleEvaluation
+												}
+												if v, ok := SpecData["log_rule_evaluation"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
 											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
 												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
 													return RulesExisting[RulesIdx].Spec.MumAction
@@ -5163,6 +5190,15 @@ func (r *ServicePolicyResource) Create(ctx context.Context, req resource.CreateR
 												}
 												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPathModel{
+														EncodedPathMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+															}
+															if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
 														ExactValues: func() types.List {
 															if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																var items []string
@@ -7583,6 +7619,15 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												return nil
 											}(),
+											LogRuleEvaluation: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.LogRuleEvaluation.IsUnknown() {
+													return RulesExisting[RulesIdx].Spec.LogRuleEvaluation
+												}
+												if v, ok := SpecData["log_rule_evaluation"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
 											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
 												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
 													return RulesExisting[RulesIdx].Spec.MumAction
@@ -7617,6 +7662,15 @@ func (r *ServicePolicyResource) Read(ctx context.Context, req resource.ReadReque
 												}
 												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPathModel{
+														EncodedPathMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+															}
+															if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
 														ExactValues: func() types.List {
 															if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																var items []string
@@ -9288,6 +9342,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 							}
 							RuleListRulesSpecMap["label_matcher"] = RuleListRulesSpecLabelMatcherMap
 						}
+						if !RulesItem.Spec.LogRuleEvaluation.IsNull() && !RulesItem.Spec.LogRuleEvaluation.IsUnknown() {
+							RuleListRulesSpecMap["log_rule_evaluation"] = RulesItem.Spec.LogRuleEvaluation.ValueBool()
+						}
 						if RulesItem.Spec.MumAction != nil {
 							RuleListRulesSpecMumActionMap := make(map[string]interface{})
 							if RulesItem.Spec.MumAction.Default != nil {
@@ -9300,6 +9357,9 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 						}
 						if RulesItem.Spec.Path != nil {
 							RuleListRulesSpecPathMap := make(map[string]interface{})
+							if !RulesItem.Spec.Path.EncodedPathMatcher.IsNull() && !RulesItem.Spec.Path.EncodedPathMatcher.IsUnknown() {
+								RuleListRulesSpecPathMap["encoded_path_matcher"] = RulesItem.Spec.Path.EncodedPathMatcher.ValueBool()
+							}
 							if !RulesItem.Spec.Path.ExactValues.IsNull() && !RulesItem.Spec.Path.ExactValues.IsUnknown() {
 								var ExactValuesItems []string
 								diags := RulesItem.Spec.Path.ExactValues.ElementsAs(ctx, &ExactValuesItems, false)
@@ -11157,6 +11217,15 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												return nil
 											}(),
+											LogRuleEvaluation: func() types.Bool {
+												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && !RulesExisting[RulesIdx].Spec.LogRuleEvaluation.IsUnknown() {
+													return RulesExisting[RulesIdx].Spec.LogRuleEvaluation
+												}
+												if v, ok := SpecData["log_rule_evaluation"].(bool); ok {
+													return types.BoolValue(v)
+												}
+												return types.BoolNull()
+											}(),
 											MumAction: func() *ServicePolicyRuleListRulesSpecMumActionModel {
 												if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.MumAction != nil {
 													return RulesExisting[RulesIdx].Spec.MumAction
@@ -11191,6 +11260,15 @@ func (r *ServicePolicyResource) Update(ctx context.Context, req resource.UpdateR
 												}
 												if PathData, ok := SpecData["path"].(map[string]interface{}); ok {
 													return &ServicePolicyRuleListRulesSpecPathModel{
+														EncodedPathMatcher: func() types.Bool {
+															if !isImport && len(RulesExisting) > RulesIdx && RulesExisting[RulesIdx].Spec != nil && RulesExisting[RulesIdx].Spec.Path != nil && !RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher.IsUnknown() {
+																return RulesExisting[RulesIdx].Spec.Path.EncodedPathMatcher
+															}
+															if v, ok := PathData["encoded_path_matcher"].(bool); ok {
+																return types.BoolValue(v)
+															}
+															return types.BoolNull()
+														}(),
 														ExactValues: func() types.List {
 															if v, ok := PathData["exact_values"].([]interface{}); ok && len(v) > 0 {
 																var items []string

@@ -82,7 +82,7 @@ spec:
 -> **One of the following:**
 &#x2022; <a id="audit-logs"></a>[`audit_logs`](#audit-logs) - Optional Block<br>Enable this option
 <br><br>&#x2022; <a id="dns-logs"></a>[`dns_logs`](#dns-logs) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="request-logs"></a>[`request_logs`](#request-logs) - Optional Block<br>Configuration parameter for request logs
+<br><br>&#x2022; <a id="request-logs"></a>[`request_logs`](#request-logs) - Optional Block<br>Configuration for request logs with sampling choice. Allows selection between sampled (default) or unsampled (full) request logs
 <br><br>&#x2022; <a id="security-events"></a>[`security_events`](#security-events) - Optional Block<br>Enable this option
 
 -> **One of the following:**
@@ -754,6 +754,14 @@ A [`mtls_enable`](#qradar-receiver-use-tls-mtls-enable) block (within [`qradar_r
 #### Qradar Receiver Use TLS mTLS Enable Key URL Clear Secret Info
 
 <a id="deep-7c4a8f"></a>Deeply nested **Info** block collapsed for readability.
+
+#### Request Logs
+
+A [`request_logs`](#request-logs) block supports the following:
+
+<a id="request-logs-sampled"></a>&#x2022; [`sampled`](#request-logs-sampled) - Optional Block  Defaults to `map[]`<br>Enable this option.  Server applies default when omitted
+
+<a id="request-logs-unsampled"></a>&#x2022; [`unsampled`](#request-logs-unsampled) - Optional Block<br>Enable this option
 
 #### S3 Receiver
 
