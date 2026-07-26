@@ -199,7 +199,7 @@ func (r *K8SClusterRoleResource) Schema(ctx context.Context, req resource.Schema
 				Delete: true,
 			}),
 			"k8s_cluster_role_selector": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: k8s_cluster_role_selector, policy_rule_list, yaml] Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
+				MarkdownDescription: "[OneOf: k8s_cluster_role_selector, policy_rule_list, yaml] Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expresssions. A label selector is a label query over a set of resources. An empty label selector matches all objects.",
 				Attributes: map[string]schema.Attribute{
 					"expressions": schema.ListAttribute{
 						MarkdownDescription: "Expressions contains the Kubernetes style label expression for selections.",
