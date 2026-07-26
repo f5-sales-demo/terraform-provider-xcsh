@@ -11,4 +11,8 @@ type RegistrationApproval struct {
 	Name                  string `json:"name,omitempty"`
 	PreferredActiveRE     string `json:"preferred_active_re,omitempty"`
 	State                 string `json:"state,omitempty"`
+	// Passport is server-derived: Create reads it off the object being acted
+	// on and echoes it back unchanged. interface{} keeps the value exactly as the
+	// API returned it — the server rejects a re-typed or partial copy.
+	Passport interface{} `json:"passport,omitempty"`
 }
