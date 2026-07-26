@@ -112,8 +112,8 @@ func TestCheckDestroyRegistriesOnlyReferenceRegisteredResources(t *testing.T) {
 	registered, _ := registeredTypeNames(t)
 
 	registries := map[string][]string{
-		"resourceVerifierRegistry": keysOfVerifiers(resourceVerifierRegistry),
-		"resourceDeleterRegistry":  keysOfDeleters(resourceDeleterRegistry),
+		"resourceVerifierRegistry": sortedKeys(resourceVerifierRegistry),
+		"resourceDeleterRegistry":  sortedKeys(resourceDeleterRegistry),
 	}
 
 	for _, name := range sortedKeys(registries) {
@@ -246,24 +246,6 @@ func typeNameLiteral(value string) bool {
 		}
 	}
 	return true
-}
-
-func keysOfVerifiers(m map[string]ResourceVerifier) []string {
-	keys := make([]string, 0, len(m))
-	for key := range m {
-		keys = append(keys, key)
-	}
-	sort.Strings(keys)
-	return keys
-}
-
-func keysOfDeleters(m map[string]ResourceDeleter) []string {
-	keys := make([]string, 0, len(m))
-	for key := range m {
-		keys = append(keys, key)
-	}
-	sort.Strings(keys)
-	return keys
 }
 
 func sortedKeys[V any](m map[string]V) []string {
