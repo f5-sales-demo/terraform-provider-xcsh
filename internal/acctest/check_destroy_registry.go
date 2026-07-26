@@ -410,10 +410,6 @@ var resourceVerifierRegistry = map[string]ResourceVerifier{
 		_, err := c.GetPolicyBasedRouting(ctx, ns, name)
 		return err
 	},
-	"xcsh_apm": func(ctx context.Context, c *client.Client, ns, name string) error {
-		_, err := c.GetAPM(ctx, ns, name)
-		return err
-	},
 	"xcsh_code_base_integration": func(ctx context.Context, c *client.Client, ns, name string) error {
 		_, err := c.GetCodeBaseIntegration(ctx, ns, name)
 		return err
@@ -683,9 +679,6 @@ var resourceDeleterRegistry = map[string]ResourceDeleter{
 	},
 	"xcsh_policy_based_routing": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeletePolicyBasedRouting(ctx, ns, name)
-	},
-	"xcsh_apm": func(ctx context.Context, c *client.Client, ns, name string) error {
-		return c.DeleteAPM(ctx, ns, name)
 	},
 	"xcsh_code_base_integration": func(ctx context.Context, c *client.Client, ns, name string) error {
 		return c.DeleteCodeBaseIntegration(ctx, ns, name)

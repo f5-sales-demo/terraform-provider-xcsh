@@ -25,7 +25,7 @@ import (
 // Test categories implemented:
 // 1. Basic Lifecycle Test - Create, Read, Import with minimal config
 // 2. All Attributes Test - Test all optional attributes and nested blocks
-// 3. Update Tests - Test updating basic_configuration, brute_force_detection_settings, password_policy
+// 3. Update Tests - Test updating tenant_details, brute_force_detection, password_policy
 // 4. Disappears Test - Handle external resource deletion
 // 5. Error/Validation Tests - Invalid configuration handling
 // 6. Empty Plan Test - Verify no diff after apply
@@ -118,10 +118,10 @@ func TestAccTenantConfigurationResource_allAttributes(t *testing.T) {
 					resource.TestCheckResourceAttr(resourceName, "labels.environment", "test"),
 					resource.TestCheckResourceAttr(resourceName, "labels.managed_by", "terraform"),
 					resource.TestCheckResourceAttr(resourceName, "annotations.purpose", "acceptance-testing"),
-					// basic_configuration block
-					resource.TestCheckResourceAttr(resourceName, "basic_configuration.display_name", "Test Tenant"),
-					// brute_force_detection_settings block
-					resource.TestCheckResourceAttr(resourceName, "brute_force_detection_settings.max_login_failures", "5"),
+					// tenant_details block
+					resource.TestCheckResourceAttr(resourceName, "tenant_details.display_name", "Test Tenant"),
+					// brute_force_detection block
+					resource.TestCheckResourceAttr(resourceName, "brute_force_detection.max_login_failures", "5"),
 					// password_policy block
 					resource.TestCheckResourceAttr(resourceName, "password_policy.minimum_length", "12"),
 					resource.TestCheckResourceAttr(resourceName, "password_policy.digits", "2"),
@@ -147,11 +147,11 @@ func TestAccTenantConfigurationResource_allAttributes(t *testing.T) {
 
 // -----------------------------------------------------------------------------
 // Test 3: Update Test - Basic Configuration
-// Verifies: In-place update of basic_configuration block
+// Verifies: In-place update of tenant_details block
 // Pattern: Update test for nested block
 // -----------------------------------------------------------------------------
 
-func TestAccTenantConfigurationResource_updateBasicConfiguration(t *testing.T) {
+func TestAccTenantConfigurationResource_updateTenantDetails(t *testing.T) {
 	// Skip: Tenant Configuration is a singleton resource that requires tenant admin permissions
 	t.Skip("Skipping: Tenant Configuration is a singleton resource requiring tenant admin permissions")
 
@@ -171,21 +171,21 @@ func TestAccTenantConfigurationResource_updateBasicConfiguration(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create with initial display name
 			{
-				Config: testAccTenantConfigurationResourceConfig_withBasicConfig(nsName, name, "Initial Display"),
+				Config: testAccTenantConfigurationResourceConfig_withTenantDetails(nsName, name, "Initial Display"),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "basic_configuration.display_name", "Initial Display"),
+					resource.TestCheckResourceAttr(resourceName, "tenant_details.display_name", "Initial Display"),
 				),
 			},
 			// Step 2: Update display name
 			{
-				Config: testAccTenantConfigurationResourceConfig_withBasicConfig(nsName, name, "Updated Display"),
+				Config: testAccTenantConfigurationResourceConfig_withTenantDetails(nsName, name, "Updated Display"),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "basic_configuration.display_name", "Updated Display"),
+					resource.TestCheckResourceAttr(resourceName, "tenant_details.display_name", "Updated Display"),
 				),
 			},
-			// Step 3: Remove basic_configuration block
+			// Step 3: Remove tenant_details block
 			{
 				Config: testAccTenantConfigurationResourceConfig_basic(nsName, name),
 				Check: resource.ComposeAggregateTestCheckFunc(
@@ -198,7 +198,7 @@ func TestAccTenantConfigurationResource_updateBasicConfiguration(t *testing.T) {
 
 // -----------------------------------------------------------------------------
 // Test 4: Update Test - Brute Force Detection Settings
-// Verifies: Update of brute_force_detection_settings block
+// Verifies: Update of brute_force_detection block
 // Pattern: Update test for nested block with integer attribute
 // -----------------------------------------------------------------------------
 
@@ -225,7 +225,7 @@ func TestAccTenantConfigurationResource_updateBruteForceDetection(t *testing.T) 
 				Config: testAccTenantConfigurationResourceConfig_withBruteForce(nsName, name, 5),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "brute_force_detection_settings.max_login_failures", "5"),
+					resource.TestCheckResourceAttr(resourceName, "brute_force_detection.max_login_failures", "5"),
 				),
 			},
 			// Step 2: Update max_login_failures
@@ -233,7 +233,7 @@ func TestAccTenantConfigurationResource_updateBruteForceDetection(t *testing.T) 
 				Config: testAccTenantConfigurationResourceConfig_withBruteForce(nsName, name, 10),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
-					resource.TestCheckResourceAttr(resourceName, "brute_force_detection_settings.max_login_failures", "10"),
+					resource.TestCheckResourceAttr(resourceName, "brute_force_detection.max_login_failures", "10"),
 				),
 			},
 		},
@@ -775,11 +775,11 @@ resource "xcsh_tenant_configuration" "test" {
     purpose = "acceptance-testing"
   }
 
-  basic_configuration {
+  tenant_details {
     display_name = "Test Tenant"
   }
 
-  brute_force_detection_settings {
+  brute_force_detection {
     max_login_failures = 5
   }
 
@@ -797,7 +797,7 @@ resource "xcsh_tenant_configuration" "test" {
 `, nsName, name, description))
 }
 
-func testAccTenantConfigurationResourceConfig_withBasicConfig(nsName, name, displayName string) string {
+func testAccTenantConfigurationResourceConfig_withTenantDetails(nsName, name, displayName string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -815,7 +815,7 @@ resource "xcsh_tenant_configuration" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
 
-  basic_configuration {
+  tenant_details {
     display_name = %[3]q
   }
 }
@@ -840,7 +840,7 @@ resource "xcsh_tenant_configuration" "test" {
   name       = %[2]q
   namespace  = xcsh_namespace.test.name
 
-  brute_force_detection_settings {
+  brute_force_detection {
     max_login_failures = %[3]d
   }
 }

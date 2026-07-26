@@ -95,7 +95,15 @@ jobs:
 
       - name: Build to verify
         if: steps.verify.outputs.has_specs == 'true'
-        run: scripts/go-retry.sh 3 go build -v .
+        # ./... so hand-written packages the root binary does not import — above
+        # all internal/acctest — are compiled against the freshly regenerated
+        # code. See #1351: `go build .` verified nothing about them.
+        run: scripts/go-retry.sh 3 go build -v ./...
+
+      - name: Vet to verify
+        if: steps.verify.outputs.has_specs == 'true'
+        # Type-checks _test.go files, which go build skips (#1351).
+        run: scripts/go-retry.sh 3 go vet ./...
 
       - name: Run tests
         if: steps.verify.outputs.has_specs == 'true'
