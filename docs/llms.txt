@@ -44,7 +44,7 @@ DEPRECATED — do not use: volterraedge/volterra
 - [Applications](_llms-txt/applications.txt) (4 resources): Application settings, types, discovery, and filtering
 - [Authentication](_llms-txt/authentication.txt) (4 resources): Authentication methods, cloud credentials, and secret management
 - [Certificates](_llms-txt/certificates.txt) (4 resources): TLS certificates, certificate chains, CRLs, and trusted CA lists
-- [Monitoring](_llms-txt/monitoring.txt) (4 resources): Log receivers, alert policies, APM, and global logging configuration
+- [Monitoring](_llms-txt/monitoring.txt) (4 resources): Log receivers, alert policies, alert templates, and global logging configuration
 - [VPN](_llms-txt/vpn.txt) (4 resources): VPN and IPSec configuration
 - [BIG-IP Integration](_llms-txt/big-ip-integration.txt) (3 resources): BIG-IP proxy, data groups, and iRules integration
 - [Cloud Resources](_llms-txt/cloud-resources.txt) (3 resources): Cloud elastic IPs, address allocators, and geo-location resources

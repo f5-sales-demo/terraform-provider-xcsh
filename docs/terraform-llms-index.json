@@ -204,7 +204,7 @@
     {
       "name": "Monitoring",
       "slug": "monitoring",
-      "description": "Log receivers, alert policies, APM, and global logging configuration",
+      "description": "Log receivers, alert policies, alert templates, and global logging configuration",
       "resource_count": 4,
       "resources": ["alert_receiver", "alert_template", "global_log_receiver", "log_receiver"]
     },
