@@ -162,6 +162,31 @@ func (r *RegistrationApprovalResource) Create(ctx context.Context, req resource.
 	// state is a constant-default action target; always send APPROVED.
 	body.State = "APPROVED"
 
+	// The action requires fields that are facts about the object being acted on,
+	// not user input, and the API accepts only the value it already holds — a
+	// registration approve without its own passport is rejected with HTTP 500
+	// "Validation approval: Passport is required" (#1355). Read the sibling
+	// object first and echo the values back verbatim. The read is lenient because
+	// these payloads embed raw control characters that break a strict decoder.
+	sourcePath := fmt.Sprintf("/api/register/namespaces/%s/registrations/%s", data.Namespace.ValueString(), data.Name.ValueString())
+	var sourceObj map[string]interface{}
+	if err := r.client.GetLenient(ctx, sourcePath, &sourceObj); err != nil {
+		resp.Diagnostics.AddError(
+			"Client Error",
+			fmt.Sprintf("Unable to read %s to derive the fields the RegistrationApproval action requires: %s", sourcePath, err),
+		)
+		return
+	}
+	if derived, ok := client.LookupNestedField(sourceObj, "object.spec.gc_spec.passport", "spec.gc_spec.passport", "spec.passport"); ok {
+		body.Passport = derived
+	} else {
+		resp.Diagnostics.AddError(
+			"Missing Server-Derived Field",
+			fmt.Sprintf("The RegistrationApproval action requires the passport of the object at %s, but the response carries no passport. It is derived from the object, not configurable, so this indicates the object is not in a state the action can be performed on.", sourcePath),
+		)
+		return
+	}
+
 	actionPath := fmt.Sprintf("/api/register/namespaces/%s/registration/%s/approve", data.Namespace.ValueString(), data.Name.ValueString())
 	if err := r.client.Post(ctx, actionPath, body, nil); err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to perform RegistrationApproval action: %s", err))
