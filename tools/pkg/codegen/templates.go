@@ -1267,6 +1267,35 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 	}
 {{- end}}
 {{- end}}
+{{- if .ActionDerivedFields}}
+
+	// The action requires fields that are facts about the object being acted on,
+	// not user input, and the API accepts only the value it already holds — a
+	// registration approve without its own passport is rejected with HTTP 500
+	// "Validation approval: Passport is required" (#1355). Read the sibling
+	// object first and echo the values back verbatim. The read is lenient because
+	// these payloads embed raw control characters that break a strict decoder.
+	sourcePath := fmt.Sprintf("{{.ReadObjectPath}}", data.Namespace.ValueString(), data.Name.ValueString())
+	var sourceObj map[string]interface{}
+	if err := r.client.GetLenient(ctx, sourcePath, &sourceObj); err != nil {
+		resp.Diagnostics.AddError(
+			"Client Error",
+			fmt.Sprintf("Unable to read %s to derive the fields the {{.TitleCase}} action requires: %s", sourcePath, err),
+		)
+		return
+	}
+{{- range .ActionDerivedFields}}
+	if derived, ok := client.LookupNestedField(sourceObj{{range .Sources}}, "{{.}}"{{end}}); ok {
+		body.{{.GoName}} = derived
+	} else {
+		resp.Diagnostics.AddError(
+			"Missing Server-Derived Field",
+			fmt.Sprintf("The {{$.TitleCase}} action requires the {{.Field}} of the object at %s, but the response carries no {{.Field}}. It is derived from the object, not configurable, so this indicates the object is not in a state the action can be performed on.", sourcePath),
+		)
+		return
+	}
+{{- end}}
+{{- end}}
 
 	actionPath := fmt.Sprintf("{{.ActionPath}}", data.Namespace.ValueString(), data.Name.ValueString())
 	if err := r.client.Post(ctx, actionPath, body, nil); err != nil {
@@ -1363,6 +1392,12 @@ package client
 type {{.TitleCase}} struct {
 {{- range .Attributes}}
 	{{.GoName}} string ` + "`" + `json:"{{.JsonName}},omitempty"` + "`" + `
+{{- end}}
+{{- range .ActionDerivedFields}}
+	// {{.GoName}} is server-derived: Create reads it off the object being acted
+	// on and echoes it back unchanged. interface{} keeps the value exactly as the
+	// API returned it — the server rejects a re-typed or partial copy.
+	{{.GoName}} interface{} ` + "`" + `json:"{{.JSONName}},omitempty"` + "`" + `
 {{- end}}
 }
 `

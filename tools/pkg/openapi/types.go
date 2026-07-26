@@ -244,6 +244,35 @@ type ResourceTemplate struct {
 	ActionPath     string // %s-substituted singular action POST path
 	ActionState    string // constant state the action applies (e.g. "APPROVED")
 	ReadObjectPath string // %s-substituted sibling object GET path (pluralized)
+
+	// ActionDerivedFields are request-body fields the action REQUIRES but that
+	// are facts about the object being acted on rather than user input. The
+	// generated Create reads the sibling object (ReadObjectPath, leniently) and
+	// echoes each value back verbatim. Loaded from tools/action-derived-fields.json.
+	ActionDerivedFields []ActionDerivedField
+}
+
+// ActionDerivedField declares one server-derived field of an action request
+// body: a value the API demands but will only accept as the exact object it
+// already holds, so it can never be a Terraform attribute.
+//
+// The F5 XC registration approve is the motivating case (#1355): the POST is
+// rejected with HTTP 500 "Validation approval: Passport is required" unless it
+// carries the registration's own spec.gc_spec.passport, and the API accepts only
+// that object echoed back. Exposing it as an attribute would let a practitioner
+// supply a passport the server refuses; omitting it made the resource incapable
+// of ever creating. Reading it off the object closes both.
+//
+// Sources are dotted lookup paths into the leniently parsed sibling read,
+// evaluated in order with the first hit winning: the read wraps the same value
+// at more than one depth (object.spec.gc_spec.passport is the canonical object
+// shape, spec.passport the flattened projection), and which wrappers appear
+// varies with the endpoint.
+type ActionDerivedField struct {
+	Field    string   `json:"field"`   // request-body property name, e.g. "passport"
+	Sources  []string `json:"sources"` // dotted paths into the sibling read; first hit wins
+	GoName   string   `json:"-"`       // request-struct field name, e.g. "Passport" (derived)
+	JSONName string   `json:"-"`       // wire key for the request body (derived)
 }
 
 // RequirementPreflight is one apply-time prerequisite the provider verifies

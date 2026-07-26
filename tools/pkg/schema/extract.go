@@ -389,16 +389,28 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 // request-body schema carrying a schema-level x-f5xc-action. Unlike a CRUD
 // resource it has no CreateSpecType/GetSpecType: its attributes derive directly
 // from the flat action request body. Only scalar string props (plus the `state`
-// enum) become attributes; object props (annotations, labels) and non-enum $ref
-// props (passport, tunnel_type) are skipped because they are not representable as
-// plain string attributes. `namespace` is a path parameter (not a body property)
-// and is injected so the generated model carries a Namespace field for the
-// action/read path Sprintf. The singular action POST path and the pluralized
-// sibling object GET path are captured for Create/Read, `state`
-// constant-defaults to APPROVED, and every user-settable field forces replace
-// (there is no in-place update). extractAPIPath is accepted for signature parity
-// with the CRUD extractor but unused — action paths come from the discovered
-// x-f5xc-action.
+// enum) become attributes; decorative object props (annotations, labels) and
+// non-enum $ref props (tunnel_type) are skipped because they are not
+// representable as plain string attributes.
+//
+// A skipped prop the action REQUIRES is a different matter, and dropping one is
+// how #1355 shipped: the filter keyed on the Go type, so the required `passport`
+// object vanished and every approve POST came back 500 "Validation approval:
+// Passport is required" with no user workaround. Two things now prevent that.
+// Props declared in tools/action-derived-fields.json are carried as
+// ActionDerivedFields — read off the object being acted on at Create rather than
+// exposed as attributes, because the API accepts only the value it already
+// holds. And any remaining REQUIRED prop that is neither an attribute nor a
+// declared derived field fails extraction outright, so the class cannot recur
+// silently for a different action.
+//
+// `namespace` is a path parameter (not a body property) and is injected so the
+// generated model carries a Namespace field for the action/read path Sprintf.
+// The singular action POST path and the pluralized sibling object GET path are
+// captured for Create/Read, `state` constant-defaults to APPROVED, and every
+// user-settable field forces replace (there is no in-place update).
+// extractAPIPath is accepted for signature parity with the CRUD extractor but
+// unused — action paths come from the discovered x-f5xc-action.
 func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
 	// Locate the action for this resource among the spec's discovered actions.
 	var action *openapi.ResourcePath
@@ -425,19 +437,39 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 	}
 	sort.Strings(propNames)
 
+	titleCase := naming.ToResourceTypeName(resourceName)
+
+	// Fields the action requires but that are facts about the object being acted
+	// on: read at Create off the sibling object, never exposed as attributes.
+	derived, err := openapi.LoadActionDerivedFields(titleCase)
+	if err != nil {
+		return nil, fmt.Errorf("%s: %w", resourceName, err)
+	}
+	isDerived := make(map[string]bool, len(derived))
+	for _, d := range derived {
+		if _, ok := reqSchema.Properties[d.Field]; !ok {
+			return nil, fmt.Errorf("%s: action-derived-fields.json declares %q, which the %s request body does not define", resourceName, d.Field, action.SchemaName)
+		}
+		isDerived[d.Field] = true
+	}
+
 	// The action model is rendered as a flat set of string attributes. Only
 	// scalar string props (plus the `state` enum $ref, special-cased below) map
 	// cleanly to a StringAttribute. Object props (annotations, labels) and
 	// non-enum $ref props (passport, tunnel_type) are structured values that must
-	// NOT be emitted as strings, so they are skipped entirely.
+	// NOT be emitted as strings, so they are skipped as attributes — a required
+	// one is picked up by the derived-field declaration or the guard below.
 	var attributes []openapi.TerraformAttribute
 	haveNamespace := false
 	for _, name := range propNames {
 		prop := reqSchema.Properties[name]
 		isState := name == "state"
 		if prop.Type != "string" && !isState {
-			// Skip object / non-enum $ref props (annotations, labels, passport,
-			// tunnel_type): they are not representable as a plain string attribute.
+			continue
+		}
+		if isDerived[name] {
+			// Server-derived: the API accepts only its own value, so it must not
+			// become user input even when it would render as a string.
 			continue
 		}
 		if name == "namespace" {
@@ -485,6 +517,27 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 		}}, attributes...)
 	}
 
+	// Guard (#1355): a property the action REQUIRES must reach the request body,
+	// as an attribute or as a declared server-derived field. Silently skipping
+	// one produces a resource that can never create, and the failure surfaces
+	// only as an opaque server error against a live tenant — so fail generation
+	// here instead, naming the property and both ways to resolve it.
+	covered := make(map[string]bool, len(attributes)+len(derived))
+	for _, a := range attributes {
+		covered[a.Name] = true
+	}
+	for name := range isDerived {
+		covered[name] = true
+	}
+	for _, name := range propNames {
+		if covered[name] || !actionPropIsRequired(reqSchema, name) {
+			continue
+		}
+		return nil, fmt.Errorf(
+			"%s: request property %q is required by the %s action but reaches neither a Terraform attribute nor the request body; declare it in tools/action-derived-fields.json if the API derives it from the object, or make it representable as an attribute",
+			resourceName, name, action.ActionValue)
+	}
+
 	// An action has no PUT/update endpoint, so force every settable field to
 	// replace. ForceReplaceForCreateDeleteOnly skips Computed attributes, but the
 	// Optional+Computed `state` must force replace too, so backfill afterwards.
@@ -493,19 +546,38 @@ func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func
 		attributes[i].PlanModifier = "RequiresReplace"
 	}
 
-	titleCase := naming.ToResourceTypeName(resourceName)
 	return &openapi.ResourceTemplate{
-		Name:               resourceName,
-		TitleCase:          titleCase,
-		Description:        description.TransformResourceDescription(resourceName, reqSchema.Description),
-		Attributes:         attributes,
-		HasNamespaceInPath: true,
-		HasStringDefaults:  true,
-		IsAction:           true,
-		ActionPath:         action.ActionPath,
-		ActionState:        "APPROVED",
-		ReadObjectPath:     action.ReadObjectPath,
+		Name:                resourceName,
+		TitleCase:           titleCase,
+		Description:         description.TransformResourceDescription(resourceName, reqSchema.Description),
+		Attributes:          attributes,
+		HasNamespaceInPath:  true,
+		HasStringDefaults:   true,
+		IsAction:            true,
+		ActionPath:          action.ActionPath,
+		ActionState:         "APPROVED",
+		ReadObjectPath:      action.ReadObjectPath,
+		ActionDerivedFields: derived,
 	}, nil
+}
+
+// actionPropIsRequired reports whether the action request body requires the
+// property. F5 expresses that three different ways across the spec pipeline —
+// the OpenAPI `required` list, the enrichment's x-f5xc-required-for.create, and
+// the upstream x-ves-required marker — and any of them is enough to make an
+// omitted field a server-side rejection. x-f5xc-minimum-configuration
+// .required_fields is deliberately NOT consulted: on the approve schema it lists
+// every property including the decorative annotations and labels, so it does not
+// distinguish what the API actually enforces.
+func actionPropIsRequired(reqSchema openapi.Schema, name string) bool {
+	if reqSchema.IsRequired(name) {
+		return true
+	}
+	prop, ok := reqSchema.Properties[name]
+	if !ok {
+		return false
+	}
+	return prop.XF5XCRequiredFor.Create || strings.EqualFold(prop.XVesRequired, "true")
 }
 
 // ResolvePreflightGoFields binds each preflight's declared trigger field (WhenField,

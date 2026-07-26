@@ -1,0 +1,13 @@
+{
+  "_comment": "Action-resource request-body fields the API requires but will only accept as the value it already holds, so they are read off the object being acted on instead of being exposed as Terraform attributes. Keyed by resource TitleCase; see tools/pkg/openapi/action_derived_fields.go and openapi.ActionDerivedField. `sources` are dotted paths into the leniently parsed sibling object read, tried in order with the first hit winning.",
+  "RegistrationApproval": [
+    {
+      "field": "passport",
+      "sources": [
+        "object.spec.gc_spec.passport",
+        "spec.gc_spec.passport",
+        "spec.passport"
+      ]
+    }
+  ]
+}
