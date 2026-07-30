@@ -73,8 +73,22 @@ jobs:
           CHANGED_FILES=$(git diff --name-only --diff-filter=AM "origin/${BASE_REF}...HEAD")
 
           # Check if generator tools are modified - this allows docs/examples changes
+          #
+          # The Makefile and this workflow are included because they define HOW
+          # generation runs and how it is verified — `make generate`,
+          # `verify-generate`, and the Validate Docs Generation step. A PR that
+          # changes those legitimately carries the regenerated output, which is the
+          # same reason a generator change does.
+          #
+          # #1397 was the case that exposed the gap: `docs/` and `examples/` had
+          # drifted from the generators by 91 and 143 files, publishing HCL that
+          # Terraform rejects (`JavaScript_challenge` for `javascript_challenge`) and
+          # YAML that Actions rejects (`runs-on: Ubuntu-latest`). Fixing that meant
+          # committing a catch-up regeneration alongside a CI assertion and a Makefile
+          # change — and no generator changed, because the generators were already
+          # right. The check had no category for that and blocked the fix.
           GENERATOR_TOOLS_MODIFIED=false
-          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^templates/"; then
+          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^templates/|^Makefile$|^\.github/workflows/ci\.yml$"; then
             echo "Generator tools modified - docs/examples changes are allowed"
             GENERATOR_TOOLS_MODIFIED=true
           fi
