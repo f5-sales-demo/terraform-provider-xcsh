@@ -68,11 +68,12 @@ var discoveredSiteLabels = map[string]struct{}{
 // the population that has the problem. Filtering by key and never by value means an
 // out-of-band edit to a label a configuration owns still surfaces as drift.
 //
-// The cost is that a `ves.io/`-prefixed or discovery-named label a configuration
-// genuinely sets cannot be managed on a decorated resource: the read-back removes it,
-// so the plan proposes adding it forever. That is pre-existing for the prefixes and is
-// tracked separately — fixing it needs recorded ownership that legacy state cannot
-// forge.
+// The cost is that a label a configuration genuinely sets cannot be managed if its key
+// is one the platform authors. For a discovery-named key on a decorated resource,
+// ValidateConfig rejects the configuration outright rather than letting it plan the
+// same addition forever. For a `ves.io/`-prefixed key it silently cannot converge,
+// which is pre-existing behaviour and tracked in #1398 — fixing it needs recorded
+// ownership that legacy state cannot forge.
 //
 // nolint:unused // Used by generated resource/data source Read methods
 func filterSystemLabels(labels map[string]string, siteDiscovery bool) map[string]string {
@@ -95,7 +96,12 @@ func filterSystemLabels(labels map[string]string, siteDiscovery bool) map[string
 // after every write that dropped it, so the platform re-injects those, and sending a
 // reserved-namespace label a client does not own invites a rejection for no gain.
 //
-// nolint:unused // Used by generated resource Read methods
+// The caller must pass labels fetched immediately before the write, not labels captured
+// during an earlier Read. A serial number or OS version can change between refresh and
+// apply — a saved plan can be arbitrarily old — and writing back the earlier value would
+// replace live inventory with stale inventory that the Read filter then hides.
+//
+// nolint:unused // Used by generated resource Update methods
 func preservedPlatformLabels(labels map[string]string) map[string]string {
 	preserved := make(map[string]string)
 	for k, v := range labels {
@@ -123,6 +129,15 @@ func mergePreservedLabels(outgoing, preserved map[string]string) map[string]stri
 		merged[k] = v
 	}
 	return merged
+}
+
+// isDiscoveredSiteLabel reports whether the key is one of the six F5 XC populates from
+// node hardware and OS discovery.
+//
+// nolint:unused // Used by generated resource ValidateConfig methods
+func isDiscoveredSiteLabel(key string) bool {
+	_, ok := discoveredSiteLabels[key]
+	return ok
 }
 
 // isPlatformLabel reports whether F5 XC, rather than a user, is the author of the

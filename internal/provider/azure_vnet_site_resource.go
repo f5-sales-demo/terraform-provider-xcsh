@@ -5,7 +5,6 @@ package provider
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -7178,6 +7177,26 @@ func (r *AzureVNETSiteResource) ValidateConfig(ctx context.Context, req resource
 		)
 	}
 
+	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
+	// them so that an empty labels block stops proposing their deletion. A configuration
+	// that sets one therefore cannot converge — the read-back removes it and the next plan
+	// proposes adding it again, forever. Say so here rather than leaving the operator to
+	// discover a plan that never goes quiet. Tracked as #1398.
+	if !data.Labels.IsNull() && !data.Labels.IsUnknown() {
+		for key := range data.Labels.Elements() {
+			if isDiscoveredSiteLabel(key) {
+				resp.Diagnostics.AddAttributeError(
+					path.Root("labels"),
+					"Label Authored by F5 Distributed Cloud",
+					fmt.Sprintf("labels[%q] cannot be managed on this resource: F5 XC populates it from the "+
+						"node's own hardware and OS discovery once the node registers. Terraform filters it out "+
+						"of state so that a configuration without a labels block stops proposing its deletion, "+
+						"which means a configuration that sets it would plan the same addition after every "+
+						"refresh. Remove it, and read the value from the corresponding data source instead.", key),
+				)
+			}
+		}
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -15477,17 +15496,6 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
 	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
-	// #1396: F5 XC replaces metadata.labels on write rather than merging, so a PUT
-	// built only from the configuration erases the discovery labels. Stash them here,
-	// where the response still has them, and Update sends them back. Cleared when the
-	// object has none, so a site that genuinely lost them does not get them resurrected.
-	if preserved := preservedPlatformLabels(apiResource.Metadata.Labels); len(preserved) > 0 {
-		if encoded, err := json.Marshal(preserved); err == nil {
-			resp.Diagnostics.Append(resp.Private.SetKey(ctx, "platformLabels", encoded)...)
-		}
-	} else {
-		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "platformLabels", nil)...)
-	}
 
 	// Filter out the labels the platform authors itself, which Terraform must not
 	// propose deleting just because the configuration does not mention them (#1391).
@@ -21099,15 +21107,26 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 		apiResource.Metadata.Labels = labels
 	}
 
-	// #1396: send the platform's discovery labels back, or this replacing PUT deletes
-	// them. Runs whether or not the configuration sets labels of its own, because the
-	// no-labels case is the one that erased them.
-	if stashed, diags := req.Private.GetKey(ctx, "platformLabels"); !diags.HasError() && len(stashed) > 0 {
-		preserved := make(map[string]string)
-		if json.Unmarshal(stashed, &preserved) == nil {
-			apiResource.Metadata.Labels = mergePreservedLabels(apiResource.Metadata.Labels, preserved)
-		}
+	// #1396: this PUT replaces metadata.labels rather than merging, so without the
+	// platform's own discovery labels in the payload it deletes them. Read cannot supply
+	// them — it filters them, and anything it captured could be minutes or a saved plan
+	// old, which would write back a stale serial number or OS version that Read then
+	// hides. So they are fetched here, immediately before the write, and a failure to
+	// fetch aborts rather than proceeding with a payload that erases them. The merge runs
+	// whether or not the configuration sets labels of its own, because the no-labels case
+	// is the one that erased them, and a key the configuration sets wins.
+	current, currentErr := r.client.GetAzureVNETSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if currentErr != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Read Current Labels Before Update",
+			fmt.Sprintf("The update was not sent. F5 XC replaces metadata.labels on write, so this "+
+				"resource must read the platform's own discovery labels first and send them back, or the "+
+				"update would delete them. Reading AzureVNETSite failed: %s", currentErr),
+		)
+		return
 	}
+	apiResource.Metadata.Labels = mergePreservedLabels(
+		apiResource.Metadata.Labels, preservedPlatformLabels(current.Metadata.Labels))
 
 	if !data.Annotations.IsNull() {
 		annotations := make(map[string]string)

@@ -1794,16 +1794,28 @@ func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testi
 
 	decorated := render(t, true)
 	for _, want := range []string{
-		`"encoding/json"`,
-		"preservedPlatformLabels(apiResource.Metadata.Labels)",
-		`resp.Private.SetKey(ctx, "platformLabels", encoded)`,
-		`resp.Private.SetKey(ctx, "platformLabels", nil)`,
-		`req.Private.GetKey(ctx, "platformLabels")`,
-		"mergePreservedLabels(apiResource.Metadata.Labels, preserved)",
+		// Fetched immediately before the write, never carried from an earlier Read: a
+		// saved plan can be arbitrarily old, and writing back a stale serial number or
+		// OS version would replace live inventory with wrong inventory that Read hides.
+		"current, currentErr := r.client.GetZZLabelProbe(ctx,",
+		"Unable to Read Current Labels Before Update",
+		"preservedPlatformLabels(current.Metadata.Labels)",
+		"mergePreservedLabels(",
+		// A discovery-named label the configuration sets cannot converge, so say so
+		// instead of planning the same addition forever (#1398).
+		"isDiscoveredSiteLabel(key)",
+		"Label Authored by F5 Distributed Cloud",
 	} {
 		if !strings.Contains(decorated, want) {
 			t.Errorf("a decorated resource must preserve platform labels across a write (#1396); missing %q", want)
 		}
+	}
+
+	// A failed pre-write fetch must abort. Proceeding would send a payload with no
+	// platform labels in it, which is exactly the erasure this exists to prevent.
+	fetchIdx := strings.Index(decorated, "Unable to Read Current Labels Before Update")
+	if fetchIdx == -1 || !strings.Contains(decorated[fetchIdx:fetchIdx+900], "return") {
+		t.Error("a failed pre-write label fetch must return, not fall through to the write (#1396)")
 	}
 
 	// The merge must not be nested inside the "configuration set some labels" branch:
@@ -1821,7 +1833,7 @@ func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testi
 	}
 
 	undecorated := render(t, false)
-	for _, unwanted := range []string{"platformLabels", "preservedPlatformLabels", "mergePreservedLabels", `"encoding/json"`} {
+	for _, unwanted := range []string{"preservedPlatformLabels", "mergePreservedLabels", "isDiscoveredSiteLabel"} {
 		if strings.Contains(undecorated, unwanted) {
 			t.Errorf("a resource F5 XC does not decorate must get none of the preservation mechanism; found %q", unwanted)
 		}
