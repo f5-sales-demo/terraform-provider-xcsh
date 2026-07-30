@@ -8,8 +8,6 @@ package provider
 
 import (
 	"strings"
-
-	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
 // normalizeAPIURL cleans up the API URL to ensure consistent formatting.
@@ -37,16 +35,15 @@ func normalizeAPIURL(url string) (string, bool) {
 // does not cover both.
 var platformLabelPrefixes = []string{"ves.io/", "internal.ves.io/"}
 
-// discoveredSiteLabels are the top-level metadata labels F5 XC writes onto a site
-// from the node's own hardware and OS discovery once it registers. They carry no
-// reserved prefix, which is why a `ves.io/` test alone let them through (#1391).
+// discoveredSiteLabels are the labels F5 XC writes onto a node-backed site from the
+// hardware and OS it booted on, once the node registers. They carry no reserved
+// prefix, which is why a `ves.io/` test alone let them through into state, where a
+// configuration with no `labels` block then proposed deleting every one of them on
+// every plan (#1391). A user cannot meaningfully own `hw-serial-number` on a site,
+// and an empty `labels` block plainly does not mean "delete the serial number".
 //
-// The set is fixed and platform-defined, not per-site: every Customer Edge in the
-// tenant carries exactly these six keys, on all four infrastructure providers
-// (AWS, Azure, VMware, KVM). A user cannot meaningfully own `hw-serial-number` in
-// configuration, and an empty `labels` block plainly does not mean "delete the
-// serial number" — but that is what Terraform proposed on every plan, forever,
-// until this filter covered them.
+// The set is fixed and platform-defined: measured in this tenant, every decorated
+// site carries exactly these six keys on all four infrastructure providers.
 var discoveredSiteLabels = map[string]struct{}{
 	"domain":           {},
 	"host-os-version":  {},
@@ -56,51 +53,45 @@ var discoveredSiteLabels = map[string]struct{}{
 	"hw-version":       {},
 }
 
-// filterSystemLabels returns labels with the platform's own entries removed, so
-// that Terraform state holds only what the configuration manages.
+// filterSystemLabels returns labels with the platform's own entries removed, so that
+// Terraform state holds only what a configuration could have authored.
 //
-// priorKeys is the key set of the prior state's labels — that is, what the last
-// apply put there on the configuration's behalf. A platform-owned key listed in
-// priorKeys is kept: the configuration genuinely declares it, so it must keep
-// reconciling. Without that guard the fix would be blanket suppression, and a user
-// who set `ves.io/app` (which real sites in this tenant do) could never see it
-// change. Filtering is by key only, never by value, so an out-of-band edit to a
-// label the configuration owns still surfaces as drift.
+// siteDiscovery additionally removes the six hardware/OS discovery labels. It is set
+// only for the resources F5 XC actually decorates (tools/discovered-site-labels.json),
+// because `domain` is an ordinary enough name that a user could legitimately own a
+// label called that on an unrelated object.
+//
+// Filtering is unconditional — deliberately not conditioned on the prior state's
+// keys. Prior state looks like evidence of what a configuration owns, but it is not:
+// an earlier provider version wrote these very keys into state, so honouring state
+// would keep every existing user on the broken behaviour after upgrading, which is
+// the population that has the problem. Filtering by key and never by value means an
+// out-of-band edit to a label a configuration owns still surfaces as drift.
+//
+// The cost is that a `ves.io/`-prefixed or discovery-named label a configuration
+// genuinely sets cannot be managed on a decorated resource: the read-back removes it,
+// so the plan proposes adding it forever. That is pre-existing for the prefixes and is
+// tracked separately — fixing it needs recorded ownership that legacy state cannot
+// forge.
 //
 // nolint:unused // Used by generated resource/data source Read methods
-func filterSystemLabels(labels map[string]string, priorKeys map[string]struct{}) map[string]string {
+func filterSystemLabels(labels map[string]string, siteDiscovery bool) map[string]string {
 	filtered := make(map[string]string, len(labels))
 	for k, v := range labels {
-		if _, owned := priorKeys[k]; owned || !isPlatformLabel(k) {
+		if !isPlatformLabel(k, siteDiscovery) {
 			filtered[k] = v
 		}
 	}
 	return filtered
 }
 
-// labelKeySet returns the key set of a prior-state label map, for the ownership
-// guard in filterSystemLabels. A null or unknown map yields nil: nothing is owned
-// yet, which is the right answer both on import and in a data source, neither of
-// which has a prior state to consult.
-//
-// nolint:unused // Used by generated resource/data source Read methods
-func labelKeySet(prior types.Map) map[string]struct{} {
-	if prior.IsNull() || prior.IsUnknown() {
-		return nil
-	}
-	elements := prior.Elements()
-	out := make(map[string]struct{}, len(elements))
-	for k := range elements {
-		out[k] = struct{}{}
-	}
-	return out
-}
-
 // isPlatformLabel reports whether F5 XC, rather than a user, is the author of the
 // label key.
-func isPlatformLabel(key string) bool {
-	if _, ok := discoveredSiteLabels[key]; ok {
-		return true
+func isPlatformLabel(key string, siteDiscovery bool) bool {
+	if siteDiscovery {
+		if _, ok := discoveredSiteLabels[key]; ok {
+			return true
+		}
 	}
 	for _, prefix := range platformLabelPrefixes {
 		if strings.HasPrefix(key, prefix) {

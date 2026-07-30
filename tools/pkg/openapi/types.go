@@ -234,6 +234,16 @@ type ResourceTemplate struct {
 	// See tools/pkg/openapi/expose_uid.go and schema.ResponseHasSystemMetadataUID.
 	ExposeUID bool
 
+	// FiltersDiscoveredSiteLabels makes the generated Read drop the six hardware/OS
+	// discovery labels F5 XC writes onto a node-backed site (domain, host-os-version,
+	// hw-model, hw-serial-number, hw-vendor, hw-version) instead of letting them into
+	// state, where an empty `labels` block proposed deleting them on every plan
+	// (#1391). Opt-in per resource (tools/discovered-site-labels.json, keyed by
+	// TitleCase) because those names are ordinary enough that a user could own one on
+	// an unrelated object. The two platform prefixes are filtered regardless.
+	// See tools/pkg/openapi/discovered_site_labels.go.
+	FiltersDiscoveredSiteLabels bool
+
 	// ---- Action-resource fields (x-f5xc-action) ----
 	// IsAction marks this template as an action-style resource: Create issues the
 	// action POST (ActionPath), Read does a lenient GET on the sibling object

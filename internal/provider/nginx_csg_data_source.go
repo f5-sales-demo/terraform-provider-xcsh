@@ -129,7 +129,7 @@ func (d *NginxCsgDataSource) Read(ctx context.Context, req datasource.ReadReques
 	}
 
 	if len(resource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(resource.Metadata.Labels, nil)
+		filteredLabels := filterSystemLabels(resource.Metadata.Labels, false)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)

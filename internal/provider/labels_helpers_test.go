@@ -7,105 +7,106 @@ import (
 	"testing"
 )
 
-// keys is a tiny helper to build the prior-state key set the filter consults.
-func keys(names ...string) map[string]struct{} {
-	out := make(map[string]struct{}, len(names))
-	for _, n := range names {
-		out[n] = struct{}{}
-	}
-	return out
-}
-
-// #1391: F5 XC populates a fixed set of top-level metadata labels on a site from
-// the node's own hardware and OS discovery, once the node registers. They are not
-// prefixed `ves.io/`, so the original filter let them through into state, where an
-// empty `labels` configuration then proposed deleting every one of them on every
-// plan — and `terraform plan` stopped being usable as a "did I change anything"
-// signal on any stack owning a site.
-func TestFilterSystemLabels_DropsDiscoveredSiteLabels_Issue1391(t *testing.T) {
-	// Exactly the six keys observed on every CE site in the tenant, across all
-	// four providers (AWS, Azure, VMware, KVM), plus one genuine user label.
-	in := map[string]string{
-		"domain":           "us-east-2.compute.internal",
+// The seven labels a real Customer Edge site carries: the six F5 XC discovers from
+// the node's hardware and OS, plus the one platform-prefixed key it injects.
+func decoratedSiteLabels() map[string]string {
+	return map[string]string{
+		"domain":           "",
 		"host-os-version":  "rhel-9-2024-6",
 		"hw-model":         "virtual-machine",
 		"hw-serial-number": "0000-0011-9249-1643-8520-4494-21",
 		"hw-vendor":        "microsoft-corporation",
 		"hw-version":       "7-0",
-		"env":              "demo",
+		"ves.io/provider":  "ves-io-AZURE",
 	}
-	want := map[string]string{"env": "demo"}
+}
 
-	got := filterSystemLabels(in, nil)
+// #1391: the discovery labels carry no reserved prefix, so a `ves.io/` test alone let
+// them through into state, where a configuration with no `labels` block then proposed
+// deleting every one of them on every plan — and `terraform plan` stopped being usable
+// as a "did I change anything" signal on any stack owning a site.
+func TestFilterSystemLabels_DropsDiscoveredSiteLabels_Issue1391(t *testing.T) {
+	in := decoratedSiteLabels()
+	in["env"] = "demo" // one genuine user label, which must survive
+
+	got := filterSystemLabels(in, true)
+	want := map[string]string{"env": "demo"}
 	if !reflect.DeepEqual(got, want) {
-		t.Errorf("filterSystemLabels() = %v, want %v", got, want)
+		t.Errorf("filterSystemLabels(siteDiscovery=true) = %v, want %v", got, want)
+	}
+}
+
+// The filter must be unconditional, not conditioned on the prior state's keys. Prior
+// state looks like evidence of what a configuration owns, but an earlier provider
+// version wrote these very keys into state — so honouring it would leave every
+// existing user on the broken behaviour after upgrading, which is exactly the
+// population that has the problem. Reproduced on a live site before this test existed:
+// with state written by 3.81.1, an ownership-guarded filter still planned
+// "- labels = {...} -> null".
+func TestFilterSystemLabels_LegacyStateDoesNotResurrectTheBug_Issue1391(t *testing.T) {
+	// Whatever a prior provider left in state, the result depends only on the response.
+	got := filterSystemLabels(decoratedSiteLabels(), true)
+	if len(got) != 0 {
+		t.Errorf("a decorated site must filter down to nothing, got %v", got)
+	}
+}
+
+// The six names are ordinary enough that a user could own one on an object F5 XC does
+// not decorate, so the discovery filter is opt-in per resource. Off, only the prefixes
+// are filtered.
+func TestFilterSystemLabels_DiscoveryFilterIsScopedToDecoratedResources(t *testing.T) {
+	in := map[string]string{
+		"domain":          "example.com",
+		"hw-model":        "a name a user chose",
+		"ves.io/provider": "ves-io-AZURE",
+	}
+
+	got := filterSystemLabels(in, false)
+	want := map[string]string{"domain": "example.com", "hw-model": "a name a user chose"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("filterSystemLabels(siteDiscovery=false) = %v, want %v", got, want)
 	}
 }
 
 // The platform reserves two label namespaces, not one. `internal.ves.io/` does not
-// start with `ves.io/`, so a prefix test for the latter alone lets it through.
+// start with `ves.io/`, so a prefix test for the latter alone lets it through — on
+// every resource, decorated or not.
 func TestFilterSystemLabels_DropsBothPlatformPrefixes(t *testing.T) {
 	in := map[string]string{
-		"ves.io/provider":         "ves-io-AZURE",
 		"ves.io/siteType":         "ves-io-ce",
 		"internal.ves.io/batch":   "batch-3",
 		"internal.ves.io/griffin": "griffin-2",
-		"internal.ves.io/network": "v2",
 		"location":                "lab",
 	}
 	want := map[string]string{"location": "lab"}
 
-	got := filterSystemLabels(in, nil)
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("filterSystemLabels() = %v, want %v", got, want)
+	for _, siteDiscovery := range []bool{false, true} {
+		got := filterSystemLabels(in, siteDiscovery)
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("filterSystemLabels(siteDiscovery=%v) = %v, want %v", siteDiscovery, got, want)
+		}
 	}
 }
 
-// A platform-owned key that the configuration genuinely declares must still be
-// reconciled, or the fix is blanket suppression: the user could set it and never
-// see it change. Prior state is the signal — after apply it holds what the
-// configuration asked for, so a key present there is one Terraform manages.
-func TestFilterSystemLabels_KeepsPlatformKeysTheConfigurationOwns(t *testing.T) {
-	in := map[string]string{
-		"domain":           "lab.example.com", // colliding name, but ours
-		"hw-serial-number": "0000-0011-9249",  // discovered, not ours
-		"ves.io/app":       "ms-build",        // reserved prefix, but ours
-		"ves.io/provider":  "ves-io-AZURE",    // platform's
-	}
-	prior := keys("domain", "ves.io/app")
-	want := map[string]string{"domain": "lab.example.com", "ves.io/app": "ms-build"}
+// Filtering is by key and never by value, so a label a configuration owns still
+// reconciles: whatever the response says it is, is what state gets.
+func TestFilterSystemLabels_PassesOwnedLabelsThroughByValue(t *testing.T) {
+	in := decoratedSiteLabels()
+	in["env"] = "matrix-2" // changed out from under us
 
-	got := filterSystemLabels(in, prior)
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("filterSystemLabels() = %v, want %v", got, want)
-	}
-}
-
-// An out-of-band deletion of a label the configuration owns must still surface as
-// drift: the key is absent from the response, so it must be absent from the result
-// even though prior state still lists it.
-func TestFilterSystemLabels_ReportsOutOfBandDeletionOfAnOwnedKey(t *testing.T) {
-	in := map[string]string{"hw-model": "virtual-machine"}
-	prior := keys("env", "hw-model")
-	want := map[string]string{"hw-model": "virtual-machine"}
-
-	got := filterSystemLabels(in, prior)
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("filterSystemLabels() = %v, want %v", got, want)
+	got := filterSystemLabels(in, true)
+	if got["env"] != "matrix-2" {
+		t.Errorf("owned label must reflect the response value, got %q", got["env"])
 	}
 }
 
 func TestFilterSystemLabels_EmptyAndNil(t *testing.T) {
-	if got := filterSystemLabels(nil, nil); len(got) != 0 {
-		t.Errorf("filterSystemLabels(nil, nil) = %v, want empty", got)
-	}
-	if got := filterSystemLabels(map[string]string{}, nil); len(got) != 0 {
-		t.Errorf("filterSystemLabels(empty, nil) = %v, want empty", got)
-	}
-	// A site that carries nothing but platform labels filters down to nothing,
-	// which is what lets an empty `labels` configuration stay null.
-	onlyPlatform := map[string]string{"ves.io/provider": "ves-io-AZURE", "hw-vendor": "amazon-ec2"}
-	if got := filterSystemLabels(onlyPlatform, nil); len(got) != 0 {
-		t.Errorf("filterSystemLabels(onlyPlatform, nil) = %v, want empty", got)
+	for _, siteDiscovery := range []bool{false, true} {
+		if got := filterSystemLabels(nil, siteDiscovery); len(got) != 0 {
+			t.Errorf("filterSystemLabels(nil, %v) = %v, want empty", siteDiscovery, got)
+		}
+		if got := filterSystemLabels(map[string]string{}, siteDiscovery); len(got) != 0 {
+			t.Errorf("filterSystemLabels(empty, %v) = %v, want empty", siteDiscovery, got)
+		}
 	}
 }
