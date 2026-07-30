@@ -16,3 +16,7 @@ data "xcsh_aws_tgw_site" "example" {
   name      = "example-aws-tgw-site"
   namespace = "staging"
 }
+
+output "aws_tgw_site_id" {
+  value = data.xcsh_aws_tgw_site.example.id
+}

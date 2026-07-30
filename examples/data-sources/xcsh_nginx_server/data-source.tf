@@ -16,3 +16,7 @@ data "xcsh_nginx_server" "example" {
   name      = "example-nginx-server"
   namespace = "staging"
 }
+
+output "nginx_server_id" {
+  value = data.xcsh_nginx_server.example.id
+}

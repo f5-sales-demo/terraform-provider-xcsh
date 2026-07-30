@@ -16,3 +16,7 @@ data "xcsh_allowed_domain" "example" {
   name      = "example-allowed-domain"
   namespace = "staging"
 }
+
+output "allowed_domain_id" {
+  value = data.xcsh_allowed_domain.example.id
+}

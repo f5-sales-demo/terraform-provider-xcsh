@@ -16,3 +16,7 @@ data "xcsh_cdn_purge_command" "example" {
   name      = "example-cdn-purge-command"
   namespace = "staging"
 }
+
+output "cdn_purge_command_id" {
+  value = data.xcsh_cdn_purge_command.example.id
+}

@@ -16,3 +16,7 @@ data "xcsh_third_party_application" "example" {
   name      = "example-third-party-application"
   namespace = "staging"
 }
+
+output "third_party_application_id" {
+  value = data.xcsh_third_party_application.example.id
+}

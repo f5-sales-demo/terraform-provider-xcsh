@@ -16,3 +16,7 @@ data "xcsh_fleet" "example" {
   name      = "example-fleet"
   namespace = "staging"
 }
+
+output "fleet_id" {
+  value = data.xcsh_fleet.example.id
+}

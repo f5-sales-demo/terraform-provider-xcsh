@@ -16,3 +16,7 @@ data "xcsh_app_firewall" "example" {
   name      = "example-app-firewall"
   namespace = "staging"
 }
+
+output "app_firewall_id" {
+  value = data.xcsh_app_firewall.example.id
+}

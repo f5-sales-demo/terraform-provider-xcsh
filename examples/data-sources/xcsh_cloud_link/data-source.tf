@@ -16,3 +16,7 @@ data "xcsh_cloud_link" "example" {
   name      = "example-cloud-link"
   namespace = "staging"
 }
+
+output "cloud_link_id" {
+  value = data.xcsh_cloud_link.example.id
+}

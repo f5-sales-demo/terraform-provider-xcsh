@@ -16,3 +16,7 @@ data "xcsh_route" "example" {
   name      = "example-route"
   namespace = "staging"
 }
+
+output "route_id" {
+  value = data.xcsh_route.example.id
+}

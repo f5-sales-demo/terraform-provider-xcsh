@@ -16,3 +16,7 @@ data "xcsh_cloud_credentials" "example" {
   name      = "example-cloud-credentials"
   namespace = "staging"
 }
+
+output "cloud_credentials_id" {
+  value = data.xcsh_cloud_credentials.example.id
+}

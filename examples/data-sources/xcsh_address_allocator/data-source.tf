@@ -16,3 +16,7 @@ data "xcsh_address_allocator" "example" {
   name      = "example-address-allocator"
   namespace = "staging"
 }
+
+output "address_allocator_id" {
+  value = data.xcsh_address_allocator.example.id
+}

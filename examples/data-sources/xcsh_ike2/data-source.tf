@@ -16,3 +16,7 @@ data "xcsh_ike2" "example" {
   name      = "example-ike2"
   namespace = "staging"
 }
+
+output "ike2_id" {
+  value = data.xcsh_ike2.example.id
+}

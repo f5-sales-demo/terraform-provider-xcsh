@@ -16,3 +16,7 @@ data "xcsh_cloud_connect" "example" {
   name      = "example-cloud-connect"
   namespace = "staging"
 }
+
+output "cloud_connect_id" {
+  value = data.xcsh_cloud_connect.example.id
+}

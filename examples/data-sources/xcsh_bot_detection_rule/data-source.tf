@@ -16,3 +16,7 @@ data "xcsh_bot_detection_rule" "example" {
   name      = "example-bot-detection-rule"
   namespace = "staging"
 }
+
+output "bot_detection_rule_id" {
+  value = data.xcsh_bot_detection_rule.example.id
+}

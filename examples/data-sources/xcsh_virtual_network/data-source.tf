@@ -16,3 +16,7 @@ data "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
   namespace = "staging"
 }
+
+output "virtual_network_id" {
+  value = data.xcsh_virtual_network.example.id
+}

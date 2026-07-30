@@ -16,3 +16,7 @@ data "xcsh_irule" "example" {
   name      = "example-irule"
   namespace = "staging"
 }
+
+output "irule_id" {
+  value = data.xcsh_irule.example.id
+}

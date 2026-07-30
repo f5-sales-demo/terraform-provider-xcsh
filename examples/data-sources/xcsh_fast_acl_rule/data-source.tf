@@ -16,3 +16,7 @@ data "xcsh_fast_acl_rule" "example" {
   name      = "example-fast-acl-rule"
   namespace = "staging"
 }
+
+output "fast_acl_rule_id" {
+  value = data.xcsh_fast_acl_rule.example.id
+}

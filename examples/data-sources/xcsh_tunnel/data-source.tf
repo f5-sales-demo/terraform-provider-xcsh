@@ -16,3 +16,7 @@ data "xcsh_tunnel" "example" {
   name      = "example-tunnel"
   namespace = "staging"
 }
+
+output "tunnel_id" {
+  value = data.xcsh_tunnel.example.id
+}

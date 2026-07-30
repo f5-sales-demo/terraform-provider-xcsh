@@ -16,3 +16,7 @@ data "xcsh_secret_management_access" "example" {
   name      = "example-secret-management-access"
   namespace = "staging"
 }
+
+output "secret_management_access_id" {
+  value = data.xcsh_secret_management_access.example.id
+}

@@ -16,3 +16,7 @@ data "xcsh_forwarding_class" "example" {
   name      = "example-forwarding-class"
   namespace = "staging"
 }
+
+output "forwarding_class_id" {
+  value = data.xcsh_forwarding_class.example.id
+}

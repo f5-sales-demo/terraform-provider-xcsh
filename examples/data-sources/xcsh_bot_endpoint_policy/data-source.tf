@@ -16,3 +16,7 @@ data "xcsh_bot_endpoint_policy" "example" {
   name      = "example-bot-endpoint-policy"
   namespace = "staging"
 }
+
+output "bot_endpoint_policy_id" {
+  value = data.xcsh_bot_endpoint_policy.example.id
+}

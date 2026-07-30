@@ -16,3 +16,7 @@ data "xcsh_api_testing" "example" {
   name      = "example-api-testing"
   namespace = "staging"
 }
+
+output "api_testing_id" {
+  value = data.xcsh_api_testing.example.id
+}

@@ -16,3 +16,7 @@ data "xcsh_container_registry" "example" {
   name      = "example-container-registry"
   namespace = "staging"
 }
+
+output "container_registry_id" {
+  value = data.xcsh_container_registry.example.id
+}

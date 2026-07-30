@@ -16,3 +16,7 @@ data "xcsh_certified_hardware" "example" {
   name      = "example-certified-hardware"
   namespace = "staging"
 }
+
+output "certified_hardware_id" {
+  value = data.xcsh_certified_hardware.example.id
+}

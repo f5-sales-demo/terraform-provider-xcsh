@@ -16,3 +16,7 @@ data "xcsh_external_connector" "example" {
   name      = "example-external-connector"
   namespace = "staging"
 }
+
+output "external_connector_id" {
+  value = data.xcsh_external_connector.example.id
+}

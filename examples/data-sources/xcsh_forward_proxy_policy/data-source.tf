@@ -16,3 +16,7 @@ data "xcsh_forward_proxy_policy" "example" {
   name      = "example-forward-proxy-policy"
   namespace = "staging"
 }
+
+output "forward_proxy_policy_id" {
+  value = data.xcsh_forward_proxy_policy.example.id
+}

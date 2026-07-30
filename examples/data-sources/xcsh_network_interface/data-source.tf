@@ -16,3 +16,7 @@ data "xcsh_network_interface" "example" {
   name      = "example-network-interface"
   namespace = "staging"
 }
+
+output "network_interface_id" {
+  value = data.xcsh_network_interface.example.id
+}

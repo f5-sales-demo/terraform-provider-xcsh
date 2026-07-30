@@ -16,3 +16,7 @@ data "xcsh_bgp" "example" {
   name      = "example-bgp"
   namespace = "staging"
 }
+
+output "bgp_id" {
+  value = data.xcsh_bgp.example.id
+}

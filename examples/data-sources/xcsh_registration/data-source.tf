@@ -16,3 +16,7 @@ data "xcsh_registration" "example" {
   name      = "example-registration"
   namespace = "staging"
 }
+
+output "registration_id" {
+  value = data.xcsh_registration.example.id
+}

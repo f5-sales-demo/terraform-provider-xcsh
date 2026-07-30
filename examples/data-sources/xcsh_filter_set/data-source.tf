@@ -16,3 +16,7 @@ data "xcsh_filter_set" "example" {
   name      = "example-filter-set"
   namespace = "staging"
 }
+
+output "filter_set_id" {
+  value = data.xcsh_filter_set.example.id
+}

@@ -16,3 +16,7 @@ data "xcsh_bgp_asn_set" "example" {
   name      = "example-bgp-asn-set"
   namespace = "staging"
 }
+
+output "bgp_asn_set_id" {
+  value = data.xcsh_bgp_asn_set.example.id
+}

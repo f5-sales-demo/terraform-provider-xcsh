@@ -16,3 +16,7 @@ data "xcsh_authorization_server" "example" {
   name      = "example-authorization-server"
   namespace = "staging"
 }
+
+output "authorization_server_id" {
+  value = data.xcsh_authorization_server.example.id
+}

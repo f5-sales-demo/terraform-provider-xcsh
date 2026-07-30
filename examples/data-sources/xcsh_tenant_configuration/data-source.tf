@@ -16,3 +16,7 @@ data "xcsh_tenant_configuration" "example" {
   name      = "example-tenant-configuration"
   namespace = "staging"
 }
+
+output "tenant_configuration_id" {
+  value = data.xcsh_tenant_configuration.example.id
+}

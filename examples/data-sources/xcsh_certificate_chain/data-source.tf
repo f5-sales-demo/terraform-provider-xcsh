@@ -16,3 +16,7 @@ data "xcsh_certificate_chain" "example" {
   name      = "example-certificate-chain"
   namespace = "staging"
 }
+
+output "certificate_chain_id" {
+  value = data.xcsh_certificate_chain.example.id
+}

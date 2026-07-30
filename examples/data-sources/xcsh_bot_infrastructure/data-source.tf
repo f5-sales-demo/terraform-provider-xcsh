@@ -16,3 +16,7 @@ data "xcsh_bot_infrastructure" "example" {
   name      = "example-bot-infrastructure"
   namespace = "staging"
 }
+
+output "bot_infrastructure_id" {
+  value = data.xcsh_bot_infrastructure.example.id
+}

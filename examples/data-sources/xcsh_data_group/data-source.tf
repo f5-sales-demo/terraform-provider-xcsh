@@ -16,3 +16,7 @@ data "xcsh_data_group" "example" {
   name      = "example-data-group"
   namespace = "staging"
 }
+
+output "data_group_id" {
+  value = data.xcsh_data_group.example.id
+}

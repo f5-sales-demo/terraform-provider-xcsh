@@ -16,3 +16,7 @@ data "xcsh_app_type" "example" {
   name      = "example-app-type"
   namespace = "staging"
 }
+
+output "app_type_id" {
+  value = data.xcsh_app_type.example.id
+}

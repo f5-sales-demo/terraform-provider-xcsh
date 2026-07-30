@@ -16,3 +16,7 @@ data "xcsh_endpoint" "example" {
   name      = "example-endpoint"
   namespace = "staging"
 }
+
+output "endpoint_id" {
+  value = data.xcsh_endpoint.example.id
+}

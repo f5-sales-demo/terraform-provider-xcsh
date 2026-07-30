@@ -16,3 +16,7 @@ data "xcsh_policer" "example" {
   name      = "example-policer"
   namespace = "staging"
 }
+
+output "policer_id" {
+  value = data.xcsh_policer.example.id
+}

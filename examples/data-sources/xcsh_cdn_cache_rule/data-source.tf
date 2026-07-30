@@ -16,3 +16,7 @@ data "xcsh_cdn_cache_rule" "example" {
   name      = "example-cdn-cache-rule"
   namespace = "staging"
 }
+
+output "cdn_cache_rule_id" {
+  value = data.xcsh_cdn_cache_rule.example.id
+}

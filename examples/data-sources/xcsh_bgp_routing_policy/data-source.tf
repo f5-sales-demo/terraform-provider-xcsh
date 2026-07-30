@@ -16,3 +16,7 @@ data "xcsh_bgp_routing_policy" "example" {
   name      = "example-bgp-routing-policy"
   namespace = "staging"
 }
+
+output "bgp_routing_policy_id" {
+  value = data.xcsh_bgp_routing_policy.example.id
+}

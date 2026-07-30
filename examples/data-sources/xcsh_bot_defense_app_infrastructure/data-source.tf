@@ -16,3 +16,7 @@ data "xcsh_bot_defense_app_infrastructure" "example" {
   name      = "example-bot-defense-app-infrastructure"
   namespace = "staging"
 }
+
+output "bot_defense_app_infrastructure_id" {
+  value = data.xcsh_bot_defense_app_infrastructure.example.id
+}

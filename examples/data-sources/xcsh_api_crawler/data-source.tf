@@ -16,3 +16,7 @@ data "xcsh_api_crawler" "example" {
   name      = "example-api-crawler"
   namespace = "staging"
 }
+
+output "api_crawler_id" {
+  value = data.xcsh_api_crawler.example.id
+}

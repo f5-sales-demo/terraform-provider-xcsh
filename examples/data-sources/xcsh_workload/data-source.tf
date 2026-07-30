@@ -16,3 +16,7 @@ data "xcsh_workload" "example" {
   name      = "example-workload"
   namespace = "staging"
 }
+
+output "workload_id" {
+  value = data.xcsh_workload.example.id
+}

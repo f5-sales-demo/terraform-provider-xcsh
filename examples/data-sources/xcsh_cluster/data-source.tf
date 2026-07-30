@@ -16,3 +16,7 @@ data "xcsh_cluster" "example" {
   name      = "example-cluster"
   namespace = "staging"
 }
+
+output "cluster_id" {
+  value = data.xcsh_cluster.example.id
+}

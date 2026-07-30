@@ -16,3 +16,7 @@ data "xcsh_securemesh_site" "example" {
   name      = "example-securemesh-site"
   namespace = "staging"
 }
+
+output "securemesh_site_id" {
+  value = data.xcsh_securemesh_site.example.id
+}

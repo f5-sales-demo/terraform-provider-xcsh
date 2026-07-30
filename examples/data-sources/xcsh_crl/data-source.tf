@@ -16,3 +16,7 @@ data "xcsh_crl" "example" {
   name      = "example-crl"
   namespace = "staging"
 }
+
+output "crl_id" {
+  value = data.xcsh_crl.example.id
+}

@@ -16,3 +16,7 @@ data "xcsh_flow_anomaly" "example" {
   name      = "example-flow-anomaly"
   namespace = "staging"
 }
+
+output "flow_anomaly_id" {
+  value = data.xcsh_flow_anomaly.example.id
+}

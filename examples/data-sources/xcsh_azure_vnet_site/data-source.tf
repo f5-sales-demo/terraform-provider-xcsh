@@ -16,3 +16,7 @@ data "xcsh_azure_vnet_site" "example" {
   name      = "example-azure-vnet-site"
   namespace = "staging"
 }
+
+output "azure_vnet_site_id" {
+  value = data.xcsh_azure_vnet_site.example.id
+}

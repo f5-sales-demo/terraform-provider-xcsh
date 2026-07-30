@@ -16,3 +16,7 @@ data "xcsh_aws_vpc_site" "example" {
   name      = "example-aws-vpc-site"
   namespace = "staging"
 }
+
+output "aws_vpc_site_id" {
+  value = data.xcsh_aws_vpc_site.example.id
+}

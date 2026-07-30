@@ -16,3 +16,7 @@ data "xcsh_cdn_loadbalancer" "example" {
   name      = "example-cdn-loadbalancer"
   namespace = "staging"
 }
+
+output "cdn_loadbalancer_id" {
+  value = data.xcsh_cdn_loadbalancer.example.id
+}

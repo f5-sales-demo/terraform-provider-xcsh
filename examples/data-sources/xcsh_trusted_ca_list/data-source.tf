@@ -16,3 +16,7 @@ data "xcsh_trusted_ca_list" "example" {
   name      = "example-trusted-ca-list"
   namespace = "staging"
 }
+
+output "trusted_ca_list_id" {
+  value = data.xcsh_trusted_ca_list.example.id
+}

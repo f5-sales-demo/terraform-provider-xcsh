@@ -16,3 +16,7 @@ data "xcsh_alert_receiver" "example" {
   name      = "example-alert-receiver"
   namespace = "staging"
 }
+
+output "alert_receiver_id" {
+  value = data.xcsh_alert_receiver.example.id
+}

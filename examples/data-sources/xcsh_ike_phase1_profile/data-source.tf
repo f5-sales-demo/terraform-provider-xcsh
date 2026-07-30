@@ -16,3 +16,7 @@ data "xcsh_ike_phase1_profile" "example" {
   name      = "example-ike-phase1-profile"
   namespace = "staging"
 }
+
+output "ike_phase1_profile_id" {
+  value = data.xcsh_ike_phase1_profile.example.id
+}

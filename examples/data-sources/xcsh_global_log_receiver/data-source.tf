@@ -16,3 +16,7 @@ data "xcsh_global_log_receiver" "example" {
   name      = "example-global-log-receiver"
   namespace = "staging"
 }
+
+output "global_log_receiver_id" {
+  value = data.xcsh_global_log_receiver.example.id
+}

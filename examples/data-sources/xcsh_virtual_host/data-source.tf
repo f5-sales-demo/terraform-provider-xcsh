@@ -16,3 +16,7 @@ data "xcsh_virtual_host" "example" {
   name      = "example-virtual-host"
   namespace = "staging"
 }
+
+output "virtual_host_id" {
+  value = data.xcsh_virtual_host.example.id
+}

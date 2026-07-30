@@ -16,3 +16,7 @@ data "xcsh_shape_bot_defense_instance" "example" {
   name      = "example-shape-bot-defense-instance"
   namespace = "staging"
 }
+
+output "shape_bot_defense_instance_id" {
+  value = data.xcsh_shape_bot_defense_instance.example.id
+}

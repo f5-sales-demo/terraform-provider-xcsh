@@ -16,3 +16,7 @@ data "xcsh_api_definition" "example" {
   name      = "example-api-definition"
   namespace = "staging"
 }
+
+output "api_definition_id" {
+  value = data.xcsh_api_definition.example.id
+}

@@ -16,3 +16,7 @@ data "xcsh_network_connector" "example" {
   name      = "example-network-connector"
   namespace = "staging"
 }
+
+output "network_connector_id" {
+  value = data.xcsh_network_connector.example.id
+}
