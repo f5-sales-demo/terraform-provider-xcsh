@@ -1734,3 +1734,28 @@ func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
 		t.Errorf("expected int64validator.Between(0, 255), got:\n%s", got)
 	}
 }
+
+// #1391: the discovery-label filter is a convergence device for the resource Read. It
+// must be driven by FiltersDiscoveredSiteLabels there, and must never be switched on in
+// a data source: a data source cannot propose deleting a label, so filtering there buys
+// no convergence and only hides hw-model and friends from a caller that asked for the
+// object. A local review caught exactly that regression before this test existed.
+func TestTemplates_DiscoveryLabelFilterIsResourceOnly_Issue1391(t *testing.T) {
+	resourceCall := "filterSystemLabels(apiResource.Metadata.Labels, {{.FiltersDiscoveredSiteLabels}})"
+	if !strings.Contains(ResourceTemplate, resourceCall) {
+		t.Errorf("the resource template must drive the discovery filter from the per-resource flag; expected %q", resourceCall)
+	}
+
+	for name, tmpl := range map[string]string{
+		"DataSourceTemplate":         DataSourceTemplate,
+		"ReadOnlyDataSourceTemplate": ReadOnlyDataSourceTemplate,
+	} {
+		if strings.Contains(tmpl, "{{.FiltersDiscoveredSiteLabels}}") {
+			t.Errorf("%s must not filter discovery labels: a data source has no plan to converge, "+
+				"and hiding them breaks callers reading labels[\"hw-model\"]", name)
+		}
+		if !strings.Contains(tmpl, "filterSystemLabels(resource.Metadata.Labels, false)") {
+			t.Errorf("%s must call filterSystemLabels with siteDiscovery=false", name)
+		}
+	}
+}

@@ -108,8 +108,9 @@ func (d *CminstanceDataSource) Read(ctx context.Context, req datasource.ReadRequ
 		data.Description = types.StringNull()
 	}
 
-	// The same filtering as the resource, so a data source and a resource reading the
-	// same object agree on what the labels are (#1391).
+	// Prefix filtering only, never the discovery labels (#1391). A data source cannot
+	// propose deleting anything, so filtering them here would buy no convergence and
+	// would only hide hw-model and friends from a caller that asked for the object.
 	if len(resource.Metadata.Labels) > 0 {
 		filteredLabels := filterSystemLabels(resource.Metadata.Labels, false)
 		if len(filteredLabels) > 0 {
