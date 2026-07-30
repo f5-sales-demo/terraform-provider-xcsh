@@ -139,7 +139,7 @@ func (d *LmaRegionDataSource) Read(ctx context.Context, req datasource.ReadReque
 	}
 
 	if len(resource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(resource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(resource.Metadata.Labels, nil)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)

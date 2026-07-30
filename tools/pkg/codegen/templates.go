@@ -429,9 +429,15 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
 
-	// Filter out system-managed labels (ves.io/*) that are injected by the platform
+	// #1391: the prior key set is what the last apply put there on the configuration's
+	// behalf, and it is read BEFORE data.Labels is reassigned below. It lets the filter
+	// keep a platform-named label the configuration genuinely declares.
+	priorLabelKeys := labelKeySet(data.Labels)
+
+	// Filter out the labels the platform authors itself, which Terraform must not
+	// propose deleting just because the configuration does not mention them.
 	if len(apiResource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels, priorLabelKeys)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)
@@ -905,9 +911,10 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 		data.Description = types.StringNull()
 	}
 
-	// Filter out system-managed labels (ves.io/*) that are injected by the platform
+	// A data source has no prior state, so nothing is configuration-owned: the
+	// platform's own labels are filtered out unconditionally (#1391).
 	if len(resource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(resource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(resource.Metadata.Labels, nil)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)
@@ -1060,7 +1067,7 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 	}
 
 	if len(resource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(resource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(resource.Metadata.Labels, nil)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)

@@ -108,9 +108,10 @@ func (d *NamespaceDataSource) Read(ctx context.Context, req datasource.ReadReque
 		data.Description = types.StringNull()
 	}
 
-	// Filter out system-managed labels (ves.io/*) that are injected by the platform
+	// A data source has no prior state, so nothing is configuration-owned: the
+	// platform's own labels are filtered out unconditionally (#1391).
 	if len(resource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(resource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(resource.Metadata.Labels, nil)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)
