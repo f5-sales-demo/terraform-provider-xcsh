@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"strings"
 	"time"
@@ -15476,6 +15477,17 @@ func (r *AzureVNETSiteResource) Read(ctx context.Context, req resource.ReadReque
 	// elements NewMapValue's sole error path (per-element type mismatch) is unreachable.
 	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
+	// #1396: F5 XC replaces metadata.labels on write rather than merging, so a PUT
+	// built only from the configuration erases the discovery labels. Stash them here,
+	// where the response still has them, and Update sends them back. Cleared when the
+	// object has none, so a site that genuinely lost them does not get them resurrected.
+	if preserved := preservedPlatformLabels(apiResource.Metadata.Labels); len(preserved) > 0 {
+		if encoded, err := json.Marshal(preserved); err == nil {
+			resp.Diagnostics.Append(resp.Private.SetKey(ctx, "platformLabels", encoded)...)
+		}
+	} else {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "platformLabels", nil)...)
+	}
 
 	// Filter out the labels the platform authors itself, which Terraform must not
 	// propose deleting just because the configuration does not mention them (#1391).
@@ -21085,6 +21097,16 @@ func (r *AzureVNETSiteResource) Update(ctx context.Context, req resource.UpdateR
 			return
 		}
 		apiResource.Metadata.Labels = labels
+	}
+
+	// #1396: send the platform's discovery labels back, or this replacing PUT deletes
+	// them. Runs whether or not the configuration sets labels of its own, because the
+	// no-labels case is the one that erased them.
+	if stashed, diags := req.Private.GetKey(ctx, "platformLabels"); !diags.HasError() && len(stashed) > 0 {
+		preserved := make(map[string]string)
+		if json.Unmarshal(stashed, &preserved) == nil {
+			apiResource.Metadata.Labels = mergePreservedLabels(apiResource.Metadata.Labels, preserved)
+		}
 	}
 
 	if !data.Annotations.IsNull() {

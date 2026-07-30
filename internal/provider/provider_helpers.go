@@ -85,6 +85,46 @@ func filterSystemLabels(labels map[string]string, siteDiscovery bool) map[string
 	return filtered
 }
 
+// preservedPlatformLabels returns the subset of labels that filterSystemLabels
+// removes AND that must be sent back on the next write, so that an update does not
+// erase them. F5 XC replaces metadata.labels rather than merging, so a PUT built only
+// from the configuration deletes whatever the platform had put there (#1396).
+//
+// Only the discovery labels qualify. The prefixed ones do not need preserving and
+// deliberately are not: `ves.io/provider` was observed back on the object immediately
+// after every write that dropped it, so the platform re-injects those, and sending a
+// reserved-namespace label a client does not own invites a rejection for no gain.
+//
+// nolint:unused // Used by generated resource Read methods
+func preservedPlatformLabels(labels map[string]string) map[string]string {
+	preserved := make(map[string]string)
+	for k, v := range labels {
+		if _, ok := discoveredSiteLabels[k]; ok {
+			preserved[k] = v
+		}
+	}
+	return preserved
+}
+
+// mergePreservedLabels returns outgoing with every preserved key the configuration
+// does not set added back. A key the configuration does set wins, so an operator can
+// still overwrite a discovery label deliberately.
+//
+// nolint:unused // Used by generated resource Update methods
+func mergePreservedLabels(outgoing, preserved map[string]string) map[string]string {
+	if len(preserved) == 0 {
+		return outgoing
+	}
+	merged := make(map[string]string, len(outgoing)+len(preserved))
+	for k, v := range preserved {
+		merged[k] = v
+	}
+	for k, v := range outgoing {
+		merged[k] = v
+	}
+	return merged
+}
+
 // isPlatformLabel reports whether F5 XC, rather than a user, is the author of the
 // label key.
 func isPlatformLabel(key string, siteDiscovery bool) bool {

@@ -110,3 +110,74 @@ func TestFilterSystemLabels_EmptyAndNil(t *testing.T) {
 		}
 	}
 }
+
+// #1396: F5 XC replaces metadata.labels on write rather than merging, so a PUT built
+// only from the configuration erases the discovery labels. Measured live: a site
+// carrying all six, applied with labels = { env, tier }, came back holding only
+// { env, tier, ves.io/provider }. Read stashes what it filtered so Update can send it
+// back.
+func TestPreservedPlatformLabels_KeepsOnlyWhatAWriteWouldDestroy(t *testing.T) {
+	in := decoratedSiteLabels()
+	in["env"] = "demo"
+
+	got := preservedPlatformLabels(in)
+	want := map[string]string{
+		"domain":           "",
+		"host-os-version":  "rhel-9-2024-6",
+		"hw-model":         "virtual-machine",
+		"hw-serial-number": "0000-0011-9249-1643-8520-4494-21",
+		"hw-vendor":        "microsoft-corporation",
+		"hw-version":       "7-0",
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("preservedPlatformLabels() = %v, want %v", got, want)
+	}
+	// ves.io/provider is deliberately absent: the platform re-injects it after every
+	// write that drops it, and sending a reserved-namespace label back invites a
+	// rejection for no gain.
+	if _, ok := got["ves.io/provider"]; ok {
+		t.Error("prefixed platform labels must not be preserved for write-back")
+	}
+	// The user's own label is not the write path's business — the configuration carries it.
+	if _, ok := got["env"]; ok {
+		t.Error("a user label must not be preserved via the platform stash")
+	}
+}
+
+func TestMergePreservedLabels_ConfigurationWinsOnACollision(t *testing.T) {
+	outgoing := map[string]string{"env": "demo", "hw-model": "the operator overrode this"}
+	preserved := map[string]string{"hw-model": "virtual-machine", "hw-vendor": "microsoft-corporation"}
+
+	got := mergePreservedLabels(outgoing, preserved)
+	want := map[string]string{
+		"env":       "demo",
+		"hw-model":  "the operator overrode this",
+		"hw-vendor": "microsoft-corporation",
+	}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("mergePreservedLabels() = %v, want %v", got, want)
+	}
+}
+
+// The case that actually erased the fleet's labels: a configuration with no labels at
+// all. The outgoing map is nil, and the merge still has to produce the preserved six.
+func TestMergePreservedLabels_RestoresWhenTheConfigurationSetsNothing(t *testing.T) {
+	preserved := map[string]string{"hw-model": "virtual-machine", "hw-vendor": "microsoft-corporation"}
+
+	got := mergePreservedLabels(nil, preserved)
+	if !reflect.DeepEqual(got, preserved) {
+		t.Errorf("mergePreservedLabels(nil, preserved) = %v, want %v", got, preserved)
+	}
+}
+
+// Nothing stashed must not conjure an empty map where the caller had nil, or a site
+// that genuinely has no labels would start being written with one.
+func TestMergePreservedLabels_NothingStashedIsAPassThrough(t *testing.T) {
+	if got := mergePreservedLabels(nil, nil); got != nil {
+		t.Errorf("mergePreservedLabels(nil, nil) = %v, want nil", got)
+	}
+	outgoing := map[string]string{"env": "demo"}
+	if got := mergePreservedLabels(outgoing, map[string]string{}); !reflect.DeepEqual(got, outgoing) {
+		t.Errorf("mergePreservedLabels(outgoing, empty) = %v, want %v", got, outgoing)
+	}
+}

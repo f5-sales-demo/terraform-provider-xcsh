@@ -1759,3 +1759,71 @@ func TestTemplates_DiscoveryLabelFilterIsResourceOnly_Issue1391(t *testing.T) {
 		}
 	}
 }
+
+// #1396: F5 XC replaces metadata.labels on write, so a PUT built only from the
+// configuration erases the platform's discovery labels — measured live, a site holding
+// all six came back holding none after an apply. Read stashes them in private state and
+// Update sends them back. Both halves are gated on the per-resource flag, so a resource
+// F5 XC does not decorate gets no new API surface and no unused import.
+func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testing.T) {
+	render := func(t *testing.T, decorated bool) string {
+		t.Helper()
+		tmpl := &openapi.ResourceTemplate{
+			Name:                        "zz_label_probe",
+			TitleCase:                   "ZZLabelProbe",
+			Description:                 "Probe.",
+			HasNamespaceInPath:          true,
+			APIPath:                     "/api/config/namespaces/%s/zz_label_probes",
+			APIPathItem:                 "/api/config/namespaces/%s/zz_label_probes/%s",
+			FiltersDiscoveredSiteLabels: decorated,
+			Attributes: []openapi.TerraformAttribute{
+				{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true},
+				{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true},
+			},
+		}
+		dir := t.TempDir()
+		if err := GenerateResourceFile(tmpl, dir); err != nil {
+			t.Fatalf("GenerateResourceFile(decorated=%v): %v", decorated, err)
+		}
+		b, err := os.ReadFile(filepath.Join(dir, "zz_label_probe_resource.go"))
+		if err != nil {
+			t.Fatalf("reading rendered resource: %v", err)
+		}
+		return string(b)
+	}
+
+	decorated := render(t, true)
+	for _, want := range []string{
+		`"encoding/json"`,
+		"preservedPlatformLabels(apiResource.Metadata.Labels)",
+		`resp.Private.SetKey(ctx, "platformLabels", encoded)`,
+		`resp.Private.SetKey(ctx, "platformLabels", nil)`,
+		`req.Private.GetKey(ctx, "platformLabels")`,
+		"mergePreservedLabels(apiResource.Metadata.Labels, preserved)",
+	} {
+		if !strings.Contains(decorated, want) {
+			t.Errorf("a decorated resource must preserve platform labels across a write (#1396); missing %q", want)
+		}
+	}
+
+	// The merge must not be nested inside the "configuration set some labels" branch:
+	// the case that erased the fleet's labels is a configuration with NO labels block.
+	mergeIdx := strings.Index(decorated, "mergePreservedLabels(")
+	guardIdx := strings.Index(decorated, "if !data.Labels.IsNull() {")
+	if mergeIdx == -1 || guardIdx == -1 || mergeIdx < guardIdx {
+		t.Fatal("could not locate the Update label marshalling to check the merge is unguarded")
+	}
+	between := decorated[guardIdx:mergeIdx]
+	if !strings.Contains(between, "apiResource.Metadata.Labels = labels\n\t}") {
+		t.Error("the platform-label merge must run whether or not the configuration sets labels (#1396): " +
+			"it appears before the !data.Labels.IsNull() block closes, so it is nested inside the branch " +
+			"that is NOT the case which erases them")
+	}
+
+	undecorated := render(t, false)
+	for _, unwanted := range []string{"platformLabels", "preservedPlatformLabels", "mergePreservedLabels", `"encoding/json"`} {
+		if strings.Contains(undecorated, unwanted) {
+			t.Errorf("a resource F5 XC does not decorate must get none of the preservation mechanism; found %q", unwanted)
+		}
+	}
+}

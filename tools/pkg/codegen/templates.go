@@ -12,6 +12,9 @@ package provider
 
 import (
 	"context"
+{{- if .FiltersDiscoveredSiteLabels}}
+	"encoding/json"
+{{- end}}
 	"fmt"
 	"strings"
 	"time"
@@ -429,6 +432,20 @@ func (r *{{.TitleCase}}Resource) Read(ctx context.Context, req resource.ReadRequ
 	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
 
+{{- if .FiltersDiscoveredSiteLabels}}
+	// #1396: F5 XC replaces metadata.labels on write rather than merging, so a PUT
+	// built only from the configuration erases the discovery labels. Stash them here,
+	// where the response still has them, and Update sends them back. Cleared when the
+	// object has none, so a site that genuinely lost them does not get them resurrected.
+	if preserved := preservedPlatformLabels(apiResource.Metadata.Labels); len(preserved) > 0 {
+		if encoded, err := json.Marshal(preserved); err == nil {
+			resp.Diagnostics.Append(resp.Private.SetKey(ctx, "platformLabels", encoded)...)
+		}
+	} else {
+		resp.Diagnostics.Append(resp.Private.SetKey(ctx, "platformLabels", nil)...)
+	}
+{{- end}}
+
 	// Filter out the labels the platform authors itself, which Terraform must not
 	// propose deleting just because the configuration does not mention them (#1391).
 	if len(apiResource.Metadata.Labels) > 0 {
@@ -518,6 +535,18 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		}
 		apiResource.Metadata.Labels = labels
 	}
+{{- if .FiltersDiscoveredSiteLabels}}
+
+	// #1396: send the platform's discovery labels back, or this replacing PUT deletes
+	// them. Runs whether or not the configuration sets labels of its own, because the
+	// no-labels case is the one that erased them.
+	if stashed, diags := req.Private.GetKey(ctx, "platformLabels"); !diags.HasError() && len(stashed) > 0 {
+		preserved := make(map[string]string)
+		if json.Unmarshal(stashed, &preserved) == nil {
+			apiResource.Metadata.Labels = mergePreservedLabels(apiResource.Metadata.Labels, preserved)
+		}
+	}
+{{- end}}
 
 	if !data.Annotations.IsNull() {
 		annotations := make(map[string]string)
