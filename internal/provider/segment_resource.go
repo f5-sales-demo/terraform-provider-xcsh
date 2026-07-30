@@ -323,9 +323,10 @@ func (r *SegmentResource) Read(ctx context.Context, req resource.ReadRequest, re
 	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
 
-	// Filter out system-managed labels (ves.io/*) that are injected by the platform
+	// Filter out the labels the platform authors itself, which Terraform must not
+	// propose deleting just because the configuration does not mention them (#1391).
 	if len(apiResource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels, false)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)

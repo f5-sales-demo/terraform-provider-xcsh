@@ -1734,3 +1734,111 @@ func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
 		t.Errorf("expected int64validator.Between(0, 255), got:\n%s", got)
 	}
 }
+
+// #1391: the discovery-label filter is a convergence device for the resource Read. It
+// must be driven by FiltersDiscoveredSiteLabels there, and must never be switched on in
+// a data source: a data source cannot propose deleting a label, so filtering there buys
+// no convergence and only hides hw-model and friends from a caller that asked for the
+// object. A local review caught exactly that regression before this test existed.
+func TestTemplates_DiscoveryLabelFilterIsResourceOnly_Issue1391(t *testing.T) {
+	resourceCall := "filterSystemLabels(apiResource.Metadata.Labels, {{.FiltersDiscoveredSiteLabels}})"
+	if !strings.Contains(ResourceTemplate, resourceCall) {
+		t.Errorf("the resource template must drive the discovery filter from the per-resource flag; expected %q", resourceCall)
+	}
+
+	for name, tmpl := range map[string]string{
+		"DataSourceTemplate":         DataSourceTemplate,
+		"ReadOnlyDataSourceTemplate": ReadOnlyDataSourceTemplate,
+	} {
+		if strings.Contains(tmpl, "{{.FiltersDiscoveredSiteLabels}}") {
+			t.Errorf("%s must not filter discovery labels: a data source has no plan to converge, "+
+				"and hiding them breaks callers reading labels[\"hw-model\"]", name)
+		}
+		if !strings.Contains(tmpl, "filterSystemLabels(resource.Metadata.Labels, false)") {
+			t.Errorf("%s must call filterSystemLabels with siteDiscovery=false", name)
+		}
+	}
+}
+
+// #1396: F5 XC replaces metadata.labels on write, so a PUT built only from the
+// configuration erases the platform's discovery labels — measured live, a site holding
+// all six came back holding none after an apply. Read stashes them in private state and
+// Update sends them back. Both halves are gated on the per-resource flag, so a resource
+// F5 XC does not decorate gets no new API surface and no unused import.
+func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testing.T) {
+	render := func(t *testing.T, decorated bool) string {
+		t.Helper()
+		tmpl := &openapi.ResourceTemplate{
+			Name:                        "zz_label_probe",
+			TitleCase:                   "ZZLabelProbe",
+			Description:                 "Probe.",
+			HasNamespaceInPath:          true,
+			APIPath:                     "/api/config/namespaces/%s/zz_label_probes",
+			APIPathItem:                 "/api/config/namespaces/%s/zz_label_probes/%s",
+			FiltersDiscoveredSiteLabels: decorated,
+			Attributes: []openapi.TerraformAttribute{
+				{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", JsonName: "name", Required: true},
+				{Name: "namespace", GoName: "Namespace", TfsdkTag: "namespace", Type: "string", JsonName: "namespace", Required: true},
+			},
+		}
+		dir := t.TempDir()
+		if err := GenerateResourceFile(tmpl, dir); err != nil {
+			t.Fatalf("GenerateResourceFile(decorated=%v): %v", decorated, err)
+		}
+		b, err := os.ReadFile(filepath.Join(dir, "zz_label_probe_resource.go"))
+		if err != nil {
+			t.Fatalf("reading rendered resource: %v", err)
+		}
+		return string(b)
+	}
+
+	decorated := render(t, true)
+	for _, want := range []string{
+		// Fetched immediately before the write, never carried from an earlier Read: a
+		// saved plan can be arbitrarily old, and writing back a stale serial number or
+		// OS version would replace live inventory with wrong inventory that Read hides.
+		"current, currentErr := r.client.GetZZLabelProbe(ctx,",
+		"Unable to Read Current Labels Before Update",
+		"preservedPlatformLabels(current.Metadata.Labels)",
+		"mergePreservedLabels(",
+		// A discovery-named label the configuration sets cannot converge, so say so
+		// instead of planning the same addition forever (#1398).
+		"isDiscoveredSiteLabel(key)",
+		"Label Authored by F5 Distributed Cloud",
+		// Backstop for a labels map that is unknown at validate time.
+		"discoveredSiteLabelKeys(apiResource.Metadata.Labels)",
+		"discoveredSiteLabelKeys(createReq.Metadata.Labels)",
+	} {
+		if !strings.Contains(decorated, want) {
+			t.Errorf("a decorated resource must preserve platform labels across a write (#1396); missing %q", want)
+		}
+	}
+
+	// A failed pre-write fetch must abort. Proceeding would send a payload with no
+	// platform labels in it, which is exactly the erasure this exists to prevent.
+	fetchIdx := strings.Index(decorated, "Unable to Read Current Labels Before Update")
+	if fetchIdx == -1 || !strings.Contains(decorated[fetchIdx:fetchIdx+900], "return") {
+		t.Error("a failed pre-write label fetch must return, not fall through to the write (#1396)")
+	}
+
+	// The merge must not be nested inside the "configuration set some labels" branch:
+	// the case that erased the fleet's labels is a configuration with NO labels block.
+	mergeIdx := strings.Index(decorated, "mergePreservedLabels(")
+	guardIdx := strings.Index(decorated, "if !data.Labels.IsNull() {")
+	if mergeIdx == -1 || guardIdx == -1 || mergeIdx < guardIdx {
+		t.Fatal("could not locate the Update label marshalling to check the merge is unguarded")
+	}
+	between := decorated[guardIdx:mergeIdx]
+	if !strings.Contains(between, "apiResource.Metadata.Labels = labels\n\t}") {
+		t.Error("the platform-label merge must run whether or not the configuration sets labels (#1396): " +
+			"it appears before the !data.Labels.IsNull() block closes, so it is nested inside the branch " +
+			"that is NOT the case which erases them")
+	}
+
+	undecorated := render(t, false)
+	for _, unwanted := range []string{"preservedPlatformLabels", "mergePreservedLabels", "isDiscoveredSiteLabel", "discoveredSiteLabelKeys"} {
+		if strings.Contains(undecorated, unwanted) {
+			t.Errorf("a resource F5 XC does not decorate must get none of the preservation mechanism; found %q", unwanted)
+		}
+	}
+}

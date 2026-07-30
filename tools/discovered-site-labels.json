@@ -1,0 +1,11 @@
+{
+  "_comment": "Resources whose API objects F5 XC decorates with hardware/OS discovery labels once a node registers: domain, host-os-version, hw-model, hw-serial-number, hw-vendor, hw-version. Keyed by resource TitleCase. The generator makes only these resources filter those six unprefixed keys out of the read-back; every other resource keeps prefix-only filtering, so a user is still free to own a label literally named `domain` on an unrelated object. Both platform prefixes (ves.io/ and internal.ves.io/) are filtered everywhere and are NOT driven by this file. Measured in the f5-sales-demo tenant on 2026-07-30: aws_vpc_site 4/4 objects carried the six, azure_vnet_site 2/2, securemesh_site_v2 9/13 (the four without are the Terraform-managed ones an apply had already stripped). fleet 0/19 and virtual_site 0/6 carried none, so both are deliberately absent. The four listed with no live objects to measure share the node-backed site shape and the same generator, and are included by that reasoning rather than by measurement. Loaded by tools/pkg/openapi/discovered_site_labels.go. See issue #1391; the write-path half is #1396.",
+  "AWSTGWSite": true,
+  "AWSVPCSite": true,
+  "AzureVNETSite": true,
+  "GCPVPCSite": true,
+  "SecuremeshSite": true,
+  "SecuremeshSiteV2": true,
+  "Site": true,
+  "VoltstackSite": true
+}

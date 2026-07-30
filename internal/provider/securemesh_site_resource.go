@@ -2824,6 +2824,27 @@ func (r *SecuremeshSiteResource) ValidateConfig(ctx context.Context, req resourc
 	if resp.Diagnostics.HasError() {
 		return
 	}
+
+	// #1391: F5 XC authors these six labels on this object itself, and the Read filters
+	// them so that an empty labels block stops proposing their deletion. A configuration
+	// that sets one therefore cannot converge — the read-back removes it and the next plan
+	// proposes adding it again, forever. Say so here rather than leaving the operator to
+	// discover a plan that never goes quiet. Tracked as #1398.
+	if !data.Labels.IsNull() && !data.Labels.IsUnknown() {
+		for key := range data.Labels.Elements() {
+			if isDiscoveredSiteLabel(key) {
+				resp.Diagnostics.AddAttributeError(
+					path.Root("labels"),
+					"Label Authored by F5 Distributed Cloud",
+					fmt.Sprintf("labels[%q] cannot be managed on this resource: F5 XC populates it from the "+
+						"node's own hardware and OS discovery once the node registers. Terraform filters it out "+
+						"of state so that a configuration without a labels block stops proposing its deletion, "+
+						"which means a configuration that sets it would plan the same addition after every "+
+						"refresh. Remove it, and read the value from the corresponding data source instead.", key),
+				)
+			}
+		}
+	}
 }
 
 // ModifyPlan implements resource.ResourceWithModifyPlan
@@ -2892,6 +2913,22 @@ func (r *SecuremeshSiteResource) Create(ctx context.Context, req resource.Create
 			return
 		}
 		createReq.Metadata.Labels = labels
+	}
+
+	// Backstop for the ValidateConfig check, which cannot inspect a labels map that is
+	// unknown at validate time (labels = var.x, or a value derived from another
+	// resource). Runs against the resolved map, and before the platform's own labels are
+	// merged in below, so it only ever sees keys the configuration supplied.
+	if offending := discoveredSiteLabelKeys(createReq.Metadata.Labels); len(offending) > 0 {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("labels"),
+			"Label Authored by F5 Distributed Cloud",
+			fmt.Sprintf("labels %v cannot be managed on this resource: F5 XC populates these from the "+
+				"node's own hardware and OS discovery. Terraform filters them out of state, so setting one "+
+				"would plan the same addition after every refresh. Remove them, and read the values from "+
+				"the corresponding data source instead.", offending),
+		)
+		return
 	}
 
 	if !data.Annotations.IsNull() {
@@ -6502,9 +6539,10 @@ func (r *SecuremeshSiteResource) Read(ctx context.Context, req resource.ReadRequ
 	priorLabelsEmpty := !data.Labels.IsNull() && !data.Labels.IsUnknown() && len(data.Labels.Elements()) == 0
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
 
-	// Filter out system-managed labels (ves.io/*) that are injected by the platform
+	// Filter out the labels the platform authors itself, which Terraform must not
+	// propose deleting just because the configuration does not mention them (#1391).
 	if len(apiResource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels, true)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)
@@ -8967,6 +9005,43 @@ func (r *SecuremeshSiteResource) Update(ctx context.Context, req resource.Update
 		}
 		apiResource.Metadata.Labels = labels
 	}
+
+	// Backstop for the ValidateConfig check, which cannot inspect a labels map that is
+	// unknown at validate time (labels = var.x, or a value derived from another
+	// resource). Runs against the resolved map, and before the platform's own labels are
+	// merged in below, so it only ever sees keys the configuration supplied.
+	if offending := discoveredSiteLabelKeys(apiResource.Metadata.Labels); len(offending) > 0 {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("labels"),
+			"Label Authored by F5 Distributed Cloud",
+			fmt.Sprintf("labels %v cannot be managed on this resource: F5 XC populates these from the "+
+				"node's own hardware and OS discovery. Terraform filters them out of state, so setting one "+
+				"would plan the same addition after every refresh. Remove them, and read the values from "+
+				"the corresponding data source instead.", offending),
+		)
+		return
+	}
+
+	// #1396: this PUT replaces metadata.labels rather than merging, so without the
+	// platform's own discovery labels in the payload it deletes them. Read cannot supply
+	// them — it filters them, and anything it captured could be minutes or a saved plan
+	// old, which would write back a stale serial number or OS version that Read then
+	// hides. So they are fetched here, immediately before the write, and a failure to
+	// fetch aborts rather than proceeding with a payload that erases them. The merge runs
+	// whether or not the configuration sets labels of its own, because the no-labels case
+	// is the one that erased them, and a key the configuration sets wins.
+	current, currentErr := r.client.GetSecuremeshSite(ctx, data.Namespace.ValueString(), data.Name.ValueString())
+	if currentErr != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Read Current Labels Before Update",
+			fmt.Sprintf("The update was not sent. F5 XC replaces metadata.labels on write, so this "+
+				"resource must read the platform's own discovery labels first and send them back, or the "+
+				"update would delete them. Reading SecuremeshSite failed: %s", currentErr),
+		)
+		return
+	}
+	apiResource.Metadata.Labels = mergePreservedLabels(
+		apiResource.Metadata.Labels, preservedPlatformLabels(current.Metadata.Labels))
 
 	if !data.Annotations.IsNull() {
 		annotations := make(map[string]string)

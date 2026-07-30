@@ -108,9 +108,11 @@ func (d *WorkloadDataSource) Read(ctx context.Context, req datasource.ReadReques
 		data.Description = types.StringNull()
 	}
 
-	// Filter out system-managed labels (ves.io/*) that are injected by the platform
+	// Prefix filtering only, never the discovery labels (#1391). A data source cannot
+	// propose deleting anything, so filtering them here would buy no convergence and
+	// would only hide hw-model and friends from a caller that asked for the object.
 	if len(resource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(resource.Metadata.Labels)
+		filteredLabels := filterSystemLabels(resource.Metadata.Labels, false)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)
