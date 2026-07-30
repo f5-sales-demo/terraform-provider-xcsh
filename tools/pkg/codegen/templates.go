@@ -334,6 +334,24 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 		}
 		createReq.Metadata.Labels = labels
 	}
+{{- if .FiltersDiscoveredSiteLabels}}
+
+	// Backstop for the ValidateConfig check, which cannot inspect a labels map that is
+	// unknown at validate time (labels = var.x, or a value derived from another
+	// resource). Runs against the resolved map, and before the platform's own labels are
+	// merged in below, so it only ever sees keys the configuration supplied.
+	if offending := discoveredSiteLabelKeys(createReq.Metadata.Labels); len(offending) > 0 {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("labels"),
+			"Label Authored by F5 Distributed Cloud",
+			fmt.Sprintf("labels %v cannot be managed on this resource: F5 XC populates these from the "+
+				"node's own hardware and OS discovery. Terraform filters them out of state, so setting one "+
+				"would plan the same addition after every refresh. Remove them, and read the values from "+
+				"the corresponding data source instead.", offending),
+		)
+		return
+	}
+{{- end}}
 
 	if !data.Annotations.IsNull() {
 		annotations := make(map[string]string)
@@ -541,6 +559,24 @@ func (r *{{.TitleCase}}Resource) Update(ctx context.Context, req resource.Update
 		}
 		apiResource.Metadata.Labels = labels
 	}
+{{- if .FiltersDiscoveredSiteLabels}}
+
+	// Backstop for the ValidateConfig check, which cannot inspect a labels map that is
+	// unknown at validate time (labels = var.x, or a value derived from another
+	// resource). Runs against the resolved map, and before the platform's own labels are
+	// merged in below, so it only ever sees keys the configuration supplied.
+	if offending := discoveredSiteLabelKeys(apiResource.Metadata.Labels); len(offending) > 0 {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("labels"),
+			"Label Authored by F5 Distributed Cloud",
+			fmt.Sprintf("labels %v cannot be managed on this resource: F5 XC populates these from the "+
+				"node's own hardware and OS discovery. Terraform filters them out of state, so setting one "+
+				"would plan the same addition after every refresh. Remove them, and read the values from "+
+				"the corresponding data source instead.", offending),
+		)
+		return
+	}
+{{- end}}
 {{- if .FiltersDiscoveredSiteLabels}}
 
 	// #1396: this PUT replaces metadata.labels rather than merging, so without the

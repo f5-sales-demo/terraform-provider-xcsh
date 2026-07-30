@@ -181,3 +181,29 @@ func TestMergePreservedLabels_NothingStashedIsAPassThrough(t *testing.T) {
 		t.Errorf("mergePreservedLabels(outgoing, empty) = %v, want %v", got, outgoing)
 	}
 }
+
+// ValidateConfig cannot inspect a labels map that is unknown at validate time — labels =
+// var.x, or a value derived from another resource — so Create and Update run this against
+// the resolved map as a backstop. Sorted, so the error names the keys deterministically.
+func TestDiscoveredSiteLabelKeys_ReportsOffendersSorted(t *testing.T) {
+	in := map[string]string{
+		"hw-vendor": "microsoft-corporation",
+		"env":       "demo",
+		"domain":    "example.com",
+		"hw-model":  "virtual-machine",
+	}
+	got := discoveredSiteLabelKeys(in)
+	want := []string{"domain", "hw-model", "hw-vendor"}
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("discoveredSiteLabelKeys() = %v, want %v", got, want)
+	}
+}
+
+func TestDiscoveredSiteLabelKeys_SilentOnACleanMap(t *testing.T) {
+	if got := discoveredSiteLabelKeys(map[string]string{"env": "demo"}); got != nil {
+		t.Errorf("discoveredSiteLabelKeys(clean) = %v, want nil", got)
+	}
+	if got := discoveredSiteLabelKeys(nil); got != nil {
+		t.Errorf("discoveredSiteLabelKeys(nil) = %v, want nil", got)
+	}
+}

@@ -7,6 +7,7 @@
 package provider
 
 import (
+	"sort"
 	"strings"
 )
 
@@ -138,6 +139,27 @@ func mergePreservedLabels(outgoing, preserved map[string]string) map[string]stri
 func isDiscoveredSiteLabel(key string) bool {
 	_, ok := discoveredSiteLabels[key]
 	return ok
+}
+
+// discoveredSiteLabelKeys returns the discovery-named keys present in labels, sorted, so
+// the apply-time check reports them deterministically.
+//
+// ValidateConfig cannot catch every case: a labels map that is unknown at validate time —
+// `labels = var.x`, or a value derived from another resource — is not inspectable there.
+// Create and Update run this against the resolved map as a backstop, so an unknown value
+// cannot smuggle in a key the read-back would then strip, leaving a plan that never goes
+// quiet.
+//
+// nolint:unused // Used by generated resource Create/Update methods
+func discoveredSiteLabelKeys(labels map[string]string) []string {
+	var keys []string
+	for k := range labels {
+		if isDiscoveredSiteLabel(k) {
+			keys = append(keys, k)
+		}
+	}
+	sort.Strings(keys)
+	return keys
 }
 
 // isPlatformLabel reports whether F5 XC, rather than a user, is the author of the

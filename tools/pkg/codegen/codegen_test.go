@@ -1805,6 +1805,9 @@ func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testi
 		// instead of planning the same addition forever (#1398).
 		"isDiscoveredSiteLabel(key)",
 		"Label Authored by F5 Distributed Cloud",
+		// Backstop for a labels map that is unknown at validate time.
+		"discoveredSiteLabelKeys(apiResource.Metadata.Labels)",
+		"discoveredSiteLabelKeys(createReq.Metadata.Labels)",
 	} {
 		if !strings.Contains(decorated, want) {
 			t.Errorf("a decorated resource must preserve platform labels across a write (#1396); missing %q", want)
@@ -1833,7 +1836,7 @@ func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testi
 	}
 
 	undecorated := render(t, false)
-	for _, unwanted := range []string{"preservedPlatformLabels", "mergePreservedLabels", "isDiscoveredSiteLabel"} {
+	for _, unwanted := range []string{"preservedPlatformLabels", "mergePreservedLabels", "isDiscoveredSiteLabel", "discoveredSiteLabelKeys"} {
 		if strings.Contains(undecorated, unwanted) {
 			t.Errorf("a resource F5 XC does not decorate must get none of the preservation mechanism; found %q", unwanted)
 		}
