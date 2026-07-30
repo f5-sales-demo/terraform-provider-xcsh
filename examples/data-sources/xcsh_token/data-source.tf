@@ -16,7 +16,3 @@ data "xcsh_token" "example" {
   name      = "example-token"
   namespace = "staging"
 }
-
-output "token_id" {
-  value = data.xcsh_token.example.id
-}

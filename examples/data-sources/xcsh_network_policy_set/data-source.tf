@@ -16,7 +16,3 @@ data "xcsh_network_policy_set" "example" {
   name      = "example-network-policy-set"
   namespace = "staging"
 }
-
-output "network_policy_set_id" {
-  value = data.xcsh_network_policy_set.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_tcp_loadbalancer" "example" {
   name      = "example-tcp-loadbalancer"
   namespace = "staging"
 }
-
-output "tcp_loadbalancer_id" {
-  value = data.xcsh_tcp_loadbalancer.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_cloud_elastic_ip" "example" {
   name      = "example-cloud-elastic-ip"
   namespace = "staging"
 }
-
-output "cloud_elastic_ip_id" {
-  value = data.xcsh_cloud_elastic_ip.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_voltstack_site" "example" {
   name      = "example-voltstack-site"
   namespace = "staging"
 }
-
-output "voltstack_site_id" {
-  value = data.xcsh_voltstack_site.example.id
-}

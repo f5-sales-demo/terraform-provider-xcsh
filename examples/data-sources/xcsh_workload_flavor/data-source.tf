@@ -16,7 +16,3 @@ data "xcsh_workload_flavor" "example" {
   name      = "example-workload-flavor"
   namespace = "staging"
 }
-
-output "workload_flavor_id" {
-  value = data.xcsh_workload_flavor.example.id
-}

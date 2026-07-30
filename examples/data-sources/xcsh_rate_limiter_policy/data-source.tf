@@ -16,7 +16,3 @@ data "xcsh_rate_limiter_policy" "example" {
   name      = "example-rate-limiter-policy"
   namespace = "staging"
 }
-
-output "rate_limiter_policy_id" {
-  value = data.xcsh_rate_limiter_policy.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_udp_loadbalancer" "example" {
   name      = "example-udp-loadbalancer"
   namespace = "staging"
 }
-
-output "udp_loadbalancer_id" {
-  value = data.xcsh_udp_loadbalancer.example.id
-}

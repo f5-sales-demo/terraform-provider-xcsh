@@ -16,7 +16,3 @@ data "xcsh_k8s_cluster_role" "example" {
   name      = "example-k8s-cluster-role"
   namespace = "staging"
 }
-
-output "k8s_cluster_role_id" {
-  value = data.xcsh_k8s_cluster_role.example.id
-}

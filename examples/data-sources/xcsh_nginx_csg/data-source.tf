@@ -16,7 +16,3 @@ data "xcsh_nginx_csg" "example" {
   name      = "example-nginx-csg"
   namespace = "staging"
 }
-
-output "nginx_csg_id" {
-  value = data.xcsh_nginx_csg.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_http_loadbalancer" "example" {
   name      = "example-http-loadbalancer"
   namespace = "staging"
 }
-
-output "http_loadbalancer_id" {
-  value = data.xcsh_http_loadbalancer.example.id
-}

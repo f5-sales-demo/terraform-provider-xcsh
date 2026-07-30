@@ -16,7 +16,3 @@ data "xcsh_waf_exclusion_policy" "example" {
   name      = "example-waf-exclusion-policy"
   namespace = "staging"
 }
-
-output "waf_exclusion_policy_id" {
-  value = data.xcsh_waf_exclusion_policy.example.id
-}

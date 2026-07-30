@@ -16,7 +16,3 @@ data "xcsh_sensitive_data_policy" "example" {
   name      = "example-sensitive-data-policy"
   namespace = "staging"
 }
-
-output "sensitive_data_policy_id" {
-  value = data.xcsh_sensitive_data_policy.example.id
-}

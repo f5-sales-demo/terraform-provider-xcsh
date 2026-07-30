@@ -16,7 +16,3 @@ data "xcsh_app_setting" "example" {
   name      = "example-app-setting"
   namespace = "staging"
 }
-
-output "app_setting_id" {
-  value = data.xcsh_app_setting.example.id
-}

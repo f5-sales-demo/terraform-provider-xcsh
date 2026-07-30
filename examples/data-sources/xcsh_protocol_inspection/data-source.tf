@@ -16,7 +16,3 @@ data "xcsh_protocol_inspection" "example" {
   name      = "example-protocol-inspection"
   namespace = "staging"
 }
-
-output "protocol_inspection_id" {
-  value = data.xcsh_protocol_inspection.example.id
-}

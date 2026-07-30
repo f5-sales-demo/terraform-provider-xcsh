@@ -16,7 +16,3 @@ data "xcsh_mitigated_domain" "example" {
   name      = "example-mitigated-domain"
   namespace = "staging"
 }
-
-output "mitigated_domain_id" {
-  value = data.xcsh_mitigated_domain.example.id
-}

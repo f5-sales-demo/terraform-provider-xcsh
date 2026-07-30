@@ -16,7 +16,3 @@ data "xcsh_dns_compliance_checks" "example" {
   name      = "example-dns-compliance-checks"
   namespace = "staging"
 }
-
-output "dns_compliance_checks_id" {
-  value = data.xcsh_dns_compliance_checks.example.id
-}

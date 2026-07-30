@@ -16,7 +16,3 @@ data "xcsh_app_api_group" "example" {
   name      = "example-app-api-group"
   namespace = "staging"
 }
-
-output "app_api_group_id" {
-  value = data.xcsh_app_api_group.example.id
-}

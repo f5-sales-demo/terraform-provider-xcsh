@@ -16,7 +16,3 @@ data "xcsh_certificate" "example" {
   name      = "example-certificate"
   namespace = "staging"
 }
-
-output "certificate_id" {
-  value = data.xcsh_certificate.example.id
-}

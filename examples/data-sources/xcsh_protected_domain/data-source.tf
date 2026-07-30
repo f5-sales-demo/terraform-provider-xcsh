@@ -16,7 +16,3 @@ data "xcsh_protected_domain" "example" {
   name      = "example-protected-domain"
   namespace = "staging"
 }
-
-output "protected_domain_id" {
-  value = data.xcsh_protected_domain.example.id
-}

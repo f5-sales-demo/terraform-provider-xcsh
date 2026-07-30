@@ -16,7 +16,3 @@ data "xcsh_dns_lb_pool" "example" {
   name      = "example-dns-lb-pool"
   namespace = "staging"
 }
-
-output "dns_lb_pool_id" {
-  value = data.xcsh_dns_lb_pool.example.id
-}

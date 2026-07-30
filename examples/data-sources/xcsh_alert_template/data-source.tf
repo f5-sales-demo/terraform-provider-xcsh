@@ -16,7 +16,3 @@ data "xcsh_alert_template" "example" {
   name      = "example-alert-template"
   namespace = "staging"
 }
-
-output "alert_template_id" {
-  value = data.xcsh_alert_template.example.id
-}

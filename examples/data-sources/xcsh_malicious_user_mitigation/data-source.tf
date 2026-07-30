@@ -16,7 +16,3 @@ data "xcsh_malicious_user_mitigation" "example" {
   name      = "example-malicious-user-mitigation"
   namespace = "staging"
 }
-
-output "malicious_user_mitigation_id" {
-  value = data.xcsh_malicious_user_mitigation.example.id
-}

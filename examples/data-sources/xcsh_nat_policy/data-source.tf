@@ -16,7 +16,3 @@ data "xcsh_nat_policy" "example" {
   name      = "example-nat-policy"
   namespace = "staging"
 }
-
-output "nat_policy_id" {
-  value = data.xcsh_nat_policy.example.id
-}

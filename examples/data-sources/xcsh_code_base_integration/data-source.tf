@@ -16,7 +16,3 @@ data "xcsh_code_base_integration" "example" {
   name      = "example-code-base-integration"
   namespace = "staging"
 }
-
-output "code_base_integration_id" {
-  value = data.xcsh_code_base_integration.example.id
-}

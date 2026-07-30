@@ -16,7 +16,3 @@ data "xcsh_nginx_instance" "example" {
   name      = "example-nginx-instance"
   namespace = "staging"
 }
-
-output "nginx_instance_id" {
-  value = data.xcsh_nginx_instance.example.id
-}

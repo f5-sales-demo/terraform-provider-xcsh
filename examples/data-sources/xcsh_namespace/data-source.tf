@@ -16,7 +16,3 @@ data "xcsh_namespace" "example" {
   name      = "example-namespace"
   namespace = "staging"
 }
-
-output "namespace_id" {
-  value = data.xcsh_namespace.example.id
-}

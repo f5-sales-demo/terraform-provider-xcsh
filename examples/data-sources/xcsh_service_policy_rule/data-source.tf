@@ -16,7 +16,3 @@ data "xcsh_service_policy_rule" "example" {
   name      = "example-service-policy-rule"
   namespace = "staging"
 }
-
-output "service_policy_rule_id" {
-  value = data.xcsh_service_policy_rule.example.id
-}

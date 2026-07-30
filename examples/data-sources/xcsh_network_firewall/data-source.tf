@@ -16,7 +16,3 @@ data "xcsh_network_firewall" "example" {
   name      = "example-network-firewall"
   namespace = "staging"
 }
-
-output "network_firewall_id" {
-  value = data.xcsh_network_firewall.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_origin_pool" "example" {
   name      = "example-origin-pool"
   namespace = "staging"
 }
-
-output "origin_pool_id" {
-  value = data.xcsh_origin_pool.example.id
-}

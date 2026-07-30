@@ -565,5 +565,5 @@ rate_limit {
 
 ## Support
 
-- **Provider Issues:** [GitHub Issues](https://GitHub.com/f5-sales-demo/terraform-provider-xcsh/issues)
+- **Provider Issues:** [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)
 - **F5 Support:** [F5 Distributed Cloud Support](https://docs.cloud.f5.com/docs/support)

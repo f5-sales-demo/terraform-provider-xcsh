@@ -16,7 +16,3 @@ data "xcsh_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "staging"
 }
-
-output "cminstance_id" {
-  value = data.xcsh_cminstance.example.id
-}

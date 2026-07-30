@@ -9,7 +9,7 @@ description: |-
 
 Manages a Azure VNET Site resource in F5 Distributed Cloud for deploying F5 sites within Azure Virtual Network environments.
 
-~> **Note** Please refer to [Azure VNET Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [Azure VNET Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
@@ -162,7 +162,7 @@ A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin
 
 <a id="ref-e52931"></a>&#x2022; [`provider_ref`](#ref-e52931) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### Azure Cred
 
@@ -411,7 +411,7 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="subnet-b569ad"></a>&#x2022; [`route_server_subnet`](#subnet-b569ad) - Optional Block<br>Configuration parameter for route server subnet<br>See [Route Server Subnet](#subnet-b569ad) below.
 
-<a id="route-bcfd74"></a>&#x2022; [`site_registration_over_express_route`](#route-bcfd74) - Optional Block<br>CloudLink AND Network Config<br>See [Site Registration Over Express Route](#route-bcfd74) below.
+<a id="route-bcfd74"></a>&#x2022; [`site_registration_over_express_route`](#route-bcfd74) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Express Route](#route-bcfd74) below.
 
 <a id="internet-84b00b"></a>&#x2022; [`site_registration_over_internet`](#internet-84b00b) - Optional Block<br>Enable this option
 

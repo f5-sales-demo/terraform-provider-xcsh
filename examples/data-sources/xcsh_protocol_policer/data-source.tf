@@ -16,7 +16,3 @@ data "xcsh_protocol_policer" "example" {
   name      = "example-protocol-policer"
   namespace = "staging"
 }
-
-output "protocol_policer_id" {
-  value = data.xcsh_protocol_policer.example.id
-}

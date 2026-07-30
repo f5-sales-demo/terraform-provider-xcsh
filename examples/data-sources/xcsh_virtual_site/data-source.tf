@@ -16,7 +16,3 @@ data "xcsh_virtual_site" "example" {
   name      = "example-virtual-site"
   namespace = "staging"
 }
-
-output "virtual_site_id" {
-  value = data.xcsh_virtual_site.example.id
-}

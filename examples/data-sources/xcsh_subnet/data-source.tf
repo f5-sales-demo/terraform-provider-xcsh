@@ -16,7 +16,3 @@ data "xcsh_subnet" "example" {
   name      = "example-subnet"
   namespace = "staging"
 }
-
-output "subnet_id" {
-  value = data.xcsh_subnet.example.id
-}

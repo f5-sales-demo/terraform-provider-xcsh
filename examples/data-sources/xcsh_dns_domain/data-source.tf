@@ -16,7 +16,3 @@ data "xcsh_dns_domain" "example" {
   name      = "example-dns-domain"
   namespace = "staging"
 }
-
-output "dns_domain_id" {
-  value = data.xcsh_dns_domain.example.id
-}

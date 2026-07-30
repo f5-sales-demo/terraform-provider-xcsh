@@ -16,7 +16,3 @@ data "xcsh_usb_policy" "example" {
   name      = "example-usb-policy"
   namespace = "staging"
 }
-
-output "usb_policy_id" {
-  value = data.xcsh_usb_policy.example.id
-}

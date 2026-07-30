@@ -16,7 +16,3 @@ data "xcsh_virtual_k8s" "example" {
   name      = "example-virtual-k8s"
   namespace = "staging"
 }
-
-output "virtual_k8s_id" {
-  value = data.xcsh_virtual_k8s.example.id
-}

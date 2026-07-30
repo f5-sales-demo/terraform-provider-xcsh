@@ -16,7 +16,3 @@ data "xcsh_api_discovery" "example" {
   name      = "example-api-discovery"
   namespace = "staging"
 }
-
-output "api_discovery_id" {
-  value = data.xcsh_api_discovery.example.id
-}

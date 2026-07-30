@@ -16,7 +16,3 @@ data "xcsh_user_identification" "example" {
   name      = "example-user-identification"
   namespace = "staging"
 }
-
-output "user_identification_id" {
-  value = data.xcsh_user_identification.example.id
-}

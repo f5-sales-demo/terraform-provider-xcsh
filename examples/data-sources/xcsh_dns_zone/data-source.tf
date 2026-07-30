@@ -16,7 +16,3 @@ data "xcsh_dns_zone" "example" {
   name      = "example-dns-zone"
   namespace = "staging"
 }
-
-output "dns_zone_id" {
-  value = data.xcsh_dns_zone.example.id
-}

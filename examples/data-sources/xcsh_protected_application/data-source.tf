@@ -16,7 +16,3 @@ data "xcsh_protected_application" "example" {
   name      = "example-protected-application"
   namespace = "staging"
 }
-
-output "protected_application_id" {
-  value = data.xcsh_protected_application.example.id
-}

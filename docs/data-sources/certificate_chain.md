@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a Certificate Chain resource in F5 Distributed Cloud for certificate chain configuration for TLS. This is a read-only data source.
 
-~> **Note** Please refer to [Certificate Chain API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
+~> **Note** Please refer to [Certificate Chain API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/certificates/) to learn more.
 
 ## Example Usage
 

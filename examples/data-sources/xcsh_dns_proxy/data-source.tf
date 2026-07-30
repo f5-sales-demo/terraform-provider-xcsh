@@ -16,7 +16,3 @@ data "xcsh_dns_proxy" "example" {
   name      = "example-dns-proxy"
   namespace = "staging"
 }
-
-output "dns_proxy_id" {
-  value = data.xcsh_dns_proxy.example.id
-}

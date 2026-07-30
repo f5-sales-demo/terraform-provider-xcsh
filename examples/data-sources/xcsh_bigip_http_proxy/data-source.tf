@@ -16,7 +16,3 @@ data "xcsh_bigip_http_proxy" "example" {
   name      = "example-bigip-http-proxy"
   namespace = "staging"
 }
-
-output "bigip_http_proxy_id" {
-  value = data.xcsh_bigip_http_proxy.example.id
-}

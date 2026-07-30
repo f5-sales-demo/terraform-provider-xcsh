@@ -16,7 +16,3 @@ data "xcsh_gcp_vpc_site" "example" {
   name      = "example-gcp-vpc-site"
   namespace = "staging"
 }
-
-output "gcp_vpc_site_id" {
-  value = data.xcsh_gcp_vpc_site.example.id
-}

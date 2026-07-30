@@ -9,7 +9,7 @@ description: |-
 
 Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Sensitive Data Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/data_and_privacy_security/) to learn more.
+~> **Note** Please refer to [Sensitive Data Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/data_and_privacy_security/) to learn more.
 
 ## Example Usage
 

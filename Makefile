@@ -302,11 +302,13 @@ release-prep: fmt lint test docs
 
 # Verify no uncommitted generated changes
 .PHONY: verify-generate
+# Covers examples/ and docs/ as well as the Go output: those are generated too, and
+# leaving them out is why 143 examples and 91 docs drifted unnoticed (#1397).
 verify-generate: generate
 	@echo "Verifying no uncommitted changes from generation..."
-	@if [ -n "$$(git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR))" ]; then \
+	@if [ -n "$$(git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs)" ]; then \
 		echo "Error: Generated files have uncommitted changes"; \
-		git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR); \
+		git status --porcelain $(PROVIDER_DIR) $(CLIENT_DIR) examples docs; \
 		exit 1; \
 	fi
 	@echo "All generated files are up to date"

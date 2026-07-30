@@ -16,7 +16,3 @@ data "xcsh_nginx_service_discovery" "example" {
   name      = "example-nginx-service-discovery"
   namespace = "staging"
 }
-
-output "nginx_service_discovery_id" {
-  value = data.xcsh_nginx_service_discovery.example.id
-}

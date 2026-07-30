@@ -9,7 +9,7 @@ description: |-
 
 Manages a Container Registry resource in F5 Distributed Cloud for container image registry configuration.
 
-~> **Note** Please refer to [Container Registry API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
+~> **Note** Please refer to [Container Registry API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
 
 ## Example Usage
 
@@ -104,7 +104,7 @@ A [`clear_secret_info`](#password-clear-secret-info) block (within [`password`](
 
 <a id="password-clear-secret-info-provider-ref"></a>&#x2022; [`provider_ref`](#password-clear-secret-info-provider-ref) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="password-clear-secret-info-url"></a>&#x2022; [`url`](#password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="password-clear-secret-info-url"></a>&#x2022; [`url`](#password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### Timeouts
 

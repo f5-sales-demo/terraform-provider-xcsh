@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a Certificate resource in F5 Distributed Cloud for certificate. configuration. This is a read-only data source.
 
-~> **Note** Please refer to [Certificate API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
+~> **Note** Please refer to [Certificate API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/certificates/) to learn more.
 
 ## Example Usage
 

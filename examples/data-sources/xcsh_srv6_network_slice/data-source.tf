@@ -16,7 +16,3 @@ data "xcsh_srv6_network_slice" "example" {
   name      = "example-srv6-network-slice"
   namespace = "staging"
 }
-
-output "srv6_network_slice_id" {
-  value = data.xcsh_srv6_network_slice.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_application_profiles" "example" {
   name      = "example-application-profiles"
   namespace = "staging"
 }
-
-output "application_profiles_id" {
-  value = data.xcsh_application_profiles.example.id
-}

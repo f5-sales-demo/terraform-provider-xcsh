@@ -16,7 +16,3 @@ data "xcsh_dc_cluster_group" "example" {
   name      = "example-dc-cluster-group"
   namespace = "staging"
 }
-
-output "dc_cluster_group_id" {
-  value = data.xcsh_dc_cluster_group.example.id
-}

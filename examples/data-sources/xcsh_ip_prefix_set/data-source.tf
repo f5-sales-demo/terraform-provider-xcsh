@@ -16,7 +16,3 @@ data "xcsh_ip_prefix_set" "example" {
   name      = "example-ip-prefix-set"
   namespace = "staging"
 }
-
-output "ip_prefix_set_id" {
-  value = data.xcsh_ip_prefix_set.example.id
-}

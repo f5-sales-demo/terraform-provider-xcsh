@@ -16,7 +16,3 @@ data "xcsh_policy_based_routing" "example" {
   name      = "example-policy-based-routing"
   namespace = "staging"
 }
-
-output "policy_based_routing_id" {
-  value = data.xcsh_policy_based_routing.example.id
-}

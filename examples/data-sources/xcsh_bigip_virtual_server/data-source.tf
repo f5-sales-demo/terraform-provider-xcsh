@@ -16,7 +16,3 @@ data "xcsh_bigip_virtual_server" "example" {
   name      = "example-bigip-virtual-server"
   namespace = "staging"
 }
-
-output "bigip_virtual_server_id" {
-  value = data.xcsh_bigip_virtual_server.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_advertise_policy" "example" {
   name      = "example-advertise-policy"
   namespace = "staging"
 }
-
-output "advertise_policy_id" {
-  value = data.xcsh_advertise_policy.example.id
-}

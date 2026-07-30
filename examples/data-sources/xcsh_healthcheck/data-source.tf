@@ -16,7 +16,3 @@ data "xcsh_healthcheck" "example" {
   name      = "example-healthcheck"
   namespace = "staging"
 }
-
-output "healthcheck_id" {
-  value = data.xcsh_healthcheck.example.id
-}

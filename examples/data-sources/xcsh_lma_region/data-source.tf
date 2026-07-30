@@ -16,7 +16,3 @@ data "xcsh_lma_region" "example" {
   name      = "example-lma-region"
   namespace = "staging"
 }
-
-output "lma_region_id" {
-  value = data.xcsh_lma_region.example.id
-}

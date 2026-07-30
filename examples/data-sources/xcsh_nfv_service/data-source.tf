@@ -16,7 +16,3 @@ data "xcsh_nfv_service" "example" {
   name      = "example-nfv-service"
   namespace = "staging"
 }
-
-output "nfv_service_id" {
-  value = data.xcsh_nfv_service.example.id
-}

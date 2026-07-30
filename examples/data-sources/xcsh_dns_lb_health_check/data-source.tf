@@ -16,7 +16,3 @@ data "xcsh_dns_lb_health_check" "example" {
   name      = "example-dns-lb-health-check"
   namespace = "staging"
 }
-
-output "dns_lb_health_check_id" {
-  value = data.xcsh_dns_lb_health_check.example.id
-}

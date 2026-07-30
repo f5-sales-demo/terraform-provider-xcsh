@@ -16,7 +16,3 @@ data "xcsh_segment" "example" {
   name      = "example-segment"
   namespace = "staging"
 }
-
-output "segment_id" {
-  value = data.xcsh_segment.example.id
-}

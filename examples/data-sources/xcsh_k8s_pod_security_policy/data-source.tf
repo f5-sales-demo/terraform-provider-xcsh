@@ -16,7 +16,3 @@ data "xcsh_k8s_pod_security_policy" "example" {
   name      = "example-k8s-pod-security-policy"
   namespace = "staging"
 }
-
-output "k8s_pod_security_policy_id" {
-  value = data.xcsh_k8s_pod_security_policy.example.id
-}

@@ -16,7 +16,3 @@ data "xcsh_data_type" "example" {
   name      = "example-data-type"
   namespace = "staging"
 }
-
-output "data_type_id" {
-  value = data.xcsh_data_type.example.id
-}

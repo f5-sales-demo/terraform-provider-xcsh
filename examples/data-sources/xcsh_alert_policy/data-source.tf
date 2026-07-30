@@ -16,7 +16,3 @@ data "xcsh_alert_policy" "example" {
   name      = "example-alert-policy"
   namespace = "staging"
 }
-
-output "alert_policy_id" {
-  value = data.xcsh_alert_policy.example.id
-}
