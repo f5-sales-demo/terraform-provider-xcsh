@@ -152,7 +152,13 @@ func main() {
 	if !dryRun {
 		generatedNames := make(map[string]bool)
 		for _, r := range results {
-			if r.Success {
+			// #1406: a resource that failed this run is not an orphan — it is a
+			// resource whose regeneration broke. Deleting its committed files turns
+			// a generation error into a missing Terraform resource type, surfacing
+			// as an "Invalid resource type" in a different repository. Only a run
+			// that legitimately no longer produces a resource may remove it, and a
+			// failed run is not that.
+			if r.Success || r.Error != "" {
 				generatedNames[r.ResourceName] = true
 			}
 		}
@@ -161,6 +167,14 @@ func main() {
 			generatedNames[core] = true
 		}
 		registration.CleanOrphanGeneratedFiles(outputDir, clientDir, generatedNames)
+	}
+
+	if failCount > 0 {
+		// #1406: printing a failure count and exiting 0 means CI, the pre-commit
+		// hook and a human all read the run as successful. A generator that could
+		// not generate has failed.
+		fmt.Printf("\n❌ Generation failed: %d resource(s) could not be generated.\n", failCount)
+		os.Exit(1)
 	}
 
 	fmt.Println("\n🎉 Batch generation complete!")
@@ -371,10 +385,13 @@ func processV2Action(domainFile string, act openapi.ResourcePath) GenerationResu
 
 	tmpl, err := schema.ExtractActionResourceSchema(spec, act.ResourceName, extractAPIPath)
 	if err != nil {
-		if verbose {
-			fmt.Printf("  ⏭️  Skipping action %s: %v\n", act.ResourceName, err)
-		}
-		return GenerationResult{ResourceName: act.ResourceName, Success: false}
+		// #1406: this used to print only under -verbose and return an EMPTY Error,
+		// so the result was counted as neither success nor failure, the run exited
+		// 0, and the orphan sweep then deleted the resource's committed files. The
+		// #1355 guard whose whole purpose is to fail loudly was reduced to silently
+		// removing a resource that mcn depends on. Report it like any other failure.
+		fmt.Printf("❌ %s: %v\n", act.ResourceName, err)
+		return GenerationResult{ResourceName: act.ResourceName, Success: false, Error: err.Error()}
 	}
 
 	if !dryRun {
