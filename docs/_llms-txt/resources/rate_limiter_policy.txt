@@ -10,6 +10,10 @@ Rate limiter policy create specification. configuration
 - burst_size
 - committed_information_rate
 
+## Server Defaults (safe to omit)
+
+- rules
+
 ## Minimal Valid Config
 
 ```terraform

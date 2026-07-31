@@ -343,6 +343,13 @@
       "category": "api-security",
       "description": "API Definition",
       "required": ["name", "namespace"],
+      "server_defaults": [
+        "api_inventory_exclusion_list",
+        "api_inventory_inclusion_list",
+        "non_api_endpoints",
+        "strict_schema_origin",
+        "swagger_specs"
+      ],
       "minimal_config": "resource \"xcsh_api_definition\" \"example\" {\n  name      = \"example-api-definition\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace"]
@@ -353,6 +360,11 @@
       "category": "api-security",
       "description": "API discovery creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace", "user_defined_api_discovery_policy"],
+      "server_defaults": [
+        "custom_auth_types",
+        "user_defined_api_discovery_policy.discovery_rules",
+        "user_defined_api_discovery_policy.inclusive"
+      ],
       "minimal_config": "resource \"xcsh_api_discovery\" \"example\" {\n  name      = \"example-api-discovery\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -383,6 +395,15 @@
       "category": "security",
       "description": "Application Firewall",
       "required": ["name", "namespace"],
+      "server_defaults": [
+        "allow_all_response_codes",
+        "default_anonymization",
+        "default_bot_setting",
+        "default_detection_settings",
+        "disable_ai_enhancements",
+        "monitoring",
+        "use_default_blocking_page"
+      ],
       "minimal_config": "resource \"xcsh_app_firewall\" \"example\" {\n  name      = \"example-app-firewall\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace"]
@@ -463,6 +484,16 @@
       "category": "sites",
       "description": "Deploying F5 sites within Azure Virtual Network environments",
       "required": ["name", "namespace", "machine_type", "resource_group", "ssh_key"],
+      "server_defaults": [
+        "block_all_services",
+        "disk_size",
+        "ingress_gw.accelerated_networking",
+        "ingress_gw.performance_enhancement_mode",
+        "logs_streaming_disabled",
+        "machine_type",
+        "no_worker_nodes",
+        "tags"
+      ],
       "minimal_config": "resource \"xcsh_azure_vnet_site\" \"example\" {\n  name      = \"example-Azure-vnet-site\"\n  namespace = \"staging\"\n\n  machine_type   = \"example-value\"\n  resource_group = \"example-value\"\n  ssh_key        = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -811,6 +842,7 @@
       "category": "security",
       "description": "Enhanced firewall policy specification. configuration",
       "required": ["name", "namespace"],
+      "server_defaults": ["allow_all"],
       "minimal_config": "resource \"xcsh_enhanced_firewall_policy\" \"example\" {\n  name      = \"example-enhanced-firewall-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -918,6 +950,7 @@
       "category": "monitoring",
       "description": "New Global Log Receiver object",
       "required": ["name", "namespace", "log_type", "receiver_choice"],
+      "server_defaults": ["ns_current", "request_logs.sampled"],
       "minimal_config": "resource \"xcsh_global_log_receiver\" \"example\" {\n  name      = \"example-global-log-receiver\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -928,7 +961,15 @@
       "category": "load-balancing",
       "description": "Healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration",
       "required": ["name", "namespace", "interval", "timeout", "healthy_threshold", "unhealthy_threshold"],
-      "server_defaults": ["jitter_percent", "use_http2"],
+      "server_defaults": [
+        "http_health_check.expected_response",
+        "http_health_check.expected_status_codes",
+        "http_health_check.headers",
+        "http_health_check.request_headers_to_remove",
+        "http_health_check.use_http2",
+        "http_health_check.use_origin_server_name",
+        "jitter_percent"
+      ],
       "minimal_config": "resource \"xcsh_healthcheck\" \"example\" {\n  name      = \"example-healthcheck\"\n  namespace = \"staging\"\n\n  healthy_threshold   = 1\n  interval            = 1\n  timeout             = 1\n  unhealthy_threshold = 1\n}",
       "dependencies": {
         "requires": ["namespace"],
@@ -940,7 +981,51 @@
       "category": "load-balancing",
       "description": "Load balancing HTTP/HTTPS traffic with advanced routing and security",
       "required": ["name", "namespace", "domains"],
-      "server_defaults": ["connection_timeout", "http_idle_timeout"],
+      "server_defaults": [
+        "add_location",
+        "default_pool.advanced_options.auto_http_config",
+        "default_pool.advanced_options.connection_timeout",
+        "default_pool.advanced_options.default_circuit_breaker",
+        "default_pool.advanced_options.disable_outlier_detection",
+        "default_pool.advanced_options.disable_subsets",
+        "default_pool.advanced_options.http_idle_timeout",
+        "default_pool.advanced_options.no_panic_threshold",
+        "default_pool.advanced_options.no_request_limit_per_connection",
+        "default_pool.endpoint_selection",
+        "default_pool.healthcheck",
+        "default_pool.loadbalancer_algorithm",
+        "default_pool.no_tls",
+        "default_pool.same_as_endpoint_port",
+        "default_pool.use_tls.default_session_key_caching",
+        "default_pool.use_tls.no_mtls",
+        "default_pool.use_tls.use_host_header_as_sni",
+        "default_pool.use_tls.volterra_trusted_ca",
+        "default_sensitive_data_policy",
+        "disable_api_definition",
+        "disable_api_discovery",
+        "disable_api_testing",
+        "disable_bot_defense",
+        "disable_ip_reputation",
+        "disable_malicious_user_detection",
+        "disable_malware_protection",
+        "disable_rate_limit",
+        "disable_threat_mesh",
+        "disable_trust_client_ip_headers",
+        "disable_waf",
+        "https_auto_cert.add_hsts",
+        "https_auto_cert.connection_idle_timeout",
+        "https_auto_cert.enable_path_normalize",
+        "https_auto_cert.http_redirect",
+        "https_auto_cert.no_mtls",
+        "l7_ddos_protection",
+        "no_challenge",
+        "rate_limit.no_ip_allowed_list",
+        "rate_limit.no_policies",
+        "rate_limit.rate_limiter.period_multiplier",
+        "round_robin",
+        "service_policies_from_namespace",
+        "user_id_client_ip"
+      ],
       "minimal_config": "resource \"xcsh_http_loadbalancer\" \"example\" {\n  name      = \"example-http-loadbalancer\"\n  namespace = \"staging\"\n\n  domains = [\"example-value\"]\n}",
       "dependencies": {
         "requires": ["namespace", "origin_pool"],
@@ -1012,6 +1097,17 @@
       "category": "kubernetes",
       "description": "K8s_cluster will create the object in the storage backend for namespace metadata.namespace",
       "required": ["name", "namespace"],
+      "server_defaults": [
+        "cluster_scoped_access_deny",
+        "no_cluster_wide_apps",
+        "no_global_access",
+        "no_insecure_registries",
+        "no_local_access",
+        "use_default_cluster_role_bindings",
+        "use_default_cluster_roles",
+        "use_default_psp",
+        "vk8s_namespace_access_deny"
+      ],
       "minimal_config": "resource \"xcsh_k8s_cluster\" \"example\" {\n  name      = \"example-k8s-cluster\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1072,6 +1168,7 @@
       "category": "security",
       "description": "Malicious_user_mitigation creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
+      "server_defaults": ["mitigation_type"],
       "minimal_config": "resource \"xcsh_malicious_user_mitigation\" \"example\" {\n  name      = \"example-malicious-user-mitigation\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1135,6 +1232,7 @@
       "category": "security",
       "description": "Network firewall is created by users in system namespace. configuration",
       "required": ["name", "namespace"],
+      "server_defaults": ["disable_fast_acl", "disable_forward_proxy_policy", "disable_network_policy"],
       "minimal_config": "resource \"xcsh_network_firewall\" \"example\" {\n  name      = \"example-network-firewall\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1205,7 +1303,25 @@
       "category": "load-balancing",
       "description": "Defining backend server pools for load balancer targets",
       "required": ["name", "namespace", "origin_servers", "port"],
-      "server_defaults": ["connection_timeout", "http_idle_timeout"],
+      "server_defaults": [
+        "advanced_options.auto_http_config",
+        "advanced_options.connection_timeout",
+        "advanced_options.default_circuit_breaker",
+        "advanced_options.disable_outlier_detection",
+        "advanced_options.disable_subsets",
+        "advanced_options.http_idle_timeout",
+        "advanced_options.no_panic_threshold",
+        "advanced_options.no_request_limit_per_connection",
+        "endpoint_selection",
+        "healthcheck",
+        "loadbalancer_algorithm",
+        "no_tls",
+        "same_as_endpoint_port",
+        "use_tls.default_session_key_caching",
+        "use_tls.no_mtls",
+        "use_tls.use_host_header_as_sni",
+        "use_tls.volterra_trusted_ca"
+      ],
       "minimal_config": "resource \"xcsh_origin_pool\" \"example\" {\n  name      = \"example-origin-pool\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace", "healthcheck"],
@@ -1217,6 +1333,7 @@
       "category": "service-mesh",
       "description": "New policer with traffic rate limits",
       "required": ["name", "namespace", "burst_size", "committed_information_rate"],
+      "server_defaults": ["policer_mode", "policer_type"],
       "minimal_config": "resource \"xcsh_policer\" \"example\" {\n  name      = \"example-policer\"\n  namespace = \"staging\"\n\n  burst_size                 = 1\n  committed_information_rate = 1\n}",
       "dependencies": {
         "requires": []
@@ -1257,6 +1374,7 @@
       "category": "security",
       "description": "Protocol Inspection Specification in a given namespace. If one already exists it will give an error",
       "required": ["name", "namespace", "enable_disable_compliance_checks", "enable_disable_signatures"],
+      "server_defaults": ["action"],
       "minimal_config": "resource \"xcsh_protocol_inspection\" \"example\" {\n  name      = \"example-protocol-inspection\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1287,6 +1405,7 @@
       "category": "security",
       "description": "Rate_limiter creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
+      "server_defaults": ["user_identification"],
       "minimal_config": "resource \"xcsh_rate_limiter\" \"example\" {\n  name      = \"example-rate-limiter\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace"]
@@ -1297,6 +1416,7 @@
       "category": "security",
       "description": "Rate limiter policy create specification. configuration",
       "required": ["name", "namespace", "burst_size", "committed_information_rate"],
+      "server_defaults": ["rules"],
       "minimal_config": "resource \"xcsh_rate_limiter_policy\" \"example\" {\n  name      = \"example-rate-limiter-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1377,6 +1497,7 @@
       "category": "security",
       "description": "Sensitive_data_policy creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
+      "server_defaults": ["compliances", "custom_data_types", "disabled_predefined_data_types"],
       "minimal_config": "resource \"xcsh_sensitive_data_policy\" \"example\" {\n  name      = \"example-sensitive-data-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1387,6 +1508,7 @@
       "category": "security",
       "description": "Service_policy creates a new object in the storage backend for metadata.namespace",
       "required": ["name", "namespace"],
+      "server_defaults": ["port_matcher"],
       "minimal_config": "resource \"xcsh_service_policy\" \"example\" {\n  name      = \"example-service-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace"]
@@ -1453,6 +1575,15 @@
       "category": "load-balancing",
       "description": "Load balancing TCP traffic across origin pools",
       "required": ["name", "namespace", "origin_pools"],
+      "server_defaults": [
+        "dns_volterra_managed",
+        "hash_policy_choice_round_robin",
+        "idle_timeout",
+        "no_sni",
+        "retract_cluster",
+        "service_policies_from_namespace",
+        "tcp"
+      ],
       "minimal_config": "resource \"xcsh_tcp_loadbalancer\" \"example\" {\n  name      = \"example-tcp-loadbalancer\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": ["namespace", "origin_pool"]
