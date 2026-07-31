@@ -1,0 +1,107 @@
+---
+# Fetch the enriched OpenAPI spec bundle that every generator in this repo reads.
+#
+# The bundle is gitignored, so a fresh checkout has none. Any job that runs
+# generate-all-schemas.go, transform-docs.go or generate-llms-txt.go without it
+# produces output that looks successful and is silently degraded: measured on a
+# spec-less checkout, transform-docs.go rewrote 256 files, removing 1548 lines of
+# API reference links, dependency notes and danger callouts, and exited 0.
+#
+# This action existed as three divergent copies (_build-test.yml,
+# _generate-provider.yml, on-merge.yml) and was simply absent from the two doc
+# paths. The copies also disagreed on failure: one errored, two emitted
+# `::warning::Could not find spec asset` and carried on. Carrying on is the defect,
+# so this single implementation always fails.
+name: Download API specs
+description: Download the enriched F5 XC OpenAPI spec bundle into the gitignored spec directory.
+
+inputs:
+  token:
+    description: Token used to read releases from the enriched specs repository.
+    required: true
+  spec-dir:
+    description: Directory the bundle is unpacked into.
+    required: false
+    default: docs/specifications/api
+  enriched-repo:
+    description: Repository publishing the spec bundle releases.
+    required: false
+    default: f5-sales-demo/api-specs-enriched
+
+runs:
+  using: composite
+  steps:
+    - name: Download API specs
+      shell: bash
+      # Inputs reach the shell through env: — an ${{ }} expansion inside run: is a
+      # code-injection sink (zizmor template-injection). Shell-quoted at each use.
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+        ENRICHED_REPO: ${{ inputs.enriched-repo }}
+        SPEC_DIR: ${{ inputs.spec-dir }}
+      run: |
+        set -euo pipefail
+
+        # Create the directory before probing it. `shell: bash` in a composite action
+        # runs with -eo pipefail, so `find` on a missing path returns 1 through the
+        # pipe and would kill the step here — on every clean runner, since the spec
+        # directory is gitignored and never exists after checkout. The workflow `run:`
+        # blocks this action replaces used the default `bash -e {0}`, which has no
+        # pipefail, so the same line was harmless there.
+        mkdir -p "${SPEC_DIR}"
+
+        # complete() must agree with openapi.RequireSpecs, which the generators call.
+        # "Some JSON is present" is not the test: an index.json alone, or an index
+        # beside an empty domains/, is a truncated unzip that the generators reject —
+        # and if this step short-circuited on it, the download that would repair it
+        # would never run.
+        complete() {
+          [ -f "${SPEC_DIR}/index.json" ] || return 1
+          [ -d "${SPEC_DIR}/domains" ] || return 1
+          [ -n "$(find "${SPEC_DIR}/domains" -name '*.json' -type f -print -quit)" ]
+        }
+
+        if complete; then
+          echo "Found $(find "${SPEC_DIR}" -name '*.json' -type f | wc -l) existing spec files in ${SPEC_DIR}"
+          exit 0
+        fi
+
+        echo "No complete bundle in ${SPEC_DIR} — downloading latest from ${ENRICHED_REPO}"
+
+        ASSET_ID=$(gh api "repos/${ENRICHED_REPO}/releases" --jq \
+          '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
+        if [ -z "$ASSET_ID" ] || [ "$ASSET_ID" = "null" ]; then
+          echo "::error::No spec bundle asset in the latest ${ENRICHED_REPO} release. Generators cannot run without it."
+          exit 1
+        fi
+
+        gh api "repos/${ENRICHED_REPO}/releases/assets/${ASSET_ID}" \
+          -H "Accept: application/octet-stream" > /tmp/specs.zip
+        unzip -q -o /tmp/specs.zip -d "${SPEC_DIR}"
+        rm -f /tmp/specs.zip
+
+        # Companion assets published alongside the bundle rather than inside it.
+        # `make download-specs` fetches both, so CI that skips them generates
+        # different output from a local run — a determinism gap in its own right.
+        for asset in api-catalog.json minimal-export-defaults.json; do
+          AID=$(gh api "repos/${ENRICHED_REPO}/releases" --jq \
+            "[.[0].assets[] | select(.name==\"${asset}\")] | .[0].id")
+          if [ -n "$AID" ] && [ "$AID" != "null" ]; then
+            gh api "repos/${ENRICHED_REPO}/releases/assets/${AID}" \
+              -H "Accept: application/octet-stream" > "${SPEC_DIR}/${asset}"
+            echo "Downloaded ${asset}"
+          else
+            echo "::notice::${asset} not published in the latest release"
+          fi
+        done
+
+        SPEC_COUNT=$(find "${SPEC_DIR}" -name '*.json' -type f | wc -l)
+        echo "Downloaded ${SPEC_COUNT} spec files"
+        if [ "$SPEC_COUNT" -eq 0 ]; then
+          echo "::error::Spec asset unpacked to no JSON files in ${SPEC_DIR}"
+          exit 1
+        fi
+        if ! complete; then
+          echo "::error::Incomplete bundle in ${SPEC_DIR}: index.json plus at least one domains/*.json are required"
+          exit 1
+        fi

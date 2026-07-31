@@ -254,6 +254,16 @@ jobs:
             echo "needs_validation=false" >> "$GITHUB_OUTPUT"
           fi
 
+      # transform-docs.go enriches every page from this bundle. Without it the job
+      # regenerated stripped-down docs and then diffed them against the correct
+      # committed ones, so the assertion added in #1415 failed on its own PR. The
+      # assertion was right; the job was missing an input.
+      - name: Download API specs
+        if: steps.check.outputs.needs_validation == 'true'
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ github.token }}
+
       - name: Set up Go
         if: steps.check.outputs.needs_validation == 'true'
         uses: actions/setup-go@v7

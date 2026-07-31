@@ -91,6 +91,49 @@ func IsV2SpecDirectory(specDir string) bool {
 	return GetSpecVersion(specDir) == SpecVersionV2
 }
 
+// RequireSpecs returns an error unless specDir holds a v2 spec bundle with usable
+// content in it.
+//
+// Callers that enrich generated output from the specs must use this instead of
+// treating SpecVersionUnknown as "carry on without enrichment". Silently degrading
+// makes a missing download indistinguishable from a successful run: transform-docs.go
+// did exactly that, and on a spec-less checkout emitted 256 files with 1548 lines of
+// API links, dependency notes and danger callouts removed — while exiting 0.
+//
+// Checking that index.json and domains/ merely EXIST is not enough, and the first
+// version of this guard made that mistake. A directory holding `{}` and an empty
+// domains/ satisfied it, and transform-docs.go then loaded zero resources, exited 0
+// and rewrote 277 files — the same failure, reached through a truncated unzip instead
+// of an absent one. Both loaders downstream swallow their errors (a domain that fails
+// to parse contributes no metadata; an unreadable index is skipped by an `err == nil`
+// guard), so the emptiness has to be rejected here or it is never reported at all.
+func RequireSpecs(specDir string) error {
+	const remedy = "The bundle is gitignored, so a fresh checkout has none — run 'make download-specs' " +
+		"(or add the spec download step to this CI job) before generating"
+
+	if GetSpecVersion(specDir) != SpecVersionV2 {
+		return fmt.Errorf("no OpenAPI spec bundle in %q: expected index.json and a domains/ directory. %s", specDir, remedy)
+	}
+
+	domains, err := filepath.Glob(filepath.Join(specDir, "domains", "*.json"))
+	if err != nil {
+		return fmt.Errorf("scanning %q for domain specs: %w", specDir, err)
+	}
+	if len(domains) == 0 {
+		return fmt.Errorf("spec bundle in %q has an empty domains/ directory — a truncated download. %s", specDir, remedy)
+	}
+
+	index, err := ParseIndexFromDir(specDir)
+	if err != nil {
+		return fmt.Errorf("spec bundle in %q has an unreadable index.json: %w. %s", specDir, err, remedy)
+	}
+	if len(index.Specifications) == 0 {
+		return fmt.Errorf("spec bundle in %q has an index.json listing no specifications. %s", specDir, remedy)
+	}
+
+	return nil
+}
+
 // ParseIndex reads and parses the index.json manifest file.
 func ParseIndex(path string) (*Index, error) {
 	data, err := os.ReadFile(path)
