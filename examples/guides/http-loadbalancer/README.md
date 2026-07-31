@@ -116,4 +116,4 @@ For detailed documentation including architecture diagrams and troubleshooting, 
 
 - [F5XC Provider Documentation](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs)
 - [F5 Distributed Cloud Documentation](https://docs.cloud.f5.com/)
-- [GitHub Issues](https://GitHub.com/f5-sales-demo/terraform-provider-xcsh/issues)
+- [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)
