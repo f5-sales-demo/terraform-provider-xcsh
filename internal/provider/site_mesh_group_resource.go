@@ -1265,6 +1265,13 @@ func (r *SiteMeshGroupResource) Update(ctx context.Context, req resource.UpdateR
 	// worse than not recording it: dropping a ves.io/ label from the configuration and
 	// then failing the update would leave private state claiming the key is unowned while
 	// the server still holds it, and Read would filter it out of sight for good.
+	//
+	// This is not airtight, and cannot be: Client.Put returns json.Unmarshal's error
+	// after a 2xx, so an error does not strictly prove the write was rejected. What it
+	// does guarantee is the direction of the residual. If the write landed and we return
+	// early, ownership stays as it was — an added label keeps being planned, which is
+	// visible and self-corrects on the next successful apply. The opposite ordering loses
+	// a label silently and permanently. Fail loud rather than fail quiet.
 	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
 	if resp.Diagnostics.HasError() {
 		return
