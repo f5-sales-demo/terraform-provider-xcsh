@@ -2348,25 +2348,24 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 		createReq.Metadata.Labels = labels
 	}
 
-	// Record which label keys the configuration declared, so Read can tell a label this
+	// Capture which label keys the configuration declared, so Read can tell a label this
 	// configuration owns from one the platform added (#1398). Create and Update are the
 	// only places the configuration is visible; Read sees prior state, and prior state is
 	// not evidence of ownership because providers up to 3.81.1 wrote the platform's own
 	// labels into it.
-	if ownedEncoded, err := encodeOwnedLabelKeys(configLabelKeys(createReq.Metadata.Labels)); err != nil {
+	//
+	// Captured here, written to private state only after the API call succeeds — see the
+	// note at the write site.
+	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(createReq.Metadata.Labels))
+	if ownedLabelErr != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Owned Label Keys",
-			"Could not encode the configuration's label keys for private state: "+err.Error()+
+			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
 				"\n\nWithout this record the read-back cannot distinguish a label this "+
 				"configuration owns from one the platform authored, and a label in the "+
 				"ves.io/ namespace would never converge.",
 		)
 		return
-	} else {
-		resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedEncoded)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
 	}
 
 	if !data.Annotations.IsNull() {
@@ -3130,6 +3129,15 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 	apiResource, err := r.client.CreateOriginPool(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create OriginPool: %s", err))
+		return
+	}
+
+	// Only now that the write has landed. terraform-plugin-framework persists private
+	// state even when the method returns an error (it copies createResp.Private into the
+	// response before checking diagnostics), so recording ownership earlier would claim
+	// keys the server never received.
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -6627,27 +6635,24 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 		apiResource.Metadata.Labels = labels
 	}
 
-	// Re-record ownership on every update, because the configuration's label set can
+	// Re-capture ownership on every update, because the configuration's label set can
 	// change: a key added here becomes owned, and a key removed stops being owned so the
 	// next Read filters it again if it lives in a platform namespace (#1398).
 	//
-	// Captured here, BEFORE the platform's own discovery labels are merged in below —
+	// Captured HERE, before the platform's own discovery labels are merged in below —
 	// merging first would record those as configuration-owned and reintroduce exactly the
-	// #1391 bug this pairs with.
-	if ownedEncoded, err := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels)); err != nil {
+	// #1391 bug this pairs with. Written to private state only after the API call
+	// succeeds; see the note at the write site.
+	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels))
+	if ownedLabelErr != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Record Owned Label Keys",
-			"Could not encode the configuration's label keys for private state: "+err.Error()+
+			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
 				"\n\nWithout this record the read-back cannot distinguish a label this "+
 				"configuration owns from one the platform authored, and a label in the "+
 				"ves.io/ namespace would never converge.",
 		)
 		return
-	} else {
-		resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedEncoded)...)
-		if resp.Diagnostics.HasError() {
-			return
-		}
 	}
 
 	if !data.Annotations.IsNull() {
@@ -7411,6 +7416,17 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 	_, err := r.client.UpdateOriginPool(ctx, apiResource)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update OriginPool: %s", err))
+		return
+	}
+
+	// Only now that the write has landed. terraform-plugin-framework persists private
+	// state even when the method returns an error (it copies updateResp.Private into the
+	// response before checking diagnostics), so recording ownership earlier would be
+	// worse than not recording it: dropping a ves.io/ label from the configuration and
+	// then failing the update would leave private state claiming the key is unowned while
+	// the server still holds it, and Read would filter it out of sight for good.
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

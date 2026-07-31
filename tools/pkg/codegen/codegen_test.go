@@ -1890,3 +1890,44 @@ func TestTemplates_RecordOwnedLabelKeys_Issue1398(t *testing.T) {
 		}
 	}
 }
+
+// #1398, second round: private state is persisted even when Create or Update returns an
+// error. terraform-plugin-framework v1.17.0 copies createResp.Private / updateResp.Private
+// into the response (server_createresource.go:150, server_updateresource.go:165) BEFORE
+// its `if resp.Diagnostics.HasError() { return }`.
+//
+// So recording ownership before the API call is unsafe. Remove an owned ves.io/ label,
+// have the update fail, and private state records "owns nothing" while the server still
+// holds the label: the next Read filters it out, the plan shows nothing, and the label is
+// stranded on the server where Terraform can never see or remove it.
+//
+// The keys must still be CAPTURED before mergePreservedLabels — that ordering is asserted
+// separately — but they may only be WRITTEN once the API call has succeeded.
+func TestTemplates_OwnershipIsPersistedOnlyAfterTheAPICall_Issue1398(t *testing.T) {
+	for _, tc := range []struct{ method, apiCall string }{
+		{"Create", "r.client.Create{{.TitleCase}}(ctx, createReq)"},
+		{"Update", "r.client.Update{{.TitleCase}}(ctx, apiResource)"},
+	} {
+		t.Run(tc.method, func(t *testing.T) {
+			start := strings.Index(ResourceTemplate, "func (r *{{.TitleCase}}Resource) "+tc.method+"(")
+			if start < 0 {
+				t.Fatalf("%s method not found", tc.method)
+			}
+			body := ResourceTemplate[start:]
+
+			apiIdx := strings.Index(body, tc.apiCall)
+			setIdx := strings.Index(body, "Private.SetKey(ctx, ownedLabelKeysPrivateKey")
+			if apiIdx < 0 {
+				t.Fatalf("%s: API call anchor %q not found — this guard would silently pass", tc.method, tc.apiCall)
+			}
+			if setIdx < 0 {
+				t.Fatalf("%s: ownership is never written to private state", tc.method)
+			}
+			if setIdx < apiIdx {
+				t.Errorf("%s writes ownership to private state before the API call. Private state "+
+					"survives an error, so a failed write would strand the label on the server, "+
+					"invisible to Terraform.", tc.method)
+			}
+		})
+	}
+}
