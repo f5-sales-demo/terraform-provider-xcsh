@@ -9,7 +9,7 @@ description: |-
 
 Manages a Azure VNET Site resource in F5 Distributed Cloud for deploying F5 sites within Azure Virtual Network environments.
 
-~> **Note** Please refer to [Azure VNET Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [Azure VNET Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
@@ -30,7 +30,7 @@ terraform {
 
 # Basic AzureVNETSite configuration
 resource "xcsh_azure_vnet_site" "example" {
-  name      = "example-Azure-vnet-site"
+  name      = "example-azure-vnet-site"
   namespace = "staging"
 
   machine_type   = "example-value"
@@ -162,7 +162,7 @@ A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin
 
 <a id="ref-e52931"></a>&#x2022; [`provider_ref`](#ref-e52931) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### Azure Cred
 
@@ -233,7 +233,7 @@ An [`ingress_egress_gw`](#ingress-egress-gw) block supports the following:
 
 <a id="ingress-egress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-egress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-egress-gw-az-nodes) below.
 
-<a id="ingress-egress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `Azure-byol-multi-nic-voltmesh`
+<a id="ingress-egress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
 
 <a id="inside-vn-3ce96a"></a>&#x2022; [`dc_cluster_group_inside_vn`](#inside-vn-3ce96a) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Inside Vn](#inside-vn-3ce96a) below.
 
@@ -411,7 +411,7 @@ An [`express_route_enabled`](#enabled-af8996) block (within [`ingress_egress_gw.
 
 <a id="subnet-b569ad"></a>&#x2022; [`route_server_subnet`](#subnet-b569ad) - Optional Block<br>Configuration parameter for route server subnet<br>See [Route Server Subnet](#subnet-b569ad) below.
 
-<a id="route-bcfd74"></a>&#x2022; [`site_registration_over_express_route`](#route-bcfd74) - Optional Block<br>CloudLink AND Network Config<br>See [Site Registration Over Express Route](#route-bcfd74) below.
+<a id="route-bcfd74"></a>&#x2022; [`site_registration_over_express_route`](#route-bcfd74) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Express Route](#route-bcfd74) below.
 
 <a id="internet-84b00b"></a>&#x2022; [`site_registration_over_internet`](#internet-84b00b) - Optional Block<br>Enable this option
 
@@ -619,7 +619,7 @@ An [`ingress_egress_gw_ar`](#ingress-egress-gw-ar) block supports the following:
 
 <a id="policies-f5e0fc"></a>&#x2022; [`active_network_policies`](#policies-f5e0fc) - Optional Block<br>Configuration parameter for active network policies<br>See [Active Network Policies](#policies-f5e0fc) below.
 
-<a id="ingress-egress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `Azure-byol-multi-nic-voltmesh`
+<a id="ingress-egress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-egress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-multi-nic-voltmesh`
 
 <a id="inside-vn-d5b061"></a>&#x2022; [`dc_cluster_group_inside_vn`](#inside-vn-d5b061) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group Inside Vn](#inside-vn-d5b061) below.
 
@@ -969,7 +969,7 @@ An [`ingress_gw`](#ingress-gw) block supports the following:
 
 <a id="ingress-gw-az-nodes"></a>&#x2022; [`az_nodes`](#ingress-gw-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#ingress-gw-az-nodes) below.
 
-<a id="ingress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `Azure-byol-voltmesh`
+<a id="ingress-gw-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
 
 <a id="ingress-gw-performance-enhancement-mode"></a>&#x2022; [`performance_enhancement_mode`](#ingress-gw-performance-enhancement-mode) - Optional Block<br>Optimize the site for L3 or L7 traffic processing. L7 optimized is the default. Server applies default when omitted<br>See [Performance Enhancement Mode](#ingress-gw-performance-enhancement-mode) below.
 
@@ -1033,7 +1033,7 @@ An [`ingress_gw_ar`](#ingress-gw-ar) block supports the following:
 
 <a id="ingress-gw-ar-accelerated-networking"></a>&#x2022; [`accelerated_networking`](#ingress-gw-ar-accelerated-networking) - Optional Block<br>Accelerated Networking to reduce Latency, When Mode is toggled, traffic disruption will be seen<br>See [Accelerated Networking](#ingress-gw-ar-accelerated-networking) below.
 
-<a id="ingress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `Azure-byol-voltmesh`
+<a id="ingress-gw-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#ingress-gw-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltmesh] Name for Azure certified hardware. The only possible value is `azure-byol-voltmesh`
 
 <a id="ingress-gw-ar-node"></a>&#x2022; [`node`](#ingress-gw-ar-node) - Optional Block<br>Parameters for creating Single interface Node for Alternate Region<br>See [Node](#ingress-gw-ar-node) below.
 
@@ -1207,7 +1207,7 @@ A [`voltstack_cluster`](#voltstack-cluster) block supports the following:
 
 <a id="voltstack-cluster-az-nodes"></a>&#x2022; [`az_nodes`](#voltstack-cluster-az-nodes) - Optional Block<br>Only Single AZ or Three AZ(s) nodes are supported currently<br>See [Az Nodes](#voltstack-cluster-az-nodes) below.
 
-<a id="voltstack-cluster-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `Azure-byol-voltstack-combo`
+<a id="voltstack-cluster-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
 
 <a id="voltstack-cluster-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-dc-cluster-group) below.
 
@@ -1431,7 +1431,7 @@ A [`voltstack_cluster_ar`](#voltstack-cluster-ar) block supports the following:
 
 <a id="policies-32b156"></a>&#x2022; [`active_network_policies`](#policies-32b156) - Optional Block<br>Configuration parameter for active network policies<br>See [Active Network Policies](#policies-32b156) below.
 
-<a id="voltstack-cluster-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-ar-Azure-certified-hw) - Optional String<br>[Enum: Azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `Azure-byol-voltstack-combo`
+<a id="voltstack-cluster-ar-Azure-certified-hw"></a>&#x2022; [`azure_certified_hw`](#voltstack-cluster-ar-Azure-certified-hw) - Optional String<br>[Enum: azure-byol-voltstack-combo] Name for Azure certified hardware. The only possible value is `azure-byol-voltstack-combo`
 
 <a id="voltstack-cluster-ar-dc-cluster-group"></a>&#x2022; [`dc_cluster_group`](#voltstack-cluster-ar-dc-cluster-group) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Dc Cluster Group](#voltstack-cluster-ar-dc-cluster-group) below.
 

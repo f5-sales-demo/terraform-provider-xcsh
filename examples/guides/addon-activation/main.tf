@@ -53,7 +53,7 @@ data "xcsh_addon_service" "bot_defense" {
   name  = "f5xc-bot-defense-standard"
 }
 
-# Get details about Client Side Defense addon service
+# Get details about Client-Side Defense addon service
 data "xcsh_addon_service" "client_side_defense" {
   count = var.enable_client_side_defense ? 1 : 0
   name  = "f5xc-client-side-defense-standard"
@@ -75,7 +75,7 @@ data "xcsh_addon_service_activation_status" "bot_defense" {
   addon_service = "f5xc-bot-defense-standard"
 }
 
-# Check Client Side Defense activation status
+# Check Client-Side Defense activation status
 data "xcsh_addon_service_activation_status" "client_side_defense" {
   count         = var.enable_client_side_defense ? 1 : 0
   addon_service = "f5xc-client-side-defense-standard"
@@ -109,7 +109,7 @@ resource "xcsh_addon_subscription" "bot_defense" {
   }
 }
 
-# Activate Client Side Defense if enabled and available
+# Activate Client-Side Defense if enabled and available
 resource "xcsh_addon_subscription" "client_side_defense" {
   count = (
     var.enable_client_side_defense &&

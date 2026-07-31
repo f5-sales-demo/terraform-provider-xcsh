@@ -24,6 +24,50 @@ func FixUpstreamTerminology(content string) string {
 		savedURLs = append(savedURLs, match)
 		return fmt.Sprintf("](##URL_%d##)", idx)
 	})
+
+	// Protect fenced code blocks first — they are code for the same reason inline
+	// spans are, and generated resource pages embed the example HCL verbatim.
+	// `azure` -> `Azure` rewrote the resource NAME inside them: the shipped
+	// examples/resources/xcsh_azure_vnet_site/resource.tf says
+	// `example-azure-vnet-site` while the fenced copy in the generated page read
+	// `example-Azure-vnet-site`, so a reader copying the documented example got
+	// different HCL from the one in the repository. Fences are handled before inline
+	// spans so a backtick inside a fenced block cannot be mistaken for a span.
+	fenceRegex := regexp.MustCompile("(?s)```.*?```")
+	var savedFences []string
+	content = fenceRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedFences)
+		savedFences = append(savedFences, match)
+		return fmt.Sprintf("##FENCE_%d##", idx)
+	})
+
+	// Protect `[Enum: ...]` listings. They sit outside backticks but name the exact
+	// literals the provider accepts: the generated azure_vnet_site page advertised
+	// `[Enum: Azure-byol-multi-nic-voltmesh]` while that resource's own
+	// stringvalidator.OneOf accepts only "azure-byol-multi-nic-voltmesh", so a reader
+	// copying the documented value got a Terraform validation error.
+	enumRegex := regexp.MustCompile(`\[Enum: [^\]]*\]`)
+	var savedEnums []string
+	content = enumRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedEnums)
+		savedEnums = append(savedEnums, match)
+		return fmt.Sprintf("##ENUM_%d##", idx)
+	})
+
+	// Protect inline code spans for the same reason. Generated provider
+	// documentation is mostly IDENTIFIERS, and terminology rules are about prose:
+	// `javascript` -> `JavaScript` rewrote the real attribute javascript_location
+	// into JavaScript_location, documenting HCL that Terraform rejects (#1414).
+	// `ubuntu` -> `Ubuntu` and `docker` -> `Docker` are the same hazard against any
+	// attribute or enum value carrying those words. An attribute name is whatever
+	// the schema says it is, so nothing inside backticks may be corrected.
+	codeRegex := regexp.MustCompile("`[^`\n]*`")
+	var savedCode []string
+	content = codeRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedCode)
+		savedCode = append(savedCode, match)
+		return fmt.Sprintf("##CODE_%d##", idx)
+	})
 	content = strings.NewReplacer(
 		"User Name", "username",
 		"Host Name", "hostname",
@@ -81,7 +125,17 @@ func FixUpstreamTerminology(content string) string {
 	// "EncodingBase64" into "Encodingbase64" (Go regexp has no lookbehind to exclude
 	// it). Preserve the token as authored in the schema.
 
-	// Restore protected URLs
+	// Restore protected code spans, fences and URLs. Spans before fences, mirroring
+	// the order they were removed in reverse.
+	for i, code := range savedCode {
+		content = strings.Replace(content, fmt.Sprintf("##CODE_%d##", i), code, 1)
+	}
+	for i, enum := range savedEnums {
+		content = strings.Replace(content, fmt.Sprintf("##ENUM_%d##", i), enum, 1)
+	}
+	for i, fence := range savedFences {
+		content = strings.Replace(content, fmt.Sprintf("##FENCE_%d##", i), fence, 1)
+	}
 	for i, url := range savedURLs {
 		content = strings.Replace(content, fmt.Sprintf("](##URL_%d##)", i), url, 1)
 	}

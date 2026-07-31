@@ -15,7 +15,7 @@ Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge comma
 
 ```terraform
 # CDNPurgeCommand Resource Example
-# Manages a CDN Purge Command resource in F5 Distributed Cloud for CDN purge command specification.
+# Manages a CDN Purge Command resource in F5 Distributed Cloud for cdn purge command specification.
 
 terraform {
   required_version = ">= 1.0"
@@ -30,7 +30,7 @@ terraform {
 
 # Basic CDNPurgeCommand configuration
 resource "xcsh_cdn_purge_command" "example" {
-  name      = "example-CDN-purge-command"
+  name      = "example-cdn-purge-command"
   namespace = "staging"
 }
 ```

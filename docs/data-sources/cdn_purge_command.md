@@ -29,7 +29,7 @@ terraform {
 
 # Look up an existing CDNPurgeCommand by name
 data "xcsh_cdn_purge_command" "example" {
-  name      = "example-CDN-purge-command"
+  name      = "example-cdn-purge-command"
   namespace = "staging"
 }
 

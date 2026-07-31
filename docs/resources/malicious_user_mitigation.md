@@ -134,7 +134,7 @@ resource "xcsh_malicious_user_mitigation" "test" {
         medium {}
       }
       mitigation_action {
-        JavaScript_challenge {}
+        javascript_challenge {}
       }
     }
   }
@@ -350,7 +350,7 @@ A [`mitigation_action`](#mitigation-type-rules-mitigation-action) block (within 
 
 <a id="challenge-783e81"></a>&#x2022; [`captcha_challenge`](#challenge-783e81) - Optional Block<br>Configuration parameter for captcha challenge
 
-<a id="challenge-784169"></a>&#x2022; [`JavaScript_challenge`](#challenge-784169) - Optional Block<br>Enable this option
+<a id="challenge-784169"></a>&#x2022; [`javascript_challenge`](#challenge-784169) - Optional Block<br>Enable this option
 
 #### Mitigation Type Rules Threat Level
 

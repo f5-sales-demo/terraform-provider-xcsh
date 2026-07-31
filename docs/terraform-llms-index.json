@@ -494,7 +494,7 @@
         "no_worker_nodes",
         "tags"
       ],
-      "minimal_config": "resource \"xcsh_azure_vnet_site\" \"example\" {\n  name      = \"example-Azure-vnet-site\"\n  namespace = \"staging\"\n\n  machine_type   = \"example-value\"\n  resource_group = \"example-value\"\n  ssh_key        = \"example-value\"\n}",
+      "minimal_config": "resource \"xcsh_azure_vnet_site\" \"example\" {\n  name      = \"example-azure-vnet-site\"\n  namespace = \"staging\"\n\n  machine_type   = \"example-value\"\n  resource_group = \"example-value\"\n  ssh_key        = \"example-value\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -564,7 +564,7 @@
       "category": "load-balancing",
       "description": "CDN loadbalancer specification. configuration",
       "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_cdn_cache_rule\" \"example\" {\n  name      = \"example-CDN-cache-rule\"\n  namespace = \"staging\"\n}",
+      "minimal_config": "resource \"xcsh_cdn_cache_rule\" \"example\" {\n  name      = \"example-cdn-cache-rule\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
       },
@@ -574,7 +574,7 @@
       "category": "load-balancing",
       "description": "Content delivery and edge caching with load balancing",
       "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_cdn_loadbalancer\" \"example\" {\n  name      = \"example-CDN-loadbalancer\"\n  namespace = \"staging\"\n\n  domains = [\"example-value\"]\n}",
+      "minimal_config": "resource \"xcsh_cdn_loadbalancer\" \"example\" {\n  name      = \"example-cdn-loadbalancer\"\n  namespace = \"staging\"\n\n  domains = [\"example-value\"]\n}",
       "dependencies": {
         "requires": []
       },
@@ -584,7 +584,7 @@
       "category": "load-balancing",
       "description": "CDN purge command specification. configuration",
       "required": ["name", "namespace"],
-      "minimal_config": "resource \"xcsh_cdn_purge_command\" \"example\" {\n  name      = \"example-CDN-purge-command\"\n  namespace = \"staging\"\n}",
+      "minimal_config": "resource \"xcsh_cdn_purge_command\" \"example\" {\n  name      = \"example-cdn-purge-command\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
       },

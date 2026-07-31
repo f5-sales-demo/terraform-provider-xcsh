@@ -76,15 +76,15 @@ A [`code_base_integration`](#code-base-integration) block supports the following
 
 <a id="code-base-integration-Azure-repos"></a>&#x2022; [`azure_repos`](#code-base-integration-Azure-repos) - Optional Block<br>Configuration parameter for Azure repos<br>See [Azure Repos](#code-base-integration-Azure-repos) below.
 
-<a id="code-base-integration-Bitbucket"></a>&#x2022; [`Bitbucket`](#code-base-integration-Bitbucket) - Optional Block<br>Bitbucket Cloud Integration<br>See [Bitbucket](#code-base-integration-Bitbucket) below.
+<a id="code-base-integration-Bitbucket"></a>&#x2022; [`bitbucket`](#code-base-integration-Bitbucket) - Optional Block<br>Bitbucket Cloud Integration<br>See [Bitbucket](#code-base-integration-Bitbucket) below.
 
 <a id="code-base-integration-Bitbucket-server"></a>&#x2022; [`bitbucket_server`](#code-base-integration-Bitbucket-server) - Optional Block<br>Configuration parameter for Bitbucket server<br>See [Bitbucket Server](#code-base-integration-Bitbucket-server) below.
 
-<a id="code-base-integration-GitHub"></a>&#x2022; [`GitHub`](#code-base-integration-GitHub) - Optional Block<br>GitHub Integration<br>See [GitHub](#code-base-integration-GitHub) below.
+<a id="code-base-integration-GitHub"></a>&#x2022; [`github`](#code-base-integration-GitHub) - Optional Block<br>GitHub Integration<br>See [GitHub](#code-base-integration-GitHub) below.
 
 <a id="code-base-integration-GitHub-enterprise"></a>&#x2022; [`github_enterprise`](#code-base-integration-GitHub-enterprise) - Optional Block<br>Configuration parameter for GitHub enterprise<br>See [GitHub Enterprise](#code-base-integration-GitHub-enterprise) below.
 
-<a id="code-base-integration-GitLab"></a>&#x2022; [`GitLab`](#code-base-integration-GitLab) - Optional Block<br>GitLab Cloud Integration<br>See [GitLab](#code-base-integration-GitLab) below.
+<a id="code-base-integration-GitLab"></a>&#x2022; [`gitlab`](#code-base-integration-GitLab) - Optional Block<br>GitLab Cloud Integration<br>See [GitLab](#code-base-integration-GitLab) below.
 
 <a id="code-base-integration-GitLab-enterprise"></a>&#x2022; [`gitlab_enterprise`](#code-base-integration-GitLab-enterprise) - Optional Block<br>Configuration parameter for GitLab enterprise<br>See [GitLab Enterprise](#code-base-integration-GitLab-enterprise) below.
 
@@ -112,7 +112,7 @@ An [`access_token`](#token-d4247d) block (within [`code_base_integration.azure_r
 
 #### codebase Integration Bitbucket
 
-A [`Bitbucket`](#code-base-integration-Bitbucket) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`bitbucket`](#code-base-integration-Bitbucket) block (within [`code_base_integration`](#code-base-integration)) supports the following:
 
 <a id="code-base-integration-Bitbucket-passwd"></a>&#x2022; [`passwd`](#code-base-integration-Bitbucket-passwd) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Passwd](#code-base-integration-Bitbucket-passwd) below.
 
@@ -120,7 +120,7 @@ A [`Bitbucket`](#code-base-integration-Bitbucket) block (within [`code_base_inte
 
 #### codebase Integration Bitbucket Passwd
 
-A [`passwd`](#code-base-integration-Bitbucket-passwd) block (within [`code_base_integration.Bitbucket`](#code-base-integration-Bitbucket)) supports the following:
+A [`passwd`](#code-base-integration-Bitbucket-passwd) block (within [`code_base_integration.bitbucket`](#code-base-integration-Bitbucket)) supports the following:
 
 <a id="info-6400a1"></a>&#x2022; [`blindfold_secret_info`](#info-6400a1) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-6400a1) below.
 
@@ -164,7 +164,7 @@ A [`passwd`](#passwd-13127c) block (within [`code_base_integration.bitbucket_ser
 
 #### codebase Integration GitHub
 
-A [`GitHub`](#code-base-integration-GitHub) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`github`](#code-base-integration-GitHub) block (within [`code_base_integration`](#code-base-integration)) supports the following:
 
 <a id="token-b77f94"></a>&#x2022; [`access_token`](#token-b77f94) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-b77f94) below.
 
@@ -174,7 +174,7 @@ A [`GitHub`](#code-base-integration-GitHub) block (within [`code_base_integratio
 
 #### codebase Integration GitHub Access Token
 
-An [`access_token`](#token-b77f94) block (within [`code_base_integration.GitHub`](#code-base-integration-GitHub)) supports the following:
+An [`access_token`](#token-b77f94) block (within [`code_base_integration.github`](#code-base-integration-GitHub)) supports the following:
 
 <a id="info-a74f41"></a>&#x2022; [`blindfold_secret_info`](#info-a74f41) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-a74f41) below.
 
@@ -216,13 +216,13 @@ An [`access_token`](#token-c0b5c1) block (within [`code_base_integration.github_
 
 #### codebase Integration GitLab
 
-A [`GitLab`](#code-base-integration-GitLab) block (within [`code_base_integration`](#code-base-integration)) supports the following:
+A [`gitlab`](#code-base-integration-GitLab) block (within [`code_base_integration`](#code-base-integration)) supports the following:
 
 <a id="token-5d157b"></a>&#x2022; [`access_token`](#token-5d157b) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Access Token](#token-5d157b) below.
 
 #### codebase Integration GitLab Access Token
 
-An [`access_token`](#token-5d157b) block (within [`code_base_integration.GitLab`](#code-base-integration-GitLab)) supports the following:
+An [`access_token`](#token-5d157b) block (within [`code_base_integration.gitlab`](#code-base-integration-GitLab)) supports the following:
 
 <a id="info-ceae94"></a>&#x2022; [`blindfold_secret_info`](#info-ceae94) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-ceae94) below.
 

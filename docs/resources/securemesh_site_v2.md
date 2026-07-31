@@ -70,7 +70,7 @@ access<br>See [Admin User Credentials](#admin-user-credentials) below for detail
 
 -> **One of the following:**
 &#x2022; <a id="aws"></a>[`aws`](#aws) - Optional Block<br>AWS Provider Type. AWS Provider Type<br>See [AWS](#aws) below for details.
-<br><br>&#x2022; <a id="Azure"></a>[`Azure`](#Azure) - Optional Block<br>Azure Provider Type. Azure Provider Type<br>See [Azure](#Azure) below for details.
+<br><br>&#x2022; <a id="Azure"></a>[`azure`](#Azure) - Optional Block<br>Azure Provider Type. Azure Provider Type<br>See [Azure](#Azure) below for details.
 <br><br>&#x2022; <a id="baremetal"></a>[`baremetal`](#baremetal) - Optional Block<br>Baremetal Provider Type. Baremetal Provider Type
 <br><br>&#x2022; <a id="equinix"></a>[`equinix`](#equinix) - Optional Block<br>Equinix Provider Type. Equinix Provider Type
 <br><br>&#x2022; <a id="gcp"></a>[`gcp`](#gcp) - Optional Block<br>GCP Provider Type. GCP Provider Type
@@ -369,19 +369,19 @@ An [`interface_list`](#list-6c6298) block (within [`aws.not_managed.node_list`](
 
 #### Azure
 
-An [`Azure`](#Azure) block supports the following:
+An [`azure`](#Azure) block supports the following:
 
 <a id="Azure-not-managed"></a>&#x2022; [`not_managed`](#Azure-not-managed) - Optional Block<br>Section will show nodes associated with this site<br>See [Not Managed](#Azure-not-managed) below.
 
 #### Azure Not Managed
 
-A [`not_managed`](#Azure-not-managed) block (within [`Azure`](#Azure)) supports the following:
+A [`not_managed`](#Azure-not-managed) block (within [`azure`](#Azure)) supports the following:
 
 <a id="Azure-not-managed-node-list"></a>&#x2022; [`node_list`](#Azure-not-managed-node-list) - Optional Block<br>Section will show nodes associated with this site<br>See [Node List](#Azure-not-managed-node-list) below.
 
 #### Azure Not Managed Node List
 
-A [`node_list`](#Azure-not-managed-node-list) block (within [`Azure.not_managed`](#Azure-not-managed)) supports the following:
+A [`node_list`](#Azure-not-managed-node-list) block (within [`azure.not_managed`](#Azure-not-managed)) supports the following:
 
 <a id="Azure-not-managed-node-list-hostname"></a>&#x2022; [`hostname`](#Azure-not-managed-node-list-hostname) - Optional String<br>Hostname. Hostname for this Node
 
@@ -393,7 +393,7 @@ A [`node_list`](#Azure-not-managed-node-list) block (within [`Azure.not_managed`
 
 #### Azure Not Managed Node List Interface List
 
-An [`interface_list`](#list-f42e50) block (within [`Azure.not_managed.node_list`](#Azure-not-managed-node-list)) supports the following:
+An [`interface_list`](#list-f42e50) block (within [`azure.not_managed.node_list`](#Azure-not-managed-node-list)) supports the following:
 
 <a id="interface-dd8ceb"></a>&#x2022; [`bond_interface`](#interface-dd8ceb) - Optional Block<br>Configuration parameter for bond interface<br>See [Bond Interface](#interface-dd8ceb) below.
 
@@ -706,7 +706,7 @@ A [`clear_secret_info`](#custom-proxy-password-clear-secret-info) block (within 
 
 <a id="ref-35707d"></a>&#x2022; [`provider_ref`](#ref-35707d) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-0071f9"></a>&#x2022; [`url`](#url-0071f9) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="url-0071f9"></a>&#x2022; [`url`](#url-0071f9) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### Custom Proxy Bypass
 

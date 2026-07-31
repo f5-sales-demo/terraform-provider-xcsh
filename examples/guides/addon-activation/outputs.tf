@@ -24,7 +24,7 @@ output "bot_defense_info" {
 }
 
 output "client_side_defense_info" {
-  description = "Client Side Defense addon service details"
+  description = "Client-Side Defense addon service details"
   value = var.enable_client_side_defense ? {
     display_name    = try(data.xcsh_addon_service.client_side_defense[0].display_name, "N/A")
     tier            = try(data.xcsh_addon_service.client_side_defense[0].tier, "N/A")
@@ -55,7 +55,7 @@ output "bot_defense_status" {
 }
 
 output "client_side_defense_status" {
-  description = "Client Side Defense activation status"
+  description = "Client-Side Defense activation status"
   value = var.enable_client_side_defense ? {
     state        = try(data.xcsh_addon_service_activation_status.client_side_defense[0].state, "NOT_CHECKED")
     can_activate = try(data.xcsh_addon_service_activation_status.client_side_defense[0].can_activate, false)
