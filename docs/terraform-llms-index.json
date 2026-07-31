@@ -178,144 +178,91 @@
       "slug": "api-security",
       "description": "API definition, discovery, testing, and security controls for web APIs",
       "resource_count": 5,
-      "resources": [
-        "api_crawler",
-        "api_definition",
-        "api_discovery",
-        "api_testing",
-        "app_api_group"
-      ]
+      "resources": ["api_crawler", "api_definition", "api_discovery", "api_testing", "app_api_group"]
     },
     {
       "name": "Applications",
       "slug": "applications",
       "description": "Application settings, types, discovery, and filtering",
       "resource_count": 4,
-      "resources": [
-        "app_setting",
-        "app_type",
-        "discovery",
-        "filter_set"
-      ]
+      "resources": ["app_setting", "app_type", "discovery", "filter_set"]
     },
     {
       "name": "Authentication",
       "slug": "authentication",
       "description": "Authentication methods, cloud credentials, and secret management",
       "resource_count": 4,
-      "resources": [
-        "authentication",
-        "cloud_credentials",
-        "secret_management_access",
-        "token"
-      ]
+      "resources": ["authentication", "cloud_credentials", "secret_management_access", "token"]
     },
     {
       "name": "Certificates",
       "slug": "certificates",
       "description": "TLS certificates, certificate chains, CRLs, and trusted CA lists",
       "resource_count": 4,
-      "resources": [
-        "certificate",
-        "certificate_chain",
-        "crl",
-        "trusted_ca_list"
-      ]
+      "resources": ["certificate", "certificate_chain", "crl", "trusted_ca_list"]
     },
     {
       "name": "Monitoring",
       "slug": "monitoring",
       "description": "Log receivers, alert policies, alert templates, and global logging configuration",
       "resource_count": 4,
-      "resources": [
-        "alert_receiver",
-        "alert_template",
-        "global_log_receiver",
-        "log_receiver"
-      ]
+      "resources": ["alert_receiver", "alert_template", "global_log_receiver", "log_receiver"]
     },
     {
       "name": "VPN",
       "slug": "vpn",
       "description": "VPN and IPSec configuration",
       "resource_count": 4,
-      "resources": [
-        "ike1",
-        "ike2",
-        "ike_phase1_profile",
-        "ike_phase2_profile"
-      ]
+      "resources": ["ike1", "ike2", "ike_phase1_profile", "ike_phase2_profile"]
     },
     {
       "name": "BIG-IP Integration",
       "slug": "big-ip-integration",
       "description": "BIG-IP proxy, data groups, and iRules integration",
       "resource_count": 3,
-      "resources": [
-        "bigip_http_proxy",
-        "data_group",
-        "irule"
-      ]
+      "resources": ["bigip_http_proxy", "data_group", "irule"]
     },
     {
       "name": "Cloud Resources",
       "slug": "cloud-resources",
       "description": "Cloud elastic IPs, address allocators, and geo-location resources",
       "resource_count": 3,
-      "resources": [
-        "address_allocator",
-        "cloud_elastic_ip",
-        "geo_location_set"
-      ]
+      "resources": ["address_allocator", "cloud_elastic_ip", "geo_location_set"]
     },
     {
       "name": "Organization",
       "slug": "organization",
       "description": "Namespaces, tenant configuration, and organizational settings",
       "resource_count": 3,
-      "resources": [
-        "allowed_domain",
-        "namespace",
-        "tenant_configuration"
-      ]
+      "resources": ["allowed_domain", "namespace", "tenant_configuration"]
     },
     {
       "name": "Integrations",
       "slug": "integrations",
       "description": "External integrations including code base and ticket tracking",
       "resource_count": 1,
-      "resources": [
-        "code_base_integration"
-      ]
+      "resources": ["code_base_integration"]
     },
     {
       "name": "Service Mesh",
       "slug": "service-mesh",
       "description": "Service mesh policies and traffic management",
       "resource_count": 1,
-      "resources": [
-        "policer"
-      ]
+      "resources": ["policer"]
     },
     {
       "name": "Subscriptions",
       "slug": "subscriptions",
       "description": "Cloud subscription management and metering",
       "resource_count": 1,
-      "resources": [
-        "cminstance"
-      ]
+      "resources": ["cminstance"]
     }
   ],
   "resources": {
     "address_allocator": {
       "category": "cloud-resources",
       "description": "Address Allocator will create an address allocator object in 'system' namespace of the user",
-      "required": [
-        "name",
-        "namespace",
-        "mode"
-      ],
+      "required": ["name", "namespace", "mode"],
       "minimal_config": "resource \"xcsh_address_allocator\" \"example\" {\n  name      = \"example-address-allocator\"\n  namespace = \"staging\"\n\n  address_pool = [\"example-value\"]\n  mode         = \"LOCAL\"\n}",
       "dependencies": {
         "requires": []
@@ -325,13 +272,7 @@
     "advertise_policy": {
       "category": "load-balancing",
       "description": "Advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "address",
-        "protocol",
-        "skip_xff_append"
-      ],
+      "required": ["name", "namespace", "address", "protocol", "skip_xff_append"],
       "minimal_config": "resource \"xcsh_advertise_policy\" \"example\" {\n  name      = \"example-advertise-policy\"\n  namespace = \"staging\"\n\n  address         = \"example-value\"\n  protocol        = \"TCP\"\n  skip_xff_append = true\n}",
       "dependencies": {
         "requires": []
@@ -341,11 +282,7 @@
     "alert_gen_policy": {
       "category": "security",
       "description": "Alert Generation Policy",
-      "required": [
-        "name",
-        "namespace",
-        "alert_status"
-      ],
+      "required": ["name", "namespace", "alert_status"],
       "minimal_config": "resource \"xcsh_alert_gen_policy\" \"example\" {\n  name      = \"example-alert-gen-policy\"\n  namespace = \"staging\"\n\n  alert_status = \"ALERT_ACTIVE\"\n}",
       "dependencies": {
         "requires": []
@@ -355,10 +292,7 @@
     "alert_policy": {
       "category": "security",
       "description": "New Alert Policy Object",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_alert_policy\" \"example\" {\n  name      = \"example-alert-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -368,11 +302,7 @@
     "alert_receiver": {
       "category": "monitoring",
       "description": "New Alert Receiver object",
-      "required": [
-        "name",
-        "namespace",
-        "receiver_choice"
-      ],
+      "required": ["name", "namespace", "receiver_choice"],
       "minimal_config": "resource \"xcsh_alert_receiver\" \"example\" {\n  name      = \"example-alert-receiver\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -382,14 +312,7 @@
     "alert_template": {
       "category": "monitoring",
       "description": "Domain to protect",
-      "required": [
-        "name",
-        "namespace",
-        "alert_message",
-        "alert_message_details",
-        "alert_name",
-        "severity"
-      ],
+      "required": ["name", "namespace", "alert_message", "alert_message_details", "alert_name", "severity"],
       "minimal_config": "resource \"xcsh_alert_template\" \"example\" {\n  name      = \"example-alert-template\"\n  namespace = \"staging\"\n\n  alert_message         = \"example-value\"\n  alert_message_details = \"example-value\"\n  alert_name            = \"example-value\"\n  severity              = \"MINOR\"\n}",
       "dependencies": {
         "requires": []
@@ -399,11 +322,7 @@
     "allowed_domain": {
       "category": "organization",
       "description": "Allowed domain",
-      "required": [
-        "name",
-        "namespace",
-        "allowed_domain"
-      ],
+      "required": ["name", "namespace", "allowed_domain"],
       "minimal_config": "resource \"xcsh_allowed_domain\" \"example\" {\n  name      = \"example-allowed-domain\"\n  namespace = \"staging\"\n\n  allowed_domain = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -413,10 +332,7 @@
     "api_crawler": {
       "category": "api-security",
       "description": "API Crawler resource",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_api_crawler\" \"example\" {\n  name      = \"example-api-crawler\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -426,10 +342,7 @@
     "api_definition": {
       "category": "api-security",
       "description": "API Definition",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "server_defaults": [
         "api_inventory_exclusion_list",
         "api_inventory_inclusion_list",
@@ -439,20 +352,14 @@
       ],
       "minimal_config": "resource \"xcsh_api_definition\" \"example\" {\n  name      = \"example-api-definition\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace"
-        ]
+        "requires": ["namespace"]
       },
       "import_syntax": "terraform import xcsh_api_definition.example namespace/name"
     },
     "api_discovery": {
       "category": "api-security",
       "description": "API discovery creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "user_defined_api_discovery_policy"
-      ],
+      "required": ["name", "namespace", "user_defined_api_discovery_policy"],
       "server_defaults": [
         "custom_auth_types",
         "user_defined_api_discovery_policy.discovery_rules",
@@ -467,11 +374,7 @@
     "api_testing": {
       "category": "api-security",
       "description": "API Testing resource",
-      "required": [
-        "name",
-        "namespace",
-        "custom_header_value"
-      ],
+      "required": ["name", "namespace", "custom_header_value"],
       "minimal_config": "resource \"xcsh_api_testing\" \"example\" {\n  name      = \"example-api-testing\"\n  namespace = \"staging\"\n\n  custom_header_value = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -481,10 +384,7 @@
     "app_api_group": {
       "category": "api-security",
       "description": "App_api_group creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_app_api_group\" \"example\" {\n  name      = \"example-app-api-group\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -494,10 +394,7 @@
     "app_firewall": {
       "category": "security",
       "description": "Application Firewall",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "server_defaults": [
         "allow_all_response_codes",
         "default_anonymization",
@@ -509,19 +406,14 @@
       ],
       "minimal_config": "resource \"xcsh_app_firewall\" \"example\" {\n  name      = \"example-app-firewall\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace"
-        ]
+        "requires": ["namespace"]
       },
       "import_syntax": "terraform import xcsh_app_firewall.example namespace/name"
     },
     "app_setting": {
       "category": "applications",
       "description": "App setting configuration in namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_app_setting\" \"example\" {\n  name      = \"example-app-setting\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -531,10 +423,7 @@
     "app_type": {
       "category": "applications",
       "description": "App type will create the configuration in namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_app_type\" \"example\" {\n  name      = \"example-app-type\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -544,10 +433,7 @@
     "application_profiles": {
       "category": "uncategorized",
       "description": "Application Profiles in a given namespace. If one already exists it will give an error",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_application_profiles\" \"example\" {\n  name      = \"example-application-profiles\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -557,10 +443,7 @@
     "authentication": {
       "category": "authentication",
       "description": "Authentication resource",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_authentication\" \"example\" {\n  name      = \"example-authentication\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -570,11 +453,7 @@
     "authorization_server": {
       "category": "uncategorized",
       "description": "Authorization_server creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "jwks_uri"
-      ],
+      "required": ["name", "namespace", "jwks_uri"],
       "minimal_config": "resource \"xcsh_authorization_server\" \"example\" {\n  name      = \"example-authorization-server\"\n  namespace = \"staging\"\n\n  jwks_uri = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -584,10 +463,7 @@
     "aws_tgw_site": {
       "category": "sites",
       "description": "Deploying F5 sites connected via AWS Transit Gateway",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_aws_tgw_site\" \"example\" {\n  name      = \"example-aws-tgw-site\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -597,15 +473,7 @@
     "aws_vpc_site": {
       "category": "sites",
       "description": "Deploying F5 sites within AWS VPC environments",
-      "required": [
-        "name",
-        "namespace",
-        "address",
-        "aws_region",
-        "disk_size",
-        "instance_type",
-        "ssh_key"
-      ],
+      "required": ["name", "namespace", "address", "aws_region", "disk_size", "instance_type", "ssh_key"],
       "minimal_config": "resource \"xcsh_aws_vpc_site\" \"example\" {\n  name      = \"example-aws-vpc-site\"\n  namespace = \"staging\"\n\n  aws_region    = \"example-value\"\n  instance_type = \"example-value\"\n  ssh_key       = \"example-value\"\n  address       = \"example-value\"\n  disk_size     = 1\n}",
       "dependencies": {
         "requires": []
@@ -615,13 +483,7 @@
     "azure_vnet_site": {
       "category": "sites",
       "description": "Deploying F5 sites within Azure Virtual Network environments",
-      "required": [
-        "name",
-        "namespace",
-        "machine_type",
-        "resource_group",
-        "ssh_key"
-      ],
+      "required": ["name", "namespace", "machine_type", "resource_group", "ssh_key"],
       "server_defaults": [
         "block_all_services",
         "disk_size",
@@ -641,10 +503,7 @@
     "bgp": {
       "category": "networking",
       "description": "Bgp object is the configuration for peering with external bgp servers. it is created by users in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bgp\" \"example\" {\n  name      = \"example-bgp\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -654,10 +513,7 @@
     "bgp_asn_set": {
       "category": "networking",
       "description": "Bgp_asn_set creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bgp_asn_set\" \"example\" {\n  name      = \"example-bgp-asn-set\"\n  namespace = \"staging\"\n\n  as_numbers = [1]\n}",
       "dependencies": {
         "requires": []
@@ -667,10 +523,7 @@
     "bgp_routing_policy": {
       "category": "security",
       "description": "Bgp routing policy is a list of rules containing match criteria and action to be applied. these rules help control routes which are imported or exported to bgp peers. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bgp_routing_policy\" \"example\" {\n  name      = \"example-bgp-routing-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -680,10 +533,7 @@
     "bigip_http_proxy": {
       "category": "big-ip-integration",
       "description": "BIG-IP HTTP Proxy in a given namespace. If one already exists, it will give an error",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_bigip_http_proxy\" \"example\" {\n  name      = \"example-bigip-http-proxy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -693,12 +543,7 @@
     "bot_defense_app_infrastructure": {
       "category": "security",
       "description": "Bot Defense App Infrastructure in a given namespace",
-      "required": [
-        "name",
-        "namespace",
-        "environment_type",
-        "traffic_type"
-      ],
+      "required": ["name", "namespace", "environment_type", "traffic_type"],
       "minimal_config": "resource \"xcsh_bot_defense_app_infrastructure\" \"example\" {\n  name      = \"example-bot-defense-app-infrastructure\"\n  namespace = \"staging\"\n\n  environment_type = \"PRODUCTION\"\n  traffic_type     = \"WEB\"\n}",
       "dependencies": {
         "requires": []
@@ -708,11 +553,7 @@
     "bot_infrastructure": {
       "category": "uncategorized",
       "description": "Bot Infrastructure",
-      "required": [
-        "name",
-        "namespace",
-        "traffic_type"
-      ],
+      "required": ["name", "namespace", "traffic_type"],
       "minimal_config": "resource \"xcsh_bot_infrastructure\" \"example\" {\n  name      = \"example-bot-infrastructure\"\n  namespace = \"staging\"\n\n  traffic_type = \"WEB\"\n}",
       "dependencies": {
         "requires": []
@@ -722,10 +563,7 @@
     "cdn_cache_rule": {
       "category": "load-balancing",
       "description": "CDN loadbalancer specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_cdn_cache_rule\" \"example\" {\n  name      = \"example-cdn-cache-rule\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -735,10 +573,7 @@
     "cdn_loadbalancer": {
       "category": "load-balancing",
       "description": "Content delivery and edge caching with load balancing",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_cdn_loadbalancer\" \"example\" {\n  name      = \"example-cdn-loadbalancer\"\n  namespace = \"staging\"\n\n  domains = [\"example-value\"]\n}",
       "dependencies": {
         "requires": []
@@ -748,10 +583,7 @@
     "cdn_purge_command": {
       "category": "load-balancing",
       "description": "CDN purge command specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_cdn_purge_command\" \"example\" {\n  name      = \"example-cdn-purge-command\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -761,28 +593,17 @@
     "certificate": {
       "category": "certificates",
       "description": "Certificate. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "certificate_url",
-        "private_key"
-      ],
+      "required": ["name", "namespace", "certificate_url", "private_key"],
       "minimal_config": "resource \"xcsh_certificate\" \"example\" {\n  name      = \"example-certificate\"\n  namespace = \"staging\"\n\n  certificate_url = \"example-value\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace"
-        ]
+        "requires": ["namespace"]
       },
       "import_syntax": "terraform import xcsh_certificate.example namespace/name"
     },
     "certificate_chain": {
       "category": "certificates",
       "description": "Certificate chain configuration for TLS",
-      "required": [
-        "name",
-        "namespace",
-        "certificate_url"
-      ],
+      "required": ["name", "namespace", "certificate_url"],
       "minimal_config": "resource \"xcsh_certificate_chain\" \"example\" {\n  name      = \"example-certificate-chain\"\n  namespace = \"staging\"\n\n  certificate_url = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -792,10 +613,7 @@
     "cloud_connect": {
       "category": "networking",
       "description": "Establishing connectivity to cloud provider networks",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_cloud_connect\" \"example\" {\n  name      = \"example-cloud-connect\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -805,10 +623,7 @@
     "cloud_credentials": {
       "category": "authentication",
       "description": "Api to create cloud_credentials object. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_cloud_credentials\" \"example\" {\n  name      = \"example-cloud-credentials\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -818,11 +633,7 @@
     "cloud_elastic_ip": {
       "category": "cloud-resources",
       "description": "Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site",
-      "required": [
-        "name",
-        "namespace",
-        "item_count"
-      ],
+      "required": ["name", "namespace", "item_count"],
       "minimal_config": "resource \"xcsh_cloud_elastic_ip\" \"example\" {\n  name      = \"example-cloud-elastic-ip\"\n  namespace = \"staging\"\n\n  item_count = 1\n}",
       "dependencies": {
         "requires": []
@@ -832,10 +643,7 @@
     "cloud_link": {
       "category": "networking",
       "description": "New CloudLink with configured parameters",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_cloud_link\" \"example\" {\n  name      = \"example-cloud-link\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -863,12 +671,7 @@
     "cminstance": {
       "category": "subscriptions",
       "description": "App type will create the configuration in namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "port",
-        "username"
-      ],
+      "required": ["name", "namespace", "port", "username"],
       "minimal_config": "resource \"xcsh_cminstance\" \"example\" {\n  name      = \"example-cminstance\"\n  namespace = \"staging\"\n\n  port     = 1\n  username = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -878,10 +681,7 @@
     "code_base_integration": {
       "category": "integrations",
       "description": "Integration details",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_code_base_integration\" \"example\" {\n  name      = \"example-code-base-integration\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -891,13 +691,7 @@
     "container_registry": {
       "category": "kubernetes",
       "description": "Container image registry configuration",
-      "required": [
-        "name",
-        "namespace",
-        "email",
-        "registry",
-        "user_name"
-      ],
+      "required": ["name", "namespace", "email", "registry", "user_name"],
       "minimal_config": "resource \"xcsh_container_registry\" \"example\" {\n  name      = \"example-container-registry\"\n  namespace = \"staging\"\n\n  registry  = \"example-value\"\n  user_name = \"example-value\"\n  email     = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -907,14 +701,7 @@
     "crl": {
       "category": "certificates",
       "description": "Api to create crl object. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "refresh_interval",
-        "server_address",
-        "server_port",
-        "timeout"
-      ],
+      "required": ["name", "namespace", "refresh_interval", "server_address", "server_port", "timeout"],
       "minimal_config": "resource \"xcsh_crl\" \"example\" {\n  name      = \"example-crl\"\n  namespace = \"staging\"\n\n  refresh_interval = 1\n  server_address   = \"example-value\"\n  server_port      = 1\n  timeout          = 1\n}",
       "dependencies": {
         "requires": []
@@ -924,10 +711,7 @@
     "data_group": {
       "category": "big-ip-integration",
       "description": "Data group in a given namespace. If one already exists it will give an error",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_data_group\" \"example\" {\n  name      = \"example-data-group\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -937,12 +721,7 @@
     "data_type": {
       "category": "security",
       "description": "Data_type creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "is_pii",
-        "is_sensitive_data"
-      ],
+      "required": ["name", "namespace", "is_pii", "is_sensitive_data"],
       "minimal_config": "resource \"xcsh_data_type\" \"example\" {\n  name      = \"example-data-type\"\n  namespace = \"staging\"\n\n  compliances       = [\"example-value\"]\n  is_pii            = true\n  is_sensitive_data = true\n}",
       "dependencies": {
         "requires": []
@@ -952,9 +731,7 @@
     "dc_cluster_group": {
       "category": "networking",
       "description": "DC Cluster group in given namespace",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_dc_cluster_group\" \"example\" {\n  name      = \"example-dc-cluster-group\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -964,10 +741,7 @@
     "discovery": {
       "category": "applications",
       "description": "Api to create discovery object for a site or virtual site in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_discovery\" \"example\" {\n  name      = \"example-discovery\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -977,10 +751,7 @@
     "dns_compliance_checks": {
       "category": "dns",
       "description": "DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_dns_compliance_checks\" \"example\" {\n  name      = \"example-dns-compliance-checks\"\n  namespace = \"staging\"\n\n  domain_denylist                      = [\"example-value\"]\n  disallowed_query_type_list           = [\"example-value\"]\n  disallowed_resource_record_type_list = [\"example-value\"]\n}",
       "dependencies": {
         "requires": []
@@ -990,10 +761,7 @@
     "dns_domain": {
       "category": "dns",
       "description": "DNS Domain in a given namespace. If one already exist it will give a error",
-      "required": [
-        "name",
-        "dnssec_mode"
-      ],
+      "required": ["name", "dnssec_mode"],
       "minimal_config": "resource \"xcsh_dns_domain\" \"example\" {\n  name      = \"example-dns-domain\"\n  namespace = \"system\"\n\n  dnssec_mode = \"DNSSEC_DISABLE\"\n}",
       "dependencies": {
         "requires": []
@@ -1003,9 +771,7 @@
     "dns_lb_health_check": {
       "category": "dns",
       "description": "DNS Load Balancer Health Check in a given namespace. If one already exist it will give a error",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_dns_lb_health_check\" \"example\" {\n  name      = \"example-dns-lb-health-check\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1015,10 +781,7 @@
     "dns_lb_pool": {
       "category": "dns",
       "description": "DNS Load Balancer Pool in a given namespace. If one already exist it will give a error",
-      "required": [
-        "name",
-        "load_balancing_mode"
-      ],
+      "required": ["name", "load_balancing_mode"],
       "minimal_config": "resource \"xcsh_dns_lb_pool\" \"example\" {\n  name      = \"example-dns-lb-pool\"\n  namespace = \"system\"\n\n  load_balancing_mode = \"ROUND_ROBIN\"\n}",
       "dependencies": {
         "requires": []
@@ -1028,9 +791,7 @@
     "dns_load_balancer": {
       "category": "dns",
       "description": "DNS Load Balancer in a given namespace. If one already exist it will give a error",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_dns_load_balancer\" \"example\" {\n  name      = \"example-dns-load-balancer\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1040,10 +801,7 @@
     "dns_proxy": {
       "category": "dns",
       "description": "DNS Proxy in a given namespace. If one already exists it will give an error",
-      "required": [
-        "name",
-        "transport_type"
-      ],
+      "required": ["name", "transport_type"],
       "minimal_config": "resource \"xcsh_dns_proxy\" \"example\" {\n  name      = \"example-dns-proxy\"\n  namespace = \"system\"\n\n  transport_type = \"UDP\"\n}",
       "dependencies": {
         "requires": []
@@ -1053,9 +811,7 @@
     "dns_zone": {
       "category": "dns",
       "description": "DNS Zone in a given namespace. If one already exist it will give a error",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_dns_zone\" \"example\" {\n  name      = \"example-dns-zone\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1065,11 +821,7 @@
     "domain": {
       "category": "uncategorized",
       "description": "Allowed domain",
-      "required": [
-        "name",
-        "namespace",
-        "allowed_domain"
-      ],
+      "required": ["name", "namespace", "allowed_domain"],
       "minimal_config": "resource \"xcsh_domain\" \"example\" {\n  name      = \"example-domain\"\n  namespace = \"staging\"\n\n  allowed_domain = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1079,13 +831,7 @@
     "endpoint": {
       "category": "load-balancing",
       "description": "Endpoint will create the object in the storage backend for namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "health_check_port",
-        "port",
-        "protocol"
-      ],
+      "required": ["name", "namespace", "health_check_port", "port", "protocol"],
       "minimal_config": "resource \"xcsh_endpoint\" \"example\" {\n  name      = \"example-endpoint\"\n  namespace = \"staging\"\n\n  health_check_port = 1\n  port              = 1\n  protocol          = \"TCP\"\n}",
       "dependencies": {
         "requires": []
@@ -1095,13 +841,8 @@
     "enhanced_firewall_policy": {
       "category": "security",
       "description": "Enhanced firewall policy specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "server_defaults": [
-        "allow_all"
-      ],
+      "required": ["name", "namespace"],
+      "server_defaults": ["allow_all"],
       "minimal_config": "resource \"xcsh_enhanced_firewall_policy\" \"example\" {\n  name      = \"example-enhanced-firewall-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1111,10 +852,7 @@
     "external_connector": {
       "category": "networking",
       "description": "External_connector configuration specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_external_connector\" \"example\" {\n  name      = \"example-external-connector\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1124,9 +862,7 @@
     "fast_acl": {
       "category": "security",
       "description": "Object, object contains rules to protect site from denial of service It has destination{destination IP, destination port) and references to",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_fast_acl\" \"example\" {\n  name      = \"example-fast-acl\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1136,9 +872,7 @@
     "fast_acl_rule": {
       "category": "security",
       "description": "New Fast ACL rule, has specification to match source IP, source port and action to apply",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_fast_acl_rule\" \"example\" {\n  name      = \"example-fast-acl-rule\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1148,11 +882,7 @@
     "filter_set": {
       "category": "applications",
       "description": "Specification",
-      "required": [
-        "name",
-        "namespace",
-        "context_key"
-      ],
+      "required": ["name", "namespace", "context_key"],
       "minimal_config": "resource \"xcsh_filter_set\" \"example\" {\n  name      = \"example-filter-set\"\n  namespace = \"staging\"\n\n  context_key = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1179,10 +909,7 @@
     "forward_proxy_policy": {
       "category": "security",
       "description": "Forward proxy policy specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_forward_proxy_policy\" \"example\" {\n  name      = \"example-forward-proxy-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1192,12 +919,7 @@
     "forwarding_class": {
       "category": "networking",
       "description": "Forwarding class is created by users in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "queue_id_to_use",
-        "interface_group"
-      ],
+      "required": ["name", "namespace", "queue_id_to_use", "interface_group"],
       "minimal_config": "resource \"xcsh_forwarding_class\" \"example\" {\n  name      = \"example-forwarding-class\"\n  namespace = \"staging\"\n\n  interface_group = \"ANY_AVAILABLE_INTERFACE\"\n  queue_id_to_use = \"DSCP_BEST_EFFORT\"\n}",
       "dependencies": {
         "requires": []
@@ -1207,15 +929,7 @@
     "gcp_vpc_site": {
       "category": "sites",
       "description": "Deploying F5 sites within Google Cloud VPC environments",
-      "required": [
-        "name",
-        "namespace",
-        "address",
-        "disk_size",
-        "gcp_region",
-        "instance_type",
-        "ssh_key"
-      ],
+      "required": ["name", "namespace", "address", "disk_size", "gcp_region", "instance_type", "ssh_key"],
       "minimal_config": "resource \"xcsh_gcp_vpc_site\" \"example\" {\n  name      = \"example-gcp-vpc-site\"\n  namespace = \"staging\"\n\n  gcp_region    = \"example-value\"\n  instance_type = \"example-value\"\n  ssh_key       = \"example-value\"\n  address       = \"example-value\"\n  disk_size     = 1\n}",
       "dependencies": {
         "requires": []
@@ -1225,9 +939,7 @@
     "geo_location_set": {
       "category": "cloud-resources",
       "description": "Geolocation Set",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_geo_location_set\" \"example\" {\n  name      = \"example-geo-location-set\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1237,16 +949,8 @@
     "global_log_receiver": {
       "category": "monitoring",
       "description": "New Global Log Receiver object",
-      "required": [
-        "name",
-        "namespace",
-        "log_type",
-        "receiver_choice"
-      ],
-      "server_defaults": [
-        "ns_current",
-        "request_logs.sampled"
-      ],
+      "required": ["name", "namespace", "log_type", "receiver_choice"],
+      "server_defaults": ["ns_current", "request_logs.sampled"],
       "minimal_config": "resource \"xcsh_global_log_receiver\" \"example\" {\n  name      = \"example-global-log-receiver\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1256,14 +960,7 @@
     "healthcheck": {
       "category": "load-balancing",
       "description": "Healthcheck object defines method to determine if the given endpoint is healthy. single healthcheck object can be referred to by one or many cluster objects. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "interval",
-        "timeout",
-        "healthy_threshold",
-        "unhealthy_threshold"
-      ],
+      "required": ["name", "namespace", "interval", "timeout", "healthy_threshold", "unhealthy_threshold"],
       "server_defaults": [
         "http_health_check.expected_response",
         "http_health_check.expected_status_codes",
@@ -1275,23 +972,15 @@
       ],
       "minimal_config": "resource \"xcsh_healthcheck\" \"example\" {\n  name      = \"example-healthcheck\"\n  namespace = \"staging\"\n\n  healthy_threshold   = 1\n  interval            = 1\n  timeout             = 1\n  unhealthy_threshold = 1\n}",
       "dependencies": {
-        "requires": [
-          "namespace"
-        ],
-        "used_by": [
-          "origin_pool"
-        ]
+        "requires": ["namespace"],
+        "used_by": ["origin_pool"]
       },
       "import_syntax": "terraform import xcsh_healthcheck.example namespace/name"
     },
     "http_loadbalancer": {
       "category": "load-balancing",
       "description": "Load balancing HTTP/HTTPS traffic with advanced routing and security",
-      "required": [
-        "name",
-        "namespace",
-        "domains"
-      ],
+      "required": ["name", "namespace", "domains"],
       "server_defaults": [
         "add_location",
         "default_pool.advanced_options.auto_http_config",
@@ -1339,23 +1028,15 @@
       ],
       "minimal_config": "resource \"xcsh_http_loadbalancer\" \"example\" {\n  name      = \"example-http-loadbalancer\"\n  namespace = \"staging\"\n\n  domains = [\"example-value\"]\n}",
       "dependencies": {
-        "requires": [
-          "namespace",
-          "origin_pool"
-        ],
-        "used_by": [
-          "route"
-        ]
+        "requires": ["namespace", "origin_pool"],
+        "used_by": ["route"]
       },
       "import_syntax": "terraform import xcsh_http_loadbalancer.example namespace/name"
     },
     "ike1": {
       "category": "vpn",
       "description": "Ike phase1 profile specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_ike1\" \"example\" {\n  name      = \"example-ike1\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1365,10 +1046,7 @@
     "ike2": {
       "category": "vpn",
       "description": "Ike phase2 profile specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_ike2\" \"example\" {\n  name      = \"example-ike2\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1378,10 +1056,7 @@
     "ike_phase1_profile": {
       "category": "vpn",
       "description": "Ike phase1 profile specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_ike_phase1_profile\" \"example\" {\n  name      = \"example-ike-phase1-profile\"\n  namespace = \"staging\"\n\n  authentication_algos = [\"example-value\"]\n  dh_group             = [\"example-value\"]\n  encryption_algos     = [\"example-value\"]\n  prf                  = [\"example-value\"]\n}",
       "dependencies": {
         "requires": []
@@ -1391,10 +1066,7 @@
     "ike_phase2_profile": {
       "category": "vpn",
       "description": "Ike phase2 profile specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_ike_phase2_profile\" \"example\" {\n  name      = \"example-ike-phase2-profile\"\n  namespace = \"staging\"\n\n  authentication_algos = [\"example-value\"]\n  encryption_algos     = [\"example-value\"]\n}",
       "dependencies": {
         "requires": []
@@ -1404,10 +1076,7 @@
     "ip_prefix_set": {
       "category": "networking",
       "description": "Ip_prefix_set creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_ip_prefix_set\" \"example\" {\n  name      = \"example-ip-prefix-set\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1417,13 +1086,7 @@
     "irule": {
       "category": "big-ip-integration",
       "description": "IRule in a given namespace. If one already exists it will give an error",
-      "required": [
-        "name",
-        "namespace",
-        "description",
-        "description_spec",
-        "irule"
-      ],
+      "required": ["name", "namespace", "description", "description_spec", "irule"],
       "minimal_config": "resource \"xcsh_irule\" \"example\" {\n  name      = \"example-irule\"\n  namespace = \"staging\"\n\n  description_spec = \"example-value\"\n  irule            = \"example-value\"\n  description      = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1433,10 +1096,7 @@
     "k8s_cluster": {
       "category": "kubernetes",
       "description": "K8s_cluster will create the object in the storage backend for namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "server_defaults": [
         "cluster_scoped_access_deny",
         "no_cluster_wide_apps",
@@ -1457,9 +1117,7 @@
     "k8s_cluster_role": {
       "category": "kubernetes",
       "description": "K8s_cluster_role will create the object in the storage backend for namespace metadata.namespace",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_k8s_cluster_role\" \"example\" {\n  name      = \"example-k8s-cluster-role\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1469,9 +1127,7 @@
     "k8s_cluster_role_binding": {
       "category": "kubernetes",
       "description": "K8s_cluster_role_binding will create the object in the storage backend for namespace metadata.namespace",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_k8s_cluster_role_binding\" \"example\" {\n  name      = \"example-k8s-cluster-role-binding\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1481,10 +1137,7 @@
     "k8s_pod_security_admission": {
       "category": "kubernetes",
       "description": "K8s_pod_security_admission will create the object in the storage backend",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_k8s_pod_security_admission\" \"example\" {\n  name      = \"example-k8s-pod-security-admission\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1494,10 +1147,7 @@
     "k8s_pod_security_policy": {
       "category": "security",
       "description": "K8s_pod_security_policy will create the object in the storage backend for namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_k8s_pod_security_policy\" \"example\" {\n  name      = \"example-k8s-pod-security-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1507,10 +1157,7 @@
     "log_receiver": {
       "category": "monitoring",
       "description": "New Log Receiver object",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_log_receiver\" \"example\" {\n  name      = \"example-log-receiver\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1520,13 +1167,8 @@
     "malicious_user_mitigation": {
       "category": "security",
       "description": "Malicious_user_mitigation creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "server_defaults": [
-        "mitigation_type"
-      ],
+      "required": ["name", "namespace"],
+      "server_defaults": ["mitigation_type"],
       "minimal_config": "resource \"xcsh_malicious_user_mitigation\" \"example\" {\n  name      = \"example-malicious-user-mitigation\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1536,11 +1178,7 @@
     "mitigated_domain": {
       "category": "uncategorized",
       "description": "Mitigated Domain",
-      "required": [
-        "name",
-        "namespace",
-        "mitigated_domain"
-      ],
+      "required": ["name", "namespace", "mitigated_domain"],
       "minimal_config": "resource \"xcsh_mitigated_domain\" \"example\" {\n  name      = \"example-mitigated-domain\"\n  namespace = \"staging\"\n\n  mitigated_domain = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1550,9 +1188,7 @@
     "namespace": {
       "category": "organization",
       "description": "New namespace. Name of the object is name of the namespace",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_namespace\" \"example\" {\n  name      = \"example-namespace\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": [],
@@ -1575,10 +1211,7 @@
     "nat_policy": {
       "category": "security",
       "description": "Nat policy create specification configures nat policy with multiple rules,. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_nat_policy\" \"example\" {\n  name      = \"example-nat-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1588,10 +1221,7 @@
     "network_connector": {
       "category": "networking",
       "description": "Network connector is created by users in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_network_connector\" \"example\" {\n  name      = \"example-network-connector\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1601,15 +1231,8 @@
     "network_firewall": {
       "category": "security",
       "description": "Network firewall is created by users in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "server_defaults": [
-        "disable_fast_acl",
-        "disable_forward_proxy_policy",
-        "disable_network_policy"
-      ],
+      "required": ["name", "namespace"],
+      "server_defaults": ["disable_fast_acl", "disable_forward_proxy_policy", "disable_network_policy"],
       "minimal_config": "resource \"xcsh_network_firewall\" \"example\" {\n  name      = \"example-network-firewall\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1619,10 +1242,7 @@
     "network_interface": {
       "category": "networking",
       "description": "Network interface represents configuration of a network device. it is created by users in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_network_interface\" \"example\" {\n  name      = \"example-network-interface\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1632,10 +1252,7 @@
     "network_policy": {
       "category": "security",
       "description": "New network policy with configured parameters in specified namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_network_policy\" \"example\" {\n  name      = \"example-network-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1645,10 +1262,7 @@
     "network_policy_rule": {
       "category": "security",
       "description": "Network policy rule with configured parameters in specified namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_network_policy_rule\" \"example\" {\n  name      = \"example-network-policy-rule\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1658,10 +1272,7 @@
     "network_policy_view": {
       "category": "security",
       "description": "Network policy view specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_network_policy_view\" \"example\" {\n  name      = \"example-network-policy-view\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1671,10 +1282,7 @@
     "nfv_service": {
       "category": "networking",
       "description": "New NFV service with configured parameters",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_nfv_service\" \"example\" {\n  name      = \"example-nfv-service\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1684,10 +1292,7 @@
     "nginx_service_discovery": {
       "category": "networking",
       "description": "Api to create nginx service discovery object for a site or virtual site in system namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_nginx_service_discovery\" \"example\" {\n  name      = \"example-nginx-service-discovery\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1697,12 +1302,7 @@
     "origin_pool": {
       "category": "load-balancing",
       "description": "Defining backend server pools for load balancer targets",
-      "required": [
-        "name",
-        "namespace",
-        "origin_servers",
-        "port"
-      ],
+      "required": ["name", "namespace", "origin_servers", "port"],
       "server_defaults": [
         "advanced_options.auto_http_config",
         "advanced_options.connection_timeout",
@@ -1724,31 +1324,16 @@
       ],
       "minimal_config": "resource \"xcsh_origin_pool\" \"example\" {\n  name      = \"example-origin-pool\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace",
-          "healthcheck"
-        ],
-        "used_by": [
-          "http_loadbalancer",
-          "tcp_loadbalancer",
-          "udp_loadbalancer"
-        ]
+        "requires": ["namespace", "healthcheck"],
+        "used_by": ["http_loadbalancer", "tcp_loadbalancer", "udp_loadbalancer"]
       },
       "import_syntax": "terraform import xcsh_origin_pool.example namespace/name"
     },
     "policer": {
       "category": "service-mesh",
       "description": "New policer with traffic rate limits",
-      "required": [
-        "name",
-        "namespace",
-        "burst_size",
-        "committed_information_rate"
-      ],
-      "server_defaults": [
-        "policer_mode",
-        "policer_type"
-      ],
+      "required": ["name", "namespace", "burst_size", "committed_information_rate"],
+      "server_defaults": ["policer_mode", "policer_type"],
       "minimal_config": "resource \"xcsh_policer\" \"example\" {\n  name      = \"example-policer\"\n  namespace = \"staging\"\n\n  burst_size                 = 1\n  committed_information_rate = 1\n}",
       "dependencies": {
         "requires": []
@@ -1758,10 +1343,7 @@
     "policy_based_routing": {
       "category": "networking",
       "description": "Network policy based routing create specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_policy_based_routing\" \"example\" {\n  name      = \"example-policy-based-routing\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1771,11 +1353,7 @@
     "protected_application": {
       "category": "uncategorized",
       "description": "Applications protected by Bot Defense",
-      "required": [
-        "name",
-        "namespace",
-        "region"
-      ],
+      "required": ["name", "namespace", "region"],
       "minimal_config": "resource \"xcsh_protected_application\" \"example\" {\n  name      = \"example-protected-application\"\n  namespace = \"staging\"\n\n  region = \"US\"\n}",
       "dependencies": {
         "requires": []
@@ -1785,11 +1363,7 @@
     "protected_domain": {
       "category": "uncategorized",
       "description": "Domain to protect",
-      "required": [
-        "name",
-        "namespace",
-        "protected_domain"
-      ],
+      "required": ["name", "namespace", "protected_domain"],
       "minimal_config": "resource \"xcsh_protected_domain\" \"example\" {\n  name      = \"example-protected-domain\"\n  namespace = \"staging\"\n\n  protected_domain = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1799,15 +1373,8 @@
     "protocol_inspection": {
       "category": "security",
       "description": "Protocol Inspection Specification in a given namespace. If one already exists it will give an error",
-      "required": [
-        "name",
-        "namespace",
-        "enable_disable_compliance_checks",
-        "enable_disable_signatures"
-      ],
-      "server_defaults": [
-        "action"
-      ],
+      "required": ["name", "namespace", "enable_disable_compliance_checks", "enable_disable_signatures"],
+      "server_defaults": ["action"],
       "minimal_config": "resource \"xcsh_protocol_inspection\" \"example\" {\n  name      = \"example-protocol-inspection\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1817,9 +1384,7 @@
     "protocol_policer": {
       "category": "security",
       "description": "Protocol_policer object, protocol_policer object contains list of L4 protocol match condition and corresponding traffic rate limits",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_protocol_policer\" \"example\" {\n  name      = \"example-protocol-policer\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -1829,11 +1394,7 @@
     "proxy": {
       "category": "networking",
       "description": "Tcp loadbalancer create specification. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "connection_timeout"
-      ],
+      "required": ["name", "namespace", "connection_timeout"],
       "minimal_config": "resource \"xcsh_proxy\" \"example\" {\n  name      = \"example-proxy\"\n  namespace = \"staging\"\n\n  connection_timeout = 1\n}",
       "dependencies": {
         "requires": []
@@ -1843,33 +1404,19 @@
     "rate_limiter": {
       "category": "security",
       "description": "Rate_limiter creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "server_defaults": [
-        "user_identification"
-      ],
+      "required": ["name", "namespace"],
+      "server_defaults": ["user_identification"],
       "minimal_config": "resource \"xcsh_rate_limiter\" \"example\" {\n  name      = \"example-rate-limiter\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace"
-        ]
+        "requires": ["namespace"]
       },
       "import_syntax": "terraform import xcsh_rate_limiter.example namespace/name"
     },
     "rate_limiter_policy": {
       "category": "security",
       "description": "Rate limiter policy create specification. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "burst_size",
-        "committed_information_rate"
-      ],
-      "server_defaults": [
-        "rules"
-      ],
+      "required": ["name", "namespace", "burst_size", "committed_information_rate"],
+      "server_defaults": ["rules"],
       "minimal_config": "resource \"xcsh_rate_limiter_policy\" \"example\" {\n  name      = \"example-rate-limiter-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1879,11 +1426,7 @@
     "registration": {
       "category": "sites",
       "description": "Vpm creates registration using this message, never used by users. configuration",
-      "required": [
-        "name",
-        "namespace",
-        "token"
-      ],
+      "required": ["name", "namespace", "token"],
       "minimal_config": "resource \"xcsh_registration\" \"example\" {\n  name      = \"example-registration\"\n  namespace = \"staging\"\n\n  token = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1893,10 +1436,7 @@
     "registration_approval": {
       "category": "uncategorized",
       "description": "Request for admission approval. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_registration_approval\" \"example\" {\n  name      = \"example-registration-approval\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1906,27 +1446,17 @@
     "route": {
       "category": "load-balancing",
       "description": "Route object in a given namespace. Route object is list of route rules. Each rule has match condition to match incoming requests and actions to take on matching requests",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_route\" \"example\" {\n  name      = \"example-route\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace",
-          "http_loadbalancer"
-        ]
+        "requires": ["namespace", "http_loadbalancer"]
       },
       "import_syntax": "terraform import xcsh_route.example namespace/name"
     },
     "secret_management_access": {
       "category": "authentication",
       "description": "Secret_management_access creates a new object in storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "provider_name"
-      ],
+      "required": ["name", "namespace", "provider_name"],
       "minimal_config": "resource \"xcsh_secret_management_access\" \"example\" {\n  name      = \"example-secret-management-access\"\n  namespace = \"staging\"\n\n  provider_name = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1936,12 +1466,7 @@
     "securemesh_site": {
       "category": "sites",
       "description": "Deploying secure mesh edge sites with distributed security capabilities",
-      "required": [
-        "name",
-        "namespace",
-        "address",
-        "volterra_certified_hw"
-      ],
+      "required": ["name", "namespace", "address", "volterra_certified_hw"],
       "minimal_config": "resource \"xcsh_securemesh_site\" \"example\" {\n  name      = \"example-securemesh-site\"\n  namespace = \"staging\"\n\n  volterra_certified_hw = \"example-value\"\n  worker_nodes          = [\"example-value\"]\n  address               = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -1951,10 +1476,7 @@
     "securemesh_site_v2": {
       "category": "sites",
       "description": "Deploying secure mesh edge sites with enhanced security and networking features",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_securemesh_site_v2\" \"example\" {\n  name      = \"example-securemesh-site-v2\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1964,10 +1486,7 @@
     "segment": {
       "category": "networking",
       "description": "Segment. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_segment\" \"example\" {\n  name      = \"example-segment\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1977,15 +1496,8 @@
     "sensitive_data_policy": {
       "category": "security",
       "description": "Sensitive_data_policy creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "server_defaults": [
-        "compliances",
-        "custom_data_types",
-        "disabled_predefined_data_types"
-      ],
+      "required": ["name", "namespace"],
+      "server_defaults": ["compliances", "custom_data_types", "disabled_predefined_data_types"],
       "minimal_config": "resource \"xcsh_sensitive_data_policy\" \"example\" {\n  name      = \"example-sensitive-data-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -1995,28 +1507,18 @@
     "service_policy": {
       "category": "security",
       "description": "Service_policy creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
-      "server_defaults": [
-        "port_matcher"
-      ],
+      "required": ["name", "namespace"],
+      "server_defaults": ["port_matcher"],
       "minimal_config": "resource \"xcsh_service_policy\" \"example\" {\n  name      = \"example-service-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace"
-        ]
+        "requires": ["namespace"]
       },
       "import_syntax": "terraform import xcsh_service_policy.example namespace/name"
     },
     "service_policy_rule": {
       "category": "security",
       "description": "Service_policy_rule creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_service_policy_rule\" \"example\" {\n  name      = \"example-service-policy-rule\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2026,11 +1528,7 @@
     "site": {
       "category": "sites",
       "description": "Virtual site object in given namespace",
-      "required": [
-        "name",
-        "namespace",
-        "site_type"
-      ],
+      "required": ["name", "namespace", "site_type"],
       "minimal_config": "resource \"xcsh_site\" \"example\" {\n  name      = \"example-site\"\n  namespace = \"staging\"\n\n  site_type = \"INVALID\"\n}",
       "dependencies": {
         "requires": []
@@ -2040,10 +1538,7 @@
     "site_mesh_group": {
       "category": "sites",
       "description": "Site Mesh Group in system namespace of user",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_site_mesh_group\" \"example\" {\n  name      = \"example-site-mesh-group\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2069,10 +1564,7 @@
     "subnet": {
       "category": "networking",
       "description": "Subnet object contains configuration for an interface of a vm/pod. it is created in user or shared namespace. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_subnet\" \"example\" {\n  name      = \"example-subnet\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2082,11 +1574,7 @@
     "tcp_loadbalancer": {
       "category": "load-balancing",
       "description": "Load balancing TCP traffic across origin pools",
-      "required": [
-        "name",
-        "namespace",
-        "origin_pools"
-      ],
+      "required": ["name", "namespace", "origin_pools"],
       "server_defaults": [
         "dns_volterra_managed",
         "hash_policy_choice_round_robin",
@@ -2098,20 +1586,14 @@
       ],
       "minimal_config": "resource \"xcsh_tcp_loadbalancer\" \"example\" {\n  name      = \"example-tcp-loadbalancer\"\n  namespace = \"staging\"\n}",
       "dependencies": {
-        "requires": [
-          "namespace",
-          "origin_pool"
-        ]
+        "requires": ["namespace", "origin_pool"]
       },
       "import_syntax": "terraform import xcsh_tcp_loadbalancer.example namespace/name"
     },
     "tenant_configuration": {
       "category": "organization",
       "description": "Tenant configuration specification. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_tenant_configuration\" \"example\" {\n  name      = \"example-tenant-configuration\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2121,9 +1603,7 @@
     "token": {
       "category": "authentication",
       "description": "New token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration",
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "minimal_config": "resource \"xcsh_token\" \"example\" {\n  name      = \"example-token\"\n  namespace = \"system\"\n}",
       "dependencies": {
         "requires": []
@@ -2133,11 +1613,7 @@
     "trusted_ca_list": {
       "category": "certificates",
       "description": "Trusted certificate authority list management",
-      "required": [
-        "name",
-        "namespace",
-        "trusted_ca_url"
-      ],
+      "required": ["name", "namespace", "trusted_ca_url"],
       "minimal_config": "resource \"xcsh_trusted_ca_list\" \"example\" {\n  name      = \"example-trusted-ca-list\"\n  namespace = \"staging\"\n\n  trusted_ca_url = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -2147,11 +1623,7 @@
     "tunnel": {
       "category": "networking",
       "description": "Tunnel in a given namespace. If one already exist it will give a error",
-      "required": [
-        "name",
-        "namespace",
-        "tunnel_type"
-      ],
+      "required": ["name", "namespace", "tunnel_type"],
       "minimal_config": "resource \"xcsh_tunnel\" \"example\" {\n  name      = \"example-tunnel\"\n  namespace = \"staging\"\n\n  tunnel_type = \"IPSEC_PSK\"\n}",
       "dependencies": {
         "requires": []
@@ -2161,28 +1633,17 @@
     "udp_loadbalancer": {
       "category": "load-balancing",
       "description": "Load balancing UDP traffic across origin pools",
-      "required": [
-        "name",
-        "namespace",
-        "dns_volterra_managed",
-        "idle_timeout"
-      ],
+      "required": ["name", "namespace", "dns_volterra_managed", "idle_timeout"],
       "minimal_config": "resource \"xcsh_udp_loadbalancer\" \"example\" {\n  name      = \"example-udp-loadbalancer\"\n  namespace = \"staging\"\n\n  domains              = [\"example-value\"]\n  dns_volterra_managed = true\n  idle_timeout         = 1\n}",
       "dependencies": {
-        "requires": [
-          "namespace",
-          "origin_pool"
-        ]
+        "requires": ["namespace", "origin_pool"]
       },
       "import_syntax": "terraform import xcsh_udp_loadbalancer.example namespace/name"
     },
     "usb_policy": {
       "category": "security",
       "description": "New USB policy object",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_usb_policy\" \"example\" {\n  name      = \"example-usb-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2192,11 +1653,7 @@
     "user_identification": {
       "category": "security",
       "description": "User_identification creates a new object in the storage backend for metadata.namespace",
-      "required": [
-        "name",
-        "namespace",
-        "rules"
-      ],
+      "required": ["name", "namespace", "rules"],
       "minimal_config": "resource \"xcsh_user_identification\" \"example\" {\n  name      = \"example-user-identification\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2226,10 +1683,7 @@
     "virtual_k8s": {
       "category": "kubernetes",
       "description": "Virtual_k8s will create the object in the storage backend for namespace metadata.namespace",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_virtual_k8s\" \"example\" {\n  name      = \"example-virtual-k8s\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2239,10 +1693,7 @@
     "virtual_network": {
       "category": "networking",
       "description": "Virtual network in given namespace",
-      "required": [
-        "name",
-        "legacy_type"
-      ],
+      "required": ["name", "legacy_type"],
       "minimal_config": "resource \"xcsh_virtual_network\" \"example\" {\n  name      = \"example-virtual-network\"\n  namespace = \"system\"\n\n  legacy_type = \"VIRTUAL_NETWORK_SITE_LOCAL\"\n}",
       "dependencies": {
         "requires": []
@@ -2252,12 +1703,7 @@
     "virtual_site": {
       "category": "sites",
       "description": "Virtual site object in given namespace",
-      "required": [
-        "name",
-        "namespace",
-        "site_type",
-        "site_selector"
-      ],
+      "required": ["name", "namespace", "site_type", "site_selector"],
       "minimal_config": "resource \"xcsh_virtual_site\" \"example\" {\n  name      = \"example-virtual-site\"\n  namespace = \"staging\"\n\n  site_type = \"INVALID\"\n}",
       "dependencies": {
         "requires": []
@@ -2267,12 +1713,7 @@
     "voltstack_site": {
       "category": "sites",
       "description": "Deploying Volterra stack sites for edge computing",
-      "required": [
-        "name",
-        "namespace",
-        "address",
-        "volterra_certified_hw"
-      ],
+      "required": ["name", "namespace", "address", "volterra_certified_hw"],
       "minimal_config": "resource \"xcsh_voltstack_site\" \"example\" {\n  name      = \"example-voltstack-site\"\n  namespace = \"staging\"\n\n  volterra_certified_hw = \"example-value\"\n  worker_nodes          = [\"example-value\"]\n  address               = \"example-value\"\n}",
       "dependencies": {
         "requires": []
@@ -2282,11 +1723,7 @@
     "waf_exclusion_policy": {
       "category": "security",
       "description": "WAF exclusion policy",
-      "required": [
-        "name",
-        "namespace",
-        "waf_exclusion_rules"
-      ],
+      "required": ["name", "namespace", "waf_exclusion_rules"],
       "minimal_config": "resource \"xcsh_waf_exclusion_policy\" \"example\" {\n  name      = \"example-waf-exclusion-policy\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2296,10 +1733,7 @@
     "workload": {
       "category": "kubernetes",
       "description": "Workload. configuration",
-      "required": [
-        "name",
-        "namespace"
-      ],
+      "required": ["name", "namespace"],
       "minimal_config": "resource \"xcsh_workload\" \"example\" {\n  name      = \"example-workload\"\n  namespace = \"staging\"\n}",
       "dependencies": {
         "requires": []
@@ -2309,13 +1743,7 @@
     "workload_flavor": {
       "category": "kubernetes",
       "description": "Workload_flavor",
-      "required": [
-        "name",
-        "namespace",
-        "ephemeral_storage",
-        "memory",
-        "vcpus"
-      ],
+      "required": ["name", "namespace", "ephemeral_storage", "memory", "vcpus"],
       "minimal_config": "resource \"xcsh_workload_flavor\" \"example\" {\n  name      = \"example-workload-flavor\"\n  namespace = \"staging\"\n\n  ephemeral_storage = \"example-value\"\n  memory            = \"example-value\"\n  vcpus             = 1\n}",
       "dependencies": {
         "requires": []
