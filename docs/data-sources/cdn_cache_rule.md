@@ -29,7 +29,7 @@ terraform {
 
 # Look up an existing CDNCacheRule by name
 data "xcsh_cdn_cache_rule" "example" {
-  name      = "example-CDN-cache-rule"
+  name      = "example-cdn-cache-rule"
   namespace = "staging"
 }
 

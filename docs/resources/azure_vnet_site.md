@@ -30,7 +30,7 @@ terraform {
 
 # Basic AzureVNETSite configuration
 resource "xcsh_azure_vnet_site" "example" {
-  name      = "example-Azure-vnet-site"
+  name      = "example-azure-vnet-site"
   namespace = "staging"
 
   machine_type   = "example-value"

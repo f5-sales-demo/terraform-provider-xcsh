@@ -29,7 +29,7 @@ terraform {
 
 # Look up an existing AzureVNETSite by name
 data "xcsh_azure_vnet_site" "example" {
-  name      = "example-Azure-vnet-site"
+  name      = "example-azure-vnet-site"
   namespace = "staging"
 }
 

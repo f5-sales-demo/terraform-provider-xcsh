@@ -83,3 +83,39 @@ func TestFixUpstreamTerminologyMixedLine(t *testing.T) {
 		t.Errorf("mixed line\ngot:  %s\nwant: %s", got, want)
 	}
 }
+
+// Fenced blocks are code for the same reason inline spans are. Generated resource
+// pages embed the example HCL verbatim, and `azure` -> `Azure` rewrote the resource
+// NAME inside them: examples/resources/xcsh_azure_vnet_site/resource.tf ships
+// `example-azure-vnet-site` while the fenced copy in docs/resources/azure_vnet_site.md
+// read `example-Azure-vnet-site`. A reader copying the documented example got
+// different HCL from the one in the repository.
+func TestFixUpstreamTerminologyLeavesFencedBlocksAlone(t *testing.T) {
+	in := "Prose about javascript here.\n\n" +
+		"```terraform\n" +
+		"resource \"xcsh_azure_vnet_site\" \"example\" {\n" +
+		"  name      = \"example-azure-vnet-site\"\n" +
+		"  image     = \"ubuntu\"\n" +
+		"  registry  = \"docker.io\"\n" +
+		"}\n" +
+		"```\n\n" +
+		"More javascript prose.\n"
+
+	got := FixUpstreamTerminology(in)
+
+	for _, forbidden := range []string{
+		"example-Azure-vnet-site",
+		"\"Ubuntu\"",
+		"Docker.io",
+		"xcsh_Azure_vnet_site",
+	} {
+		if strings.Contains(got, forbidden) {
+			t.Errorf("fenced block was rewritten: found %q in\n%s", forbidden, got)
+		}
+	}
+
+	// Prose on both sides of the fence is still corrected.
+	if strings.Count(got, "JavaScript") != 2 {
+		t.Errorf("prose around the fence should still be corrected, got:\n%s", got)
+	}
+}

@@ -29,7 +29,7 @@ terraform {
 
 # Look up an existing CDNLoadBalancer by name
 data "xcsh_cdn_loadbalancer" "example" {
-  name      = "example-CDN-loadbalancer"
+  name      = "example-cdn-loadbalancer"
   namespace = "staging"
 }
 

@@ -25,6 +25,22 @@ func FixUpstreamTerminology(content string) string {
 		return fmt.Sprintf("](##URL_%d##)", idx)
 	})
 
+	// Protect fenced code blocks first — they are code for the same reason inline
+	// spans are, and generated resource pages embed the example HCL verbatim.
+	// `azure` -> `Azure` rewrote the resource NAME inside them: the shipped
+	// examples/resources/xcsh_azure_vnet_site/resource.tf says
+	// `example-azure-vnet-site` while the fenced copy in the generated page read
+	// `example-Azure-vnet-site`, so a reader copying the documented example got
+	// different HCL from the one in the repository. Fences are handled before inline
+	// spans so a backtick inside a fenced block cannot be mistaken for a span.
+	fenceRegex := regexp.MustCompile("(?s)```.*?```")
+	var savedFences []string
+	content = fenceRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedFences)
+		savedFences = append(savedFences, match)
+		return fmt.Sprintf("##FENCE_%d##", idx)
+	})
+
 	// Protect inline code spans for the same reason. Generated provider
 	// documentation is mostly IDENTIFIERS, and terminology rules are about prose:
 	// `javascript` -> `JavaScript` rewrote the real attribute javascript_location
@@ -96,9 +112,13 @@ func FixUpstreamTerminology(content string) string {
 	// "EncodingBase64" into "Encodingbase64" (Go regexp has no lookbehind to exclude
 	// it). Preserve the token as authored in the schema.
 
-	// Restore protected code spans and URLs
+	// Restore protected code spans, fences and URLs. Spans before fences, mirroring
+	// the order they were removed in reverse.
 	for i, code := range savedCode {
 		content = strings.Replace(content, fmt.Sprintf("##CODE_%d##", i), code, 1)
+	}
+	for i, fence := range savedFences {
+		content = strings.Replace(content, fmt.Sprintf("##FENCE_%d##", i), fence, 1)
 	}
 	for i, url := range savedURLs {
 		content = strings.Replace(content, fmt.Sprintf("](##URL_%d##)", i), url, 1)

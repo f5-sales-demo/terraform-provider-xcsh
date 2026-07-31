@@ -12,7 +12,7 @@ CDN purge command specification. configuration
 
 ```terraform
 resource "xcsh_cdn_purge_command" "example" {
-  name      = "example-CDN-purge-command"
+  name      = "example-cdn-purge-command"
   namespace = "staging"
 }
 ```

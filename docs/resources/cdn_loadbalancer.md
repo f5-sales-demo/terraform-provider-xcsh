@@ -30,7 +30,7 @@ terraform {
 
 # Basic CDNLoadBalancer configuration
 resource "xcsh_cdn_loadbalancer" "example" {
-  name      = "example-CDN-loadbalancer"
+  name      = "example-cdn-loadbalancer"
   namespace = "staging"
 
   domains = ["example-value"]
