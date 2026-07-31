@@ -8,6 +8,12 @@ Network firewall is created by users in system namespace. configuration
 - name
 - namespace
 
+## Server Defaults (safe to omit)
+
+- disable_fast_acl
+- disable_forward_proxy_policy
+- disable_network_policy
+
 ## Minimal Valid Config
 
 ```terraform
