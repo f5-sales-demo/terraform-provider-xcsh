@@ -9,7 +9,7 @@ description: |-
 
 Manages a Certificate resource in F5 Distributed Cloud for certificate. configuration.
 
-~> **Note** Please refer to [Certificate API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/certificates/) to learn more.
+~> **Note** Please refer to [Certificate API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/certificates/) to learn more.
 
 ## Example Usage
 
@@ -148,7 +148,7 @@ A [`clear_secret_info`](#private-key-clear-secret-info) block (within [`private_
 
 <a id="ref-e799a7"></a>&#x2022; [`provider_ref`](#ref-e799a7) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="private-key-clear-secret-info-url"></a>&#x2022; [`url`](#private-key-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="private-key-clear-secret-info-url"></a>&#x2022; [`url`](#private-key-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
 
 #### Timeouts
 

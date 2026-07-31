@@ -133,7 +133,7 @@ A [`clear_secret_info`](#opsgenie-api-key-clear-secret-info) block (within [`ops
 
 <a id="ref-3e8ac3"></a>&#x2022; [`provider_ref`](#ref-3e8ac3) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="opsgenie-api-key-clear-secret-info-url"></a>&#x2022; [`url`](#opsgenie-api-key-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="opsgenie-api-key-clear-secret-info-url"></a>&#x2022; [`url`](#opsgenie-api-key-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
 
 #### Pagerduty
 
@@ -167,7 +167,7 @@ A [`clear_secret_info`](#pagerduty-routing-key-clear-secret-info) block (within 
 
 <a id="ref-67e62e"></a>&#x2022; [`provider_ref`](#ref-67e62e) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-13757a"></a>&#x2022; [`url`](#url-13757a) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="url-13757a"></a>&#x2022; [`url`](#url-13757a) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
 
 #### Slack
 
@@ -201,7 +201,7 @@ A [`clear_secret_info`](#slack-url-clear-secret-info) block (within [`slack.url`
 
 <a id="ref-008757"></a>&#x2022; [`provider_ref`](#ref-008757) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="slack-url-clear-secret-info-url"></a>&#x2022; [`url`](#slack-url-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="slack-url-clear-secret-info-url"></a>&#x2022; [`url`](#slack-url-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
 
 #### Sms
 
@@ -357,7 +357,7 @@ A [`clear_secret_info`](#webhook-url-clear-secret-info) block (within [`webhook.
 
 <a id="ref-16bc23"></a>&#x2022; [`provider_ref`](#ref-16bc23) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="webhook-url-clear-secret-info-url"></a>&#x2022; [`url`](#webhook-url-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="webhook-url-clear-secret-info-url"></a>&#x2022; [`url`](#webhook-url-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
 
 ---
 

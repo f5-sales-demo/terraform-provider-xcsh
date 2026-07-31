@@ -584,7 +584,7 @@ A [`web_socket_config`](#config-449c3d) block (within [`routes.route_destination
 
 A [`route_direct_response`](#routes-route-direct-response) block (within [`routes`](#routes)) supports the following:
 
-<a id="encoded-023a3e"></a>&#x2022; [`response_body_encoded`](#encoded-023a3e) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML
+<a id="encoded-023a3e"></a>&#x2022; [`response_body_encoded`](#encoded-023a3e) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in base64 format. The message can be either plain text or HTML
 
 <a id="code-e27cc8"></a>&#x2022; [`response_code`](#code-e27cc8) - Optional Number<br>Response Code. Response code to send
 

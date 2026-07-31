@@ -134,7 +134,7 @@ resource "xcsh_malicious_user_mitigation" "test" {
         medium {}
       }
       mitigation_action {
-        javascript_challenge {}
+        JavaScript_challenge {}
       }
     }
   }

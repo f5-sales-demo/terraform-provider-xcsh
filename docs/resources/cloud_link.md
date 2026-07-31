@@ -64,7 +64,7 @@ resource "xcsh_cloud_link" "example" {
 
 -> **One of the following:**
 &#x2022; <a id="disabled"></a>[`disabled`](#disabled) - Optional Block<br>Enable this option
-<br><br>&#x2022; <a id="enabled"></a>[`enabled`](#enabled) - Optional Block<br>CloudLink ADN Network Config<br>See [Enabled](#enabled) below for details.
+<br><br>&#x2022; <a id="enabled"></a>[`enabled`](#enabled) - Optional Block<br>CloudLink AND Network Config<br>See [Enabled](#enabled) below for details.
 
 <a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
 
@@ -167,7 +167,7 @@ A [`metadata`](#aws-byoc-connections-metadata) block (within [`aws.byoc.connecti
 
 An [`enabled`](#enabled) block supports the following:
 
-<a id="enabled-cloudlink-network-name"></a>&#x2022; [`cloudlink_network_name`](#enabled-cloudlink-network-name) - Optional String<br>Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support
+<a id="enabled-cloudlink-network-name"></a>&#x2022; [`cloudlink_network_name`](#enabled-cloudlink-network-name) - Optional String<br>Establish private connectivity with the F5 Distributed Cloud Global Network using a Private AND network. To provision a Private AND network, please contact F5 Distributed Cloud support
 
 #### GCP
 
