@@ -9,7 +9,7 @@ description: |-
 
 Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud.
 
-~> **Note** Please refer to [Virtual K8S API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/container_services/) to learn more.
+~> **Note** Please refer to [Virtual K8S API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/container_services/) to learn more.
 
 ## Example Usage
 

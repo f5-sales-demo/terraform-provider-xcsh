@@ -9,7 +9,7 @@ description: |-
 
 Manages a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC environments.
 
-~> **Note** Please refer to [AWS VPC Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [AWS VPC Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
@@ -181,7 +181,7 @@ A [`clear_secret_info`](#admin-password-clear-secret-info) block (within [`admin
 
 <a id="ref-e52931"></a>&#x2022; [`provider_ref`](#ref-e52931) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="admin-password-clear-secret-info-url"></a>&#x2022; [`url`](#admin-password-clear-secret-info-url) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
 
 #### AWS Cred
 
@@ -254,7 +254,7 @@ A [`direct_connect_enabled`](#direct-connect-enabled) block supports the followi
 
 A [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) block (within [`direct_connect_enabled`](#direct-connect-enabled)) supports the following:
 
-<a id="connect-b8275e"></a>&#x2022; [`site_registration_over_direct_connect`](#connect-b8275e) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Direct Connect](#connect-b8275e) below.
+<a id="connect-b8275e"></a>&#x2022; [`site_registration_over_direct_connect`](#connect-b8275e) - Optional Block<br>CloudLink AND Network Config<br>See [Site Registration Over Direct Connect](#connect-b8275e) below.
 
 <a id="internet-6028e0"></a>&#x2022; [`site_registration_over_internet`](#internet-6028e0) - Optional Block<br>Enable this option
 

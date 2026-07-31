@@ -305,7 +305,7 @@ A [`captcha_challenge`](#captcha-challenge) block supports the following:
 
 <a id="captcha-challenge-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#captcha-challenge-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="captcha-challenge-custom-page"></a>&#x2022; [`custom_page`](#captcha-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="captcha-challenge-custom-page"></a>&#x2022; [`custom_page`](#captcha-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 #### Coalescing Options
 
@@ -417,7 +417,7 @@ A [`js_challenge`](#js-challenge) block supports the following:
 
 <a id="js-challenge-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#js-challenge-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="js-challenge-js-script-delay"></a>&#x2022; [`js_script_delay`](#js-challenge-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 

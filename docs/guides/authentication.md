@@ -214,7 +214,7 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -232,7 +232,7 @@ jobs:
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        if: GitHub.ref == 'refs/heads/main' && GitHub.event_name == 'push'
         env:
           XCSH_API_URL: ${{ secrets.XCSH_API_URL }}
           XCSH_API_TOKEN: ${{ secrets.XCSH_API_TOKEN }}
@@ -259,7 +259,7 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -309,7 +309,7 @@ base64 -w 0 your-credentials.p12
 | Secret Name         | Value                                          |
 | ------------------- | ---------------------------------------------- |
 | `XCSH_API_URL`      | `https://your-tenant.console.ves.volterra.io`  |
-| `XCSH_P12_BASE64`   | Base64-encoded P12 file contents               |
+| `XCSH_P12_BASE64`   | base64-encoded P12 file contents               |
 | `XCSH_P12_PASSWORD` | Password for the P12 file                      |
 
 ## Security Best Practices
@@ -385,4 +385,4 @@ XCSH_API_TOKEN="token"         # Won't work
 - [Provider Documentation](../index.md)
 - [F5 Distributed Cloud Docs](https://docs.cloud.f5.com/)
 - [F5 Credentials Guide](https://docs.cloud.f5.com/docs-v2/administration/how-tos/user-mgmt/Credentials)
-- [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)
+- [GitHub Issues](https://GitHub.com/f5-sales-demo/terraform-provider-xcsh/issues)

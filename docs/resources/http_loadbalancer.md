@@ -9,7 +9,7 @@ description: |-
 
 Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 
-~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -2268,7 +2268,7 @@ A [`captcha_challenge`](#captcha-challenge) block supports the following:
 
 <a id="captcha-challenge-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#captcha-challenge-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="captcha-challenge-custom-page"></a>&#x2022; [`custom_page`](#captcha-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="captcha-challenge-custom-page"></a>&#x2022; [`custom_page`](#captcha-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 #### client-side Defense
 
@@ -3210,7 +3210,7 @@ A [`captcha_challenge_parameters`](#parameters-13a9c7) block (within [`enable_ch
 
 <a id="expiry-af25d3"></a>&#x2022; [`cookie_expiry`](#expiry-af25d3) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-1f96cf"></a>&#x2022; [`custom_page`](#page-1f96cf) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-1f96cf"></a>&#x2022; [`custom_page`](#page-1f96cf) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 #### Enable Challenge Js Challenge Parameters
 
@@ -3218,7 +3218,7 @@ A [`js_challenge_parameters`](#parameters-6f7506) block (within [`enable_challen
 
 <a id="expiry-c03358"></a>&#x2022; [`cookie_expiry`](#expiry-c03358) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-831ba9"></a>&#x2022; [`custom_page`](#page-831ba9) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-831ba9"></a>&#x2022; [`custom_page`](#page-831ba9) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="delay-a5405d"></a>&#x2022; [`js_script_delay`](#delay-a5405d) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3688,7 +3688,7 @@ A [`js_challenge`](#js-challenge) block supports the following:
 
 <a id="js-challenge-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#js-challenge-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="js-challenge-js-script-delay"></a>&#x2022; [`js_script_delay`](#js-challenge-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3802,7 +3802,7 @@ A [`l7_ddos_action_js_challenge`](#l7-ddos-action-js-challenge) block supports t
 
 <a id="expiry-2697a0"></a>&#x2022; [`cookie_expiry`](#expiry-2697a0) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="l7-ddos-action-js-challenge-custom-page"></a>&#x2022; [`custom_page`](#l7-ddos-action-js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="l7-ddos-action-js-challenge-custom-page"></a>&#x2022; [`custom_page`](#l7-ddos-action-js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="delay-88f51d"></a>&#x2022; [`js_script_delay`](#delay-88f51d) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3840,7 +3840,7 @@ A [`clientside_action_captcha_challenge`](#challenge-84ab9e) block (within [`l7_
 
 <a id="expiry-758337"></a>&#x2022; [`cookie_expiry`](#expiry-758337) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-774877"></a>&#x2022; [`custom_page`](#page-774877) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-774877"></a>&#x2022; [`custom_page`](#page-774877) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 #### L7 DDOS Protection client-side Action Js Challenge
 
@@ -3848,7 +3848,7 @@ A [`clientside_action_js_challenge`](#challenge-1070c2) block (within [`l7_ddos_
 
 <a id="expiry-fb1ca5"></a>&#x2022; [`cookie_expiry`](#expiry-fb1ca5) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-957fdc"></a>&#x2022; [`custom_page`](#page-957fdc) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-957fdc"></a>&#x2022; [`custom_page`](#page-957fdc) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="delay-cc7ed2"></a>&#x2022; [`js_script_delay`](#delay-cc7ed2) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3868,7 +3868,7 @@ A [`mitigation_captcha_challenge`](#challenge-62fb67) block (within [`l7_ddos_pr
 
 <a id="expiry-dcbde2"></a>&#x2022; [`cookie_expiry`](#expiry-dcbde2) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-0f52d0"></a>&#x2022; [`custom_page`](#page-0f52d0) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-0f52d0"></a>&#x2022; [`custom_page`](#page-0f52d0) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 #### L7 DDOS Protection Mitigation Js Challenge
 
@@ -3876,7 +3876,7 @@ A [`mitigation_js_challenge`](#challenge-2a2755) block (within [`l7_ddos_protect
 
 <a id="expiry-299338"></a>&#x2022; [`cookie_expiry`](#expiry-299338) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-180c41"></a>&#x2022; [`custom_page`](#page-180c41) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-180c41"></a>&#x2022; [`custom_page`](#page-180c41) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="delay-9c5ffc"></a>&#x2022; [`js_script_delay`](#delay-9c5ffc) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -4218,7 +4218,7 @@ A [`captcha_challenge_parameters`](#parameters-699e87) block (within [`policy_ba
 
 <a id="expiry-fff199"></a>&#x2022; [`cookie_expiry`](#expiry-fff199) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-46537d"></a>&#x2022; [`custom_page`](#page-46537d) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-46537d"></a>&#x2022; [`custom_page`](#page-46537d) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 #### Policy Based Challenge Js Challenge Parameters
 
@@ -4226,7 +4226,7 @@ A [`js_challenge_parameters`](#parameters-65055e) block (within [`policy_based_c
 
 <a id="expiry-745058"></a>&#x2022; [`cookie_expiry`](#expiry-745058) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-59809e"></a>&#x2022; [`custom_page`](#page-59809e) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
+<a id="page-59809e"></a>&#x2022; [`custom_page`](#page-59809e) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
 
 <a id="delay-6a6ceb"></a>&#x2022; [`js_script_delay`](#delay-6a6ceb) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -4400,7 +4400,7 @@ satisfied<br>See [TLS Fingerprint Matcher](#matcher-3cbc4b) below.
 
 A [`temporary_user_blocking`](#blocking-9fdca7) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
 
-<a id="page-dc34c2"></a>&#x2022; [`custom_page`](#page-dc34c2) - Optional String<br>Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g. '`<p>` Blocked
+<a id="page-dc34c2"></a>&#x2022; [`custom_page`](#page-dc34c2) - Optional String<br>Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded plain text message e.g. 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g. '`<p>` Blocked
 
 #### Protected Cookies
 
@@ -4662,7 +4662,7 @@ A [`path`](#routes-direct-response-route-path) block (within [`routes.direct_res
 
 A [`route_direct_response`](#response-d0dcbd) block (within [`routes.direct_response_route`](#routes-direct-response-route)) supports the following:
 
-<a id="encoded-a56f81"></a>&#x2022; [`response_body_encoded`](#encoded-a56f81) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML
+<a id="encoded-a56f81"></a>&#x2022; [`response_body_encoded`](#encoded-a56f81) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in base64 format. The message can be either plain text or HTML
 
 <a id="code-1bc88c"></a>&#x2022; [`response_code`](#code-1bc88c) - Optional Number<br>Response Code. Response code to send
 

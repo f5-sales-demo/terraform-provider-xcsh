@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about new token. Token object is used to manage site admission. User must generate token before provisioning and pass this token to site during it's registration. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Token API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/authentication/) to learn more.
+~> **Note** Please refer to [Token API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/authentication/) to learn more.
 
 ## Example Usage
 
