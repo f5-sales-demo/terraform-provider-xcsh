@@ -119,3 +119,21 @@ func TestFixUpstreamTerminologyLeavesFencedBlocksAlone(t *testing.T) {
 		t.Errorf("prose around the fence should still be corrected, got:\n%s", got)
 	}
 }
+
+// `[Enum: ...]` lists the exact literals the provider accepts. They sit outside
+// backticks, so terminology rewrote them: the generated azure_vnet_site page
+// advertised `[Enum: Azure-byol-multi-nic-voltmesh]` while the resource's own
+// stringvalidator.OneOf accepts only "azure-byol-multi-nic-voltmesh". A reader
+// copying the documented value gets a Terraform validation error.
+func TestFixUpstreamTerminologyLeavesEnumTokensAlone(t *testing.T) {
+	in := "[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware."
+	want := "[Enum: azure-byol-multi-nic-voltmesh] Name for Azure certified hardware."
+	if got := FixUpstreamTerminology(in); got != want {
+		t.Errorf("enum token rewritten\ngot:  %s\nwant: %s", got, want)
+	}
+
+	multi := "[Enum: ubuntu|docker|azure] pick one"
+	if got := FixUpstreamTerminology(multi); got != multi {
+		t.Errorf("multi-value enum rewritten\ngot:  %s\nwant: %s", got, multi)
+	}
+}

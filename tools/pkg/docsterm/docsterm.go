@@ -41,6 +41,19 @@ func FixUpstreamTerminology(content string) string {
 		return fmt.Sprintf("##FENCE_%d##", idx)
 	})
 
+	// Protect `[Enum: ...]` listings. They sit outside backticks but name the exact
+	// literals the provider accepts: the generated azure_vnet_site page advertised
+	// `[Enum: Azure-byol-multi-nic-voltmesh]` while that resource's own
+	// stringvalidator.OneOf accepts only "azure-byol-multi-nic-voltmesh", so a reader
+	// copying the documented value got a Terraform validation error.
+	enumRegex := regexp.MustCompile(`\[Enum: [^\]]*\]`)
+	var savedEnums []string
+	content = enumRegex.ReplaceAllStringFunc(content, func(match string) string {
+		idx := len(savedEnums)
+		savedEnums = append(savedEnums, match)
+		return fmt.Sprintf("##ENUM_%d##", idx)
+	})
+
 	// Protect inline code spans for the same reason. Generated provider
 	// documentation is mostly IDENTIFIERS, and terminology rules are about prose:
 	// `javascript` -> `JavaScript` rewrote the real attribute javascript_location
@@ -116,6 +129,9 @@ func FixUpstreamTerminology(content string) string {
 	// the order they were removed in reverse.
 	for i, code := range savedCode {
 		content = strings.Replace(content, fmt.Sprintf("##CODE_%d##", i), code, 1)
+	}
+	for i, enum := range savedEnums {
+		content = strings.Replace(content, fmt.Sprintf("##ENUM_%d##", i), enum, 1)
 	}
 	for i, fence := range savedFences {
 		content = strings.Replace(content, fmt.Sprintf("##FENCE_%d##", i), fence, 1)
