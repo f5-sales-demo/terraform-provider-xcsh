@@ -14,6 +14,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -84,14 +85,16 @@ var v2MetadataCache = make(map[string]V2ResourceMetadata)
 func loadV2SpecMetadata() {
 	specDir := "docs/specifications/api"
 
-	specVersion := openapi.GetSpecVersion(specDir)
-	if specVersion == openapi.SpecVersionUnknown {
-		fmt.Printf("Note: No OpenAPI specs found in %s for v2 metadata loading\n", specDir)
-		return
+	// Missing specs used to print a note and return, which produced documentation
+	// with every spec-derived enrichment silently removed while the tool exited 0.
+	// The CI diff assertion added in #1415 caught it only because it compared the
+	// output; the generator itself reported success. Refuse to run instead.
+	if err := openapi.RequireSpecs(specDir); err != nil {
+		log.Fatalf("cannot transform documentation: %v", err)
 	}
 
 	var count int
-	switch specVersion {
+	switch openapi.GetSpecVersion(specDir) {
 	case openapi.SpecVersionV2:
 		count = loadV2MetadataFromDomains(specDir)
 	}

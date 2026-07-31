@@ -27,6 +27,16 @@ jobs:
           ref: ${{ inputs.ref || github.ref }}
           fetch-depth: 0
 
+      # This job had no spec download at all, so transform-docs.go always stripped
+      # the spec-derived enrichment and the "Check for changes" step below always
+      # saw a dirty tree. Its `changed` output gates create-regeneration-pr in
+      # on-merge.yml, so every qualifying push opened a regeneration PR for a diff
+      # that only existed because the bundle was missing.
+      - name: Download API specs
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ github.token }}
+
       - name: Set up Go
         uses: actions/setup-go@v7
         with:

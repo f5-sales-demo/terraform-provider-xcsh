@@ -91,6 +91,25 @@ func IsV2SpecDirectory(specDir string) bool {
 	return GetSpecVersion(specDir) == SpecVersionV2
 }
 
+// RequireSpecs returns an error unless specDir holds a complete v2 spec bundle.
+//
+// Callers that enrich generated output from the specs must use this instead of
+// treating SpecVersionUnknown as "carry on without enrichment". Silently degrading
+// makes a missing download indistinguishable from a successful run: transform-docs.go
+// did exactly that, and on a spec-less checkout emitted 256 files with 1548 lines of
+// API links, dependency notes and danger callouts removed — while exiting 0.
+func RequireSpecs(specDir string) error {
+	if GetSpecVersion(specDir) == SpecVersionV2 {
+		return nil
+	}
+	return fmt.Errorf(
+		"no OpenAPI spec bundle in %q: expected index.json and a domains/ directory. "+
+			"The bundle is gitignored, so a fresh checkout has none — run 'make download-specs' "+
+			"(or add the spec download step to this CI job) before generating",
+		specDir,
+	)
+}
+
 // ParseIndex reads and parses the index.json manifest file.
 func ParseIndex(path string) (*Index, error) {
 	data, err := os.ReadFile(path)

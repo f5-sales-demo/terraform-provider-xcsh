@@ -31,58 +31,26 @@ jobs:
           ref: ${{ inputs.ref || github.ref }}
           fetch-depth: 0
 
-      - name: Download specs if not present
-        # inputs.spec-dir reaches the shell through env: — an ${{ }} expansion
-        # inside run: is a code-injection sink (zizmor template-injection).
-        # Shell-quoted at each use below.
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ENRICHED_REPO: f5-sales-demo/api-specs-enriched
-          SPEC_DIR: ${{ inputs.spec-dir }}
-        run: |
-          SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f 2>/dev/null | wc -l)
-          if [ "$SPEC_COUNT" -eq "0" ]; then
-            echo "Specs not in tree (gitignored) — downloading latest from $ENRICHED_REPO"
-            mkdir -p "${SPEC_DIR}"
-            ASSET_ID=$(gh api "repos/$ENRICHED_REPO/releases" --jq \
-              '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
-            if [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ]; then
-              gh api "repos/$ENRICHED_REPO/releases/assets/$ASSET_ID" \
-                -H "Accept: application/octet-stream" > /tmp/specs.zip
-              unzip -o /tmp/specs.zip -d "${SPEC_DIR}"
-              rm /tmp/specs.zip
-              SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f | wc -l)
-              echo "Downloaded $SPEC_COUNT spec files"
-            else
-              echo "::warning::Could not find spec asset in latest release"
-            fi
-          else
-            echo "Found $SPEC_COUNT existing spec files"
-          fi
-
-      - name: Verify specs exist
-        id: verify
-        env:
-          SPEC_DIR: ${{ inputs.spec-dir }}
-        run: |
-          SPEC_COUNT=$(find "${SPEC_DIR}" -name "*.json" -type f 2>/dev/null | wc -l)
-          echo "Found ${SPEC_COUNT} OpenAPI spec files in ${SPEC_DIR}"
-          if [ "$SPEC_COUNT" -eq "0" ]; then
-            echo "No spec files found - skipping generation"
-            echo "has_specs=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_specs=true" >> "$GITHUB_OUTPUT"
-          fi
+      # The download used to warn on a missing asset, and a "Verify specs exist"
+      # step then set has_specs=false, which every subsequent step was conditional
+      # on — so the whole regeneration was skipped and the run went green having
+      # generated nothing. A release built that way carries whatever the previous
+      # run happened to leave behind. The shared action fails on a missing bundle,
+      # which makes that condition unreachable, so it and its six `if:` guards are
+      # gone rather than left as a branch that can never be taken.
+      - name: Download API specs
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ github.token }}
+          spec-dir: ${{ inputs.spec-dir }}
 
       - name: Set up Go
-        if: steps.verify.outputs.has_specs == 'true'
         uses: actions/setup-go@v7
         with:
           go-version-file: 'go.mod'
           cache: true
 
       - name: Run code generator
-        if: steps.verify.outputs.has_specs == 'true'
         env:
           SPEC_DIR: ${{ inputs.spec-dir }}
         run: |
@@ -90,23 +58,19 @@ jobs:
           go run tools/generate-all-schemas.go --spec-dir="${SPEC_DIR}"
 
       - name: Run go mod tidy
-        if: steps.verify.outputs.has_specs == 'true'
         run: scripts/go-retry.sh 3 go mod tidy
 
       - name: Build to verify
-        if: steps.verify.outputs.has_specs == 'true'
         # ./... so hand-written packages the root binary does not import — above
         # all internal/acctest — are compiled against the freshly regenerated
         # code. See #1351: `go build .` verified nothing about them.
         run: scripts/go-retry.sh 3 go build -v ./...
 
       - name: Vet to verify
-        if: steps.verify.outputs.has_specs == 'true'
         # Type-checks _test.go files, which go build skips (#1351).
         run: scripts/go-retry.sh 3 go vet ./...
 
       - name: Run tests
-        if: steps.verify.outputs.has_specs == 'true'
         # ./tools/... runs here as well as in _build-test.yml so the freshly
         # regenerated tree is re-tested against the specs it was generated from.
         # XCSH_SPEC_DIR makes TestCodespellCorrectionsDoNotCollideWithSpecPropertyNames
