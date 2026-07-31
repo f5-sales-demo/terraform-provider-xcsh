@@ -42,14 +42,21 @@ runs:
       run: |
         set -euo pipefail
 
-        SPEC_COUNT=$(find "${SPEC_DIR}" -name '*.json' -type f 2>/dev/null | wc -l)
+        # Create the directory before probing it. `shell: bash` in a composite action
+        # runs with -eo pipefail, so `find` on a missing path returns 1 through the
+        # pipe and would kill the step here — on every clean runner, since the spec
+        # directory is gitignored and never exists after checkout. The workflow `run:`
+        # blocks this action replaces used the default `bash -e {0}`, which has no
+        # pipefail, so the same line was harmless there.
+        mkdir -p "${SPEC_DIR}"
+
+        SPEC_COUNT=$(find "${SPEC_DIR}" -name '*.json' -type f | wc -l)
         if [ "$SPEC_COUNT" -gt 0 ]; then
           echo "Found ${SPEC_COUNT} existing spec files in ${SPEC_DIR}"
           exit 0
         fi
 
         echo "Specs not in tree (gitignored) — downloading latest from ${ENRICHED_REPO}"
-        mkdir -p "${SPEC_DIR}"
 
         ASSET_ID=$(gh api "repos/${ENRICHED_REPO}/releases" --jq \
           '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
