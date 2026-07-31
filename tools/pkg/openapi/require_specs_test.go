@@ -49,15 +49,57 @@ func TestRequireSpecsRejectsPartialBundle(t *testing.T) {
 	}
 }
 
+// Checking only that index.json and domains/ EXIST is not enough, and the first
+// version of this guard made exactly that mistake. Measured: a directory holding
+// `{}` and an empty domains/ passed the guard, transform-docs.go loaded zero
+// resources, exited 0, and rewrote 277 files — the identical failure the guard was
+// added to prevent. Presence of the path is not presence of the specs.
+func TestRequireSpecsRejectsEmptyDomainsDirectory(t *testing.T) {
+	dir := newBundle(t, `{"specifications":[{"name":"sites"}]}`)
+	if err := RequireSpecs(dir); err == nil {
+		t.Fatal("RequireSpecs accepted a bundle whose domains/ holds no specs")
+	}
+}
+
+func TestRequireSpecsRejectsEmptyIndex(t *testing.T) {
+	dir := newBundle(t, `{}`)
+	writeDomain(t, dir, "sites.json")
+	if err := RequireSpecs(dir); err == nil {
+		t.Fatal("RequireSpecs accepted an index listing no specifications")
+	}
+}
+
+func TestRequireSpecsRejectsUnparseableIndex(t *testing.T) {
+	dir := newBundle(t, `{"specifications": [`)
+	writeDomain(t, dir, "sites.json")
+	if err := RequireSpecs(dir); err == nil {
+		t.Fatal("RequireSpecs accepted an index that does not parse")
+	}
+}
+
 func TestRequireSpecsAcceptsCompleteBundle(t *testing.T) {
+	dir := newBundle(t, `{"specifications":[{"name":"sites"}]}`)
+	writeDomain(t, dir, "sites.json")
+	if err := RequireSpecs(dir); err != nil {
+		t.Fatalf("RequireSpecs rejected a complete v2 bundle: %v", err)
+	}
+}
+
+func newBundle(t *testing.T, index string) string {
+	t.Helper()
 	dir := t.TempDir()
-	if err := os.WriteFile(filepath.Join(dir, "index.json"), []byte(`{"specifications":[]}`), 0o600); err != nil {
+	if err := os.WriteFile(filepath.Join(dir, "index.json"), []byte(index), 0o600); err != nil {
 		t.Fatal(err)
 	}
 	if err := os.Mkdir(filepath.Join(dir, "domains"), 0o750); err != nil {
 		t.Fatal(err)
 	}
-	if err := RequireSpecs(dir); err != nil {
-		t.Fatalf("RequireSpecs rejected a complete v2 bundle: %v", err)
+	return dir
+}
+
+func writeDomain(t *testing.T, dir, name string) {
+	t.Helper()
+	if err := os.WriteFile(filepath.Join(dir, "domains", name), []byte(`{"paths":{}}`), 0o600); err != nil {
+		t.Fatal(err)
 	}
 }

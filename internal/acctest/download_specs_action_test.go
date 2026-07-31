@@ -77,7 +77,10 @@ func TestDownloadSpecsActionSkipsWhenBundlePresent(t *testing.T) {
 	if err := os.MkdirAll(filepath.Join(specDir, "domains"), 0o750); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(specDir, "index.json"), []byte(`{}`), 0o600); err != nil {
+	if err := os.WriteFile(filepath.Join(specDir, "index.json"), []byte(`{"specifications":[{"name":"sites"}]}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(specDir, "domains", "sites.json"), []byte(`{"paths":{}}`), 0o600); err != nil {
 		t.Fatal(err)
 	}
 
@@ -105,6 +108,51 @@ func TestDownloadSpecsActionSkipsWhenBundlePresent(t *testing.T) {
 	}
 	if !strings.Contains(string(out), "existing spec files") {
 		t.Errorf("expected the short-circuit message, got:\n%s", out)
+	}
+}
+
+// A truncated unzip leaves index.json with an empty domains/. That is JSON in the
+// directory, so a "some spec files are present" probe short-circuits on it and the
+// download that would repair it never runs — while openapi.RequireSpecs rejects the
+// same tree downstream. Measured before this was fixed: such a bundle let
+// transform-docs.go exit 0 and rewrite 277 files. The action's completeness test has
+// to agree with the guard the generators use.
+func TestDownloadSpecsActionRedownloadsTruncatedBundle(t *testing.T) {
+	script := extractActionScript(t)
+
+	tmp := t.TempDir()
+	specDir := filepath.Join(tmp, "specs")
+	if err := os.MkdirAll(filepath.Join(specDir, "domains"), 0o750); err != nil {
+		t.Fatal(err)
+	}
+	// index.json present, domains/ empty — the truncated shape.
+	if err := os.WriteFile(filepath.Join(specDir, "index.json"), []byte(`{}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+
+	binDir := filepath.Join(tmp, "bin")
+	if err := os.Mkdir(binDir, 0o750); err != nil {
+		t.Fatal(err)
+	}
+	marker := filepath.Join(tmp, "gh-was-called")
+	stub := "#!/usr/bin/env bash\ntouch " + marker + "\nexit 7\n"
+	if err := os.WriteFile(filepath.Join(binDir, "gh"), []byte(stub), 0o700); err != nil { //nolint:gosec // test stub must be executable
+		t.Fatal(err)
+	}
+
+	cmd := exec.Command("bash", "--noprofile", "--norc", "-eo", "pipefail", "-c", script)
+	cmd.Dir = tmp
+	cmd.Env = append(os.Environ(),
+		"PATH="+binDir+string(os.PathListSeparator)+os.Getenv("PATH"),
+		"SPEC_DIR="+specDir,
+		"ENRICHED_REPO=f5-sales-demo/api-specs-enriched",
+		"GH_TOKEN=stub",
+	)
+	out, _ := cmd.CombinedOutput()
+
+	if _, err := os.Stat(marker); err != nil {
+		t.Fatalf("action treated a truncated bundle (index.json, empty domains/) as complete "+
+			"and never attempted a download.\noutput:\n%s", out)
 	}
 }
 

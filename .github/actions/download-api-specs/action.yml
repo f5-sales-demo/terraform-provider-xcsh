@@ -50,13 +50,23 @@ runs:
         # pipefail, so the same line was harmless there.
         mkdir -p "${SPEC_DIR}"
 
-        SPEC_COUNT=$(find "${SPEC_DIR}" -name '*.json' -type f | wc -l)
-        if [ "$SPEC_COUNT" -gt 0 ]; then
-          echo "Found ${SPEC_COUNT} existing spec files in ${SPEC_DIR}"
+        # complete() must agree with openapi.RequireSpecs, which the generators call.
+        # "Some JSON is present" is not the test: an index.json alone, or an index
+        # beside an empty domains/, is a truncated unzip that the generators reject —
+        # and if this step short-circuited on it, the download that would repair it
+        # would never run.
+        complete() {
+          [ -f "${SPEC_DIR}/index.json" ] || return 1
+          [ -d "${SPEC_DIR}/domains" ] || return 1
+          [ -n "$(find "${SPEC_DIR}/domains" -name '*.json' -type f -print -quit)" ]
+        }
+
+        if complete; then
+          echo "Found $(find "${SPEC_DIR}" -name '*.json' -type f | wc -l) existing spec files in ${SPEC_DIR}"
           exit 0
         fi
 
-        echo "Specs not in tree (gitignored) — downloading latest from ${ENRICHED_REPO}"
+        echo "No complete bundle in ${SPEC_DIR} — downloading latest from ${ENRICHED_REPO}"
 
         ASSET_ID=$(gh api "repos/${ENRICHED_REPO}/releases" --jq \
           '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
@@ -91,7 +101,7 @@ runs:
           echo "::error::Spec asset unpacked to no JSON files in ${SPEC_DIR}"
           exit 1
         fi
-        if [ ! -f "${SPEC_DIR}/index.json" ] || [ ! -d "${SPEC_DIR}/domains" ]; then
-          echo "::error::Incomplete bundle in ${SPEC_DIR}: index.json and domains/ are both required"
+        if ! complete; then
+          echo "::error::Incomplete bundle in ${SPEC_DIR}: index.json plus at least one domains/*.json are required"
           exit 1
         fi
