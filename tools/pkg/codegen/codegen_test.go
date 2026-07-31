@@ -1741,7 +1741,10 @@ func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
 // no convergence and only hides hw-model and friends from a caller that asked for the
 // object. A local review caught exactly that regression before this test existed.
 func TestTemplates_DiscoveryLabelFilterIsResourceOnly_Issue1391(t *testing.T) {
-	resourceCall := "filterSystemLabels(apiResource.Metadata.Labels, {{.FiltersDiscoveredSiteLabels}})"
+	// #1398 changed the call to filterSystemLabelsOwning, which takes the same
+	// per-resource flag plus the set of keys the configuration declared. The invariant
+	// this test protects is unchanged and still asserted: the flag drives the filter.
+	resourceCall := "filterSystemLabelsOwning(apiResource.Metadata.Labels, {{.FiltersDiscoveredSiteLabels}}, ownedLabels)"
 	if !strings.Contains(ResourceTemplate, resourceCall) {
 		t.Errorf("the resource template must drive the discovery filter from the per-resource flag; expected %q", resourceCall)
 	}
@@ -1839,6 +1842,51 @@ func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testi
 	for _, unwanted := range []string{"preservedPlatformLabels", "mergePreservedLabels", "isDiscoveredSiteLabel", "discoveredSiteLabelKeys"} {
 		if strings.Contains(undecorated, unwanted) {
 			t.Errorf("a resource F5 XC does not decorate must get none of the preservation mechanism; found %q", unwanted)
+		}
+	}
+}
+
+// #1398: a configuration must be able to own a label in the ves.io/ namespace. That
+// works only if the set of configuration-declared keys is recorded in private state at
+// Create and Update — the only points where the configuration is visible — and consulted
+// in Read, which sees prior state and cannot otherwise tell an owned label from one the
+// platform added.
+func TestTemplates_RecordOwnedLabelKeys_Issue1398(t *testing.T) {
+	record := "encodeOwnedLabelKeys(configLabelKeys("
+	if got := strings.Count(ResourceTemplate, record); got != 2 {
+		t.Errorf("expected ownership to be recorded in exactly Create and Update, found %d call(s) to %q", got, record)
+	}
+	if !strings.Contains(ResourceTemplate, "req.Private.GetKey(ctx, ownedLabelKeysPrivateKey)") {
+		t.Error("Read must consult the recorded ownership; without it a ves.io/ label never converges")
+	}
+
+	// The ordering that matters. Update merges the platform's own discovery labels into
+	// the outgoing map (#1391); recording ownership AFTER that merge would file those
+	// platform labels as configuration-owned, so Read would stop filtering them and the
+	// plan would propose deleting them again — the exact bug #1391 fixed.
+	updateIdx := strings.Index(ResourceTemplate, "func (r *{{.TitleCase}}Resource) Update(")
+	if updateIdx < 0 {
+		t.Fatal("Update method not found in the resource template")
+	}
+	update := ResourceTemplate[updateIdx:]
+	recordIdx := strings.Index(update, record)
+	mergeIdx := strings.Index(update, "mergePreservedLabels(")
+	if recordIdx < 0 {
+		t.Fatal("Update does not record owned label keys")
+	}
+	if mergeIdx >= 0 && recordIdx > mergeIdx {
+		t.Error("Update records ownership after mergePreservedLabels; the platform's own " +
+			"discovery labels would be recorded as configuration-owned, reintroducing #1391")
+	}
+
+	// Data sources have no plan to converge and no private state to read, so they must
+	// keep using the plain filter.
+	for name, tmpl := range map[string]string{
+		"DataSourceTemplate":         DataSourceTemplate,
+		"ReadOnlyDataSourceTemplate": ReadOnlyDataSourceTemplate,
+	} {
+		if strings.Contains(tmpl, "ownedLabelKeys") {
+			t.Errorf("%s must not consult label ownership: it has no plan to converge", name)
 		}
 	}
 }
