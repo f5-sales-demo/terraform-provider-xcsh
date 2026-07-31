@@ -438,43 +438,27 @@ jobs:
                               if fixed != txt:
                                   open(fp, 'w').write(fixed)
 
-          # Fix terminology in generated docs (fallback for terms not caught by transform-docs.go)
-          import re
-          term_fixes = {
-              'Javascript': 'JavaScript', 'javascript': 'JavaScript',
-              'MAC OS': 'macOS', 'Clientside': 'client-side',
-              'Client Side': 'client-side', 'client side': 'client-side',
-              'server side': 'server-side',
-              'sub-class': 'subclass',
-          }
-          term_regex_fixes = [
-              (re.compile(r'\bSdk\b'), 'SDK'),
-              (re.compile(r'\b[Gg]ithub\b'), 'GitHub'),
-              (re.compile(r'\b[Gg]itlab\b'), 'GitLab'),
-              (re.compile(r'\b[Bb]it[Bb]ucket\b'), 'Bitbucket'),
-              (re.compile(r'\bdocker\b'), 'Docker'),
-              (re.compile(r'\bubuntu\b'), 'Ubuntu'),
-              (re.compile(r'\bazure\b'), 'Azure'),
-              (re.compile(r'\bcassandra\b'), 'Cassandra'),
-              (re.compile(r'\bmongodb\b'), 'MongoDB'),
-              (re.compile(r'\bCode Base\b'), 'codebase'),
-              (re.compile(r'\bcode base\b'), 'codebase'),
-              (re.compile(r'(?<![#/])Base64'), 'base64'),
-              (re.compile(r'\bInternet\b'), 'internet'),
-          ]
-          for root in ['docs', 'examples']:
-              for dirpath, _, filenames in os.walk(root):
-                  for fn in filenames:
-                      if fn.endswith('.md'):
-                          fp = os.path.join(dirpath, fn)
-                          txt = open(fp).read()
-                          fixed = txt
-                          for wrong, right in term_fixes.items():
-                              fixed = fixed.replace(wrong, right)
-                          for pattern, replacement in term_regex_fixes:
-                              fixed = pattern.sub(replacement, fixed)
-                          if fixed != txt:
-                              open(fp, 'w').write(fixed)
+          # A terminology rewrite used to run here, described as a "fallback for terms
+          # not caught by transform-docs.go". It applied blind string and word-boundary
+          # substitutions to every generated .md — and generated docs are mostly
+          # IDENTIFIERS, where those substitutions are wrong:
+          #
+          #   'javascript' -> 'JavaScript'   turned the real attribute
+          #                                  javascript_location into JavaScript_location,
+          #                                  documenting HCL that Terraform rejects (#1414)
+          #   \b[Gg]ithub\b -> 'GitHub'      turned f5-sales-demo.github.io into
+          #                                  f5-sales-demo.GitHub.io in 72 files
+          #   \bubuntu\b -> 'Ubuntu'         is what produced runs-on: Ubuntu-latest
+          #
+          # Measured across the auto-regeneration in #1422: main held 0 files containing
+          # GitHub.io before it and 72 after. Because the rewrite runs after generation
+          # and its result is committed, the tree can never match the generator — every
+          # merge re-corrupted it, and the diff assertion in ci.yml then failed the next
+          # PR for damage that PR did not cause.
+          #
+          # The note above about codespell says it exactly: fix spelling in the spec or
+          # the generator, never by rewriting the output. Terminology is the generator's
+          # job (tools/pkg/docsterm), where it can tell prose from an identifier.
 
           # Inject terraform block into any .tf example missing it
           tf_block = '''terraform {

@@ -180,7 +180,7 @@ A [`clear_secret_info`](#info-fb7899) block (within [`aws_parameters.admin_passw
 
 <a id="ref-3acced"></a>&#x2022; [`provider_ref`](#ref-3acced) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-af0d7f"></a>&#x2022; [`url`](#url-af0d7f) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="url-af0d7f"></a>&#x2022; [`url`](#url-af0d7f) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### AWS Parameters AWS Cred
 
@@ -351,7 +351,7 @@ A [`direct_connect_enabled`](#direct-connect-enabled) block supports the followi
 
 A [`hosted_vifs`](#direct-connect-enabled-hosted-vifs) block (within [`direct_connect_enabled`](#direct-connect-enabled)) supports the following:
 
-<a id="connect-b8275e"></a>&#x2022; [`site_registration_over_direct_connect`](#connect-b8275e) - Optional Block<br>CloudLink AND Network Config<br>See [Site Registration Over Direct Connect](#connect-b8275e) below.
+<a id="connect-b8275e"></a>&#x2022; [`site_registration_over_direct_connect`](#connect-b8275e) - Optional Block<br>CloudLink ADN Network Config<br>See [Site Registration Over Direct Connect](#connect-b8275e) below.
 
 <a id="internet-6028e0"></a>&#x2022; [`site_registration_over_internet`](#internet-6028e0) - Optional Block<br>Enable this option
 

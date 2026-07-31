@@ -25,7 +25,7 @@
 # Tier Required: STANDARD
 enable_bot_defense = true
 
-# Client Side Defense - Protect against Magecart and formjacking attacks
+# Client-Side Defense - Protect against Magecart and formjacking attacks
 # Service Name: f5xc-client-side-defense-standard
 # Tier Required: STANDARD
 enable_client_side_defense = false

@@ -112,7 +112,7 @@ A [`js_insertion_rules`](#cloudflare-js-insertion-rules) block (within [`cloudfl
 
 <a id="list-8efdb9"></a>&#x2022; [`exclude_list`](#list-8efdb9) - Optional Block<br>Optional JavaScript insertions exclude list of domain and path matchers<br>See [Exclude List](#list-8efdb9) below.
 
-<a id="location-a9a4d9"></a>&#x2022; [`JavaScript_location`](#location-a9a4d9) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
+<a id="location-a9a4d9"></a>&#x2022; [`javascript_location`](#location-a9a4d9) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
 JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="path-301a4e"></a>&#x2022; [`js_download_path`](#path-301a4e) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
@@ -466,10 +466,10 @@ A [`js_insertion_rules`](#cloudfront-js-insertion-rules) block (within [`cloudfr
 
 <a id="list-72c274"></a>&#x2022; [`exclude_list`](#list-72c274) - Optional Block<br>Optional JavaScript insertions exclude list of domain and path matchers<br>See [Exclude List](#list-72c274) below.
 
-<a id="location-a1afce"></a>&#x2022; [`JavaScript_location`](#location-a1afce) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
+<a id="location-a1afce"></a>&#x2022; [`javascript_location`](#location-a1afce) - Optional String  Defaults to `JAVA_SCRIPT_LOCATION_UNDEFINED`<br>Possible values are `JAVA_SCRIPT_LOCATION_UNDEFINED`, `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: JAVA_SCRIPT_LOCATION_UNDEFINED|AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. - JAVA_SCRIPT_LOCATION_UNDEFINED:
 JAVA_SCRIPT_LOCATION_UNDEFINED Undefined Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
-<a id="mode-062eb7"></a>&#x2022; [`JavaScript_mode`](#mode-062eb7) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested
+<a id="mode-062eb7"></a>&#x2022; [`javascript_mode`](#mode-062eb7) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested
 asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
 
 <a id="path-6e071d"></a>&#x2022; [`js_download_path`](#path-6e071d) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’
@@ -556,7 +556,7 @@ A [`metadata`](#metadata-4b30aa) block (within [`cloudfront.js_insertion_rules.r
 
 A [`manual_js_insert`](#cloudfront-manual-js-insert) block (within [`cloudfront`](#cloudfront)) supports the following:
 
-<a id="mode-24ddf8"></a>&#x2022; [`JavaScript_mode`](#mode-24ddf8) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested
+<a id="mode-24ddf8"></a>&#x2022; [`javascript_mode`](#mode-24ddf8) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense JavaScript for telemetry collection is requested
 asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
 
 <a id="path-4bb2de"></a>&#x2022; [`js_download_path`](#path-4bb2de) - Optional String<br>Web client will fetch F5 Client JavaScript from this path. This path must not conflict with any other website/application paths. If not specified, default to ‘/common.js’

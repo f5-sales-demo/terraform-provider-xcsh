@@ -12,7 +12,7 @@ variable "enable_bot_defense" {
 }
 
 variable "enable_client_side_defense" {
-  description = "Whether to check and potentially activate Client Side Defense addon"
+  description = "Whether to check and potentially activate Client-Side Defense addon"
   type        = bool
   default     = false
 }

@@ -3,7 +3,7 @@ page_title: "Guide: Addon Service Activation"
 subcategory: "Guides"
 description: |-
   Learn how to activate F5XC addon services using Terraform.
-  Covers Bot Defense, Client Side Defense, WAAP, and more.
+  Covers Bot Defense, Client-Side Defense, WAAP, and more.
 ---
 
 # Addon Service Activation
@@ -116,7 +116,7 @@ Edit `terraform.tfvars` to enable the addon services you want to activate:
 # Enable Bot Defense activation
 enable_bot_defense = true
 
-# Enable Client Side Defense
+# Enable Client-Side Defense
 enable_client_side_defense = false
 ```
 
@@ -399,7 +399,7 @@ resource "xcsh_http_loadbalancer" "with_csd" {
 
   domains = ["app.example.com"]
 
-  # Enable Client Side Defense
+  # Enable Client-Side Defense
   enable_client_side_defense = true
 
   # ... rest of configuration

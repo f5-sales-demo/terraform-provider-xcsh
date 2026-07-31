@@ -9,7 +9,7 @@ description: |-
 
 Manages an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security.
 
-~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -1818,7 +1818,7 @@ A [`policy`](#bot-defense-policy) block (within [`bot_defense`](#bot-defense)) s
 
 <a id="bot-defense-policy-disable-mobile-sdk"></a>&#x2022; [`disable_mobile_sdk`](#bot-defense-policy-disable-mobile-sdk) - Optional Block<br>Enable this option
 
-<a id="bot-defense-policy-JavaScript-mode"></a>&#x2022; [`JavaScript_mode`](#bot-defense-policy-JavaScript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
+<a id="bot-defense-policy-JavaScript-mode"></a>&#x2022; [`javascript_mode`](#bot-defense-policy-JavaScript-mode) - Optional String  Defaults to `ASYNC_JS_NO_CACHING`<br>Possible values are `ASYNC_JS_NO_CACHING`, `ASYNC_JS_CACHING`, `SYNC_JS_NO_CACHING`, `SYNC_JS_CACHING`<br>[Enum: ASYNC_JS_NO_CACHING|ASYNC_JS_CACHING|SYNC_JS_NO_CACHING|SYNC_JS_CACHING] Web Client JavaScript Mode. Bot Defense
 JavaScript for telemetry collection is requested asynchronously, and it is non-cacheable Bot Defense JavaScript for telemetry collection is requested asynchronously, and it is cacheable Bot Defense JavaScript for telemetry collection is requested
 
 <a id="bot-defense-policy-js-download-path"></a>&#x2022; [`js_download_path`](#bot-defense-policy-js-download-path) - Optional String<br>Customize Bot Defense Client JavaScript path. If not specified, default
@@ -1837,7 +1837,7 @@ JavaScript for telemetry collection is requested asynchronously, and it is non-c
 
 A [`js_insert_all_pages`](#bot-defense-policy-js-insert-all-pages) block (within [`bot_defense.policy`](#bot-defense-policy)) supports the following:
 
-<a id="location-3a398d"></a>&#x2022; [`JavaScript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-3a398d"></a>&#x2022; [`javascript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Policy Js Insert All Pages Except
 
@@ -1891,7 +1891,7 @@ A [`rules`](#rules-15d983) block (within [`bot_defense.policy.js_insertion_rules
 
 <a id="domain-834b0f"></a>&#x2022; [`domain`](#domain-834b0f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-834b0f) below.
 
-<a id="location-16277f"></a>&#x2022; [`JavaScript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-16277f"></a>&#x2022; [`javascript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-e15703"></a>&#x2022; [`metadata`](#metadata-e15703) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-e15703) below.
@@ -2123,7 +2123,7 @@ A [`bot_defense_advanced`](#bot-defense-advanced) block supports the following:
 
 A [`js_insert_all_pages`](#pages-27f3ea) block (within [`bot_defense_advanced`](#bot-defense-advanced)) supports the following:
 
-<a id="location-f54ccc"></a>&#x2022; [`JavaScript_location`](#location-f54ccc) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-f54ccc"></a>&#x2022; [`javascript_location`](#location-f54ccc) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Advanced Js Insert All Pages Except
 
@@ -2177,7 +2177,7 @@ A [`rules`](#rules-24e5a0) block (within [`bot_defense_advanced.js_insertion_rul
 
 <a id="domain-ff2f2e"></a>&#x2022; [`domain`](#domain-ff2f2e) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-ff2f2e) below.
 
-<a id="location-20f540"></a>&#x2022; [`JavaScript_location`](#location-20f540) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-20f540"></a>&#x2022; [`javascript_location`](#location-20f540) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-43c6ee"></a>&#x2022; [`metadata`](#metadata-43c6ee) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-43c6ee) below.
@@ -2268,7 +2268,7 @@ A [`captcha_challenge`](#captcha-challenge) block supports the following:
 
 <a id="captcha-challenge-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#captcha-challenge-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="captcha-challenge-custom-page"></a>&#x2022; [`custom_page`](#captcha-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="captcha-challenge-custom-page"></a>&#x2022; [`custom_page`](#captcha-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 #### client-side Defense
 
@@ -3210,7 +3210,7 @@ A [`captcha_challenge_parameters`](#parameters-13a9c7) block (within [`enable_ch
 
 <a id="expiry-af25d3"></a>&#x2022; [`cookie_expiry`](#expiry-af25d3) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-1f96cf"></a>&#x2022; [`custom_page`](#page-1f96cf) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-1f96cf"></a>&#x2022; [`custom_page`](#page-1f96cf) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 #### Enable Challenge Js Challenge Parameters
 
@@ -3218,7 +3218,7 @@ A [`js_challenge_parameters`](#parameters-6f7506) block (within [`enable_challen
 
 <a id="expiry-c03358"></a>&#x2022; [`cookie_expiry`](#expiry-c03358) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-831ba9"></a>&#x2022; [`custom_page`](#page-831ba9) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-831ba9"></a>&#x2022; [`custom_page`](#page-831ba9) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="delay-a5405d"></a>&#x2022; [`js_script_delay`](#delay-a5405d) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3688,7 +3688,7 @@ A [`js_challenge`](#js-challenge) block supports the following:
 
 <a id="js-challenge-cookie-expiry"></a>&#x2022; [`cookie_expiry`](#js-challenge-cookie-expiry) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="js-challenge-custom-page"></a>&#x2022; [`custom_page`](#js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="js-challenge-js-script-delay"></a>&#x2022; [`js_script_delay`](#js-challenge-js-script-delay) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3802,7 +3802,7 @@ A [`l7_ddos_action_js_challenge`](#l7-ddos-action-js-challenge) block supports t
 
 <a id="expiry-2697a0"></a>&#x2022; [`cookie_expiry`](#expiry-2697a0) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="l7-ddos-action-js-challenge-custom-page"></a>&#x2022; [`custom_page`](#l7-ddos-action-js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="l7-ddos-action-js-challenge-custom-page"></a>&#x2022; [`custom_page`](#l7-ddos-action-js-challenge-custom-page) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="delay-88f51d"></a>&#x2022; [`js_script_delay`](#delay-88f51d) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3840,7 +3840,7 @@ A [`clientside_action_captcha_challenge`](#challenge-84ab9e) block (within [`l7_
 
 <a id="expiry-758337"></a>&#x2022; [`cookie_expiry`](#expiry-758337) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-774877"></a>&#x2022; [`custom_page`](#page-774877) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-774877"></a>&#x2022; [`custom_page`](#page-774877) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 #### L7 DDOS Protection client-side Action Js Challenge
 
@@ -3848,7 +3848,7 @@ A [`clientside_action_js_challenge`](#challenge-1070c2) block (within [`l7_ddos_
 
 <a id="expiry-fb1ca5"></a>&#x2022; [`cookie_expiry`](#expiry-fb1ca5) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-957fdc"></a>&#x2022; [`custom_page`](#page-957fdc) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-957fdc"></a>&#x2022; [`custom_page`](#page-957fdc) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="delay-cc7ed2"></a>&#x2022; [`js_script_delay`](#delay-cc7ed2) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -3868,7 +3868,7 @@ A [`mitigation_captcha_challenge`](#challenge-62fb67) block (within [`l7_ddos_pr
 
 <a id="expiry-dcbde2"></a>&#x2022; [`cookie_expiry`](#expiry-dcbde2) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-0f52d0"></a>&#x2022; [`custom_page`](#page-0f52d0) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-0f52d0"></a>&#x2022; [`custom_page`](#page-0f52d0) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 #### L7 DDOS Protection Mitigation Js Challenge
 
@@ -3876,7 +3876,7 @@ A [`mitigation_js_challenge`](#challenge-2a2755) block (within [`l7_ddos_protect
 
 <a id="expiry-299338"></a>&#x2022; [`cookie_expiry`](#expiry-299338) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-180c41"></a>&#x2022; [`custom_page`](#page-180c41) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-180c41"></a>&#x2022; [`custom_page`](#page-180c41) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="delay-9c5ffc"></a>&#x2022; [`js_script_delay`](#delay-9c5ffc) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -4218,7 +4218,7 @@ A [`captcha_challenge_parameters`](#parameters-699e87) block (within [`policy_ba
 
 <a id="expiry-fff199"></a>&#x2022; [`cookie_expiry`](#expiry-fff199) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-46537d"></a>&#x2022; [`custom_page`](#page-46537d) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-46537d"></a>&#x2022; [`custom_page`](#page-46537d) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 #### Policy Based Challenge Js Challenge Parameters
 
@@ -4226,7 +4226,7 @@ A [`js_challenge_parameters`](#parameters-65055e) block (within [`policy_based_c
 
 <a id="expiry-745058"></a>&#x2022; [`cookie_expiry`](#expiry-745058) - Optional Number<br>Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge
 
-<a id="page-59809e"></a>&#x2022; [`custom_page`](#page-59809e) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in base64 format
+<a id="page-59809e"></a>&#x2022; [`custom_page`](#page-59809e) - Optional String<br>Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format
 
 <a id="delay-6a6ceb"></a>&#x2022; [`js_script_delay`](#delay-6a6ceb) - Optional Number<br>Delay introduced by JavaScript, in milliseconds
 
@@ -4295,7 +4295,7 @@ below.
 
 <a id="challenge-e0353b"></a>&#x2022; [`enable_captcha_challenge`](#challenge-e0353b) - Optional Block<br>Configuration parameter for enable captcha challenge
 
-<a id="challenge-3644c3"></a>&#x2022; [`enable_JavaScript_challenge`](#challenge-3644c3) - Optional Block<br>Enable this option
+<a id="challenge-3644c3"></a>&#x2022; [`enable_javascript_challenge`](#challenge-3644c3) - Optional Block<br>Enable this option
 
 <a id="timestamp-6d26e1"></a>&#x2022; [`expiration_timestamp`](#timestamp-6d26e1) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
 
@@ -4400,7 +4400,7 @@ satisfied<br>See [TLS Fingerprint Matcher](#matcher-3cbc4b) below.
 
 A [`temporary_user_blocking`](#blocking-9fdca7) block (within [`policy_based_challenge`](#policy-based-challenge)) supports the following:
 
-<a id="page-dc34c2"></a>&#x2022; [`custom_page`](#page-dc34c2) - Optional String<br>Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be encoded in base64 format. You can specify this message as base64 encoded plain text message e.g. 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g. '`<p>` Blocked
+<a id="page-dc34c2"></a>&#x2022; [`custom_page`](#page-dc34c2) - Optional String<br>Custom message is of type . Currently supported URL schemes is . For scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. 'Blocked.' or it can be HTML paragraph or a body string encoded as base64 string E.g. '`<p>` Blocked
 
 #### Protected Cookies
 
@@ -4662,7 +4662,7 @@ A [`path`](#routes-direct-response-route-path) block (within [`routes.direct_res
 
 A [`route_direct_response`](#response-d0dcbd) block (within [`routes.direct_response_route`](#routes-direct-response-route)) supports the following:
 
-<a id="encoded-a56f81"></a>&#x2022; [`response_body_encoded`](#encoded-a56f81) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in base64 format. The message can be either plain text or HTML
+<a id="encoded-a56f81"></a>&#x2022; [`response_body_encoded`](#encoded-a56f81) - Optional String<br>Response body to send. Currently supported URL schemes is string:/// for which message should be encoded in Base64 format. The message can be either plain text or HTML
 
 <a id="code-1bc88c"></a>&#x2022; [`response_code`](#code-1bc88c) - Optional Number<br>Response Code. Response code to send
 
@@ -4768,7 +4768,7 @@ An [`advanced_options`](#routes-simple-route-advanced-options) block (within [`r
 
 <a id="firewall-b8f7c9"></a>&#x2022; [`app_firewall`](#firewall-b8f7c9) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [App Firewall](#firewall-b8f7c9) below.
 
-<a id="injection-23f0bd"></a>&#x2022; [`bot_defense_JavaScript_injection`](#injection-23f0bd) - Optional Block<br>Bot Defense JavaScript Injection Configuration for inline bot defense deployments<br>See [Bot Defense JavaScript Injection](#injection-23f0bd) below.
+<a id="injection-23f0bd"></a>&#x2022; [`bot_defense_javascript_injection`](#injection-23f0bd) - Optional Block<br>Bot Defense JavaScript Injection Configuration for inline bot defense deployments<br>See [Bot Defense JavaScript Injection](#injection-23f0bd) below.
 
 <a id="policy-23a3f6"></a>&#x2022; [`buffer_policy`](#policy-23a3f6) - Optional Block<br>Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config<br>See [Buffer Policy](#policy-23a3f6) below.
 
@@ -4802,7 +4802,7 @@ Policy](#policy-7816d7) below.
 
 <a id="subsets-b6a9d9"></a>&#x2022; [`endpoint_subsets`](#subsets-b6a9d9) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
 
-<a id="injection-46208e"></a>&#x2022; [`inherited_bot_defense_JavaScript_injection`](#injection-46208e) - Optional Block<br>Enable this option
+<a id="injection-46208e"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-46208e) - Optional Block<br>Enable this option
 
 <a id="waf-0043f0"></a>&#x2022; [`inherited_waf`](#waf-0043f0) - Optional Block<br>Configuration parameter for inherited WAF
 
