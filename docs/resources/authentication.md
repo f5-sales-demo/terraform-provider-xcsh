@@ -167,7 +167,7 @@ A [`clear_secret_info`](#info-b8137a) block (within [`oidc_auth.client_secret`](
 
 <a id="ref-4470bf"></a>&#x2022; [`provider_ref`](#ref-4470bf) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-6086d3"></a>&#x2022; [`url`](#url-6086d3) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="url-6086d3"></a>&#x2022; [`url`](#url-6086d3) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### OIDC Auth OIDC Auth Params
 

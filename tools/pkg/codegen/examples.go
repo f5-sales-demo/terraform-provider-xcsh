@@ -73,6 +73,13 @@ func RenderDataSourceExampleHCL(resourceName, namespaceVal string) string {
 	sb.WriteString(fmt.Sprintf("  name      = \"example-%s\"\n", strings.ReplaceAll(resourceName, "_", "-")))
 	sb.WriteString(fmt.Sprintf("  namespace = \"%s\"\n", namespaceVal))
 	sb.WriteString("}\n")
+	// The output is not decoration: without something referencing it, the data
+	// source is an unused declaration and tflint rejects the example
+	// (terraform_unused_declarations). Dropping this block is what left 143
+	// committed examples disagreeing with the generator — and the committed ones
+	// were the correct side, since they lint clean and the generated ones do not
+	// (#1397).
+	sb.WriteString(fmt.Sprintf("\noutput \"%s_id\" {\n  value = data.xcsh_%s.example.id\n}\n", resourceName, resourceName))
 	return sb.String()
 }
 

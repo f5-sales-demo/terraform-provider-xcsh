@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about an Origin Pool resource in F5 Distributed Cloud for defining backend server pools for load balancer targets. This is a read-only data source.
 
-~> **Note** Please refer to [Origin Pool API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [Origin Pool API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_origin_pool" "example" {
   name      = "example-origin-pool"
   namespace = "staging"
+}
+
+output "origin_pool_id" {
+  value = data.xcsh_origin_pool.example.id
 }
 ```
 

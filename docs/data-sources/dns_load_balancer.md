@@ -9,7 +9,7 @@ description: |-
 
 Manages DNS Load Balancer in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [DNS Load Balancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/dns/) to learn more.
+~> **Note** Please refer to [DNS Load Balancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_dns_load_balancer" "example" {
   name      = "example-dns-load-balancer"
   namespace = "staging"
+}
+
+output "dns_load_balancer_id" {
+  value = data.xcsh_dns_load_balancer.example.id
 }
 ```
 

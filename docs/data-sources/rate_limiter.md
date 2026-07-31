@@ -9,7 +9,7 @@ description: |-
 
 Manages rate_limiter creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Rate Limiter API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/rate_limiting/) to learn more.
+~> **Note** Please refer to [Rate Limiter API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/rate_limiting/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_rate_limiter" "example" {
   name      = "example-rate-limiter"
   namespace = "staging"
+}
+
+output "rate_limiter_id" {
+  value = data.xcsh_rate_limiter.example.id
 }
 ```
 

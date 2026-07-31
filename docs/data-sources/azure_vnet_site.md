@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a Azure VNET Site resource in F5 Distributed Cloud for deploying F5 sites within Azure Virtual Network environments. This is a read-only data source.
 
-~> **Note** Please refer to [Azure VNET Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [Azure VNET Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_azure_vnet_site" "example" {
   name      = "example-Azure-vnet-site"
   namespace = "staging"
+}
+
+output "azure_vnet_site_id" {
+  value = data.xcsh_azure_vnet_site.example.id
 }
 ```
 

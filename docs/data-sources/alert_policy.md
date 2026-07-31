@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about new Alert Policy Object. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Alert Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/observability/) to learn more.
+~> **Note** Please refer to [Alert Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/observability/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_alert_policy" "example" {
   name      = "example-alert-policy"
   namespace = "staging"
+}
+
+output "alert_policy_id" {
+  value = data.xcsh_alert_policy.example.id
 }
 ```
 

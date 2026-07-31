@@ -9,7 +9,7 @@ description: |-
 
 Manages API Definition. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [API Definition API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/api/) to learn more.
+~> **Note** Please refer to [API Definition API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/api/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_api_definition" "example" {
   name      = "example-api-definition"
   namespace = "staging"
+}
+
+output "api_definition_id" {
+  value = data.xcsh_api_definition.example.id
 }
 ```
 

@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about an HTTP Load Balancer resource in F5 Distributed Cloud for load balancing HTTP/HTTPS traffic with advanced routing and security. This is a read-only data source.
 
-~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [HTTP Loadbalancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_http_loadbalancer" "example" {
   name      = "example-http-loadbalancer"
   namespace = "staging"
+}
+
+output "http_loadbalancer_id" {
+  value = data.xcsh_http_loadbalancer.example.id
 }
 ```
 

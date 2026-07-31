@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a CDN Load Balancer resource in F5 Distributed Cloud for content delivery and edge caching with load balancing. This is a read-only data source.
 
-~> **Note** Please refer to [CDN Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cdn/) to learn more.
+~> **Note** Please refer to [CDN Loadbalancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cdn/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_cdn_loadbalancer" "example" {
   name      = "example-CDN-loadbalancer"
   namespace = "staging"
+}
+
+output "cdn_loadbalancer_id" {
+  value = data.xcsh_cdn_loadbalancer.example.id
 }
 ```
 

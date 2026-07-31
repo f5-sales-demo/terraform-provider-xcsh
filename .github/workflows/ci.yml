@@ -73,8 +73,22 @@ jobs:
           CHANGED_FILES=$(git diff --name-only --diff-filter=AM "origin/${BASE_REF}...HEAD")
 
           # Check if generator tools are modified - this allows docs/examples changes
+          #
+          # The Makefile and this workflow are included because they define HOW
+          # generation runs and how it is verified — `make generate`,
+          # `verify-generate`, and the Validate Docs Generation step. A PR that
+          # changes those legitimately carries the regenerated output, which is the
+          # same reason a generator change does.
+          #
+          # #1397 was the case that exposed the gap: `docs/` and `examples/` had
+          # drifted from the generators by 91 and 143 files, publishing HCL that
+          # Terraform rejects (`JavaScript_challenge` for `javascript_challenge`) and
+          # YAML that Actions rejects (`runs-on: Ubuntu-latest`). Fixing that meant
+          # committing a catch-up regeneration alongside a CI assertion and a Makefile
+          # change — and no generator changed, because the generators were already
+          # right. The check had no category for that and blocked the fix.
           GENERATOR_TOOLS_MODIFIED=false
-          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^templates/"; then
+          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^templates/|^Makefile$|^\.github/workflows/ci\.yml$"; then
             echo "Generator tools modified - docs/examples changes are allowed"
             GENERATOR_TOOLS_MODIFIED=true
           fi
@@ -311,6 +325,27 @@ jobs:
 
           # Transform docs
           go run tools/transform-docs.go
+
+          # #1397: this step used to stop here and print "validated successfully",
+          # having only proved the generators exit 0. It never compared their output
+          # to what is committed, so 143 examples and 91 docs drifted while this job
+          # passed on every PR — including docs publishing invalid Terraform
+          # (JavaScript_challenge for javascript_challenge) and invalid Actions YAML
+          # (runs-on: Ubuntu-latest). Generating without comparing validates nothing.
+          #
+          # Both generators are deterministic: each was run twice from a clean tree
+          # and produced an identical file set both times, so a diff here means the
+          # committed tree is stale, never that the generator is flaky.
+          if [ -n "$(git status --porcelain docs/ examples/)" ]; then
+            echo "::error::Generated docs/examples differ from what is committed."
+            echo "Run: go run tools/generate-examples.go && tfplugindocs generate --provider-name xcsh && go run tools/transform-docs.go"
+            echo "then commit the result. Files that differ:"
+            git status --porcelain docs/ examples/
+            echo "::group::Diff"
+            git --no-pager diff -- docs/ examples/
+            echo "::endgroup::"
+            exit 1
+          fi
 
           echo "Documentation generation validated successfully"
 

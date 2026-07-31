@@ -9,7 +9,7 @@ description: |-
 
 Manages Application Firewall. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [App Firewall API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [App Firewall API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_app_firewall" "example" {
   name      = "example-app-firewall"
   namespace = "staging"
+}
+
+output "app_firewall_id" {
+  value = data.xcsh_app_firewall.example.id
 }
 ```
 

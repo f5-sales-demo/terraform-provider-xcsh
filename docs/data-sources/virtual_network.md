@@ -9,7 +9,7 @@ description: |-
 
 Manages virtual network in given namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Virtual Network API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network/) to learn more.
+~> **Note** Please refer to [Virtual Network API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_virtual_network" "example" {
   name      = "example-virtual-network"
   namespace = "staging"
+}
+
+output "virtual_network_id" {
+  value = data.xcsh_virtual_network.example.id
 }
 ```
 

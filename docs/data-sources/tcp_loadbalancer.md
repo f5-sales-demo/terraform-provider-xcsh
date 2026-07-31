@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools. This is a read-only data source.
 
-~> **Note** Please refer to [TCP Loadbalancer API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/virtual/) to learn more.
+~> **Note** Please refer to [TCP Loadbalancer API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_tcp_loadbalancer" "example" {
   name      = "example-tcp-loadbalancer"
   namespace = "staging"
+}
+
+output "tcp_loadbalancer_id" {
+  value = data.xcsh_tcp_loadbalancer.example.id
 }
 ```
 

@@ -9,7 +9,7 @@ description: |-
 
 Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.
 
-~> **Note** Please refer to [Cloud Credentials API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [Cloud Credentials API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
@@ -149,7 +149,7 @@ A [`client_secret`](#Azure-client-secret-client-secret) block (within [`azure_cl
 
 An [`azure_pfx_certificate`](#Azure-pfx-certificate) block supports the following:
 
-<a id="Azure-pfx-certificate-certificate-url"></a>&#x2022; [`certificate_url`](#Azure-pfx-certificate-certificate-url) - Optional String<br>URL for Client Certificate in '.pfx' or '.p12' whose certificate is linked to service principal object Certificate URL can contain client certificate in string:///`<base64 of certificate>` format. Here `<base64 of certificate>` is base64 of '.pfx' or '.p12'
+<a id="Azure-pfx-certificate-certificate-url"></a>&#x2022; [`certificate_url`](#Azure-pfx-certificate-certificate-url) - Optional String<br>URL for Client Certificate in '.pfx' or '.p12' whose certificate is linked to service principal object Certificate URL can contain client certificate in string:///`<Base64 of certificate>` format. Here `<Base64 of certificate>` is base64 of '.pfx' or '.p12'
 binary file
 
 <a id="Azure-pfx-certificate-client-id"></a>&#x2022; [`client_id`](#Azure-pfx-certificate-client-id) - Optional String<br>Client ID for your Azure service principal
@@ -184,7 +184,7 @@ A [`clear_secret_info`](#info-b6797c) block (within [`azure_pfx_certificate.pass
 
 <a id="ref-9cabcd"></a>&#x2022; [`provider_ref`](#ref-9cabcd) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-fdff02"></a>&#x2022; [`url`](#url-fdff02) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded base64 format. When asked for this secret, caller will GET Secret bytes after base64 decoding
+<a id="url-fdff02"></a>&#x2022; [`url`](#url-fdff02) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### GCP Cred File
 

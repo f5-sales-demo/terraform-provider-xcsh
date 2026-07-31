@@ -86,7 +86,7 @@ export XCSH_P12_PASSWORD="your-p12-password"  # pragma: allowlist secret
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://GitHub.com/f5-sales-demo/terraform-provider-xcsh.git
+git clone https://github.com/f5-sales-demo/terraform-provider-xcsh.git
 cd terraform-provider-xcsh/examples/guides/blindfold
 ```
 
@@ -147,7 +147,7 @@ provider::xcsh::blindfold(plaintext, policy_name, namespace)
 
 | Parameter     | Type   | Description                      |
 | ------------- | ------ | -------------------------------- |
-| `plaintext`   | string | base64-encoded secret to encrypt |
+| `plaintext`   | string | Base64-encoded secret to encrypt |
 | `policy_name` | string | Name of the SecretPolicy         |
 | `namespace`   | string | Namespace containing the policy  |
 
@@ -246,8 +246,8 @@ resource "xcsh_cloud_credentials" "aws" {
 Secure Azure service principal client secrets:
 
 ```hcl
-resource "xcsh_cloud_credentials" "Azure" {
-  name      = "Azure-credentials"
+resource "xcsh_cloud_credentials" "azure" {
+  name      = "azure-credentials"
   namespace = "system"
 
   azure_client_secret {
@@ -297,10 +297,10 @@ Protect container registry passwords for private image pulls:
 
 ```hcl
 resource "xcsh_container_registry" "example" {
-  name      = "Docker-registry"
+  name      = "docker-registry"
   namespace = "shared"
 
-  registry  = "Docker.io"
+  registry  = "docker.io"
   user_name = var.registry_username
 
   password {
@@ -516,4 +516,4 @@ Now that you understand blindfold encryption, explore related resources:
 - **Provider Documentation:** [F5XC Provider](../index.md)
 - **F5 Documentation:** [F5 Distributed Cloud Docs](https://docs.cloud.f5.com/)
 - **Secret Management:** [F5XC Secret Management](https://docs.cloud.f5.com/docs/how-to/secrets-management)
-- **Issues:** [GitHub Issues](https://GitHub.com/f5-sales-demo/terraform-provider-xcsh/issues)
+- **Issues:** [GitHub Issues](https://github.com/f5-sales-demo/terraform-provider-xcsh/issues)

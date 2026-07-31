@@ -9,7 +9,7 @@ description: |-
 
 Manages a Rate Limiter Policy resource in F5 Distributed Cloud for rate limiter policy create specification. configuration.
 
-~> **Note** Please refer to [Rate Limiter Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/rate_limiting/) to learn more.
+~> **Note** Please refer to [Rate Limiter Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/rate_limiting/) to learn more.
 
 ## Example Usage
 

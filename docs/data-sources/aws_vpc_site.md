@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about a AWS VPC Site resource in F5 Distributed Cloud for deploying F5 sites within AWS VPC environments. This is a read-only data source.
 
-~> **Note** Please refer to [AWS VPC Site API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
+~> **Note** Please refer to [AWS VPC Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/cloud_infrastructure/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_aws_vpc_site" "example" {
   name      = "example-aws-vpc-site"
   namespace = "staging"
+}
+
+output "aws_vpc_site_id" {
+  value = data.xcsh_aws_vpc_site.example.id
 }
 ```
 

@@ -9,7 +9,7 @@ description: |-
 
 Retrieves information about new network policy with configured parameters in specified namespace. in F5 Distributed Cloud. This is a read-only data source.
 
-~> **Note** Please refer to [Network Policy API docs](https://f5-sales-demo.GitHub.io/api-specs-enriched/api-reference/network_security/) to learn more.
+~> **Note** Please refer to [Network Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network_security/) to learn more.
 
 ## Example Usage
 
@@ -31,6 +31,10 @@ terraform {
 data "xcsh_network_policy" "example" {
   name      = "example-network-policy"
   namespace = "staging"
+}
+
+output "network_policy_id" {
+  value = data.xcsh_network_policy.example.id
 }
 ```
 
