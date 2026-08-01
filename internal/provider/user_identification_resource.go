@@ -328,6 +328,26 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 		createReq.Metadata.Labels = labels
 	}
 
+	// Capture which label keys the configuration declared, so Read can tell a label this
+	// configuration owns from one the platform added (#1398). Create and Update are the
+	// only places the configuration is visible; Read sees prior state, and prior state is
+	// not evidence of ownership because providers up to 3.81.1 wrote the platform's own
+	// labels into it.
+	//
+	// Captured here, written to private state only after the API call succeeds — see the
+	// note at the write site.
+	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(createReq.Metadata.Labels))
+	if ownedLabelErr != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Owned Label Keys",
+			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
+				"\n\nWithout this record the read-back cannot distinguish a label this "+
+				"configuration owns from one the platform authored, and a label in the "+
+				"ves.io/ namespace would never converge.",
+		)
+		return
+	}
+
 	if !data.Annotations.IsNull() {
 		annotations := make(map[string]string)
 		resp.Diagnostics.Append(data.Annotations.ElementsAs(ctx, &annotations, false)...)
@@ -400,6 +420,15 @@ func (r *UserIdentificationResource) Create(ctx context.Context, req resource.Cr
 	apiResource, err := r.client.CreateUserIdentification(ctx, createReq)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to create UserIdentification: %s", err))
+		return
+	}
+
+	// Only now that the write has landed. terraform-plugin-framework persists private
+	// state even when the method returns an error (it copies createResp.Private into the
+	// response before checking diagnostics), so recording ownership earlier would claim
+	// keys the server never received.
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 
@@ -625,9 +654,18 @@ func (r *UserIdentificationResource) Read(ctx context.Context, req resource.Read
 	priorAnnotationsEmpty := !data.Annotations.IsNull() && !data.Annotations.IsUnknown() && len(data.Annotations.Elements()) == 0
 
 	// Filter out the labels the platform authors itself, which Terraform must not
-	// propose deleting just because the configuration does not mention them (#1391).
+	// propose deleting just because the configuration does not mention them (#1391) —
+	// except any key the configuration declared at the last Create or Update, recorded
+	// in private state. Without that exemption a configuration cannot own a label in the
+	// ves.io/ namespace at all: the write succeeds, the read-back strips it, and the next
+	// plan proposes adding it again, forever (#1398). Prior state cannot serve as the
+	// record, because providers up to 3.81.1 wrote the platform's own labels into it.
+	ownedLabels := map[string]struct{}{}
+	if rawOwned, ownedDiags := req.Private.GetKey(ctx, ownedLabelKeysPrivateKey); !ownedDiags.HasError() {
+		ownedLabels = decodeOwnedLabelKeys(rawOwned)
+	}
 	if len(apiResource.Metadata.Labels) > 0 {
-		filteredLabels := filterSystemLabels(apiResource.Metadata.Labels, false)
+		filteredLabels := filterSystemLabelsOwning(apiResource.Metadata.Labels, false, ownedLabels)
 		if len(filteredLabels) > 0 {
 			labels, diags := types.MapValueFrom(ctx, types.StringType, filteredLabels)
 			resp.Diagnostics.Append(diags...)
@@ -856,6 +894,26 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 		apiResource.Metadata.Labels = labels
 	}
 
+	// Re-capture ownership on every update, because the configuration's label set can
+	// change: a key added here becomes owned, and a key removed stops being owned so the
+	// next Read filters it again if it lives in a platform namespace (#1398).
+	//
+	// Captured HERE, before the platform's own discovery labels are merged in below —
+	// merging first would record those as configuration-owned and reintroduce exactly the
+	// #1391 bug this pairs with. Written to private state only after the API call
+	// succeeds; see the note at the write site.
+	ownedLabelKeys, ownedLabelErr := encodeOwnedLabelKeys(configLabelKeys(apiResource.Metadata.Labels))
+	if ownedLabelErr != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Record Owned Label Keys",
+			"Could not encode the configuration's label keys for private state: "+ownedLabelErr.Error()+
+				"\n\nWithout this record the read-back cannot distinguish a label this "+
+				"configuration owns from one the platform authored, and a label in the "+
+				"ves.io/ namespace would never converge.",
+		)
+		return
+	}
+
 	if !data.Annotations.IsNull() {
 		annotations := make(map[string]string)
 		resp.Diagnostics.Append(data.Annotations.ElementsAs(ctx, &annotations, false)...)
@@ -928,6 +986,24 @@ func (r *UserIdentificationResource) Update(ctx context.Context, req resource.Up
 	_, err := r.client.UpdateUserIdentification(ctx, apiResource)
 	if err != nil {
 		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to update UserIdentification: %s", err))
+		return
+	}
+
+	// Only now that the write has landed. terraform-plugin-framework persists private
+	// state even when the method returns an error (it copies updateResp.Private into the
+	// response before checking diagnostics), so recording ownership earlier would be
+	// worse than not recording it: dropping a ves.io/ label from the configuration and
+	// then failing the update would leave private state claiming the key is unowned while
+	// the server still holds it, and Read would filter it out of sight for good.
+	//
+	// This is not airtight, and cannot be: Client.Put returns json.Unmarshal's error
+	// after a 2xx, so an error does not strictly prove the write was rejected. What it
+	// does guarantee is the direction of the residual. If the write landed and we return
+	// early, ownership stays as it was — an added label keeps being planned, which is
+	// visible and self-corrects on the next successful apply. The opposite ordering loses
+	// a label silently and permanently. Fail loud rather than fail quiet.
+	resp.Diagnostics.Append(resp.Private.SetKey(ctx, ownedLabelKeysPrivateKey, ownedLabelKeys)...)
+	if resp.Diagnostics.HasError() {
 		return
 	}
 

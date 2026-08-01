@@ -88,7 +88,12 @@ jobs:
           # change — and no generator changed, because the generators were already
           # right. The check had no category for that and blocked the fix.
           GENERATOR_TOOLS_MODIFIED=false
-          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^templates/|^Makefile$|^\.github/workflows/ci\.yml$"; then
+          # tools/pkg/codegen/ is where the resource, data-source and example templates
+          # actually live, so a change there regenerates internal/provider/*_resource.go
+          # by definition. It was missing from this list, which meant the one edit that
+          # most obviously justifies regenerated output — editing the template — was the
+          # one the check refused to accept (#1398 hit exactly that).
+          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^tools/pkg/codegen/|^templates/|^Makefile$|^\.github/workflows/ci\.yml$"; then
             echo "Generator tools modified - docs/examples changes are allowed"
             GENERATOR_TOOLS_MODIFIED=true
           fi
@@ -153,6 +158,8 @@ jobs:
             "^docs/index\.md$"
             "^examples/resources/.*\.tf$"
             "^examples/data-sources/.*\.tf$"
+            "^internal/provider/.*_resource\.go$"
+            "^internal/provider/.*_data_source\.go$"
           )
 
           # Helper function to check if file is manually maintained

@@ -1741,7 +1741,10 @@ func TestRenderNestedAttributes_Int64MinZero(t *testing.T) {
 // no convergence and only hides hw-model and friends from a caller that asked for the
 // object. A local review caught exactly that regression before this test existed.
 func TestTemplates_DiscoveryLabelFilterIsResourceOnly_Issue1391(t *testing.T) {
-	resourceCall := "filterSystemLabels(apiResource.Metadata.Labels, {{.FiltersDiscoveredSiteLabels}})"
+	// #1398 changed the call to filterSystemLabelsOwning, which takes the same
+	// per-resource flag plus the set of keys the configuration declared. The invariant
+	// this test protects is unchanged and still asserted: the flag drives the filter.
+	resourceCall := "filterSystemLabelsOwning(apiResource.Metadata.Labels, {{.FiltersDiscoveredSiteLabels}}, ownedLabels)"
 	if !strings.Contains(ResourceTemplate, resourceCall) {
 		t.Errorf("the resource template must drive the discovery filter from the per-resource flag; expected %q", resourceCall)
 	}
@@ -1840,5 +1843,91 @@ func TestResourceTemplate_PreservesPlatformLabelsAcrossAWrite_Issue1396(t *testi
 		if strings.Contains(undecorated, unwanted) {
 			t.Errorf("a resource F5 XC does not decorate must get none of the preservation mechanism; found %q", unwanted)
 		}
+	}
+}
+
+// #1398: a configuration must be able to own a label in the ves.io/ namespace. That
+// works only if the set of configuration-declared keys is recorded in private state at
+// Create and Update — the only points where the configuration is visible — and consulted
+// in Read, which sees prior state and cannot otherwise tell an owned label from one the
+// platform added.
+func TestTemplates_RecordOwnedLabelKeys_Issue1398(t *testing.T) {
+	record := "encodeOwnedLabelKeys(configLabelKeys("
+	if got := strings.Count(ResourceTemplate, record); got != 2 {
+		t.Errorf("expected ownership to be recorded in exactly Create and Update, found %d call(s) to %q", got, record)
+	}
+	if !strings.Contains(ResourceTemplate, "req.Private.GetKey(ctx, ownedLabelKeysPrivateKey)") {
+		t.Error("Read must consult the recorded ownership; without it a ves.io/ label never converges")
+	}
+
+	// The ordering that matters. Update merges the platform's own discovery labels into
+	// the outgoing map (#1391); recording ownership AFTER that merge would file those
+	// platform labels as configuration-owned, so Read would stop filtering them and the
+	// plan would propose deleting them again — the exact bug #1391 fixed.
+	updateIdx := strings.Index(ResourceTemplate, "func (r *{{.TitleCase}}Resource) Update(")
+	if updateIdx < 0 {
+		t.Fatal("Update method not found in the resource template")
+	}
+	update := ResourceTemplate[updateIdx:]
+	recordIdx := strings.Index(update, record)
+	mergeIdx := strings.Index(update, "mergePreservedLabels(")
+	if recordIdx < 0 {
+		t.Fatal("Update does not record owned label keys")
+	}
+	if mergeIdx >= 0 && recordIdx > mergeIdx {
+		t.Error("Update records ownership after mergePreservedLabels; the platform's own " +
+			"discovery labels would be recorded as configuration-owned, reintroducing #1391")
+	}
+
+	// Data sources have no plan to converge and no private state to read, so they must
+	// keep using the plain filter.
+	for name, tmpl := range map[string]string{
+		"DataSourceTemplate":         DataSourceTemplate,
+		"ReadOnlyDataSourceTemplate": ReadOnlyDataSourceTemplate,
+	} {
+		if strings.Contains(tmpl, "ownedLabelKeys") {
+			t.Errorf("%s must not consult label ownership: it has no plan to converge", name)
+		}
+	}
+}
+
+// #1398, second round: private state is persisted even when Create or Update returns an
+// error. terraform-plugin-framework v1.17.0 copies createResp.Private / updateResp.Private
+// into the response (server_createresource.go:150, server_updateresource.go:165) BEFORE
+// its `if resp.Diagnostics.HasError() { return }`.
+//
+// So recording ownership before the API call is unsafe. Remove an owned ves.io/ label,
+// have the update fail, and private state records "owns nothing" while the server still
+// holds the label: the next Read filters it out, the plan shows nothing, and the label is
+// stranded on the server where Terraform can never see or remove it.
+//
+// The keys must still be CAPTURED before mergePreservedLabels — that ordering is asserted
+// separately — but they may only be WRITTEN once the API call has succeeded.
+func TestTemplates_OwnershipIsPersistedOnlyAfterTheAPICall_Issue1398(t *testing.T) {
+	for _, tc := range []struct{ method, apiCall string }{
+		{"Create", "r.client.Create{{.TitleCase}}(ctx, createReq)"},
+		{"Update", "r.client.Update{{.TitleCase}}(ctx, apiResource)"},
+	} {
+		t.Run(tc.method, func(t *testing.T) {
+			start := strings.Index(ResourceTemplate, "func (r *{{.TitleCase}}Resource) "+tc.method+"(")
+			if start < 0 {
+				t.Fatalf("%s method not found", tc.method)
+			}
+			body := ResourceTemplate[start:]
+
+			apiIdx := strings.Index(body, tc.apiCall)
+			setIdx := strings.Index(body, "Private.SetKey(ctx, ownedLabelKeysPrivateKey")
+			if apiIdx < 0 {
+				t.Fatalf("%s: API call anchor %q not found — this guard would silently pass", tc.method, tc.apiCall)
+			}
+			if setIdx < 0 {
+				t.Fatalf("%s: ownership is never written to private state", tc.method)
+			}
+			if setIdx < apiIdx {
+				t.Errorf("%s writes ownership to private state before the API call. Private state "+
+					"survives an error, so a failed write would strand the label on the server, "+
+					"invisible to Terraform.", tc.method)
+			}
+		})
 	}
 }
