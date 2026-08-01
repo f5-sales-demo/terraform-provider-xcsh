@@ -158,6 +158,8 @@ jobs:
             "^docs/index\.md$"
             "^examples/resources/.*\.tf$"
             "^examples/data-sources/.*\.tf$"
+            "^internal/provider/.*_resource\.go$"
+            "^internal/provider/.*_data_source\.go$"
           )
 
           # Helper function to check if file is manually maintained
