@@ -265,7 +265,6 @@ How the translation pipeline operates:
 
 ### Restoring translations and activating Antigravity `agy` translator
 
-
 Order matters, and getting it wrong deadlocks every open pull request — the same trap the suspended
 reviewer left behind.
 

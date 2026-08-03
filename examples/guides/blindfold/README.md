@@ -43,13 +43,13 @@ This example demonstrates how to use F5XC Blindfold functions to securely encryp
 
 ## Use Cases
 
-| Example | Description | Enable Flag |
-|---------|-------------|-------------|
-| TLS Certificate | Encrypt private keys for certificates | `enable_certificate_example` |
-| AWS Credentials | Encrypt AWS secret access keys | `enable_aws_credentials_example` |
-| Azure Credentials | Encrypt Azure client secrets | `enable_azure_credentials_example` |
-| GCP Credentials | Encrypt GCP service account files | `enable_gcp_credentials_example` |
-| Container Registry | Encrypt registry passwords | `enable_container_registry_example` |
+| Example            | Description                           | Enable Flag                         |
+| ------------------ | ------------------------------------- | ----------------------------------- |
+| TLS Certificate    | Encrypt private keys for certificates | `enable_certificate_example`        |
+| AWS Credentials    | Encrypt AWS secret access keys        | `enable_aws_credentials_example`    |
+| Azure Credentials  | Encrypt Azure client secrets          | `enable_azure_credentials_example`  |
+| GCP Credentials    | Encrypt GCP service account files     | `enable_gcp_credentials_example`    |
+| Container Registry | Encrypt registry passwords            | `enable_container_registry_example` |
 
 ## Security
 

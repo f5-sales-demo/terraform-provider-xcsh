@@ -49,7 +49,7 @@ terraform apply
 
 After deployment, create a CNAME record pointing your domain to the F5 Distributed Cloud edge:
 
-```
+```text
 app.example.com → ves-io-app-example-com.ac.vh.ves.io
 ```
 
@@ -98,14 +98,14 @@ terraform destroy
 
 ## Resources Created
 
-| Resource | Description |
-|----------|-------------|
-| `xcsh_namespace` | Namespace for resource isolation (optional) |
-| `xcsh_healthcheck` | HTTP health check for origin pool |
-| `xcsh_origin_pool` | Backend server pool configuration |
-| `xcsh_app_firewall` | Web Application Firewall policy |
-| `xcsh_rate_limiter` | Rate limiting configuration |
-| `xcsh_http_loadbalancer` | HTTP load balancer with all features |
+| Resource                 | Description                                 |
+| ------------------------ | ------------------------------------------- |
+| `xcsh_namespace`         | Namespace for resource isolation (optional) |
+| `xcsh_healthcheck`       | HTTP health check for origin pool           |
+| `xcsh_origin_pool`       | Backend server pool configuration           |
+| `xcsh_app_firewall`      | Web Application Firewall policy             |
+| `xcsh_rate_limiter`      | Rate limiting configuration                 |
+| `xcsh_http_loadbalancer` | HTTP load balancer with all features        |
 
 ## Full Documentation
 

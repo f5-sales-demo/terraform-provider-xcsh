@@ -4,19 +4,22 @@ Branch: `fix/sp3-nested-marker-and-optional-scalar-suppression`
 Surfaced by: webapp-api-protection SP3 API-Protection live matrix (issue #41).
 
 ## Symptom
+
 Applying `api_protection_rules.api_endpoint_rules[]` (and `validation_custom_list`)
 fails with either:
+
 - `Provider produced inconsistent result after apply: ...client_matcher.any_client:
-  was absent, but now present` (and `...api_endpoint_method.invert_matcher: was null,
-  but now cty.False`), or
+was absent, but now present` (and `...api_endpoint_method.invert_matcher: was null,
+but now cty.False`), or
 - round-trip import-drift on the same fields.
 
 ## Root cause (precise)
+
 `renderUnmarshalSingleChild` sets
 `preserveWhole = container=="single" && stateBase!="" && !hasObjectReferenceDescendant(attr)`
 (render.go:779). `hasObjectReferenceDescendant` returns true if the block contains an
 object-ref (a `tenant` child) at ANY depth. `api_protection_rules.api_endpoint_rules[]
-.client_matcher` contains object-ref arms in its *deep, rarely-used* branches
+.client_matcher` contains object-ref arms in its _deep, rarely-used_ branches
 (`ip_matcher.prefix_sets`, `asn_matcher.asn_sets` — kind/name/namespace/tenant/uid).
 So `hasObjectReferenceDescendant(api_protection_rules)` is true → `preserveWhole=false`
 → the whole block is RECONSTRUCTED from the API response.
@@ -30,12 +33,14 @@ The same class hits `validation_custom_list` (deep block, server-materialized op
 on the import path.
 
 ## Why the existing mechanisms don't cover it
+
 - `isImportDefaultSuppressed` guards response-populate with `!isImport` — helps IMPORT
   only, not the apply-time (Create/Update) inconsistency.
 - `preserveWhole` is all-or-nothing: any object-ref descendant disables preservation
   for the ENTIRE block, even when the actually-configured arms carry no object-ref.
 
 ## Fix design (implemented: state-threaded reconstruction)
+
 The originally-sketched "preserve whole + separate patchObjectRefTenants walk" was
 replaced by a cleaner, lower-risk equivalent that reuses the provider's existing,
 already-tested per-leaf preserve logic (scalar preserve at render.go:612, empty-marker
@@ -52,7 +57,7 @@ Two changes in `tools/pkg/codegen/render.go`:
    direct/nested refs still reconstruct — #1079/#1091 preserved). When a block merely
    CONTAINS a reference on one arm and so cannot be preserved whole, its children are now
    reconstructed with the prior-state accessor threaded in (`childStateBase =
-   stateBase.<Field>`), UNLESS the block *is* itself an object reference (all its leaves
+stateBase.<Field>`), UNLESS the block _is_ itself an object reference (all its leaves
    are server-derived). Off-spine children then hit their existing preserve paths (return
    the planned marker/scalar); the reference arm, when recursion reaches it, reads its
    Computed tenant from the API.
@@ -76,6 +81,7 @@ and compile; webapp defaults plan 0-change; SP3 live matrix to full green; then 
 bump webapp versions.tf.
 
 ## Interim module state (webapp)
+
 The SP3 module explicitly sets `invert_matcher=false` and
 `request_validation_properties` to satisfy F5 XC; `metadata{name}` added to
 api_endpoint_rules + data_guard_rules. Live-clean arms: rate_limit, sensitive_data

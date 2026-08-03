@@ -30,19 +30,19 @@ terraform plan
 
 ## Authentication Methods
 
-| Method | Environment Variables | Security Level |
-|--------|----------------------|----------------|
-| API Token | `XCSH_API_TOKEN` | Standard (one-way TLS) |
-| P12 Certificate | `XCSH_P12_FILE`, `XCSH_P12_PASSWORD` | High (mTLS) |
-| PEM Certificate | `XCSH_CERT`, `XCSH_KEY` | High (mTLS) |
+| Method          | Environment Variables                | Security Level         |
+| --------------- | ------------------------------------ | ---------------------- |
+| API Token       | `XCSH_API_TOKEN`                     | Standard (one-way TLS) |
+| P12 Certificate | `XCSH_P12_FILE`, `XCSH_P12_PASSWORD` | High (mTLS)            |
+| PEM Certificate | `XCSH_CERT`, `XCSH_KEY`              | High (mTLS)            |
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `main.tf` | Provider configuration with authentication options |
-| `variables.tf` | Variable definitions for explicit configuration |
-| `outputs.tf` | Outputs to verify authentication |
+| File                       | Description                                        |
+| -------------------------- | -------------------------------------------------- |
+| `main.tf`                  | Provider configuration with authentication options |
+| `variables.tf`             | Variable definitions for explicit configuration    |
+| `outputs.tf`               | Outputs to verify authentication                   |
 | `terraform.tfvars.example` | Example variable values (copy to terraform.tfvars) |
 
 ## Creating Credentials
@@ -77,7 +77,7 @@ openssl pkcs12 -in credentials.p12 -nodes -nocerts -out key.pem
 
 After running `terraform plan`, you should see:
 
-```
+```text
 data.xcsh_namespace.system: Reading...
 data.xcsh_namespace.system: Read complete
 

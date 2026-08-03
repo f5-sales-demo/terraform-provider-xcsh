@@ -5,6 +5,7 @@ This package provides a mock F5 XC API server for testing Terraform provider res
 ## Overview
 
 The mock testing infrastructure enables:
+
 - Testing resources that require external credentials (AWS, Azure, GCP)
 - Testing resources that require special permissions (tenant configuration)
 - Faster test execution without network latency
@@ -76,7 +77,7 @@ resource "xcsh_my_resource" "test" {
 
 ## Package Structure
 
-```
+```text
 internal/mocks/
 ├── server.go      # Mock HTTP server implementation
 ├── fixtures.go    # Response generators for F5 XC resources
@@ -119,19 +120,19 @@ requests := server.GetRequestLog()
 
 Pre-built response generators for common F5 XC resources:
 
-| Function | Purpose |
-|----------|---------|
-| `NamespaceResponse(name, labels, annotations, description)` | Namespace resource |
-| `AWSVPCSiteResponse(namespace, name, opts...)` | AWS VPC Site with options |
-| `AzureVNETSiteResponse(namespace, name, opts...)` | Azure VNET Site |
-| `GCPVPCSiteResponse(namespace, name, opts...)` | GCP VPC Site |
-| `CloudCredentialsResponse(namespace, name, cloudType)` | Cloud credentials (aws/azure/gcp) |
-| `OriginPoolResponse(namespace, name, opts...)` | Origin pool |
-| `HTTPLoadBalancerResponse(namespace, name, domains)` | HTTP load balancer |
-| `AppFirewallResponse(namespace, name)` | App firewall |
-| `HealthcheckResponse(namespace, name, healthcheckType)` | Healthcheck |
-| `TenantConfigurationResponse(name)` | Tenant configuration |
-| `GenericResourceResponse(namespace, name, resourceType, spec)` | Any resource |
+| Function                                                       | Purpose                           |
+| -------------------------------------------------------------- | --------------------------------- |
+| `NamespaceResponse(name, labels, annotations, description)`    | Namespace resource                |
+| `AWSVPCSiteResponse(namespace, name, opts...)`                 | AWS VPC Site with options         |
+| `AzureVNETSiteResponse(namespace, name, opts...)`              | Azure VNET Site                   |
+| `GCPVPCSiteResponse(namespace, name, opts...)`                 | GCP VPC Site                      |
+| `CloudCredentialsResponse(namespace, name, cloudType)`         | Cloud credentials (aws/azure/gcp) |
+| `OriginPoolResponse(namespace, name, opts...)`                 | Origin pool                       |
+| `HTTPLoadBalancerResponse(namespace, name, domains)`           | HTTP load balancer                |
+| `AppFirewallResponse(namespace, name)`                         | App firewall                      |
+| `HealthcheckResponse(namespace, name, healthcheckType)`        | Healthcheck                       |
+| `TenantConfigurationResponse(name)`                            | Tenant configuration              |
+| `GenericResourceResponse(namespace, name, resourceType, spec)` | Any resource                      |
 
 ### Test Helpers (`mock_helpers.go`)
 
@@ -319,7 +320,7 @@ func MyResourceResponse(namespace, name string) map[string]interface{} {
 }
 ```
 
-2. Add setup helper in `mock_helpers.go`:
+1. Add setup helper in `mock_helpers.go`:
 
 ```go
 func (m *MockTestConfig) SetupMyResourceMock(namespace, name string) {
@@ -328,7 +329,7 @@ func (m *MockTestConfig) SetupMyResourceMock(namespace, name string) {
 }
 ```
 
-3. Use in tests:
+1. Use in tests:
 
 ```go
 mockCfg.SetupMyResourceMock("system", "test-resource")
@@ -336,22 +337,22 @@ mockCfg.SetupMyResourceMock("system", "test-resource")
 
 ## Environment Variables
 
-| Variable | Purpose |
-|----------|---------|
-| `XCSH_MOCK_MODE=1` | Enable mock testing mode |
-| `TF_ACC=1` | Enable real acceptance tests |
-| `XCSH_API_URL` | Real API URL (for non-mock tests) |
-| `XCSH_API_TOKEN` | Real API token (for non-mock tests) |
+| Variable           | Purpose                             |
+| ------------------ | ----------------------------------- |
+| `XCSH_MOCK_MODE=1` | Enable mock testing mode            |
+| `TF_ACC=1`         | Enable real acceptance tests        |
+| `XCSH_API_URL`     | Real API URL (for non-mock tests)   |
+| `XCSH_API_TOKEN`   | Real API token (for non-mock tests) |
 
 ## Test Categories and Reporting
 
 Tests are automatically categorized by their naming convention:
 
-| Prefix | Category | Description |
-|--------|----------|-------------|
-| `TestAcc*` | `REAL_API` | Tests against real F5 XC API endpoints |
-| `TestMock*` | `MOCK_API` | Tests against local mock server |
-| `Test*` (other) | `UNIT` | Unit tests without external dependencies |
+| Prefix          | Category   | Description                              |
+| --------------- | ---------- | ---------------------------------------- |
+| `TestAcc*`      | `REAL_API` | Tests against real F5 XC API endpoints   |
+| `TestMock*`     | `MOCK_API` | Tests against local mock server          |
+| `Test*` (other) | `UNIT`     | Unit tests without external dependencies |
 
 ### Makefile Targets
 
@@ -390,7 +391,7 @@ go test -json ./internal/provider/... | go run tools/test-report/main.go -all
 
 ### Example Report Output
 
-```
+```text
 ==============================================================================
                            TEST SUMMARY REPORT
 ==============================================================================
@@ -422,19 +423,25 @@ FAILED TESTS:
 ## Troubleshooting
 
 ### "Missing metadata" error
+
 The mock server expects requests to include a `metadata` block with `name`. Ensure your Terraform config includes required fields.
 
 ### "Resource not found" error
+
 Pre-populate the resource before running the test:
+
 ```go
 mockCfg.PrePopulateResource(path, response)
 ```
 
 ### Tests not running
+
 Check that `XCSH_MOCK_MODE=1` is set:
+
 ```bash
 XCSH_MOCK_MODE=1 go test -v ./internal/provider/ -run TestMock
 ```
 
 ### Cascade delete not working
+
 The mock server handles `/cascade_delete` endpoints specially. Ensure the path pattern matches F5 XC conventions.
