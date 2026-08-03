@@ -20,6 +20,7 @@ cp .env.example .env
 ```
 
 Edit `.env` with your values:
+
 - `GITHUB_REPOSITORY` - Your repo (e.g., `owner/repo`)
 - `GITHUB_TOKEN` - Personal Access Token with `repo` scope
 - `XCSH_API_URL` - F5 XC API URL

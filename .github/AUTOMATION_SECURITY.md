@@ -9,6 +9,7 @@ This repository uses a Personal Access Token (PAT) for automated workflow trigge
 GitHub's `GITHUB_TOKEN` has a security limitation: PRs created using `GITHUB_TOKEN` **do not trigger workflows**. This prevents infinite workflow loops but blocks our automation requirements.
 
 Our workflows need to:
+
 1. Generate code/documentation changes automatically
 2. Create PRs with those changes
 3. **Trigger status checks** on those PRs
@@ -22,9 +23,9 @@ To enable step 3, we use a Personal Access Token stored as `AUTO_MERGE_TOKEN`.
 
 The `AUTO_MERGE_TOKEN` PAT requires these scopes:
 
-| Scope | Purpose | Workflows Using It |
-|-------|---------|-------------------|
-| `repo` | Create PRs and enable auto-merge | All automated workflows |
+| Scope      | Purpose                              | Workflows Using It      |
+| ---------- | ------------------------------------ | ----------------------- |
+| `repo`     | Create PRs and enable auto-merge     | All automated workflows |
 | `workflow` | Trigger workflows on bot-created PRs | All automated workflows |
 
 ### Token Storage
@@ -76,6 +77,7 @@ Owner: @robinmordasiewicz
 ❌ **Incorrect**: Classic PAT with all-repos access
 
 The current token should be configured as:
+
 - **Type**: Fine-grained personal access token
 - **Repository access**: Only this repository
 - **Permissions**:
@@ -94,6 +96,7 @@ The current token should be configured as:
 ### 4. Monitoring and Alerts
 
 Monitor for:
+
 - Unexpected workflow failures
 - Unauthorized repository access
 - Token expiration warnings
@@ -213,12 +216,14 @@ After rotating the token, verify:
 ### GitHub App
 
 **Pros**:
+
 - More granular permissions
 - Can be installed per-repository
 - Tokens auto-rotate
 - Better audit trail
 
 **Cons**:
+
 - More complex setup
 - Requires GitHub App creation and installation
 - Overkill for single-repository automation
@@ -228,10 +233,12 @@ After rotating the token, verify:
 ### Classic Personal Access Token
 
 **Pros**:
+
 - Simple to create
 - Long-lived
 
 **Cons**:
+
 - ❌ All-or-nothing repository access
 - ❌ Broader permissions than needed
 - ❌ Less secure than fine-grained PAT
@@ -247,15 +254,16 @@ After rotating the token, verify:
 
 ## Maintenance Schedule
 
-| Task | Frequency | Last Completed | Next Due |
-|------|-----------|----------------|----------|
-| Token rotation | Every 90 days | 2025-11-24 | 2026-02-24 |
-| Security audit | Quarterly | 2025-11-24 | 2026-02-24 |
-| Workflow testing | After rotation | 2025-11-24 | After next rotation |
-| Documentation review | Annually | 2025-11-24 | 2026-11-24 |
+| Task                 | Frequency      | Last Completed | Next Due            |
+| -------------------- | -------------- | -------------- | ------------------- |
+| Token rotation       | Every 90 days  | 2025-11-24     | 2026-02-24          |
+| Security audit       | Quarterly      | 2025-11-24     | 2026-02-24          |
+| Workflow testing     | After rotation | 2025-11-24     | After next rotation |
+| Documentation review | Annually       | 2025-11-24     | 2026-11-24          |
 
 ## Contact
 
 For questions or issues with automated workflows:
+
 - Repository owner: @robinmordasiewicz
 - Last updated: 2025-11-24
