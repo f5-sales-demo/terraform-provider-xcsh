@@ -27,15 +27,14 @@ func TestParse(t *testing.T) {
 			name: "low confidence (0.5) and not deterministic returns nil",
 			input: map[string]interface{}{
 				"metadata": map[string]interface{}{
-					"deterministic": false,
-					"confidence":    0.5,
+					"confidence": 0.5,
 				},
 				"minLength": float64(5),
 			},
 			expected: nil,
 		},
 		{
-			name: "deterministic=true overrides low confidence",
+			name: "obsolete metadata deterministic does not override low confidence",
 			input: map[string]interface{}{
 				"metadata": map[string]interface{}{
 					"deterministic": true,
@@ -44,17 +43,13 @@ func TestParse(t *testing.T) {
 				"minLength": float64(10),
 				"maxLength": float64(100),
 			},
-			expected: &Parsed{
-				MinLength: 10,
-				MaxLength: 100,
-			},
+			expected: nil,
 		},
 		{
 			name: "high confidence (0.95) returns Parsed with correct values",
 			input: map[string]interface{}{
 				"metadata": map[string]interface{}{
-					"deterministic": false,
-					"confidence":    0.95,
+					"confidence": 0.95,
 				},
 				"minLength": float64(1),
 				"maxLength": float64(255),
@@ -73,14 +68,12 @@ func TestParse(t *testing.T) {
 		{
 			name: "all fields extracted correctly",
 			input: map[string]interface{}{
-				"metadata": map[string]interface{}{
-					"deterministic": true,
-				},
-				"minLength": float64(5),
-				"maxLength": float64(50),
-				"pattern":   "^[A-Za-z0-9_-]+$",
-				"minItems":  float64(2),
-				"maxItems":  float64(20),
+				"deterministic": true,
+				"minLength":     float64(5),
+				"maxLength":     float64(50),
+				"pattern":       "^[A-Za-z0-9_-]+$",
+				"minItems":      float64(2),
+				"maxItems":      float64(20),
 			},
 			expected: &Parsed{
 				MinLength: 5,
@@ -93,10 +86,8 @@ func TestParse(t *testing.T) {
 		{
 			name: "missing individual fields are zero-valued",
 			input: map[string]interface{}{
-				"metadata": map[string]interface{}{
-					"deterministic": true,
-				},
-				"pattern": "^test$",
+				"deterministic": true,
+				"pattern":       "^test$",
 			},
 			expected: &Parsed{
 				MinLength: 0,

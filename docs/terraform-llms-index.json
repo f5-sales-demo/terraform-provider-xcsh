@@ -702,7 +702,7 @@
       "category": "certificates",
       "description": "Api to create crl object. configuration",
       "required": ["name", "namespace", "refresh_interval", "server_address", "server_port", "timeout"],
-      "minimal_config": "resource \"xcsh_crl\" \"example\" {\n  name      = \"example-crl\"\n  namespace = \"staging\"\n\n  refresh_interval = 1\n  server_address   = \"example-value\"\n  server_port      = 1\n  timeout          = 1\n}",
+      "minimal_config": "resource \"xcsh_crl\" \"example\" {\n  name      = \"example-crl\"\n  namespace = \"staging\"\n\n  refresh_interval = 6\n  server_address   = \"example-value\"\n  server_port      = 1\n  timeout          = 1\n}",
       "dependencies": {
         "requires": []
       },
@@ -1364,7 +1364,7 @@
       "category": "uncategorized",
       "description": "Domain to protect",
       "required": ["name", "namespace", "protected_domain"],
-      "minimal_config": "resource \"xcsh_protected_domain\" \"example\" {\n  name      = \"example-protected-domain\"\n  namespace = \"staging\"\n\n  protected_domain = \"example-value\"\n}",
+      "minimal_config": "resource \"xcsh_protected_domain\" \"example\" {\n  name      = \"example-protected-domain\"\n  namespace = \"staging\"\n\n  protected_domain = \"example.com\"\n}",
       "dependencies": {
         "requires": []
       },

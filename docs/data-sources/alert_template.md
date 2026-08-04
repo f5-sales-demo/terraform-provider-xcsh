@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_alert_template (Data Source)
 
-Manages Domain to protect. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Domain to protect. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

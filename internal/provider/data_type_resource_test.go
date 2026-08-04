@@ -27,7 +27,7 @@ func TestAccDataTypeResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -64,7 +64,7 @@ func TestAccDataTypeResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -95,7 +95,7 @@ func TestAccDataTypeResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -135,7 +135,7 @@ func TestAccDataTypeResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -169,7 +169,7 @@ func TestAccDataTypeResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -209,7 +209,7 @@ func TestAccDataTypeResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -237,7 +237,7 @@ func TestAccDataTypeResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -267,7 +267,7 @@ func TestAccDataTypeResource_planChecks(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -295,7 +295,7 @@ func TestAccDataTypeResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -394,8 +394,8 @@ func TestAccDataTypeResource_requiresReplace(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName1 := acctest.RandomName("tf-test-datatype")
-	rName2 := acctest.RandomName("tf-test-datatype")
+	rName1 := acctest.RandomName("tf-acc-test-datatype")
+	rName2 := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -430,7 +430,7 @@ func TestAccDataTypeResource_piiFlags(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_type.test"
-	rName := acctest.RandomName("tf-test-datatype")
+	rName := acctest.RandomName("tf-acc-test-datatype")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

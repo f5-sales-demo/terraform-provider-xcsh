@@ -189,23 +189,6 @@ func buildRSAPublicKey(pubKey *PublicKey) (*rsa.PublicKey, error) {
 	}, nil
 }
 
-// MaxPlaintextSize returns the maximum plaintext size that can be encrypted.
-// With envelope encryption, the limit is now the XCSH API limit (128KB),
-// not the RSA key size limit.
-//
-// Deprecated: This function is kept for backwards compatibility but no longer
-// reflects the actual limit. Use MaxSecretSize constant instead.
-func MaxPlaintextSize(pubKey *PublicKey) (int, error) {
-	// Validate the public key can be built (sanity check)
-	_, err := buildRSAPublicKey(pubKey)
-	if err != nil {
-		return 0, err
-	}
-
-	// With envelope encryption, we're limited by the API, not RSA
-	return MaxSecretSize, nil
-}
-
 // MaxRSAPlaintextSize returns the maximum size for direct RSA-OAEP encryption
 // (used only for encrypting the DEK, not user data).
 // For RSA-OAEP: max = keySize - 2*hashSize - 2

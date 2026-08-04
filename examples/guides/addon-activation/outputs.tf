@@ -73,42 +73,39 @@ output "waap_status" {
 }
 
 # =============================================================================
-# SUBSCRIPTION RESULTS
+# ACTIVATION SUMMARY
 # =============================================================================
+#
+# Reported, not effected: activation happens in the F5 Distributed Cloud console.
+# `pending_addons` is the actionable output — anything listed there was requested
+# in terraform.tfvars but is not active on the tenant yet.
 
-output "activated_addons" {
-  description = "List of addon subscriptions that were created"
-  value = compact([
-    length(xcsh_addon_subscription.bot_defense) > 0 ? "f5xc-bot-defense-standard" : "",
-    length(xcsh_addon_subscription.client_side_defense) > 0 ? "f5xc-client-side-defense-standard" : "",
-    length(xcsh_addon_subscription.waap) > 0 ? "f5xc-waap-standard" : "",
-  ])
+output "active_addons" {
+  description = "Requested addons that are active on this tenant"
+  value       = local.active_addons
+}
+
+output "pending_addons" {
+  description = "Requested addons that are not active yet; activate these in the F5 Distributed Cloud console"
+  value       = local.pending_addons
 }
 
 output "activation_summary" {
-  description = "Summary of addon activation results"
+  description = "Per-addon requested and active state"
   value = {
-    total_requested = sum([
-      var.enable_bot_defense ? 1 : 0,
-      var.enable_client_side_defense ? 1 : 0,
-      var.enable_waap ? 1 : 0,
-    ])
-    total_activated = sum([
-      length(xcsh_addon_subscription.bot_defense),
-      length(xcsh_addon_subscription.client_side_defense),
-      length(xcsh_addon_subscription.waap),
-    ])
+    total_requested = length(local.requested_addons)
+    total_active    = length(local.active_addons)
     bot_defense = {
       requested = var.enable_bot_defense
-      activated = length(xcsh_addon_subscription.bot_defense) > 0
+      active    = contains(local.active_addons, "f5xc-bot-defense-standard")
     }
     client_side_defense = {
       requested = var.enable_client_side_defense
-      activated = length(xcsh_addon_subscription.client_side_defense) > 0
+      active    = contains(local.active_addons, "f5xc-client-side-defense-standard")
     }
     waap = {
       requested = var.enable_waap
-      activated = length(xcsh_addon_subscription.waap) > 0
+      active    = contains(local.active_addons, "f5xc-waap-standard")
     }
   }
 }
@@ -118,8 +115,8 @@ output "activation_summary" {
 # =============================================================================
 
 output "demo_namespace" {
-  description = "Demo namespace details (if created)"
-  value = var.create_demo_namespace && length(xcsh_namespace.demo) > 0 ? {
+  description = "Demo namespace details, created only once every requested addon is active"
+  value = length(xcsh_namespace.demo) > 0 ? {
     name        = xcsh_namespace.demo[0].name
     description = xcsh_namespace.demo[0].description
   } : null

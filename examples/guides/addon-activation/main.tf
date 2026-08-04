@@ -1,14 +1,21 @@
 # F5 Distributed Cloud Provider - Addon Activation Example
 # =========================================================
 #
-# This example demonstrates how to activate F5XC addon services
-# using Terraform. It shows the complete workflow from checkinggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-# eligibility to activating and using addon features.
+# This example demonstrates how to inspect F5XC addon services with Terraform:
+# which addons exist, which tier they require, and whether each one is already
+# activated for the tenant.
+#
+# Activation itself is not performed here. The provider ships the read side of
+# the addon API only — the xcsh_addon_service and
+# xcsh_addon_service_activation_status data sources. Activate an addon in the
+# F5 Distributed Cloud console (or through your F5 account team for
+# managed-activation services), then use this configuration to confirm the
+# state and to gate dependent resources on it.
 #
 # QUICK START:
 # 1. Configure authentication (environment variables recommended)
 # 2. Copy terraform.tfvars.example to terraform.tfvars
-# 3. Enable desired addons in terraform.tfvars
+# 3. Enable the addons you want to report on in terraform.tfvars
 # 4. Run: terraform init && terraform apply
 
 terraform {
@@ -18,10 +25,6 @@ terraform {
     xcsh = {
       source  = "f5-sales-demo/xcsh"
       version = ">= 0.1.0"
-    }
-    time = {
-      source  = "hashicorp/time"
-      version = ">= 0.9.0"
     }
   }
 }
@@ -88,92 +91,49 @@ data "xcsh_addon_service_activation_status" "waap" {
 }
 
 # =============================================================================
-# ADDON SUBSCRIPTIONS
+# ACTIVATION STATE
 # =============================================================================
+#
+# There is no xcsh_addon_subscription resource: the provider exposes the addon
+# API read-only, so Terraform reports activation rather than performing it.
+# Activate an addon in the F5 Distributed Cloud console — Administration >
+# Billing & Subscriptions — or through your F5 account team when the service
+# reports managed activation.
+#
+# `state` is "AS_SUBSCRIBED" once an addon is usable. `can_activate` reports whether
+# self-service activation is available to this tenant, which is the signal that
+# an addon is eligible but has not been turned on yet.
 
-# Activate Bot Defense if enabled and available
-resource "xcsh_addon_subscription" "bot_defense" {
-  count = (
-    var.enable_bot_defense &&
-    length(data.xcsh_addon_service_activation_status.bot_defense) > 0 &&
-    data.xcsh_addon_service_activation_status.bot_defense[0].can_activate &&
-    data.xcsh_addon_service_activation_status.bot_defense[0].state == "AS_NONE"
-  ) ? 1 : 0
+locals {
+  # Addons this configuration was asked to report on.
+  requested_addons = compact([
+    var.enable_bot_defense ? "f5xc-bot-defense-standard" : "",
+    var.enable_client_side_defense ? "f5xc-client-side-defense-standard" : "",
+    var.enable_waap ? "f5xc-waap-standard" : "",
+  ])
 
-  name      = "bot-defense-subscription"
-  namespace = "system"
+  # Of those, the ones the tenant can already use.
+  active_addons = compact([
+    try(data.xcsh_addon_service_activation_status.bot_defense[0].state, "") == "AS_SUBSCRIBED" ? "f5xc-bot-defense-standard" : "",
+    try(data.xcsh_addon_service_activation_status.client_side_defense[0].state, "") == "AS_SUBSCRIBED" ? "f5xc-client-side-defense-standard" : "",
+    try(data.xcsh_addon_service_activation_status.waap[0].state, "") == "AS_SUBSCRIBED" ? "f5xc-waap-standard" : "",
+  ])
 
-  addon_service {
-    name      = "f5xc-bot-defense-standard"
-    namespace = "shared"
-  }
-}
-
-# Activate Client-Side Defense if enabled and available
-resource "xcsh_addon_subscription" "client_side_defense" {
-  count = (
-    var.enable_client_side_defense &&
-    length(data.xcsh_addon_service_activation_status.client_side_defense) > 0 &&
-    data.xcsh_addon_service_activation_status.client_side_defense[0].can_activate &&
-    data.xcsh_addon_service_activation_status.client_side_defense[0].state == "AS_NONE"
-  ) ? 1 : 0
-
-  name      = "client-side-defense-subscription"
-  namespace = "system"
-
-  addon_service {
-    name      = "f5xc-client-side-defense-standard"
-    namespace = "shared"
-  }
-}
-
-# Activate WAAP if enabled and available
-resource "xcsh_addon_subscription" "waap" {
-  count = (
-    var.enable_waap &&
-    length(data.xcsh_addon_service_activation_status.waap) > 0 &&
-    data.xcsh_addon_service_activation_status.waap[0].can_activate &&
-    data.xcsh_addon_service_activation_status.waap[0].state == "AS_NONE"
-  ) ? 1 : 0
-
-  name      = "waap-subscription"
-  namespace = "system"
-
-  addon_service {
-    name      = "f5xc-waap-standard"
-    namespace = "shared"
-  }
-}
-
-# =============================================================================
-# WAIT FOR ACTIVATION (Optional)
-# =============================================================================
-
-# Wait for activation to propagate before using features
-resource "time_sleep" "wait_for_activation" {
-  count = (
-    length(xcsh_addon_subscription.bot_defense) > 0 ||
-    length(xcsh_addon_subscription.client_side_defense) > 0 ||
-    length(xcsh_addon_subscription.waap) > 0
-  ) ? 1 : 0
-
-  depends_on = [
-    xcsh_addon_subscription.bot_defense,
-    xcsh_addon_subscription.client_side_defense,
-    xcsh_addon_subscription.waap,
-  ]
-
-  create_duration = var.activation_wait_time
+  # Requested but not yet activated — act on these in the console.
+  pending_addons = setsubtract(local.requested_addons, local.active_addons)
 }
 
 # =============================================================================
 # EXAMPLE NAMESPACE (for demonstration)
 # =============================================================================
+#
+# Gating on local.pending_addons is the pattern worth copying: dependent
+# resources are created only once every addon they rely on is actually active,
+# so a plan against an unactivated tenant does not build on a feature that is
+# not there yet.
 
 resource "xcsh_namespace" "demo" {
-  count       = var.create_demo_namespace ? 1 : 0
+  count       = var.create_demo_namespace && length(local.pending_addons) == 0 ? 1 : 0
   name        = var.demo_namespace_name
   description = "Namespace for addon activation demonstration"
-
-  depends_on = [time_sleep.wait_for_activation]
 }

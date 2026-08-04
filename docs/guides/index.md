@@ -9,7 +9,6 @@ Step-by-step tutorials for common F5 Distributed Cloud scenarios.
 - [Authentication](authentication.md) - Configure provider authentication
 - [Blindfold Encryption](blindfold.md) - Secure secret management
 - [Addon Service Activation](addon-activation.md) - Activate and manage addon services
-- [v3.0.0 Migration](v3-migration.md) - Upgrade from v2.x to v3.0.0
 
 ## Related Documentation
 

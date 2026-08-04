@@ -44,6 +44,15 @@ resource "xcsh_service_policy" "example" {
 ### Allow List example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_service_policy" "test" {
   name      = "example"
   namespace = "system"
@@ -52,6 +61,15 @@ resource "xcsh_service_policy" "test" {
 ### Deny All example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_service_policy" "test" {
   name      = "example"
   namespace = "system"
@@ -60,6 +78,15 @@ resource "xcsh_service_policy" "test" {
 ### Deny List example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_service_policy" "test" {
   name      = "example"
   namespace = "system"
@@ -78,6 +105,15 @@ resource "xcsh_service_policy" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_service_policy" "test" {
   name        = "example"
   namespace   = "system"

@@ -43,7 +43,7 @@ func TestAccRateLimiterResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -76,7 +76,7 @@ func TestAccRateLimiterResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -113,7 +113,7 @@ func TestAccRateLimiterResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -150,7 +150,7 @@ func TestAccRateLimiterResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -181,7 +181,7 @@ func TestAccRateLimiterResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -218,7 +218,7 @@ func TestAccRateLimiterResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -242,7 +242,7 @@ func TestAccRateLimiterResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -267,7 +267,7 @@ func TestAccRateLimiterResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -292,7 +292,7 @@ func TestAccRateLimiterResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -347,7 +347,7 @@ func TestAccRateLimiterResource_nameTooLong(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rlName := acctest.RandomName("this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
+	rlName := acctest.RandomName("tf-acc-test-this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -384,8 +384,8 @@ func TestAccRateLimiterResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName1 := acctest.RandomName("rl1")
-	rlName2 := acctest.RandomName("rl2")
+	rlName1 := acctest.RandomName("tf-acc-test-rl1")
+	rlName2 := acctest.RandomName("tf-acc-test-rl2")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -417,7 +417,7 @@ func TestAccRateLimiterResource_rateLimitValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rlName := acctest.RandomName("rl")
+	rlName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -531,7 +531,7 @@ func TestAccRateLimiterResource_tokenBucket(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rName := acctest.RandomName("tf-test-rl")
+	rName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -562,7 +562,7 @@ func TestAccRateLimiterResource_switchAlgorithm(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rName := acctest.RandomName("tf-test-rl")
+	rName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -599,7 +599,7 @@ func TestAccRateLimiterResource_unitVariations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rName := acctest.RandomName("tf-test-rl")
+	rName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -630,7 +630,7 @@ func TestAccRateLimiterResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_rate_limiter.test"
-	rName := acctest.RandomName("tf-test-rl")
+	rName := acctest.RandomName("tf-acc-test-rl")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

@@ -149,7 +149,7 @@ An [`allowed_capabilities`](#psp-spec-allowed-capabilities) block (within [`psp_
 
 An [`allowed_host_paths`](#psp-spec-allowed-host-paths) block (within [`psp_spec`](#psp-spec)) supports the following:
 
-<a id="psp-spec-allowed-host-paths-path-prefix"></a>&#x2022; [`path_prefix`](#psp-spec-allowed-host-paths-path-prefix) - Optional String<br>Host path prefix is the path prefix that the host volume must match. It does not support \*
+<a id="psp-spec-allowed-host-paths-path-prefix"></a>&#x2022; [`path_prefix`](#psp-spec-allowed-host-paths-path-prefix) - Optional String<br>Host path prefix is the path prefix that the host volume must match. It does not support *
 
 <a id="psp-spec-allowed-host-paths-read-only"></a>&#x2022; [`read_only`](#psp-spec-allowed-host-paths-read-only) - Optional Bool<br>Volume will be allowed to mount read only
 

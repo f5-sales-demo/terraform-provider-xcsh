@@ -14,17 +14,22 @@ on:
         description: 'Whether documentation changed'
         value: ${{ jobs.generate.outputs.changed }}
 
+# Do not inherit a write-capable caller token into this read-only generator.
+permissions: {}
+
 jobs:
   generate:
     name: Generate Documentation
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout and download the public API-spec release
     outputs:
       changed: ${{ steps.check.outputs.changed }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          ref: ${{ inputs.ref || github.sha }}
           fetch-depth: 0
 
       # This job had no spec download at all, so transform-docs.go always stripped
@@ -38,14 +43,15 @@ jobs:
           token: ${{ github.token }}
 
       - name: Set up Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: 'go.mod'
           cache: true
 
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v4
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
         with:
+          terraform_version: 1.15.8
           terraform_wrapper: false
 
       - name: Install tfplugindocs
@@ -55,7 +61,7 @@ jobs:
           attempt=1
           while [ $attempt -le $max_attempts ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
+            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0; then
               echo "::endgroup::"
               break
             fi
@@ -73,120 +79,16 @@ jobs:
           fi
           echo "$HOME/go/bin" >> "$GITHUB_PATH"
 
-      - name: Calculate Terraform version requirements
-        run: |
-          echo "::group::Calculating minimum Terraform version"
-          go run tools/calculate-terraform-version.go --update-templates
-          echo "::endgroup::"
-
-      - name: Generate examples
-        run: |
-          echo "::group::Generating example Terraform files"
-          go run tools/generate-examples.go
-          echo "::endgroup::"
-
-      - name: Validate generated examples
-        run: |
-          echo "::group::Validating example Terraform files"
-          fail=0
-          warn=0
-          pass=0
-          for dir in examples/resources/xcsh_*; do
-            if [ ! -f "$dir/resource.tf" ]; then continue; fi
-            # Resources with verified test examples (named .tf files beyond resource.tf)
-            # are required to pass; others are warn-only
-            verified_count=$(find "$dir" -name '*.tf' ! -name 'resource.tf' 2>/dev/null | wc -l | tr -d ' ')
-            tmpdir=$(mktemp -d)
-            cp "$dir/resource.tf" "$tmpdir/main.tf"
-            cd "$tmpdir"
-            terraform init -backend=false -no-color >/dev/null 2>&1
-            if ! terraform validate -no-color >/dev/null 2>&1; then
-              if [ "$verified_count" -gt 0 ]; then
-                echo "::error::Validation failed (verified resource): $dir/resource.tf"
-                fail=1
-              else
-                echo "::warning::Validation failed (unverified resource): $dir/resource.tf"
-                warn=$((warn + 1))
-              fi
-            else
-              pass=$((pass + 1))
-            fi
-            cd - >/dev/null
-            rm -rf "$tmpdir"
-          done
-          echo "::endgroup::"
-          echo "Results: $pass passed, $warn warnings, $fail failures"
-          if [ $fail -gt 0 ]; then exit 1; fi
-
-      - name: Generate documentation
-        run: |
-          # Retry logic with exponential backoff for transient network errors
-          # tfplugindocs downloads Terraform CLI from HashiCorp's checkpoint API
-          max_attempts=3
-          attempt=1
-          while [ $attempt -le $max_attempts ]; do
-            echo "::group::Attempt $attempt of $max_attempts"
-            if tfplugindocs generate --provider-name xcsh; then
-              echo "Documentation generated successfully"
-              echo "::endgroup::"
-              break
-            fi
-            echo "::endgroup::"
-            attempt=$((attempt + 1))
-            if [ $attempt -le $max_attempts ]; then
-              sleep_time=$((2 ** attempt * 5))
-              echo "::warning::tfplugindocs failed, retrying in ${sleep_time}s..."
-              sleep $sleep_time
-            fi
-          done
-          if [ $attempt -gt $max_attempts ]; then
-            echo "::error::All $max_attempts attempts failed"
-            exit 1
-          fi
-
-      - name: Transform documentation
-        run: go run tools/transform-docs.go
-
-      - name: Build provider and export Terraform schema
-        run: |
-          echo "::group::Building provider and exporting schema"
-          go build -o terraform-provider-xcsh .
-          mkdir -p /tmp/tf-schema
-          cp terraform-provider-xcsh /tmp/tf-schema/
-          cat > /tmp/tf-schema/main.tf << 'EOF'
-          terraform {
-            required_providers {
-              xcsh = {
-                source  = "f5-sales-demo/xcsh"
-                version = ">= 0.1.0"
-              }
-            }
-          }
-          EOF
-          cd /tmp/tf-schema
-          TF_PLUGIN_CACHE_DIR="$(pwd)" terraform init -backend=false -no-color >/dev/null 2>&1 || true
-          terraform providers schema -json 2>/dev/null > /tmp/tf-schema.json || true
-          if [ -s /tmp/tf-schema.json ]; then
-            cp /tmp/tf-schema.json "${GITHUB_WORKSPACE}/tools/terraform-schema.json"
-            echo "Terraform schema exported: $(wc -c < tools/terraform-schema.json) bytes"
-          else
-            echo "Warning: Could not export Terraform schema — AI metadata will use default type inference"
-          fi
-          echo "::endgroup::"
-
-      - name: Generate llms.txt hierarchy
-        run: |
-          echo "::group::Generating llms.txt hierarchy (L0 + L1 + L2)"
-          go run tools/generate-llms-txt.go
-          echo "::endgroup::"
+      - name: Generate and validate all provider documentation
+        run: scripts/generate-provider-docs.sh
 
       - name: Check for changes
         id: check
         run: |
-          if [ -n "$(git status --porcelain docs/ examples/)" ]; then
+          if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "Documentation changes detected:"
-            git status --porcelain docs/ examples/
+            git status --porcelain docs/ examples/ templates/
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No documentation changes"

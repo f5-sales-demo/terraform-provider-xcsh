@@ -90,10 +90,10 @@ func exampleValue(attr openapi.TerraformAttribute) string {
 		return "true"
 	case "int64":
 		v := 1
-		if attr.Minimum > 0 {
+		if attr.HasMinimum {
 			v = attr.Minimum
 		}
-		if attr.Maximum > 0 && v > attr.Maximum {
+		if attr.HasMaximum && v > attr.Maximum {
 			v = attr.Maximum
 		}
 		return fmt.Sprintf("%d", v)
@@ -116,6 +116,9 @@ func scalarValue(typ string, attr openapi.TerraformAttribute) string {
 	default: // string
 		if len(attr.EnumValues) > 0 {
 			return fmt.Sprintf("%q", attr.EnumValues[0])
+		}
+		if attr.ETLDPlusOne || attr.UseDomainValidator {
+			return `"example.com"`
 		}
 		return "\"example-value\""
 	}

@@ -19,7 +19,7 @@ func TestAccAPIDefinitionResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-test-def")
+	rName := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -63,7 +63,7 @@ func TestAccAPIDefinitionResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-test-def")
+	rName := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -86,7 +86,7 @@ func TestAccAPIDefinitionResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-test-def")
+	rName := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -124,7 +124,7 @@ func TestAccAPIDefinitionResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-def")
+	rName := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -148,7 +148,7 @@ func TestAccAPIDefinitionResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-test-def")
+	rName := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -204,8 +204,8 @@ func TestAccAPIDefinitionResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName1 := acctest.RandomName("tf-test-def")
-	rName2 := acctest.RandomName("tf-test-def")
+	rName1 := acctest.RandomName("tf-acc-test-def")
+	rName2 := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -233,7 +233,7 @@ func TestAccAPIDefinitionResource_strictSchemaOrigin(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_definition.test"
-	rName := acctest.RandomName("tf-test-def")
+	rName := acctest.RandomName("tf-acc-test-def")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

@@ -306,8 +306,8 @@ func TestAccTrustedCaListResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	nsName := acctest.RandomName("tf-test-ns")
-	rName := acctest.RandomName("tf-test-tcl")
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tcl")
 	certBase64 := acctest.MustGenerateTestCertificates().RootCABase64
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -329,8 +329,8 @@ func TestAccTrustedCaListResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_trusted_ca_list.test"
-	nsName := acctest.RandomName("tf-test-ns")
-	rName := acctest.RandomName("tf-test-tcl")
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tcl")
 	certBase64 := acctest.MustGenerateTestCertificates().RootCABase64
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -362,8 +362,8 @@ func TestAccTrustedCaListResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_trusted_ca_list.test"
-	nsName := acctest.RandomName("tf-test-ns")
-	rName := acctest.RandomName("tf-test-tcl")
+	nsName := acctest.RandomName("tf-acc-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tcl")
 	certBase64 := acctest.MustGenerateTestCertificates().RootCABase64
 
 	resource.ParallelTest(t, resource.TestCase{

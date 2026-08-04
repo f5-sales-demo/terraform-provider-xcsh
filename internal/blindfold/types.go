@@ -105,23 +105,6 @@ type SealedSecret struct {
 	Ciphertext string `json:"ciphertext"`
 }
 
-// SealedSecretLegacy represents the old direct RSA-OAEP format.
-// Kept for backwards compatibility with secrets < 190 bytes.
-// Deprecated: Use SealedSecret with envelope encryption instead.
-type SealedSecretLegacy struct {
-	// KeyVersion identifies which public key version was used for encryption
-	KeyVersion int `json:"key_version"`
-
-	// PolicyID identifies the policy document used
-	PolicyID string `json:"policy_id"`
-
-	// Tenant is the XCSH tenant identifier
-	Tenant string `json:"tenant"`
-
-	// Data is the base64-encoded RSA-OAEP encrypted ciphertext
-	Data string `json:"data"`
-}
-
 // APIEnvelope wraps API responses from F5XC.
 type APIEnvelope[T any] struct {
 	Data T `json:"data"`

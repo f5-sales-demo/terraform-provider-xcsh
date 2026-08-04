@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_network_policy_rule (Data Source)
 
-Manages network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about network policy rule with configured parameters in specified namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

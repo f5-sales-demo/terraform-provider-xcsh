@@ -19,7 +19,7 @@ func TestAccAppSettingResource_basic(t *testing.T) {
 	// app_setting can only be created in namespaces with namespace_type: "app"
 	// Using "hipster-shop" which is an existing app-type namespace in the staging environment
 	resourceName := "xcsh_app_setting.test"
-	rName := acctest.RandomName("tf-test-appset")
+	rName := acctest.RandomName("tf-acc-test-appset")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

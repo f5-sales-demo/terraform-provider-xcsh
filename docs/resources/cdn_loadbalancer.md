@@ -815,7 +815,7 @@ JavaScript for telemetry collection is requested asynchronously, and it is non-c
 
 A [`js_insert_all_pages`](#bot-defense-policy-js-insert-all-pages) block (within [`bot_defense.policy`](#bot-defense-policy)) supports the following:
 
-<a id="location-3a398d"></a>&#x2022; [`javascript_location`](#location-3a398d) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-0d5121"></a>&#x2022; [`javascript_location`](#location-0d5121) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 #### Bot Defense Policy Js Insert All Pages Except
 
@@ -869,7 +869,7 @@ A [`rules`](#rules-15d983) block (within [`bot_defense.policy.js_insertion_rules
 
 <a id="domain-834b0f"></a>&#x2022; [`domain`](#domain-834b0f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-834b0f) below.
 
-<a id="location-16277f"></a>&#x2022; [`javascript_location`](#location-16277f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-5b3be0"></a>&#x2022; [`javascript_location`](#location-5b3be0) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
 <a id="metadata-e15703"></a>&#x2022; [`metadata`](#metadata-e15703) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
 [Metadata](#metadata-e15703) below.
@@ -896,15 +896,15 @@ A [`mobile_sdk_config`](#bot-defense-policy-mobile-sdk-config) block (within [`b
 
 #### Bot Defense Policy Mobile SDK Config Mobile Identifier
 
-<a id="deep-8f9ee4"></a>Deeply nested **Identifier** block collapsed for readability.
+<a id="deep-42b398"></a>Deeply nested **Identifier** block collapsed for readability.
 
 #### Bot Defense Policy Mobile SDK Config Mobile Identifier Headers
 
-<a id="deep-235998"></a>Deeply nested **Headers** block collapsed for readability.
+<a id="deep-f276a7"></a>Deeply nested **Headers** block collapsed for readability.
 
 #### Bot Defense Policy Mobile SDK Config Mobile Identifier Headers Item
 
-<a id="deep-ba14c6"></a>Deeply nested **Item** block collapsed for readability.
+<a id="deep-f67231"></a>Deeply nested **Item** block collapsed for readability.
 
 #### Bot Defense Policy Protected App Endpoints
 
@@ -1105,23 +1105,23 @@ A [`policy`](#client-side-defense-policy) block (within [`client_side_defense`](
 
 #### client-side Defense Policy Js Insert All Pages Except
 
-<a id="deep-357348"></a>Deeply nested **Except** block collapsed for readability.
+<a id="deep-3d4469"></a>Deeply nested **Except** block collapsed for readability.
 
 #### client-side Defense Policy Js Insert All Pages Except Exclude List
 
-<a id="deep-e071ac"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-55f8d1"></a>Deeply nested **List** block collapsed for readability.
 
 #### client-side Defense Policy Js Insert All Pages Except Exclude List Domain
 
-<a id="deep-05664f"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-2c961d"></a>Deeply nested **Domain** block collapsed for readability.
 
 #### client-side Defense Policy Js Insert All Pages Except Exclude List Metadata
 
-<a id="deep-ec44bf"></a>Deeply nested **Metadata** block collapsed for readability.
+<a id="deep-36a423"></a>Deeply nested **Metadata** block collapsed for readability.
 
 #### client-side Defense Policy Js Insert All Pages Except Exclude List Path
 
-<a id="deep-eba2d4"></a>Deeply nested **Path** block collapsed for readability.
+<a id="deep-8016ca"></a>Deeply nested **Path** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules
 
@@ -1133,35 +1133,44 @@ A [`js_insertion_rules`](#rules-ad3671) block (within [`client_side_defense.poli
 
 #### client-side Defense Policy Js Insertion Rules Exclude List
 
-<a id="deep-1639b0"></a>Deeply nested **List** block collapsed for readability.
+<a id="deep-cc3f4b"></a>Deeply nested **List** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules Exclude List Domain
 
-<a id="deep-949064"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-d143d3"></a>Deeply nested **Domain** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules Exclude List Metadata
 
-<a id="deep-3af08a"></a>Deeply nested **Metadata** block collapsed for readability.
+<a id="deep-63653c"></a>Deeply nested **Metadata** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules Exclude List Path
 
-<a id="deep-44c104"></a>Deeply nested **Path** block collapsed for readability.
+<a id="deep-a8fcbc"></a>Deeply nested **Path** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules Rules
 
-<a id="deep-ad681e"></a>Deeply nested **Rules** block collapsed for readability.
+A [`rules`](#rules-6276bc) block (within [`client_side_defense.policy.js_insertion_rules`](#rules-ad3671)) supports the following:
+
+<a id="domain-a7aac7"></a>&#x2022; [`any_domain`](#domain-a7aac7) - Optional Block<br>Enable this option
+
+<a id="domain-4b295f"></a>&#x2022; [`domain`](#domain-4b295f) - Optional Block<br>Domain name for routing and identification<br>See [Domain](#domain-4b295f) below.
+
+<a id="metadata-60fc86"></a>&#x2022; [`metadata`](#metadata-60fc86) - Optional Block<br>MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create<br>See
+[Metadata](#metadata-60fc86) below.
+
+<a id="path-71b688"></a>&#x2022; [`path`](#path-71b688) - Optional Block<br>Path match of the URI can be either be, Prefix match or exact match or regular expression match<br>See [Path](#path-71b688) below.
 
 #### client-side Defense Policy Js Insertion Rules Rules Domain
 
-<a id="deep-15e025"></a>Deeply nested **Domain** block collapsed for readability.
+<a id="deep-ea14f5"></a>Deeply nested **Domain** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules Rules Metadata
 
-<a id="deep-6c411a"></a>Deeply nested **Metadata** block collapsed for readability.
+<a id="deep-2f0eda"></a>Deeply nested **Metadata** block collapsed for readability.
 
 #### client-side Defense Policy Js Insertion Rules Rules Path
 
-<a id="deep-880dda"></a>Deeply nested **Path** block collapsed for readability.
+<a id="deep-8bd4c2"></a>Deeply nested **Path** block collapsed for readability.
 
 #### CORS Policy
 
@@ -1211,9 +1220,9 @@ A [`cdn_cache_rules`](#custom-cache-rule-CDN-cache-rules) block (within [`custom
 
 <a id="custom-cache-rule-CDN-cache-rules-name"></a>&#x2022; [`name`](#custom-cache-rule-CDN-cache-rules-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="namespace-953951"></a>&#x2022; [`namespace`](#namespace-953951) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+<a id="namespace-eb15a4"></a>&#x2022; [`namespace`](#namespace-eb15a4) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="tenant-f1c5ea"></a>&#x2022; [`tenant`](#tenant-f1c5ea) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="tenant-73f18c"></a>&#x2022; [`tenant`](#tenant-73f18c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Data Guard Rules
 
@@ -1385,15 +1394,15 @@ An [`api_crawler`](#enable-api-discovery-api-crawler) block (within [`enable_api
 
 #### Enable API Discovery API Discovery From Code Scan codebase Integrations
 
-<a id="deep-655889"></a>Deeply nested **Integrations** block collapsed for readability.
+<a id="deep-843079"></a>Deeply nested **Integrations** block collapsed for readability.
 
 #### Enable API Discovery API Discovery From Code Scan codebase Integrations codebase Integration
 
-<a id="deep-f966a5"></a>Deeply nested **Integration** block collapsed for readability.
+<a id="deep-270bbd"></a>Deeply nested **Integration** block collapsed for readability.
 
 #### Enable API Discovery API Discovery From Code Scan codebase Integrations Selected Repos
 
-<a id="deep-24c79f"></a>Deeply nested **Repos** block collapsed for readability.
+<a id="deep-5b4554"></a>Deeply nested **Repos** block collapsed for readability.
 
 #### Enable API Discovery Custom API Auth Discovery
 
@@ -2111,7 +2120,7 @@ below.
 
 <a id="challenge-e0353b"></a>&#x2022; [`enable_captcha_challenge`](#challenge-e0353b) - Optional Block<br>Configuration parameter for enable captcha challenge
 
-<a id="challenge-3644c3"></a>&#x2022; [`enable_javascript_challenge`](#challenge-3644c3) - Optional Block<br>Enable this option
+<a id="challenge-6e968e"></a>&#x2022; [`enable_javascript_challenge`](#challenge-6e968e) - Optional Block<br>Enable this option
 
 <a id="timestamp-6d26e1"></a>&#x2022; [`expiration_timestamp`](#timestamp-6d26e1) - Optional String<br>Specifies expiration_timestamp the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore
 

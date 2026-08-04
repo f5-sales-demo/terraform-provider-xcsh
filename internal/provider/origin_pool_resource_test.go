@@ -26,7 +26,7 @@ func TestAccOriginPoolResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -64,7 +64,7 @@ func TestAccOriginPoolResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -94,7 +94,7 @@ func TestAccOriginPoolResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -128,7 +128,7 @@ func TestAccOriginPoolResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -156,7 +156,7 @@ func TestAccOriginPoolResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -201,7 +201,7 @@ func TestAccOriginPoolResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -244,7 +244,7 @@ func TestAccOriginPoolResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -292,8 +292,8 @@ func TestAccOriginPoolResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName1 := acctest.RandomName("tf-test-op")
-	rName2 := acctest.RandomName("tf-test-op")
+	rName1 := acctest.RandomName("tf-acc-test-op")
+	rName2 := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -324,7 +324,7 @@ func TestAccOriginPoolResource_publicIp(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -357,7 +357,7 @@ func TestAccOriginPoolResource_multipleOrigins(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -390,7 +390,7 @@ func TestAccOriginPoolResource_withHealthcheckRef(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -428,7 +428,7 @@ func TestAccOriginPoolResource_updatePort(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -466,7 +466,7 @@ func TestAccOriginPoolResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_origin_pool.test"
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -707,7 +707,7 @@ func TestAccOriginPoolResource_conflictTlsOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-op")
+	rName := acctest.RandomName("tf-acc-test-op")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

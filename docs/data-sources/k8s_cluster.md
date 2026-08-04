@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_k8s_cluster (Data Source)
 
-Manages k8s_cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about k8s_cluster will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

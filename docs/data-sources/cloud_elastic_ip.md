@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_cloud_elastic_ip (Data Source)
 
-Manages Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Cloud Elastic IP creates Cloud Elastic IP object Object is attached to a site. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

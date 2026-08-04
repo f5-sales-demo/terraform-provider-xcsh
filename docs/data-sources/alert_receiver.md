@@ -62,7 +62,7 @@ metadata:
   namespace: system
 spec:
   email:
-    email_address: `alerts@example.com`
+    email_address: alerts@example.com
 ```
 
 ### Metadata Argument Reference

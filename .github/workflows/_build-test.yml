@@ -22,10 +22,16 @@ on:
         description: 'Whether build and tests passed'
         value: ${{ jobs.build.outputs.success }}
 
+# Reusable workflows must not inherit the caller's token wholesale. Each job
+# below opts into only the repository read needed for checkout and local actions.
+permissions: {}
+
 jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout plus the repository-local download action
     outputs:
       success: ${{ steps.result.outputs.success }}
     env:
@@ -34,10 +40,22 @@ jobs:
       SPEC_DIR: docs/specifications/api
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          ref: ${{ inputs.ref || github.sha }}
           fetch-depth: 0
+
+      - name: Validate delivery state and append-only ledgers
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          TARGET_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          ARGS=()
+          if [ -n "$BASE_REF" ]; then
+            ARGS+=(--base-ref "origin/${BASE_REF}")
+          fi
+          scripts/validate-provider-delivery-state.sh "${ARGS[@]}"
 
       - name: Download API specs
         # Tests in ./tools/... read the released spec bundle. This job is the only
@@ -58,7 +76,7 @@ jobs:
           spec-dir: ${{ env.SPEC_DIR }}
 
       - name: Set up Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: ${{ inputs.go-version-file }}
           cache: true
@@ -114,22 +132,30 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     if: inputs.run-lint
+    permissions:
+      contents: read # checkout the source being linted
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          ref: ${{ inputs.ref || github.sha }}
 
       - name: Set up Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: ${{ inputs.go-version-file }}
           cache: true
 
       - name: Install golangci-lint
         run: |
-          # Install golangci-lint binary directly (no Node.js dependencies)
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | sh -s -- -b "$(go env GOPATH)/bin"
+          set -euo pipefail
+          VERSION=$(tr -d '[:space:]' < .golangci-version)
+          [[ "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
+            echo "::error::.golangci-version must contain an exact semantic version"
+            exit 1
+          }
+          GOTOOLCHAIN=auto go install \
+            github.com/golangci/golangci-lint/v2/cmd/golangci-lint@"$VERSION"
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       - name: Run golangci-lint

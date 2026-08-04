@@ -26,7 +26,7 @@ func TestAccAppFirewallResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -64,7 +64,7 @@ func TestAccAppFirewallResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -95,7 +95,7 @@ func TestAccAppFirewallResource_blocking(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -123,7 +123,7 @@ func TestAccAppFirewallResource_monitoring(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -151,7 +151,7 @@ func TestAccAppFirewallResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -180,7 +180,7 @@ func TestAccAppFirewallResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -226,7 +226,7 @@ func TestAccAppFirewallResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -264,7 +264,7 @@ func TestAccAppFirewallResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -309,7 +309,7 @@ func TestAccAppFirewallResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -353,7 +353,7 @@ func TestAccAppFirewallResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -442,8 +442,8 @@ func TestAccAppFirewallResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName1 := acctest.RandomName("tf-test-waf")
-	rName2 := acctest.RandomName("tf-test-waf")
+	rName1 := acctest.RandomName("tf-acc-test-waf")
+	rName2 := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -475,7 +475,7 @@ func TestAccAppFirewallResource_switchMode_blockingToMonitoring(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -517,7 +517,7 @@ func TestAccAppFirewallResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -857,7 +857,7 @@ func TestAccAppFirewallResource_customBlockingPage(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -894,7 +894,7 @@ func TestAccAppFirewallResource_botProtection(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -941,7 +941,7 @@ func TestAccAppFirewallResource_disableAnonymization(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -977,7 +977,7 @@ func TestAccAppFirewallResource_detectionSettings(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1011,7 +1011,7 @@ func TestAccAppFirewallResource_aiEnhancements(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1045,7 +1045,7 @@ func TestAccAppFirewallResource_allowedResponseCodes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_app_firewall.test"
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1086,7 +1086,7 @@ func TestAccAppFirewallResource_conflictBlockingAndMonitoring(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1122,7 +1122,7 @@ func TestAccAppFirewallResource_conflictBlockingPageOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-waf")
+	rName := acctest.RandomName("tf-acc-test-waf")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

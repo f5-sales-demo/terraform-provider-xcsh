@@ -252,20 +252,6 @@ func TestBuildRSAPublicKey(t *testing.T) {
 	}
 }
 
-func TestMaxPlaintextSize(t *testing.T) {
-	_, pubKey := generateTestKeyPair(t, 2048)
-
-	maxSize, err := MaxPlaintextSize(pubKey)
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-
-	// With envelope encryption, max size is now the API limit (128KB)
-	if maxSize != MaxSecretSize {
-		t.Errorf("max plaintext size: got %d, want %d", maxSize, MaxSecretSize)
-	}
-}
-
 func TestMaxRSAPlaintextSize(t *testing.T) {
 	_, pubKey := generateTestKeyPair(t, 2048)
 
@@ -601,27 +587,6 @@ func TestMaxRSAPlaintextSize_VariousKeySizes(t *testing.T) {
 
 			if maxSize != tt.wantMaxSize {
 				t.Errorf("max RSA size for %d-bit key: got %d, want %d", tt.keyBits, maxSize, tt.wantMaxSize)
-			}
-		})
-	}
-}
-
-// TestMaxPlaintextSize_AllKeySizes verifies MaxPlaintextSize returns API limit for all key sizes.
-func TestMaxPlaintextSize_AllKeySizes(t *testing.T) {
-	keySizes := []int{2048, 3072, 4096}
-
-	for _, bits := range keySizes {
-		t.Run(fmt.Sprintf("%d_bit", bits), func(t *testing.T) {
-			_, pubKey := generateTestKeyPair(t, bits)
-
-			maxSize, err := MaxPlaintextSize(pubKey)
-			if err != nil {
-				t.Fatalf("unexpected error: %v", err)
-			}
-
-			// With envelope encryption, all key sizes support the same max (API limit)
-			if maxSize != MaxSecretSize {
-				t.Errorf("max size for %d-bit key: got %d, want %d", bits, maxSize, MaxSecretSize)
 			}
 		})
 	}

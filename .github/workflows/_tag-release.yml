@@ -1,247 +1,480 @@
-# Reusable workflow for version tagging and release
-# Called by: on-merge.yml
-#
-# Uses forked release action with updated dependencies for better cache performance.
-# Fork: robinmordasiewicz/ghaction-terraform-provider-release@v6
-#
-# NOTE: This workflow fetches the LATEST main HEAD to ensure tags include
-# any regeneration commits that were pushed by the on-merge workflow.
+# Reusable workflow for deterministic provider tagging and publication.
 name: Tag and Release
 
 on:
   workflow_call:
-    inputs:
-      create-release:
-        description: 'Whether to create a release after tagging'
-        type: boolean
-        default: true
     secrets:
       gpg-private-key:
-        description: 'GPG private key for signing'
+        description: GPG private key for signing
         required: true
       gpg-passphrase:
-        description: 'GPG key passphrase'
+        description: GPG key passphrase
         required: true
     outputs:
       new-tag:
-        description: 'The new version tag created'
+        description: The immutable version tag for this commit
         value: ${{ jobs.tag.outputs.new_tag }}
       tag-created:
-        description: 'Whether a new tag was created'
+        description: Whether this run created the tag
         value: ${{ jobs.tag.outputs.created }}
 
+permissions: {}
+
+concurrency:
+  group: provider-release-transaction
+  cancel-in-progress: false
+
 jobs:
-  tag:
-    name: Create Version Tag
+  preflight:
+    name: Verify Release Source Is Reproducible
     runs-on: ubuntu-latest
-    # Pushes the new version tag.
     permissions:
-      contents: write
-    outputs:
-      new_tag: ${{ steps.version.outputs.new_tag }}
-      latest_tag: ${{ steps.get_tag.outputs.latest_tag }}
-      created: ${{ steps.create.outputs.created }}
+      contents: read # checkout and exact public spec release download
     steps:
-      - name: Checkout latest main
-        uses: actions/checkout@v7
+      - name: Checkout immutable release source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          # Fetch the LATEST main HEAD, not github.sha
-          # This ensures we tag the commit that includes regeneration
-          ref: main
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Require immutable release policy before tagging
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api "repos/${REPOSITORY}/immutable-releases" \
+            | jq -e '.enabled == true' >/dev/null || {
+            echo "::error::Repository release immutability must be enabled before tagging"
+            exit 1
+          }
+
+      - name: Validate release-ready delivery state
+        env:
+          TARGET_REPOSITORY: ${{ github.repository }}
+        run: scripts/validate-provider-delivery-state.sh --release-ready
+
+      - name: Download exact pinned API specifications
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        with:
+          terraform_version: 1.15.8
+          terraform_wrapper: false
+
+      - name: Install pinned documentation generator
+        run: |
+          GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Regenerate all release-derived content
+        run: |
+          set -euo pipefail
+          go run tools/generate-all-schemas.go --spec-dir=docs/specifications/api
+          scripts/go-retry.sh 3 go mod tidy
+          scripts/generate-provider-docs.sh
+
+      - name: Prove released source reproduces exactly
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
+            echo "::error::Release source does not reproduce byte-for-byte from its pinned inputs"
+            git status --short
+            exit 1
+          fi
+
+  tag:
+    name: Resolve Immutable Version Tag
+    needs: preflight
+    runs-on: ubuntu-latest
+    # Creates the annotated version tag after proving it targets github.sha.
+    permissions:
+      contents: write # push the verified annotated tag
+    outputs:
+      new_tag: ${{ steps.resolve.outputs.new_tag }}
+      created: ${{ steps.create.outputs.created || 'false' }}
+    steps:
+      - name: Checkout immutable release commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Get latest tag
-        id: get_tag
+      - name: Find existing tag for this commit
+        id: existing
         run: |
-          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-          echo "latest_tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
-          echo "Latest tag: $LATEST_TAG"
+          set -euo pipefail
+          TAGS=$(git tag --points-at HEAD \
+            | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' \
+            | sort -Vr || true)
+          TAG_COUNT=$(printf '%s\n' "$TAGS" | awk 'NF { count++ } END { print count + 0 }')
+          [ "$TAG_COUNT" -le 1 ] || {
+            echo "::error::Release commit has multiple semantic-version tags"
+            exit 1
+          }
+          echo "tag=$TAGS" >> "$GITHUB_OUTPUT"
 
       - name: Calculate next version
         id: version
-        env:
-          LATEST_TAG: ${{ steps.get_tag.outputs.latest_tag }}
+        if: steps.existing.outputs.tag == ''
         run: |
-          # Remove 'v' prefix
+          set -euo pipefail
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo v0.0.0)
+          [[ "$LATEST_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
+            echo "::error::Latest tag is not semantic"
+            exit 1
+          }
           VERSION=${LATEST_TAG#v}
-
-          # Split version into parts
-          MAJOR=$(echo "$VERSION" | cut -d. -f1)
-          MINOR=$(echo "$VERSION" | cut -d. -f2)
-          PATCH=$(echo "$VERSION" | cut -d. -f3)
-
-          # Get commit messages since last tag
-          COMMITS=$(git log "${LATEST_TAG}..HEAD" --pretty=format:"%s" 2>/dev/null || git log --pretty=format:"%s")
-
-          # Determine version bump based on conventional commits
-          if echo "$COMMITS" | grep -qE "^BREAKING CHANGE:|^[a-z]+!:"; then
-            # Major version bump for breaking changes
-            MAJOR=$((MAJOR + 1))
-            MINOR=0
-            PATCH=0
-            echo "bump=major" >> "$GITHUB_OUTPUT"
-          elif echo "$COMMITS" | grep -qE "^feat(\(.+\))?:"; then
-            # Minor version bump for features
-            MINOR=$((MINOR + 1))
-            PATCH=0
-            echo "bump=minor" >> "$GITHUB_OUTPUT"
-          elif echo "$COMMITS" | grep -qE "^(fix|perf|refactor)(\(.+\))?:"; then
-            # Patch version bump for fixes, performance, refactoring
-            PATCH=$((PATCH + 1))
-            echo "bump=patch" >> "$GITHUB_OUTPUT"
+          IFS=. read -r MAJOR MINOR PATCH <<< "$VERSION"
+          # Inspect complete commit messages. Conventional Commits permits both
+          # scoped breaking subjects (feat(api)!:) and both standard breaking
+          # trailer spellings (BREAKING CHANGE/BREAKING-CHANGE);
+          # subject-only parsing under-versioned both as a patch release.
+          COMMITS=$(git log "${LATEST_TAG}..HEAD" --pretty=format:%B 2>/dev/null \
+            || git log --pretty=format:%B)
+          if grep -qE '^BREAKING[ -]CHANGE:|^[a-z]+(\([^)]*\))?!:' <<< "$COMMITS"; then
+            MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0
+          elif grep -qE '^feat(\(.+\))?:' <<< "$COMMITS"; then
+            MINOR=$((MINOR + 1)); PATCH=0
           else
-            # Default to patch bump for any other commits
             PATCH=$((PATCH + 1))
-            echo "bump=patch" >> "$GITHUB_OUTPUT"
           fi
-
           NEW_TAG="v${MAJOR}.${MINOR}.${PATCH}"
-          echo "new_tag=$NEW_TAG" >> "$GITHUB_OUTPUT"
-          echo "Next version: $NEW_TAG"
-
-      - name: Version Diagnostics
-        env:
-          RUN_ID: ${{ github.run_id }}
-          TRIGGER_SHA: ${{ github.sha }}
-          LATEST_TAG: ${{ steps.get_tag.outputs.latest_tag }}
-          NEW_TAG: ${{ steps.version.outputs.new_tag }}
-          BUMP: ${{ steps.version.outputs.bump }}
-        run: |
-          echo "=== VERSION DIAGNOSTICS (tag-release) ==="
-          echo "Workflow run ID: ${RUN_ID}"
-          echo "Triggered by SHA: ${TRIGGER_SHA}"
-          echo "Current HEAD SHA: $(git rev-parse HEAD)"
-          echo "Latest git tag: ${LATEST_TAG}"
-          echo "Calculated next version: ${NEW_TAG}"
-          echo "Version bump type: ${BUMP}"
-          echo "Tag exists check: $(git rev-parse "$NEW_TAG" 2>/dev/null && echo 'YES - ALREADY EXISTS' || echo 'NO - WILL CREATE')"
-          echo "============================================"
-
-      - name: Check if tag exists
-        id: check
-        env:
-          NEW_TAG: ${{ steps.version.outputs.new_tag }}
-        run: |
-          if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "Tag $NEW_TAG already exists"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            echo "Tag $NEW_TAG does not exist"
-          fi
+          git rev-parse "$NEW_TAG" >/dev/null 2>&1 && {
+            echo "::error::Calculated tag already identifies another commit"
+            exit 1
+          }
+          {
+            echo "latest_tag=$LATEST_TAG"
+            echo "new_tag=$NEW_TAG"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Create and push tag
         id: create
-        if: steps.check.outputs.exists == 'false'
+        if: steps.existing.outputs.tag == ''
         env:
-          LATEST_TAG: ${{ steps.get_tag.outputs.latest_tag }}
+          LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
           NEW_TAG: ${{ steps.version.outputs.new_tag }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Create annotated tag with release notes
-          COMMITS=$(git log "${LATEST_TAG}..HEAD" --pretty=format:"- %s" 2>/dev/null || git log --pretty=format:"- %s" -10)
-
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          COMMITS=$(git log "${LATEST_TAG}..HEAD" --pretty=format:'- %s' 2>/dev/null \
+            || git log --pretty=format:'- %s' -10)
           git tag -a "$NEW_TAG" -m "Release $NEW_TAG
 
           Changes since ${LATEST_TAG}:
-          $COMMITS
-
-          🤖 Auto-generated tag"
-
+          $COMMITS"
           git push origin "$NEW_TAG"
           echo "created=true" >> "$GITHUB_OUTPUT"
-          echo "Created and pushed tag: $NEW_TAG"
 
-  release:
-    name: Create Release
+      - name: Resolve immutable tag
+        id: resolve
+        env:
+          EXISTING_TAG: ${{ steps.existing.outputs.tag }}
+          NEW_TAG: ${{ steps.version.outputs.new_tag }}
+        run: |
+          set -euo pipefail
+          TARGET_TAG=${EXISTING_TAG:-$NEW_TAG}
+          [[ "$TARGET_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
+            echo "::error::Resolved release tag is malformed"
+            exit 1
+          }
+          [ "$(git rev-list -n 1 "$TARGET_TAG")" = "$(git rev-parse HEAD)" ] || {
+            echo "::error::Resolved tag does not identify the immutable release commit"
+            exit 1
+          }
+          echo "new_tag=$TARGET_TAG" >> "$GITHUB_OUTPUT"
+
+  publish:
+    name: Verify and Publish Release
     needs: tag
-    if: needs.tag.outputs.created == 'true' && inputs.create-release
-    # goreleaser publishes the GitHub release; that is the only scope it needs.
-    permissions:
-      contents: write
-    # Using our fork with updated action versions to fix cache 400 errors
-    # Original: hashicorp/ghaction-terraform-provider-release/.github/workflows/community.yml@v5
-    # Fork updates: checkout@v6.0.1, setup-go@v6.1.0, ghaction-import-gpg@v6.3.0
-    # goreleaser@v6.4.0, download-artifact@v7.0.0
-    uses: robinmordasiewicz/ghaction-terraform-provider-release/.github/workflows/community.yml@v6
-    secrets:
-      gpg-private-key: ${{ secrets.gpg-private-key }}
-      gpg-private-key-passphrase: ${{ secrets.gpg-passphrase }}
-    with:
-      setup-go-version-file: 'go.mod'
-      # Build one target at a time. GoReleaser defaults to NumCPU concurrent builds;
-      # compiling the large generated provider (~121 resources) on that many at once
-      # OOM-kills the runner (exit 143). Serial builds match the proven single-build
-      # footprint and keep releases reliably green (raise to 2 only if runner RAM allows).
-      goreleaser-release-args: '--parallelism 1'
-
-  upload-mcp-data:
-    name: Upload MCP Data Artifact
-    needs: [tag, release]
-    if: needs.tag.outputs.created == 'true' && inputs.create-release
     runs-on: ubuntu-latest
-    # Attaches the MCP data tarball to the release via `gh release upload`.
+    # GoReleaser creates/repairs the draft and this job seals it after byte verification.
     permissions:
-      contents: write
+      contents: write # create/repair, verify, and publish release assets
     steps:
-      - name: Checkout
-        uses: actions/checkout@v7
+      - name: Checkout immutable tagged commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           ref: ${{ needs.tag.outputs.new_tag }}
+          fetch-depth: 0
 
-      - name: Create MCP data tarball
+      - name: Verify checked-out release identity
         env:
-          NEW_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          TRIGGER_COMMIT: ${{ github.sha }}
         run: |
-          VERSION="${NEW_TAG#v}"
+          set -euo pipefail
+          [ "$(git rev-parse HEAD)" = "$TRIGGER_COMMIT" ] || {
+            echo "::error::Tag no longer identifies the immutable trigger commit"
+            exit 1
+          }
+          [ "$(git rev-list -n 1 "$RELEASE_TAG")" = "$TRIGGER_COMMIT" ] || {
+            echo "::error::Release tag target changed"
+            exit 1
+          }
 
-          echo "Creating MCP data tarball for v${VERSION}..."
-
-          # Build file list — include only directories/files that exist
-          INCLUDES=()
-          for path in \
-            docs/resources/ \
-            docs/data-sources/ \
-            docs/functions/ \
-            docs/guides/ \
-            docs/index.md \
-            docs/specifications/api/ \
-            tools/subscription-tiers.json \
-            tools/minimum-configs.json; do
-            if [ -e "$path" ]; then
-              INCLUDES+=("$path")
-            else
-              echo "Skipping (not found): $path"
-            fi
-          done
-
-          if [ ${#INCLUDES[@]} -eq 0 ]; then
-            echo "No files found for MCP tarball — skipping"
-            exit 0
-          fi
-
-          tar czf "mcp-data-${VERSION}.tar.gz" \
-            --transform 's,^,mcp-data/,' \
-            "${INCLUDES[@]}"
-
-          echo "Tarball contents:"
-          tar tzf "mcp-data-${VERSION}.tar.gz" | head -20
-          echo "..."
-          echo "Total files: $(tar tzf "mcp-data-${VERSION}.tar.gz" | wc -l)"
-          echo "Size: $(du -h "mcp-data-${VERSION}.tar.gz" | cut -f1)"
-
-      - name: Upload to GitHub Release
+      - name: Resolve release transaction state
+        id: release_state
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEW_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          REPOSITORY: ${{ github.repository }}
         run: |
-          VERSION="${NEW_TAG#v}"
+          set -euo pipefail
+          gh api "repos/${REPOSITORY}/immutable-releases" \
+            | jq -e '.enabled == true' >/dev/null || {
+            echo "::error::Repository release immutability must be enabled before tagging"
+            exit 1
+          }
+          if gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
+            > "$RUNNER_TEMP/release-initial.json" 2> "$RUNNER_TEMP/release-probe.err"; then
+            if jq -e '.draft == true' "$RUNNER_TEMP/release-initial.json" >/dev/null; then
+              echo "state=draft" >> "$GITHUB_OUTPUT"
+            else
+              jq -e '.draft == false and .prerelease == false' \
+                "$RUNNER_TEMP/release-initial.json" >/dev/null || {
+                echo "::error::Existing release is a published prerelease"
+                exit 1
+              }
+              echo "state=published" >> "$GITHUB_OUTPUT"
+            fi
+          elif grep -q '(HTTP 404)$' "$RUNNER_TEMP/release-probe.err"; then
+            echo "state=absent" >> "$GITHUB_OUTPUT"
+          else
+            cat "$RUNNER_TEMP/release-probe.err" >&2
+            echo "::error::Failed to resolve existing release state"
+            exit 1
+          fi
 
-          gh release upload "$NEW_TAG" \
-            "mcp-data-${VERSION}.tar.gz" \
-            --clobber
+      - name: Import release signing key
+        id: import_gpg
+        uses: crazy-max/ghaction-import-gpg@e89d40939c28e39f97cf32126055eeae86ba74ec # v6
+        with:
+          gpg_private_key: ${{ secrets.gpg-private-key }}
+          passphrase: ${{ secrets.gpg-passphrase }}
 
-          echo "Uploaded mcp-data-${VERSION}.tar.gz to release ${NEW_TAG}"
+      - name: Download exact pinned API specifications
+        if: steps.release_state.outputs.state != 'published'
+        uses: ./.github/actions/download-api-specs
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Go
+        if: steps.release_state.outputs.state != 'published'
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Build MCP archive twice
+        if: steps.release_state.outputs.state != 'published'
+        env:
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+        run: |
+          set -euo pipefail
+          VERSION=${RELEASE_TAG#v}
+          scripts/build-mcp-data.sh "$RELEASE_TAG" "$RUNNER_TEMP/mcp-a.tar.gz"
+          scripts/build-mcp-data.sh "$RELEASE_TAG" "$RUNNER_TEMP/mcp-b.tar.gz"
+          cmp "$RUNNER_TEMP/mcp-a.tar.gz" "$RUNNER_TEMP/mcp-b.tar.gz" || {
+            echo "::error::MCP archive is not byte-reproducible"
+            exit 1
+          }
+          cp "$RUNNER_TEMP/mcp-a.tar.gz" "mcp-data-${VERSION}.tar.gz"
+
+      - name: Clear repairable draft artifacts
+        if: steps.release_state.outputs.state == 'draft'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          while IFS= read -r ASSET_ID; do
+            [[ "$ASSET_ID" =~ ^[0-9]+$ ]] || {
+              echo "::error::Draft release returned a malformed asset ID"
+              exit 1
+            }
+            gh api --method DELETE "repos/${REPOSITORY}/releases/assets/${ASSET_ID}"
+          done < <(jq -r '.assets[].id' "$RUNNER_TEMP/release-initial.json")
+
+      - name: Build or repair draft release
+        if: steps.release_state.outputs.state != 'published'
+        uses: goreleaser/goreleaser-action@e435ccd777264be153ace6237001ef4d979d3a7a # v6
+        with:
+          distribution: goreleaser
+          version: v2.17.1
+          args: release --clean --parallelism 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+
+      - name: Attach deterministic MCP archive to draft
+        if: steps.release_state.outputs.state != 'published'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+        run: |
+          set -euo pipefail
+          VERSION=${RELEASE_TAG#v}
+          gh release upload "$RELEASE_TAG" "mcp-data-${VERSION}.tar.gz" --clobber
+
+      - name: Download and measure all release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          rm -rf "$RUNNER_TEMP/provider-assets"
+          mkdir -p "$RUNNER_TEMP/provider-assets"
+          gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
+            > "$RUNNER_TEMP/release-measured.json"
+          gh release download "$RELEASE_TAG" --dir "$RUNNER_TEMP/provider-assets"
+
+      - name: Verify already-published release without mutation
+        if: steps.release_state.outputs.state == 'published'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_COMMIT: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          jq -e '.draft == false and .prerelease == false and .immutable == true' \
+            "$RUNNER_TEMP/release-measured.json" >/dev/null || {
+            echo "::error::Existing release is not final and immutable"
+            exit 1
+          }
+          REMOTE_TAG_COMMIT=$(gh api \
+            "repos/${REPOSITORY}/commits/${RELEASE_TAG}" --jq '.sha')
+          [ "$REMOTE_TAG_COMMIT" = "$RELEASE_COMMIT" ] || {
+            echo "::error::Published release tag no longer identifies the trigger commit"
+            exit 1
+          }
+          jq -r '.body // ""' "$RUNNER_TEMP/release-measured.json" > "$RUNNER_TEMP/provider-body"
+          MARKER_COUNT=$(grep -Ec '^<!-- provider-publication-receipt:.* -->$' \
+            "$RUNNER_TEMP/provider-body" || true)
+          [ "$MARKER_COUNT" -eq 1 ] || {
+            echo "::error::Published release must contain exactly one provider receipt"
+            exit 1
+          }
+          sed -n 's/^<!-- provider-publication-receipt:\(.*\) -->$/\1/p' \
+            "$RUNNER_TEMP/provider-body" > "$RUNNER_TEMP/provider-receipts"
+          scripts/verify-provider-release.sh \
+            "$RELEASE_TAG" "$RELEASE_COMMIT" \
+            "$RUNNER_TEMP/release-measured.json" "$RUNNER_TEMP/provider-assets" \
+            "$RUNNER_TEMP/provider-receipts" >/dev/null
+
+      - name: Verify draft and write publication receipt
+        if: steps.release_state.outputs.state != 'published'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_COMMIT: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          jq -e '.draft == true and .prerelease == false' \
+            "$RUNNER_TEMP/release-measured.json" >/dev/null || {
+            echo "::error::GoReleaser did not leave an unsealed stable draft"
+            exit 1
+          }
+          scripts/verify-provider-release.sh \
+            "$RELEASE_TAG" "$RELEASE_COMMIT" \
+            "$RUNNER_TEMP/release-measured.json" "$RUNNER_TEMP/provider-assets" \
+            > "$RUNNER_TEMP/provider-receipt.json"
+          jq -r '.body // ""' "$RUNNER_TEMP/release-measured.json" \
+            | sed '/^<!-- provider-publication-receipt:.* -->$/d' \
+            > "$RUNNER_TEMP/release-notes.md"
+          printf '\n<!-- provider-publication-receipt:%s -->\n' \
+            "$(jq -cS . "$RUNNER_TEMP/provider-receipt.json")" \
+            >> "$RUNNER_TEMP/release-notes.md"
+          gh release edit "$RELEASE_TAG" --notes-file "$RUNNER_TEMP/release-notes.md"
+
+      - name: Publish verified draft
+        if: steps.release_state.outputs.state != 'published'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_COMMIT: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          REMOTE_TAG_COMMIT=$(gh api \
+            "repos/${REPOSITORY}/commits/${RELEASE_TAG}" --jq '.sha')
+          [ "$REMOTE_TAG_COMMIT" = "$RELEASE_COMMIT" ] || {
+            echo "::error::Release tag moved before publication; draft remains unsealed"
+            exit 1
+          }
+
+          # Re-measure the mutable draft at the last possible point before sealing.
+          # The earlier verification is intentionally not trusted across the release
+          # body edit: another writer could have replaced an asset or receipt.
+          rm -rf "$RUNNER_TEMP/provider-assets"
+          mkdir -p "$RUNNER_TEMP/provider-assets"
+          gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
+            > "$RUNNER_TEMP/release-prepublish.json"
+          jq -e '.draft == true and .prerelease == false' \
+            "$RUNNER_TEMP/release-prepublish.json" >/dev/null || {
+            echo "::error::Verified draft changed state before publication"
+            exit 1
+          }
+          jq -e --rawfile expected "$RUNNER_TEMP/release-notes.md" \
+            '.body == $expected' "$RUNNER_TEMP/release-prepublish.json" >/dev/null || {
+            echo "::error::Draft release notes or publication receipt changed before publication"
+            exit 1
+          }
+          gh release download "$RELEASE_TAG" --dir "$RUNNER_TEMP/provider-assets"
+          scripts/verify-provider-release.sh \
+            "$RELEASE_TAG" "$RELEASE_COMMIT" \
+            "$RUNNER_TEMP/release-prepublish.json" "$RUNNER_TEMP/provider-assets" \
+            "$RUNNER_TEMP/provider-receipt.json" >/dev/null || {
+            echo "::error::Draft release assets changed before publication"
+            exit 1
+          }
+          gh release edit "$RELEASE_TAG" --draft=false --prerelease=false
+
+      - name: Verify sealed publication
+        if: steps.release_state.outputs.state != 'published'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ needs.tag.outputs.new_tag }}
+          RELEASE_COMMIT: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${REPOSITORY}/releases/tags/${RELEASE_TAG}" \
+            > "$RUNNER_TEMP/release-published.json"
+          jq -e '.draft == false and .prerelease == false and .immutable == true' \
+            "$RUNNER_TEMP/release-published.json" >/dev/null || {
+            echo "::error::Release publication did not immutably seal the verified draft"
+            exit 1
+          }
+          REMOTE_TAG_COMMIT=$(gh api \
+            "repos/${REPOSITORY}/commits/${RELEASE_TAG}" --jq '.sha')
+          [ "$REMOTE_TAG_COMMIT" = "$RELEASE_COMMIT" ] || {
+            echo "::error::Sealed release tag does not identify the verified commit"
+            exit 1
+          }
+          jq -r '.body // ""' "$RUNNER_TEMP/release-published.json" > "$RUNNER_TEMP/provider-body"
+          MARKER_COUNT=$(grep -Ec '^<!-- provider-publication-receipt:.* -->$' \
+            "$RUNNER_TEMP/provider-body" || true)
+          [ "$MARKER_COUNT" -eq 1 ] || {
+            echo "::error::Published release must contain exactly one provider receipt"
+            exit 1
+          }
+          sed -n 's/^<!-- provider-publication-receipt:\(.*\) -->$/\1/p' \
+            "$RUNNER_TEMP/provider-body" > "$RUNNER_TEMP/provider-receipts"
+          scripts/verify-provider-release.sh \
+            "$RELEASE_TAG" "$RELEASE_COMMIT" \
+            "$RUNNER_TEMP/release-published.json" "$RUNNER_TEMP/provider-assets" \
+            "$RUNNER_TEMP/provider-receipts" >/dev/null

@@ -18,17 +18,22 @@ on:
         description: 'Whether provider code changed'
         value: ${{ jobs.generate.outputs.changed }}
 
+# Do not inherit a write-capable caller token into this read-only generator.
+permissions: {}
+
 jobs:
   generate:
     name: Generate Provider Code
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout and download the public API-spec release
     outputs:
       changed: ${{ steps.check.outputs.changed }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          ref: ${{ inputs.ref || github.sha }}
           fetch-depth: 0
 
       # The download used to warn on a missing asset, and a "Verify specs exist"
@@ -45,7 +50,7 @@ jobs:
           spec-dir: ${{ inputs.spec-dir }}
 
       - name: Set up Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: 'go.mod'
           cache: true

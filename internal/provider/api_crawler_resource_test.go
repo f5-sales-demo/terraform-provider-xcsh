@@ -17,7 +17,7 @@ func TestAccAPICrawlerResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_crawler.test"
-	rName := acctest.RandomName("tf-test-crawler")
+	rName := acctest.RandomName("tf-acc-test-crawler")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_sensitive_data_policy (Data Source)
 
-Manages sensitive_data_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about sensitive_data_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [Sensitive Data Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/data_and_privacy_security/) to learn more.
 

@@ -19,7 +19,7 @@ func TestAccAdvertisePolicyResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_advertise_policy.test"
-	rName := acctest.RandomName("tf-test-adv")
+	rName := acctest.RandomName("tf-acc-test-adv")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -63,7 +63,7 @@ func TestAccAdvertisePolicyResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_advertise_policy.test"
-	rName := acctest.RandomName("tf-test-adv")
+	rName := acctest.RandomName("tf-acc-test-adv")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -85,7 +85,7 @@ func TestAccAdvertisePolicyResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-adv")
+	rName := acctest.RandomName("tf-acc-test-adv")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -103,7 +103,7 @@ func TestAccAdvertisePolicyResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_advertise_policy.test"
-	rName := acctest.RandomName("tf-test-adv")
+	rName := acctest.RandomName("tf-acc-test-adv")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -150,8 +150,8 @@ func TestAccAdvertisePolicyResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_advertise_policy.test"
-	rName1 := acctest.RandomName("tf-test-adv")
-	rName2 := acctest.RandomName("tf-test-adv")
+	rName1 := acctest.RandomName("tf-acc-test-adv")
+	rName2 := acctest.RandomName("tf-acc-test-adv")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -174,7 +174,7 @@ func TestAccAdvertisePolicyResource_updatePort(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_advertise_policy.test"
-	rName := acctest.RandomName("tf-test-adv")
+	rName := acctest.RandomName("tf-acc-test-adv")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

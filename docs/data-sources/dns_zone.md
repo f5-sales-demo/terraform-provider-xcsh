@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_dns_zone (Data Source)
 
-Manages DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about DNS Zone in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [DNS Zone API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/) to learn more.
 

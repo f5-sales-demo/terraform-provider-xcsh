@@ -17,7 +17,7 @@ func TestAccAPITestingResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_testing.test"
-	rName := acctest.RandomName("tf-test-api")
+	rName := acctest.RandomName("tf-acc-test-api")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

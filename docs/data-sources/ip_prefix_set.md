@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_ip_prefix_set (Data Source)
 
-Manages ip_prefix_set creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about ip_prefix_set creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

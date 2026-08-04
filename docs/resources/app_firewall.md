@@ -44,6 +44,15 @@ resource "xcsh_app_firewall" "example" {
 ### Ai Enhancements example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -64,6 +73,15 @@ resource "xcsh_app_firewall" "test" {
 ### All Attributes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name        = "example"
   namespace   = "system"
@@ -90,6 +108,15 @@ resource "xcsh_app_firewall" "test" {
 ### Allowed Response Codes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -109,6 +136,15 @@ resource "xcsh_app_firewall" "test" {
 ### Blocking example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -117,6 +153,15 @@ resource "xcsh_app_firewall" "test" {
 ### Bot Protection example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -138,6 +183,15 @@ resource "xcsh_app_firewall" "test" {
 ### Custom Blocking Page example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -158,6 +212,15 @@ resource "xcsh_app_firewall" "test" {
 ### Detection Settings example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -184,6 +247,15 @@ resource "xcsh_app_firewall" "test" {
 ### Disable Anonymization example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -201,6 +273,15 @@ resource "xcsh_app_firewall" "test" {
 ### Monitoring example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name      = "example"
   namespace = "system"
@@ -217,6 +298,15 @@ resource "xcsh_app_firewall" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name        = "example"
   namespace   = "system"
@@ -231,6 +321,15 @@ resource "xcsh_app_firewall" "test" {
 ### With Updated Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_app_firewall" "test" {
   name        = "example"
   namespace   = "system"

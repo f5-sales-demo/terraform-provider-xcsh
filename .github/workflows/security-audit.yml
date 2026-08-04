@@ -7,26 +7,35 @@ on:
     - cron: '17 9 * * 1'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  issues: write
+# Only the scanner job receives repository and issue access.
+permissions: {}
+
+# Serialize scans so scheduled/manual overlap cannot race and open duplicate issues.
+concurrency:
+  group: security-audit
+  cancel-in-progress: false
 
 jobs:
   govulncheck:
     name: Go Vulnerability Check
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout and resolve the repository's Go dependency graph
+      issues: write # create one deduplicated vulnerability issue when needed
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Set up Go
-        uses: actions/setup-go@v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: 'go.mod'
           cache: true
 
       - name: Install govulncheck
-        run: go install golang.org/x/vuln/cmd/govulncheck@latest
+        # Pin the measured 2026-07-09 release so identical workflow bytes run the
+        # same vulnerability scanner instead of following a mutable latest tag.
+        run: go install golang.org/x/vuln/cmd/govulncheck@v1.6.0
 
       - name: Run govulncheck
         id: vuln

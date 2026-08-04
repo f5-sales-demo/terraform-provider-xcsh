@@ -27,7 +27,7 @@ func TestAccPolicerResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -64,7 +64,7 @@ func TestAccPolicerResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -95,7 +95,7 @@ func TestAccPolicerResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -135,7 +135,7 @@ func TestAccPolicerResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -169,7 +169,7 @@ func TestAccPolicerResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -209,7 +209,7 @@ func TestAccPolicerResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -237,7 +237,7 @@ func TestAccPolicerResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -267,7 +267,7 @@ func TestAccPolicerResource_planChecks(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -295,7 +295,7 @@ func TestAccPolicerResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -394,8 +394,8 @@ func TestAccPolicerResource_requiresReplace(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName1 := acctest.RandomName("tf-test-policer")
-	rName2 := acctest.RandomName("tf-test-policer")
+	rName1 := acctest.RandomName("tf-acc-test-policer")
+	rName2 := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -430,7 +430,7 @@ func TestAccPolicerResource_rateLimits(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_policer.test"
-	rName := acctest.RandomName("tf-test-policer")
+	rName := acctest.RandomName("tf-acc-test-policer")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

@@ -17,5 +17,5 @@ resource "xcsh_protected_domain" "example" {
   name      = "example-protected-domain"
   namespace = "staging"
 
-  protected_domain = "example-value"
+  protected_domain = "example.com"
 }

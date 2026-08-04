@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_dns_domain (Data Source)
 
-Manages DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about DNS Domain in a given namespace. If one already exist it will give a error. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [DNS Domain API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/dns/) to learn more.
 

@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_k8s_cluster_role (Data Source)
 
-Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [K8S Cluster Role API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/managed_kubernetes/) to learn more.
 

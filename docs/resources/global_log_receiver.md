@@ -172,7 +172,7 @@ A [`compression`](#aws-cloud-watch-receiver-compression) block (within [`aws_clo
 
 An [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver) block supports the following:
 
-<a id="string-b729f9"></a>&#x2022; [`connection_string`](#string-b729f9) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Connection String](#string-b729f9) below.
+<a id="string-23ec59"></a>&#x2022; [`connection_string`](#string-23ec59) - Optional Block<br>SecretType is used in an object to indicate a sensitive/confidential field<br>See [Connection String](#string-23ec59) below.
 
 <a id="Azure-event-hubs-receiver-instance"></a>&#x2022; [`instance`](#Azure-event-hubs-receiver-instance) - Optional String<br>Event Hubs Instance name into which logs should be stored
 
@@ -180,11 +180,11 @@ An [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver) block supports the 
 
 #### Azure Event Hubs Receiver Connection String
 
-A [`connection_string`](#string-b729f9) block (within [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver)) supports the following:
+A [`connection_string`](#string-23ec59) block (within [`azure_event_hubs_receiver`](#Azure-event-hubs-receiver)) supports the following:
 
-<a id="info-0b01ca"></a>&#x2022; [`blindfold_secret_info`](#info-0b01ca) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-0b01ca) below.
+<a id="info-af317d"></a>&#x2022; [`blindfold_secret_info`](#info-af317d) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-af317d) below.
 
-<a id="info-a586ad"></a>&#x2022; [`clear_secret_info`](#info-a586ad) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-a586ad) below.
+<a id="info-217a5e"></a>&#x2022; [`clear_secret_info`](#info-217a5e) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-217a5e) below.
 
 #### Azure Event Hubs Receiver Connection String Blindfold Secret Info
 
@@ -218,57 +218,57 @@ A [`batch`](#Azure-receiver-batch) block (within [`azure_receiver`](#Azure-recei
 
 <a id="Azure-receiver-batch-max-events"></a>&#x2022; [`max_events`](#Azure-receiver-batch-max-events) - Optional Number<br>Send batch to endpoint after this many log messages are in the batch
 
-<a id="disabled-754236"></a>&#x2022; [`max_events_disabled`](#disabled-754236) - Optional Block<br>Enable this option
+<a id="disabled-420198"></a>&#x2022; [`max_events_disabled`](#disabled-420198) - Optional Block<br>Enable this option
 
 <a id="Azure-receiver-batch-timeout-seconds"></a>&#x2022; [`timeout_seconds`](#Azure-receiver-batch-timeout-seconds) - Optional String<br>Send batch to the endpoint after this many seconds
 
-<a id="default-19a14b"></a>&#x2022; [`timeout_seconds_default`](#default-19a14b) - Optional Block<br>Enable this option
+<a id="default-cc7444"></a>&#x2022; [`timeout_seconds_default`](#default-cc7444) - Optional Block<br>Enable this option
 
 #### Azure Receiver Compression
 
 A [`compression`](#Azure-receiver-compression) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
 
-<a id="default-02273a"></a>&#x2022; [`compression_default`](#default-02273a) - Optional Block<br>Configuration parameter for compression default
+<a id="default-2dbcb8"></a>&#x2022; [`compression_default`](#default-2dbcb8) - Optional Block<br>Configuration parameter for compression default
 
-<a id="gzip-156cfe"></a>&#x2022; [`compression_gzip`](#gzip-156cfe) - Optional Block<br>Enable this option
+<a id="gzip-7eb0fc"></a>&#x2022; [`compression_gzip`](#gzip-7eb0fc) - Optional Block<br>Enable this option
 
-<a id="none-aaef5b"></a>&#x2022; [`compression_none`](#none-aaef5b) - Optional Block<br>Configuration parameter for compression none
+<a id="none-f81cd5"></a>&#x2022; [`compression_none`](#none-f81cd5) - Optional Block<br>Configuration parameter for compression none
 
 #### Azure Receiver Connection String
 
 A [`connection_string`](#Azure-receiver-connection-string) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
 
-<a id="info-e8810f"></a>&#x2022; [`blindfold_secret_info`](#info-e8810f) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-e8810f) below.
+<a id="info-96e601"></a>&#x2022; [`blindfold_secret_info`](#info-96e601) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-96e601) below.
 
-<a id="info-e37fa5"></a>&#x2022; [`clear_secret_info`](#info-e37fa5) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-e37fa5) below.
+<a id="info-ae9cfa"></a>&#x2022; [`clear_secret_info`](#info-ae9cfa) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-ae9cfa) below.
 
 #### Azure Receiver Connection String Blindfold Secret Info
 
-A [`blindfold_secret_info`](#info-e8810f) block (within [`azure_receiver.connection_string`](#Azure-receiver-connection-string)) supports the following:
+A [`blindfold_secret_info`](#info-96e601) block (within [`azure_receiver.connection_string`](#Azure-receiver-connection-string)) supports the following:
 
-<a id="provider-89bfbb"></a>&#x2022; [`decryption_provider`](#provider-89bfbb) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+<a id="provider-a0e06b"></a>&#x2022; [`decryption_provider`](#provider-a0e06b) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
 
-<a id="location-15db90"></a>&#x2022; [`location`](#location-15db90) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+<a id="location-a3e900"></a>&#x2022; [`location`](#location-a3e900) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
 
-<a id="provider-b18b33"></a>&#x2022; [`store_provider`](#provider-b18b33) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="provider-1e2d28"></a>&#x2022; [`store_provider`](#provider-1e2d28) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 #### Azure Receiver Connection String Clear Secret Info
 
-A [`clear_secret_info`](#info-e37fa5) block (within [`azure_receiver.connection_string`](#Azure-receiver-connection-string)) supports the following:
+A [`clear_secret_info`](#info-ae9cfa) block (within [`azure_receiver.connection_string`](#Azure-receiver-connection-string)) supports the following:
 
-<a id="ref-29f26d"></a>&#x2022; [`provider_ref`](#ref-29f26d) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="ref-3e6724"></a>&#x2022; [`provider_ref`](#ref-3e6724) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-06a3b0"></a>&#x2022; [`url`](#url-06a3b0) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="url-071557"></a>&#x2022; [`url`](#url-071557) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### Azure Receiver Filename Options
 
 A [`filename_options`](#Azure-receiver-filename-options) block (within [`azure_receiver`](#Azure-receiver)) supports the following:
 
-<a id="folder-153221"></a>&#x2022; [`custom_folder`](#folder-153221) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
+<a id="folder-653094"></a>&#x2022; [`custom_folder`](#folder-653094) - Optional String<br>Use your own folder name as the name of the folder in the endpoint bucket or file The folder name must match
 
-<a id="folder-1cd085"></a>&#x2022; [`log_type_folder`](#folder-1cd085) - Optional Block<br>Configuration parameter for log type folder
+<a id="folder-c2eee8"></a>&#x2022; [`log_type_folder`](#folder-c2eee8) - Optional Block<br>Configuration parameter for log type folder
 
-<a id="folder-569968"></a>&#x2022; [`no_folder`](#folder-569968) - Optional Block<br>Enable this option
+<a id="folder-1f821c"></a>&#x2022; [`no_folder`](#folder-1f821c) - Optional Block<br>Enable this option
 
 #### Datadog Receiver
 

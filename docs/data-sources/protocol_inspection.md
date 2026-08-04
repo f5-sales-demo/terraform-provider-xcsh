@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_protocol_inspection (Data Source)
 
-Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Protocol Inspection Specification in a given namespace. If one already exists it will give an error. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

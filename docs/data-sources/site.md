@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_site (Data Source)
 
-Manages virtual site object in given namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about virtual site object in given namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/) to learn more.
 

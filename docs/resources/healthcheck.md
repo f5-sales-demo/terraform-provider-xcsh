@@ -49,6 +49,15 @@ resource "xcsh_healthcheck" "example" {
 ### All Attributes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -75,6 +84,15 @@ resource "xcsh_healthcheck" "test" {
 ### Http Headers Remove example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -95,6 +113,15 @@ resource "xcsh_healthcheck" "test" {
 ### Http Health Check example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -114,6 +141,15 @@ resource "xcsh_healthcheck" "test" {
 ### Http Http2 example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -134,6 +170,15 @@ resource "xcsh_healthcheck" "test" {
 ### Http Origin Server Name example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -153,6 +198,15 @@ resource "xcsh_healthcheck" "test" {
 ### Http Status Codes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -173,6 +227,15 @@ resource "xcsh_healthcheck" "test" {
 ### Http With Path example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -192,12 +255,21 @@ resource "xcsh_healthcheck" "test" {
 ### Thresholds example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
 
-  healthy_threshold   = 443
-  unhealthy_threshold = 3
+  healthy_threshold   = 3
+  unhealthy_threshold = 2
   timeout             = 5
   interval            = 15
 
@@ -208,6 +280,15 @@ resource "xcsh_healthcheck" "test" {
 ### Udp Icmp example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -224,6 +305,15 @@ resource "xcsh_healthcheck" "test" {
 ### With Annotations example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -245,6 +335,15 @@ resource "xcsh_healthcheck" "test" {
 ### With Description example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name        = "example"
   namespace   = "system"
@@ -262,6 +361,15 @@ resource "xcsh_healthcheck" "test" {
 ### With Jitter example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -270,7 +378,7 @@ resource "xcsh_healthcheck" "test" {
   unhealthy_threshold = 2
   timeout             = 3
   interval            = 5
-  jitter_percent      = 443
+  jitter_percent      = 30
 
   tcp_health_check {}
 }
@@ -279,6 +387,15 @@ resource "xcsh_healthcheck" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"

@@ -12,8 +12,8 @@
 #
 # They cannot be vetted as a package: they are all `package main`, so a single
 # `go vet ./tools/...` (even with -tags ignore) collapses them into one package
-# full of redeclared symbols. Naming a file explicitly overrides its build tag,
-# so each is vetted on its own.
+# full of redeclared symbols. Naming files explicitly overrides their build
+# tags, so each entry point is vetted with only its matching test companion.
 
 set -euo pipefail
 
@@ -24,6 +24,9 @@ checked=0
 
 for file in tools/*.go; do
   [ -e "$file" ] || continue
+  case "$file" in
+  *_test.go) continue ;;
+  esac
   # Only the build-ignored entry points; anything without the tag is already
   # covered by the ordinary `go vet ./...`.
   if ! grep -q '^//go:build ignore' "$file"; then
@@ -31,7 +34,12 @@ for file in tools/*.go; do
   fi
   checked=$((checked + 1))
   echo "[vet] $file"
-  if ! go vet "$file"; then
+  vet_files=("$file")
+  test_file="${file%.go}_test.go"
+  if [ -f "$test_file" ]; then
+    vet_files+=("$test_file")
+  fi
+  if ! go vet "${vet_files[@]}"; then
     failed=1
   fi
 done

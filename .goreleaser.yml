@@ -2,10 +2,6 @@
 # See: https://goreleaser.com/customization/
 version: 2
 
-before:
-  hooks:
-    - go mod tidy
-
 builds:
   - env:
       - CGO_ENABLED=0
@@ -68,8 +64,12 @@ release:
   extra_files:
     - glob: 'terraform-registry-manifest.json'
       name_template: '{{ .ProjectName }}_{{ .Version }}_manifest.json'
-  draft: false
+  # Publication is a two-phase transaction. GoReleaser may repair an unsealed
+  # draft, but the workflow verifies every byte, records a digest receipt, and
+  # only then publishes it. Published releases are immutable.
+  draft: true
   prerelease: auto
+  replace_existing_artifacts: true
 
 changelog:
   sort: asc

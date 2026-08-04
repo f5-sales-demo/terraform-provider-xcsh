@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_endpoint (Data Source)
 
-Manages endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about endpoint will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [Endpoint API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/service_mesh/) to learn more.
 

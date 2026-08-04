@@ -33,8 +33,8 @@ func testAccMaliciousUserMitigationImportStateIdFunc(resourceName string) resour
 // TestAccMaliciousUserMitigationResource_basic tests basic malicious_user_mitigation creation
 func TestAccMaliciousUserMitigationResource_basic(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-basic")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-basic")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -70,8 +70,8 @@ func TestAccMaliciousUserMitigationResource_basic(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_allAttributes tests malicious_user_mitigation with all attributes
 func TestAccMaliciousUserMitigationResource_allAttributes(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-all")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-all")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -112,8 +112,8 @@ func TestAccMaliciousUserMitigationResource_allAttributes(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_updateLabels tests updating labels
 func TestAccMaliciousUserMitigationResource_updateLabels(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-lbl")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-lbl")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -153,8 +153,8 @@ func TestAccMaliciousUserMitigationResource_updateLabels(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_updateDescription tests updating description
 func TestAccMaliciousUserMitigationResource_updateDescription(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-desc")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-desc")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -188,8 +188,8 @@ func TestAccMaliciousUserMitigationResource_updateDescription(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_updateAnnotations tests updating annotations
 func TestAccMaliciousUserMitigationResource_updateAnnotations(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-ann")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-ann")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -229,8 +229,8 @@ func TestAccMaliciousUserMitigationResource_updateAnnotations(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_disappears tests resource deletion outside of Terraform
 func TestAccMaliciousUserMitigationResource_disappears(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-disap")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-disap")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -257,8 +257,8 @@ func TestAccMaliciousUserMitigationResource_disappears(t *testing.T) {
 
 // TestAccMaliciousUserMitigationResource_emptyPlan tests that no changes are detected after apply
 func TestAccMaliciousUserMitigationResource_emptyPlan(t *testing.T) {
-	nsName := acctest.RandomName("mal-user-emp")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-emp")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -286,8 +286,8 @@ func TestAccMaliciousUserMitigationResource_emptyPlan(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_planChecks tests plan-time validation
 func TestAccMaliciousUserMitigationResource_planChecks(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-plnchk")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-plnchk")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -315,8 +315,8 @@ func TestAccMaliciousUserMitigationResource_planChecks(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_knownValues tests that computed values are known after apply
 func TestAccMaliciousUserMitigationResource_knownValues(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-known")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-known")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -355,7 +355,7 @@ func TestAccMaliciousUserMitigationResource_knownValues(t *testing.T) {
 
 // TestAccMaliciousUserMitigationResource_invalidName tests validation for invalid name
 func TestAccMaliciousUserMitigationResource_invalidName(t *testing.T) {
-	nsName := acctest.RandomName("mal-user-inv")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-inv")
 	mumName := "INVALID_NAME_WITH_UPPERCASE"
 
 	resource.Test(t, resource.TestCase{
@@ -378,8 +378,8 @@ func TestAccMaliciousUserMitigationResource_invalidName(t *testing.T) {
 
 // TestAccMaliciousUserMitigationResource_nameTooLong tests validation for name exceeding max length
 func TestAccMaliciousUserMitigationResource_nameTooLong(t *testing.T) {
-	nsName := acctest.RandomName("mal-user-long")
-	mumName := acctest.RandomName("this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-long")
+	mumName := acctest.RandomName("tf-acc-test-this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -401,7 +401,7 @@ func TestAccMaliciousUserMitigationResource_nameTooLong(t *testing.T) {
 
 // TestAccMaliciousUserMitigationResource_emptyName tests validation for empty name
 func TestAccMaliciousUserMitigationResource_emptyName(t *testing.T) {
-	nsName := acctest.RandomName("mal-user-empty")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-empty")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -424,9 +424,9 @@ func TestAccMaliciousUserMitigationResource_emptyName(t *testing.T) {
 // TestAccMaliciousUserMitigationResource_requiresReplace tests that name/namespace changes require replace
 func TestAccMaliciousUserMitigationResource_requiresReplace(t *testing.T) {
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-rep")
-	mumName1 := acctest.RandomName("mum1")
-	mumName2 := acctest.RandomName("mum2")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-rep")
+	mumName1 := acctest.RandomName("tf-acc-test-mum1")
+	mumName2 := acctest.RandomName("tf-acc-test-mum2")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -462,8 +462,8 @@ func TestAccMaliciousUserMitigationResource_requiresReplace(t *testing.T) {
 func TestAccMaliciousUserMitigationResource_mitigationRules(t *testing.T) {
 	// t.Skip("Skipping: mitigation_type.rules attributes have state drift - ImportStateVerify fails")
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	nsName := acctest.RandomName("mal-user-rules")
-	mumName := acctest.RandomName("mum")
+	nsName := acctest.RandomName("tf-acc-test-mal-user-rules")
+	mumName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.Test(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -629,7 +629,7 @@ func TestAccMaliciousUserMitigationResource_captchaChallenge(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	rName := acctest.RandomName("tf-test-mum")
+	rName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -657,7 +657,7 @@ func TestAccMaliciousUserMitigationResource_jsChallenge(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	rName := acctest.RandomName("tf-test-mum")
+	rName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -685,7 +685,7 @@ func TestAccMaliciousUserMitigationResource_switchAction(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	rName := acctest.RandomName("tf-test-mum")
+	rName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -714,7 +714,7 @@ func TestAccMaliciousUserMitigationResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_malicious_user_mitigation.test"
-	rName := acctest.RandomName("tf-test-mum")
+	rName := acctest.RandomName("tf-acc-test-mum")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

@@ -27,6 +27,14 @@ inputs:
     description: Repository publishing the spec bundle releases.
     required: false
     default: f5-sales-demo/api-specs-enriched
+  release-tag:
+    description: Exact enriched-specs release tag. Defaults to tools/spec-version.txt.
+    required: false
+    default: ''
+  expected-commit:
+    description: Optional full upstream commit that the release tag must identify.
+    required: false
+    default: ''
 
 runs:
   using: composite
@@ -38,70 +46,235 @@ runs:
       env:
         GH_TOKEN: ${{ inputs.token }}
         ENRICHED_REPO: ${{ inputs.enriched-repo }}
+        EXPECTED_TARGET_COMMIT: ${{ inputs.expected-commit }}
         SPEC_DIR: ${{ inputs.spec-dir }}
+        SPEC_RELEASE_TAG: ${{ inputs.release-tag }}
       run: |
         set -euo pipefail
 
-        # Create the directory before probing it. `shell: bash` in a composite action
-        # runs with -eo pipefail, so `find` on a missing path returns 1 through the
-        # pipe and would kill the step here — on every clean runner, since the spec
-        # directory is gitignored and never exists after checkout. The workflow `run:`
-        # blocks this action replaces used the default `bash -e {0}`, which has no
-        # pipefail, so the same line was harmless there.
-        mkdir -p "${SPEC_DIR}"
+        WORKSPACE=${GITHUB_WORKSPACE:-$(pwd)}
+        SPEC_DIR=$(python3 - "$WORKSPACE" "$SPEC_DIR" <<'PY'
+        import os
+        import pathlib
+        import sys
 
-        # complete() must agree with openapi.RequireSpecs, which the generators call.
-        # "Some JSON is present" is not the test: an index.json alone, or an index
-        # beside an empty domains/, is a truncated unzip that the generators reject —
-        # and if this step short-circuited on it, the download that would repair it
-        # would never run.
-        complete() {
-          [ -f "${SPEC_DIR}/index.json" ] || return 1
-          [ -d "${SPEC_DIR}/domains" ] || return 1
-          [ -n "$(find "${SPEC_DIR}/domains" -name '*.json' -type f -print -quit)" ]
+        workspace = pathlib.Path(sys.argv[1]).resolve()
+        requested = pathlib.Path(sys.argv[2])
+        destination = (requested if requested.is_absolute() else workspace / requested).resolve()
+        try:
+            contained = os.path.commonpath((workspace, destination)) == str(workspace)
+        except ValueError:
+            contained = False
+        if not contained or destination == workspace:
+            print("::error::spec-dir must be a non-root descendant of GITHUB_WORKSPACE", file=sys.stderr)
+            raise SystemExit(1)
+        print(destination)
+        PY
+        )
+
+        RELEASE_TAG="$SPEC_RELEASE_TAG"
+        if [ -z "$RELEASE_TAG" ]; then
+          VERSION_FILE="${GITHUB_WORKSPACE:-.}/tools/spec-version.txt"
+          if [ ! -f "$VERSION_FILE" ]; then
+            echo "::error::No release-tag input and no tools/spec-version.txt marker"
+            exit 1
+          fi
+          RELEASE_TAG=$(tr -d '[:space:]' < "$VERSION_FILE")
+        fi
+        if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo "::error::Spec release tag must be vMAJOR.MINOR.PATCH, got: ${RELEASE_TAG}"
+          exit 1
+        fi
+        EXPECTED_VERSION="${RELEASE_TAG#v}"
+        EXPECTED_TARGET_COMMIT=${EXPECTED_TARGET_COMMIT:-}
+        if [ -n "$EXPECTED_TARGET_COMMIT" ] && \
+          [[ ! "$EXPECTED_TARGET_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+          echo "::error::Expected upstream commit must be a full lowercase Git SHA"
+          exit 1
+        fi
+        PIN_FILE="${GITHUB_WORKSPACE:-.}/tools/spec-release.json"
+        BUNDLE_NAME="f5xc-api-specs-${RELEASE_TAG}.zip"
+        [ -f "$PIN_FILE" ] || { echo "::error::Tracked spec release pin is missing"; exit 1; }
+        jq -e \
+          --arg tag "$RELEASE_TAG" \
+          --arg version "$EXPECTED_VERSION" \
+          --arg bundle "$BUNDLE_NAME" '
+            type == "object" and
+            (keys | sort) == ["assets", "release_tag", "target_commit", "version"] and
+            .release_tag == $tag and
+            .version == $version and
+            (.target_commit | test("^[0-9a-f]{40}$")) and
+            (.assets | keys | sort) ==
+              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json"] and
+            ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
+          ' "$PIN_FILE" >/dev/null || {
+          echo "::error::Tracked spec release pin is malformed or names another release"
+          exit 1
+        }
+        PINNED_COMMIT=$(jq -r '.target_commit' "$PIN_FILE")
+        if [ -n "$EXPECTED_TARGET_COMMIT" ] && [ "$EXPECTED_TARGET_COMMIT" != "$PINNED_COMMIT" ]; then
+          echo "::error::Requested upstream commit differs from the tracked release pin"
+          exit 1
+        fi
+        EXPECTED_TARGET_COMMIT=$PINNED_COMMIT
+
+        STAGING_ROOT=$(mktemp -d)
+        trap 'rm -rf "$STAGING_ROOT"' EXIT
+        STAGED_SPECS="${STAGING_ROOT}/specs"
+        mkdir -p "$STAGED_SPECS"
+        RELEASE_ENDPOINT="repos/${ENRICHED_REPO}/releases/tags/${RELEASE_TAG}"
+        RELEASE_METADATA="${STAGING_ROOT}/release.json"
+
+        echo "Downloading verified ${RELEASE_TAG} release from ${ENRICHED_REPO}"
+        gh api "$RELEASE_ENDPOINT" > "$RELEASE_METADATA"
+        jq -e --arg tag "$RELEASE_TAG" '
+          .tag_name == $tag and
+          .draft == false and
+          .prerelease == false and
+          .immutable == true
+        ' "$RELEASE_METADATA" >/dev/null || {
+          echo "::error::Spec release must have the exact tag and be final and immutable"
+          exit 1
+        }
+        TAG_COMMIT=$(gh api "repos/${ENRICHED_REPO}/commits/${RELEASE_TAG}" --jq '.sha')
+        [[ "$TAG_COMMIT" =~ ^[0-9a-f]{40}$ ]] || {
+          echo "::error::Release tag did not resolve to a full commit"
+          exit 1
+        }
+        if [ "$TAG_COMMIT" != "$EXPECTED_TARGET_COMMIT" ]; then
+          echo "::error::Release tag commit differs from the expected upstream commit"
+          exit 1
+        fi
+
+        EXPECTED_ASSETS=$(printf '%s\n' \
+          api-catalog.json \
+          "$BUNDLE_NAME" \
+          index.json \
+          minimal-export-defaults.json \
+          openapi.json | sort)
+        ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
+        [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
+          echo "::error::Release asset set differs from the five-asset contract"
+          exit 1
         }
 
-        if complete; then
-          echo "Found $(find "${SPEC_DIR}" -name '*.json' -type f | wc -l) existing spec files in ${SPEC_DIR}"
-          exit 0
-        fi
-
-        echo "No complete bundle in ${SPEC_DIR} — downloading latest from ${ENRICHED_REPO}"
-
-        ASSET_ID=$(gh api "repos/${ENRICHED_REPO}/releases" --jq \
-          '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
-        if [ -z "$ASSET_ID" ] || [ "$ASSET_ID" = "null" ]; then
-          echo "::error::No spec bundle asset in the latest ${ENRICHED_REPO} release. Generators cannot run without it."
+        RELEASE_BODY="${STAGING_ROOT}/release-body.txt"
+        jq -r '.body // ""' "$RELEASE_METADATA" > "$RELEASE_BODY"
+        RECEIPT_COUNT=$(grep -Ec '^<!-- publication-receipt:.* -->$' "$RELEASE_BODY" || true)
+        [ "$RECEIPT_COUNT" -eq 1 ] || {
+          echo "::error::Release must contain exactly one publication receipt"
           exit 1
-        fi
+        }
+        RECEIPT=$(sed -n 's/^<!-- publication-receipt:\(.*\) -->$/\1/p' "$RELEASE_BODY")
+        printf '%s' "$RECEIPT" | jq -e \
+          --arg bundle "$BUNDLE_NAME" \
+          --slurpfile pin "$PIN_FILE" '
+            type == "object" and
+            (keys | sort) == ["assets", "commit", "version"] and
+            .commit == $pin[0].target_commit and
+            .version == $pin[0].version and
+            .assets == $pin[0].assets and
+            (.assets | keys | sort) ==
+              ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json"] and
+            ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
+          ' >/dev/null || {
+          echo "::error::Publication receipt does not exactly match the tracked release pin"
+          exit 1
+        }
+        jq -e --argjson receipt "$RECEIPT" '
+          [.assets[] |
+            .digest == $receipt.assets[.name]
+          ] | all
+        ' "$RELEASE_METADATA" >/dev/null || {
+          echo "::error::GitHub asset digests do not exactly match the publication receipt"
+          exit 1
+        }
 
+        ASSET_ID=$(jq -r --arg name "$BUNDLE_NAME" \
+          '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
+          "$RELEASE_METADATA")
+        [ -n "$ASSET_ID" ] || {
+          echo "::error::Release must contain exactly one ${BUNDLE_NAME}"
+          exit 1
+        }
         gh api "repos/${ENRICHED_REPO}/releases/assets/${ASSET_ID}" \
-          -H "Accept: application/octet-stream" > /tmp/specs.zip
-        unzip -q -o /tmp/specs.zip -d "${SPEC_DIR}"
-        rm -f /tmp/specs.zip
+          -H "Accept: application/octet-stream" > "${STAGING_ROOT}/specs.zip"
+        python3 - "${STAGING_ROOT}/specs.zip" <<'PY'
+        import pathlib
+        import stat
+        import sys
+        import zipfile
 
-        # Companion assets published alongside the bundle rather than inside it.
-        # `make download-specs` fetches both, so CI that skips them generates
-        # different output from a local run — a determinism gap in its own right.
-        for asset in api-catalog.json minimal-export-defaults.json; do
-          AID=$(gh api "repos/${ENRICHED_REPO}/releases" --jq \
-            "[.[0].assets[] | select(.name==\"${asset}\")] | .[0].id")
-          if [ -n "$AID" ] && [ "$AID" != "null" ]; then
-            gh api "repos/${ENRICHED_REPO}/releases/assets/${AID}" \
-              -H "Accept: application/octet-stream" > "${SPEC_DIR}/${asset}"
-            echo "Downloaded ${asset}"
-          else
-            echo "::notice::${asset} not published in the latest release"
+        archive = pathlib.Path(sys.argv[1])
+        seen = {}
+        with zipfile.ZipFile(archive) as bundle:
+            for entry in bundle.infolist():
+                name = entry.filename
+                core = name[:-1] if name.endswith("/") else name
+                parts = core.split("/")
+                if (not core or name.startswith("/") or "\\" in name or
+                        any(part in ("", ".", "..") for part in parts)):
+                    raise SystemExit(f"unsafe archive path: {name!r}")
+                key = core.casefold()
+                if key in seen:
+                    raise SystemExit(f"duplicate or case-colliding archive path: {name!r}")
+                seen[key] = name
+                mode = entry.external_attr >> 16
+                kind = stat.S_IFMT(mode)
+                allowed = (0, stat.S_IFDIR) if entry.is_dir() else (0, stat.S_IFREG)
+                if kind not in allowed or entry.flag_bits & 0x1:
+                    raise SystemExit(f"unsupported archive entry type: {name!r}")
+        PY
+        unzip -q -o "${STAGING_ROOT}/specs.zip" -d "$STAGED_SPECS"
+        UNSAFE_STAGED_ENTRY=$(find "$STAGED_SPECS" ! -type d ! -type f -print -quit)
+        [ -z "$UNSAFE_STAGED_ENTRY" ] || {
+          echo "::error::Extracted spec bundle contains a symlink or special file"
+          exit 1
+        }
+
+        COMPANIONS="${STAGING_ROOT}/companions"
+        mkdir -p "$COMPANIONS"
+        for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json; do
+          AID=$(jq -r --arg name "$asset" \
+            '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
+            "$RELEASE_METADATA")
+          [ -n "$AID" ] || { echo "::error::Release is missing ${asset}"; exit 1; }
+          gh api "repos/${ENRICHED_REPO}/releases/assets/${AID}" \
+            -H "Accept: application/octet-stream" > "${COMPANIONS}/${asset}"
+          EXPECTED_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$asset" '.assets[$name]')
+          # The receipt records "sha256:<hex>", matching GitHub's own digest field,
+          # so measure into the same form rather than stripping the prefix.
+          ACTUAL_SHA="sha256:$(shasum -a 256 "${COMPANIONS}/${asset}" | awk '{print $1}')"
+          [ "$ACTUAL_SHA" = "$EXPECTED_SHA" ] || {
+            echo "::error::Downloaded ${asset} differs from its publication receipt"
+            exit 1
+          }
+          if [ -f "${STAGED_SPECS}/${asset}" ]; then
+            BUNDLED_SHA="sha256:$(shasum -a 256 "${STAGED_SPECS}/${asset}" | awk '{print $1}')"
+            [ "$BUNDLED_SHA" = "$EXPECTED_SHA" ] || {
+              echo "::error::Bundled ${asset} differs from the standalone receipted asset"
+              exit 1
+            }
           fi
+          cp "${COMPANIONS}/${asset}" "${STAGED_SPECS}/${asset}"
         done
 
-        SPEC_COUNT=$(find "${SPEC_DIR}" -name '*.json' -type f | wc -l)
-        echo "Downloaded ${SPEC_COUNT} spec files"
-        if [ "$SPEC_COUNT" -eq 0 ]; then
-          echo "::error::Spec asset unpacked to no JSON files in ${SPEC_DIR}"
+        EXPECTED_BUNDLE_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$BUNDLE_NAME" '.assets[$name]')
+        ACTUAL_BUNDLE_SHA="sha256:$(shasum -a 256 "${STAGING_ROOT}/specs.zip" | awk '{print $1}')"
+        [ "$ACTUAL_BUNDLE_SHA" = "$EXPECTED_BUNDLE_SHA" ] || {
+          echo "::error::Downloaded spec bundle differs from its publication receipt"
+          exit 1
+        }
+
+        if [ ! -f "${STAGED_SPECS}/index.json" ] || \
+          [ ! -d "${STAGED_SPECS}/domains" ] || \
+          [ -z "$(find "${STAGED_SPECS}/domains" -name '*.json' -type f -print -quit)" ] || \
+          ! jq -e --arg version "$EXPECTED_VERSION" '.version == $version' \
+            "${STAGED_SPECS}/api-catalog.json" >/dev/null; then
+          echo "::error::Incomplete or version-mismatched ${RELEASE_TAG} bundle"
           exit 1
         fi
-        if ! complete; then
-          echo "::error::Incomplete bundle in ${SPEC_DIR}: index.json plus at least one domains/*.json are required"
-          exit 1
-        fi
+
+        mkdir -p "$SPEC_DIR"
+        find "$SPEC_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+        cp -a "${STAGED_SPECS}/." "${SPEC_DIR}/"

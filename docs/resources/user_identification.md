@@ -44,6 +44,15 @@ resource "xcsh_user_identification" "example" {
 ### All Attributes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name        = "example"
   namespace   = "system"
@@ -68,6 +77,15 @@ resource "xcsh_user_identification" "test" {
 ### Cookie example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
@@ -81,6 +99,15 @@ resource "xcsh_user_identification" "test" {
 ### Http Header example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
@@ -94,6 +121,15 @@ resource "xcsh_user_identification" "test" {
 ### Tls Fingerprint example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
@@ -107,6 +143,15 @@ resource "xcsh_user_identification" "test" {
 ### With Annotations example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
@@ -124,6 +169,15 @@ resource "xcsh_user_identification" "test" {
 ### With Description example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name        = "example"
   namespace   = "system"
@@ -138,6 +192,15 @@ resource "xcsh_user_identification" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name      = "example"
   namespace = "system"
@@ -155,6 +218,15 @@ resource "xcsh_user_identification" "test" {
 ### With Rules example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_user_identification" "test" {
   name        = "example"
   namespace   = "system"

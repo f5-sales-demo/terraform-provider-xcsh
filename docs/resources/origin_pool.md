@@ -44,6 +44,15 @@ resource "xcsh_origin_pool" "example" {
 ### Labels Update example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example"
   namespace = "system"
@@ -69,6 +78,15 @@ resource "xcsh_origin_pool" "test" {
 ### Multiple Origins example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example"
   namespace = "system"
@@ -97,6 +115,15 @@ resource "xcsh_origin_pool" "test" {
 ### Port example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example"
   namespace = "system"
@@ -118,6 +145,15 @@ resource "xcsh_origin_pool" "test" {
 ### Public Ip example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example"
   namespace = "system"
@@ -139,6 +175,15 @@ resource "xcsh_origin_pool" "test" {
 ### With Healthcheck Ref example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example"
   namespace = "system"
@@ -177,6 +222,15 @@ resource "xcsh_origin_pool" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name        = "example"
   namespace   = "system"
