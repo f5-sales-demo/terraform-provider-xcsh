@@ -23,7 +23,7 @@ Terraform provider for F5 Distributed Cloud
 
 ## Documentation
 
-Full documentation is available at **[https://f5-sales-demo.github.io/terraform-provider-xcsh/](https://f5-sales-demo.github.io/terraform-provider-xcsh/)**.
+Full documentation is available at __[https://f5-sales-demo.github.io/terraform-provider-xcsh/](https://f5-sales-demo.github.io/terraform-provider-xcsh/)__.
 
 ## Contributing
 
