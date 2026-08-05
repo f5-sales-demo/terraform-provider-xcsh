@@ -17,7 +17,7 @@ type BotDetectionRule struct {
 // GetBotDetectionRule retrieves a BotDetectionRule (read-only)
 func (c *Client) GetBotDetectionRule(ctx context.Context, namespace, name string) (*BotDetectionRule, error) {
 	var result BotDetectionRule
-	path := fmt.Sprintf("/api/shape/bot/custom/namespaces/%s/bot_detection_rules/%s", namespace, name)
+	path := fmt.Sprintf("/api/shape/bot/namespaces/%s/bot_detection_rules/%s", namespace, name)
 	err := c.Get(ctx, path, &result)
 	return &result, err
 }

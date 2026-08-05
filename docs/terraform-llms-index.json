@@ -110,7 +110,7 @@
       "name": "Sites",
       "slug": "sites",
       "description": "AWS/Azure/GCP VPC sites, SecureMesh, VoltStack, and site mesh groups",
-      "resource_count": 12,
+      "resource_count": 11,
       "resources": [
         "aws_tgw_site",
         "aws_vpc_site",
@@ -120,7 +120,6 @@
         "registration",
         "securemesh_site",
         "securemesh_site_v2",
-        "site",
         "site_mesh_group",
         "virtual_site",
         "voltstack_site"
@@ -143,22 +142,6 @@
       ]
     },
     {
-      "name": "Uncategorized",
-      "slug": "uncategorized",
-      "description": "Resources pending categorization",
-      "resource_count": 8,
-      "resources": [
-        "application_profiles",
-        "authorization_server",
-        "bot_infrastructure",
-        "domain",
-        "mitigated_domain",
-        "protected_application",
-        "protected_domain",
-        "registration_approval"
-      ]
-    },
-    {
       "name": "DNS",
       "slug": "dns",
       "description": "DNS domains, zones, compliance checks, and DNS proxy configuration",
@@ -171,6 +154,21 @@
         "dns_load_balancer",
         "dns_proxy",
         "dns_zone"
+      ]
+    },
+    {
+      "name": "Uncategorized",
+      "slug": "uncategorized",
+      "description": "Resources pending categorization",
+      "resource_count": 7,
+      "resources": [
+        "application_profiles",
+        "authorization_server",
+        "bot_infrastructure",
+        "mitigated_domain",
+        "protected_application",
+        "protected_domain",
+        "registration_approval"
       ]
     },
     {
@@ -1341,20 +1339,6 @@
       "import_syntax": "terraform import xcsh_securemesh_site_v2.example namespace/name"
     },
     {
-      "name": "site",
-      "category": "sites",
-      "description": "Virtual site object in given namespace",
-      "required": ["name", "namespace", "site_type"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/site.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_site.example namespace/name"
-    },
-    {
       "name": "site_mesh_group",
       "category": "sites",
       "description": "Site Mesh Group in system namespace of user",
@@ -1520,118 +1504,6 @@
       "import_syntax": "terraform import xcsh_workload_flavor.example namespace/name"
     },
     {
-      "name": "application_profiles",
-      "category": "uncategorized",
-      "description": "Application Profiles in a given namespace. If one already exists it will give an error",
-      "required": ["name", "namespace"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/application_profiles.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_application_profiles.example namespace/name"
-    },
-    {
-      "name": "authorization_server",
-      "category": "uncategorized",
-      "description": "Authorization_server creates a new object in the storage backend for metadata.namespace",
-      "required": ["name", "namespace", "jwks_uri"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/authorization_server.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_authorization_server.example namespace/name"
-    },
-    {
-      "name": "bot_infrastructure",
-      "category": "uncategorized",
-      "description": "Bot Infrastructure",
-      "required": ["name", "namespace", "traffic_type"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/bot_infrastructure.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_bot_infrastructure.example namespace/name"
-    },
-    {
-      "name": "domain",
-      "category": "uncategorized",
-      "description": "Allowed domain",
-      "required": ["name", "namespace", "allowed_domain"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/domain.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_domain.example namespace/name"
-    },
-    {
-      "name": "mitigated_domain",
-      "category": "uncategorized",
-      "description": "Mitigated Domain",
-      "required": ["name", "namespace", "mitigated_domain"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/mitigated_domain.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_mitigated_domain.example namespace/name"
-    },
-    {
-      "name": "protected_application",
-      "category": "uncategorized",
-      "description": "Applications protected by Bot Defense",
-      "required": ["name", "namespace", "region"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/protected_application.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_protected_application.example namespace/name"
-    },
-    {
-      "name": "protected_domain",
-      "category": "uncategorized",
-      "description": "Domain to protect",
-      "required": ["name", "namespace", "protected_domain"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/protected_domain.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_protected_domain.example namespace/name"
-    },
-    {
-      "name": "registration_approval",
-      "category": "uncategorized",
-      "description": "Request for admission approval. configuration",
-      "required": ["name", "namespace"],
-      "minimal_config": {
-        "format": "terraform",
-        "source": "_llms-txt/resources/registration_approval.txt#minimal-valid-config"
-      },
-      "dependencies": {
-        "requires": []
-      },
-      "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
-    },
-    {
       "name": "dns_compliance_checks",
       "category": "dns",
       "description": "DNS Compliance Checks Specification in a given namespace. If one already exists it will give an error",
@@ -1728,6 +1600,104 @@
         "requires": []
       },
       "import_syntax": "terraform import xcsh_dns_zone.example namespace/name"
+    },
+    {
+      "name": "application_profiles",
+      "category": "uncategorized",
+      "description": "Application Profiles in a given namespace. If one already exists it will give an error",
+      "required": ["name", "namespace"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/application_profiles.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_application_profiles.example namespace/name"
+    },
+    {
+      "name": "authorization_server",
+      "category": "uncategorized",
+      "description": "Authorization_server creates a new object in the storage backend for metadata.namespace",
+      "required": ["name", "namespace", "jwks_uri"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/authorization_server.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_authorization_server.example namespace/name"
+    },
+    {
+      "name": "bot_infrastructure",
+      "category": "uncategorized",
+      "description": "Bot Infrastructure",
+      "required": ["name", "namespace", "traffic_type"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/bot_infrastructure.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_bot_infrastructure.example namespace/name"
+    },
+    {
+      "name": "mitigated_domain",
+      "category": "uncategorized",
+      "description": "Mitigated Domain",
+      "required": ["name", "namespace", "mitigated_domain"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/mitigated_domain.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_mitigated_domain.example namespace/name"
+    },
+    {
+      "name": "protected_application",
+      "category": "uncategorized",
+      "description": "Applications protected by Bot Defense",
+      "required": ["name", "namespace", "region"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/protected_application.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_protected_application.example namespace/name"
+    },
+    {
+      "name": "protected_domain",
+      "category": "uncategorized",
+      "description": "Domain to protect",
+      "required": ["name", "namespace", "protected_domain"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/protected_domain.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_protected_domain.example namespace/name"
+    },
+    {
+      "name": "registration_approval",
+      "category": "uncategorized",
+      "description": "Request for admission approval. configuration",
+      "required": ["name", "namespace"],
+      "minimal_config": {
+        "format": "terraform",
+        "source": "_llms-txt/resources/registration_approval.txt#minimal-valid-config"
+      },
+      "dependencies": {
+        "requires": []
+      },
+      "import_syntax": "terraform import xcsh_registration_approval.example namespace/name"
     },
     {
       "name": "api_crawler",

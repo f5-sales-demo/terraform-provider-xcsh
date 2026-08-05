@@ -244,9 +244,9 @@ func TestExtractResourceSchema_NoUIDWhenNotOptedIn(t *testing.T) {
 // actionApproveSpec builds a spec shaped like the F5 XC registration-approval
 // action: a request-body component schema carrying a schema-level x-f5xc-action
 // marker, the raw POST action path that $refs it, and a sibling plural GET path
-// for the object being acted on. Paths are stored raw (map[string]interface{})
-// exactly as parsed from JSON so ExtractActionsFromPaths walks a realistic shape.
-func actionApproveSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+// for the object being acted on. ResourcePath carries the exact operation-catalog
+// resolution supplied to the schema extractor.
+func actionApproveSpec() (*openapi.Spec, openapi.ResourcePath) {
 	spec := &openapi.Spec{
 		Components: openapi.Components{
 			Schemas: map[string]openapi.Schema{
@@ -292,10 +292,14 @@ func actionApproveSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, st
 			},
 		},
 	}
-	extractAPIPath := func(_ *openapi.Spec, _ string) (string, string, bool) {
-		return "/api/register/namespaces/%s/registrations", "/api/register/namespaces/%s/registrations/%s", true
+	action := openapi.ResourcePath{
+		ResourceName:   "registration_approval",
+		SchemaName:     "registrationApprovalReq",
+		ActionValue:    "approve",
+		ActionPath:     "/api/register/namespaces/%s/registration/%s/approve",
+		ReadObjectPath: "/api/register/namespaces/%s/registrations/%s",
 	}
-	return spec, extractAPIPath
+	return spec, action
 }
 
 // A schema-level x-f5xc-action marker drives an action-style resource: attributes
@@ -303,9 +307,9 @@ func actionApproveSpec() (*openapi.Spec, func(*openapi.Spec, string) (string, st
 // sibling GET path are captured, state constant-defaults to APPROVED, and every
 // user-settable attribute forces replace (there is no in-place update).
 func TestActionResourceApprove(t *testing.T) {
-	spec, extractAPIPath := actionApproveSpec()
+	spec, action := actionApproveSpec()
 
-	result, err := ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath)
+	result, err := ExtractActionResourceSchema(spec, action)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -388,9 +392,9 @@ func TestActionResourceApprove(t *testing.T) {
 // the request body and read back off the sibling object — and must NOT appear as
 // a user-settable Terraform attribute.
 func TestActionResourceDerivesPassportFromTheRegistration(t *testing.T) {
-	spec, extractAPIPath := actionApproveSpec()
+	spec, action := actionApproveSpec()
 
-	result, err := ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath)
+	result, err := ExtractActionResourceSchema(spec, action)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -444,8 +448,8 @@ func TestActionResourceRequiredPropertyIsNeverSilentlyDropped(t *testing.T) {
 		},
 	}, []string{"name", "credentials"})
 
-	stub := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
-	_, err := ExtractActionResourceSchema(spec, "zz_guard_probe", stub)
+	action := actionGuardPath()
+	_, err := ExtractActionResourceSchema(spec, action)
 	if err == nil {
 		t.Fatal("expected an error: the required object property 'credentials' is not representable as an attribute and is not declared server-derived")
 	}
@@ -462,7 +466,7 @@ func TestActionResourceRequiredPropertyIsNeverSilentlyDropped(t *testing.T) {
 			AllOf: []openapi.Schema{{Ref: "#/components/schemas/someCredentials"}},
 		},
 	}, []string{"name"})
-	if _, err := ExtractActionResourceSchema(ok, "zz_guard_probe", stub); err != nil {
+	if _, err := ExtractActionResourceSchema(ok, action); err != nil {
 		t.Fatalf("a non-required object property must still be skipped without error; got: %v", err)
 	}
 
@@ -475,7 +479,7 @@ func TestActionResourceRequiredPropertyIsNeverSilentlyDropped(t *testing.T) {
 			XF5XCRequiredFor: openapi.RequiredFor{Create: true},
 		},
 	}, nil)
-	if _, err := ExtractActionResourceSchema(forCreate, "zz_guard_probe", stub); err == nil {
+	if _, err := ExtractActionResourceSchema(forCreate, action); err == nil {
 		t.Error("x-f5xc-required-for.create=true must trip the dropped-required-property guard")
 	}
 
@@ -486,7 +490,7 @@ func TestActionResourceRequiredPropertyIsNeverSilentlyDropped(t *testing.T) {
 			XVesRequired: "true",
 		},
 	}, nil)
-	if _, err := ExtractActionResourceSchema(vesRequired, "zz_guard_probe", stub); err == nil {
+	if _, err := ExtractActionResourceSchema(vesRequired, action); err == nil {
 		t.Error("x-ves-required=true must trip the dropped-required-property guard")
 	}
 }
@@ -494,8 +498,8 @@ func TestActionResourceRequiredPropertyIsNeverSilentlyDropped(t *testing.T) {
 // The real registration approve request marks nothing required, so the guard must
 // not fire on it — the passport is covered by its server-derived declaration.
 func TestActionResourceGuardAcceptsTheRealApproveSchema(t *testing.T) {
-	spec, extractAPIPath := actionApproveSpec()
-	if _, err := ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath); err != nil {
+	spec, action := actionApproveSpec()
+	if _, err := ExtractActionResourceSchema(spec, action); err != nil {
 		t.Fatalf("the real approve schema must extract cleanly; got: %v", err)
 	}
 }
@@ -530,6 +534,16 @@ func actionGuardSpec(props map[string]openapi.Schema, required []string) *openap
 				},
 			},
 		},
+	}
+}
+
+func actionGuardPath() openapi.ResourcePath {
+	return openapi.ResourcePath{
+		ResourceName:   "zz_guard_probe",
+		SchemaName:     "zzGuardProbeReq",
+		ActionValue:    "approve",
+		ActionPath:     "/api/register/namespaces/%s/guard_probe/%s/approve",
+		ReadObjectPath: "/api/register/namespaces/%s/guard_probes/%s",
 	}
 }
 

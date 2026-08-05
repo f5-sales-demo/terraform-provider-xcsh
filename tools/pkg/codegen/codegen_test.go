@@ -1412,9 +1412,9 @@ func TestActionResourceApprove(t *testing.T) {
 // spec shape through ExtractActionResourceSchema into the generated Go — so it
 // covers the extractor, the server-derived declaration and both templates.
 func TestActionResourceCreateSendsServerDerivedPassport(t *testing.T) {
-	spec, extractAPIPath := actionApproveSpecForCodegen()
+	spec, action := actionApproveSpecForCodegen()
 
-	tmpl, err := schema.ExtractActionResourceSchema(spec, "registration_approval", extractAPIPath)
+	tmpl, err := schema.ExtractActionResourceSchema(spec, action)
 	if err != nil {
 		t.Fatalf("ExtractActionResourceSchema: %v", err)
 	}
@@ -1501,7 +1501,7 @@ func funcBody(t *testing.T, src, name string) string {
 // props, object props (annotations, labels), non-enum $ref props (passport,
 // tunnel_type) and a $ref-enum state, plus the approve POST path and the plural
 // sibling GET path.
-func actionApproveSpecForCodegen() (*openapi.Spec, func(*openapi.Spec, string) (string, string, bool)) {
+func actionApproveSpecForCodegen() (*openapi.Spec, openapi.ResourcePath) {
 	spec := &openapi.Spec{
 		Components: openapi.Components{
 			Schemas: map[string]openapi.Schema{
@@ -1541,8 +1541,14 @@ func actionApproveSpecForCodegen() (*openapi.Spec, func(*openapi.Spec, string) (
 			},
 		},
 	}
-	extractAPIPath := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
-	return spec, extractAPIPath
+	action := openapi.ResourcePath{
+		ResourceName:   "registration_approval",
+		SchemaName:     "registrationApprovalReq",
+		ActionValue:    "approve",
+		ActionPath:     "/api/register/namespaces/%s/registration/%s/approve",
+		ReadObjectPath: "/api/register/namespaces/%s/registrations/%s",
+	}
+	return spec, action
 }
 
 // repoRootFromTest returns the module root by walking up from this test file's
@@ -1641,21 +1647,16 @@ func TestActionResourceCompiles(t *testing.T) {
 
 	spec := approveCompileSpec()
 
-	// 1. Discovery must snake_case the resource name.
-	var found *openapi.ResourcePath
-	for _, a := range openapi.ExtractActionsFromPaths(spec) {
-		ac := a
-		if ac.ResourceName == "zz_compile_probe" {
-			found = &ac
-		}
+	// 1. Schema extraction from the exact operation-catalog action: exact
+	// attribute set, object/$ref props excluded.
+	action := openapi.ResourcePath{
+		ResourceName:   "zz_compile_probe",
+		SchemaName:     "zzCompileProbeReq",
+		ActionValue:    "approve",
+		ActionPath:     "/api/register/namespaces/%s/compile_probe/%s/approve",
+		ReadObjectPath: "/api/register/namespaces/%s/compile_probes/%s",
 	}
-	if found == nil {
-		t.Fatalf("ExtractActionsFromPaths did not yield snake_case resource name zz_compile_probe; got %+v", openapi.ExtractActionsFromPaths(spec))
-	}
-
-	// 2. Schema extraction: exact attribute set, object/$ref props excluded.
-	stub := func(*openapi.Spec, string) (string, string, bool) { return "", "", true }
-	tmpl, err := schema.ExtractActionResourceSchema(spec, "zz_compile_probe", stub)
+	tmpl, err := schema.ExtractActionResourceSchema(spec, action)
 	if err != nil {
 		t.Fatalf("ExtractActionResourceSchema: %v", err)
 	}

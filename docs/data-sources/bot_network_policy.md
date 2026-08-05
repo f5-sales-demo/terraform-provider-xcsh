@@ -1,21 +1,20 @@
 ---
-page_title: "xcsh_site Resource - xcsh"
-subcategory: "Sites"
+page_title: "xcsh_bot_network_policy Data Source - xcsh"
+subcategory: "Security"
 description: |-
-  Manages virtual site object in given namespace. in F5 Distributed Cloud.
+  Retrieves information about an existing Bot Network Policy resource in F5 Distributed Cloud for get bot network policy. configuration. (read-only data source)
 ---
 
-# xcsh_site (Resource)
+# xcsh_bot_network_policy (Data Source)
 
-Manages virtual site object in given namespace. in F5 Distributed Cloud.
+Retrieves information about a Bot Network Policy resource in F5 Distributed Cloud for get bot network policy. configuration. (read-only data source)
 
-~> **Note** Please refer to [Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/) to learn more.
+~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# Site Resource Example
-# Manages virtual site object in given namespace.
+# BotNetworkPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
@@ -28,12 +27,14 @@ terraform {
   }
 }
 
-# Basic Site configuration
-resource "xcsh_site" "example" {
-  name      = "example-site"
+# Look up an existing BotNetworkPolicy by name
+data "xcsh_bot_network_policy" "example" {
+  name      = "example-bot-network-policy"
   namespace = "staging"
+}
 
-  site_type = "INVALID"
+output "bot_network_policy_id" {
+  value = data.xcsh_bot_network_policy.example.id
 }
 ```
 
@@ -45,52 +46,25 @@ resource "xcsh_site" "example" {
 
 ### Metadata Argument Reference
 
-<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Site. Must be unique within the namespace
+<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the BotNetworkPolicy to look up
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Site will be created
-
-<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
-
-<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
-
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
-
-<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
-
-### Spec Argument Reference
-
-<a id="site-selector"></a>&#x2022; [`site_selector`](#site-selector) - Optional Block<br>Type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects<br>See [Site Selector](#site-selector)
-below for details.
-
-<a id="site-type"></a>&#x2022; [`site_type`](#site-type) - Required String<br>Possible values are `INVALID`, `REGIONAL_EDGE`, `CUSTOMER_EDGE`, `NGINX_ONE`<br>[Enum: INVALID|REGIONAL_EDGE|CUSTOMER_EDGE|NGINX_ONE] Site Type which can either RE or CE Invalid type of site Regional Edge site Customer Edge site
-
-<a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace of the BotNetworkPolicy
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
+<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
----
+<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
-#### Site Selector
+<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
-A [`site_selector`](#site-selector) block supports the following:
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 
-<a id="site-selector-expressions"></a>&#x2022; [`expressions`](#site-selector-expressions) - Optional List<br>Expressions contains the Kubernetes style label expression for selections
+<a id="latest-version"></a>&#x2022; [`latest_version`](#latest-version) - Optional String<br>Version. Version number or identifier
 
-#### Timeouts
-
-A [`timeouts`](#timeouts) block supports the following:
-
-<a id="timeouts-create"></a>&#x2022; [`create`](#timeouts-create) - Optional String (Defaults to `10 minutes`)<br>Used when creating the resource
-
-<a id="timeouts-delete"></a>&#x2022; [`delete`](#timeouts-delete) - Optional String (Defaults to `10 minutes`)<br>Used when deleting the resource
-
-<a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
-
-<a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+<a id="network-policy-content"></a>&#x2022; [`network_policy_content`](#network-policy-content) - Optional String<br>Configuration parameter for network policy content
 
 ---
 
@@ -174,12 +148,3 @@ IP address threat categories for security filtering.
 | `TOR_PROXY` | Tor exit nodes |
 | `DENIAL_OF_SERVICE` | DoS attack sources |
 | `NETWORK` | Known bad network ranges |
-
-## Import
-
-Import is supported using the following syntax:
-
-```shell
-# Import using namespace/name format
-terraform import xcsh_site.example system/example
-```

@@ -24,7 +24,7 @@ type ExtractConfig struct {
 }
 
 // ExtractResourceSchema extracts a Terraform resource schema from an OpenAPI spec.
-// extractAPIPath is passed as a callback because it remains in the monolith.
+// extractAPIPath is the operation-catalog resolver supplied by the generator.
 // ForceReplaceForCreateDeleteOnly marks every user-settable, non-computed attribute as
 // RequiresReplace. Create/delete-only F5 XC resources (those declared in import-id-fields.json —
 // e.g. the CSD shape/csd domain objects) support only create/list/delete: there is no PUT/update
@@ -412,20 +412,11 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 // The singular action POST path and the pluralized sibling object GET path are
 // captured for Create/Read, `state` constant-defaults to APPROVED, and every
 // user-settable field forces replace (there is no in-place update).
-// extractAPIPath is accepted for signature parity with the CRUD extractor but
-// unused — action paths come from the discovered x-f5xc-action.
-func ExtractActionResourceSchema(spec *openapi.Spec, resourceName string, _ func(spec *openapi.Spec, resourceName string) (string, string, bool)) (*openapi.ResourceTemplate, error) {
-	// Locate the action for this resource among the spec's discovered actions.
-	var action *openapi.ResourcePath
-	for _, a := range openapi.ExtractActionsFromPaths(spec) {
-		if a.ResourceName == resourceName {
-			ac := a
-			action = &ac
-			break
-		}
-	}
-	if action == nil {
-		return nil, fmt.Errorf("no x-f5xc-action found for %s", resourceName)
+// action carries exact POST and sibling GET paths resolved from apiOperations.
+func ExtractActionResourceSchema(spec *openapi.Spec, action openapi.ResourcePath) (*openapi.ResourceTemplate, error) {
+	resourceName := action.ResourceName
+	if resourceName == "" || action.SchemaName == "" || action.ActionPath == "" || action.ReadObjectPath == "" {
+		return nil, fmt.Errorf("incomplete catalog action for %q", resourceName)
 	}
 
 	reqSchema, ok := spec.Components.Schemas[action.SchemaName]

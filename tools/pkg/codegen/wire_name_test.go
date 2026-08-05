@@ -227,6 +227,51 @@ func TestWireNameRoundTripsInBothDirections(t *testing.T) {
 	}
 }
 
+// TestReadOnlyDataSourceHonorsWireName pins the read-only template separately
+// from the CRUD renderers above. The site contract exposes a corrected property
+// name while declaring the historical, misspelled API key in x-f5xc-wire-name;
+// response lookup must use only that declared wire key.
+func TestReadOnlyDataSourceHonorsWireName(t *testing.T) {
+	tmpl := &openapi.ResourceTemplate{
+		Name:               "wire_probe",
+		TitleCase:          "WireProbe",
+		Description:        "Synthetic read-only wire-name probe.",
+		APIPath:            "/api/web/namespaces/%s/sites/%s",
+		HasNamespaceInPath: true,
+		Attributes: []openapi.TerraformAttribute{
+			{
+				Name:        "volterra_software_override",
+				TfsdkTag:    "volterra_software_override",
+				GoName:      "VolterraSoftwareOverride",
+				JsonName:    "volterra_software_overide",
+				Description: "Synthetic wire-name field.",
+				Computed:    true,
+			},
+		},
+	}
+
+	outDir := t.TempDir()
+	if err := GenerateReadOnlyDataSource(tmpl, outDir); err != nil {
+		t.Fatalf("GenerateReadOnlyDataSource: %v", err)
+	}
+	generated, err := os.ReadFile(filepath.Join(outDir, "wire_probe_data_source.go"))
+	if err != nil {
+		t.Fatalf("read generated data source: %v", err)
+	}
+	got := string(generated)
+	for _, want := range []string{
+		`resource.Spec["volterra_software_overide"]`,
+		`"volterra_software_overide" is the API wire key declared by x-f5xc-wire-name for Terraform attribute "volterra_software_override"`,
+	} {
+		if !strings.Contains(got, want) {
+			t.Errorf("generated read-only data source missing %q:\n%s", want, got)
+		}
+	}
+	if strings.Contains(got, `resource.Spec["volterra_software_override"]`) {
+		t.Errorf("generated read-only data source must not look up the corrected Terraform name as an API key:\n%s", got)
+	}
+}
+
 // TestWireNameAbsentOutputUnchanged is the regression guard for the 99% of
 // properties that carry no annotation: the JSON-key-deciding renders must be
 // BYTE-IDENTICAL to what the generator produced before x-f5xc-wire-name existed.

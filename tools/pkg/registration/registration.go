@@ -42,17 +42,28 @@ func GenerateCombinedClientTypes(results []openapi.GenerationResult, clientDir s
 	// This is handled by individual client type files
 }
 
-// CleanOrphanGeneratedFiles removes generated files that no longer have
-// matching resources.  Only removes files with the "DO NOT EDIT" header to
-// avoid deleting manually maintained files.
-func CleanOrphanGeneratedFiles(outDir, clntDir string, generatedNames map[string]bool) {
+// GeneratedFileSet records the exact generated surfaces a successful result
+// owns. Keeping this per suffix matters when an inferred mutable resource is
+// correctly reclassified as read-only: its data source and client model remain,
+// but its stale resource implementation must be removed.
+type GeneratedFileSet struct {
+	Resource   bool
+	DataSource bool
+	Client     bool
+}
+
+// CleanOrphanGeneratedFiles removes generated files that no longer have a
+// matching generated surface. Only files with the "DO NOT EDIT" header are
+// eligible, so manually maintained implementations remain untouched.
+func CleanOrphanGeneratedFiles(outDir, clntDir string, generatedFiles map[string]GeneratedFileSet) {
 	suffixes := []struct {
 		dir    string
 		suffix string
+		keep   func(GeneratedFileSet) bool
 	}{
-		{outDir, "_resource.go"},
-		{outDir, "_data_source.go"},
-		{clntDir, "_types.go"},
+		{outDir, "_resource.go", func(files GeneratedFileSet) bool { return files.Resource }},
+		{outDir, "_data_source.go", func(files GeneratedFileSet) bool { return files.DataSource }},
+		{clntDir, "_types.go", func(files GeneratedFileSet) bool { return files.Client }},
 	}
 
 	removedCount := 0
@@ -63,7 +74,7 @@ func CleanOrphanGeneratedFiles(outDir, clntDir string, generatedNames map[string
 		}
 		for _, file := range matches {
 			baseName := strings.TrimSuffix(filepath.Base(file), s.suffix)
-			if generatedNames[baseName] {
+			if s.keep(generatedFiles[baseName]) {
 				continue
 			}
 			// Check if file has "DO NOT EDIT" header (generated file)

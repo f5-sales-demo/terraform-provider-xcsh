@@ -1,20 +1,20 @@
 ---
-page_title: "xcsh_domain Data Source - xcsh"
-subcategory: "Uncategorized"
+page_title: "xcsh_bot_allowlist_policy Data Source - xcsh"
+subcategory: "Security"
 description: |-
-  Retrieves information about allowed domain. in F5 Distributed Cloud.
+  Retrieves information about an existing Bot Allowlist Policy resource in F5 Distributed Cloud for get bot allowlist policy. configuration. (read-only data source)
 ---
 
-# xcsh_domain (Data Source)
+# xcsh_bot_allowlist_policy (Data Source)
 
-Retrieves information about allowed domain. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about a Bot Allowlist Policy resource in F5 Distributed Cloud for get bot allowlist policy. configuration. (read-only data source)
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# Domain Data Source Example
+# BotAllowlistPolicy Data Source Example
 
 terraform {
   required_version = ">= 1.0"
@@ -27,14 +27,14 @@ terraform {
   }
 }
 
-# Look up an existing Domain by name
-data "xcsh_domain" "example" {
-  name      = "example-domain"
+# Look up an existing BotAllowlistPolicy by name
+data "xcsh_bot_allowlist_policy" "example" {
+  name      = "example-bot-allowlist-policy"
   namespace = "staging"
 }
 
-output "domain_id" {
-  value = data.xcsh_domain.example.id
+output "bot_allowlist_policy_id" {
+  value = data.xcsh_bot_allowlist_policy.example.id
 }
 ```
 
@@ -44,25 +44,27 @@ output "domain_id" {
 
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
-🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
-
 ### Metadata Argument Reference
 
-<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Domain
+<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the BotAllowlistPolicy to look up
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Domain exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace of the BotAllowlistPolicy
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+<a id="allowlist-policy-content"></a>&#x2022; [`allowlist_policy_content`](#allowlist-policy-content) - Optional String<br>IP Allowlist. Allowlist Policy Content
 
-<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Domain
+<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
+<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
-<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
+
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
+
+<a id="latest-version"></a>&#x2022; [`latest_version`](#latest-version) - Optional String<br>Version. Version number or identifier
 
 ---
 

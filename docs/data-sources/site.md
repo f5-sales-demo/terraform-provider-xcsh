@@ -2,12 +2,12 @@
 page_title: "xcsh_site Data Source - xcsh"
 subcategory: "Sites"
 description: |-
-  Retrieves information about virtual site object in given namespace. in F5 Distributed Cloud.
+  Retrieves information about an existing Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data source)
 ---
 
 # xcsh_site (Data Source)
 
-Retrieves information about virtual site object in given namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about a Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data source)
 
 ~> **Note** Please refer to [Site API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/sites/) to learn more.
 
@@ -46,21 +46,106 @@ output "site_id" {
 
 ### Metadata Argument Reference
 
-<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Site
+<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Site to look up
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Site exists
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace of the Site
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations applied to this resource
+<a id="address"></a>&#x2022; [`address`](#address) - Optional String<br>Site's geographical address that can be used to determine its latitude and longitude
 
-<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description of the Site
+<a id="admin-user-credentials"></a>&#x2022; [`admin_user_credentials`](#admin-user-credentials) - Optional String<br>Setup user credentials to manage access to nodes belonging to the site. When configured, 'admin' user will be setup and customers can access these nodes via either the node local WebUI or via SSH to access shell/CLI Ensure 'Node Local Services' are enabled to allow for required
+access
 
-<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
+<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
-<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
+<a id="bgp-peer-address"></a>&#x2022; [`bgp_peer_address`](#bgp-peer-address) - Optional String<br>Optional BGP peer address that can be used as parameter for BGP configuration when BGP is configured to fetch BGP peer address from site Object. This can be used to change peer address per site in fleet
+
+<a id="bgp-router-id"></a>&#x2022; [`bgp_router_id`](#bgp-router-id) - Optional String<br>Optional BGP router ID that can be used as parameter for BGP configuration when BGP is configured to fetch BGP router ID from site object. This can be used to change router ID per site in a fleet
+
+<a id="ce-site-mode"></a>&#x2022; [`ce_site_mode`](#ce-site-mode) - Optional String  Defaults to `CE_SITE_MODE_INGRESS_EGRESS_GW`<br>Possible values are `CE_SITE_MODE_INGRESS_EGRESS_GW`, `CE_SITE_MODE_INGRESS_GW`, `CE_SITE_MODE_EGRESS_GW`, `CE_SITE_MODE_DC_CLOUD_GW`, `CE_SITE_MODE_CPE`<br>[Enum:
+CE_SITE_MODE_INGRESS_EGRESS_GW|CE_SITE_MODE_INGRESS_GW|CE_SITE_MODE_EGRESS_GW|CE_SITE_MODE_DC_CLOUD_GW|CE_SITE_MODE_CPE] If Site is CE, it can be in following modes Ingress Egress Gateway CE Ingress Gateway CE Egress Gateway CE DC Cloud Gateway CE CPE CE
+
+<a id="connected-re"></a>&#x2022; [`connected_re`](#connected-re) - Optional String<br>Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to
+
+<a id="connected-re-for-config"></a>&#x2022; [`connected_re_for_config`](#connected-re-for-config) - Optional String<br>Valid only for CE site object List of REs which can send config to this CE site
+
+<a id="coordinates"></a>&#x2022; [`coordinates`](#coordinates) - Optional String<br>Coordinates of the site which provides the site physical location
+
+<a id="default-underlay-network"></a>&#x2022; [`default_underlay_network`](#default-underlay-network) - Optional String<br>Optional, virtual network to be used as underlay for different overlay protocols (SRv6, IP-in-IP tunnels for DC Cluster Group) Default is site-local-outside network
+
+<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
+
+<a id="desired-pool-count"></a>&#x2022; [`desired_pool_count`](#desired-pool-count) - Optional String<br>Desired pool count represent desired number of worker(non master) nodes for manual scaling of public cloud(AWS, GCP, Azure) sites. The desired count must be less than or equal to the maximum size of the scaling group for a given public cloud. One may also have to increase maximum scaling group
+
+<a id="global-access-k8s-enabled"></a>&#x2022; [`global_access_k8s_enabled`](#global-access-k8s-enabled) - Optional String<br>Enable or disable functionality flag
+
+<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
+
+<a id="inside-nameserver"></a>&#x2022; [`inside_nameserver`](#inside-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution in inside network
+
+<a id="inside-vip"></a>&#x2022; [`inside_vip`](#inside-vip) - Optional String<br>Optional Virtual IP to be used as automatic VIP for site local inside network. See documentation for 'VIP' in advertise policy to see when Inside VIP is used. When configured, this is used as VIP (depending on advertise policy configuration)
+
+<a id="ipsec-ssl-nodes-fqdn"></a>&#x2022; [`ipsec_ssl_nodes_fqdn`](#ipsec-ssl-nodes-fqdn) - Optional String<br>FQDN resolves to responders node IP, if there are multiple nodes at site the resolution will give a list of all/some individual node IP. Multiple FQDN for same site is also allowed
+
+<a id="kubernetes-upgrade-drain"></a>&#x2022; [`kubernetes_upgrade_drain`](#kubernetes-upgrade-drain) - Optional String<br>Specify how worker nodes within a site will be upgraded
+
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
+
+<a id="local-access-k8s-enabled"></a>&#x2022; [`local_access_k8s_enabled`](#local-access-k8s-enabled) - Optional String<br>Enable or disable functionality flag
+
+<a id="local-k8s-access-enabled"></a>&#x2022; [`local_k8s_access_enabled`](#local-k8s-access-enabled) - Optional String<br>Lets user know if this site has local K8S cluster enabled via fleet configuration
+
+<a id="main-nodes"></a>&#x2022; [`main_nodes`](#main-nodes) - Optional String<br>Connectivity information of main/master nodes to create a full mesh of Phobos services across all CEs in a site-mesh-group or dc-cluster-group
+
+<a id="multus-enabled"></a>&#x2022; [`multus_enabled`](#multus-enabled) - Optional String<br>Indicates that Multus cni is enabled on the site
+
+<a id="operating-system-version"></a>&#x2022; [`operating_system_version`](#operating-system-version) - Optional String<br>Desired Operating System version for this site
+
+<a id="outside-nameserver"></a>&#x2022; [`outside_nameserver`](#outside-nameserver) - Optional String<br>Optional IPv4 DNS server to be used for name resolution in outside network
+
+<a id="outside-vip"></a>&#x2022; [`outside_vip`](#outside-vip) - Optional String<br>Optional Virtual IP to be used as automatic VIP for site local outside network. See documentation for 'VIP' in advertise policy to see when Outside VIP is used. When configured, this is used as VIP (depending on advertise policy configuration)
+
+<a id="private-connectivity"></a>&#x2022; [`private_connectivity`](#private-connectivity) - Optional String<br>Private Connectivity Information like ADN network name and cloud link information
+
+<a id="re-select"></a>&#x2022; [`re_select`](#re-select) - Optional String<br>Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s)
+
+<a id="region"></a>&#x2022; [`region`](#region) - Optional String<br>Cloud Region. A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network
+
+<a id="site-state"></a>&#x2022; [`site_state`](#site-state) - Optional String  Defaults to `ONLINE`<br>Possible values are `ONLINE`, `PROVISIONING`, `UPGRADING`, `STANDBY`, `FAILED`, `REREGISTRATION`, `WAITINGNODES`, `DECOMMISSIONING`, `WAITING_FOR_REGISTRATION`, `ORCHESTRATION_IN_PROGRESS`, `ORCHESTRATION_COMPLETE`, `ERROR_IN_ORCHESTRATION`, `DELETING_CLOUD_RESOURCES`, `DELETED_CLOUD_RESOURCES`,
+`ERROR_DELETING_CLOUD_RESOURCES`, `VALIDATION_IN_PROGRESS`, `VALIDATION_SUCCESS`, `VALIDATION_FAILED`, `FAILED_INACTIVE`, `UPDATING_CLOUD_RESOURCES`, `ERROR_UPDATING_CLOUD_RESOURCES`, `ORCHESTRATION_QUEUED`, `UPDATE_QUEUED`, `DELETE_QUEUED`<br>[Enum:
+ONLINE|PROVISIONING|UPGRADING|STANDBY|FAILED|REREGISTRATION|WAITINGNODES|DECOMMISSIONING|WAITING_FOR_REGISTRATION|ORCHESTRATION_IN_PROGRESS|ORCHESTRATION_COMPLETE|ERROR_IN_ORCHESTRATION|DELETING_CLOUD_RESOURCES|DELETED_CLOUD_RESOURCES|ERROR_DELETING_CLOUD_RESOURCES|VALIDATION_IN_PROGRESS|VALIDATION_SUCCESS|VALIDATION_FAILED|FAILED_INACTIVE|UPDATING_CLOUD_RESOURCES|ERROR_UPDATING_CLOUD_RESOURCES|ORCHESTRATION_QUEUED|UPDATE_QUEUED|DELETE_QUEUED]
+State of Site defines in which operational state site itself is. Site is online and operational. Site is in provisioning state. For instance during site deployment or switching to different connected Regional Edge. Site is in process of upgrade
+
+<a id="site-subtype"></a>&#x2022; [`site_subtype`](#site-subtype) - Optional String  Defaults to `NO_SUBTYPE`<br>Possible values are `NO_SUBTYPE`, `VES_IO_USE_RE`, `VES_IO_CE_IN_K8S`, `VES_IO_HIDDEN_RE`<br>[Enum: NO_SUBTYPE|VES_IO_USE_RE|VES_IO_CE_IN_K8S|VES_IO_HIDDEN_RE] Sit Subtype No Subtype Regional Edge isn't ready yet. Configuration isn't propagated for this site. Regional Edge which is
+hidden from customer. Configuration will be propagated. CE running in Kubernetes
+
+<a id="site-to-site-network-type"></a>&#x2022; [`site_to_site_network_type`](#site-to-site-network-type) - Optional String  Defaults to `VIRTUAL_NETWORK_SITE_LOCAL`<br>Possible values are `VIRTUAL_NETWORK_SITE_LOCAL`, `VIRTUAL_NETWORK_SITE_LOCAL_INSIDE`, `VIRTUAL_NETWORK_PER_SITE`, `VIRTUAL_NETWORK_PUBLIC`, `VIRTUAL_NETWORK_GLOBAL`, `VIRTUAL_NETWORK_SITE_SERVICE`, `VIRTUAL_NETWORK_VER_INTERNAL`,
+`VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE`, `VIRTUAL_NETWORK_IP_AUTO`, `VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK`, `VIRTUAL_NETWORK_SRV6_NETWORK`, `VIRTUAL_NETWORK_IP_FABRIC`, `VIRTUAL_NETWORK_SEGMENT`, `VIRTUAL_NETWORK_MANAGEMENT`<br>[Enum:
+VIRTUAL_NETWORK_SITE_LOCAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE|VIRTUAL_NETWORK_PER_SITE|VIRTUAL_NETWORK_PUBLIC|VIRTUAL_NETWORK_GLOBAL|VIRTUAL_NETWORK_SITE_SERVICE|VIRTUAL_NETWORK_VER_INTERNAL|VIRTUAL_NETWORK_SITE_LOCAL_INSIDE_OUTSIDE|VIRTUAL_NETWORK_IP_AUTO|VIRTUAL_NETWORK_VOLTADN_PRIVATE_NETWORK|VIRTUAL_NETWORK_SRV6_NETWORK|VIRTUAL_NETWORK_IP_FABRIC|VIRTUAL_NETWORK_SEGMENT|VIRTUAL_NETWORK_MANAGEMENT]
+Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to
+
+<a id="site-to-site-tunnel-ip"></a>&#x2022; [`site_to_site_tunnel_ip`](#site-to-site-tunnel-ip) - Optional String<br>Optionsl, VIP in the site_to_site_network_type configured above used for terminating IPsec/SSL tunnels created with SiteMeshGroup
+
+<a id="site-type"></a>&#x2022; [`site_type`](#site-type) - Optional String<br>Possible values are `INVALID`, `REGIONAL_EDGE`, `CUSTOMER_EDGE`, `NGINX_ONE`<br>[Enum: INVALID|REGIONAL_EDGE|CUSTOMER_EDGE|NGINX_ONE] Site Type which can either RE or CE Invalid type of site Regional Edge site Customer Edge site
+
+<a id="tunnel-dead-timeout"></a>&#x2022; [`tunnel_dead_timeout`](#tunnel-dead-timeout) - Optional String<br>Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used
+
+<a id="tunnel-type"></a>&#x2022; [`tunnel_type`](#tunnel-type) - Optional String  Defaults to `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`<br>Possible values are `SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL`, `SITE_TO_SITE_TUNNEL_IPSEC`, `SITE_TO_SITE_TUNNEL_SSL`<br>[Enum: SITE_TO_SITE_TUNNEL_IPSEC_OR_SSL|SITE_TO_SITE_TUNNEL_IPSEC|SITE_TO_SITE_TUNNEL_SSL] Tunnel encapsulation to be used between sites Tunnel can
+operate in both IPsec and SSL, with IPsec being preferred over SSL. Tunnel is of type IPsec Tunnel is of type SSL
+
+<a id="vip-params-per-az"></a>&#x2022; [`vip_params_per_az`](#vip-params-per-az) - Optional String<br>Optional Publish VIP Parameters Per AZ for public cloud sites. See documentation for 'VIP' in advertise policy to see when Inside VIP or Outside VIP is used. When configured, the VIP(s) defined will be used to publish to external systems like K8S, Consul
+
+<a id="vip-vrrp-mode"></a>&#x2022; [`vip_vrrp_mode`](#vip-vrrp-mode) - Optional String  Defaults to `VIP_VRRP_INVALID`<br>Possible values are `VIP_VRRP_INVALID`, `VIP_VRRP_ENABLE`, `VIP_VRRP_DISABLE`<br>[Enum: VIP_VRRP_INVALID|VIP_VRRP_ENABLE|VIP_VRRP_DISABLE] VRRP advertisement mode for VIP Invalid VRRP mode
+
+<a id="vm-enabled"></a>&#x2022; [`vm_enabled`](#vm-enabled) - Optional String<br>Indicates that virtual machine support is enabled on the site
+
+<a id="volterra-software-override"></a>&#x2022; [`volterra_software_override`](#volterra-software-override) - Optional String  Defaults to `SITE_SOFTWARE_OVERRIDE_SITE`<br>Possible values are `SITE_SOFTWARE_OVERRIDE_SITE`, `SITE_SOFTWARE_OVERRIDE_NEWER`, `SITE_SOFTWARE_OVERRIDE_FLEET`<br>[Enum: SITE_SOFTWARE_OVERRIDE_SITE|SITE_SOFTWARE_OVERRIDE_NEWER|SITE_SOFTWARE_OVERRIDE_FLEET] Decide which
+software version takes effect in case of conflict between site and fleet Software version in site will take precedence. Between site and fleet newer software version will take precedence. Software version in fleet will take precedence
+
+<a id="volterra-software-version"></a>&#x2022; [`volterra_software_version`](#volterra-software-version) - Optional String<br>Desired F5XC software version for this site, a string matching released set of software components
 
 ---
 
