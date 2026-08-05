@@ -25,6 +25,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -63,6 +64,7 @@ var (
 	resourceDependencyMap   = make(map[string]*openapi.ResourceDependencies) // resourceName -> dependencies
 	resourceReferencedByMap = make(map[string][]string)                      // resourceName -> resources that depend on it
 	resourceCategoryMap     = make(map[string]string)                        // resourceName -> category
+	operationCatalog        *openapi.OperationCatalog
 )
 
 // schemaCache and rawSpecCache are aliases for the canonical caches in the schema package.
@@ -150,7 +152,7 @@ func main() {
 
 	// Clean up orphan generated files that no longer have matching resources
 	if !dryRun {
-		generatedNames := make(map[string]bool)
+		generatedFiles := make(map[string]registration.GeneratedFileSet)
 		for _, r := range results {
 			// #1406: a resource that failed this run is not an orphan — it is a
 			// resource whose regeneration broke. Deleting its committed files turns
@@ -158,15 +160,25 @@ func main() {
 			// as an "Invalid resource type" in a different repository. Only a run
 			// that legitimately no longer produces a resource may remove it, and a
 			// failed run is not that.
-			if r.Success || r.Error != "" {
-				generatedNames[r.ResourceName] = true
+			if r.Error != "" {
+				// A failed resource is not an orphan. Preserve every existing
+				// generated surface until a successful run can classify it.
+				generatedFiles[r.ResourceName] = registration.GeneratedFileSet{Resource: true, DataSource: true, Client: true}
+				continue
+			}
+			if r.Success {
+				generatedFiles[r.ResourceName] = registration.GeneratedFileSet{
+					Resource:   !r.IsReadOnly,
+					DataSource: !r.IsAction,
+					Client:     true,
+				}
 			}
 		}
 		// Also include core resources that are always registered
 		for _, core := range registration.CoreResources {
-			generatedNames[core] = true
+			generatedFiles[core] = registration.GeneratedFileSet{Resource: true, DataSource: true, Client: true}
 		}
-		registration.CleanOrphanGeneratedFiles(outputDir, clientDir, generatedNames)
+		registration.CleanOrphanGeneratedFiles(outputDir, clientDir, generatedFiles)
 	}
 
 	if failCount > 0 {
@@ -182,6 +194,12 @@ func main() {
 
 // processV2Specs processes v2 format specs (domain-organized files from api-specs-enriched)
 func processV2Specs(specDir string) ([]GenerationResult, int, int) {
+	var err error
+	operationCatalog, err = openapi.ParseOperationCatalogFromDir(specDir)
+	if err != nil {
+		fmt.Printf("❌ Error parsing api-catalog.json: %v\n", err)
+		os.Exit(1)
+	}
 	// Parse the index.json to get domain information
 	index, err := openapi.ParseIndexFromDir(specDir)
 	if err != nil {
@@ -209,6 +227,12 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		fmt.Printf("❌ Error finding domain spec files: %v\n", err)
 		os.Exit(1)
 	}
+	if err := operationCatalog.ValidateAgainstSpecFiles(domainFiles); err != nil {
+		fmt.Printf("❌ api-catalog.json does not match the OpenAPI domain specs: %v\n", err)
+		os.Exit(1)
+	}
+	fmt.Printf("📋 Loaded exact API operation contract: %d identities + %d exclusions\n",
+		len(operationCatalog.APIOperations), len(operationCatalog.APIExclusions))
 
 	results := []GenerationResult{}
 	successCount := 0
@@ -284,7 +308,14 @@ func processV2Specs(specDir string) ([]GenerationResult, int, int) {
 		// Delete=no-op, no Update, no data source) that the CRUD discovery above
 		// does not produce. Guard names against the already-processed set.
 		if actionSpec, aerr := parseOpenAPISpec(domainFile); aerr == nil {
-			for _, act := range openapi.ExtractActionsFromPaths(actionSpec) {
+			actions, catalogErr := operationCatalog.ActionsForSpec(actionSpec)
+			if catalogErr != nil {
+				fmt.Printf("   ❌ Action catalog mismatch: %v\n", catalogErr)
+				results = append(results, GenerationResult{ResourceName: domainName, Success: false, Error: catalogErr.Error()})
+				failCount++
+				continue
+			}
+			for _, act := range actions {
 				if processedResources[act.ResourceName] {
 					if verbose {
 						fmt.Printf("      ⏭️  Skipping duplicate action: %s (already processed)\n", act.ResourceName)
@@ -383,7 +414,7 @@ func processV2Action(domainFile string, act openapi.ResourcePath) GenerationResu
 		schemaCache[name] = s
 	}
 
-	tmpl, err := schema.ExtractActionResourceSchema(spec, act.ResourceName, extractAPIPath)
+	tmpl, err := schema.ExtractActionResourceSchema(spec, act)
 	if err != nil {
 		// #1406: this used to print only under -verbose and return an EMPTY Error,
 		// so the result was counted as neither success nor failure, the run exited
@@ -447,27 +478,42 @@ func processSpecFileForResource(specFile string, resourceName string, category s
 		schemaCache[name] = schema
 	}
 
-	// Try to extract the resource schema
-	schema, schemaName, isReadOnly := extractResourceSchemaByName(spec, resourceName)
+	// Path-shape discovery identifies provider candidates, while apiOperations
+	// decides whether an exact lifecycle exists. A plural-looking custom action
+	// with no matching API identity is not a Terraform resource.
+	if !operationCatalog.HasResourceIdentity(resourceName) {
+		if verbose {
+			fmt.Printf("      ⏭️  Skipping non-resource path candidate %s: no apiOperations identity\n", resourceName)
+		}
+		return GenerationResult{ResourceName: resourceName, Success: false, Error: ""}
+	}
+	resolved, err := operationCatalog.ResolveResource(spec, resourceName)
+	if err != nil {
+		if errors.Is(err, openapi.ErrResourceNotManageable) {
+			if verbose {
+				fmt.Printf("      ⏭️  Skipping non-manageable API candidate %s: %v\n", resourceName, err)
+			}
+			return GenerationResult{ResourceName: resourceName, Success: false, Error: ""}
+		}
+		return GenerationResult{ResourceName: resourceName, Success: false, Error: err.Error()}
+	}
+
+	// Try to extract the resource schema. Without an exact Create operation the
+	// API is read-only even if a CreateSpecType component happens to exist.
+	schema, schemaName, isReadOnly := extractResourceSchemaByName(spec, resourceName, resolved.HasCreate)
 	if schema == nil {
 		return GenerationResult{ResourceName: resourceName, Success: false, Error: ""}
 	}
 
-	// Extract API path from spec (or construct from resource name)
-	apiPath := extractAPIPathForResource(spec, resourceName)
-	if apiPath == "" {
-		apiPath = fmt.Sprintf("/api/config/namespaces/{namespace}/%ss", resourceName)
-	}
-
 	if isReadOnly {
-		return generateReadOnlyDataSource(resourceName, schemaName, schema, apiPath, specFile, category, requiresTier)
+		return generateReadOnlyDataSource(resourceName, schemaName, specFile)
 	}
-	return generateResourceFromSchema(resourceName, schemaName, schema, apiPath, specFile, category, requiresTier)
+	return generateResourceFromSchema(resourceName, schemaName, specFile, category, requiresTier)
 }
 
 // extractResourceSchemaByName extracts a specific resource schema by name from a spec.
 // Returns (schema, schemaName, isReadOnly). isReadOnly is true when only GetSpecType was found.
-func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*SchemaDefinition, string, bool) {
+func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string, hasCreate bool) (*SchemaDefinition, string, bool) {
 	// Try CreateSpecType first (CRUD resources)
 	createPatterns := []string{
 		fmt.Sprintf("%sCreateSpecType", resourceName),
@@ -475,21 +521,25 @@ func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*Sche
 		fmt.Sprintf("%sReplaceSpecType", resourceName),
 		fmt.Sprintf("schema%sReplaceSpecType", resourceName),
 	}
-	for _, pattern := range createPatterns {
-		if schema, ok := spec.Components.Schemas[pattern]; ok {
-			return &schema, pattern, false
+	if hasCreate {
+		for _, pattern := range createPatterns {
+			if schema, ok := spec.Components.Schemas[pattern]; ok {
+				return &schema, pattern, false
+			}
 		}
 	}
 
-	// Legacy patterns (ves.io.schema format)
+	// Legacy mutable patterns (ves.io.schema format)
 	legacyPatterns := []string{
 		fmt.Sprintf("ves.io.schema.%s.Object", resourceName),
 		fmt.Sprintf("%sType", naming.ToResourceTypeName(resourceName)),
 		resourceName,
 	}
-	for _, pattern := range legacyPatterns {
-		if schema, ok := spec.Components.Schemas[pattern]; ok {
-			return &schema, pattern, false
+	if hasCreate {
+		for _, pattern := range legacyPatterns {
+			if schema, ok := spec.Components.Schemas[pattern]; ok {
+				return &schema, pattern, false
+			}
 		}
 	}
 
@@ -503,18 +553,20 @@ func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*Sche
 	lowerName := strings.ToLower(resourceName)
 
 	// Fallback: case-insensitive match for legacy .Object suffix
-	for _, name := range sortedNames {
-		if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, ".Object") {
-			schema := spec.Components.Schemas[name]
-			return &schema, name, false
+	if hasCreate {
+		for _, name := range sortedNames {
+			if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, ".Object") {
+				schema := spec.Components.Schemas[name]
+				return &schema, name, false
+			}
 		}
-	}
 
-	// Fallback: case-insensitive match for CreateSpecType
-	for _, name := range sortedNames {
-		if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, "CreateSpecType") {
-			schema := spec.Components.Schemas[name]
-			return &schema, name, false
+		// Fallback: case-insensitive match for CreateSpecType
+		for _, name := range sortedNames {
+			if strings.Contains(strings.ToLower(name), lowerName) && strings.HasSuffix(name, "CreateSpecType") {
+				schema := spec.Components.Schemas[name]
+				return &schema, name, false
+			}
 		}
 	}
 
@@ -541,31 +593,8 @@ func extractResourceSchemaByName(spec *OpenAPI3Spec, resourceName string) (*Sche
 	return nil, "", false
 }
 
-// extractAPIPathForResource extracts the API path for a specific resource from a spec
-func extractAPIPathForResource(spec *OpenAPI3Spec, resourceName string) string {
-	plural := resourceName + "s"
-	// Handle special pluralization
-	if strings.HasSuffix(resourceName, "y") {
-		plural = strings.TrimSuffix(resourceName, "y") + "ies"
-	}
-
-	// Sort paths for deterministic matching (map order is random in Go)
-	paths := make([]string, 0, len(spec.Paths))
-	for path := range spec.Paths {
-		paths = append(paths, path)
-	}
-	sort.Strings(paths)
-
-	for _, path := range paths {
-		if strings.Contains(path, "/"+plural) {
-			return path
-		}
-	}
-	return ""
-}
-
 // generateReadOnlyDataSource generates only a data source for a read-only resource (GetSpecType only).
-func generateReadOnlyDataSource(resourceName string, schemaName string, schemaDef *SchemaDefinition, apiPath string, specFile string, category string, requiresTier string) GenerationResult {
+func generateReadOnlyDataSource(resourceName string, schemaName string, specFile string) GenerationResult {
 	if verbose {
 		fmt.Printf("      Generating read-only data source: %s (schema: %s)\n", resourceName, schemaName)
 	}
@@ -602,7 +631,7 @@ func generateReadOnlyDataSource(resourceName string, schemaName string, schemaDe
 
 // generateResourceFromSchema generates a resource file from an extracted schema
 // This is factored out from processSpecFile to support both v1 and v2 processing
-func generateResourceFromSchema(resourceName string, schemaName string, schemaDef *SchemaDefinition, apiPath string, specFile string, category string, requiresTier string) GenerationResult {
+func generateResourceFromSchema(resourceName string, schemaName string, specFile string, category string, requiresTier string) GenerationResult {
 	if verbose {
 		fmt.Printf("      Generating: %s (schema: %s)\n", resourceName, schemaName)
 		if category != "" {
@@ -706,60 +735,18 @@ func parseOpenAPISpec(specFile string) (*OpenAPI3Spec, error) {
 	return &spec, nil
 }
 
-// extractAPIPath extracts the correct API path for CRUD operations from the OpenAPI spec
-// It looks for paths containing POST (create) and returns the base path pattern
-// Returns: basePath (for create/list), itemPath (for get/update/delete), hasNamespace (whether path has {namespace} segment)
+// extractAPIPath resolves exact collection and item paths from apiOperations.
+// An empty result is a contract failure already surfaced by the caller; there is
+// deliberately no name-based construction or legacy fallback.
 func extractAPIPath(spec *OpenAPI3Spec, resourceName string) (basePath string, itemPath string, hasNamespace bool) {
-	resourcePlural := resourceName + "s"
-
-	// Sort path keys for deterministic matching (map order is random in Go)
-	sortedPaths := make([]string, 0, len(spec.Paths))
-	for path := range spec.Paths {
-		sortedPaths = append(sortedPaths, path)
+	if operationCatalog == nil {
+		return "", "", false
 	}
-	sort.Strings(sortedPaths)
-
-	// Look for CRUD paths in the spec
-	for _, path := range sortedPaths {
-		pathObj := spec.Paths[path]
-		pathMap, ok := pathObj.(map[string]interface{})
-		if !ok {
-			continue
-		}
-
-		// Check if this is a CRUD endpoint (has POST for create or GET for list)
-		_, hasPost := pathMap["post"]
-		_, hasGet := pathMap["get"]
-
-		// Look for the base path (list/create endpoint) - ends with plural resource name
-		// Pattern: /api/.../resource_names or /api/.../resource_names (with namespace)
-		if (hasPost || hasGet) && strings.HasSuffix(path, "/"+resourcePlural) {
-			// Check if path contains namespace segment
-			hasNamespace = strings.Contains(path, "{namespace}") || strings.Contains(path, "{metadata.namespace}")
-
-			// Convert {metadata.namespace} to %s for namespace substitution
-			// Convert {metadata.name} or {name} for item paths
-			basePath = path
-			if hasNamespace {
-				basePath = strings.ReplaceAll(basePath, "{metadata.namespace}", "%s")
-				basePath = strings.ReplaceAll(basePath, "{namespace}", "%s")
-			}
-
-			// Item path is base path + /{name}
-			itemPath = path + "/{name}"
-			itemPath = strings.ReplaceAll(itemPath, "{metadata.namespace}", "%s")
-			itemPath = strings.ReplaceAll(itemPath, "{namespace}", "%s")
-			itemPath = strings.ReplaceAll(itemPath, "{metadata.name}", "%s")
-			itemPath = strings.ReplaceAll(itemPath, "{name}", "%s")
-
-			return basePath, itemPath, hasNamespace
-		}
+	resolved, err := operationCatalog.ResolveResource(spec, resourceName)
+	if err != nil {
+		return "", "", false
 	}
-
-	// Fallback to default pattern if no path found
-	return fmt.Sprintf("/api/config/namespaces/%%s/%s", resourcePlural),
-		fmt.Sprintf("/api/config/namespaces/%%s/%s/%%s", resourcePlural),
-		true
+	return resolved.CollectionPath, resolved.ItemPath, resolved.HasNamespace
 }
 
 // extractResourceSchema, hasNestedModelsWithAttrTypes, hasMaxLengthValidatorsAny,

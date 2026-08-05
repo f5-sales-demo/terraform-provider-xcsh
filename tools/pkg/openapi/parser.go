@@ -10,11 +10,8 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 	"sync"
-
-	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 )
 
 // ParseFile reads and parses an OpenAPI specification file.
@@ -284,7 +281,6 @@ type ExtractedResource struct {
 	Name         string
 	SchemaName   string // Full schema name in components/schemas
 	Description  string
-	APIPath      string
 	RequiresTier string
 	Complexity   string
 	Category     string // Inherited from domain if not specified
@@ -322,7 +318,6 @@ func ExtractResourcesFromDomain(specPath string) (*DomainSpecInfo, error) {
 		resource := ExtractedResource{
 			Name:         rp.ResourceName,
 			SchemaName:   rp.SchemaName,
-			APIPath:      rp.APIPath,
 			DomainName:   domainName,
 			Category:     info.Category,     // Inherit from domain
 			IsPreview:    info.IsPreview,    // Inherit from domain
@@ -355,7 +350,6 @@ func ExtractResourcesFromDomain(specPath string) (*DomainSpecInfo, error) {
 type resourcePath struct {
 	ResourceName string
 	SchemaName   string
-	APIPath      string
 }
 
 // extractResourcePathsFromPaths analyzes OpenAPI paths to find CRUD resource patterns.
@@ -368,9 +362,8 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	configPathRegex := regexp.MustCompile(`^/api/config/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
 
 	// Service-prefixed pattern: /api/config/{service}/namespaces/{namespace}/{resource_plural}
-	// (e.g. /api/config/dns/namespaces/{namespace}/dns_zones). The {service} segment groups
-	// related objects in the F5 XC API. The full path is preserved as the resource's APIPath
-	// so the generated client targets the correct service-prefixed URL.
+	// (e.g. /api/config/dns/namespaces/{namespace}/dns_zones). The {service}
+	// segment affects candidate discovery only; emitted paths come from apiOperations.
 	configServicePathRegex := regexp.MustCompile(`^/api/config/[a-z_0-9]+/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
 
 	// Secondary pattern: /api/web/{resource_plural} (for system-level resources like namespace)
@@ -380,8 +373,8 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 	// (e.g. /api/shape/csd/namespaces/{namespace}/protected_domains — Client-Side Defense
 	// domain-management objects). These live outside /api/config. The resource name is kept
 	// as the natural API kind (protected_domain/allowed_domain/mitigated_domain) so the
-	// generator resolves its {resourceName}CreateSpecType schema; the full shape path is
-	// preserved as the resource's APIPath so the client targets /api/shape/... correctly.
+	// generator resolves its {resourceName}CreateSpecType schema. Emitted paths
+	// come from apiOperations rather than this discovery heuristic.
 	shapeServicePathRegex := regexp.MustCompile(`^/api/shape/[a-z_0-9]+/namespaces/\{namespace\}/([a-z_0-9]+s)$`)
 
 	// Register pattern: /api/register/namespaces/{namespace}/{resource_plural}
@@ -432,7 +425,6 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 		results = append(results, resourcePath{
 			ResourceName: resourceName,
 			SchemaName:   schemaName,
-			APIPath:      path,
 		})
 	}
 
@@ -443,73 +435,15 @@ func extractResourcePathsFromPaths(paths map[string]interface{}) []resourcePath 
 // Action-resource discovery (schema-level x-f5xc-action)
 // =============================================================================
 
-// ResourcePath describes an action-style resource discovered from the raw
-// OpenAPI paths: a POST whose request-body schema is a component carrying a
-// schema-level x-f5xc-action. It captures the action POST path, the sibling
-// object GET path (for lenient Read), and the request schema name.
+// ResourcePath describes an action-style resource resolved from apiOperations
+// and a request-body component carrying schema-level x-f5xc-action. It captures
+// the exact action POST and sibling object GET paths plus the request schema.
 type ResourcePath struct {
 	ResourceName   string // resource name (request schema name minus the "Req" suffix)
 	SchemaName     string // request-body component schema name
 	ActionValue    string // x-f5xc-action value (e.g. "approve")
 	ActionPath     string // %s-substituted action POST path
-	ReadObjectPath string // %s-substituted sibling object GET path (pluralized)
-}
-
-// ExtractActionsFromPaths walks the raw spec.Paths and returns one ResourcePath
-// for each POST whose request-body schema is a component carrying a non-empty
-// x-f5xc-action. The sibling read path is derived — action-specific, as this is
-// the sole action resource today: drop the trailing action segment, then
-// pluralize the object segment immediately before the item placeholder
-// (…/registration/{name}/approve -> …/registrations/{name}).
-func ExtractActionsFromPaths(spec *Spec) []ResourcePath {
-	var results []ResourcePath
-	seen := make(map[string]bool)
-
-	// Deterministic iteration order (Go map order is random).
-	paths := make([]string, 0, len(spec.Paths))
-	for p := range spec.Paths {
-		paths = append(paths, p)
-	}
-	sort.Strings(paths)
-
-	for _, rawPath := range paths {
-		pathItem, ok := spec.Paths[rawPath].(map[string]interface{})
-		if !ok {
-			continue
-		}
-		post, ok := pathItem["post"].(map[string]interface{})
-		if !ok {
-			continue
-		}
-		ref := requestBodySchemaRef(post)
-		if ref == "" {
-			continue
-		}
-		schemaName := GetRefName(ref)
-		compSchema, ok := spec.Components.Schemas[schemaName]
-		if !ok || compSchema.XF5xcAction == "" {
-			continue
-		}
-		action := compSchema.XF5xcAction
-		// The request-body component schema name is camelCase (e.g.
-		// "registrationApprovalReq"); the Terraform resource name must be
-		// snake_case ("registration_approval") so the emitted type
-		// (xcsh_registration_approval), Go struct, and file names are correct.
-		resourceName := naming.ToSnakeCase(strings.TrimSuffix(schemaName, "Req"))
-		if seen[resourceName] {
-			continue
-		}
-		seen[resourceName] = true
-
-		results = append(results, ResourcePath{
-			ResourceName:   resourceName,
-			SchemaName:     schemaName,
-			ActionValue:    action,
-			ActionPath:     placeholdersToFormat(rawPath),
-			ReadObjectPath: deriveActionReadPath(rawPath, action),
-		})
-	}
-	return results
+	ReadObjectPath string // exact %s-substituted sibling object GET path
 }
 
 // requestBodySchemaRef extracts the application/json request-body schema $ref
@@ -533,30 +467,6 @@ func requestBodySchemaRef(op map[string]interface{}) string {
 	}
 	ref, _ := s["$ref"].(string)
 	return ref
-}
-
-// placeholdersToFormat converts OpenAPI {name} path placeholders to Go %s verbs.
-func placeholdersToFormat(path string) string {
-	r := strings.NewReplacer(
-		"{metadata.namespace}", "%s",
-		"{namespace}", "%s",
-		"{metadata.name}", "%s",
-		"{name}", "%s",
-	)
-	return r.Replace(path)
-}
-
-// deriveActionReadPath derives the sibling object GET path from an action POST
-// path: drop the trailing "/{action}" segment and pluralize the object segment
-// immediately preceding the item placeholder, then substitute placeholders.
-func deriveActionReadPath(actionPath, action string) string {
-	objectPath := strings.TrimSuffix(actionPath, "/"+action)
-	segs := strings.Split(objectPath, "/")
-	// segs[last] is the item placeholder ({name}); segs[last-1] is the object kind.
-	if len(segs) >= 2 {
-		segs[len(segs)-2] += "s"
-	}
-	return placeholdersToFormat(strings.Join(segs, "/"))
 }
 
 // GetExampleValue returns the best available example for a schema field.

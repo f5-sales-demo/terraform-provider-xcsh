@@ -1,21 +1,20 @@
 ---
-page_title: "xcsh_domain Resource - xcsh"
+page_title: "xcsh_cloud_region Data Source - xcsh"
 subcategory: "Uncategorized"
 description: |-
-  Manages allowed domain. in F5 Distributed Cloud.
+  Retrieves information about an existing Cloud Region resource in F5 Distributed Cloud for cloud re specification. configuration. (read-only data source)
 ---
 
-# xcsh_domain (Resource)
+# xcsh_cloud_region (Data Source)
 
-Manages allowed domain. in F5 Distributed Cloud.
+Retrieves information about a Cloud Region resource in F5 Distributed Cloud for cloud re specification. configuration. (read-only data source)
 
-~> **Note** For more information about this resource, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
+~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
 ## Example Usage
 
 ```terraform
-# Domain Resource Example
-# Manages allowed domain.
+# CloudRegion Data Source Example
 
 terraform {
   required_version = ">= 1.0"
@@ -28,12 +27,14 @@ terraform {
   }
 }
 
-# Basic Domain configuration
-resource "xcsh_domain" "example" {
-  name      = "example-domain"
+# Look up an existing CloudRegion by name
+data "xcsh_cloud_region" "example" {
+  name      = "example-cloud-region"
   namespace = "staging"
+}
 
-  allowed_domain = "example-value"
+output "cloud_region_id" {
+  value = data.xcsh_cloud_region.example.id
 }
 ```
 
@@ -43,47 +44,27 @@ resource "xcsh_domain" "example" {
 
 -> **Syntax Rule:** This provider uses OneOf groups for mutually exclusive options. Fields documented as "Optional Block" use empty block syntax `field_name {}`, **never** `field_name = true`. Boolean attributes (like `add_hsts`, `http_redirect`) use `= true/false` as normal.
 
-🔶 **High Risk Operations** — Some operations on this resource have high danger level. Destructive operations may require confirmation.
-
 ### Metadata Argument Reference
 
-<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the Domain. Must be unique within the namespace
+<a id="name"></a>&#x2022; [`name`](#name) - Required String<br>Name of the CloudRegion to look up
 
-<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace where the Domain will be created
-
-<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata
-
-<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Human readable description for the object
-
-<a id="disable"></a>&#x2022; [`disable`](#disable) - Optional Bool<br>A value of true will administratively disable the object
-
-<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels is a user defined key value map that can be attached to resources for organization and filtering
-
-### Spec Argument Reference
-
-<a id="allowed-domain"></a>&#x2022; [`allowed_domain`](#allowed-domain) - Required String<br>Enter root domain or domain to be entered to allow list below. Domains can be entered only one at a time. In case of conflicting entries, the domain entry takes precedence over the root domain entry
-
-<a id="timeouts"></a>&#x2022; [`timeouts`](#timeouts) - Optional Block<br>See [Timeouts](#timeouts) below for details.
+<a id="namespace"></a>&#x2022; [`namespace`](#namespace) - Required String<br>Namespace of the CloudRegion
 
 ### Attributes Reference
 
 In addition to all arguments above, the following attributes are exported:
 
-<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier for the resource
+<a id="annotations"></a>&#x2022; [`annotations`](#annotations) - Optional Map<br>Annotations
 
----
+<a id="default-policy-group"></a>&#x2022; [`default_policy_group`](#default-policy-group) - Optional String<br>Configuration parameter for default policy group
 
-#### Timeouts
+<a id="description"></a>&#x2022; [`description`](#description) - Optional String<br>Description
 
-A [`timeouts`](#timeouts) block supports the following:
+<a id="id"></a>&#x2022; [`id`](#id) - Optional String<br>Unique identifier
 
-<a id="timeouts-create"></a>&#x2022; [`create`](#timeouts-create) - Optional String (Defaults to `10 minutes`)<br>Used when creating the resource
+<a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels
 
-<a id="timeouts-delete"></a>&#x2022; [`delete`](#timeouts-delete) - Optional String (Defaults to `10 minutes`)<br>Used when deleting the resource
-
-<a id="timeouts-read"></a>&#x2022; [`read`](#timeouts-read) - Optional String (Defaults to `5 minutes`)<br>Used when retrieving the resource
-
-<a id="timeouts-update"></a>&#x2022; [`update`](#timeouts-update) - Optional String (Defaults to `10 minutes`)<br>Used when updating the resource
+<a id="policy-group"></a>&#x2022; [`policy_group`](#policy-group) - Optional String<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name
 
 ---
 
@@ -167,12 +148,3 @@ IP address threat categories for security filtering.
 | `TOR_PROXY` | Tor exit nodes |
 | `DENIAL_OF_SERVICE` | DoS attack sources |
 | `NETWORK` | Known bad network ranges |
-
-## Import
-
-Import is supported using the following syntax:
-
-```shell
-# Import using namespace/name format
-terraform import xcsh_domain.example system/example
-```

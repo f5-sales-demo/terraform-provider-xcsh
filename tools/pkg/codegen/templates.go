@@ -1247,6 +1247,9 @@ func (d *{{.TitleCase}}DataSource) Read(ctx context.Context, req datasource.Read
 
 	// Map spec fields from API response
 {{- range .Attributes}}{{if and .Computed (not (eq .Name "id")) (not (eq .Name "name")) (not (eq .Name "namespace")) (not (eq .Name "description")) (not (eq .Name "labels")) (not (eq .Name "annotations"))}}
+{{- if ne .JsonName .TfsdkTag}}
+	// "{{.JsonName}}" is the API wire key declared by x-f5xc-wire-name for Terraform attribute "{{.TfsdkTag}}".
+{{- end}}
 	if v, ok := resource.Spec["{{.JsonName}}"]; ok && v != nil {
 		data.{{.GoName}} = types.StringValue(fmt.Sprintf("%v", v))
 	} else {

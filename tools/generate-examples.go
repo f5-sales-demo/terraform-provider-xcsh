@@ -52,7 +52,8 @@ func main() {
 	resFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_resource.go"))
 	dsFiles, _ := filepath.Glob(filepath.Join(providerDir, "*_data_source.go"))
 
-	keep := map[string]bool{}
+	resourceKeep := map[string]bool{}
+	dataSourceKeep := map[string]bool{}
 	var generated, failed int
 
 	for _, f := range resFiles {
@@ -60,7 +61,7 @@ func main() {
 		if manuallyMaintained[name] {
 			continue
 		}
-		keep[name] = true
+		resourceKeep[name] = true
 		rt, err := parseResourceSchema(f, name)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s: %v\n", name, err)
@@ -81,7 +82,7 @@ func main() {
 		if manuallyMaintained[name] {
 			continue
 		}
-		keep[name] = true
+		dataSourceKeep[name] = true
 		_, ns := namespace.ForResource(name)
 		if err := codegen.WriteDataSourceExample(name, "examples", ns); err != nil {
 			fmt.Fprintf(os.Stderr, "❌ %s (data source): %v\n", name, err)
@@ -89,7 +90,7 @@ func main() {
 		}
 	}
 
-	pruneOrphanExampleDirs(keep)
+	pruneOrphanExampleDirs(resourceKeep, dataSourceKeep)
 	formatExamples()
 
 	fmt.Printf("\n=== Example generation ===\nGenerated: %d resource examples, %d data-source lookups\n", generated, len(dsFiles))
@@ -272,13 +273,21 @@ func firstMarkdownDescription(content string) string {
 	return ""
 }
 
-// pruneOrphanExampleDirs removes xcsh_-prefixed example dirs with no matching provider file.
-func pruneOrphanExampleDirs(keep map[string]bool) {
-	for _, sub := range []string{"resources", "data-sources"} {
-		matches, _ := filepath.Glob(filepath.Join("examples", sub, "xcsh_*"))
+// pruneOrphanExampleDirs removes xcsh_-prefixed example dirs with no matching
+// provider file on the same surface. A read-only API keeps its data-source
+// example but must not preserve a stale resource example with the same name.
+func pruneOrphanExampleDirs(resourceKeep, dataSourceKeep map[string]bool) {
+	for _, surface := range []struct {
+		sub  string
+		keep map[string]bool
+	}{
+		{sub: "resources", keep: resourceKeep},
+		{sub: "data-sources", keep: dataSourceKeep},
+	} {
+		matches, _ := filepath.Glob(filepath.Join("examples", surface.sub, "xcsh_*"))
 		for _, dir := range matches {
 			name := strings.TrimPrefix(filepath.Base(dir), "xcsh_")
-			if keep[name] {
+			if surface.keep[name] {
 				continue
 			}
 			if err := os.RemoveAll(dir); err == nil {

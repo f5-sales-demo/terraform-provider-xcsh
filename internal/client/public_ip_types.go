@@ -8,16 +8,16 @@ import (
 	"fmt"
 )
 
-// Site represents a read-only F5 XC Site
-type Site struct {
+// PublicIP represents a read-only F5 XC PublicIP
+type PublicIP struct {
 	Metadata Metadata               `json:"metadata"`
 	Spec     map[string]interface{} `json:"spec"`
 }
 
-// GetSite retrieves a Site (read-only)
-func (c *Client) GetSite(ctx context.Context, namespace, name string) (*Site, error) {
-	var result Site
-	path := fmt.Sprintf("/api/config/namespaces/%s/sites/%s", namespace, name)
+// GetPublicIP retrieves a PublicIP (read-only)
+func (c *Client) GetPublicIP(ctx context.Context, namespace, name string) (*PublicIP, error) {
+	var result PublicIP
+	path := fmt.Sprintf("/api/config/namespaces/%s/public_ips/%s", namespace, name)
 	err := c.Get(ctx, path, &result)
 	return &result, err
 }
