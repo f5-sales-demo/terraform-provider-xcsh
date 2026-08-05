@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_virtual_k8s (Data Source)
 
-Manages virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about virtual_k8s will create the object in the storage backend for namespace metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [Virtual K8S API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/container_services/) to learn more.
 

@@ -11,20 +11,15 @@ name: Manual Release
 
 on:
   workflow_dispatch:
-    inputs:
-      create-release:
-        description: 'Create a GitHub release after tagging'
-        type: boolean
-        default: true
 
-permissions:
-  contents: write
+# Only the reusable release job receives tag and release write access.
+permissions: {}
 
 jobs:
   release:
+    permissions:
+      contents: write # create the signed tag and GitHub release assets
     uses: ./.github/workflows/_tag-release.yml
-    with:
-      create-release: ${{ inputs.create-release }}
     secrets:
       gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg-passphrase: ${{ secrets.PASSPHRASE }}

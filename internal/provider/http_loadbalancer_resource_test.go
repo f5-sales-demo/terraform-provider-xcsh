@@ -24,7 +24,7 @@ func TestAccHTTPLoadBalancerResource_basic(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 	resourceName := "xcsh_http_loadbalancer.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -66,7 +66,7 @@ func TestAccHTTPLoadBalancerResource_withLabels(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 	resourceName := "xcsh_http_loadbalancer.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -95,7 +95,7 @@ func TestAccHTTPLoadBalancerResource_withDomains(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb-domain")
+	rName := acctest.RandomName("tf-acc-test-lb-domain")
 	resourceName := "xcsh_http_loadbalancer.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -123,7 +123,7 @@ func TestAccHTTPLoadBalancerResource_updateLabels(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 	resourceName := "xcsh_http_loadbalancer.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -157,7 +157,7 @@ func TestAccHTTPLoadBalancerResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 	resourceName := "xcsh_http_loadbalancer.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -203,7 +203,7 @@ func TestAccHTTPLoadBalancerResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -246,7 +246,7 @@ func TestAccHTTPLoadBalancerResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -293,8 +293,8 @@ func TestAccHTTPLoadBalancerResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName1 := acctest.RandomName("tf-test-lb")
-	rName2 := acctest.RandomName("tf-test-lb")
+	rName1 := acctest.RandomName("tf-acc-test-lb")
+	rName2 := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -325,7 +325,7 @@ func TestAccHTTPLoadBalancerResource_httpsAutoCert(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -364,7 +364,7 @@ func TestAccHTTPLoadBalancerResource_withOriginPool(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -395,7 +395,7 @@ func TestAccHTTPLoadBalancerResource_withWAF(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -425,7 +425,7 @@ func TestAccHTTPLoadBalancerResource_securityStack(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -462,7 +462,7 @@ func TestAccHTTPLoadBalancerResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -596,7 +596,7 @@ func TestAccHTTPLoadBalancerResource_jsChallenge(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -626,7 +626,7 @@ func TestAccHTTPLoadBalancerResource_leastActive(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -646,7 +646,7 @@ func TestAccHTTPLoadBalancerResource_sourceIpStickiness(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -669,7 +669,7 @@ func TestAccHTTPLoadBalancerResource_withRateLimit(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -697,7 +697,7 @@ func TestAccHTTPLoadBalancerResource_userIdentification(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -725,7 +725,7 @@ func TestAccHTTPLoadBalancerResource_doNotAdvertise(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -748,7 +748,7 @@ func TestAccHTTPLoadBalancerResource_ipReputation(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -771,8 +771,8 @@ func TestAccHTTPLoadBalancerResource_switchProtocol(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName1 := acctest.RandomName("tf-test-lb")
-	rName2 := acctest.RandomName("tf-test-lb")
+	rName1 := acctest.RandomName("tf-acc-test-lb")
+	rName2 := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -804,7 +804,7 @@ func TestAccHTTPLoadBalancerResource_switchAlgorithm(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -834,7 +834,7 @@ func TestAccHTTPLoadBalancerResource_conflictHttpAndHttps(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1230,7 +1230,7 @@ func TestAccHTTPLoadBalancerResource_conflictAdvertiseOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1264,7 +1264,7 @@ func TestAccHTTPLoadBalancerResource_conflictChallengeOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -1303,7 +1303,7 @@ func TestAccHTTPLoadBalancerResource_conflictAlgorithmOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

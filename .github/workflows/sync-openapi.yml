@@ -1,208 +1,425 @@
-# Scheduled workflow to sync F5 Distributed Cloud OpenAPI specifications
-# Downloads the latest specs and creates a PR if changes are detected
+---
+# Sync a specific F5 Distributed Cloud OpenAPI release into the provider.
 # The on-merge.yml workflow handles regeneration when this PR merges
 #
-# Supports two spec sources:
-# - V2: Enriched API specs from api-specs-enriched repository (38 domain files + index.json)
-# - V1 (legacy): Original specs from docs.cloud.f5.com (269 individual files)
+# The sole source is a versioned api-specs-enriched release. No alternate source
+# or compatibility fallback exists; every run follows the same artifact contract.
 name: Sync OpenAPI Specs
 
 on:
   repository_dispatch:
     types: [enriched-specs-updated]
-  schedule:
-    # 7am Atlantic Time (11:00 UTC during AST, 10:00 UTC during ADT)
-    - cron: '0 11 * * *'
-    # 7pm Mountain Time (01:00 UTC next day during MST, 02:00 UTC during MDT)
-    - cron: '0 1 * * *'
   workflow_dispatch:
     inputs:
-      spec_source:
-        description: 'Spec source to use'
-        required: false
-        default: 'v2'
-        type: choice
-        options:
-          - v2
-          - v1
       spec_version:
-        description: 'V2 spec version (e.g., v2.0.11, or "latest")'
-        required: false
-        default: 'latest'
+        description: 'Exact enriched spec release tag (for example, v2.1.208)'
+        required: true
         type: string
 
 concurrency:
   group: openapi-sync
   cancel-in-progress: false
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+permissions: {}
 
 env:
   SPEC_DIR: docs/specifications/api
   PR_TITLE: "feat: update F5 Distributed Cloud OpenAPI specifications"
-  # V2 spec source configuration
   ENRICHED_REPO: f5-sales-demo/api-specs-enriched
-  # Default to v2 specs unless overridden
-  SPEC_SOURCE: ${{ inputs.spec_source || 'v2' }}
-  SPEC_VERSION: ${{ inputs.spec_version || 'latest' }}
+  # Manual recovery requires an exact tag. repository_dispatch uses its validated
+  # release_tag/version contract; neither path ever resolves a mutable latest.
+  REQUESTED_SPEC_VERSION: ${{ inputs.spec_version }}
 
 jobs:
   sync:
     name: Sync OpenAPI Specs
     runs-on: ubuntu-latest
+    # Every mutation uses REPO_SYNC_TOKEN explicitly. Keeping GITHUB_TOKEN
+    # disabled also prevents an accidental token push that suppresses PR checks.
+    permissions: {}
     steps:
+      - name: Require downstream-triggering token
+        env:
+          REPO_SYNC_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${REPO_SYNC_TOKEN:-}" ]; then
+            echo "::error::REPO_SYNC_TOKEN is required for OpenAPI synchronization"
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          token: ${{ secrets.REPO_SYNC_TOKEN }}
           persist-credentials: false
 
-      - name: Check for existing open PR
-        id: existing_pr
+      - name: Validate tracked delivery state
+        run: scripts/validate-provider-delivery-state.sh
+
+      - name: Validate dispatched release and delivery identity
+        id: dispatch_contract
         env:
+          EVENT_NAME: ${{ github.event_name }}
+          DELIVERY_ID: ${{ github.event.client_payload.delivery_id }}
+          RELEASE_TAG: ${{ github.event.client_payload.release_tag }}
+          RELEASE_VERSION: ${{ github.event.client_payload.version }}
+          TARGET_COMMIT: ${{ github.event.client_payload.target_commit }}
+          TRIGGER_SOURCE: ${{ github.event.client_payload.trigger_source }}
+          DELIVERY_LEDGER: tools/spec-deliveries.json
+          PENDING_DELIVERY: tools/spec-pending-delivery.json
+          CURRENT_SPEC_VERSION_FILE: tools/spec-version.txt
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REQUESTED_RELEASE_TAG: ${{ inputs.spec_version }}
+          TARGET_REPOSITORY: ${{ github.repository }}
         run: |
-          PR_COUNT=$(gh pr list --search "in:title \"${{ env.PR_TITLE }}\"" --state open --json number --jq length)
-          if [ "$PR_COUNT" -gt "0" ]; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "Found existing open PR - skipping"
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
+          set -euo pipefail
+
+          fail() {
+            echo "::error::$*"
+            exit 1
+          }
+
+          if [ "$EVENT_NAME" != "repository_dispatch" ]; then
+            RELEASE_TAG=$REQUESTED_RELEASE_TAG
+            [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] \
+              || fail "manual spec_version must be an exact vMAJOR.MINOR.PATCH tag"
+            RELEASE_VERSION=${RELEASE_TAG#v}
+            TARGET_COMMIT=$(gh api "repos/${ENRICHED_REPO}/commits/${RELEASE_TAG}" --jq '.sha')
+            TRIGGER_SOURCE=$ENRICHED_REPO
+            [[ "$TARGET_COMMIT" =~ ^[0-9a-f]{40}$ ]] \
+              || fail "manual release tag did not resolve to a full commit"
+            CANONICAL=$(jq -cnS \
+              --arg commit "$TARGET_COMMIT" \
+              --arg event_type enriched-specs-updated \
+              --arg source "$TRIGGER_SOURCE" \
+              --arg tag "$RELEASE_TAG" \
+              --arg target "$TARGET_REPOSITORY" \
+              --arg version "$RELEASE_VERSION" \
+              '{commit:$commit,event_type:$event_type,source:$source,tag:$tag,target:$target,version:$version}')
+            DELIVERY_ID=$(printf '%s' "$CANONICAL" | shasum -a 256 | awk '{print $1}')
           fi
 
-      - name: Determine spec source and version
-        if: steps.existing_pr.outputs.exists == 'false'
+          [[ "$DELIVERY_ID" =~ ^[0-9a-f]{64}$ ]] || fail "dispatch delivery_id must be 64 lowercase hexadecimal characters"
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail "dispatch release_tag must be vMAJOR.MINOR.PATCH"
+          [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail "dispatch version must be MAJOR.MINOR.PATCH"
+          [ "$RELEASE_TAG" = "v${RELEASE_VERSION}" ] || fail "dispatch release_tag and version disagree"
+          [[ "$TARGET_COMMIT" =~ ^[0-9a-f]{40}$ ]] || fail "dispatch target_commit must be a full lowercase Git SHA"
+          [ "$TRIGGER_SOURCE" = "${ENRICHED_REPO}" ] || fail "dispatch trigger_source is not ${ENRICHED_REPO}"
+
+          CANONICAL_IDENTITY=$(jq -cnS \
+            --arg commit "$TARGET_COMMIT" \
+            --arg event_type "enriched-specs-updated" \
+            --arg source "$TRIGGER_SOURCE" \
+            --arg tag "$RELEASE_TAG" \
+            --arg target "$TARGET_REPOSITORY" \
+            --arg version "$RELEASE_VERSION" \
+            '{commit:$commit,event_type:$event_type,source:$source,tag:$tag,target:$target,version:$version}')
+          EXPECTED_ID=$(printf '%s' "$CANONICAL_IDENTITY" | shasum -a 256 | awk '{print $1}')
+          [ "$DELIVERY_ID" = "$EXPECTED_ID" ] || fail "dispatch delivery_id does not match the release identity"
+
+          [ -f "$DELIVERY_LEDGER" ] || fail "delivery ledger is missing"
+          jq -e '
+            type == "object" and
+            (keys | sort) == ["deliveries", "version"] and
+            .version == 1 and
+            (.deliveries | type == "object")
+          ' "$DELIVERY_LEDGER" >/dev/null || fail "delivery ledger is malformed"
+          if jq -e --arg id "$DELIVERY_ID" '.deliveries[$id] != null' "$DELIVERY_LEDGER" >/dev/null; then
+            jq -e \
+              --arg id "$DELIVERY_ID" \
+              --arg tag "$RELEASE_TAG" \
+              --arg version "$RELEASE_VERSION" \
+              --arg commit "$TARGET_COMMIT" \
+              '.deliveries[$id] == {release_tag:$tag,target_commit:$commit,version:$version}' \
+              "$DELIVERY_LEDGER" >/dev/null \
+              || fail "delivery ledger entry disagrees with the dispatched identity"
+            echo "::notice::Delivery ${DELIVERY_ID} was already published; nothing to do"
+            echo "process=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if jq -e --arg tag "$RELEASE_TAG" \
+            '[.deliveries[] | select(.release_tag == $tag)] | length > 0' \
+            "$DELIVERY_LEDGER" >/dev/null; then
+            fail "release_tag ${RELEASE_TAG} was previously delivered under a different identity"
+          fi
+          if jq -e --arg version "$RELEASE_VERSION" \
+            '[.deliveries[] | select(.version == $version)] | length > 0' \
+            "$DELIVERY_LEDGER" >/dev/null; then
+            fail "version ${RELEASE_VERSION} was previously delivered under a different identity"
+          fi
+          if jq -e --arg commit "$TARGET_COMMIT" \
+            '[.deliveries[] | select(.target_commit == $commit)] | length > 0' \
+            "$DELIVERY_LEDGER" >/dev/null; then
+            fail "target_commit ${TARGET_COMMIT} was previously delivered under a different identity"
+          fi
+
+          if [ -e "$PENDING_DELIVERY" ]; then
+            jq -e \
+              --arg id "$DELIVERY_ID" \
+              --arg tag "$RELEASE_TAG" \
+              --arg version "$RELEASE_VERSION" \
+              --arg commit "$TARGET_COMMIT" \
+              'type == "object" and
+               (keys | sort) == ["delivery_id", "release_tag", "target_commit", "version"] and
+               . == {delivery_id:$id,release_tag:$tag,target_commit:$commit,version:$version}' \
+              "$PENDING_DELIVERY" >/dev/null \
+              || fail "another delivery is pending publication"
+            echo "::notice::Delivery ${DELIVERY_ID} is already pending publication"
+            echo "process=false" >> "$GITHUB_OUTPUT"
+            echo "resume=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -f "$CURRENT_SPEC_VERSION_FILE" ]; then
+            CURRENT_TAG=$(tr -d '[:space:]' < "$CURRENT_SPEC_VERSION_FILE")
+            [[ "$CURRENT_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] \
+              || fail "current spec version marker is malformed"
+            jq -en --arg current "$CURRENT_TAG" --arg incoming "$RELEASE_TAG" '
+              def semver: ltrimstr("v") | split(".") | map(tonumber);
+              ($incoming | semver) >= ($current | semver)
+            ' >/dev/null || fail "stale dispatch ${RELEASE_TAG} cannot replace ${CURRENT_TAG}"
+            if [ "$RELEASE_TAG" = "$CURRENT_TAG" ]; then
+              CURRENT_COMMIT=$(jq -er --arg tag "$CURRENT_TAG" '
+                select(.release_tag == $tag) | .target_commit
+              ' tools/spec-release.json)
+              [ "$TARGET_COMMIT" = "$CURRENT_COMMIT" ] \
+                || fail "same-version delivery target differs from the immutable current pin"
+            fi
+          fi
+
+          {
+            echo "process=true"
+            echo "delivery_id=$DELIVERY_ID"
+            echo "release_tag=$RELEASE_TAG"
+            echo "version=$RELEASE_VERSION"
+            echo "target_commit=$TARGET_COMMIT"
+            echo "branch=openapi-update/${DELIVERY_ID}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Resume exact pending publication
+        if: steps.dispatch_contract.outputs.resume == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+        run: gh workflow run on-merge.yml --ref main -f resume-pending=true
+
+      - name: Determine spec version
+        if: steps.dispatch_contract.outputs.process == 'true'
         id: spec_config
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          INPUT_SPEC_SOURCE: ${{ env.SPEC_SOURCE }}
-          INPUT_SPEC_VERSION: ${{ env.SPEC_VERSION }}
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_RELEASE_TAG: ${{ steps.dispatch_contract.outputs.release_tag }}
         run: |
-          SPEC_SOURCE="$INPUT_SPEC_SOURCE"
-          SPEC_VERSION="$INPUT_SPEC_VERSION"
+          SPEC_VERSION="$REQUESTED_SPEC_VERSION"
 
-          echo "Spec source: $SPEC_SOURCE"
-
-          if [ "$SPEC_SOURCE" = "v2" ]; then
-            # Determine v2 version
-            if [ "$SPEC_VERSION" = "latest" ] || [ -z "$SPEC_VERSION" ]; then
-              # Get latest release from enriched repo via gh api (works for private repos)
-              LATEST=$(gh api "repos/${{ env.ENRICHED_REPO }}/releases" --jq '.[0].tag_name' 2>/dev/null || echo "")
-              if [ -z "$LATEST" ]; then
-                echo "::warning::Could not determine latest v2 release, falling back to v1"
-                SPEC_SOURCE="v1"
-              else
-                SPEC_VERSION="$LATEST"
-                echo "Using latest v2 release: $SPEC_VERSION"
-              fi
-            fi
-
-            if [ "$SPEC_SOURCE" = "v2" ]; then
-              {
-                echo "spec_source=$SPEC_SOURCE"
-                echo "spec_version=$SPEC_VERSION"
-                echo "download_method=gh_api"
-              } >> "$GITHUB_OUTPUT"
-            fi
+          if [ "$EVENT_NAME" = "repository_dispatch" ]; then
+            SPEC_VERSION="$DISPATCH_RELEASE_TAG"
           fi
 
-          if [ "$SPEC_SOURCE" = "v1" ]; then
-            DOWNLOAD_URL="https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip"
-            echo "V1 download URL: $DOWNLOAD_URL"
-            {
-              echo "spec_source=v1"
-              echo "spec_version=v1"
-              echo "download_method=curl"
-              echo "download_url=$DOWNLOAD_URL"
-            } >> "$GITHUB_OUTPUT"
+          [[ "$SPEC_VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || {
+            echo "::error::Spec version must be vMAJOR.MINOR.PATCH"
+            exit 1
+          }
+          gh api "repos/${ENRICHED_REPO}/releases/tags/${SPEC_VERSION}" >/dev/null
+          if [ -f tools/spec-pending-delivery.json ]; then
+            PENDING_TAG=$(jq -er '.release_tag' tools/spec-pending-delivery.json)
+            [ "$SPEC_VERSION" = "$PENDING_TAG" ] || {
+              echo "::error::Cannot replace pending delivery ${PENDING_TAG} with ${SPEC_VERSION}"
+              exit 1
+            }
           fi
+          echo "spec_version=$SPEC_VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Download OpenAPI specs
-        if: steps.existing_pr.outputs.exists == 'false'
+        if: steps.dispatch_contract.outputs.process == 'true'
         env:
-          DOWNLOAD_METHOD: ${{ steps.spec_config.outputs.download_method }}
-          DOWNLOAD_URL: ${{ steps.spec_config.outputs.download_url }}
+          DISPATCH_TARGET_COMMIT: ${{ steps.dispatch_contract.outputs.target_commit }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RESOLVED_SPEC_SOURCE: ${{ steps.spec_config.outputs.spec_source }}
+          SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
         run: |
-          mkdir -p "${{ env.SPEC_DIR }}"
+          set -euo pipefail
 
-          SPEC_SOURCE="$RESOLVED_SPEC_SOURCE"
+          STAGING_ROOT="${RUNNER_TEMP}/openapi-sync"
+          STAGED_SPECS="${STAGING_ROOT}/specs"
+          rm -rf "$STAGING_ROOT"
+          mkdir -p "$STAGED_SPECS"
 
-          if [ "$DOWNLOAD_METHOD" = "gh_api" ]; then
-            # V2: Download via gh api (supports private repos)
-            echo "Downloading v2 specs via gh api..."
-            ASSET_ID=$(gh api "repos/${{ env.ENRICHED_REPO }}/releases" --jq \
-              '[.[0].assets[] | select(.name | startswith("xcsh-api-specs") or startswith("f5xc-api-specs"))] | .[0].id')
-            gh api "repos/${{ env.ENRICHED_REPO }}/releases/assets/${ASSET_ID}" \
-              -H "Accept: application/octet-stream" > openapi.zip
-            echo "Download successful"
+          # Every asset comes from the exact resolved enriched-specs release.
+          RELEASE_ENDPOINT="repos/${ENRICHED_REPO}/releases/tags/${SPEC_VERSION}"
+          RELEASE_METADATA="${STAGING_ROOT}/release.json"
+          echo "Downloading specs from ${SPEC_VERSION} via gh api..."
+          gh api "$RELEASE_ENDPOINT" > "$RELEASE_METADATA"
+          jq -e --arg tag "$SPEC_VERSION" '
+            .tag_name == $tag and
+            .draft == false and
+            .prerelease == false and
+            .immutable == true
+          ' "$RELEASE_METADATA" >/dev/null || {
+            echo "::error::Spec release must be final and immutable"
+            exit 1
+          }
+          TAG_COMMIT=$(gh api "repos/${ENRICHED_REPO}/commits/${SPEC_VERSION}" --jq '.sha')
+          [[ "$TAG_COMMIT" =~ ^[0-9a-f]{40}$ ]] || {
+            echo "::error::Release tag did not resolve to a full commit"
+            exit 1
+          }
+          if [ -n "$DISPATCH_TARGET_COMMIT" ] && [ "$TAG_COMMIT" != "$DISPATCH_TARGET_COMMIT" ]; then
+            echo "::error::Release tag commit differs from dispatched target_commit"
+            exit 1
+          fi
 
-            # Also download api-catalog.json standalone asset if available
-            CATALOG_ID=$(gh api "repos/${{ env.ENRICHED_REPO }}/releases" --jq \
-              '[.[0].assets[] | select(.name=="api-catalog.json")] | .[0].id')
-            if [ -n "$CATALOG_ID" ] && [ "$CATALOG_ID" != "null" ]; then
-              gh api "repos/${{ env.ENRICHED_REPO }}/releases/assets/${CATALOG_ID}" \
-                -H "Accept: application/octet-stream" > "${{ env.SPEC_DIR }}/api-catalog.json"
-              echo "Downloaded api-catalog.json"
-            fi
-          else
-            # V1: Download via curl with retry logic
-            echo "Downloading specs from: $DOWNLOAD_URL"
+          BUNDLE_NAME="f5xc-api-specs-${SPEC_VERSION}.zip"
+          EXPECTED_ASSETS=$(printf '%s\n' \
+            api-catalog.json \
+            "$BUNDLE_NAME" \
+            index.json \
+            minimal-export-defaults.json \
+            openapi.json | sort)
+          ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
+          [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
+            echo "::error::Release ${SPEC_VERSION} asset set differs from the five-asset contract"
+            exit 1
+          }
 
-            max_attempts=3
-            attempt=1
-            while [ "$attempt" -le "$max_attempts" ]; do
-              echo "::group::Download attempt $attempt of $max_attempts"
-              if curl -sL --fail --retry 2 --retry-delay 5 -o openapi.zip "$DOWNLOAD_URL"; then
-                echo "Download successful"
-                echo "::endgroup::"
-                break
-              fi
-              echo "::endgroup::"
-              attempt=$((attempt + 1))
-              if [ "$attempt" -le "$max_attempts" ]; then
-                sleep_time=$((2 ** attempt * 5))
-                echo "::warning::Download failed, retrying in ${sleep_time}s..."
-                sleep "$sleep_time"
-              else
-                echo "::error::All $max_attempts download attempts failed"
+          RELEASE_BODY="${STAGING_ROOT}/release-body.txt"
+          jq -r '.body // ""' "$RELEASE_METADATA" > "$RELEASE_BODY"
+          RECEIPT_COUNT=$(grep -Ec '^<!-- publication-receipt:.* -->$' "$RELEASE_BODY" || true)
+          [ "$RECEIPT_COUNT" -eq 1 ] || {
+            echo "::error::Release must contain exactly one publication receipt"
+            exit 1
+          }
+          RECEIPT=$(sed -n 's/^<!-- publication-receipt:\(.*\) -->$/\1/p' "$RELEASE_BODY")
+          RELEASE_VERSION=${SPEC_VERSION#v}
+          printf '%s' "$RECEIPT" | jq -e \
+            --arg version "$RELEASE_VERSION" \
+            --arg commit "$TAG_COMMIT" \
+            --arg bundle "$BUNDLE_NAME" '
+              type == "object" and
+              (keys | sort) == ["assets", "commit", "version"] and
+              .version == $version and
+              .commit == $commit and
+              (.assets | keys | sort) ==
+                ["api-catalog.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json"] and
+              ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
+            ' >/dev/null || {
+            echo "::error::Publication receipt does not match the release identity"
+            exit 1
+          }
+
+          ASSET_ID=$(jq -r --arg name "$BUNDLE_NAME" \
+            '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
+            "$RELEASE_METADATA")
+          if [ -z "$ASSET_ID" ] || [ "$ASSET_ID" = "null" ]; then
+            echo "::error::Release ${SPEC_VERSION} must contain exactly one ${BUNDLE_NAME} asset"
+            exit 1
+          fi
+          gh api "repos/${ENRICHED_REPO}/releases/assets/${ASSET_ID}" \
+            -H "Accept: application/octet-stream" > "${STAGING_ROOT}/openapi.zip"
+          python3 - "${STAGING_ROOT}/openapi.zip" <<'PY'
+          import pathlib
+          import stat
+          import sys
+          import zipfile
+
+          archive = pathlib.Path(sys.argv[1])
+          seen = {}
+          with zipfile.ZipFile(archive) as bundle:
+              for entry in bundle.infolist():
+                  name = entry.filename
+                  core = name[:-1] if name.endswith("/") else name
+                  parts = core.split("/")
+                  if (not core or name.startswith("/") or "\\" in name or
+                          any(part in ("", ".", "..") for part in parts)):
+                      raise SystemExit(f"unsafe archive path: {name!r}")
+                  key = core.casefold()
+                  if key in seen:
+                      raise SystemExit(f"duplicate or case-colliding archive path: {name!r}")
+                  seen[key] = name
+                  mode = entry.external_attr >> 16
+                  kind = stat.S_IFMT(mode)
+                  allowed = (0, stat.S_IFDIR) if entry.is_dir() else (0, stat.S_IFREG)
+                  if kind not in allowed or entry.flag_bits & 0x1:
+                      raise SystemExit(f"unsupported archive entry type: {name!r}")
+          PY
+          unzip -q "${STAGING_ROOT}/openapi.zip" -d "$STAGED_SPECS"
+          UNSAFE_STAGED_ENTRY=$(find "$STAGED_SPECS" ! -type d ! -type f -print -quit)
+          [ -z "$UNSAFE_STAGED_ENTRY" ] || {
+            echo "::error::Extracted spec bundle contains a symlink or special file"
+            exit 1
+          }
+          echo "Download successful"
+
+          COMPANIONS="${STAGING_ROOT}/companions"
+          mkdir -p "$COMPANIONS"
+          for asset in api-catalog.json index.json minimal-export-defaults.json openapi.json; do
+            AID=$(jq -r --arg name "$asset" \
+              '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
+              "$RELEASE_METADATA")
+            [ -n "$AID" ] || { echo "::error::Release is missing ${asset}"; exit 1; }
+            gh api "repos/${ENRICHED_REPO}/releases/assets/${AID}" \
+              -H "Accept: application/octet-stream" > "${COMPANIONS}/${asset}"
+            EXPECTED_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$asset" '.assets[$name]')
+            # Receipt digests are "sha256:<hex>", matching GitHub's own digest
+            # field, so measure into the same form instead of stripping a prefix.
+            ACTUAL_SHA="sha256:$(shasum -a 256 "${COMPANIONS}/${asset}" | awk '{print $1}')"
+            [ "$ACTUAL_SHA" = "$EXPECTED_SHA" ] || {
+              echo "::error::Downloaded ${asset} differs from its publication receipt"
+              exit 1
+            }
+            if [ -f "${STAGED_SPECS}/${asset}" ]; then
+              BUNDLED_SHA="sha256:$(shasum -a 256 "${STAGED_SPECS}/${asset}" | awk '{print $1}')"
+              [ "$BUNDLED_SHA" = "$EXPECTED_SHA" ] || {
+                echo "::error::Bundled ${asset} differs from the standalone receipted asset"
                 exit 1
-              fi
-            done
+              }
+            fi
+            cp "${COMPANIONS}/${asset}" "${STAGED_SPECS}/${asset}"
+          done
+          EXPECTED_BUNDLE_SHA=$(printf '%s' "$RECEIPT" | jq -r --arg name "$BUNDLE_NAME" '.assets[$name]')
+          ACTUAL_BUNDLE_SHA="sha256:$(shasum -a 256 "${STAGING_ROOT}/openapi.zip" | awk '{print $1}')"
+          [ "$ACTUAL_BUNDLE_SHA" = "$EXPECTED_BUNDLE_SHA" ] || {
+            echo "::error::Downloaded spec bundle differs from its publication receipt"
+            exit 1
+          }
+          EXPECTED_CATALOG_VERSION="${SPEC_VERSION#v}"
+          jq -e --arg version "$EXPECTED_CATALOG_VERSION" '.version == $version' \
+            "${STAGED_SPECS}/api-catalog.json" >/dev/null || {
+            echo "::error::api-catalog.json version does not match ${SPEC_VERSION}"
+            exit 1
+          }
+          echo "Downloaded api-catalog.json"
+
+          if [ ! -f "${STAGED_SPECS}/index.json" ]; then
+            echo "::error::Enriched spec structure invalid: index.json not found"
+            exit 1
           fi
-
-          # Clear existing specs before extracting
-          rm -rf "${{ env.SPEC_DIR }}"/*
-
-          unzip -o openapi.zip -d "${{ env.SPEC_DIR }}"
-          rm openapi.zip
-
-          # Verify spec structure based on source type
-          if [ "$SPEC_SOURCE" = "v2" ]; then
-            echo "Verifying v2 spec structure..."
-            if [ ! -f "${{ env.SPEC_DIR }}/index.json" ]; then
-              echo "::error::V2 spec structure invalid: index.json not found"
-              exit 1
-            fi
-            if [ ! -d "${{ env.SPEC_DIR }}/domains" ]; then
-              echo "::error::V2 spec structure invalid: domains/ directory not found"
-              exit 1
-            fi
-            DOMAIN_COUNT=$(find "${{ env.SPEC_DIR }}/domains" -maxdepth 1 -name '*.json' | wc -l)
-            echo "V2 structure verified: index.json + $DOMAIN_COUNT domain files"
-          else
-            echo "Verifying v1 spec structure..."
-            SPEC_COUNT=$(find "${{ env.SPEC_DIR }}" -maxdepth 1 -name 'docs-cloud-f5-com.*.ves-swagger.json' | wc -l)
-            if [ "$SPEC_COUNT" -eq "0" ]; then
-              echo "::error::V1 spec structure invalid: no *.ves-swagger.json files found"
-              exit 1
-            fi
-            echo "V1 structure verified: $SPEC_COUNT spec files"
+          if [ ! -d "${STAGED_SPECS}/domains" ]; then
+            echo "::error::Enriched spec structure invalid: domains/ directory not found"
+            exit 1
           fi
+          DOMAIN_COUNT=$(find "${STAGED_SPECS}/domains" -maxdepth 1 -name '*.json' | wc -l)
+          if [ "$DOMAIN_COUNT" -eq 0 ]; then
+            echo "::error::Enriched spec structure invalid: domains/ contains no JSON specs"
+            exit 1
+          fi
+          echo "Enriched structure verified: index.json + $DOMAIN_COUNT domain files"
+
+          # Promote only after every required asset and structure check succeeds.
+          mkdir -p "$SPEC_DIR"
+          find "$SPEC_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
+          cp -a "${STAGED_SPECS}/." "${SPEC_DIR}/"
+          if [ ! -f "${SPEC_DIR}/api-catalog.json" ]; then
+            echo "::error::api-catalog.json was lost while promoting ${SPEC_VERSION}"
+            exit 1
+          fi
+          mkdir -p tools
+          PIN_TMP=$(mktemp tools/spec-release.json.XXXXXX)
+          printf '%s' "$RECEIPT" | jq -S --arg tag "$SPEC_VERSION" '
+            {assets:.assets,release_tag:$tag,target_commit:.commit,version:.version}
+          ' > "$PIN_TMP"
+          mv "$PIN_TMP" tools/spec-release.json
 
       # The downloaded specs live under docs/specifications/api/, which is gitignored
       # (they are re-downloaded fresh at generation time). Record the resolved upstream
@@ -210,14 +427,28 @@ jobs:
       # sync PR actually fires. The marker lives under tools/ so on-merge.yml's
       # detect-changes classifies its change as tools -> triggers provider regeneration.
       - name: Record resolved spec version (tracked marker)
-        if: steps.existing_pr.outputs.exists == 'false'
+        if: steps.dispatch_contract.outputs.process == 'true'
         env:
           RESOLVED_SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
+          DELIVERY_ID: ${{ steps.dispatch_contract.outputs.delivery_id }}
+          PENDING_DELIVERY: tools/spec-pending-delivery.json
+          RELEASE_VERSION: ${{ steps.dispatch_contract.outputs.version }}
+          SPEC_VERSION_FILE: tools/spec-version.txt
+          TARGET_COMMIT: ${{ steps.dispatch_contract.outputs.target_commit }}
         run: |
-          printf '%s\n' "$RESOLVED_SPEC_VERSION" > tools/spec-version.txt
+          printf '%s\n' "$RESOLVED_SPEC_VERSION" > "$SPEC_VERSION_FILE"
+          if [ -n "$DELIVERY_ID" ]; then
+            jq -nS \
+              --arg id "$DELIVERY_ID" \
+              --arg tag "$RESOLVED_SPEC_VERSION" \
+              --arg version "$RELEASE_VERSION" \
+              --arg commit "$TARGET_COMMIT" \
+              '{delivery_id:$id,release_tag:$tag,target_commit:$commit,version:$version}' \
+              > "$PENDING_DELIVERY"
+          fi
 
       - name: Check for changes
-        if: steps.existing_pr.outputs.exists == 'false'
+        if: steps.dispatch_contract.outputs.process == 'true'
         id: changes
         run: |
           git add -A
@@ -230,124 +461,76 @@ jobs:
             git reset HEAD
           fi
 
-      - name: Setup Node.js for validation
-        if: steps.changes.outputs.changed == 'true'
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: '20'
-
       - name: Validate OpenAPI specs
         if: steps.changes.outputs.changed == 'true'
         env:
           RESOLVED_SPEC_SOURCE: ${{ steps.spec_config.outputs.spec_source }}
         run: |
-          SPEC_SOURCE="$RESOLVED_SPEC_SOURCE"
-
-          # V2 specs from api-specs-enriched are pre-validated in that repository
+          # Enriched specs are pre-validated in their publishing repository.
           # They use x-f5xc-* vendor extensions which strict validators may reject
           # We perform basic structure validation here
-          if [ "$SPEC_SOURCE" = "v2" ]; then
-            echo "Validating v2 spec structure..."
-            # Verify index.json has required fields
-            if ! jq -e '.specifications | length > 0' "${{ env.SPEC_DIR }}/index.json" > /dev/null 2>&1; then
-              echo "::error::index.json missing or malformed"
-              exit 1
-            fi
-            SPEC_COUNT=$(jq '.specifications | length' "${{ env.SPEC_DIR }}/index.json")
-            echo "✅ index.json valid with $SPEC_COUNT domain specifications"
-
-            # Verify each OpenAPI spec listed in index.json exists and has basic
-            # OpenAPI structure. Iterate index.json's specifications[] (the actual
-            # domain specs) rather than every domains/*.json: the enriched bundle
-            # also ships auxiliary data files (e.g. namespace_profiles.json,
-            # validation.json) that are not OpenAPI documents and legitimately lack
-            # an openapi/swagger key. Validating those hard-fails every real release.
-            VALID=true
-            while IFS= read -r spec_file; do
-              [ -z "$spec_file" ] && continue
-              file="${{ env.SPEC_DIR }}/domains/$(basename "$spec_file")"
-              if [ ! -f "$file" ]; then
-                echo "❌ $spec_file listed in index.json but not found in domains/"
-                VALID=false
-                continue
-              fi
-              if jq -e '.openapi or .swagger' "$file" > /dev/null 2>&1; then
-                echo "✅ $spec_file has valid OpenAPI structure"
-              else
-                echo "❌ $spec_file missing openapi/swagger version"
-                VALID=false
-              fi
-            done < <(jq -r '.specifications[].file' "${{ env.SPEC_DIR }}/index.json")
-            if [ "$VALID" = false ]; then
-              echo "::error::Some v2 specs failed structure validation"
-              exit 1
-            fi
-            echo "✅ All v2 OpenAPI specs validated successfully"
-          else
-            echo "Using swagger-cli for v1 spec validation..."
-            npm install -g @apidevtools/swagger-cli
-            VALID=true
-            while IFS= read -r file; do
-              if grep -q -E "(openapi|swagger).*['\"]?[0-9]+\.[0-9]+" "$file" 2>/dev/null; then
-                echo "Validating: $file"
-                if swagger-cli validate "$file"; then
-                  echo "✅ $file is valid"
-                else
-                  echo "❌ $file validation failed"
-                  VALID=false
-                fi
-              fi
-            done < <(find "${{ env.SPEC_DIR }}" -type f \( -name "*.yaml" -o -name "*.yml" -o -name "*.json" \))
-            if [ "$VALID" = false ]; then
-              echo "::error::Some OpenAPI specs failed validation"
-              exit 1
-            fi
-            echo "✅ All v1 OpenAPI specs validated successfully"
+          echo "Validating enriched spec structure..."
+          if ! jq -e '.specifications | length > 0' "${SPEC_DIR}/index.json" > /dev/null 2>&1; then
+            echo "::error::index.json missing or malformed"
+            exit 1
           fi
+          SPEC_COUNT=$(jq '.specifications | length' "${SPEC_DIR}/index.json")
+          echo "✅ index.json valid with $SPEC_COUNT domain specifications"
 
-      - name: Get current date
-        if: steps.changes.outputs.changed == 'true'
-        id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+          # Validate the actual domain specs listed in index.json, excluding
+          # auxiliary JSON such as namespace_profiles.json and validation.json.
+          VALID=true
+          while IFS= read -r spec_file; do
+            [ -z "$spec_file" ] && continue
+            file="${SPEC_DIR}/domains/$(basename "$spec_file")"
+            if [ ! -f "$file" ]; then
+              echo "❌ $spec_file listed in index.json but not found in domains/"
+              VALID=false
+              continue
+            fi
+            if jq -e '.openapi or .swagger' "$file" > /dev/null 2>&1; then
+              echo "✅ $spec_file has valid OpenAPI structure"
+            else
+              echo "❌ $spec_file missing openapi/swagger version"
+              VALID=false
+            fi
+          done < <(jq -r '.specifications[].file' "${SPEC_DIR}/index.json")
+          if [ "$VALID" = false ]; then
+            echo "::error::Some enriched specs failed structure validation"
+            exit 1
+          fi
+          echo "✅ All enriched OpenAPI specs validated successfully"
 
       - name: Create branch and commit
         if: steps.changes.outputs.changed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_TITLE_VALUE: ${{ env.PR_TITLE }}
-          RESOLVED_SPEC_SOURCE: ${{ steps.spec_config.outputs.spec_source }}
-          RESOLVED_SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
-          UPDATE_DATE: ${{ steps.date.outputs.date }}
+          BRANCH_NAME: ${{ steps.dispatch_contract.outputs.branch }}
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
         run: |
-          SPEC_SOURCE="$RESOLVED_SPEC_SOURCE"
-          SPEC_VERSION="$RESOLVED_SPEC_VERSION"
+          set -euo pipefail
+          [[ "$BRANCH_NAME" =~ ^openapi-update/[0-9a-f]{64}$ ]] || {
+            echo "::error::Invalid deterministic delivery branch"
+            exit 1
+          }
 
-          # Author as a distinct NON-bot identity on purpose: on-merge.yml's
-          # detect-changes treats any github-actions[bot]-authored commit as a
-          # completed regeneration and tags WITHOUT regenerating. A non-bot author
-          # routes the merged spec-sync commit through the human path (build-test +
-          # regenerate-provider), i.e. the intended delayed-tagging flow.
-          gh auth setup-git
           git config user.name "f5xc-spec-sync"
           git config user.email "f5xc-spec-sync@users.noreply.github.com"
-          git checkout -b "openapi-update-${UPDATE_DATE}"
+          git fetch --no-tags origin main
+          REMOTE_SHA=$(git ls-remote origin "refs/heads/${BRANCH_NAME}" | awk '{print $1}')
+          git checkout -B "$BRANCH_NAME" origin/main
           git add -A
 
-          if [ "$SPEC_SOURCE" = "v2" ]; then
-            SOURCE_URL="https://github.com/${{ env.ENRICHED_REPO }}/releases/tag/${SPEC_VERSION}"
-            SPEC_INFO="V2 Enriched Specs (${SPEC_VERSION})"
-          else
-            SOURCE_URL="https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip"
-            SPEC_INFO="V1 Legacy Specs"
-          fi
+          SOURCE_URL="https://github.com/${ENRICHED_REPO}/releases/tag/${SPEC_VERSION}"
+          SPEC_INFO="Enriched Specs (${SPEC_VERSION})"
 
-          git commit -m "${PR_TITLE_VALUE}
+          git commit -m "${PR_TITLE}
 
           Automated sync from F5 Distributed Cloud OpenAPI specifications.
 
           Spec Format: ${SPEC_INFO}
           Source: ${SOURCE_URL}
-          Date: ${UPDATE_DATE}
 
           When this PR merges, the on-merge workflow will:
           1. Regenerate provider code from the new specs
@@ -356,112 +539,91 @@ jobs:
 
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-          Co-Authored-By: Claude <automation@example.com>"
-          git push --force origin "openapi-update-${UPDATE_DATE}"
+          Co-Authored-By: Automation <automation@example.com>"
+          # A GITHUB_TOKEN-authored push does not emit pull_request:synchronize,
+          # leaving a retried PR head without its required checks. Push with the
+          # same PAT used for PR creation and disable checkout credential
+          # persistence above so every new head triggers the normal gates.
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+          if [ -n "$REMOTE_SHA" ]; then
+            git push --force-with-lease="refs/heads/${BRANCH_NAME}:${REMOTE_SHA}" origin "$BRANCH_NAME"
+          else
+            git push --force-with-lease origin "$BRANCH_NAME"
+          fi
 
       - name: Find or create tracking issue
         if: steps.changes.outputs.changed == 'true'
         id: issue
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          UPDATE_DATE: ${{ steps.date.outputs.date }}
-        with:
-          script: |
-            const issueTitle = "OpenAPI Spec Update Available";
-            const updateDate = process.env.UPDATE_DATE;
+          DELIVERY_ID: ${{ steps.dispatch_contract.outputs.delivery_id }}
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
+        run: |
+          set -euo pipefail
+          [[ "$DELIVERY_ID" =~ ^[0-9a-f]{64}$ ]] || exit 1
+          TITLE="OpenAPI spec delivery ${DELIVERY_ID:0:12}"
+          ISSUE_JSON=$(gh issue list --state all --search "$TITLE in:title" \
+            --limit 100 --json number,state,title)
+          ISSUE_NUMBER=$(printf '%s' "$ISSUE_JSON" | jq -r --arg title "$TITLE" \
+            '[.[] | select(.title == $title)][0].number // empty')
+          ISSUE_STATE=$(printf '%s' "$ISSUE_JSON" | jq -r --arg title "$TITLE" \
+            '[.[] | select(.title == $title)][0].state // empty')
+          if [ -z "$ISSUE_NUMBER" ]; then
+            ISSUE_URL=$(gh issue create \
+              --title "$TITLE" \
+              --body "Track exact provider consumption of api-specs-enriched ${SPEC_VERSION} delivery ${DELIVERY_ID:0:12}." \
+              --label openapi-update --label automated)
+            ISSUE_NUMBER=${ISSUE_URL##*/}
+          elif [ "$ISSUE_STATE" = "CLOSED" ]; then
+            gh issue reopen "$ISSUE_NUMBER"
+          fi
+          echo "number=$ISSUE_NUMBER" >> "$GITHUB_OUTPUT"
 
-            // Search for existing open issue
-            const issues = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              labels: 'openapi-update'
-            });
-
-            const existingIssue = issues.data.find(issue => issue.title === issueTitle);
-
-            if (existingIssue) {
-              console.log(`Found existing issue #${existingIssue.number}`);
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: existingIssue.number,
-                body: `## Update Detected - ${updateDate}
-
-                A new update to the OpenAPI specification has been detected.
-                A pull request has been created for review.`
-              });
-              return existingIssue.number;
-            }
-
-            // Create new issue
-            const issue = await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: issueTitle,
-              body: `## F5 Distributed Cloud OpenAPI Spec Update
-
-              This issue tracks updates to the F5 Distributed Cloud OpenAPI specification.
-
-              **Source:** https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
-
-              ---
-
-              ### Latest Update - ${updateDate}
-
-              Please review the changes in the associated pull request.`,
-              labels: ['openapi-update', 'automated']
-            });
-
-            console.log(`Created issue #${issue.data.number}`);
-            return issue.data.number;
-
-      - name: Create Pull Request
+      - name: Create or resume pull request
         if: steps.changes.outputs.changed == 'true'
         id: create_pr
         env:
-          ENRICHED_REPOSITORY: ${{ env.ENRICHED_REPO }}
-          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
-          ISSUE_NUMBER: ${{ steps.issue.outputs.result }}
-          PR_TITLE_VALUE: ${{ env.PR_TITLE }}
-          RESOLVED_SPEC_SOURCE: ${{ steps.spec_config.outputs.spec_source }}
-          RESOLVED_SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
-          UPDATE_DATE: ${{ steps.date.outputs.date }}
+          BRANCH_NAME: ${{ steps.dispatch_contract.outputs.branch }}
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          ISSUE_NUMBER: ${{ steps.issue.outputs.number }}
+          SPEC_VERSION: ${{ steps.spec_config.outputs.spec_version }}
         run: |
-          SPEC_SOURCE="$RESOLVED_SPEC_SOURCE"
-          SPEC_VERSION="$RESOLVED_SPEC_VERSION"
+          set -euo pipefail
+          [[ "$BRANCH_NAME" =~ ^openapi-update/[0-9a-f]{64}$ ]] || exit 1
+          [[ "$ISSUE_NUMBER" =~ ^[0-9]+$ ]] || {
+            echo "::error::Invalid tracking issue number"
+            exit 1
+          }
 
-          if [ "$SPEC_SOURCE" = "v2" ]; then
-            SOURCE_URL="https://github.com/${ENRICHED_REPOSITORY}/releases/tag/${SPEC_VERSION}"
-            SPEC_INFO="V2 Enriched Specs"
-            V2_NOTE="
-          ## V2 Enriched Specs
+          SOURCE_URL="https://github.com/${ENRICHED_REPO}/releases/tag/${SPEC_VERSION}"
+          SPEC_INFO="Enriched Specs"
+          ENRICHMENT_NOTE="
+          ## Enriched Specs
 
           This update uses enriched API specifications with:
           - \`x-f5xc-category\`: Official resource categorization
           - \`x-f5xc-requires-tier\`: Subscription tier requirements
           - \`x-f5xc-example\`: Enhanced example values
           - \`x-f5xc-description-*\`: Improved descriptions"
-          else
-            SOURCE_URL="https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip"
-            SPEC_INFO="V1 Legacy Specs"
-            V2_NOTE=""
-          fi
 
           LABELS="automated,openapi-update"
 
-          PR_URL=$(gh pr create \
-            --title "$PR_TITLE_VALUE" \
-            --body "## Summary
+          PR_JSON=$(gh pr list --head "$BRANCH_NAME" --state all --limit 10 \
+            --json number,state)
+          PR_NUM=$(printf '%s' "$PR_JSON" | jq -r '.[0].number // empty')
+          if [ -z "$PR_NUM" ]; then
+            PR_URL=$(gh pr create \
+              --title "${PR_TITLE}" \
+              --body "## Summary
 
           This PR updates the F5 Distributed Cloud OpenAPI specifications.
 
           **Spec Format:** ${SPEC_INFO}
           **Version:** ${SPEC_VERSION}
           **Source:** ${SOURCE_URL}
-          **Date:** ${UPDATE_DATE}
           **Tracking Issue:** #${ISSUE_NUMBER}
-          ${V2_NOTE}
+          ${ENRICHMENT_NOTE}
 
           ## What happens when this merges?
 
@@ -481,16 +643,37 @@ jobs:
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
           Closes #${ISSUE_NUMBER}" \
-            --label "$LABELS")
-
-          PR_NUM=$(echo "$PR_URL" | grep -oE '[0-9]+$')
+              --label "$LABELS" \
+              --base main \
+              --head "$BRANCH_NAME")
+            PR_NUM=${PR_URL##*/}
+          else
+            PR_STATE=$(printf '%s' "$PR_JSON" | jq -r '.[0].state')
+            PR_META=$(gh pr view "$PR_NUM" --json baseRefName,headRefName,title)
+            printf '%s' "$PR_META" | jq -e \
+              --arg base main --arg head "$BRANCH_NAME" --arg title "$PR_TITLE" \
+              '.baseRefName == $base and .headRefName == $head and .title == $title' >/dev/null || {
+              echo "::error::Existing delivery PR has the wrong identity"
+              exit 1
+            }
+            if [ "$PR_STATE" = "CLOSED" ]; then
+              gh pr reopen "$PR_NUM"
+            elif [ "$PR_STATE" != "OPEN" ]; then
+              echo "::error::Existing delivery PR is already merged without a durable receipt"
+              exit 1
+            fi
+          fi
           echo "number=$PR_NUM" >> "$GITHUB_OUTPUT"
-          echo "Created PR #$PR_NUM"
+          gh pr edit "$PR_NUM" --add-label automated --add-label openapi-update
 
       - name: Enable auto-merge
         if: steps.create_pr.outputs.number != ''
         env:
-          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
           PR_NUMBER: ${{ steps.create_pr.outputs.number }}
         run: |
+          [[ "$PR_NUMBER" =~ ^[0-9]+$ ]] || {
+            echo "::error::Invalid pull request number"
+            exit 1
+          }
           gh pr merge "$PR_NUMBER" --auto --squash

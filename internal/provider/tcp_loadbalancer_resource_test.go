@@ -734,7 +734,7 @@ func TestAccTCPLoadBalancerResource_withHealthcheck(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_tcp_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-tcp-lb")
+	rName := acctest.RandomName("tf-acc-test-tcp-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -775,7 +775,7 @@ func TestAccTCPLoadBalancerResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_tcp_loadbalancer.test"
-	rName := acctest.RandomName("tf-test-tcp-lb")
+	rName := acctest.RandomName("tf-acc-test-tcp-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -930,7 +930,7 @@ func TestAccTCPLoadBalancerResource_conflictTcpAndTls(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-tcp-lb")
+	rName := acctest.RandomName("tf-acc-test-tcp-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -990,7 +990,7 @@ func TestAccTCPLoadBalancerResource_conflictPortOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-tcp-lb")
+	rName := acctest.RandomName("tf-acc-test-tcp-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

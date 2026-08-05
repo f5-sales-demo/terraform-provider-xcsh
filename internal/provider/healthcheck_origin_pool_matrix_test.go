@@ -20,7 +20,7 @@ func TestAccHealthcheckResource_httpFullOptions(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-hc-http")
+	rName := acctest.RandomName("tf-acc-test-tf-acc-hc-http")
 	resourceName := "xcsh_healthcheck.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -68,7 +68,7 @@ func TestAccHealthcheckResource_tcpWithPayload(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-hc-tcp")
+	rName := acctest.RandomName("tf-acc-test-tf-acc-hc-tcp")
 	resourceName := "xcsh_healthcheck.test"
 
 	resource.ParallelTest(t, resource.TestCase{
@@ -111,7 +111,7 @@ func TestAccOriginPoolResource_withHealthcheck(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-op-hc")
+	rName := acctest.RandomName("tf-acc-test-tf-acc-op-hc")
 	opResourceName := "xcsh_origin_pool.test"
 	hcResourceName := "xcsh_healthcheck.test"
 
@@ -145,7 +145,7 @@ func TestAccOriginPoolResource_customPort(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-acc-op-port")
+	rName := acctest.RandomName("tf-acc-test-tf-acc-op-port")
 	resourceName := "xcsh_origin_pool.test"
 
 	resource.ParallelTest(t, resource.TestCase{

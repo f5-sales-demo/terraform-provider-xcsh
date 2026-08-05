@@ -4,12 +4,12 @@ This example demonstrates how to activate F5 Distributed Cloud addon services us
 
 ## Overview
 
-F5XC addon services are additional security and performance features that can be activated for your tenant. This example shows how to:
+F5XC addon services are additional security and performance features that can be activated for your tenant. The provider exposes the addon API read-only, so this example reports activation state rather than changing it. It shows how to:
 
 1. Query addon service details and tier requirements
 2. Check activation eligibility for your tenant
-3. Create addon subscriptions to activate services
-4. Handle activation waiting and dependencies
+3. Report which requested addons are active and which are still pending
+4. Gate dependent resources on an addon actually being active
 
 ## Supported Addon Services
 
@@ -84,40 +84,36 @@ After applying, you'll see:
 
 ### Activate Additional Addons
 
-To activate other addon services, add similar blocks to `main.tf`:
+To report on other addon services, add a lookup and a status check to `main.tf`:
 
 ```hcl
 # Example: Adding WAAP Advanced tier
+data "xcsh_addon_service" "waap_advanced" {
+  count = var.enable_waap_advanced ? 1 : 0
+  name  = "f5xc-waap-advanced"
+}
+
 data "xcsh_addon_service_activation_status" "waap_advanced" {
   count         = var.enable_waap_advanced ? 1 : 0
   addon_service = "f5xc-waap-advanced"
 }
-
-resource "xcsh_addon_subscription" "waap_advanced" {
-  count = (
-    var.enable_waap_advanced &&
-    length(data.xcsh_addon_service_activation_status.waap_advanced) > 0 &&
-    data.xcsh_addon_service_activation_status.waap_advanced[0].can_activate &&
-    data.xcsh_addon_service_activation_status.waap_advanced[0].state == "AS_NONE"
-  ) ? 1 : 0
-
-  name      = "waap-advanced-subscription"
-  namespace = "system"
-
-  addon_service {
-    name      = "f5xc-waap-advanced"
-    namespace = "shared"
-  }
-}
 ```
 
-### Adjust Wait Time
+Then add it to the `requested_addons` and `active_addons` lists in the `locals`
+block so it shows up in the `pending_addons` output.
 
-If addons need more time to activate:
+### Activating an Addon
 
-```hcl
-activation_wait_time = "1m"  # Increase to 1 minute
-```
+The provider exposes the addon API read-only, so activation is done outside
+Terraform:
+
+1. Run `terraform apply` and read the `pending_addons` output.
+2. For each addon listed, open the F5 Distributed Cloud console under
+   Administration > Billing & Subscriptions and activate it. When the status
+   check reports that self-service activation is unavailable, contact your F5
+   account team instead.
+3. Re-run `terraform apply`. Once `pending_addons` is empty, dependent
+   resources gated on it are created.
 
 ## Troubleshooting
 
@@ -140,4 +136,3 @@ Contact F5 support with your tenant ID and the specific error message.
 - [Addon Activation Guide](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs/guides/addon-activation)
 - [xcsh_addon_service Data Source](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs/data-sources/addon_service)
 - [xcsh_addon_service_activation_status Data Source](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs/data-sources/addon_service_activation_status)
-- [xcsh_addon_subscription Resource](https://registry.terraform.io/providers/f5-sales-demo/xcsh/latest/docs/resources/addon_subscription)

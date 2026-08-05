@@ -342,7 +342,7 @@ func TestAccWAFExclusionPolicyResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-waf-exc")
+	rName := acctest.RandomName("tf-acc-test-waf-exc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -364,7 +364,7 @@ func TestAccWAFExclusionPolicyResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_waf_exclusion_policy.test"
-	rName := acctest.RandomName("tf-test-waf-exc")
+	rName := acctest.RandomName("tf-acc-test-waf-exc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -419,7 +419,7 @@ func TestAccWAFExclusionPolicyResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_waf_exclusion_policy.test"
-	rName := acctest.RandomName("tf-test-waf-exc")
+	rName := acctest.RandomName("tf-acc-test-waf-exc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

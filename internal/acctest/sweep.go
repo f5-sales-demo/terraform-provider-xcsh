@@ -24,7 +24,7 @@
 //
 // ## 2. Prefix-Based Sweepers (for orphaned resource cleanup)
 //
-// Sweepers delete ALL resources matching test prefixes (tf-acc-test-*, tf-test-*).
+// Sweepers delete ALL resources matching the canonical tf-acc-test-* prefix.
 // Use this ONLY when you need to clean up orphaned resources from crashed tests
 // or when you're certain no other users are running tests.
 //
@@ -58,10 +58,6 @@ const (
 	// TestResourcePrefix is the standard prefix for all acceptance test resources.
 	// Resources matching this prefix are candidates for cleanup by sweepers.
 	TestResourcePrefix = "tf-acc-test-"
-
-	// LegacyTestPrefix is the old prefix used by some tests.
-	// Included for backward compatibility during transition.
-	LegacyTestPrefix = "tf-test-"
 
 	// SweeperTimeout is the maximum time allowed for a single sweeper operation.
 	SweeperTimeout = 5 * time.Minute
@@ -121,8 +117,7 @@ func GetSharedClient() (*client.Client, error) {
 
 // isTestResource checks if a resource name matches test resource naming patterns.
 func isTestResource(name string) bool {
-	return strings.HasPrefix(name, TestResourcePrefix) ||
-		strings.HasPrefix(name, LegacyTestPrefix)
+	return strings.HasPrefix(name, TestResourcePrefix)
 }
 
 // init registers all sweepers when the package is loaded.
@@ -210,7 +205,7 @@ func sweepNamespaces(_ string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), SweeperTimeout)
 	defer cancel()
 
-	log.Printf("[INFO] Sweeping namespaces with prefix %q or %q", TestResourcePrefix, LegacyTestPrefix)
+	log.Printf("[INFO] Sweeping namespaces with prefix %q", TestResourcePrefix)
 
 	resp, err := c.ListNamespaces(ctx)
 	if err != nil {

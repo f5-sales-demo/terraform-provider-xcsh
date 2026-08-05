@@ -16,8 +16,8 @@ func TestAccSegmentResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_segment.test"
-	nsName := acctest.RandomName("tf-acc")
-	name := acctest.RandomName("tf-acc")
+	nsName := acctest.RandomName("tf-acc-test-tf-acc")
+	name := acctest.RandomName("tf-acc-test-tf-acc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

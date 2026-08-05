@@ -43,7 +43,7 @@ func TestAccUserIdentificationResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -76,7 +76,7 @@ func TestAccUserIdentificationResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -113,7 +113,7 @@ func TestAccUserIdentificationResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -150,7 +150,7 @@ func TestAccUserIdentificationResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -181,7 +181,7 @@ func TestAccUserIdentificationResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -218,7 +218,7 @@ func TestAccUserIdentificationResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -242,7 +242,7 @@ func TestAccUserIdentificationResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -267,7 +267,7 @@ func TestAccUserIdentificationResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -292,7 +292,7 @@ func TestAccUserIdentificationResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -347,7 +347,7 @@ func TestAccUserIdentificationResource_nameTooLong(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	uiName := acctest.RandomName("this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
+	uiName := acctest.RandomName("tf-acc-test-this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -384,8 +384,8 @@ func TestAccUserIdentificationResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName1 := acctest.RandomName("ui1")
-	uiName2 := acctest.RandomName("ui2")
+	uiName1 := acctest.RandomName("tf-acc-test-ui1")
+	uiName2 := acctest.RandomName("tf-acc-test-ui2")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -417,7 +417,7 @@ func TestAccUserIdentificationResource_identificationRules(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	uiName := acctest.RandomName("ui")
+	uiName := acctest.RandomName("tf-acc-test-ui")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -549,7 +549,7 @@ func TestAccUserIdentificationResource_cookieRule(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	rName := acctest.RandomName("tf-test-uid")
+	rName := acctest.RandomName("tf-acc-test-uid")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -579,7 +579,7 @@ func TestAccUserIdentificationResource_httpHeaderRule(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	rName := acctest.RandomName("tf-test-uid")
+	rName := acctest.RandomName("tf-acc-test-uid")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -609,7 +609,7 @@ func TestAccUserIdentificationResource_tlsFingerprintRule(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	rName := acctest.RandomName("tf-test-uid")
+	rName := acctest.RandomName("tf-acc-test-uid")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -636,7 +636,7 @@ func TestAccUserIdentificationResource_switchRuleType(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	rName := acctest.RandomName("tf-test-uid")
+	rName := acctest.RandomName("tf-acc-test-uid")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -667,7 +667,7 @@ func TestAccUserIdentificationResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_user_identification.test"
-	rName := acctest.RandomName("tf-test-uid")
+	rName := acctest.RandomName("tf-acc-test-uid")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

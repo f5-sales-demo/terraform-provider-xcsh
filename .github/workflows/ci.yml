@@ -256,8 +256,9 @@ jobs:
         run: |
           CHANGED_FILES=$(git diff --name-only "origin/${BASE_REF}...HEAD")
 
-          # Check if any files that affect doc generation changed
-          if echo "$CHANGED_FILES" | grep -qE "^internal/|^tools/|^templates/"; then
+          # Every executable, dependency, version pin, and configuration input
+          # to scripts/generate-provider-docs.sh must activate this gate.
+          if printf '%s\n' "$CHANGED_FILES" | grep -qE '^(internal/|tools/|templates/|scripts/generate-provider-docs\.sh$|\.terraform-version$|go\.(mod|sum)$|\.tfplugindocs(\.yml|\.yaml)?$|tfplugindocs\.(yml|yaml)$)'; then
             echo "needs_validation=true" >> "$GITHUB_OUTPUT"
           else
             echo "needs_validation=false" >> "$GITHUB_OUTPUT"
@@ -284,6 +285,7 @@ jobs:
         if: steps.check.outputs.needs_validation == 'true'
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
         with:
+          terraform_version: 1.15.8
           terraform_wrapper: false
 
       - name: Install tfplugindocs
@@ -294,7 +296,7 @@ jobs:
           attempt=1
           while [ "$attempt" -le "$max_attempts" ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
+            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0; then
               echo "::endgroup::"
               break
             fi
@@ -315,53 +317,14 @@ jobs:
       - name: Validate docs generation
         if: steps.check.outputs.needs_validation == 'true'
         run: |
-          echo "Validating documentation generation..."
-
-          # Generate examples
-          go run tools/generate-examples.go
-
-          # Generate docs with retry logic
-          max_attempts=3
-          attempt=1
-          while [ "$attempt" -le "$max_attempts" ]; do
-            echo "::group::tfplugindocs generate --provider-name xcsh - Attempt $attempt of $max_attempts"
-            if tfplugindocs generate --provider-name xcsh; then
-              echo "::endgroup::"
-              break
-            fi
-            echo "::endgroup::"
-            attempt=$((attempt + 1))
-            if [ "$attempt" -le "$max_attempts" ]; then
-              sleep_time=$((2 ** attempt * 5))
-              echo "::warning::tfplugindocs failed, retrying in ${sleep_time}s..."
-              sleep "$sleep_time"
-            fi
-          done
-          if [ "$attempt" -gt "$max_attempts" ]; then
-            echo "::error::tfplugindocs failed after $max_attempts attempts"
-            exit 1
-          fi
-
-          # Transform docs
-          go run tools/transform-docs.go
-
-          # #1397: this step used to stop here and print "validated successfully",
-          # having only proved the generators exit 0. It never compared their output
-          # to what is committed, so 143 examples and 91 docs drifted while this job
-          # passed on every PR — including docs publishing invalid Terraform
-          # (JavaScript_challenge for javascript_challenge) and invalid Actions YAML
-          # (runs-on: Ubuntu-latest). Generating without comparing validates nothing.
-          #
-          # Both generators are deterministic: each was run twice from a clean tree
-          # and produced an identical file set both times, so a diff here means the
-          # committed tree is stale, never that the generator is flaky.
-          if [ -n "$(git status --porcelain docs/ examples/)" ]; then
+          scripts/generate-provider-docs.sh
+          if [ -n "$(git status --porcelain docs/ examples/ templates/)" ]; then
             echo "::error::Generated docs/examples differ from what is committed."
-            echo "Run: go run tools/generate-examples.go && tfplugindocs generate --provider-name xcsh && go run tools/transform-docs.go"
+            echo "Run: scripts/generate-provider-docs.sh"
             echo "then commit the result. Files that differ:"
-            git status --porcelain docs/ examples/
+            git status --porcelain docs/ examples/ templates/
             echo "::group::Diff"
-            git --no-pager diff -- docs/ examples/
+            git --no-pager diff -- docs/ examples/ templates/
             echo "::endgroup::"
             exit 1
           fi
@@ -528,6 +491,7 @@ jobs:
         if: steps.check.outputs.needs_validation == 'true'
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
         with:
+          terraform_version: 1.15.8
           terraform_wrapper: false
 
       - name: Check Terraform formatting

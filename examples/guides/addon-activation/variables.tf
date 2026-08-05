@@ -24,21 +24,6 @@ variable "enable_waap" {
 }
 
 # =============================================================================
-# ACTIVATION SETTINGS
-# =============================================================================
-
-variable "activation_wait_time" {
-  description = "Time to wait after activation before proceeding (e.g., '30s', '1m')"
-  type        = string
-  default     = "30s"
-
-  validation {
-    condition     = can(regex("^[0-9]+[smh]$", var.activation_wait_time))
-    error_message = "The activation_wait_time must be a duration string like '30s', '1m', or '1h'."
-  }
-}
-
-# =============================================================================
 # DEMO RESOURCES
 # =============================================================================
 

@@ -28,7 +28,7 @@ func TestAccFilterSetResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -67,7 +67,7 @@ func TestAccFilterSetResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -100,7 +100,7 @@ func TestAccFilterSetResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -135,7 +135,7 @@ func TestAccFilterSetResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -169,7 +169,7 @@ func TestAccFilterSetResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -204,7 +204,7 @@ func TestAccFilterSetResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -232,7 +232,7 @@ func TestAccFilterSetResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -261,7 +261,7 @@ func TestAccFilterSetResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -299,7 +299,7 @@ func TestAccFilterSetResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -392,8 +392,8 @@ func TestAccFilterSetResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
-	newFsName := acctest.RandomName("tf-fs-new")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
+	newFsName := acctest.RandomName("tf-acc-test-tf-fs-new")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -429,7 +429,7 @@ func TestAccFilterSetResource_filterFields(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_filter_set.test"
-	fsName := acctest.RandomName("tf-fs")
+	fsName := acctest.RandomName("tf-acc-test-tf-fs")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

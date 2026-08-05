@@ -20,6 +20,8 @@ ENRICHED_REPO?=f5-sales-demo/api-specs-enriched
 GO=go
 GOFMT=gofmt
 GOLINT=golangci-lint
+GOLANGCI_LINT_VERSION?=$(shell tr -d '[:space:]' < .golangci-version)
+TERRAFORM_VERSION?=$(shell tr -d '[:space:]' < .terraform-version)
 
 .PHONY: all build test lint fmt clean clean-generated regenerate generate docs validate-examples normalize-minimum-configs normalize-network-examples llms-txt install help download-specs sweep sweep-dry-run testacc testacc-mock testacc-real testacc-staging testacc-all test-report test-comprehensive test-comprehensive-mock test-comprehensive-real test-pr-subset uat
 
@@ -158,43 +160,16 @@ generate-schemas:
 # Generate Terraform documentation
 docs:
 	@echo "Generating Terraform documentation..."
-	@if command -v tfplugindocs >/dev/null 2>&1; then \
-		tfplugindocs generate --provider-name xcsh; \
-	else \
-		echo "tfplugindocs not installed. Installing..."; \
-		GOTOOLCHAIN=auto $(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; \
-		tfplugindocs generate --provider-name xcsh; \
-	fi
-	@echo "Transforming documentation to Volterra-style format..."
-	$(GO) run $(TOOLS_DIR)/transform-docs.go
+	GOTOOLCHAIN=auto $(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+	PATH="$$(go env GOPATH)/bin:$$PATH" scripts/generate-provider-docs.sh
 
 # Validate generated Terraform examples.
 # Examples are schema-driven (generated from the TerraformAttribute tree), so EVERY example
 # must terraform-validate. Any invalid example fails the build — no warnings-only escape hatch.
 validate-examples:
-	@echo "Validating generated Terraform examples..."
-	@fail=0; pass=0; \
-	for dir in examples/resources/xcsh_* examples/data-sources/xcsh_*; do \
-		main=$$(find "$$dir" -maxdepth 1 -name 'resource.tf' -o -maxdepth 1 -name 'data-source.tf' 2>/dev/null | head -1); \
-		if [ -z "$$main" ]; then continue; fi; \
-		tmpdir=$$(mktemp -d); \
-		cp "$$main" "$$tmpdir/main.tf"; \
-		cd "$$tmpdir" && terraform init -backend=false -no-color >/dev/null 2>&1; \
-		if ! terraform validate -no-color >/dev/null 2>&1; then \
-			echo "FAIL: $$main"; \
-			fail=$$((fail + 1)); \
-		else \
-			pass=$$((pass + 1)); \
-		fi; \
-		cd - >/dev/null; \
-		rm -rf "$$tmpdir"; \
-	done; \
-	echo "Results: $$pass passed, $$fail failures"; \
-	if [ $$fail -gt 0 ]; then \
-		echo "Example validation failed — all generated examples must terraform-validate"; \
-		exit 1; \
-	fi; \
-	echo "All examples valid"
+	@echo "Regenerating and validating every provider example..."
+	GOTOOLCHAIN=auto $(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
+	PATH="$$(go env GOPATH)/bin:$$PATH" scripts/generate-provider-docs.sh
 
 # Normalize embedded minimum-configuration examples at their source.
 normalize-minimum-configs:
@@ -295,7 +270,7 @@ ci-build:
 
 ci-lint:
 	@echo "CI: Linting..."
-	$(GO) install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+	$(GO) install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$(GOLANGCI_LINT_VERSION)
 	$(GOLINT) run --timeout=5m ./internal/... .
 
 ci-test:

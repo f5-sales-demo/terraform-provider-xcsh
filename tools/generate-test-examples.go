@@ -14,6 +14,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -21,53 +22,110 @@ var configFuncRegex = regexp.MustCompile(`func (testAcc\w+Config_\w+)\([^)]*\)\s
 var formatStringRegex = regexp.MustCompile("return\\s+(?:acctest\\.ConfigCompose\\(\\s*acctest\\.ProviderConfig\\(\\),\\s*)?fmt\\.Sprintf\\(`([^`]+)`")
 var simpleReturnRegex = regexp.MustCompile("return\\s+fmt\\.Sprintf\\(`([^`]+)`")
 
+const (
+	expectedNamedExampleCount = 78
+	xcshProviderSource        = "f5-sales-demo/xcsh"
+	xcshVersionConstraint     = ">= 0.1.0"
+	timeProviderVersion       = "0.13.1"
+)
+
+var testExampleResources = []string{
+	"http_loadbalancer",
+	"tcp_loadbalancer",
+	"healthcheck",
+	"app_firewall",
+	"origin_pool",
+	"rate_limiter",
+	"service_policy",
+	"user_identification",
+	"malicious_user_mitigation",
+}
+
+var (
+	healthyThresholdPlaceholderRegex   = regexp.MustCompile(`(?m)^(\s*healthy_threshold\s*=\s*)%\[\d+\]d`)
+	unhealthyThresholdPlaceholderRegex = regexp.MustCompile(`(?m)^(\s*unhealthy_threshold\s*=\s*)%\[\d+\]d`)
+	jitterPercentPlaceholderRegex      = regexp.MustCompile(`(?m)^(\s*jitter_percent\s*=\s*)%\[\d+\]d`)
+	rateLimiterUnitPlaceholderRegex    = regexp.MustCompile(`(?m)^(\s*unit\s*=\s*)%\[\d+\]q`)
+	healthyThresholdAssignmentRegex    = regexp.MustCompile(`(?m)^\s*healthy_threshold\s*=\s*([0-9]+)\s*$`)
+	unhealthyThresholdAssignmentRegex  = regexp.MustCompile(`(?m)^\s*unhealthy_threshold\s*=\s*([0-9]+)\s*$`)
+	jitterPercentAssignmentRegex       = regexp.MustCompile(`(?m)^\s*jitter_percent\s*=\s*([0-9]+)\s*$`)
+	rateLimiterUnitAssignmentRegex     = regexp.MustCompile(`(?m)^\s*unit\s*=\s*"([^"]+)"\s*$`)
+)
+
 type testExample struct {
 	Resource string
 	Name     string
 	Config   string
 }
 
-func main() {
-	testDir := "internal/provider"
-	outputDir := "examples/resources"
+type generatedExample struct {
+	Path    string
+	Content string
+}
 
-	resources := []string{
-		"http_loadbalancer",
-		"tcp_loadbalancer",
-		"healthcheck",
-		"app_firewall",
-		"origin_pool",
-		"rate_limiter",
-		"service_policy",
-		"user_identification",
-		"malicious_user_mitigation",
+func main() {
+	examples, err := renderExamples("internal/provider", "examples/resources")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "generate verified examples: %v\n", err)
+		os.Exit(1)
+	}
+	if len(examples) != expectedNamedExampleCount {
+		fmt.Fprintf(os.Stderr, "generate verified examples: got %d named examples, want %d\n", len(examples), expectedNamedExampleCount)
+		os.Exit(1)
+	}
+	if err := validateRenderedExamples(examples); err != nil {
+		fmt.Fprintf(os.Stderr, "generate verified examples: %v\n", err)
+		os.Exit(1)
 	}
 
-	totalWritten := 0
+	paths := make([]string, 0, len(examples))
+	for _, example := range examples {
+		if err := os.MkdirAll(filepath.Dir(example.Path), 0755); err != nil {
+			fmt.Fprintf(os.Stderr, "create example directory for %s: %v\n", example.Path, err)
+			os.Exit(1)
+		}
+		if err := os.WriteFile(example.Path, []byte(example.Content), 0644); err != nil {
+			fmt.Fprintf(os.Stderr, "write example %s: %v\n", example.Path, err)
+			os.Exit(1)
+		}
+		fmt.Printf("Generated: %s\n", example.Path)
+		paths = append(paths, example.Path)
+	}
 
-	for _, res := range resources {
+	fmtArgs := append([]string{"fmt"}, paths...)
+	cmd := exec.Command("terraform", fmtArgs...)
+	if out, err := cmd.CombinedOutput(); err != nil {
+		fmt.Fprintf(os.Stderr, "format generated examples: %v\n%s\n", err, out)
+		os.Exit(1)
+	}
+
+	fmt.Printf("\nGenerated and formatted %d verified example files\n", len(examples))
+}
+
+func renderExamples(testDir, outputDir string) ([]generatedExample, error) {
+	var generated []generatedExample
+	seenPaths := make(map[string]struct{})
+
+	for _, res := range testExampleResources {
 		testFile := filepath.Join(testDir, res+"_resource_test.go")
 		content, err := os.ReadFile(testFile)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Skipping %s: %v\n", res, err)
-			continue
+			return nil, fmt.Errorf("read acceptance tests for %s: %w", res, err)
 		}
 
 		examples := extractExamples(res, string(content))
 
 		for _, ex := range examples {
 			exDir := filepath.Join(outputDir, "xcsh_"+ex.Resource)
-			if err := os.MkdirAll(exDir, 0755); err != nil {
-				fmt.Fprintf(os.Stderr, "Error creating %s: %v\n", exDir, err)
-				continue
-			}
-
 			filename := toExampleFilename(ex.Name) + ".tf"
 			if filename == "basic-system.tf" || filename == "basic.tf" {
 				continue
 			}
 
 			outPath := filepath.Join(exDir, filename)
+			if _, exists := seenPaths[outPath]; exists {
+				return nil, fmt.Errorf("multiple acceptance helpers generate %s", outPath)
+			}
 			header := fmt.Sprintf("# %s — Verified Configuration Example\n# This configuration is extracted from acceptance tests\n# and verified against the live F5 XC API.\n\n",
 				toHumanName(ex.Name))
 
@@ -76,32 +134,15 @@ func main() {
 				continue
 			}
 
-			if strings.Contains(cleaned, "time_sleep") {
-				cleaned = "terraform {\n  required_providers {\n    time = {\n      source  = \"hashicorp/time\"\n      version = \">= 0.9.0\"\n    }\n  }\n}\n\n" + cleaned
-			}
-
-			output := header + cleaned
-			if !strings.HasSuffix(output, "\n") {
-				output += "\n"
-			}
-			if err := os.WriteFile(outPath, []byte(output), 0644); err != nil {
-				fmt.Fprintf(os.Stderr, "Error writing %s: %v\n", outPath, err)
-				continue
-			}
-
-			fmt.Printf("Generated: %s\n", outPath)
-			totalWritten++
+			seenPaths[outPath] = struct{}{}
+			generated = append(generated, generatedExample{
+				Path:    outPath,
+				Content: header + addProviderRequirements(cleaned),
+			})
 		}
 	}
 
-	fmt.Printf("\nGenerated %d verified example files\n", totalWritten)
-
-	cmd := exec.Command("terraform", "fmt", "-recursive", outputDir)
-	if out, err := cmd.CombinedOutput(); err != nil {
-		fmt.Fprintf(os.Stderr, "Warning: terraform fmt failed: %v\n%s\n", err, out)
-	} else {
-		fmt.Println("Formatted all generated examples with terraform fmt")
-	}
+	return generated, nil
 }
 
 func extractExamples(resource, content string) []testExample {
@@ -224,6 +265,14 @@ func extractHCL(funcBody string) string {
 func cleanConfig(config string) string {
 	config = strings.TrimSpace(config)
 
+	// Positional values in acceptance helpers do not have one universal meaning.
+	// Resolve fields with constrained domains before applying the general sample
+	// substitutions below so generated configurations remain schema-valid.
+	config = healthyThresholdPlaceholderRegex.ReplaceAllString(config, "${1}3")
+	config = unhealthyThresholdPlaceholderRegex.ReplaceAllString(config, "${1}2")
+	config = jitterPercentPlaceholderRegex.ReplaceAllString(config, "${1}30")
+	config = rateLimiterUnitPlaceholderRegex.ReplaceAllString(config, `${1}"MINUTE"`)
+
 	config = regexp.MustCompile(`%\[\d+\]s(\s*)\}`).ReplaceAllString(config, "    example-key = \"example-value\"\n$1}")
 
 	config = regexp.MustCompile(`%\[1\]q`).ReplaceAllString(config, `"example"`)
@@ -248,6 +297,81 @@ func cleanConfig(config string) string {
 	}
 
 	return config
+}
+
+func addProviderRequirements(config string) string {
+	var requirements strings.Builder
+	requirements.WriteString("terraform {\n  required_providers {\n")
+	requirements.WriteString("    xcsh = {\n")
+	fmt.Fprintf(&requirements, "      source  = %q\n", xcshProviderSource)
+	fmt.Fprintf(&requirements, "      version = %q\n", xcshVersionConstraint)
+	requirements.WriteString("    }\n")
+	if strings.Contains(config, "time_sleep") {
+		requirements.WriteString("    time = {\n")
+		requirements.WriteString("      source  = \"hashicorp/time\"\n")
+		fmt.Fprintf(&requirements, "      version = \"= %s\"\n", timeProviderVersion)
+		requirements.WriteString("    }\n")
+	}
+	requirements.WriteString("  }\n}\n\n")
+	requirements.WriteString(strings.TrimSpace(config))
+	requirements.WriteByte('\n')
+	return requirements.String()
+}
+
+func validateRenderedExamples(examples []generatedExample) error {
+	if len(examples) != expectedNamedExampleCount {
+		return fmt.Errorf("got %d named examples, want %d", len(examples), expectedNamedExampleCount)
+	}
+	for _, example := range examples {
+		if err := validateExampleContent(example.Content); err != nil {
+			return fmt.Errorf("%s: %w", example.Path, err)
+		}
+	}
+	return nil
+}
+
+func validateExampleContent(content string) error {
+	requiredSource := fmt.Sprintf(`source  = %q`, xcshProviderSource)
+	requiredVersion := fmt.Sprintf(`version = %q`, xcshVersionConstraint)
+	if !strings.Contains(content, requiredSource) || !strings.Contains(content, requiredVersion) {
+		return fmt.Errorf("missing the required xcsh provider source/version binding")
+	}
+	if strings.Contains(content, "time_sleep") {
+		requiredTimeVersion := fmt.Sprintf(`version = "= %s"`, timeProviderVersion)
+		if !strings.Contains(content, `source  = "hashicorp/time"`) || !strings.Contains(content, requiredTimeVersion) {
+			return fmt.Errorf("time_sleep example does not pin the time provider")
+		}
+	}
+	if strings.Contains(content, "%[") {
+		return fmt.Errorf("contains an unresolved positional format placeholder")
+	}
+
+	for _, check := range []struct {
+		name    string
+		pattern *regexp.Regexp
+		minimum int
+		maximum int
+	}{
+		{name: "healthy_threshold", pattern: healthyThresholdAssignmentRegex, minimum: 1, maximum: 16},
+		{name: "unhealthy_threshold", pattern: unhealthyThresholdAssignmentRegex, minimum: 1, maximum: 16},
+		{name: "jitter_percent", pattern: jitterPercentAssignmentRegex, minimum: 0, maximum: 100},
+	} {
+		for _, match := range check.pattern.FindAllStringSubmatch(content, -1) {
+			value, err := strconv.Atoi(match[1])
+			if err != nil || value < check.minimum || value > check.maximum {
+				return fmt.Errorf("%s value %q is outside %d..%d", check.name, match[1], check.minimum, check.maximum)
+			}
+		}
+	}
+
+	validRateLimiterUnits := map[string]struct{}{"SECOND": {}, "MINUTE": {}, "HOUR": {}}
+	for _, match := range rateLimiterUnitAssignmentRegex.FindAllStringSubmatch(content, -1) {
+		if _, ok := validRateLimiterUnits[match[1]]; !ok {
+			return fmt.Errorf("rate limiter unit %q is not SECOND, MINUTE, or HOUR", match[1])
+		}
+	}
+
+	return nil
 }
 
 func toExampleFilename(name string) string {

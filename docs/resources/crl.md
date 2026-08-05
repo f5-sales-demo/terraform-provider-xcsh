@@ -33,7 +33,7 @@ resource "xcsh_crl" "example" {
   name      = "example-crl"
   namespace = "staging"
 
-  refresh_interval = 1
+  refresh_interval = 6
   server_address   = "example-value"
   server_port      = 1
   timeout          = 1

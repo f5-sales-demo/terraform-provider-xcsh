@@ -25,7 +25,7 @@ func TestAccServicePolicyResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -62,7 +62,7 @@ func TestAccServicePolicyResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -92,7 +92,7 @@ func TestAccServicePolicyResource_denyAll(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -119,7 +119,7 @@ func TestAccServicePolicyResource_allowList(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -146,7 +146,7 @@ func TestAccServicePolicyResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -174,7 +174,7 @@ func TestAccServicePolicyResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -219,7 +219,7 @@ func TestAccServicePolicyResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -254,7 +254,7 @@ func TestAccServicePolicyResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -297,7 +297,7 @@ func TestAccServicePolicyResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -344,8 +344,8 @@ func TestAccServicePolicyResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName1 := acctest.RandomName("tf-test-sp")
-	rName2 := acctest.RandomName("tf-test-sp")
+	rName1 := acctest.RandomName("tf-acc-test-sp")
+	rName2 := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -376,7 +376,7 @@ func TestAccServicePolicyResource_switchType(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -412,7 +412,7 @@ func TestAccServicePolicyResource_denyList(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -442,7 +442,7 @@ func TestAccServicePolicyResource_fullLifecycle(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_service_policy.test"
-	rName := acctest.RandomName("tf-test-sp")
+	rName := acctest.RandomName("tf-acc-test-sp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

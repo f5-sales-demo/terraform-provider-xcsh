@@ -33,16 +33,13 @@ output "status_message" {
   value       = data.xcsh_addon_service_activation_status.bot_defense.message
 }
 
-# Example: Conditional subscription based on activation status
-# Only create the subscription if the addon is available for activation
-resource "xcsh_addon_subscription" "bot_defense" {
-  count = data.xcsh_addon_service_activation_status.bot_defense.can_activate && data.xcsh_addon_service_activation_status.bot_defense.state == "AS_NONE" ? 1 : 0
+# Example: gate a dependent resource on the addon actually being active.
+# Activation itself is performed in the F5 Distributed Cloud console; this data
+# source reports the result, so a configuration can wait for it instead of
+# building on a feature the tenant has not enabled.
+resource "xcsh_namespace" "bot_defense_demo" {
+  count = data.xcsh_addon_service_activation_status.bot_defense.state == "AS_SUBSCRIBED" ? 1 : 0
 
-  name      = "my-bot-defense-subscription"
-  namespace = "system"
-
-  addon_service {
-    name      = "bot_defense"
-    namespace = "shared"
-  }
+  name        = "bot-defense-demo"
+  description = "Created only once Bot Defense is active on this tenant"
 }

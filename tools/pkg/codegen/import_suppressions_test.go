@@ -3,17 +3,43 @@
 package codegen
 
 import (
+	"os"
+	"path/filepath"
 	"reflect"
 	"testing"
 )
 
+func TestFindRepositoryRootFromNestedDirectory(t *testing.T) {
+	root := t.TempDir()
+	if err := os.WriteFile(filepath.Join(root, "go.mod"), []byte("module example.test/root\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(root, "tools", "pkg", "codegen"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "tools", "import-default-suppressions.json"), []byte(`{"_comment":"measured"}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+
+	got, err := findRepositoryRootFrom(filepath.Join(root, "tools", "pkg", "codegen"))
+	if err != nil {
+		t.Fatalf("findRepositoryRootFrom() error = %v", err)
+	}
+	if got != root {
+		t.Fatalf("findRepositoryRootFrom() = %q, want %q", got, root)
+	}
+}
+
 // The suppression data file carries a string "_comment" field alongside the
 // []string resource entries. Parsing into map[string][]string fails on that
-// string, which silently disabled the whole JSON (only the built-in seed stayed
-// active). Regression test: _comment is skipped and resource entries load.
+// string. Regression test: _comment is validated and skipped while resource
+// entries load.
 func TestParseSuppressionsJSON_SkipsComment(t *testing.T) {
 	data := []byte(`{"_comment":"docs here","AppFirewall":["allow_all_response_codes","default_bot_setting"],"APIDefinition":["strict_schema_origin"]}`)
-	got := parseSuppressionsJSON(data)
+	got, err := parseSuppressionsJSON(data)
+	if err != nil {
+		t.Fatalf("parseSuppressionsJSON() error = %v", err)
+	}
 	want := map[string][]string{
 		"AppFirewall":   {"allow_all_response_codes", "default_bot_setting"},
 		"APIDefinition": {"strict_schema_origin"},
@@ -23,11 +49,31 @@ func TestParseSuppressionsJSON_SkipsComment(t *testing.T) {
 	}
 }
 
-// End-to-end: an entry present only in the JSON data file (not the Go seed) must
-// be honored, proving the file is actually loaded.
+func TestParseSuppressionsJSONRejectsMalformedCanonicalData(t *testing.T) {
+	for _, data := range []string{
+		`{}`,
+		`{"_comment":"docs"}`,
+		`{"_comment":"","AppFirewall":["default_bot_setting"]}`,
+		`{"_comment":"docs","AppFirewall":"default_bot_setting"}`,
+		`{"_comment":"docs","AppFirewall":["default_bot_setting","default_bot_setting"]}`,
+		`{"_comment":"docs","AppFirewall":["first"],"AppFirewall":["last"]}`,
+	} {
+		if _, err := parseSuppressionsJSON([]byte(data)); err == nil {
+			t.Fatalf("parseSuppressionsJSON(%s) succeeded, want error", data)
+		}
+	}
+}
+
+// End-to-end: a canonical data-file entry must be honored.
 func TestImportSuppressions_JSONEntryHonored(t *testing.T) {
 	if !isImportDefaultSuppressed("AppFirewall", "allow_all_response_codes") {
 		t.Error("AppFirewall.allow_all_response_codes (JSON-only) should be suppressed; JSON not loaded?")
+	}
+}
+
+func TestImportSuppressions_SecuremeshLabelsUsesCanonicalData(t *testing.T) {
+	if !isImportDefaultSuppressed("SecuremeshSiteV2", "labels") {
+		t.Error("SecuremeshSiteV2.labels must be loaded from canonical suppression data")
 	}
 }
 

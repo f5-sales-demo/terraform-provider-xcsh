@@ -19,7 +19,7 @@ func TestAccAPIDiscoveryResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_discovery.test"
-	rName := acctest.RandomName("tf-test-disc")
+	rName := acctest.RandomName("tf-acc-test-disc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -63,7 +63,7 @@ func TestAccAPIDiscoveryResource_withLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_discovery.test"
-	rName := acctest.RandomName("tf-test-disc")
+	rName := acctest.RandomName("tf-acc-test-disc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -85,7 +85,7 @@ func TestAccAPIDiscoveryResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-disc")
+	rName := acctest.RandomName("tf-acc-test-disc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -103,7 +103,7 @@ func TestAccAPIDiscoveryResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_discovery.test"
-	rName := acctest.RandomName("tf-test-disc")
+	rName := acctest.RandomName("tf-acc-test-disc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -150,8 +150,8 @@ func TestAccAPIDiscoveryResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_api_discovery.test"
-	rName1 := acctest.RandomName("tf-test-disc")
-	rName2 := acctest.RandomName("tf-test-disc")
+	rName1 := acctest.RandomName("tf-acc-test-disc")
+	rName2 := acctest.RandomName("tf-acc-test-disc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

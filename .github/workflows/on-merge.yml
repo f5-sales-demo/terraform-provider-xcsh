@@ -39,6 +39,13 @@ on:
       - main
     # Note: No paths-ignore - all changes should trigger workflow
     # Specific path filtering happens in detect-changes job
+  workflow_dispatch:
+    inputs:
+      resume-pending:
+        description: Reconcile the exact pending spec delivery on main.
+        required: true
+        type: boolean
+        default: false
 
 # GITHUB_TOKEN starts with no scopes; each job grants only what it consumes
 # (zizmor excessive-permissions). Verified: the only GITHUB_TOKEN consumers in
@@ -47,12 +54,15 @@ on:
 # (contents: read — api-specs-enriched is a public repo) and the tag
 # push / release upload / goreleaser release in _tag-release.yml
 # (contents: write). Every PR and issue mutation in create-regeneration-pr
-# authenticates with secrets.AUTO_MERGE_TOKEN, so pull-requests: write and
+# authenticates with secrets.REPO_SYNC_TOKEN, so pull-requests: write and
 # issues: write had no consumer at all.
 permissions: {}
 
 concurrency:
-  group: on-merge-${{ github.sha }}
+  # Tagging reads and releases latest main, so main pushes must be serialized.
+  # Per-SHA groups allowed two runs to calculate and publish from mutable main
+  # concurrently, making the result depend on timing.
+  group: on-merge-main
   cancel-in-progress: false
 
 jobs:
@@ -64,6 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read # actions/checkout only
+      pull-requests: read # attest an automated regeneration merge from its exact PR
     outputs:
       specs-changed: ${{ steps.changes.outputs.specs }}
       code-changed: ${{ steps.changes.outputs.code }}
@@ -71,9 +82,13 @@ jobs:
       functions-changed: ${{ steps.changes.outputs.functions }}
       docs-changed: ${{ steps.changes.outputs.docs }}
       has-any-changes: ${{ steps.changes.outputs.has_any_changes }}
-      is-bot-commit: ${{ steps.check-author.outputs.is_bot }}
+      is-regeneration-commit: ${{ steps.check-author.outputs.is_regeneration }}
+      pending-delivery: ${{ steps.changes.outputs.pending_delivery }}
       should-process: ${{ steps.should-process.outputs.result }}
       needs-regeneration: ${{ steps.should-process.outputs.needs_regeneration }}
+      provider-regeneration-required: ${{ steps.should-process.outputs.provider_required }}
+      docs-regeneration-required: ${{ steps.should-process.outputs.docs_required }}
+      delivery-metadata-only: ${{ steps.changes.outputs.delivery_metadata_only }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -81,39 +96,153 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
 
-      - name: Check if bot commit
+      - name: Identify an exact regeneration completion commit
         id: check-author
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_REPOSITORY: ${{ github.repository }}
         run: |
-          AUTHOR=$(git log -1 --format='%an')
+          set -euo pipefail
           MESSAGE=$(git log -1 --format='%s')
-          echo "Author: $AUTHOR"
           echo "Message: $MESSAGE"
-
-          IS_BOT="false"
-
-          # Check for bot author
-          if [[ "$AUTHOR" == "github-actions[bot]" ]]; then
-            IS_BOT="true"
-            echo "Detected github-actions[bot] author"
+          IS_REGENERATION=false
+          PENDING=tools/spec-pending-delivery.json
+          RECEIPT=tools/spec-regeneration-receipt.json
+          RECEIPT_CHANGED=false
+          if git diff --name-only HEAD^ HEAD | grep -qx "$RECEIPT"; then
+            RECEIPT_CHANGED=true
           fi
 
-          # Check for auto-generated commit messages
-          if [[ "$MESSAGE" == "chore: auto-regenerate"* ]] || \
-             [[ "$MESSAGE" == "docs: auto-generate"* ]] || \
-             [[ "$MESSAGE" == "chore: regenerate provider"* ]]; then
-            IS_BOT="true"
-            echo "Detected auto-generated commit message"
+          if [ "$MESSAGE" = "chore: auto-regenerate provider and documentation" ]; then
+            HEAD_COMMIT=$(git rev-parse HEAD)
+            ASSOCIATED_PRS=$(gh api \
+              "repos/${TARGET_REPOSITORY}/commits/${HEAD_COMMIT}/pulls")
+            MATCHING_PRS=$(jq -c \
+              --arg commit "$HEAD_COMMIT" \
+              --arg repository "$TARGET_REPOSITORY" \
+              --arg title "$MESSAGE" '
+              [ .[] | select(
+                .state == "closed" and
+                .merged_at != null and
+                .merge_commit_sha == $commit and
+                .title == $title and
+                .base.ref == "main" and
+                .base.repo.full_name == $repository and
+                .head.repo.full_name == $repository and
+                (.head.ref | test("^auto-regenerate/[0-9a-f]{40}$")) and
+                (([.labels[].name] | index("automated")) != null) and
+                (([.labels[].name] | index("regeneration")) != null)
+              ) ]
+            ' <<< "$ASSOCIATED_PRS")
+            MATCHING_COUNT=$(jq 'length' <<< "$MATCHING_PRS")
+            [ "$MATCHING_COUNT" -le 1 ] || {
+              echo "::error::Release commit is associated with multiple regeneration PR identities"
+              exit 1
+            }
+            if [ "$MATCHING_COUNT" -eq 1 ]; then
+              REGENERATION_BRANCH=$(jq -r '.[0].head.ref' <<< "$MATCHING_PRS")
+              SOURCE_COMMIT=${REGENERATION_BRANCH#auto-regenerate/}
+              PRE_MERGE_COMMIT=$(git rev-parse HEAD^)
+              [ "$SOURCE_COMMIT" = "$PRE_MERGE_COMMIT" ] || {
+                echo "::error::Regeneration PR source is not the pre-merge main commit"
+                exit 1
+              }
+              IS_REGENERATION=true
+              echo "Detected exact automated regeneration PR ${REGENERATION_BRANCH}"
+            else
+              echo "Exact subject has no matching automated regeneration PR; processing as a human change"
+            fi
           fi
 
-          echo "is_bot=$IS_BOT" >> "$GITHUB_OUTPUT"
+          if [ "$IS_REGENERATION" = true ]; then
+            if [ -e "$PENDING" ]; then
+              [ "$RECEIPT_CHANGED" = true ] && [ -e "$RECEIPT" ] || {
+                echo "::error::A pending delivery can be released only by a receipted regeneration commit"
+                exit 1
+              }
+              git diff --diff-filter=A --name-only HEAD^ HEAD | grep -qx "$RECEIPT" || {
+                echo "::error::Regeneration receipt was not introduced by this commit"
+                exit 1
+              }
+              jq -e '
+                type == "object" and
+                (keys | sort) == ["delivery_id", "release_tag", "target_commit", "version"] and
+                (.delivery_id | test("^[0-9a-f]{64}$")) and
+                (.release_tag | test("^v[0-9]+\\.[0-9]+\\.[0-9]+$")) and
+                (.target_commit | test("^[0-9a-f]{40}$")) and
+                .release_tag == ("v" + .version)
+              ' "$PENDING" >/dev/null || {
+                echo "::error::Pending delivery is malformed"
+                exit 1
+              }
+              PIN_SHA=$(shasum -a 256 tools/spec-release.json | awk '{print $1}')
+              jq -e --arg pin_sha "$PIN_SHA" --slurpfile pending "$PENDING" '
+                type == "object" and
+                (keys | sort) == [
+                  "delivery_id", "release_tag", "source_commit", "spec_release_sha256",
+                  "target_commit", "version"
+                ] and
+                .delivery_id == $pending[0].delivery_id and
+                .release_tag == $pending[0].release_tag and
+                .target_commit == $pending[0].target_commit and
+                .version == $pending[0].version and
+                .spec_release_sha256 == $pin_sha and
+                (.source_commit | test("^[0-9a-f]{40}$"))
+              ' "$RECEIPT" >/dev/null || {
+                echo "::error::Regeneration receipt is not bound to the pending release pin"
+                exit 1
+              }
+              RECEIPTED_SOURCE_COMMIT=$(jq -r '.source_commit' "$RECEIPT")
+              [ "$RECEIPTED_SOURCE_COMMIT" = "$SOURCE_COMMIT" ] || {
+                echo "::error::Regeneration receipt source differs from the attested PR source"
+                exit 1
+              }
+              [ "$RECEIPTED_SOURCE_COMMIT" = "$(git rev-parse HEAD^)" ] || {
+                echo "::error::Regeneration source is not the pre-merge main commit"
+                exit 1
+              }
+              CANONICAL=$(jq -cnS \
+                --arg commit "$(jq -r '.target_commit' "$PENDING")" \
+                --arg event_type enriched-specs-updated \
+                --arg source f5-sales-demo/api-specs-enriched \
+                --arg tag "$(jq -r '.release_tag' "$PENDING")" \
+                --arg target "$TARGET_REPOSITORY" \
+                --arg version "$(jq -r '.version' "$PENDING")" \
+                '{commit:$commit,event_type:$event_type,source:$source,tag:$tag,target:$target,version:$version}')
+              EXPECTED_ID=$(printf '%s' "$CANONICAL" | shasum -a 256 | awk '{print $1}')
+              [ "$(jq -r '.delivery_id' "$PENDING")" = "$EXPECTED_ID" ] || {
+                echo "::error::Pending delivery ID is not canonical"
+                exit 1
+              }
+              echo "Detected an attested delivery regeneration merge"
+            else
+              [ "$RECEIPT_CHANGED" = false ] && [ ! -e "$RECEIPT" ] || {
+                echo "::error::Regeneration receipt exists without a pending delivery"
+                exit 1
+              }
+              echo "Detected a regeneration merge without a spec delivery"
+            fi
+          elif [ "$RECEIPT_CHANGED" = true ]; then
+            echo "::error::Only the exact regeneration merge may introduce a receipt"
+            exit 1
+          fi
+          echo "is_regeneration=$IS_REGENERATION" >> "$GITHUB_OUTPUT"
 
       - name: Detect changed paths
         id: changes
+        env:
+          PENDING_RESUME: ${{ inputs.resume-pending || false }}
         run: |
           # Get changed files since parent commit
           CHANGED=$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only HEAD)
           echo "Changed files:"
           echo "$CHANGED"
+          PENDING_DELIVERY=false
+          if echo "$CHANGED" | grep -qx 'tools/spec-pending-delivery.json' || \
+            [ "$PENDING_RESUME" = "true" ]; then
+            PENDING_DELIVERY=true
+          fi
+          echo "pending_delivery=$PENDING_DELIVERY" >> "$GITHUB_OUTPUT"
 
           # Check for OpenAPI spec changes
           if echo "$CHANGED" | grep -qE '^docs/specifications/api/'; then
@@ -135,8 +264,10 @@ jobs:
             echo "code=false" >> "$GITHUB_OUTPUT"
           fi
 
-          # Check for tool changes (includes templates for doc generation)
-          if echo "$CHANGED" | grep -qE '^tools/|^templates/'; then
+          # Delivery coordination files never affect generated provider content.
+          TOOL_CHANGES=$(echo "$CHANGED" | grep -E '^tools/|^templates/' \
+            | grep -vE '^tools/(provider-publication-receipts|spec-(deliveries|pending-delivery|regeneration-receipt))\.json$' || true)
+          if [ -n "$TOOL_CHANGES" ]; then
             echo "tools=true" >> "$GITHUB_OUTPUT"
             echo "Tools/templates changed"
           else
@@ -163,7 +294,9 @@ jobs:
 
           # Check for ANY substantive changes (for tagging even without regeneration)
           # Exclude only workflow files and gitignore - everything else is substantive
-          SUBSTANTIVE_CHANGES=$(echo "$CHANGED" | grep -vE '^\.github/workflows/|^\.gitignore' || true)
+          SUBSTANTIVE_CHANGES=$(echo "$CHANGED" \
+            | grep -vE '^\.github/workflows/|^\.gitignore|^tools/(provider-publication-receipts|spec-(deliveries|pending-delivery|regeneration-receipt))\.json$' \
+            || true)
           if [ -n "$SUBSTANTIVE_CHANGES" ]; then
             echo "has_any_changes=true" >> "$GITHUB_OUTPUT"
             echo "Substantive changes detected (will trigger tagging)"
@@ -171,42 +304,65 @@ jobs:
             echo "has_any_changes=false" >> "$GITHUB_OUTPUT"
           fi
 
+          DELIVERY_METADATA=$(echo "$CHANGED" \
+            | grep -vE '^tools/(provider-publication-receipts|spec-(deliveries|pending-delivery|regeneration-receipt))\.json$' || true)
+          if [ -n "$CHANGED" ] && [ -z "$DELIVERY_METADATA" ]; then
+            echo "delivery_metadata_only=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "delivery_metadata_only=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Determine if processing should proceed
         id: should-process
         # Step outputs reach the shell through env: — an ${{ }} expansion inside
         # run: is a code-injection sink (zizmor template-injection).
         env:
-          IS_BOT: ${{ steps.check-author.outputs.is_bot }}
+          IS_REGENERATION: ${{ steps.check-author.outputs.is_regeneration }}
           SPECS: ${{ steps.changes.outputs.specs }}
           CODE: ${{ steps.changes.outputs.code }}
           TOOLS: ${{ steps.changes.outputs.tools }}
           FUNCTIONS: ${{ steps.changes.outputs.functions }}
           HAS_ANY_CHANGES: ${{ steps.changes.outputs.has_any_changes }}
+          DELIVERY_METADATA_ONLY: ${{ steps.changes.outputs.delivery_metadata_only }}
+          PENDING_DELIVERY: ${{ steps.changes.outputs.pending_delivery }}
         run: |
-          # Determine if regeneration would be needed
-          NEEDS_REGEN="false"
-          if [[ "$SPECS" == "true" || "$CODE" == "true" || "$TOOLS" == "true" || "$FUNCTIONS" == "true" ]]; then
-            NEEDS_REGEN="true"
+          PROVIDER_REQUIRED=false
+          if [[ "$SPECS" == "true" || "$TOOLS" == "true" || "$PENDING_DELIVERY" == "true" ]]; then
+            PROVIDER_REQUIRED=true
           fi
-          echo "needs_regeneration=$NEEDS_REGEN" >> "$GITHUB_OUTPUT"
+          DOCS_REQUIRED=false
+          if [[ "$SPECS" == "true" || "$CODE" == "true" || "$TOOLS" == "true" || "$FUNCTIONS" == "true" || "$PENDING_DELIVERY" == "true" ]]; then
+            DOCS_REQUIRED=true
+          fi
+          NEEDS_REGEN=false
+          if [[ "$PROVIDER_REQUIRED" == "true" || "$DOCS_REQUIRED" == "true" ]]; then
+            NEEDS_REGEN=true
+          fi
+          RESULT=false
 
-          if [[ "$IS_BOT" == "true" ]]; then
-            # Bot commits (from regeneration PR merge) should proceed to tagging
-            echo "Processing: Bot commit - will proceed to tag/release"
-            echo "result=true" >> "$GITHUB_OUTPUT"
+          if [[ "$DELIVERY_METADATA_ONLY" == "true" ]]; then
+            echo "Skipping: delivery receipt metadata cannot trigger regeneration or a release"
+          elif [[ "$IS_REGENERATION" == "true" ]]; then
+            echo "Processing: exact regeneration completion - will proceed to tag/release"
+            RESULT=true
           elif [[ "$NEEDS_REGEN" == "false" ]]; then
             # No regeneration needed - check if there are any substantive changes for tagging
             if [[ "$HAS_ANY_CHANGES" == "true" ]]; then
               echo "Processing: Substantive changes without regeneration - will tag"
-              echo "result=true" >> "$GITHUB_OUTPUT"
+              RESULT=true
             else
               echo "Skipping: No relevant changes detected"
-              echo "result=false" >> "$GITHUB_OUTPUT"
             fi
           else
             echo "Processing: Human commit with regeneration changes"
-            echo "result=true" >> "$GITHUB_OUTPUT"
+            RESULT=true
           fi
+          {
+            echo "provider_required=$PROVIDER_REQUIRED"
+            echo "docs_required=$DOCS_REQUIRED"
+            echo "needs_regeneration=$NEEDS_REGEN"
+            echo "result=$RESULT"
+          } >> "$GITHUB_OUTPUT"
 
   # ===========================================================================
   # STEP 2: Build and Test (validates the merged code - human commits only)
@@ -217,11 +373,12 @@ jobs:
     # Only run for human commits - bot commits (regeneration) don't need testing
     if: |
       needs.detect-changes.outputs.should-process == 'true' &&
-      needs.detect-changes.outputs.is-bot-commit != 'true'
+      needs.detect-changes.outputs.is-regeneration-commit != 'true'
     permissions:
       contents: read # checkout, public-repo spec-asset read, go build/test, golangci-lint — no API writes
     uses: ./.github/workflows/_build-test.yml
     with:
+      ref: ${{ github.sha }}
       run-lint: true
 
   # ===========================================================================
@@ -234,12 +391,13 @@ jobs:
     # This includes: OpenAPI spec changes OR generator tool changes (to apply bug fixes)
     if: |
       needs.detect-changes.outputs.should-process == 'true' &&
-      needs.detect-changes.outputs.is-bot-commit != 'true' &&
-      (needs.detect-changes.outputs.specs-changed == 'true' ||
-       needs.detect-changes.outputs.tools-changed == 'true')
+      needs.detect-changes.outputs.is-regeneration-commit != 'true' &&
+      needs.detect-changes.outputs.provider-regeneration-required == 'true'
     permissions:
       contents: read # checkout + gh api read of the api-specs-enriched release asset
     uses: ./.github/workflows/_generate-provider.yml
+    with:
+      ref: ${{ github.sha }}
 
   # ===========================================================================
   # STEP 4: Regenerate documentation (if code, tools, or functions changed - human commits only)
@@ -251,15 +409,111 @@ jobs:
     if: |
       always() &&
       needs.detect-changes.outputs.should-process == 'true' &&
-      needs.detect-changes.outputs.is-bot-commit != 'true' &&
+      needs.detect-changes.outputs.is-regeneration-commit != 'true' &&
       needs.build-test.result == 'success' &&
-      (needs.detect-changes.outputs.code-changed == 'true' ||
-       needs.detect-changes.outputs.tools-changed == 'true' ||
-       needs.detect-changes.outputs.functions-changed == 'true' ||
-       (needs.regenerate-provider.result == 'success' && needs.regenerate-provider.outputs.changed == 'true'))
+      needs.detect-changes.outputs.docs-regeneration-required == 'true' &&
+      (needs.detect-changes.outputs.provider-regeneration-required != 'true' ||
+       needs.regenerate-provider.result == 'success')
     permissions:
       contents: read # checkout + tfplugindocs; no API writes
     uses: ./.github/workflows/_generate-docs.yml
+    with:
+      ref: ${{ github.sha }}
+
+  # ===========================================================================
+  # STEP 5: Classify the exact generator state
+  # ===========================================================================
+  generation-state:
+    name: Classify Generator State
+    needs: [detect-changes, build-test, regenerate-provider, regenerate-docs]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions: {}
+    outputs:
+      create-pr: ${{ steps.classify.outputs.create_pr }}
+      release: ${{ steps.classify.outputs.release }}
+    steps:
+      - name: Classify generator state
+        id: classify
+        env:
+          DETECT_RESULT: ${{ needs.detect-changes.result }}
+          SHOULD_PROCESS: ${{ needs.detect-changes.outputs.should-process }}
+          IS_REGENERATION: ${{ needs.detect-changes.outputs.is-regeneration-commit }}
+          PENDING_DELIVERY: ${{ needs.detect-changes.outputs.pending-delivery }}
+          BUILD_RESULT: ${{ needs.build-test.result }}
+          PROVIDER_REQUIRED: ${{ needs.detect-changes.outputs.provider-regeneration-required }}
+          PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
+          PROVIDER_CHANGED: ${{ needs.regenerate-provider.outputs.changed }}
+          DOCS_REQUIRED: ${{ needs.detect-changes.outputs.docs-regeneration-required }}
+          DOCS_RESULT: ${{ needs.regenerate-docs.result }}
+          DOCS_CHANGED: ${{ needs.regenerate-docs.outputs.changed }}
+        run: |
+          set -euo pipefail
+          CREATE_PR=false
+          RELEASE=false
+
+          [ "$DETECT_RESULT" = "success" ] || {
+            echo "::error::Change detection did not complete successfully"
+            exit 1
+          }
+
+          if [ "$SHOULD_PROCESS" != "true" ]; then
+            {
+              echo "create_pr=$CREATE_PR"
+              echo "release=$RELEASE"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ "$IS_REGENERATION" = "true" ]; then
+            RELEASE=true
+            {
+              echo "create_pr=$CREATE_PR"
+              echo "release=$RELEASE"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          [ "$BUILD_RESULT" = "success" ] || {
+            echo "::error::Human release state requires an exact successful build"
+            exit 1
+          }
+
+          validate_generator() {
+            local name=$1 required=$2 result=$3 changed=$4
+            if [ "$required" = "true" ]; then
+              [ "$result" = "success" ] || {
+                echo "::error::Applicable ${name} generator result is ${result:-missing}, not success"
+                return 1
+              }
+              case "$changed" in
+                true|false) ;;
+                *)
+                  echo "::error::Successful ${name} generator has no exact changed result"
+                  return 1
+                  ;;
+              esac
+            else
+              [ "$result" = "skipped" ] || {
+                echo "::error::Non-applicable ${name} generator result is ${result:-missing}, not skipped"
+                return 1
+              }
+            fi
+          }
+
+          validate_generator provider "$PROVIDER_REQUIRED" "$PROVIDER_RESULT" "$PROVIDER_CHANGED"
+          validate_generator docs "$DOCS_REQUIRED" "$DOCS_RESULT" "$DOCS_CHANGED"
+
+          if [ "$PENDING_DELIVERY" = "true" ] ||
+             [ "$PROVIDER_CHANGED" = "true" ] || [ "$DOCS_CHANGED" = "true" ]; then
+            CREATE_PR=true
+          else
+            RELEASE=true
+          fi
+          {
+            echo "create_pr=$CREATE_PR"
+            echo "release=$RELEASE"
+          } >> "$GITHUB_OUTPUT"
 
   # ===========================================================================
   # STEP 6: Create PR for regenerated content (human commits only)
@@ -269,17 +523,15 @@ jobs:
   # the regeneration PR is merged (detected as bot commit in next workflow run).
   create-regeneration-pr:
     name: Create Regeneration PR
-    needs: [detect-changes, regenerate-provider, regenerate-docs]
-    # Only run for human commits that produced regeneration changes
+    needs: [detect-changes, regenerate-provider, regenerate-docs, generation-state]
+    # Only run after the central classifier proves all applicable generators.
     if: |
       always() &&
-      needs.detect-changes.outputs.should-process == 'true' &&
-      needs.detect-changes.outputs.is-bot-commit != 'true' &&
-      ((needs.regenerate-provider.result == 'success' && needs.regenerate-provider.outputs.changed == 'true') ||
-       (needs.regenerate-docs.result == 'success' && needs.regenerate-docs.outputs.changed == 'true'))
+      needs.generation-state.result == 'success' &&
+      needs.generation-state.outputs.create-pr == 'true'
     runs-on: ubuntu-latest
     # Branch push, issue creation, PR creation and auto-merge all authenticate
-    # with secrets.AUTO_MERGE_TOKEN (checkout too, with persist-credentials:
+    # with secrets.REPO_SYNC_TOKEN (checkout too, with persist-credentials:
     # false), so GITHUB_TOKEN needs no write scope here.
     permissions:
       contents: read
@@ -287,11 +539,21 @@ jobs:
       pr-created: ${{ steps.create-pr.outputs.pr_created }}
       pr-number: ${{ steps.create-pr.outputs.pr_number }}
     steps:
+      - name: Require downstream-triggering token
+        env:
+          REPO_SYNC_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${REPO_SYNC_TOKEN:-}" ]; then
+            echo "::error::REPO_SYNC_TOKEN is required for regeneration publication"
+            exit 1
+          fi
+
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
-          token: ${{ secrets.AUTO_MERGE_TOKEN }}
+          token: ${{ secrets.REPO_SYNC_TOKEN }}
           persist-credentials: false
 
       # This step used to warn and continue when the asset was missing, which meant
@@ -300,7 +562,7 @@ jobs:
       - name: Download API specs
         uses: ./.github/actions/download-api-specs
         with:
-          token: ${{ secrets.AUTO_MERGE_TOKEN }}
+          token: ${{ github.token }}
 
       - name: Set up Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
@@ -311,6 +573,7 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
         with:
+          terraform_version: 1.15.8
           terraform_wrapper: false
 
       - name: Install tfplugindocs
@@ -320,7 +583,7 @@ jobs:
           attempt=1
           while [ "$attempt" -le "$max_attempts" ]; do
             echo "::group::Install tfplugindocs - Attempt $attempt of $max_attempts"
-            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest; then
+            if GOTOOLCHAIN=auto go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0; then
               echo "::endgroup::"
               break
             fi
@@ -347,18 +610,15 @@ jobs:
           scripts/go-retry.sh 3 go mod tidy
           scripts/go-retry.sh 3 go build -v ./...
 
-      - name: Regenerate documentation (if needed)
+      - name: Regenerate and validate documentation (if needed)
         # Regenerate docs if:
         # 1. The standalone docs job found changes (template/example changes), OR
         # 2. Provider was regenerated (schema descriptions may have changed)
-        if: needs.regenerate-docs.outputs.changed == 'true' || needs.regenerate-provider.outputs.changed == 'true'
-        run: |
-          go run tools/generate-examples.go
-          go run tools/generate-datasource-examples.go
-          go run tools/generate-test-examples.go
-          scripts/go-retry.sh 3 tfplugindocs generate --provider-name xcsh
-          go run tools/transform-docs.go
-          go run tools/generate-llms-txt.go
+        if: |
+          needs.regenerate-docs.outputs.changed == 'true' ||
+          needs.regenerate-provider.outputs.changed == 'true' ||
+          needs.detect-changes.outputs.pending-delivery == 'true'
+        run: scripts/generate-provider-docs.sh
 
       - name: Verify the regenerated tree compiles
         # THE GATE THAT KEEPS main COMPILABLE (#1351).
@@ -413,9 +673,42 @@ jobs:
       #     277 examples and an output block in 146 of 146 data-source examples, so the
       #     injection could never fire.
 
-      - name: Format generated JSON with Biome
+      - name: Bind regenerated output to the pending delivery
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
         run: |
-          npx --yes @biomejs/biome format --write docs/terraform-llms-index.json || true
+          set -euo pipefail
+          PENDING=tools/spec-pending-delivery.json
+          PIN=tools/spec-release.json
+          RECEIPT=tools/spec-regeneration-receipt.json
+          if [ ! -f "$PENDING" ]; then
+            [ ! -e "$RECEIPT" ] || {
+              echo "::error::Regeneration receipt exists without a pending delivery"
+              exit 1
+            }
+            exit 0
+          fi
+          jq -e '
+            type == "object" and
+            (keys | sort) == ["delivery_id", "release_tag", "target_commit", "version"] and
+            (.delivery_id | test("^[0-9a-f]{64}$")) and
+            (.target_commit | test("^[0-9a-f]{40}$")) and
+            .release_tag == ("v" + .version)
+          ' "$PENDING" >/dev/null || { echo "::error::Pending delivery is malformed"; exit 1; }
+          jq -e --slurpfile pending "$PENDING" '
+            type == "object" and
+            (keys | sort) == ["assets", "release_tag", "target_commit", "version"] and
+            .release_tag == $pending[0].release_tag and
+            .target_commit == $pending[0].target_commit and
+            .version == $pending[0].version
+          ' "$PIN" >/dev/null || { echo "::error::Spec release pin differs from pending identity"; exit 1; }
+          PIN_SHA=$(shasum -a 256 "$PIN" | awk '{print $1}')
+          jq -nS \
+            --argjson pending "$(jq -c . "$PENDING")" \
+            --arg pin_sha "$PIN_SHA" \
+            --arg source_commit "$SOURCE_COMMIT" '
+            $pending + {source_commit:$source_commit,spec_release_sha256:$pin_sha}
+          ' > "$RECEIPT"
 
       - name: Check for changes
         id: check
@@ -441,20 +734,31 @@ jobs:
         # the adjacent "Create branch and PR" step already routes github.sha this
         # way. Shell-quoted at each use below.
         env:
-          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
           COMMIT_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
         run: |
+          set -euo pipefail
           # Find and close any open auto-regenerate PRs (they're superseded by this new regeneration)
           echo "Checking for stale auto-regenerate PRs..."
-          STALE_PRS=$(gh pr list --state open --json number,headRefName --jq '.[] | select(.headRefName | startswith("auto-regenerate/")) | .number')
+          EXACT_BRANCH="auto-regenerate/${COMMIT_SHA}"
+          git config --unset-all http.https://github.com/.extraheader || true
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+          STALE_PRS=$(gh pr list --state open --json number,headRefName \
+            --jq ".[] | select((.headRefName | startswith(\"auto-regenerate/\")) and .headRefName != \"${EXACT_BRANCH}\") | .number")
 
           if [ -n "$STALE_PRS" ]; then
             for PR in $STALE_PRS; do
               echo "Closing stale auto-regenerate PR #$PR (superseded by commit ${COMMIT_SHA})"
-              gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${COMMIT_SHA}" || true
-              # Also delete the stale branch
               BRANCH=$(gh pr view "$PR" --json headRefName --jq '.headRefName')
-              git push origin --delete "$BRANCH" 2>/dev/null || true
+              [[ "$BRANCH" =~ ^auto-regenerate/[0-9a-f]{40}$ ]] || {
+                echo "::error::Stale regeneration PR has an invalid head branch"
+                exit 1
+              }
+              gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${COMMIT_SHA}"
+              if [ -n "$(git ls-remote origin "refs/heads/${BRANCH}")" ]; then
+                git push origin --delete "$BRANCH"
+              fi
             done
           else
             echo "No stale auto-regenerate PRs found"
@@ -467,19 +771,17 @@ jobs:
         # ${{ }} expansion inside run: is a code-injection sink (zizmor
         # template-injection). Shell-quoted at each use below.
         env:
-          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
           COMMIT_SHA: ${{ github.sha }}
           REPOSITORY: ${{ github.repository }}
           PROVIDER_CHANGED: ${{ needs.regenerate-provider.outputs.changed || 'false' }}
           DOCS_CHANGED: ${{ needs.regenerate-docs.outputs.changed || 'false' }}
         run: |
-          # Create a unique branch name
+          set -euo pipefail
           BRANCH_NAME="auto-regenerate/${COMMIT_SHA}"
-
-          # Create and checkout new branch
-          git checkout -b "$BRANCH_NAME"
-
-          # Commit the changes
+          [[ "$COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 1
+          REMOTE_SHA=$(git ls-remote origin "refs/heads/${BRANCH_NAME}" | awk '{print $1}')
+          git checkout -B "$BRANCH_NAME"
           git commit -m "chore: auto-regenerate provider and documentation
 
           Triggered by commit: ${COMMIT_SHA}
@@ -495,22 +797,33 @@ jobs:
           # Push the branch (clear checkout extraheader and use PAT so push triggers CI)
           git config --unset-all http.https://github.com/.extraheader || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
-          git push origin "$BRANCH_NAME"
+          if [ -n "$REMOTE_SHA" ]; then
+            git push --force-with-lease="refs/heads/${BRANCH_NAME}:${REMOTE_SHA}" origin "$BRANCH_NAME"
+          else
+            git push --force-with-lease origin "$BRANCH_NAME"
+          fi
 
-          # Create a tracking issue (required by "Check linked issues" CI check)
-          ISSUE_URL=$(gh issue create \
-            --title "chore: auto-regenerate provider from ${COMMIT_SHA}" \
-            --body "Automated regeneration triggered by commit ${COMMIT_SHA}.
+          ISSUE_TITLE="chore: auto-regenerate provider from ${COMMIT_SHA}"
+          ISSUE_JSON=$(gh issue list --state all --search "$ISSUE_TITLE in:title" \
+            --limit 100 --json number,state,title)
+          ISSUE_NUMBER=$(printf '%s' "$ISSUE_JSON" | jq -r --arg title "$ISSUE_TITLE" \
+            '[.[] | select(.title == $title)][0].number // empty')
+          ISSUE_STATE=$(printf '%s' "$ISSUE_JSON" | jq -r --arg title "$ISSUE_TITLE" \
+            '[.[] | select(.title == $title)][0].state // empty')
+          if [ -z "$ISSUE_NUMBER" ]; then
+            ISSUE_URL=$(gh issue create \
+              --title "$ISSUE_TITLE" \
+              --body "Automated regeneration triggered by commit ${COMMIT_SHA}.
 
           Changes:
           - Provider code: ${PROVIDER_CHANGED}
           - Documentation: ${DOCS_CHANGED}" \
-            --label "automated" \
-            --label "regeneration")
-          ISSUE_NUMBER=$(echo "$ISSUE_URL" | grep -oE '[0-9]+$')
-          echo "Created tracking issue #$ISSUE_NUMBER"
+              --label automated --label regeneration)
+            ISSUE_NUMBER=${ISSUE_URL##*/}
+          elif [ "$ISSUE_STATE" = "CLOSED" ]; then
+            gh issue reopen "$ISSUE_NUMBER"
+          fi
 
-          # Create the PR linking the issue
           PR_BODY="## Summary
           Automated regeneration of provider code and/or documentation.
 
@@ -522,25 +835,39 @@ jobs:
           - Documentation regenerated: ${DOCS_CHANGED}
 
           Closes #${ISSUE_NUMBER}"
-
-          PR_URL=$(gh pr create \
-            --title "chore: auto-regenerate provider and documentation" \
-            --body "$PR_BODY" \
-            --label "automated" \
-            --label "regeneration" \
-            --base main \
-            --head "$BRANCH_NAME")
-
-          PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
+          PR_TITLE="chore: auto-regenerate provider and documentation"
+          PR_JSON=$(gh pr list --head "$BRANCH_NAME" --state all --limit 10 \
+            --json number,state)
+          PR_NUMBER=$(printf '%s' "$PR_JSON" | jq -r '.[0].number // empty')
+          if [ -z "$PR_NUMBER" ]; then
+            PR_URL=$(gh pr create \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY" \
+              --label automated --label regeneration \
+              --base main --head "$BRANCH_NAME")
+            PR_NUMBER=${PR_URL##*/}
+          else
+            PR_STATE=$(printf '%s' "$PR_JSON" | jq -r '.[0].state')
+            PR_META=$(gh pr view "$PR_NUMBER" --json baseRefName,headRefName,title)
+            printf '%s' "$PR_META" | jq -e \
+              --arg base main --arg head "$BRANCH_NAME" --arg title "$PR_TITLE" \
+              '.baseRefName == $base and .headRefName == $head and .title == $title' >/dev/null || {
+              echo "::error::Existing regeneration PR has the wrong identity"
+              exit 1
+            }
+            if [ "$PR_STATE" = "CLOSED" ]; then
+              gh pr reopen "$PR_NUMBER"
+            elif [ "$PR_STATE" != "OPEN" ]; then
+              echo "::error::Regeneration PR already merged without starting the expected release"
+              exit 1
+            fi
+          fi
           {
             echo "pr_created=true"
             echo "pr_number=$PR_NUMBER"
-            echo "pr_url=$PR_URL"
           } >> "$GITHUB_OUTPUT"
-          echo "Created PR #$PR_NUMBER: $PR_URL"
-
-          # Enable auto-merge so PR merges once all checks pass
-          gh pr merge "$PR_NUMBER" --auto --squash || echo "Auto-merge not available or already enabled"
+          gh pr edit "$PR_NUMBER" --add-label automated --add-label regeneration
+          gh pr merge "$PR_NUMBER" --auto --squash
 
       - name: No changes - skip PR creation
         if: steps.check.outputs.has_changes == 'false'
@@ -563,18 +890,12 @@ jobs:
   # - Case 4: Only workflow/gitignore changes -> Skip (not substantive)
   tag-release:
     name: Tag and Release
-    needs: [detect-changes, build-test, create-regeneration-pr]
+    needs: [detect-changes, generation-state, create-regeneration-pr]
     if: |
       always() &&
-      needs.detect-changes.outputs.should-process == 'true' &&
-      (
-        needs.detect-changes.outputs.is-bot-commit == 'true' ||
-        (
-          needs.detect-changes.outputs.is-bot-commit != 'true' &&
-          needs.build-test.result == 'success' &&
-          needs.create-regeneration-pr.result == 'skipped'
-        )
-      )
+      needs.generation-state.result == 'success' &&
+      needs.generation-state.outputs.release == 'true' &&
+      needs.create-regeneration-pr.result == 'skipped'
     permissions:
       contents: write # push the version tag, create the release, upload assets
     uses: ./.github/workflows/_tag-release.yml
@@ -582,12 +903,141 @@ jobs:
       gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg-passphrase: ${{ secrets.PASSPHRASE }}
 
+  # A dispatch is complete only after generated provider content is merged and
+  # the corresponding provider release exists. The sync PR records pending
+  # intent; this post-release PR is the sole writer of the durable receipt.
+  receipt-spec-delivery:
+    name: Receipt Published Spec Delivery
+    needs: [detect-changes, tag-release]
+    if: |
+      always() &&
+      needs.detect-changes.outputs.is-regeneration-commit == 'true' &&
+      needs.tag-release.result == 'success' &&
+      needs.tag-release.outputs.new-tag != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Require downstream-triggering token
+        env:
+          REPO_SYNC_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${REPO_SYNC_TOKEN:-}" ]; then
+            echo "::error::REPO_SYNC_TOKEN is required for delivery receipting"
+            exit 1
+          fi
+
+      - name: Checkout immutable released commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          fetch-tags: true
+          token: ${{ secrets.REPO_SYNC_TOKEN }}
+          persist-credentials: false
+
+      - name: Verify publication and prepare durable receipt
+        id: receipt
+        env:
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          PROVIDER_TAG: ${{ needs.tag-release.outputs.new-tag }}
+          RELEASED_COMMIT: ${{ github.sha }}
+          TARGET_REPOSITORY: ${{ github.repository }}
+        run: |
+          scripts/prepare-spec-delivery-receipt.sh
+
+      - name: Open receipt pull request
+        if: steps.receipt.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.REPO_SYNC_TOKEN }}
+          DELIVERY_ID: ${{ steps.receipt.outputs.delivery_id }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          BRANCH="spec-delivery-receipt/${DELIVERY_ID}"
+          git config user.name "f5xc-spec-delivery"
+          git config user.email "f5xc-spec-delivery@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+          REMOTE_SHA=$(git ls-remote origin "refs/heads/${BRANCH}" | awk '{print $1}')
+          git checkout -b "$BRANCH"
+          git add \
+            tools/provider-publication-receipts.json \
+            tools/spec-deliveries.json \
+            tools/spec-pending-delivery.json \
+            tools/spec-regeneration-receipt.json
+          git commit -m "chore: receipt published spec delivery"
+          if [ -n "$REMOTE_SHA" ]; then
+            git push --force-with-lease="refs/heads/${BRANCH}:${REMOTE_SHA}" origin "$BRANCH"
+          else
+            git push --force-with-lease origin "$BRANCH"
+          fi
+
+          PR_TITLE="chore: receipt published spec delivery"
+          PR_JSON=$(gh pr list --head "$BRANCH" --state all --limit 10 \
+            --json number,state,baseRefName,headRefName,title)
+          [ "$(printf '%s' "$PR_JSON" | jq 'length')" -le 1 ] || {
+            echo "::error::Multiple receipt pull requests exist for ${BRANCH}"
+            exit 1
+          }
+          PR_NUMBER=$(printf '%s' "$PR_JSON" | jq -r '.[0].number // empty')
+          if [ -z "$PR_NUMBER" ]; then
+            ISSUE_TITLE="Receipt published spec delivery ${DELIVERY_ID}"
+            ISSUE_JSON=$(gh issue list --state all --limit 100 --search "in:title ${ISSUE_TITLE}" \
+              --json number,state,title \
+              --jq ".[] | select(.title == \"${ISSUE_TITLE}\")")
+            [ "$(printf '%s' "$ISSUE_JSON" | jq -s 'length')" -le 1 ] || {
+              echo "::error::Multiple tracking issues exist for delivery ${DELIVERY_ID}"
+              exit 1
+            }
+            ISSUE_NUMBER=$(printf '%s' "$ISSUE_JSON" | jq -sr '.[0].number // empty')
+            if [ -z "$ISSUE_NUMBER" ]; then
+              ISSUE_URL=$(gh issue create \
+                --title "$ISSUE_TITLE" \
+                --body "The exact upstream spec delivery was generated and included in a completed provider release." \
+                --label automated)
+              ISSUE_NUMBER=${ISSUE_URL##*/}
+            else
+              ISSUE_STATE=$(printf '%s' "$ISSUE_JSON" | jq -sr '.[0].state')
+              if [ "$ISSUE_STATE" = "CLOSED" ]; then
+                gh issue reopen "$ISSUE_NUMBER"
+              elif [ "$ISSUE_STATE" != "OPEN" ]; then
+                echo "::error::Tracking issue has an unexpected state: ${ISSUE_STATE}"
+                exit 1
+              fi
+            fi
+            PR_BODY=$(printf '%s\n\nCloses #%s\n' \
+              "Records the durable post-publication delivery receipt." "$ISSUE_NUMBER")
+            PR_URL=$(gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY")
+            PR_NUMBER=${PR_URL##*/}
+          else
+            PR_META=$(printf '%s' "$PR_JSON" | jq '.[0]')
+            printf '%s' "$PR_META" | jq -e \
+              --arg base main --arg head "$BRANCH" --arg title "$PR_TITLE" \
+              '.baseRefName == $base and .headRefName == $head and .title == $title' >/dev/null || {
+              echo "::error::Existing receipt pull request has the wrong identity"
+              exit 1
+            }
+            PR_STATE=$(printf '%s' "$PR_META" | jq -r '.state')
+            if [ "$PR_STATE" = "CLOSED" ]; then
+              gh pr reopen "$PR_NUMBER"
+            elif [ "$PR_STATE" != "OPEN" ]; then
+              echo "::error::Receipt pull request was merged without a durable receipt"
+              exit 1
+            fi
+          fi
+          gh pr merge "$PR_NUMBER" --auto --squash
+
   # ===========================================================================
   # Summary
   # ===========================================================================
   summary:
     name: Workflow Summary
-    needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, create-regeneration-pr, tag-release]
+    needs: [detect-changes, build-test, regenerate-provider, regenerate-docs, generation-state, create-regeneration-pr, tag-release, receipt-spec-delivery]
     if: always()
     runs-on: ubuntu-latest
     permissions: {} # writes only to GITHUB_STEP_SUMMARY
@@ -597,7 +1047,7 @@ jobs:
         # run: is a code-injection sink (zizmor template-injection).
         env:
           SHOULD_PROCESS: ${{ needs.detect-changes.outputs.should-process }}
-          IS_BOT_COMMIT: ${{ needs.detect-changes.outputs.is-bot-commit }}
+          IS_REGENERATION_COMMIT: ${{ needs.detect-changes.outputs.is-regeneration-commit }}
           NEEDS_REGENERATION: ${{ needs.detect-changes.outputs.needs-regeneration }}
           SPECS_CHANGED: ${{ needs.detect-changes.outputs.specs-changed }}
           CODE_CHANGED: ${{ needs.detect-changes.outputs.code-changed }}
@@ -607,8 +1057,12 @@ jobs:
           BUILD_TEST_RESULT: ${{ needs.build-test.result }}
           PROVIDER_RESULT: ${{ needs.regenerate-provider.result }}
           DOCS_RESULT: ${{ needs.regenerate-docs.result }}
+          GENERATION_STATE_RESULT: ${{ needs.generation-state.result }}
+          CREATE_PR_REQUIRED: ${{ needs.generation-state.outputs.create-pr }}
+          RELEASE_REQUIRED: ${{ needs.generation-state.outputs.release }}
           PR_RESULT: ${{ needs.create-regeneration-pr.result }}
           TAG_RELEASE_RESULT: ${{ needs.tag-release.result }}
+          DELIVERY_RECEIPT_RESULT: ${{ needs.receipt-spec-delivery.result }}
         run: |
           {
             echo "## On-Merge Workflow Summary"
@@ -616,7 +1070,7 @@ jobs:
             echo "| Step | Result |"
             echo "|------|--------|"
             echo "| Should Process | ${SHOULD_PROCESS} |"
-            echo "| Is Bot Commit | ${IS_BOT_COMMIT} |"
+            echo "| Is Regeneration Commit | ${IS_REGENERATION_COMMIT} |"
             echo "| Needs Regeneration | ${NEEDS_REGENERATION} |"
             echo "| Specs Changed | ${SPECS_CHANGED} |"
             echo "| Code Changed | ${CODE_CHANGED} |"
@@ -626,11 +1080,30 @@ jobs:
             echo "| Build/Test | ${BUILD_TEST_RESULT} |"
             echo "| Provider Regenerated | ${PROVIDER_RESULT} |"
             echo "| Docs Regenerated | ${DOCS_RESULT} |"
+            echo "| Generator State | ${GENERATION_STATE_RESULT} |"
             echo "| Regeneration PR Created | ${PR_RESULT} |"
             echo "| Tagged/Released | ${TAG_RELEASE_RESULT} |"
+            echo "| Delivery Receipted | ${DELIVERY_RECEIPT_RESULT} |"
             echo ""
             echo "### Delayed Tagging Logic"
             echo "- Bot commits -> Tag immediately (regeneration complete)"
             echo "- Human commits without regeneration -> Tag immediately"
             echo "- Human commits with regeneration PR -> Wait for PR merge to tag"
           } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$GENERATION_STATE_RESULT" != "success" ]; then
+            echo "::error::Generator state classification did not succeed"
+            exit 1
+          fi
+          if [ "$CREATE_PR_REQUIRED" = "true" ] && [ "$PR_RESULT" != "success" ]; then
+            echo "::error::Required regeneration PR was not created successfully"
+            exit 1
+          fi
+          if [ "$RELEASE_REQUIRED" = "true" ] && [ "$TAG_RELEASE_RESULT" != "success" ]; then
+            echo "::error::Required release did not complete successfully"
+            exit 1
+          fi
+          if [ "$DELIVERY_RECEIPT_RESULT" = "failure" ] || [ "$DELIVERY_RECEIPT_RESULT" = "cancelled" ]; then
+            echo "::error::Spec delivery receipt did not complete successfully"
+            exit 1
+          fi

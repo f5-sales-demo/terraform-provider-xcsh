@@ -159,23 +159,23 @@ A [`site`](#Azure-vnet-site-site) block (within [`azure_vnet_site`](#Azure-vnet-
 
 A [`vnet_attachments`](#Azure-vnet-site-vnet-attachments) block (within [`azure_vnet_site`](#Azure-vnet-site)) supports the following:
 
-<a id="list-5826e3"></a>&#x2022; [`vnet_list`](#list-5826e3) - Optional Block<br>VNET List. Collection of items or values<br>See [VNET List](#list-5826e3) below.
+<a id="list-af915b"></a>&#x2022; [`vnet_list`](#list-af915b) - Optional Block<br>VNET List. Collection of items or values<br>See [VNET List](#list-af915b) below.
 
 #### Azure VNET Site VNET Attachments VNET List
 
-A [`vnet_list`](#list-5826e3) block (within [`azure_vnet_site.vnet_attachments`](#Azure-vnet-site-vnet-attachments)) supports the following:
+A [`vnet_list`](#list-af915b) block (within [`azure_vnet_site.vnet_attachments`](#Azure-vnet-site-vnet-attachments)) supports the following:
 
-<a id="routing-724341"></a>&#x2022; [`custom_routing`](#routing-724341) - Optional Block<br>List Azure Route Table with Static Route<br>See [Custom Routing](#routing-724341) below.
+<a id="routing-3c0668"></a>&#x2022; [`custom_routing`](#routing-3c0668) - Optional Block<br>List Azure Route Table with Static Route<br>See [Custom Routing](#routing-3c0668) below.
 
-<a id="route-fd5eea"></a>&#x2022; [`default_route`](#route-fd5eea) - Optional Block<br>Configuration parameter for default route<br>See [Default Route](#route-fd5eea) below.
+<a id="route-ec4f37"></a>&#x2022; [`default_route`](#route-ec4f37) - Optional Block<br>Configuration parameter for default route<br>See [Default Route](#route-ec4f37) below.
 
-<a id="labels-e777f2"></a>&#x2022; [`labels`](#labels-e777f2) - Optional Block<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
+<a id="labels-b9b212"></a>&#x2022; [`labels`](#labels-b9b212) - Optional Block<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
 
-<a id="routing-e423fa"></a>&#x2022; [`manual_routing`](#routing-e423fa) - Optional Block<br>Enable this option
+<a id="routing-207575"></a>&#x2022; [`manual_routing`](#routing-207575) - Optional Block<br>Enable this option
 
-<a id="subscription-id-9a0b4f"></a>&#x2022; [`subscription_id`](#subscription-id-9a0b4f) - Optional String<br>Enter the Subscription ID of the VNET to be attached
+<a id="subscription-id-02e44a"></a>&#x2022; [`subscription_id`](#subscription-id-02e44a) - Optional String<br>Enter the Subscription ID of the VNET to be attached
 
-<a id="vnet-id-6eb10e"></a>&#x2022; [`vnet_id`](#vnet-id-6eb10e) - Optional String<br>Enter the VNET ID of the VNET to be attached in format /`<resource-group-name>`/`<VNET-name>`
+<a id="vnet-id-a8f5ea"></a>&#x2022; [`vnet_id`](#vnet-id-a8f5ea) - Optional String<br>Enter the VNET ID of the VNET to be attached in format /`<resource-group-name>`/`<VNET-name>`
 
 #### Azure VNET Site VNET Attachments VNET List Custom Routing
 

@@ -18,17 +18,22 @@ on:
         description: 'Whether provider code changed'
         value: ${{ jobs.generate.outputs.changed }}
 
+# Do not inherit a write-capable caller token into this read-only generator.
+permissions: {}
+
 jobs:
   generate:
     name: Generate Provider Code
     runs-on: ubuntu-latest
+    permissions:
+      contents: read # checkout and download the public API-spec release
     outputs:
       changed: ${{ steps.check.outputs.changed }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ inputs.ref || github.ref }}
+          ref: ${{ inputs.ref || github.sha }}
           fetch-depth: 0
           persist-credentials: false
 

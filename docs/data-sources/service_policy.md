@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_service_policy (Data Source)
 
-Manages service_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about service_policy creates a new object in the storage backend for metadata.namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [Service Policy API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 

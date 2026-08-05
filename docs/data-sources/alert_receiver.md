@@ -62,7 +62,7 @@ metadata:
   namespace: demo-app
 spec:
   email:
-    email_address: `alerts@example.com`
+    email_address: alerts@example.com
 
 ```
 

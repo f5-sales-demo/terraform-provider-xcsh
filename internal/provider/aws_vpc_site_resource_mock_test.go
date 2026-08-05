@@ -37,8 +37,8 @@ import (
 func TestMockAWSVPCSiteResource_basic(t *testing.T) {
 	acctest.SkipIfNoMockMode(t)
 
-	rName := acctest.RandomName("tf-mock-test-vpc")
-	nsName := acctest.RandomName("tf-mock-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tf-mock-test-vpc")
+	nsName := acctest.RandomName("tf-acc-test-tf-mock-test-ns")
 	resourceName := "xcsh_aws_vpc_site.test"
 
 	mockCfg := acctest.SetupMockTest(t)
@@ -76,9 +76,9 @@ func TestMockAWSVPCSiteResource_basic(t *testing.T) {
 func TestMockAWSVPCSiteResource_withAWSConfig(t *testing.T) {
 	acctest.SkipIfNoMockMode(t)
 
-	rName := acctest.RandomName("tf-mock-test-vpc")
-	nsName := acctest.RandomName("tf-mock-test-ns")
-	credsName := acctest.RandomName("tf-mock-aws-creds")
+	rName := acctest.RandomName("tf-acc-test-tf-mock-test-vpc")
+	nsName := acctest.RandomName("tf-acc-test-tf-mock-test-ns")
+	credsName := acctest.RandomName("tf-acc-test-tf-mock-aws-creds")
 	resourceName := "xcsh_aws_vpc_site.test"
 
 	mockCfg := acctest.SetupMockTest(t)
@@ -107,8 +107,8 @@ func TestMockAWSVPCSiteResource_withAWSConfig(t *testing.T) {
 func TestMockAWSVPCSiteResource_update(t *testing.T) {
 	acctest.SkipIfNoMockMode(t)
 
-	rName := acctest.RandomName("tf-mock-test-vpc")
-	nsName := acctest.RandomName("tf-mock-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tf-mock-test-vpc")
+	nsName := acctest.RandomName("tf-acc-test-tf-mock-test-ns")
 	resourceName := "xcsh_aws_vpc_site.test"
 
 	mockCfg := acctest.SetupMockTest(t)
@@ -143,8 +143,8 @@ func TestMockAWSVPCSiteResource_update(t *testing.T) {
 func TestMockAWSVPCSiteResource_labels(t *testing.T) {
 	acctest.SkipIfNoMockMode(t)
 
-	rName := acctest.RandomName("tf-mock-test-vpc")
-	nsName := acctest.RandomName("tf-mock-test-ns")
+	rName := acctest.RandomName("tf-acc-test-tf-mock-test-vpc")
+	nsName := acctest.RandomName("tf-acc-test-tf-mock-test-ns")
 	resourceName := "xcsh_aws_vpc_site.test"
 
 	mockCfg := acctest.SetupMockTest(t)
@@ -218,6 +218,8 @@ resource "xcsh_aws_vpc_site" "test" {
   aws_region    = "us-east-1"
   instance_type = "t3.xlarge"
   ssh_key       = "mock-ssh-key"
+  address       = "Example City, Example Region"
+  disk_size     = 80
 }
 `, nsName, name))
 }
@@ -238,6 +240,8 @@ resource "xcsh_aws_vpc_site" "test" {
   aws_region    = "us-east-1"
   instance_type = "t3.xlarge"
   ssh_key       = "mock-ssh-key"
+  address       = "Example City, Example Region"
+  disk_size     = 80
 
   description = "AWS VPC Site created with mock test"
 
@@ -264,6 +268,8 @@ resource "xcsh_aws_vpc_site" "test" {
   aws_region    = "us-east-1"
   instance_type = "t3.xlarge"
   ssh_key       = "mock-ssh-key"
+  address       = "Example City, Example Region"
+  disk_size     = 80
   description   = %[3]q
 }
 `, nsName, name, description))
@@ -285,6 +291,8 @@ resource "xcsh_aws_vpc_site" "test" {
   aws_region    = "us-east-1"
   instance_type = "t3.xlarge"
   ssh_key       = "mock-ssh-key"
+  address       = "Example City, Example Region"
+  disk_size     = 80
 
   labels = {
     environment = "test"

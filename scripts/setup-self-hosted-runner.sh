@@ -235,8 +235,8 @@ configure_credentials() {
   fi
 
   log_info "Setting GitHub secrets..."
-  echo "$XCSH_API_URL" | gh secret set XCSH_API_URL --repo "$REPO_FULL"
-  echo "$XCSH_API_TOKEN" | gh secret set XCSH_API_TOKEN --repo "$REPO_FULL"
+  printf '%s' "$XCSH_API_URL" | gh secret set XCSH_API_URL --repo "$REPO_FULL"
+  printf '%s' "$XCSH_API_TOKEN" | gh secret set XCSH_API_TOKEN --repo "$REPO_FULL"
   log_success "Secrets configured"
 }
 
@@ -411,7 +411,7 @@ print_summary() {
   echo ""
   echo "  Repository:  $REPO_FULL"
   echo "  Runner:      $RUNNER_DIR"
-  [[ -n "${XCSH_API_URL:-}" ]] && echo "  API URL:     $XCSH_API_URL"
+  [[ -n "${XCSH_API_URL:-}" ]] && echo "  API credentials: configured"
   echo ""
   echo "  Trigger tests:"
   echo "    gh workflow run acceptance-tests.yml -f mode=full"
@@ -572,7 +572,7 @@ print_container_summary() {
   echo ""
   echo "  Repository:  $REPO_FULL"
   echo "  Runner:      Docker container (xcsh-github-runner)"
-  [[ -n "${XCSH_API_URL:-}" ]] && echo "  API URL:     $XCSH_API_URL"
+  [[ -n "${XCSH_API_URL:-}" ]] && echo "  API credentials: configured"
   echo ""
   echo "  Commands:"
   echo "    View logs:    cd .github-runner-docker && docker-compose logs -f"

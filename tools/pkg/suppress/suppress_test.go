@@ -9,18 +9,18 @@ import (
 
 func TestDerive(t *testing.T) {
 	db := Database{
-		Resources: map[string]*ResourceResult{
-			"http_loadbalancer": {
+		Resources: []ResourceResult{
+			{
 				ResourceName: "http_loadbalancer",
 				Status:       "discovered",
 				Defaults: map[string]FieldDefault{
 					"spec.disable_waf":               {Path: "spec.disable_waf", Type: "object", IsMarkerBlock: true},
 					"spec.http.dns_volterra_managed": {Path: "spec.http.dns_volterra_managed", Type: "bool", DefaultValue: false},
 					"spec.some_true_flag":            {Path: "spec.some_true_flag", Type: "bool", DefaultValue: true}, // user-meaningful, not suppressed
-					"spec.domains":                   {Path: "spec.domains", Type: "array"},                          // not a marker/bool
+					"spec.domains":                   {Path: "spec.domains", Type: "array"},                           // not a marker/bool
 				},
 			},
-			"failed_res": {ResourceName: "failed_res", Status: "failed"}, // ignored
+			{ResourceName: "failed_res", Status: "failed"}, // ignored
 		},
 	}
 

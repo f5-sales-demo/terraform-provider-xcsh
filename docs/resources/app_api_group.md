@@ -104,9 +104,9 @@ A [`cdn_loadbalancer`](#CDN-loadbalancer-CDN-loadbalancer) block (within [`cdn_l
 
 <a id="CDN-loadbalancer-CDN-loadbalancer-name"></a>&#x2022; [`name`](#CDN-loadbalancer-CDN-loadbalancer-name) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name
 
-<a id="namespace-8ae5bf"></a>&#x2022; [`namespace`](#namespace-8ae5bf) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
+<a id="namespace-89a48c"></a>&#x2022; [`namespace`](#namespace-89a48c) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace
 
-<a id="tenant-ea0b41"></a>&#x2022; [`tenant`](#tenant-ea0b41) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
+<a id="tenant-e35fe7"></a>&#x2022; [`tenant`](#tenant-e35fe7) - Optional String<br>When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant
 
 #### Elements
 

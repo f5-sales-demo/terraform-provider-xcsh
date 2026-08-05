@@ -23,7 +23,7 @@ type Parsed struct {
 
 // Parse extracts constraint data from x-f5xc-constraints map.
 // Returns nil for nil input, low-confidence, or non-deterministic constraints.
-// Accepts deterministic at top level (actual spec format) or in metadata (legacy).
+// Requires deterministic at top level or metadata confidence >= 0.9.
 // Only uses constraints where deterministic==true OR metadata.confidence >= 0.9.
 func Parse(raw map[string]interface{}) *Parsed {
 	if raw == nil {
@@ -38,11 +38,8 @@ func Parse(raw map[string]interface{}) *Parsed {
 		deterministic = d
 	}
 
-	// Also check metadata for confidence and legacy deterministic
+	// Metadata confidence is part of the current enriched-spec contract.
 	if meta, ok := raw["metadata"].(map[string]interface{}); ok {
-		if d, ok := meta["deterministic"].(bool); ok && d {
-			deterministic = true
-		}
 		if c, ok := meta["confidence"].(float64); ok {
 			confidence = c
 		}

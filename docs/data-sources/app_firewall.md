@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_app_firewall (Data Source)
 
-Manages Application Firewall. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about Application Firewall. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [App Firewall API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/virtual/) to learn more.
 

@@ -32,31 +32,6 @@ import (
 // Global defaults store for API-discovered default values
 var apiDefaultsStore *defaults.Store
 
-// SubscriptionMetadata holds subscription tier information loaded from tools/subscription-tiers.json
-type SubscriptionMetadata struct {
-	GeneratedAt string                      `json:"generated_at"`
-	Source      string                      `json:"source"`
-	Services    map[string]ServiceMetadata  `json:"services"`
-	Resources   map[string]ResourceMetadata `json:"resources"`
-}
-
-// ServiceMetadata contains metadata about an addon service
-type ServiceMetadata struct {
-	Tier        string `json:"tier"`
-	DisplayName string `json:"display_name"`
-	GroupName   string `json:"group_name,omitempty"`
-}
-
-// ResourceMetadata contains subscription metadata for a Terraform resource
-type ResourceMetadata struct {
-	Service          string   `json:"service"`
-	MinimumTier      string   `json:"minimum_tier"`
-	AdvancedFeatures []string `json:"advanced_features,omitempty"`
-}
-
-// Global subscription metadata store
-var subscriptionMetadata *SubscriptionMetadata
-
 // =============================================================================
 // V2 Spec Metadata Cache - For x-f5xc-* extensions from enriched API specs
 // =============================================================================
@@ -382,169 +357,13 @@ func getV2SubscriptionTierNote(resourceName string) string {
 	return ""
 }
 
-// loadSubscriptionMetadata loads the subscription tier metadata from tools/subscription-tiers.json
-func loadSubscriptionMetadata() {
-	metadataPath := "tools/subscription-tiers.json"
-	data, err := os.ReadFile(metadataPath)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Note: Could not load subscription tier metadata from %s: %v\n", metadataPath, err)
-		fmt.Fprintf(os.Stderr, "      Run 'scripts/update-subscription-metadata.sh' to generate it\n")
-		return
-	}
-
-	subscriptionMetadata = &SubscriptionMetadata{}
-	if err := json.Unmarshal(data, subscriptionMetadata); err != nil {
-		fmt.Fprintf(os.Stderr, "Warning: Could not parse subscription tier metadata: %v\n", err)
-		subscriptionMetadata = nil
-		return
-	}
-
-	fmt.Printf("Loaded subscription metadata: %d resources\n", len(subscriptionMetadata.Resources))
-}
-
 // getSubscriptionTierNote returns a Terraform Registry-compatible note for resources requiring
-// Advanced subscription tier or having Advanced-only features. Returns empty string for
-// Standard/NO_TIER resources without Advanced features.
-// Uses a two-tier approach:
-// 1. Check v2 spec x-f5xc-requires-tier first (from enriched API specs)
-// 2. Fall back to subscription-tiers.json metadata
+// an Advanced subscription tier. Enriched v2 specs are the only source of
+// resource-tier truth; a separate catalog snapshot can drift from the provider
+// schema and must not override or supplement it.
 func getSubscriptionTierNote(resourceName string) string {
-	// Tier 1: Check v2 spec x-f5xc-requires-tier (preferred, from enriched API specs)
-	if note := getV2SubscriptionTierNote(resourceName); note != "" {
-		return note
-	}
-
-	// Tier 2: Fall back to subscription-tiers.json metadata
-	if subscriptionMetadata == nil {
-		return ""
-	}
-
-	// Try to find resource metadata using multiple name variations
-	// The Terraform resource names may differ from OpenAPI schema names
-	resMeta, ok := findResourceMetadata(resourceName)
-	if !ok {
-		return ""
-	}
-
-	// Case 1: Resource requires Advanced tier entirely
-	if resMeta.MinimumTier == "ADVANCED" {
-		return "~> **Subscription Required:** This resource requires an F5 Distributed Cloud " +
-			"**Advanced** subscription. [Compare subscription tiers](https://www.f5.com/products/get-f5/compare)."
-	}
-
-	// Case 2: Standard tier resource with some features requiring Advanced
-	if len(resMeta.AdvancedFeatures) > 0 {
-		features := strings.Join(resMeta.AdvancedFeatures, "`, `")
-		return fmt.Sprintf("~> **Note:** Some features of this resource (`%s`) require an F5 Distributed Cloud "+
-			"**Advanced** subscription. [Compare subscription tiers](https://www.f5.com/products/get-f5/compare).", features)
-	}
-
-	// Case 3: No subscription note needed
-	return ""
+	return getV2SubscriptionTierNote(resourceName)
 }
-
-// findResourceMetadata attempts to find resource metadata using various name patterns
-// This handles differences between Terraform resource names and OpenAPI schema names
-func findResourceMetadata(resourceName string) (*ResourceMetadata, bool) {
-	if subscriptionMetadata == nil {
-		return nil, false
-	}
-
-	// Try exact match first
-	if resMeta, ok := subscriptionMetadata.Resources[resourceName]; ok {
-		return &resMeta, true
-	}
-
-	// Common name transformations to try
-	nameVariants := []string{
-		// Remove common prefixes
-		strings.TrimPrefix(resourceName, "xcsh_"),
-
-		// Remove common suffixes that differ from schema names
-		strings.TrimSuffix(resourceName, "_resource"),
-
-		// Handle bot_defense_app_infrastructure -> bot_infrastructure mapping
-		strings.Replace(resourceName, "bot_defense_app_", "bot_", 1),
-		strings.Replace(resourceName, "bot_defense_", "", 1),
-
-		// Handle shape_ prefix variations
-		"shape_" + resourceName,
-		strings.TrimPrefix(resourceName, "shape_"),
-
-		// Handle client_side_defense variations
-		strings.Replace(resourceName, "client_side_defense_", "", 1),
-
-		// Handle underscore variations (some use snake_case differently)
-		strings.ReplaceAll(resourceName, "__", "_"),
-	}
-
-	// Try each variant
-	for _, variant := range nameVariants {
-		if resMeta, ok := subscriptionMetadata.Resources[variant]; ok {
-			return &resMeta, true
-		}
-	}
-
-	// Try partial matching for nested resources (e.g., "bot_allowlist_policy" in "shape.bot_defense.bot_allowlist_policy")
-	for key, resMeta := range subscriptionMetadata.Resources {
-		if strings.HasSuffix(key, resourceName) || strings.Contains(key, resourceName) {
-			rm := resMeta // Create a copy to return pointer
-			return &rm, true
-		}
-	}
-
-	return nil, false
-}
-
-// matchesAdvancedFeature checks if a property name matches an advanced feature pattern
-// Patterns: enable_<feature>, disable_<feature>, <feature>, <feature>_settings, <feature>_policy
-func matchesAdvancedFeature(propertyName string, featureName string) bool {
-	prop := strings.ToLower(propertyName)
-	feat := strings.ToLower(featureName)
-
-	if prop == feat {
-		return true
-	}
-	if prop == "enable_"+feat {
-		return true
-	}
-	if prop == "disable_"+feat {
-		return true
-	}
-	if prop == feat+"_settings" {
-		return true
-	}
-	if prop == feat+"_policy" {
-		return true
-	}
-	if prop == feat+"_advanced" {
-		return true
-	}
-	if prop == "default_"+feat {
-		return true
-	}
-	if strings.Contains(prop, feat) {
-		return true
-	}
-
-	return false
-}
-
-// isAdvancedFeatureProperty returns true if the property requires an Advanced subscription
-func isAdvancedFeatureProperty(resourceName, propertyName string) bool {
-	resMeta, ok := findResourceMetadata(resourceName)
-	if !ok || len(resMeta.AdvancedFeatures) == 0 {
-		return false
-	}
-	for _, feature := range resMeta.AdvancedFeatures {
-		if matchesAdvancedFeature(propertyName, feature) {
-			return true
-		}
-	}
-	return false
-}
-
-const advancedIndicator = "**(Advanced subscription required)**"
 
 // serverDefaultIndicator marks fields where F5XC server applies sensible defaults when omitted
 const serverDefaultIndicator = "⚙️ **Server Default**"
@@ -611,55 +430,6 @@ func formatServerDefaultNote(description string) string {
 	return desc + " " + serverDefaultIndicator
 }
 
-// appendSubscriptionIndicator adds the Advanced subscription indicator to a description
-// if the property matches an advanced feature. Idempotent - won't add if already present.
-func appendSubscriptionIndicator(resourceName, propertyName, description string) string {
-	if strings.Contains(description, "Advanced subscription required") {
-		return description // Already annotated
-	}
-	if !isAdvancedFeatureProperty(resourceName, propertyName) {
-		return description
-	}
-	desc := strings.TrimSpace(description)
-	desc = strings.TrimSuffix(desc, ".")
-	return desc + " " + advancedIndicator
-}
-
-// annotateAdvancedPropertiesInContent adds tier indicators to already-transformed documentation
-// This handles files that have already been transformed and need property-level annotations
-func annotateAdvancedPropertiesInContent(content, resourceName string) string {
-	resMeta, ok := findResourceMetadata(resourceName)
-	if !ok || len(resMeta.AdvancedFeatures) == 0 {
-		return content
-	}
-
-	for _, feature := range resMeta.AdvancedFeatures {
-		// Build property name patterns to match
-		patterns := []string{
-			"enable_" + feature,
-			"disable_" + feature,
-			feature,
-			feature + "_settings",
-			feature + "_policy",
-		}
-
-		for _, prop := range patterns {
-			// Match: `prop_name`](#anchor) ... <br>DESCRIPTION
-			// Pattern captures up to the description after <br>
-			regex := regexp.MustCompile(
-				fmt.Sprintf("(`%s`\\]\\(#[^)]+\\)[^<]*<br>[^<\n]+)", regexp.QuoteMeta(prop)))
-
-			content = regex.ReplaceAllStringFunc(content, func(match string) string {
-				if strings.Contains(match, "Advanced subscription required") {
-					return match // Already annotated
-				}
-				return match + " " + advancedIndicator
-			})
-		}
-	}
-	return content
-}
-
 // metadataFields defines the standard F5 XC metadata fields that should be grouped
 // under "Metadata Argument Reference" section, following Volterra provider conventions
 var metadataFields = map[string]bool{
@@ -670,18 +440,6 @@ var metadataFields = map[string]bool{
 	"name":        true,
 	"namespace":   true,
 }
-
-// Aliases to shared packages for backward compatibility
-// Acronym maps are now in tools/pkg/naming/acronyms.go
-// Timeout/long-running resources are now in tools/pkg/resource/timeouts.go
-
-// isLongRunningResource wraps resource.IsLongRunning
-func isLongRunningResource(resourceName string) bool {
-	return resource.IsLongRunning(resourceName)
-}
-
-// Aliases to shared packages for backward compatibility
-// Category patterns and subcategory overrides are now in tools/pkg/resource/categories.go
 
 // resourceAPIPathMap maps resource names to their F5 API documentation paths
 // Note: V2 specs use domain-organized format; API path mapping uses resource metadata
@@ -703,8 +461,7 @@ func getResourceAPIDocURL(resourceName string) string {
 	return ""
 }
 
-// getSubcategory returns the subcategory for a resource based on filename
-// Wraps resource.GetCategory for backward compatibility
+// getSubcategory returns the subcategory for a resource based on filename.
 func getSubcategory(filename string) string {
 	base := filepath.Base(filename)
 	name := strings.TrimSuffix(base, ".md")
@@ -737,6 +494,7 @@ type docWarning struct {
 // eliminates the need for page splitting functionality
 
 func main() {
+	hadErrors := false
 	// Build resource-to-API-path mapping from OpenAPI specs
 	buildResourceAPIPathMap()
 
@@ -751,9 +509,6 @@ func main() {
 
 	// Load v2 spec metadata for enriched x-f5xc-* extensions
 	loadV2SpecMetadata()
-
-	// Load subscription tier metadata for documentation notes (fallback for v2 metadata)
-	loadSubscriptionMetadata()
 
 	docsDir := "docs/resources"
 	var docWarnings []docWarning
@@ -776,6 +531,7 @@ func main() {
 
 		if err := transformDoc(file); err != nil {
 			fmt.Fprintf(os.Stderr, "Error transforming %s: %v\n", file, err)
+			hadErrors = true
 		} else {
 			fmt.Printf("Transformed: %s\n", file)
 		}
@@ -792,6 +548,7 @@ func main() {
 		for _, file := range dataSourceFiles {
 			if err := transformDoc(file); err != nil {
 				fmt.Fprintf(os.Stderr, "Error transforming %s: %v\n", file, err)
+				hadErrors = true
 			} else {
 				fmt.Printf("Transformed: %s\n", file)
 			}
@@ -800,20 +557,30 @@ func main() {
 				docWarnings = append(docWarnings, *warn)
 			}
 		}
+	} else {
+		fmt.Fprintf(os.Stderr, "Error finding data-source doc files: %v\n", err)
+		hadErrors = true
 	}
 
 	// Inject verified configuration examples extracted from acceptance tests
-	injectVerifiedExamples("docs/resources", "examples/resources")
+	if err := injectVerifiedExamples("docs/resources", "examples/resources"); err != nil {
+		fmt.Fprintf(os.Stderr, "Error injecting verified examples: %v\n", err)
+		hadErrors = true
+	}
 
 	// Process index.md for markdown compliance
 	if err := transformIndexDoc("docs/index.md"); err != nil {
 		fmt.Fprintf(os.Stderr, "Error transforming docs/index.md: %v\n", err)
+		hadErrors = true
 	} else {
 		fmt.Printf("Transformed: docs/index.md\n")
 	}
 
 	// Report documents with potential issues
 	reportDocWarnings(docWarnings)
+	if hadErrors {
+		os.Exit(1)
+	}
 }
 
 // checkDocLimits validates document against Terraform Registry limits
@@ -1139,6 +906,11 @@ func convertNestedBlockAnchor(nestedPath string) string {
 // 3. Removing "See...below" links that point to truly empty sections
 // Note: Single-page rendering mode - no external nested_blocks files
 func transformAnchorsOnly(filePath string, content string) error {
+	// Normalize generated prose before deriving headings and anchor hashes. Running
+	// these rewrites at the end makes the first transformed pass structurally
+	// different from every later pass.
+	content = normalizeDocumentProse(content, filePath)
+
 	// Strip AI metadata prefixes from descriptions (Issue #287 regression fix)
 	// These prefixes should not appear in user-facing Registry documentation
 	content = stripAIMetadataFromDescriptions(content)
@@ -1192,7 +964,7 @@ func transformAnchorsOnly(filePath string, content string) error {
 
 		// Replace API documentation link (generic or previously generated) with current resource-specific link
 		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]")) {
-			displayName := toTitleCase(resourceName)
+			displayName := naming.ToTitleCase(resourceName)
 			line = fmt.Sprintf("~> **Note** Please refer to [%s API docs](%s) to learn more.", displayName, apiDocURL)
 		}
 
@@ -1251,14 +1023,15 @@ func transformAnchorsOnly(filePath string, content string) error {
 	// Normalize blank lines
 	result = normalizeBlankLines(result)
 
+	// Canonical terminology must be present before content-derived hashes are
+	// calculated by description deduplication.
+	result = normalizeDocumentProse(result, filePath)
+
 	// Compress long anchor IDs to reduce document size (Issue #287)
 	result = compressAnchors(result)
 
 	// Phase 2: Apply description deduplication to collapse ObjectRef blocks (Issue #287)
 	result = applyDescriptionDeduplication(result)
-
-	// Phase 3: Annotate individual advanced feature properties with tier indicators
-	result = annotateAdvancedPropertiesInContent(result, resourceName)
 
 	// Inject subscription tier note as FINAL step (after all escaping/URL processing)
 	if tierNote := getSubscriptionTierNote(resourceName); tierNote != "" {
@@ -1307,7 +1080,7 @@ func convertContextLinesToLinks(content string) string {
 		}
 		article := m[1]
 		blockName := m[2]
-		anchor := toAnchorName(blockName)
+		anchor := naming.ToAnchorName(blockName)
 		return fmt.Sprintf("%s [`%s`](#%s) block supports the following:", article, blockName, anchor)
 	})
 
@@ -1326,10 +1099,10 @@ func convertContextLinesToLinks(content string) string {
 		// Build full anchor: parent path + block name, all with hyphens
 		// e.g., "advertise_custom.advertise_where" + "site" → "advertise-custom-advertise-where-site"
 		fullPath := parentPath + "." + blockName
-		fullAnchor := toAnchorName(strings.ReplaceAll(fullPath, ".", "-"))
+		fullAnchor := naming.ToAnchorName(strings.ReplaceAll(fullPath, ".", "-"))
 
 		// Build parent anchor
-		parentAnchor := toAnchorName(strings.ReplaceAll(parentPath, ".", "-"))
+		parentAnchor := naming.ToAnchorName(strings.ReplaceAll(parentPath, ".", "-"))
 
 		return fmt.Sprintf("%s [`%s`](#%s) block (within [`%s`](#%s)) supports the following:",
 			article, blockName, fullAnchor, parentPath, parentAnchor)
@@ -1342,7 +1115,7 @@ func convertContextLinesToLinks(content string) string {
 // This enables proper anchor navigation on Terraform Registry, which doesn't support
 // raw HTML <a id="..."> anchor tags. H4 headers auto-generate anchors from their text.
 // Example: "**CORS Policy**" → "#### CORS Policy"
-// The resulting "#### CORS Policy" generates anchor "#cors-policy" which matches toAnchorName("cors_policy")
+// The resulting "#### CORS Policy" generates anchor "#cors-policy", matching naming.ToAnchorName("cors_policy").
 func convertBoldToH4Headers(content string) string {
 	return docfmt.PromoteNestedBlockHeadings(content)
 }
@@ -1480,6 +1253,9 @@ func transformDoc(filePath string) error {
 	}
 
 	contentStr := string(content)
+	// Normalize generated prose before deciding which transformation path to use
+	// and before calculating any content-derived anchors.
+	contentStr = normalizeDocumentProse(contentStr, filePath)
 
 	// Skip nested_blocks files - they are deleted in single-page mode
 	if strings.Contains(filePath, "_nested_blocks") {
@@ -1591,7 +1367,7 @@ func transformDoc(filePath string) error {
 		}
 		// Replace API documentation link (generic or previously generated) with current resource-specific link
 		if apiDocURL != "" && (strings.Contains(line, "F5 XC API Documentation") || strings.Contains(line, "API docs]")) {
-			displayName := toTitleCase(resourceName)
+			displayName := naming.ToTitleCase(resourceName)
 			line = fmt.Sprintf("~> **Note** Please refer to [%s API docs](%s) to learn more.", displayName, apiDocURL)
 		}
 		output.WriteString(line)
@@ -1806,7 +1582,7 @@ func transformDoc(filePath string) error {
 		// Build the first line: bullet + name + Required/Optional + Type + defaults + specified in
 		reqText := strings.Trim(attr.reqStr, "()")
 		var firstLine strings.Builder
-		anchorID := toAnchorName(attr.name)
+		anchorID := naming.ToAnchorName(attr.name)
 		// Add anchor before bullet so link fragment has a valid target (fixes MD051)
 		firstLine.WriteString(fmt.Sprintf("<a id=\"%s\"></a>%s[`%s`](#%s) - %s %s", anchorID, bulletPrefix, attr.name, anchorID, reqText, typeStr))
 		if defaultVal != "" {
@@ -1817,7 +1593,7 @@ func transformDoc(filePath string) error {
 		}
 
 		// Handle nested blocks with "See ... below" links
-		anchorName := toAnchorName(attr.name)
+		anchorName := naming.ToAnchorName(attr.name)
 		hasNestedLink := attr.hasNested && anchorsWithContent[anchorName] && safeAnchors[anchorName]
 
 		// Build subsequent lines with <br> tags
@@ -1833,14 +1609,12 @@ func transformDoc(filePath string) error {
 		if desc != "" {
 			// Format server default note into visual indicator (x-f5xc-server-default extension)
 			desc = formatServerDefaultNote(desc)
-			// Annotate advanced feature properties with subscription tier indicator
-			desc = appendSubscriptionIndicator(resourceName, attr.name, desc)
 			result.WriteString("<br>" + desc)
 		}
 
 		// Add "See below" link for nested blocks
 		if hasNestedLink {
-			result.WriteString(fmt.Sprintf("<br>See [%s](#%s) below for details.", toTitleCase(attr.name), anchorName))
+			result.WriteString(fmt.Sprintf("<br>See [%s](#%s) below for details.", naming.ToTitleCase(attr.name), anchorName))
 		}
 
 		return result.String()
@@ -2017,7 +1791,7 @@ func transformDoc(filePath string) error {
 			}
 
 			// Transform nested schema headers to H4 (not H3) for proper anchor navigation
-			// H4 headers auto-generate anchors that match our toAnchorName() output
+			// H4 headers auto-generate anchors that match naming.ToAnchorName output.
 			// e.g., "#### CORS Policy" generates anchor "#cors-policy"
 			// Following AzureRM pattern: add context line showing parent relationship
 			if strings.HasPrefix(line, "### Nested Schema for") {
@@ -2033,24 +1807,24 @@ func transformDoc(filePath string) error {
 
 					// Build full title from all path parts for unique H4 header
 					// This ensures each nested block has a unique anchor
-					fullTitle := toTitleCase(strings.ReplaceAll(fullPath, ".", " "))
+					fullTitle := naming.ToTitleCase(strings.ReplaceAll(fullPath, ".", " "))
 					output.WriteString(fmt.Sprintf("#### %s\n\n", fullTitle))
 
 					// Add AzureRM-style context line showing parent relationship with clickable links
 					// Example: "A [`policies`](#active-service-policies-policies) block (within [`active_service_policies`](#active-service-policies)) supports the following:"
 					article := "A"
-					if startsWithVowel(lastSegment) {
+					if naming.StartsWithVowel(lastSegment) {
 						article = "An"
 					}
 
 					// Build the full anchor for this block (all path parts joined with hyphens)
-					fullAnchor := toAnchorName(strings.Join(pathParts, "-"))
+					fullAnchor := naming.ToAnchorName(strings.Join(pathParts, "-"))
 
 					if len(pathParts) > 1 {
 						// Has parent - show relationship with clickable links for both block and parent
 						// Build parent anchor (all parts except last, joined with hyphens)
 						parentParts := pathParts[:len(pathParts)-1]
-						parentAnchor := toAnchorName(strings.Join(parentParts, "-"))
+						parentAnchor := naming.ToAnchorName(strings.Join(parentParts, "-"))
 						parentPath := strings.Join(parentParts, ".")
 						output.WriteString(fmt.Sprintf("%s [`%s`](#%s) block (within [`%s`](#%s)) supports the following:\n\n",
 							article, lastSegment, fullAnchor, parentPath, parentAnchor))
@@ -2124,7 +1898,7 @@ func transformDoc(filePath string) error {
 					// name is like "cors_policy"
 					// Result: "routes-simple-route-advanced-options-cors-policy"
 					fullAttrPath := currentBlockName + "." + name
-					nestedAttrAnchor := toAnchorName(strings.ReplaceAll(fullAttrPath, ".", "-"))
+					nestedAttrAnchor := naming.ToAnchorName(strings.ReplaceAll(fullAttrPath, ".", "-"))
 					// Add anchor before bullet so link fragment has a valid target (fixes MD051)
 					firstLine.WriteString(fmt.Sprintf("<a id=\"%s\"></a>&#x2022; [`%s`](#%s) - Optional %s", nestedAttrAnchor, name, nestedAttrAnchor, typeStr))
 					if defaultVal != "" {
@@ -2158,7 +1932,7 @@ func transformDoc(filePath string) error {
 							nestedAnchor = strings.ToLower(strings.ReplaceAll(strings.ReplaceAll(am[1], "_", "-"), "--", "-"))
 						}
 						if nestedAnchor != "" && anchorsWithContent[nestedAnchor] {
-							result.WriteString(fmt.Sprintf("<br>See [%s](#%s) below.", toTitleCase(name), nestedAnchor))
+							result.WriteString(fmt.Sprintf("<br>See [%s](#%s) below.", naming.ToTitleCase(name), nestedAnchor))
 						}
 					}
 
@@ -2226,6 +2000,10 @@ func transformDoc(filePath string) error {
 
 	// Final pass: fix any remaining bare URLs not in backticks (MD034 compliance)
 	result = fixBareURLs(result)
+
+	// Canonical terminology must be present before content-derived hashes are
+	// calculated by description deduplication.
+	result = normalizeDocumentProse(result, filePath)
 
 	// Apply size optimizations (Issue #287 completion)
 	// Deduplicate descriptions and collapse repeated blocks
@@ -2676,6 +2454,15 @@ func collapseDeepNestedBlocks(content string) string {
 					blockEnd++
 				}
 
+				// A prior pass has already replaced this section. Preserve the
+				// complete collapsed block, including any thematic separator before
+				// the following H2, instead of collapsing the collapsed output again.
+				if strings.Contains(strings.Join(lines[i+1:blockEnd], "\n"), "</a>Deeply nested **") {
+					result = append(result, lines[i:blockEnd]...)
+					i = blockEnd
+					continue
+				}
+
 				// Extract last word from header for collapsed message
 				lastWord := words[len(words)-1]
 
@@ -2883,49 +2670,99 @@ func escapeHTMLTagsInContent(content string) string {
 //   - Markers inside code spans: `*` or `_`
 //   - Email addresses already in backticks: `user@example.com`
 func escapeEmphasisMarkersInContent(content string) string {
-	// MD037 triggers when there are spaces inside emphasis markers like " * text" or "text * "
-	// We need to escape asterisks that appear with adjacent spaces in description text
-
-	// Pattern 1: Space-asterisk-letter " *X" → " \*X" (opening emphasis with internal space)
-	// This catches bullet points like "following rules * Direct reference"
 	spaceAsteriskLetter := regexp.MustCompile(`([^\\]) \*([A-Za-z])`)
-	content = spaceAsteriskLetter.ReplaceAllString(content, "$1 \\*$2")
-
-	// Pattern 2: Letter-space-asterisk "x *" → "x \*" (closing emphasis with internal space)
-	// This catches patterns like "object *" before another bullet or end of text
-	letterSpaceAsterisk := regexp.MustCompile(`([a-zA-Z]) \*([^a-zA-Z\\])`)
-	content = letterSpaceAsterisk.ReplaceAllString(content, "$1 \\*$2")
-
-	// Pattern 3: Space-asterisk-space " * " → " \* " (standalone asterisk)
+	letterSpaceAsterisk := regexp.MustCompile(`([a-zA-Z]) \*([^a-zA-Z*\\])`)
 	spaceAsteriskSpace := regexp.MustCompile(`([^\\]) \* `)
-	content = spaceAsteriskSpace.ReplaceAllString(content, "$1 \\* ")
-
-	// Pattern 4: Punctuation-space-asterisk ": *" or ". *" (wildcard patterns in descriptions)
 	punctAsterisk := regexp.MustCompile(`([:.,;]) \*([^*\\])`)
-	content = punctAsterisk.ReplaceAllString(content, "$1 \\*$2")
-
-	// Pattern 5: Bracket-underscore patterns like "[_]" common in API examples
-	// MD049 triggers when underscores look like emphasis markers
 	bracketUnderscore := regexp.MustCompile(`\[_\]`)
-	content = bracketUnderscore.ReplaceAllString(content, "[\\_]")
+	email := regexp.MustCompile(`[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}`)
 
-	// NOTE: Pattern 6 (underscore emphasis escaping) was removed in issue #351
-	// The regex was too broad and incorrectly escaped snake_case identifiers
-	// like "http_loadbalancer" → "http\_loadbalancer", breaking code examples
-	// on the Terraform Registry. The Registry's markdown renderer handles
-	// underscores correctly without escaping.
+	return transformMarkdownProse(content, func(prose string) string {
+		prose = spaceAsteriskLetter.ReplaceAllString(prose, "$1 \\*$2")
+		prose = letterSpaceAsterisk.ReplaceAllString(prose, "$1 \\*$2")
+		prose = spaceAsteriskSpace.ReplaceAllString(prose, "$1 \\* ")
+		prose = punctAsterisk.ReplaceAllString(prose, "$1 \\*$2")
+		prose = bracketUnderscore.ReplaceAllString(prose, "[\\_]")
+		return email.ReplaceAllString(prose, "`$0`")
+	})
+}
 
-	// Pattern 6: Email addresses - wrap in backticks for MD034 compliance
-	// Match email patterns like user@example.com that are not already in backticks
-	// The negative lookbehind/ahead for backticks prevents double-wrapping
-	emailRegex := regexp.MustCompile(`([^` + "`" + `])([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})([^` + "`" + `])`)
-	content = emailRegex.ReplaceAllString(content, "$1`$2`$3")
+// transformMarkdownProse applies transform only outside fenced code blocks and
+// inline code spans. Documentation lint fixes must never rewrite executable
+// examples or values that are already protected by backticks.
+func transformMarkdownProse(content string, transform func(string) string) string {
+	lines := strings.Split(content, "\n")
+	inFence := false
+	fenceMarker := ""
 
-	// Also handle emails at the start of a word boundary (after space)
-	emailAtStartRegex := regexp.MustCompile(`(\s)([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(\s|$|[.,;:!?])`)
-	content = emailAtStartRegex.ReplaceAllString(content, "$1`$2`$3")
+	for i, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if marker := markdownFenceMarker(trimmed); marker != "" {
+			if !inFence {
+				inFence = true
+				fenceMarker = marker
+			} else if marker == fenceMarker {
+				inFence = false
+				fenceMarker = ""
+			}
+			continue
+		}
+		if !inFence {
+			lines[i] = transformOutsideInlineCode(line, transform)
+		}
+	}
 
-	return content
+	return strings.Join(lines, "\n")
+}
+
+func markdownFenceMarker(trimmed string) string {
+	if strings.HasPrefix(trimmed, "```") {
+		return "```"
+	}
+	if strings.HasPrefix(trimmed, "~~~") {
+		return "~~~"
+	}
+	return ""
+}
+
+func transformOutsideInlineCode(line string, transform func(string) string) string {
+	var result strings.Builder
+	segmentStart := 0
+	codeDelimiterLength := 0
+
+	for i := 0; i < len(line); {
+		if line[i] != '`' {
+			i++
+			continue
+		}
+
+		runEnd := i
+		for runEnd < len(line) && line[runEnd] == '`' {
+			runEnd++
+		}
+		runLength := runEnd - i
+
+		if codeDelimiterLength == 0 {
+			result.WriteString(transform(line[segmentStart:i]))
+			result.WriteString(line[i:runEnd])
+			codeDelimiterLength = runLength
+			segmentStart = runEnd
+		} else if runLength == codeDelimiterLength {
+			result.WriteString(line[segmentStart:runEnd])
+			codeDelimiterLength = 0
+			segmentStart = runEnd
+		}
+		i = runEnd
+	}
+
+	if codeDelimiterLength == 0 {
+		result.WriteString(transform(line[segmentStart:]))
+	} else {
+		// Preserve malformed/unclosed code literally; guessing would risk
+		// changing an executable example.
+		result.WriteString(line[segmentStart:])
+	}
+	return result.String()
 }
 
 // escapeHTMLTags wraps HTML-like tags in backticks to prevent Terraform Registry
@@ -3043,7 +2880,7 @@ func cleanDescription(desc, attrPath string) string {
 	desc = strings.TrimSuffix(desc, ".")
 
 	// Normalize acronym capitalization (e.g., Dns → DNS, Http → HTTP)
-	desc = normalizeAcronyms(desc)
+	desc = naming.NormalizeAcronyms(desc)
 
 	return desc
 }
@@ -3080,26 +2917,6 @@ func extractSimpleType(typeInfo string) string {
 		return "Bool"
 	}
 	return "String"
-}
-
-// toTitleCase wraps naming.ToTitleCase for backward compatibility
-func toTitleCase(s string) string {
-	return naming.ToTitleCase(s)
-}
-
-// startsWithVowel wraps naming.StartsWithVowel for backward compatibility
-func startsWithVowel(s string) bool {
-	return naming.StartsWithVowel(s)
-}
-
-// normalizeAcronyms wraps naming.NormalizeAcronyms for backward compatibility
-func normalizeAcronyms(text string) string {
-	return naming.NormalizeAcronyms(text)
-}
-
-// toAnchorName wraps naming.ToAnchorName for backward compatibility
-func toAnchorName(name string) string {
-	return naming.ToAnchorName(name)
 }
 
 // extractOneOfConstraint extracts the [OneOf: field1, field2] constraint from description
@@ -3281,7 +3098,7 @@ func wrapValuesInBackticks(values string) string {
 //   - Update: 30 minutes
 //   - Delete: 30 minutes
 func enhanceTimeoutsSection(content, resourceName string) string {
-	isLongRunning := isLongRunningResource(resourceName)
+	isLongRunning := resource.IsLongRunning(resourceName)
 
 	// Default values based on internal/timeouts/timeouts.go
 	createTimeout := "10 minutes"
@@ -3421,6 +3238,12 @@ func fixDataSourceDescriptions(content string, filePath string) string {
 	return strings.Join(lines, "\n")
 }
 
+func normalizeDocumentProse(content string, filePath string) string {
+	content = docsterm.FixUpstreamTerminology(content)
+	content = fixDataSourceDescriptions(content, filePath)
+	return fixDescriptionGrammar(content)
+}
+
 // fixDescriptionGrammar corrects common grammar issues from upstream API descriptions.
 func fixDescriptionGrammar(content string) string {
 	content = strings.NewReplacer(
@@ -3460,10 +3283,10 @@ func stripAIMetadataFromDescriptions(content string) string {
 // injectVerifiedExamples reads named .tf example files from examples/resources/xcsh_{resource}/
 // (generated by tools/generate-test-examples.go from acceptance tests) and injects them
 // into the corresponding resource doc as a "## Verified Configuration Examples" section.
-func injectVerifiedExamples(docsDir, examplesDir string) {
+func injectVerifiedExamples(docsDir, examplesDir string) error {
 	docFiles, err := filepath.Glob(filepath.Join(docsDir, "*.md"))
 	if err != nil {
-		return
+		return fmt.Errorf("find resource docs: %w", err)
 	}
 
 	for _, docFile := range docFiles {
@@ -3472,7 +3295,7 @@ func injectVerifiedExamples(docsDir, examplesDir string) {
 
 		files, err := filepath.Glob(filepath.Join(resourceDir, "*.tf"))
 		if err != nil {
-			continue
+			return fmt.Errorf("find examples for %s: %w", docFile, err)
 		}
 
 		var verifiedExamples []string
@@ -3484,7 +3307,7 @@ func injectVerifiedExamples(docsDir, examplesDir string) {
 
 			content, err := os.ReadFile(f)
 			if err != nil {
-				continue
+				return fmt.Errorf("read verified example %s: %w", f, err)
 			}
 
 			exampleName := strings.TrimSuffix(name, ".tf")
@@ -3522,7 +3345,7 @@ func injectVerifiedExamples(docsDir, examplesDir string) {
 
 		docContent, err := os.ReadFile(docFile)
 		if err != nil {
-			continue
+			return fmt.Errorf("read resource doc %s: %w", docFile, err)
 		}
 
 		doc := string(docContent)
@@ -3551,9 +3374,10 @@ func injectVerifiedExamples(docsDir, examplesDir string) {
 		doc = docfmt.NormalizeMarkdownSpacing(doc)
 
 		if err := os.WriteFile(docFile, []byte(doc), 0644); err != nil {
-			fmt.Fprintf(os.Stderr, "Error writing %s: %v\n", docFile, err)
+			return fmt.Errorf("write resource doc %s: %w", docFile, err)
 		} else {
 			fmt.Printf("Injected %d verified examples into %s\n", len(verifiedExamples), filepath.Base(docFile))
 		}
 	}
+	return nil
 }

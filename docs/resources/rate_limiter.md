@@ -44,6 +44,15 @@ resource "xcsh_rate_limiter" "example" {
 ### All Attributes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name        = "example"
   namespace   = "system"
@@ -64,6 +73,15 @@ resource "xcsh_rate_limiter" "test" {
 ### Token Bucket example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name      = "example"
   namespace = "system"
@@ -81,13 +99,22 @@ resource "xcsh_rate_limiter" "test" {
 ### Unit example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name      = "example"
   namespace = "system"
 
   limits {
     total_number     = 3
-    unit             = "example-value"
+    unit             = "MINUTE"
     burst_multiplier = 2
 
     leaky_bucket {}
@@ -98,6 +125,15 @@ resource "xcsh_rate_limiter" "test" {
 ### With Annotations example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name      = "example"
   namespace = "system"
@@ -111,6 +147,15 @@ resource "xcsh_rate_limiter" "test" {
 ### With Description example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name        = "example"
   namespace   = "system"
@@ -121,6 +166,15 @@ resource "xcsh_rate_limiter" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name      = "example"
   namespace = "system"
@@ -134,6 +188,15 @@ resource "xcsh_rate_limiter" "test" {
 ### With Limits example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_rate_limiter" "test" {
   name        = "example"
   namespace   = "system"

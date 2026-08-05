@@ -2,18 +2,18 @@
 page_title: "Guide: Addon Service Activation"
 subcategory: "Guides"
 description: |-
-  Learn how to activate F5XC addon services using Terraform.
+  Report F5XC addon service activation with Terraform and gate resources on it.
   Covers Bot Defense, Client-Side Defense, WAAP, and more.
 ---
 
 # Addon Service Activation
 
-This guide walks you through activating F5 Distributed Cloud addon services using Terraform. By the end, you'll understand how to:
+This guide covers F5 Distributed Cloud addon services in Terraform. The provider exposes the addon API read-only, so Terraform reports activation and gates on it rather than performing it. By the end, you'll understand how to:
 
 - **Check activation eligibility** - Determine if an addon can be activated
-- **Activate self-service addons** - Bot Defense, client-side Defense, etc.
+- **Activate an addon** - where activation actually happens, and why it is not a Terraform resource
 - **Handle managed activation** - Services requiring sales contact
-- **Monitor activation status** - Track subscription state changes
+- **Gate dependent resources** - create them only once the addon is active
 
 ## Overview
 
@@ -40,15 +40,15 @@ Addon services have different activation types that determine how they can be ac
 │                                                                     │
 │  SELF-ACTIVATION                                                    │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐          │
-│  │ Check Status │───►│ Create       │───►│ Active       │          │
-│  │ (AS_NONE)    │    │ Subscription │    │ (AS_SUBSCRIBED) │       │
+│  │ Check Status │───►│ Activate in  │───►│ Active       │          │
+│  │ (AS_NONE)    │    │ the console  │    │ (AS_SUBSCRIBED) │       │
 │  └──────────────┘    └──────────────┘    └──────────────┘          │
-│  User can activate directly via Terraform                           │
+│  Tenant admin activates; Terraform reports the result               │
 │                                                                     │
 │  PARTIALLY MANAGED                                                  │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐          │
-│  │ Check Status │───►│ Request      │───►│ SRE Review   │          │
-│  │ (AS_NONE)    │    │ Subscription │    │ (AS_PENDING) │          │
+│  │ Check Status │───►│ Request in   │───►│ SRE Review   │          │
+│  │ (AS_NONE)    │    │ the console  │    │ (AS_PENDING) │          │
 │  └──────────────┘    └──────────────┘    └──────┬───────┘          │
 │                                                  │                  │
 │                                          ┌──────▼───────┐          │
@@ -110,7 +110,7 @@ cd terraform-provider-xcsh/examples/guides/addon-activation
 cp terraform.tfvars.example terraform.tfvars
 ```
 
-Edit `terraform.tfvars` to enable the addon services you want to activate:
+Edit `terraform.tfvars` to choose the addon services you want reported:
 
 ```hcl
 # Enable Bot Defense activation
@@ -130,7 +130,7 @@ terraform apply
 
 ## Checking Activation Eligibility
 
-Before attempting to activate an addon service, check if it's available for your tenant.
+Check where an addon stands for your tenant before relying on it.
 
 ### Using the Activation Status Data Source
 
@@ -175,148 +175,103 @@ output "addon_details" {
 }
 ```
 
-## Self-Activation Workflow
+## Activating an Addon
 
-For addon services with `self` activation type, you can activate directly via Terraform.
+The provider exposes the addon API read-only: there is no `xcsh_addon_subscription`
+resource, so Terraform reports activation rather than performing it. Activation
+happens in the F5 Distributed Cloud console under **Administration > Billing &
+Subscriptions**, or through your F5 account team for services that report managed
+activation.
 
-### Basic Self-Activation
+That split is deliberate rather than a gap. Activation is a billing event against
+the tenant, not a piece of per-environment infrastructure, so it does not belong
+in a plan that several environments apply independently.
 
-```hcl
-# Step 1: Check if we can activate
-data "xcsh_addon_service_activation_status" "bot_defense" {
-  addon_service = "f5xc-bot-defense-standard"
-}
+The workflow is therefore:
 
-# Step 2: Create subscription only if available
-resource "xcsh_addon_subscription" "bot_defense" {
-  count = data.xcsh_addon_service_activation_status.bot_defense.can_activate && data.xcsh_addon_service_activation_status.bot_defense.state == "AS_NONE" ? 1 : 0
+1. Read `can_activate` and `state` to find out where an addon stands.
+2. Activate it in the console, once, for the tenant.
+3. Gate the resources that depend on the addon on `state` reaching `AS_SUBSCRIBED`.
 
-  name      = "bot-defense-subscription"
-  namespace = "system"
+### Reporting Pending Addons
 
-  addon_service {
-    name      = "f5xc-bot-defense-standard"
-    namespace = "shared"
-  }
-}
+Collect the addons a configuration expects and surface the ones that still need
+attention. `pending` is the actionable output — anything in it has to be
+activated in the console before dependent resources can be created.
 
-output "activation_result" {
-  value = length(xcsh_addon_subscription.bot_defense) > 0 ? "Activated" : "Not activated (check status)"
-}
-```
-
-### Multiple Addon Activation
-
-```hcl
+```terraform
 locals {
-  # Define the addons you want to activate
-  addons_to_activate = [
+  expected_addons = [
     "f5xc-bot-defense-standard",
     "f5xc-client-side-defense-standard",
     "f5xc-waap-standard",
   ]
 }
 
-# Check activation status for each
-data "xcsh_addon_service_activation_status" "addons" {
-  for_each      = toset(local.addons_to_activate)
+data "xcsh_addon_service_activation_status" "expected" {
+  for_each      = toset(local.expected_addons)
   addon_service = each.value
 }
 
-# Create subscriptions for available addons
-resource "xcsh_addon_subscription" "addons" {
-  for_each = {
-    for addon in local.addons_to_activate :
-    addon => addon
-    if data.xcsh_addon_service_activation_status.addons[addon].can_activate && data.xcsh_addon_service_activation_status.addons[addon].state == "AS_NONE"
-  }
+locals {
+  active = [
+    for addon in local.expected_addons : addon
+    if data.xcsh_addon_service_activation_status.expected[addon].state == "AS_SUBSCRIBED"
+  ]
+  pending = setsubtract(local.expected_addons, local.active)
+}
 
-  name      = "${replace(replace(each.value, "f5xc-", ""), "-standard", "")}-subscription"
-  namespace = "system"
-
-  addon_service {
-    name      = each.value
-    namespace = "shared"
-  }
+output "pending_addons" {
+  description = "Activate these in the F5 Distributed Cloud console"
+  value       = local.pending
 }
 ```
 
-## Waiting for Activation
+### Gating Dependent Resources
 
-Some addons may take time to activate, especially those with partial management. Here are patterns for handling this.
+Use the reported state as the condition on anything that needs the addon. A plan
+run against a tenant where the addon is not active then creates nothing that
+would depend on a feature that is not there.
 
-### Pattern 1: Using terraform_data with Precondition
-
-```hcl
-# Check status after subscription
-data "xcsh_addon_service_activation_status" "bot_defense_status" {
+```terraform
+data "xcsh_addon_service_activation_status" "bot_defense" {
   addon_service = "f5xc-bot-defense-standard"
-
-  depends_on = [xcsh_addon_subscription.bot_defense]
 }
 
-# Validate activation succeeded
-resource "terraform_data" "validate_activation" {
-  lifecycle {
-    precondition {
-      condition     = data.xcsh_addon_service_activation_status.bot_defense_status.state == "AS_SUBSCRIBED"
-      error_message = "Bot Defense activation not yet complete. Current state: ${data.xcsh_addon_service_activation_status.bot_defense_status.state}"
+resource "xcsh_http_loadbalancer" "with_bot_defense" {
+  count = data.xcsh_addon_service_activation_status.bot_defense.state == "AS_SUBSCRIBED" ? 1 : 0
+
+  name      = "my-protected-app"
+  namespace = "production"
+  domains   = ["app.example.com"]
+
+  bot_defense {
+    policy {
+      name      = "my-bot-policy"
+      namespace = "shared"
     }
   }
-}
-```
 
-### Pattern 2: Using time_sleep for Simple Delays
-
-```hcl
-resource "xcsh_addon_subscription" "bot_defense" {
-  name      = "bot-defense-subscription"
-  namespace = "system"
-
-  addon_service {
-    name      = "f5xc-bot-defense-standard"
-    namespace = "shared"
+  http {
+    port = 80
   }
 }
-
-# Wait for activation to propagate
-resource "time_sleep" "wait_for_activation" {
-  depends_on = [xcsh_addon_subscription.bot_defense]
-
-  create_duration = "30s"
-}
-
-# Use the addon feature after waiting
-resource "xcsh_http_loadbalancer" "with_bot_defense" {
-  depends_on = [time_sleep.wait_for_activation]
-  # ... configuration with bot defense enabled
-}
 ```
 
-### Pattern 3: External Verification Script
+### Failing Loudly Instead of Silently Skipping
 
-For critical deployments, you may want to verify activation before proceeding:
+`count = 0` skips quietly, which is the right behaviour for an optional feature
+and the wrong one for a hard requirement. When the addon is mandatory, assert it
+so the plan stops with a readable message rather than applying a half-configured
+environment.
 
-```hcl
-resource "null_resource" "verify_activation" {
-  depends_on = [xcsh_addon_subscription.bot_defense]
-
-  provisioner "local-exec" {
-    command = <<-EOT
-      for i in {1..30}; do
-        status=$(curl -s -H "Authorization: APIToken $XCSH_API_TOKEN" \
-          "$XCSH_API_URL/api/web/namespaces/system/addon_services/f5xc-bot-defense-standard/activation-status" \
-          | jq -r '.state')
-        if [ "$status" = "AS_SUBSCRIBED" ]; then
-          echo "Activation complete!"
-          exit 0
-        fi
-        echo "Waiting for activation... (attempt $i/30, status: $status)"
-        sleep 10
-      done
-      echo "Activation timeout"
-      exit 1
-    EOT
+```terraform
+resource "terraform_data" "require_bot_defense" {
+  lifecycle {
+    precondition {
+      condition     = data.xcsh_addon_service_activation_status.bot_defense.state == "AS_SUBSCRIBED"
+      error_message = "Bot Defense is not active on this tenant (state: ${data.xcsh_addon_service_activation_status.bot_defense.state}). Activate it under Administration > Billing & Subscriptions, then re-apply."
+    }
   }
 }
 ```
@@ -328,7 +283,7 @@ For addon services requiring sales contact, use Terraform to monitor status afte
 ### Verifying Managed Addon Status
 
 ```hcl
-# For managed addons, just check status (don't try to create subscription)
+# Managed addons are activated by F5; Terraform reports the resulting state
 data "xcsh_addon_service_activation_status" "managed_addon" {
   addon_service = "some_managed_addon"
 }
@@ -359,7 +314,7 @@ Once an addon is activated, you can use its features in your configurations.
 
 ```hcl
 resource "xcsh_http_loadbalancer" "with_bot_defense" {
-  depends_on = [xcsh_addon_subscription.bot_defense]
+  count = data.xcsh_addon_service_activation_status.bot_defense.state == "AS_SUBSCRIBED" ? 1 : 0
 
   name      = "my-protected-app"
   namespace = "production"
@@ -392,7 +347,7 @@ resource "xcsh_http_loadbalancer" "with_bot_defense" {
 
 ```hcl
 resource "xcsh_http_loadbalancer" "with_csd" {
-  depends_on = [xcsh_addon_subscription.client_side_defense]
+  count = data.xcsh_addon_service_activation_status.client_side_defense.state == "AS_SUBSCRIBED" ? 1 : 0
 
   name      = "my-protected-app"
   namespace = "production"
@@ -410,7 +365,7 @@ resource "xcsh_http_loadbalancer" "with_csd" {
 
 ### Common Issues
 
-#### Access denied when creating subscription
+#### Access denied when reading activation status
 
 - Verify your API token has addon management permissions
 - Check that your subscription tier supports the addon
@@ -442,7 +397,7 @@ output "debug_addon_status" {
 ## Best Practices
 
 1. **Always check eligibility first** - Use the activation status data source before attempting activation
-2. **Use conditional resource creation** - Only create subscriptions when `can_activate` is true
+2. **Use conditional resource creation** - Gate dependent resources on `state` being `AS_SUBSCRIBED`
 3. **Handle dependencies properly** - Use `depends_on` to ensure addons are active before using features
 4. **Monitor activation state** - For partially managed addons, monitor the state for completion
 5. **Document addon requirements** - Clearly document which addons your configuration requires

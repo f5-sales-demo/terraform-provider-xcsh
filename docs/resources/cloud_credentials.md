@@ -134,9 +134,9 @@ An [`azure_client_secret`](#Azure-client-secret) block supports the following:
 
 A [`client_secret`](#Azure-client-secret-client-secret) block (within [`azure_client_secret`](#Azure-client-secret)) supports the following:
 
-<a id="info-2956b6"></a>&#x2022; [`blindfold_secret_info`](#info-2956b6) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-2956b6) below.
+<a id="info-73681a"></a>&#x2022; [`blindfold_secret_info`](#info-73681a) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-73681a) below.
 
-<a id="info-3d8384"></a>&#x2022; [`clear_secret_info`](#info-3d8384) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-3d8384) below.
+<a id="info-b4caff"></a>&#x2022; [`clear_secret_info`](#info-b4caff) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-b4caff) below.
 
 #### Azure Client Secret Client Secret Blindfold Secret Info
 
@@ -165,27 +165,27 @@ binary file
 
 A [`password`](#Azure-pfx-certificate-password) block (within [`azure_pfx_certificate`](#Azure-pfx-certificate)) supports the following:
 
-<a id="info-86ae9f"></a>&#x2022; [`blindfold_secret_info`](#info-86ae9f) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-86ae9f) below.
+<a id="info-6961e3"></a>&#x2022; [`blindfold_secret_info`](#info-6961e3) - Optional Block<br>BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management<br>See [Blindfold Secret Info](#info-6961e3) below.
 
-<a id="info-b6797c"></a>&#x2022; [`clear_secret_info`](#info-b6797c) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-b6797c) below.
+<a id="info-66103f"></a>&#x2022; [`clear_secret_info`](#info-66103f) - Optional Block<br>ClearSecretInfoType specifies information about the Secret that is not encrypted<br>See [Clear Secret Info](#info-66103f) below.
 
 #### Azure Pfx Certificate Password Blindfold Secret Info
 
-A [`blindfold_secret_info`](#info-86ae9f) block (within [`azure_pfx_certificate.password`](#Azure-pfx-certificate-password)) supports the following:
+A [`blindfold_secret_info`](#info-6961e3) block (within [`azure_pfx_certificate.password`](#Azure-pfx-certificate-password)) supports the following:
 
-<a id="provider-669799"></a>&#x2022; [`decryption_provider`](#provider-669799) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
+<a id="provider-fbf323"></a>&#x2022; [`decryption_provider`](#provider-fbf323) - Optional String<br>Name of the Secret Management Access object that contains information about the backend Secret Management service
 
-<a id="location-24612c"></a>&#x2022; [`location`](#location-24612c) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
+<a id="location-5d92fa"></a>&#x2022; [`location`](#location-5d92fa) - Optional String<br>Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location
 
-<a id="provider-65421b"></a>&#x2022; [`store_provider`](#provider-65421b) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="provider-c9429a"></a>&#x2022; [`store_provider`](#provider-c9429a) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
 #### Azure Pfx Certificate Password Clear Secret Info
 
-A [`clear_secret_info`](#info-b6797c) block (within [`azure_pfx_certificate.password`](#Azure-pfx-certificate-password)) supports the following:
+A [`clear_secret_info`](#info-66103f) block (within [`azure_pfx_certificate.password`](#Azure-pfx-certificate-password)) supports the following:
 
-<a id="ref-9cabcd"></a>&#x2022; [`provider_ref`](#ref-9cabcd) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
+<a id="ref-91e540"></a>&#x2022; [`provider_ref`](#ref-91e540) - Optional String<br>Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///
 
-<a id="url-fdff02"></a>&#x2022; [`url`](#url-fdff02) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
+<a id="url-b285b1"></a>&#x2022; [`url`](#url-b285b1) - Optional String<br>URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding
 
 #### GCP Cred File
 

@@ -27,7 +27,7 @@ func TestAccDataGroupResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -64,7 +64,7 @@ func TestAccDataGroupResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -95,7 +95,7 @@ func TestAccDataGroupResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -135,7 +135,7 @@ func TestAccDataGroupResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -169,7 +169,7 @@ func TestAccDataGroupResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -209,7 +209,7 @@ func TestAccDataGroupResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -237,7 +237,7 @@ func TestAccDataGroupResource_emptyPlan(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -267,7 +267,7 @@ func TestAccDataGroupResource_planChecks(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -295,7 +295,7 @@ func TestAccDataGroupResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -394,8 +394,8 @@ func TestAccDataGroupResource_requiresReplace(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	rName1 := acctest.RandomName("tf-test-datagrp")
-	rName2 := acctest.RandomName("tf-test-datagrp")
+	rName1 := acctest.RandomName("tf-acc-test-datagrp")
+	rName2 := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -430,7 +430,7 @@ func TestAccDataGroupResource_stringRecords(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_data_group.test"
-	rName := acctest.RandomName("tf-test-datagrp")
+	rName := acctest.RandomName("tf-acc-test-datagrp")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

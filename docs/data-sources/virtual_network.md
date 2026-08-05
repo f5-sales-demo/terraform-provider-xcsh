@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_virtual_network (Data Source)
 
-Manages virtual network in given namespace. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about virtual network in given namespace. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** Please refer to [Virtual Network API docs](https://f5-sales-demo.github.io/api-specs-enriched/api-reference/network/) to learn more.
 

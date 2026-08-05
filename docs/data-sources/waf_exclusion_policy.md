@@ -7,7 +7,7 @@ description: |-
 
 # xcsh_waf_exclusion_policy (Data Source)
 
-Manages WAF exclusion policy. in F5 Distributed Cloud. This is a read-only data source.
+Retrieves information about WAF exclusion policy. in F5 Distributed Cloud. This is a read-only data source.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 

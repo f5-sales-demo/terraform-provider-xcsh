@@ -208,7 +208,8 @@ func braceBody(s string, openIdx int) (string, int) {
 }
 
 // parseAttributes extracts each top-level attribute (brace-matched body) with the fields the
-// example renderer needs: TfsdkTag, Type, Required, EnumValues, ElementType.
+// example renderer needs: TfsdkTag, Type, Required, EnumValues, ElementType,
+// and integer validator bounds.
 func parseAttributes(region string) []openapi.TerraformAttribute {
 	var attrs []openapi.TerraformAttribute
 	for _, m := range attrHeaderRe.FindAllStringSubmatchIndex(region, -1) {
@@ -236,6 +237,11 @@ func parseAttributes(region string) []openapi.TerraformAttribute {
 					attr.EnumValues = append(attr.EnumValues, q[1])
 				}
 			}
+			attr.ETLDPlusOne = strings.Contains(body, "validators.ETLDPlusOneValidator()")
+			attr.UseDomainValidator = strings.Contains(body, "validators.DomainValidator()")
+		}
+		if attr.Type == "int64" {
+			attr.Minimum, attr.Maximum, attr.HasMinimum, attr.HasMaximum = codegen.ParseGeneratedInt64Bounds(body)
 		}
 		attrs = append(attrs, attr)
 	}

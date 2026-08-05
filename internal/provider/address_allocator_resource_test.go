@@ -17,7 +17,7 @@ func TestAccAddressAllocatorResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_address_allocator.test"
-	rName := acctest.RandomName("tf-test-addr")
+	rName := acctest.RandomName("tf-acc-test-addr")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

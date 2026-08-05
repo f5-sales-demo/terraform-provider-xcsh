@@ -43,7 +43,7 @@ func TestAccAlertPolicyResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -76,7 +76,7 @@ func TestAccAlertPolicyResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -114,7 +114,7 @@ func TestAccAlertPolicyResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -151,7 +151,7 @@ func TestAccAlertPolicyResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -182,7 +182,7 @@ func TestAccAlertPolicyResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -219,7 +219,7 @@ func TestAccAlertPolicyResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -243,7 +243,7 @@ func TestAccAlertPolicyResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -268,7 +268,7 @@ func TestAccAlertPolicyResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -293,7 +293,7 @@ func TestAccAlertPolicyResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -348,7 +348,7 @@ func TestAccAlertPolicyResource_nameTooLong(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	apName := acctest.RandomName("this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
+	apName := acctest.RandomName("tf-acc-test-this-name-is-way-too-long-and-exceeds-maximum-length-allowed-for-names-in-xcsh")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -385,8 +385,8 @@ func TestAccAlertPolicyResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName1 := acctest.RandomName("ap1")
-	apName2 := acctest.RandomName("ap2")
+	apName1 := acctest.RandomName("tf-acc-test-ap1")
+	apName2 := acctest.RandomName("tf-acc-test-ap2")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -418,7 +418,7 @@ func TestAccAlertPolicyResource_alertSettings(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_alert_policy.test"
-	apName := acctest.RandomName("ap")
+	apName := acctest.RandomName("tf-acc-test-ap")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },

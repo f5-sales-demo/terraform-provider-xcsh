@@ -79,7 +79,7 @@ A [`routes`](#routes) block supports the following:
 
 <a id="routes-disable-location-add"></a>&#x2022; [`disable_location_add`](#routes-disable-location-add) - Optional Bool<br>Disables append of x-F5 Distributed Cloud-location = `<RE-site-name>` at route level, if it is configured at virtual-host level. This configuration is ignored on CE sites
 
-<a id="injection-2c38a2"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-2c38a2) - Optional Block<br>Enable this option
+<a id="injection-7542e9"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-7542e9) - Optional Block<br>Enable this option
 
 <a id="routes-inherited-waf-exclusion"></a>&#x2022; [`inherited_waf_exclusion`](#routes-inherited-waf-exclusion) - Optional Block<br>Configuration parameter for inherited WAF exclusion
 
@@ -117,21 +117,21 @@ A [`routes`](#routes) block supports the following:
 
 A [`bot_defense_javascript_injection`](#routes-bot-defense-JavaScript-injection) block (within [`routes`](#routes)) supports the following:
 
-<a id="location-95316f"></a>&#x2022; [`javascript_location`](#location-95316f) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
+<a id="location-074882"></a>&#x2022; [`javascript_location`](#location-074882) - Optional String  Defaults to `AFTER_HEAD`<br>Possible values are `AFTER_HEAD`, `AFTER_TITLE_END`, `BEFORE_SCRIPT`<br>[Enum: AFTER_HEAD|AFTER_TITLE_END|BEFORE_SCRIPT] All inside networks. Insert JavaScript after `<HEAD>` tag Insert JavaScript after `</title>` tag. Insert JavaScript before first tag
 
-<a id="tags-60ccf3"></a>&#x2022; [`javascript_tags`](#tags-60ccf3) - Optional Block<br>Select Add item to configure your JavaScript tag. If adding both Bot Adv and Fraud, the Bot JavaScript should be added first<br>See [JavaScript Tags](#tags-60ccf3) below.
+<a id="tags-adf213"></a>&#x2022; [`javascript_tags`](#tags-adf213) - Optional Block<br>Select Add item to configure your JavaScript tag. If adding both Bot Adv and Fraud, the Bot JavaScript should be added first<br>See [JavaScript Tags](#tags-adf213) below.
 
 #### Routes Bot Defense JavaScript Injection JavaScript Tags
 
-A [`javascript_tags`](#tags-60ccf3) block (within [`routes.bot_defense_javascript_injection`](#routes-bot-defense-JavaScript-injection)) supports the following:
+A [`javascript_tags`](#tags-adf213) block (within [`routes.bot_defense_javascript_injection`](#routes-bot-defense-JavaScript-injection)) supports the following:
 
-<a id="url-f5fba1"></a>&#x2022; [`javascript_url`](#url-f5fba1) - Optional String<br>Please enter the full URL (include domain and path), or relative path
+<a id="url-69046f"></a>&#x2022; [`javascript_url`](#url-69046f) - Optional String<br>Please enter the full URL (include domain and path), or relative path
 
-<a id="attributes-f612c4"></a>&#x2022; [`tag_attributes`](#attributes-f612c4) - Optional Block<br>Add the tag attributes you want to include in your JavaScript tag<br>See [Tag Attributes](#attributes-f612c4) below.
+<a id="attributes-e9dbc3"></a>&#x2022; [`tag_attributes`](#attributes-e9dbc3) - Optional Block<br>Add the tag attributes you want to include in your JavaScript tag<br>See [Tag Attributes](#attributes-e9dbc3) below.
 
 #### Routes Bot Defense JavaScript Injection JavaScript Tags Tag Attributes
 
-<a id="deep-a1fa85"></a>Deeply nested **Attributes** block collapsed for readability.
+<a id="deep-002bb4"></a>Deeply nested **Attributes** block collapsed for readability.
 
 #### Routes Match
 

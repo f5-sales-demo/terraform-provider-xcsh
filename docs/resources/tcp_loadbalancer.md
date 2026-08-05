@@ -44,6 +44,15 @@ resource "xcsh_tcp_loadbalancer" "example" {
 ### All Attributes example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example-pool"
   namespace = "system"
@@ -95,6 +104,15 @@ resource "xcsh_tcp_loadbalancer" "test" {
 ### With Annotations example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example-pool"
   namespace = "system"
@@ -144,6 +162,15 @@ resource "xcsh_tcp_loadbalancer" "test" {
 ### With Description example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example-pool"
   namespace = "system"
@@ -190,6 +217,15 @@ resource "xcsh_tcp_loadbalancer" "test" {
 ### With Healthcheck example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_healthcheck" "test" {
   name      = "example-hc"
   namespace = "system"
@@ -247,6 +283,15 @@ resource "xcsh_tcp_loadbalancer" "test" {
 ### With Labels example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example-pool"
   namespace = "system"
@@ -292,6 +337,15 @@ resource "xcsh_tcp_loadbalancer" "test" {
 ### With Listen Port example
 
 ```hcl
+terraform {
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
 resource "xcsh_origin_pool" "test" {
   name      = "example-pool"
   namespace = "system"

@@ -170,12 +170,11 @@ func SkipIfNotAccTest(t *testing.T) {
 
 // RandomName generates a random name with the given prefix for test resources
 func RandomName(prefix string) string {
+	canonicalBase := strings.TrimSuffix(TestResourcePrefix, "-")
+	if prefix != canonicalBase && !strings.HasPrefix(prefix, TestResourcePrefix) {
+		panic(fmt.Sprintf("acceptance-test resource prefix %q must begin with %q", prefix, TestResourcePrefix))
+	}
 	return fmt.Sprintf("%s-%s", prefix, acctest.RandStringFromCharSet(8, acctest.CharSetAlphaNum))
-}
-
-// RandomNameWithSuffix generates a random name with prefix and suffix
-func RandomNameWithSuffix(prefix, suffix string) string {
-	return fmt.Sprintf("%s-%s-%s", prefix, acctest.RandStringFromCharSet(6, acctest.CharSetAlphaNum), suffix)
 }
 
 // TestNamespace returns the namespace for tests (default: "default")

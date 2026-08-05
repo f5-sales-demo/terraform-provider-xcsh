@@ -28,7 +28,7 @@ func TestAccForwardingClassResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -67,7 +67,7 @@ func TestAccForwardingClassResource_allAttributes(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -100,7 +100,7 @@ func TestAccForwardingClassResource_updateLabels(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -135,7 +135,7 @@ func TestAccForwardingClassResource_updateDescription(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -169,7 +169,7 @@ func TestAccForwardingClassResource_updateAnnotations(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -204,7 +204,7 @@ func TestAccForwardingClassResource_disappears(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -232,7 +232,7 @@ func TestAccForwardingClassResource_emptyPlan(t *testing.T) {
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -261,7 +261,7 @@ func TestAccForwardingClassResource_planChecks(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -299,7 +299,7 @@ func TestAccForwardingClassResource_knownValues(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -392,8 +392,8 @@ func TestAccForwardingClassResource_requiresReplace(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
-	newFcName := acctest.RandomName("tf-fc-new")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
+	newFcName := acctest.RandomName("tf-acc-test-tf-fc-new")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -429,7 +429,7 @@ func TestAccForwardingClassResource_qosSettings(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_forwarding_class.test"
-	fcName := acctest.RandomName("tf-fc")
+	fcName := acctest.RandomName("tf-acc-test-tf-fc")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
