@@ -1,0 +1,4 @@
+metadata:
+  name: my-network-firewall
+  namespace: demo-app
+spec: {}

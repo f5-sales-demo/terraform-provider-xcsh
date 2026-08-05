@@ -49,7 +49,7 @@ jobs:
           fi
 
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           token: ${{ secrets.REPO_SYNC_TOKEN }}
@@ -463,6 +463,8 @@ jobs:
 
       - name: Validate OpenAPI specs
         if: steps.changes.outputs.changed == 'true'
+        env:
+          RESOLVED_SPEC_SOURCE: ${{ steps.spec_config.outputs.spec_source }}
         run: |
           # Enriched specs are pre-validated in their publishing repository.
           # They use x-f5xc-* vendor extensions which strict validators may reject
@@ -537,7 +539,7 @@ jobs:
 
           🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
-          Co-Authored-By: Claude <noreply@anthropic.com>"
+          Co-Authored-By: Automation <automation@example.com>"
           # A GITHUB_TOKEN-authored push does not emit pull_request:synchronize,
           # leaving a retried PR head without its required checks. Push with the
           # same PAT used for PR creation and disable checkout credential

@@ -2,8 +2,9 @@
 # Pre-commit hook to prevent committing generated files
 # Based on CLAUDE.md Rule 1: Never Commit Generated Files
 #
-# This hook enforces the repository's Constitution which requires that
-# generated files are ONLY created by CI/CD automation, never committed manually.
+# This hook enforces the repository's Constitution: generated files must not be
+# edited by themselves. A source change may carry its regenerated output so CI's
+# Validate Docs Generation job can prove the committed tree is reproducible.
 
 set -e
 
@@ -43,6 +44,32 @@ MANUALLY_MAINTAINED_FILES=(
   "docs/guides/index.md"
 )
 
+# These are the same generator-source boundaries enforced by ci.yml's
+# Constitution Check. Keep the two lists in sync.
+GENERATOR_SOURCE_PATTERNS=(
+  "^tools/transform-docs\.go$"
+  "^tools/generate-"
+  "^tools/normalize-"
+  "^tools/pkg/codegen/"
+  "^tools/pkg/description/"
+  "^tools/pkg/docfmt/"
+  "^templates/"
+  "^Makefile$"
+  "^\.github/workflows/ci\.yml$"
+)
+
+ALLOWED_WITH_GENERATORS=(
+  "^docs/resources/.*\.md$"
+  "^docs/data-sources/.*\.md$"
+  "^docs/functions/.*\.md$"
+  "^docs/guides/.*\.md$"
+  "^docs/index\.md$"
+  "^examples/resources/.*\.tf$"
+  "^examples/data-sources/.*\.tf$"
+  "^internal/provider/.*_resource\.go$"
+  "^internal/provider/.*_data_source\.go$"
+)
+
 # ANSI color codes
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
@@ -53,13 +80,27 @@ NC='\033[0m' # No Color
 
 echo "🔍 Checking for generated files..."
 
-# Get list of staged files
-STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
+# Get list of staged files while preserving paths containing spaces. Use a
+# read loop rather than mapfile because macOS still ships Bash 3.2.
+STAGED_FILES=()
+while IFS= read -r file; do
+  STAGED_FILES+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACM)
 
-if [ -z "$STAGED_FILES" ]; then
+if [ ${#STAGED_FILES[@]} -eq 0 ]; then
   echo -e "${GREEN}✅ No files staged${NC}"
   exit 0
 fi
+
+GENERATOR_TOOLS_MODIFIED=false
+for file in "${STAGED_FILES[@]}"; do
+  for pattern in "${GENERATOR_SOURCE_PATTERNS[@]}"; do
+    if [[ "$file" =~ $pattern ]]; then
+      GENERATOR_TOOLS_MODIFIED=true
+      break 2
+    fi
+  done
+done
 
 # Helper function to check if a file is manually maintained
 is_manually_maintained() {
@@ -74,13 +115,25 @@ is_manually_maintained() {
 
 # Check each staged file against generated patterns
 VIOLATIONS=()
-for file in $STAGED_FILES; do
+for file in "${STAGED_FILES[@]}"; do
   # Skip files that are manually maintained exceptions
   if is_manually_maintained "$file"; then
     continue
   fi
   for pattern in "${GENERATED_PATTERNS[@]}"; do
     if echo "$file" | grep -qE "$pattern"; then
+      if [ "$GENERATOR_TOOLS_MODIFIED" = true ]; then
+        allowed=false
+        for allowed_pattern in "${ALLOWED_WITH_GENERATORS[@]}"; do
+          if [[ "$file" =~ $allowed_pattern ]]; then
+            allowed=true
+            break
+          fi
+        done
+        if [ "$allowed" = true ]; then
+          break
+        fi
+      fi
       VIOLATIONS+=("$file")
       break
     fi
@@ -135,7 +188,7 @@ if [ ${#VIOLATIONS[@]} -gt 0 ]; then
   echo -e "${CYAN}│                    HOW TO FIX THIS                                         │${NC}"
   echo -e "${CYAN}╰────────────────────────────────────────────────────────────────────────────╯${NC}"
   echo ""
-  echo "  ${BOLD}Step 1:${NC} Unstage the generated files:"
+  echo "  ${BOLD}Step 1:${NC} Unstage generated files that have no source change:"
   echo ""
   echo -e "    ${GREEN}git restore --staged ${VIOLATIONS[*]}${NC}"
   echo ""
@@ -146,8 +199,8 @@ if [ ${#VIOLATIONS[@]} -gt 0 ]; then
   echo "    • To update examples:   Edit ${BOLD}tools/generate-examples.go${NC}"
   echo "    • To add new resources: Edit ${BOLD}docs/specifications/api/*.json${NC}"
   echo ""
-  echo "  ${BOLD}Step 3:${NC} Push your source changes. CI/CD will automatically regenerate"
-  echo "         all affected files and create a PR for review."
+  echo "  ${BOLD}Step 3:${NC} When a generator source did change, regenerate its outputs"
+  echo "         and stage both. CI validates that the committed output is reproducible."
   echo ""
   echo -e "${YELLOW}──────────────────────────────────────────────────────────────${NC}"
   echo -e "${BOLD}For more details, see:${NC}"
@@ -158,5 +211,9 @@ if [ ${#VIOLATIONS[@]} -gt 0 ]; then
   exit 1
 fi
 
-echo -e "${GREEN}✅ No generated files detected${NC}"
+if [ "$GENERATOR_TOOLS_MODIFIED" = true ]; then
+  echo -e "${GREEN}✅ Generated outputs are paired with generator source changes${NC}"
+else
+  echo -e "${GREEN}✅ No generated files detected${NC}"
+fi
 exit 0

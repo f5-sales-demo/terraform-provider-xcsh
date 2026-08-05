@@ -41,7 +41,7 @@ func mockF5XCServer(t *testing.T, keyBits int) (*httptest.Server, *rsa.PrivateKe
 					"key_version":            1,
 					"modulus_base64":         base64.StdEncoding.EncodeToString(privateKey.N.Bytes()),
 					"public_exponent_base64": base64.StdEncoding.EncodeToString([]byte{0x01, 0x00, 0x01}),
-					"tenant":                 "test-tenant",
+					"tenant":                 "example-corp",
 				},
 			}
 			w.WriteHeader(http.StatusOK)
@@ -51,8 +51,8 @@ func mockF5XCServer(t *testing.T, keyBits int) (*httptest.Server, *rsa.PrivateKe
 			response := map[string]interface{}{
 				"data": map[string]interface{}{
 					"name":      "test-policy",
-					"namespace": "test-namespace",
-					"tenant":    "test-tenant",
+					"namespace": "demo-app",
+					"tenant":    "example-corp",
 					"policy_id": "policy-123",
 					"policy_info": map[string]interface{}{
 						"algo": "RSA-OAEP",
@@ -318,7 +318,7 @@ func TestBlindfoldFunction_Run_WithMockServer(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(plaintextBase64),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -367,7 +367,7 @@ func TestBlindfoldFunction_Run_PlaintextTooLarge(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(plaintextBase64),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -414,7 +414,7 @@ func TestBlindfoldFunction_Run_TableDriven(t *testing.T) {
 				Arguments: function.NewArgumentsData([]attr.Value{
 					types.StringValue(base64.StdEncoding.EncodeToString([]byte("test-secret"))),
 					types.StringValue("test-policy"),
-					types.StringValue("test-namespace"),
+					types.StringValue("demo-app"),
 				}),
 			},
 			expectError: false,

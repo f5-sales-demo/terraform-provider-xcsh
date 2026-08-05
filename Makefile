@@ -23,7 +23,7 @@ GOLINT=golangci-lint
 GOLANGCI_LINT_VERSION?=$(shell tr -d '[:space:]' < .golangci-version)
 TERRAFORM_VERSION?=$(shell tr -d '[:space:]' < .terraform-version)
 
-.PHONY: all build test lint fmt clean clean-generated regenerate generate docs validate-examples llms-txt install help download-specs sweep sweep-dry-run testacc testacc-mock testacc-real testacc-staging testacc-all test-report test-comprehensive test-comprehensive-mock test-comprehensive-real test-pr-subset uat
+.PHONY: all build test lint fmt clean clean-generated regenerate generate docs validate-examples normalize-minimum-configs normalize-network-examples llms-txt install help download-specs sweep sweep-dry-run testacc testacc-mock testacc-real testacc-staging testacc-all test-report test-comprehensive test-comprehensive-mock test-comprehensive-real test-pr-subset uat
 
 # Default target
 all: generate build lint test docs
@@ -170,6 +170,14 @@ validate-examples:
 	@echo "Regenerating and validating every provider example..."
 	GOTOOLCHAIN=auto $(GO) install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@v0.25.0
 	PATH="$$(go env GOPATH)/bin:$$PATH" scripts/generate-provider-docs.sh
+
+# Normalize embedded minimum-configuration examples at their source.
+normalize-minimum-configs:
+	$(GO) run $(TOOLS_DIR)/normalize-minimum-configs.go
+
+# Normalize hand-maintained network fixtures to RFC 5737 documentation ranges.
+normalize-network-examples:
+	$(GO) run $(TOOLS_DIR)/normalize-network-examples.go
 
 # Generate llms.txt hierarchy (L0 + L1 category + L2 per-resource)
 llms-txt:

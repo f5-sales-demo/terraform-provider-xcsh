@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: tcp_loadbalancer
+metadata:
+  name: database-lb
+  namespace: demo-app
+spec:
+  listener:
+    port: 5432
+    protocol: "TCP"
+  origin_pools:
+    - pool_name: postgres-cluster
+  advertise:
+    - public_ip: true

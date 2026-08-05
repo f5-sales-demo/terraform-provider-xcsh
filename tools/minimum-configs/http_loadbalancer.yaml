@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: http_loadbalancer
+metadata:
+  name: example-app
+  namespace: demo-app
+spec:
+  domains:
+    - example.com
+  https_auto_cert:
+    port: 443
+    tls_config:
+      default_security: {}
+  advertise_on_public_default_vip: {}
+  routes:
+    - prefix: "/"
+      origin_pool:
+        pool_name: backend-pool

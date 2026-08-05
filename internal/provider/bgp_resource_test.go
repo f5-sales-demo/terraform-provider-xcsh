@@ -100,7 +100,7 @@ resource "xcsh_bgp" "test" {
       kind      = "site"
       name      = "example-site"
       namespace = "system"
-      tenant    = "acmecorp"
+      tenant    = "example-corp"
     }
   }
 }

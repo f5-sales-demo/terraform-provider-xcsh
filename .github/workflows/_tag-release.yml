@@ -32,10 +32,11 @@ jobs:
       contents: read # checkout and exact public spec release download
     steps:
       - name: Checkout immutable release source
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Require immutable release policy before tagging
         env:
@@ -108,6 +109,7 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
 
       - name: Find existing tag for this commit
         id: existing
@@ -162,10 +164,12 @@ jobs:
         id: create
         if: steps.existing.outputs.tag == ''
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LATEST_TAG: ${{ steps.version.outputs.latest_tag }}
           NEW_TAG: ${{ steps.version.outputs.new_tag }}
         run: |
           set -euo pipefail
+          gh auth setup-git
           git config user.name github-actions[bot]
           git config user.email github-actions[bot]@users.noreply.github.com
           COMMITS=$(git log "${LATEST_TAG}..HEAD" --pretty=format:'- %s' 2>/dev/null \
@@ -204,10 +208,11 @@ jobs:
       contents: write # create/repair, verify, and publish release assets
     steps:
       - name: Checkout immutable tagged commit
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ needs.tag.outputs.new_tag }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Verify checked-out release identity
         env:
@@ -275,7 +280,7 @@ jobs:
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: go.mod
-          cache: true
+          cache: false
 
       - name: Build MCP archive twice
         if: steps.release_state.outputs.state != 'published'

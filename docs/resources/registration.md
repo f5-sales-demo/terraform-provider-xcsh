@@ -365,8 +365,8 @@ An [`internet_proxy`](#infra-internet-proxy) block (within [`infra`](#infra)) su
 
 <a id="infra-internet-proxy-https-proxy"></a>&#x2022; [`https_proxy`](#infra-internet-proxy-https-proxy) - Optional String<br>It will be used as the proxy URL for HTTPS requests unless overridden by NoProxy
 
-<a id="infra-internet-proxy-no-proxy"></a>&#x2022; [`no_proxy`](#infra-internet-proxy-no-proxy) - Optional String<br>It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (1.2.3.4), an IP address prefix in CIDR notation (1.2.3.4/8), a domain name, or a special DNS label (*). An IP address
-prefix and
+<a id="infra-internet-proxy-no-proxy"></a>&#x2022; [`no_proxy`](#infra-internet-proxy-no-proxy) - Optional String<br>It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.1), an IP address prefix in CIDR notation (192.0.2.0/24), a domain name, or a special DNS label (*). An IP
+address prefix and
 
 <a id="infra-internet-proxy-proxy-cacert-url"></a>&#x2022; [`proxy_cacert_url`](#infra-internet-proxy-proxy-cacert-url) - Optional String<br>Allow optional different trust-store for proxy in HTTP CONNECT step by picking proxy CA certificate value
 

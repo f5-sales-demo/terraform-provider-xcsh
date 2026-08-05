@@ -60,12 +60,13 @@ Required fields:
 ```yaml
 metadata:
   name: my-virtual-site
-  namespace: default
+  namespace: demo-app
 spec:
   site_type: REGIONAL_EDGE
   site_selector:
     expressions:
       - "ves.io/siteName=any"
+
 ```
 
 ### Metadata Argument Reference

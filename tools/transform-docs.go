@@ -121,29 +121,42 @@ func loadV2SpecMetadata() {
 // examples into the v2 metadata cache for each resource that has one.
 func loadMinimumConfigs() {
 	type minConfigEntry struct {
+		ResourceName   string   `json:"resource_name"`
 		RequiredFields []string `json:"required_fields"`
-		ExampleYAML    string   `json:"example_yaml"`
+		ExampleFile    string   `json:"example_file"`
 	}
 	data, err := os.ReadFile("tools/minimum-configs.json")
 	if err != nil {
-		return
+		log.Fatalf("cannot load minimum configs: %v", err)
 	}
-	var configs map[string]minConfigEntry
+	var configs []minConfigEntry
 	if err := json.Unmarshal(data, &configs); err != nil {
-		return
+		log.Fatalf("cannot parse minimum configs: %v", err)
 	}
 	count := 0
-	for resourceName, mc := range configs {
-		if mc.ExampleYAML == "" && len(mc.RequiredFields) == 0 {
+	for _, mc := range configs {
+		if mc.ResourceName == "" || mc.ExampleFile == "" {
+			log.Fatal("minimum config entry is missing its resource name or example file")
+		}
+		examplePath := filepath.Clean(filepath.Join("tools", mc.ExampleFile))
+		minimumConfigDir := filepath.Clean(filepath.Join("tools", "minimum-configs")) + string(os.PathSeparator)
+		if !strings.HasPrefix(examplePath, minimumConfigDir) {
+			log.Fatal("minimum config example path escapes its source directory")
+		}
+		example, err := os.ReadFile(examplePath)
+		if err != nil {
+			log.Fatalf("cannot read minimum config example: %v", err)
+		}
+		if len(example) == 0 && len(mc.RequiredFields) == 0 {
 			continue
 		}
-		meta := v2MetadataCache[resourceName]
-		meta.MinimumConfigYAML = mc.ExampleYAML
+		meta := v2MetadataCache[mc.ResourceName]
+		meta.MinimumConfigYAML = string(example)
 		for _, f := range mc.RequiredFields {
 			tf := strings.TrimPrefix(strings.TrimPrefix(f, "metadata."), "spec.")
 			meta.MinimumConfigFields = append(meta.MinimumConfigFields, tf)
 		}
-		v2MetadataCache[resourceName] = meta
+		v2MetadataCache[mc.ResourceName] = meta
 		count++
 	}
 	fmt.Printf("Loaded minimum configs for %d resources\n", count)
@@ -2643,19 +2656,19 @@ func escapeHTMLTagsInContent(content string) string {
 //
 // MD037 (no-space-in-emphasis): Triggered by patterns like " * " or ": * "
 // MD049 (emphasis-style): Triggered by underscores in patterns like "[_]" or "_text_"
-// MD034 (no-bare-urls): Triggered by email addresses like "user@domain.com"
+// MD034 (no-bare-urls): Triggered by email addresses like "user@example.com"
 //
 // This function escapes:
 //   - Space-asterisk-space patterns: " * " → " \* " (bullet points in descriptions)
 //   - Punctuation-space-asterisk: ": * ", ". * " → ": \* ", ". \* "
 //   - Bracket-underscore patterns: "[_]" → "[\\_]"
 //   - Underscore emphasis patterns: _text_ → \_text\_
-//   - Email addresses: user@domain.com → `user@domain.com`
+//   - Email addresses: user@example.com → `user@example.com`
 //
 // Does NOT escape:
 //   - Already escaped markers: \* or \_
 //   - Markers inside code spans: `*` or `_`
-//   - Email addresses already in backticks: `user@domain.com`
+//   - Email addresses already in backticks: `user@example.com`
 func escapeEmphasisMarkersInContent(content string) string {
 	spaceAsteriskLetter := regexp.MustCompile(`([^\\]) \*([A-Za-z])`)
 	letterSpaceAsterisk := regexp.MustCompile(`([a-zA-Z]) \*([^a-zA-Z*\\])`)

@@ -22,40 +22,12 @@ import (
 	"sort"
 	"strings"
 	"text/template"
-	"time"
+
+	defaultspkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/defaults"
 )
 
-// DefaultsDatabase represents the structure of api-defaults.json
-type DefaultsDatabase struct {
-	Version        string                      `json:"version"`
-	GeneratedAt    string                      `json:"generated_at"`
-	APIEndpoint    string                      `json:"api_endpoint"`
-	TotalResources int                         `json:"total_resources"`
-	Discovered     int                         `json:"discovered"`
-	Skipped        int                         `json:"skipped"`
-	Failed         int                         `json:"failed"`
-	Resources      map[string]ResourceDefaults `json:"resources"`
-}
-
-// ResourceDefaults represents discovered defaults for a single resource
-type ResourceDefaults struct {
-	ResourceName string                  `json:"resource_name"`
-	Category     string                  `json:"category"`
-	Status       string                  `json:"status"`
-	DiscoveredAt string                  `json:"discovered_at,omitempty"`
-	Error        string                  `json:"error,omitempty"`
-	Defaults     map[string]FieldDefault `json:"defaults,omitempty"`
-	RequestSent  json.RawMessage         `json:"request_sent,omitempty"`
-	ResponseGot  json.RawMessage         `json:"response_got,omitempty"`
-}
-
-// FieldDefault represents a single discovered default value
-type FieldDefault struct {
-	Path          string      `json:"path"`
-	DefaultValue  interface{} `json:"default_value"`
-	Type          string      `json:"type"`
-	IsMarkerBlock bool        `json:"is_marker_block,omitempty"`
-}
+type DefaultsDatabase = defaultspkg.APIDefaultsFile
+type FieldDefault = defaultspkg.DefaultValue
 
 // ResourceCase represents a case in the switch statement
 type ResourceCase struct {
@@ -65,14 +37,14 @@ type ResourceCase struct {
 
 // DefaultAssignment represents a single default value assignment
 type DefaultAssignment struct {
-	Path         string
-	GoCode       string
-	Comment      string
-	IsNested     bool
-	ParentPath   string
-	FieldName    string
-	GoValue      string
-	DefaultType  string
+	Path          string
+	GoCode        string
+	Comment       string
+	IsNested      bool
+	ParentPath    string
+	FieldName     string
+	GoValue       string
+	DefaultType   string
 	IsMarkerBlock bool
 }
 
@@ -174,14 +146,13 @@ func main() {
 
 	// Build cases for resources with meaningful defaults
 	var cases []ResourceCase
-	resourceNames := make([]string, 0, len(db.Resources))
-	for name := range db.Resources {
-		resourceNames = append(resourceNames, name)
-	}
-	sort.Strings(resourceNames)
+	resources := append([]defaultspkg.ResourceEntry(nil), db.Resources...)
+	sort.Slice(resources, func(i, j int) bool {
+		return resources[i].ResourceName < resources[j].ResourceName
+	})
 
-	for _, name := range resourceNames {
-		res := db.Resources[name]
+	for _, res := range resources {
+		name := res.ResourceName
 		if res.Status != "discovered" || len(res.Defaults) == 0 {
 			continue
 		}
@@ -233,7 +204,7 @@ func main() {
 		GeneratedAt string
 		Cases       []ResourceCase
 	}{
-		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
+		GeneratedAt: db.GeneratedAt,
 		Cases:       cases,
 	}
 

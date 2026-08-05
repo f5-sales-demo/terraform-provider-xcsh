@@ -37,7 +37,7 @@ func TestMCPArchiveIsByteReproducible(t *testing.T) {
 	}
 	runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
 	runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Release Test")
-	runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "release@example.invalid")
+	runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "release@example.com")
 	runReleaseTestCommand(t, repo, nil, "git", "add", ".")
 	runReleaseTestCommand(t, repo, []string{"GIT_AUTHOR_DATE=2026-01-02T03:04:05Z", "GIT_COMMITTER_DATE=2026-01-02T03:04:05Z"}, "git", "commit", "-qm", "fixture")
 	runReleaseTestCommand(t, repo, nil, "git", "tag", "v1.2.3")
@@ -118,7 +118,7 @@ func TestProviderReleaseVerifierMeasuresAllAssetsAndSignedChecksums(t *testing.T
 	}
 	t.Cleanup(func() { _ = os.RemoveAll(gpgHome) })
 	env := []string{"GNUPGHOME=" + gpgHome}
-	runReleaseTestCommand(t, work, env, "gpg", "--batch", "--passphrase", "", "--quick-generate-key", "Release Test <release@example.invalid>", "rsa2048", "sign", "0")
+	runReleaseTestCommand(t, work, env, "gpg", "--batch", "--passphrase", "", "--quick-generate-key", "Release Test <release@example.com>", "rsa2048", "sign", "0")
 	runReleaseTestCommand(t, work, env, "gpg", "--batch", "--yes", "--pinentry-mode", "loopback", "--passphrase", "", "--detach-sign", "--output", filepath.Join(assets, checksumName+".sig"), filepath.Join(assets, checksumName))
 
 	releasePath := filepath.Join(work, "release.json")
@@ -971,7 +971,7 @@ func TestReleaseVersionRecognizesBreakingCommitForms(t *testing.T) {
 			repo := t.TempDir()
 			runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
 			runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Version Test")
-			runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "version@example.invalid")
+			runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "version@example.com")
 			writeReleaseTestFile(t, repo, "version.txt", "base\n", 0o600)
 			runReleaseTestCommand(t, repo, nil, "git", "add", "version.txt")
 			runReleaseTestCommand(t, repo, nil, "git", "commit", "-qm", "chore: baseline")
@@ -1674,7 +1674,7 @@ func newReceiptFixture(t *testing.T, forgedLedger, falseDigest bool) *receiptFix
 	origin := filepath.Join(t.TempDir(), "origin.git")
 	runReleaseTestCommand(t, repo, nil, "git", "init", "-q")
 	runReleaseTestCommand(t, repo, nil, "git", "config", "user.name", "Receipt Test")
-	runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "receipt@example.invalid")
+	runReleaseTestCommand(t, repo, nil, "git", "config", "user.email", "receipt@example.com")
 	validatorBytes, err := os.ReadFile(filepath.Join(root, "scripts", "validate-provider-delivery-state.sh")) //nolint:gosec // fixed repository script
 	if err != nil {
 		t.Fatal(err)

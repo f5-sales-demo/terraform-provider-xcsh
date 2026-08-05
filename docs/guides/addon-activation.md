@@ -276,7 +276,6 @@ resource "terraform_data" "require_bot_defense" {
 }
 ```
 
-
 ## Managed Activation Workflow
 
 For addon services requiring sales contact, use Terraform to monitor status after F5 activates the service.

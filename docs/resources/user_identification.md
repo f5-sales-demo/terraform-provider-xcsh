@@ -259,7 +259,7 @@ apiVersion: v1
 kind: user_identification
 metadata:
   name: example-user-id
-  namespace: default
+  namespace: demo-app
 spec:
   rules:
     - client_ip: {}

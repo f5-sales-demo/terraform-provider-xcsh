@@ -57,11 +57,12 @@ Required fields:
 ```yaml
 metadata:
   name: my-log-receiver
-  namespace: system
+  namespace: demo-app
 spec:
   request_logs: {}
   http_receiver:
     uri: `http://logs.example.com/ingest`
+
 ```
 
 ### Metadata Argument Reference

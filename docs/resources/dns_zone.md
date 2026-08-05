@@ -145,7 +145,7 @@ An [`a_record`](#primary-default-rr-set-group-a-record) block (within [`primary.
 
 <a id="name-59b7b8"></a>&#x2022; [`name`](#name-59b7b8) - Optional String<br>Record name, please provide only the specific subdomain or record name without the base domain
 
-<a id="values-6ab550"></a>&#x2022; [`values`](#values-6ab550) - Optional List<br>IPv4 Addresses. A valid IPv4 address, for example: 1.1.1.1
+<a id="values-6ab550"></a>&#x2022; [`values`](#values-6ab550) - Optional List<br>IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.1
 
 #### Primary Default Rr Set Group Aaaa Record
 

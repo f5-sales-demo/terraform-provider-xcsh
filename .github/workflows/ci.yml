@@ -56,9 +56,10 @@ jobs:
       github.head_ref != 'openapi-update'
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check for generated files (CLAUDE.md Rule 1)
         env:
@@ -93,7 +94,7 @@ jobs:
           # by definition. It was missing from this list, which meant the one edit that
           # most obviously justifies regenerated output — editing the template — was the
           # one the check refused to accept (#1398 hit exactly that).
-          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/generate-|^tools/pkg/codegen/|^templates/|^Makefile$|^\.github/workflows/ci\.yml$"; then
+          if echo "$CHANGED_FILES" | grep -qE "^tools/transform-docs\.go$|^tools/(generate|normalize)-|^tools/pkg/(codegen|description|docfmt)/|^templates/|^Makefile$|^\.github/workflows/ci\.yml$"; then
             echo "Generator tools modified - docs/examples changes are allowed"
             GENERATOR_TOOLS_MODIFIED=true
           fi
@@ -242,9 +243,10 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check if docs regeneration needed
         id: check
@@ -274,14 +276,14 @@ jobs:
 
       - name: Set up Go
         if: steps.check.outputs.needs_validation == 'true'
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version-file: 'go.mod'
           cache: true
 
       - name: Set up Terraform
         if: steps.check.outputs.needs_validation == 'true'
-        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
         with:
           terraform_version: 1.15.8
           terraform_wrapper: false
@@ -339,7 +341,9 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Check if mock fixture regeneration needed
         id: check
@@ -358,7 +362,7 @@ jobs:
 
       - name: Set up Go
         if: steps.check.outputs.needs_validation == 'true'
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
         with:
           go-version-file: 'go.mod'
           cache: true
@@ -417,9 +421,10 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check if shell script validation needed
         id: check
@@ -460,9 +465,10 @@ jobs:
     if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Check if Terraform validation needed
         id: check
@@ -483,7 +489,7 @@ jobs:
 
       - name: Setup Terraform
         if: steps.check.outputs.needs_validation == 'true'
-        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
         with:
           terraform_version: 1.15.8
           terraform_wrapper: false

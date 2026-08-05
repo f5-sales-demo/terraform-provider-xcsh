@@ -27,7 +27,7 @@ func NamespaceResponse(name string, labels, annotations map[string]string, descr
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -69,7 +69,7 @@ func AWSVPCSiteResponse(namespace, name string, opts ...AWSVPCSiteOption) map[st
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 		"status": map[string]interface{}{
 			"site_state": "ONLINE",
@@ -159,7 +159,7 @@ func AzureVNETSiteResponse(namespace, name string, opts ...AzureVNETSiteOption) 
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 		"status": map[string]interface{}{
 			"site_state": "ONLINE",
@@ -219,7 +219,7 @@ func GCPVPCSiteResponse(namespace, name string, opts ...GCPVPCSiteOption) map[st
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 		"status": map[string]interface{}{
 			"site_state": "ONLINE",
@@ -262,8 +262,8 @@ func CloudCredentialsResponse(namespace, name, cloudType string) map[string]inte
 		}
 	case "azure":
 		spec["azure_client_secret"] = map[string]interface{}{
-			"subscription_id": "mock-subscription-id",
-			"tenant_id":       "mock-tenant-id",
+			"subscription_id": "123456789012",
+			"tenant_id":       "123456789012",
 			"client_id":       "mock-client-id",
 			"client_secret":   map[string]interface{}{"blindfold_secret_info": map[string]interface{}{"location": "string:///mock"}},
 		}
@@ -287,7 +287,7 @@ func CloudCredentialsResponse(namespace, name, cloudType string) map[string]inte
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -313,7 +313,7 @@ func OriginPoolResponse(namespace, name string, opts ...OriginPoolOption) map[st
 		"spec": map[string]interface{}{
 			"origin_servers": []map[string]interface{}{
 				{
-					"public_ip": map[string]interface{}{"ip": "93.184.216.34"},
+					"public_ip": map[string]interface{}{"ip": "192.0.2.1"},
 				},
 			},
 			"port":                   cfg.port,
@@ -327,7 +327,7 @@ func OriginPoolResponse(namespace, name string, opts ...OriginPoolOption) map[st
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -369,7 +369,7 @@ func HTTPLoadBalancerResponse(namespace, name string, domains []string) map[stri
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -395,7 +395,7 @@ func AppFirewallResponse(namespace, name string) map[string]interface{} {
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -430,7 +430,7 @@ func HealthcheckResponse(namespace, name string, healthcheckType string) map[str
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -454,7 +454,7 @@ func TenantConfigurationResponse(name string) map[string]interface{} {
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "SYSTEM",
 			"creator_id":             "system",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -479,7 +479,7 @@ func VK8sClusterResponse(namespace, name string) map[string]interface{} {
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 		"status": map[string]interface{}{
 			"cluster_state": "ONLINE",
@@ -508,7 +508,7 @@ func DNSZoneResponse(namespace, name, domain string) map[string]interface{} {
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -531,7 +531,7 @@ func NFVServiceResponse(namespace, name string) map[string]interface{} {
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }
@@ -552,7 +552,7 @@ func GenericResourceResponse(namespace, name, resourceType string, spec map[stri
 			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
 			"creator_class":          "API",
 			"creator_id":             "mock-server",
-			"tenant":                 "mock-tenant",
+			"tenant":                 "example-corp",
 		},
 	}
 }

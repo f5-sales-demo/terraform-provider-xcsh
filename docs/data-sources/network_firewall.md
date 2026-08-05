@@ -58,8 +58,9 @@ Required fields:
 ```yaml
 metadata:
   name: my-network-firewall
-  namespace: system
+  namespace: demo-app
 spec: {}
+
 ```
 
 ### Metadata Argument Reference

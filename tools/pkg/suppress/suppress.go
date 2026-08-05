@@ -11,28 +11,16 @@ import (
 	"sort"
 	"strings"
 
+	defaultspkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/defaults"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 )
 
-// FieldDefault mirrors the discovery tool's per-field record (subset used here).
-type FieldDefault struct {
-	Path          string      `json:"path"`
-	DefaultValue  interface{} `json:"default_value"`
-	Type          string      `json:"type"`
-	IsMarkerBlock bool        `json:"is_marker_block,omitempty"`
-}
-
-// ResourceResult mirrors the discovery tool's per-resource record (subset).
-type ResourceResult struct {
-	ResourceName string                  `json:"resource_name"`
-	Status       string                  `json:"status"`
-	Defaults     map[string]FieldDefault `json:"defaults,omitempty"`
-}
-
-// Database mirrors the discovery tool's output file (subset).
-type Database struct {
-	Resources map[string]*ResourceResult `json:"resources"`
-}
+// These aliases keep suppression derivation on the same persisted contract as
+// discovery. In particular, resources are a typed array rather than an object
+// whose keys duplicate resource identity.
+type FieldDefault = defaultspkg.DefaultValue
+type ResourceResult = defaultspkg.ResourceEntry
+type Database = defaultspkg.APIDefaultsFile
 
 // leaf returns the final dot-separated segment of a field path (the member name).
 func leaf(path string) string {
@@ -59,7 +47,7 @@ func isServerDefaultMember(fd FieldDefault) bool {
 func Derive(db Database) map[string][]string {
 	acc := map[string]map[string]bool{}
 	for _, res := range db.Resources {
-		if res == nil || res.Status != "discovered" {
+		if res.Status != "discovered" {
 			continue
 		}
 		rc := naming.ToResourceTypeName(res.ResourceName)

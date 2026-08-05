@@ -60,7 +60,7 @@ apiVersion: v1
 kind: sensitive_data_policy
 metadata:
   name: example-sensitive-data
-  namespace: default
+  namespace: demo-app
 spec: {}
 
 ```

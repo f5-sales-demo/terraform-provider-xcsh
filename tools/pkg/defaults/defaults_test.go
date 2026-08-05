@@ -5,8 +5,75 @@ package defaults
 import (
 	"os"
 	"path/filepath"
+	"reflect"
+	"strings"
 	"testing"
 )
+
+func TestPersistedContractOmitsIdentityCaptureFields(t *testing.T) {
+	t.Parallel()
+
+	for typeName, typ := range map[string]reflect.Type{
+		"APIDefaultsFile": reflect.TypeOf(APIDefaultsFile{}),
+		"ResourceEntry":   reflect.TypeOf(ResourceEntry{}),
+	} {
+		forbidden := map[string]bool{
+			"api_endpoint":   true,
+			"request_sent":   true,
+			"response_got":   true,
+			"discovered_at":  true,
+			"error":          true,
+			"failure_reason": true,
+		}
+		for index := 0; index < typ.NumField(); index++ {
+			field := typ.Field(index)
+			jsonName := field.Tag.Get("json")
+			if comma := strings.IndexByte(jsonName, ','); comma >= 0 {
+				jsonName = jsonName[:comma]
+			}
+			if forbidden[jsonName] {
+				t.Errorf("%s persists forbidden identity-capture field %q", typeName, jsonName)
+			}
+		}
+	}
+}
+
+func TestPersistedResourcesUseTypedArray(t *testing.T) {
+	t.Parallel()
+
+	resourcesType := reflect.TypeOf(APIDefaultsFile{}.Resources)
+	if resourcesType.Kind() != reflect.Slice {
+		t.Fatalf("Resources kind = %s, want slice to avoid identity-shaped object keys", resourcesType.Kind())
+	}
+}
+
+func TestCanonicalizeIdentityValues(t *testing.T) {
+	t.Parallel()
+
+	namespaceKey := "namespace"
+	tenantIDKey := "tenant_" + "id"
+	unsafeNamespace := "captured" + "-org"
+	unsafeTenantID := "987654" + "321098"
+	input := map[string]interface{}{
+		namespaceKey: unsafeNamespace,
+		"nested": []interface{}{
+			map[string]interface{}{tenantIDKey: unsafeTenantID},
+		},
+		"ordinary": "unchanged",
+	}
+
+	got := CanonicalizeIdentityValues(input).(map[string]interface{})
+	if got[namespaceKey] != "demo-app" {
+		t.Fatalf("namespace = %v, want canonical synthetic namespace", got[namespaceKey])
+	}
+	nested := got["nested"].([]interface{})[0].(map[string]interface{})
+	if nested[tenantIDKey] != "123456789012" {
+		t.Fatalf("tenant_id = %v, want canonical synthetic identifier", nested[tenantIDKey])
+	}
+	if got["ordinary"] != "unchanged" {
+		t.Fatalf("ordinary value changed: %v", got["ordinary"])
+	}
+}
 
 func TestFormatDefaultValue(t *testing.T) {
 	tests := []struct {
@@ -86,8 +153,8 @@ func TestStoreLoadAndLookup(t *testing.T) {
 		"discovered": 1,
 		"skipped": 0,
 		"failed": 0,
-		"resources": {
-			"test_resource": {
+		"resources": [
+			{
 				"resource_name": "test_resource",
 				"category": "Test",
 				"status": "discovered",
@@ -110,7 +177,7 @@ func TestStoreLoadAndLookup(t *testing.T) {
 					}
 				}
 			}
-		}
+		]
 	}`
 
 	tmpDir := t.TempDir()

@@ -8,7 +8,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -135,15 +134,15 @@ func validateDefaultsDatabase(data []byte, database Database, path string) error
 		return fmt.Errorf("parse defaults database %s: %w", path, err)
 	}
 	allowedTopLevel := map[string]bool{
-		"api_endpoint": true, "discovered": true, "failed": true, "generated_at": true,
-		"resources": true, "skipped": true, "total_resources": true, "version": true,
+		"discovered": true, "failed": true, "generated_at": true, "resources": true,
+		"skipped": true, "total_resources": true, "version": true,
 	}
 	for _, field := range sortedRawKeys(top) {
 		if !allowedTopLevel[field] {
 			return fmt.Errorf("parse defaults database %s: unknown top-level field %q", path, field)
 		}
 	}
-	for _, requiredField := range []string{"api_endpoint", "discovered", "failed", "generated_at", "resources", "skipped", "total_resources", "version"} {
+	for _, requiredField := range []string{"discovered", "failed", "generated_at", "resources", "skipped", "total_resources", "version"} {
 		if top[requiredField] == nil {
 			return fmt.Errorf("parse defaults database %s: missing top-level field %q", path, requiredField)
 		}
@@ -158,66 +157,62 @@ func validateDefaultsDatabase(data []byte, database Database, path string) error
 	if _, err := time.Parse(time.RFC3339, generatedAt); err != nil {
 		return fmt.Errorf("parse defaults database %s: generated_at must be an RFC3339 timestamp", path)
 	}
-	apiEndpoint, err := requiredNonBlankString(top, "api_endpoint")
-	if err != nil {
-		return fmt.Errorf("parse defaults database %s: %w", path, err)
-	}
-	parsedEndpoint, err := url.Parse(apiEndpoint)
-	if err != nil || (parsedEndpoint.Scheme != "https" && parsedEndpoint.Scheme != "http") || parsedEndpoint.Host == "" {
-		return fmt.Errorf("parse defaults database %s: api_endpoint must be an absolute HTTP(S) URL", path)
-	}
 	if database.Resources == nil {
-		return fmt.Errorf("parse defaults database %s: resources object is required", path)
+		return fmt.Errorf("parse defaults database %s: resources array is required", path)
 	}
-	var rawResources map[string]json.RawMessage
+	var rawResources []json.RawMessage
 	if err := json.Unmarshal(top["resources"], &rawResources); err != nil {
-		return fmt.Errorf("parse defaults database %s: resources must be an object", path)
+		return fmt.Errorf("parse defaults database %s: resources must be an array", path)
+	}
+	if rawResources == nil || len(rawResources) != len(database.Resources) {
+		return fmt.Errorf("parse defaults database %s: resources must be a non-null array", path)
 	}
 	allowedResourceFields := map[string]bool{
-		"category": true, "defaults": true, "discovered_at": true, "error": true,
-		"request_sent": true, "resource_name": true, "response_got": true, "skip_reason": true,
-		"status": true,
+		"category": true, "defaults": true, "resource_name": true, "status": true,
 	}
 	allowedDefaultFields := map[string]bool{
 		"default_value": true, "description": true, "is_marker_block": true, "path": true, "type": true,
 	}
 	statusCounts := map[string]int{"discovered": 0, "failed": 0, "skipped": 0}
-	for _, resourceKey := range sortedResourceKeys(database.Resources) {
-		resource := database.Resources[resourceKey]
-		if !sourceResourceNamePattern.MatchString(resourceKey) || resource == nil {
-			return fmt.Errorf("parse defaults database %s: resource keys must be lowercase snake_case identifiers and values must be objects", path)
-		}
+	seenResourceNames := make(map[string]bool, len(database.Resources))
+	for resourceIndex, resource := range database.Resources {
 		var rawResource map[string]json.RawMessage
-		if err := json.Unmarshal(rawResources[resourceKey], &rawResource); err != nil {
-			return fmt.Errorf("parse defaults database %s: resource %q must be an object", path, resourceKey)
+		if err := json.Unmarshal(rawResources[resourceIndex], &rawResource); err != nil || rawResource == nil {
+			return fmt.Errorf("parse defaults database %s: resource at index %d must be an object", path, resourceIndex)
 		}
 		for _, field := range sortedRawKeys(rawResource) {
 			if !allowedResourceFields[field] {
-				return fmt.Errorf("parse defaults database %s: resource %q has unknown field %q", path, resourceKey, field)
+				return fmt.Errorf("parse defaults database %s: resource at index %d has unknown field %q", path, resourceIndex, field)
 			}
 		}
 		resourceName, err := requiredNonBlankString(rawResource, "resource_name")
-		if err != nil || !sourceResourceNamePattern.MatchString(resourceName) || resourceName != resourceKey {
-			return fmt.Errorf("parse defaults database %s: resource %q must have a matching lowercase snake_case resource_name", path, resourceKey)
+		if err != nil || !sourceResourceNamePattern.MatchString(resourceName) || resourceName != resource.ResourceName {
+			return fmt.Errorf("parse defaults database %s: resource at index %d must have a lowercase snake_case resource_name", path, resourceIndex)
 		}
+		if seenResourceNames[resourceName] {
+			return fmt.Errorf("parse defaults database %s: duplicate resource_name %q", path, resourceName)
+		}
+		seenResourceNames[resourceName] = true
 		if _, err := requiredNonBlankString(rawResource, "category"); err != nil {
-			return fmt.Errorf("parse defaults database %s: resource %q must have a non-empty category string", path, resourceKey)
+			return fmt.Errorf("parse defaults database %s: resource %q must have a non-empty category string", path, resourceName)
 		}
 		status, err := requiredNonBlankString(rawResource, "status")
 		if err != nil || (status != "discovered" && status != "failed" && status != "skipped") {
-			return fmt.Errorf("parse defaults database %s: resource %q must have a known non-empty status string", path, resourceKey)
+			return fmt.Errorf("parse defaults database %s: resource %q must have a known non-empty status string", path, resourceName)
 		}
 		statusCounts[status]++
-		if err := validateResourceProvenance(rawResource, status); err != nil {
-			return fmt.Errorf("parse defaults database %s: resource %q: %w", path, resourceKey, err)
+		if status != "discovered" {
+			if _, present := rawResource["defaults"]; present {
+				return fmt.Errorf("parse defaults database %s: resource %q defaults must be absent for status %s", path, resourceName, status)
+			}
 		}
 		var rawDefaults map[string]json.RawMessage
 		if raw, present := rawResource["defaults"]; present {
 			if err := json.Unmarshal(rawResource["defaults"], &rawDefaults); err != nil {
-				return fmt.Errorf("parse defaults database %s: resource %q defaults must be an object", path, resourceKey)
+				return fmt.Errorf("parse defaults database %s: resource %q defaults must be an object", path, resourceName)
 			}
 			if rawDefaults == nil || bytes.Equal(bytes.TrimSpace(raw), []byte("null")) {
-				return fmt.Errorf("parse defaults database %s: resource %q defaults must be an object", path, resourceKey)
+				return fmt.Errorf("parse defaults database %s: resource %q defaults must be an object", path, resourceName)
 			}
 		}
 		defaultKeys := make([]string, 0, len(resource.Defaults))
@@ -228,40 +223,40 @@ func validateDefaultsDatabase(data []byte, database Database, path string) error
 		for _, defaultKey := range defaultKeys {
 			fieldDefault := resource.Defaults[defaultKey]
 			if !defaultPathPattern.MatchString(defaultKey) || fieldDefault.Path != defaultKey {
-				return fmt.Errorf("parse defaults database %s: resource %q has a malformed or mismatched default path", path, resourceKey)
+				return fmt.Errorf("parse defaults database %s: resource %q has a malformed or mismatched default path", path, resourceName)
 			}
 			if err := validateFieldDefault(fieldDefault); err != nil {
-				return fmt.Errorf("parse defaults database %s: resource %q default %q: %w", path, resourceKey, defaultKey, err)
+				return fmt.Errorf("parse defaults database %s: resource %q default %q: %w", path, resourceName, defaultKey, err)
 			}
 			var rawDefault map[string]json.RawMessage
 			if err := json.Unmarshal(rawDefaults[defaultKey], &rawDefault); err != nil {
-				return fmt.Errorf("parse defaults database %s: resource %q default %q must be an object", path, resourceKey, defaultKey)
+				return fmt.Errorf("parse defaults database %s: resource %q default %q must be an object", path, resourceName, defaultKey)
 			}
 			for _, field := range sortedRawKeys(rawDefault) {
 				if !allowedDefaultFields[field] {
-					return fmt.Errorf("parse defaults database %s: resource %q default %q has unknown field %q", path, resourceKey, defaultKey, field)
+					return fmt.Errorf("parse defaults database %s: resource %q default %q has unknown field %q", path, resourceName, defaultKey, field)
 				}
 			}
 			for _, requiredField := range []string{"default_value", "path", "type"} {
 				if rawDefault[requiredField] == nil {
-					return fmt.Errorf("parse defaults database %s: resource %q default %q is missing %q", path, resourceKey, defaultKey, requiredField)
+					return fmt.Errorf("parse defaults database %s: resource %q default %q is missing %q", path, resourceName, defaultKey, requiredField)
 				}
 			}
 			if rawPath, err := requiredNonBlankString(rawDefault, "path"); err != nil || rawPath != defaultKey {
-				return fmt.Errorf("parse defaults database %s: resource %q default %q path must be a matching string", path, resourceKey, defaultKey)
+				return fmt.Errorf("parse defaults database %s: resource %q default %q path must be a matching string", path, resourceName, defaultKey)
 			}
 			if rawType, err := requiredNonBlankString(rawDefault, "type"); err != nil || rawType != fieldDefault.Type {
-				return fmt.Errorf("parse defaults database %s: resource %q default %q type must be a matching string", path, resourceKey, defaultKey)
+				return fmt.Errorf("parse defaults database %s: resource %q default %q type must be a matching string", path, resourceName, defaultKey)
 			}
 			if marker, present := rawDefault["is_marker_block"]; present {
 				var markerValue bool
 				if err := json.Unmarshal(marker, &markerValue); err != nil || bytes.Equal(bytes.TrimSpace(marker), []byte("null")) {
-					return fmt.Errorf("parse defaults database %s: resource %q default %q is_marker_block must be a boolean", path, resourceKey, defaultKey)
+					return fmt.Errorf("parse defaults database %s: resource %q default %q is_marker_block must be a boolean", path, resourceName, defaultKey)
 				}
 			}
 			if _, present := rawDefault["description"]; present {
 				if _, err := requiredNonBlankString(rawDefault, "description"); err != nil {
-					return fmt.Errorf("parse defaults database %s: resource %q default %q description must be a non-empty string", path, resourceKey, defaultKey)
+					return fmt.Errorf("parse defaults database %s: resource %q default %q description must be a non-empty string", path, resourceName, defaultKey)
 				}
 			}
 		}
@@ -280,64 +275,6 @@ func validateDefaultsDatabase(data []byte, database Database, path string) error
 		}
 	}
 	return nil
-}
-
-func validateResourceProvenance(raw map[string]json.RawMessage, status string) error {
-	validateObject := func(field string, required bool) error {
-		value, present := raw[field]
-		if !present {
-			if required {
-				return fmt.Errorf("%s is required", field)
-			}
-			return nil
-		}
-		var object map[string]interface{}
-		if err := json.Unmarshal(value, &object); err != nil || object == nil || len(object) == 0 {
-			return fmt.Errorf("%s must be a non-empty object", field)
-		}
-		return nil
-	}
-	validateAbsent := func(fields ...string) error {
-		for _, field := range fields {
-			if _, present := raw[field]; present {
-				return fmt.Errorf("%s must be absent for status %s", field, status)
-			}
-		}
-		return nil
-	}
-
-	switch status {
-	case "discovered":
-		discoveredAt, err := requiredNonBlankString(raw, "discovered_at")
-		if err != nil {
-			return fmt.Errorf("discovered_at must be a non-empty RFC3339 string")
-		}
-		if _, err := time.Parse(time.RFC3339, discoveredAt); err != nil {
-			return fmt.Errorf("discovered_at must be a non-empty RFC3339 string")
-		}
-		if err := validateObject("request_sent", true); err != nil {
-			return err
-		}
-		if err := validateObject("response_got", true); err != nil {
-			return err
-		}
-		return validateAbsent("error", "skip_reason")
-	case "failed":
-		if _, err := requiredNonBlankString(raw, "error"); err != nil {
-			return fmt.Errorf("error must be a non-empty string")
-		}
-		if err := validateObject("request_sent", false); err != nil {
-			return err
-		}
-		return validateAbsent("defaults", "discovered_at", "response_got", "skip_reason")
-	case "skipped":
-		if _, err := requiredNonBlankString(raw, "skip_reason"); err != nil {
-			return fmt.Errorf("skip_reason must be a non-empty string")
-		}
-		return validateAbsent("defaults", "discovered_at", "error", "request_sent", "response_got")
-	default:
-		return fmt.Errorf("unknown status")
-	}
 }
 
 func requiredNonBlankString(values map[string]json.RawMessage, field string) (string, error) {
@@ -418,15 +355,6 @@ func validateSuppressionMap(suppressions map[string][]string) error {
 }
 
 func sortedRawKeys(values map[string]json.RawMessage) []string {
-	keys := make([]string, 0, len(values))
-	for key := range values {
-		keys = append(keys, key)
-	}
-	sort.Strings(keys)
-	return keys
-}
-
-func sortedResourceKeys(values map[string]*ResourceResult) []string {
 	keys := make([]string, 0, len(values))
 	for key := range values {
 		keys = append(keys, key)

@@ -31,7 +31,7 @@ func TestServerCRUD(t *testing.T) {
 		createBody := map[string]interface{}{
 			"metadata": map[string]interface{}{
 				"name":      "test-resource",
-				"namespace": "test-ns",
+				"namespace": "demo-app",
 			},
 			"spec": map[string]interface{}{
 				"field1": "value1",
@@ -39,7 +39,7 @@ func TestServerCRUD(t *testing.T) {
 		}
 
 		bodyBytes, _ := json.Marshal(createBody)
-		resp, err := client.Post(s.URL()+"/api/config/namespaces/test-ns/test_resources", "application/json", bytes.NewReader(bodyBytes))
+		resp, err := client.Post(s.URL()+"/api/config/namespaces/demo-app/test_resources", "application/json", bytes.NewReader(bodyBytes))
 		if err != nil {
 			t.Fatalf("POST failed: %v", err)
 		}
@@ -64,7 +64,7 @@ func TestServerCRUD(t *testing.T) {
 
 	// Test Read (GET)
 	t.Run("Read", func(t *testing.T) {
-		resp, err := client.Get(s.URL() + "/api/config/namespaces/test-ns/test_resources/test-resource")
+		resp, err := client.Get(s.URL() + "/api/config/namespaces/demo-app/test_resources/test-resource")
 		if err != nil {
 			t.Fatalf("GET failed: %v", err)
 		}
@@ -81,7 +81,7 @@ func TestServerCRUD(t *testing.T) {
 		updateBody := map[string]interface{}{
 			"metadata": map[string]interface{}{
 				"name":        "test-resource",
-				"namespace":   "test-ns",
+				"namespace":   "demo-app",
 				"description": "updated description",
 			},
 			"spec": map[string]interface{}{
@@ -90,7 +90,7 @@ func TestServerCRUD(t *testing.T) {
 		}
 
 		bodyBytes, _ := json.Marshal(updateBody)
-		req, _ := http.NewRequest(http.MethodPut, s.URL()+"/api/config/namespaces/test-ns/test_resources/test-resource", bytes.NewReader(bodyBytes))
+		req, _ := http.NewRequest(http.MethodPut, s.URL()+"/api/config/namespaces/demo-app/test_resources/test-resource", bytes.NewReader(bodyBytes))
 		req.Header.Set("Content-Type", "application/json")
 
 		resp, err := client.Do(req)
@@ -107,7 +107,7 @@ func TestServerCRUD(t *testing.T) {
 
 	// Test Delete (DELETE)
 	t.Run("Delete", func(t *testing.T) {
-		req, _ := http.NewRequest(http.MethodDelete, s.URL()+"/api/config/namespaces/test-ns/test_resources/test-resource", nil)
+		req, _ := http.NewRequest(http.MethodDelete, s.URL()+"/api/config/namespaces/demo-app/test_resources/test-resource", nil)
 		resp, err := client.Do(req)
 		if err != nil {
 			t.Fatalf("DELETE failed: %v", err)
@@ -120,7 +120,7 @@ func TestServerCRUD(t *testing.T) {
 		}
 
 		// Verify resource is deleted
-		resp2, err := client.Get(s.URL() + "/api/config/namespaces/test-ns/test_resources/test-resource")
+		resp2, err := client.Get(s.URL() + "/api/config/namespaces/demo-app/test_resources/test-resource")
 		if err != nil {
 			t.Fatalf("GET after DELETE failed: %v", err)
 		}
@@ -137,12 +137,12 @@ func TestServerSetResource(t *testing.T) {
 	defer s.Close()
 
 	// Pre-populate a resource
-	resource := NamespaceResponse("test-ns", nil, nil, "test description")
-	s.SetResource("/api/config/namespaces/system/namespaces/test-ns", resource)
+	resource := NamespaceResponse("demo-app", nil, nil, "test description")
+	s.SetResource("/api/config/namespaces/system/namespaces/demo-app", resource)
 
 	// Verify we can retrieve it
 	client := s.Client()
-	resp, err := client.Get(s.URL() + "/api/config/namespaces/system/namespaces/test-ns")
+	resp, err := client.Get(s.URL() + "/api/config/namespaces/system/namespaces/demo-app")
 	if err != nil {
 		t.Fatalf("GET failed: %v", err)
 	}
@@ -331,10 +331,10 @@ func TestExtractResourceInfo(t *testing.T) {
 
 func TestFixtures(t *testing.T) {
 	t.Run("NamespaceResponse", func(t *testing.T) {
-		resp := NamespaceResponse("test-ns", map[string]string{"env": "test"}, nil, "Test namespace")
+		resp := NamespaceResponse("demo-app", map[string]string{"env": "test"}, nil, "Test namespace")
 		metadata := resp["metadata"].(map[string]interface{})
-		if metadata["name"] != "test-ns" {
-			t.Errorf("Expected name 'test-ns', got %v", metadata["name"])
+		if metadata["name"] != "demo-app" {
+			t.Errorf("Expected name 'demo-app', got %v", metadata["name"])
 		}
 		if metadata["labels"].(map[string]string)["env"] != "test" {
 			t.Error("Expected label 'env: test'")

@@ -59,7 +59,7 @@ apiVersion: v1
 kind: protocol_inspection
 metadata:
   name: example-inspection
-  namespace: default
+  namespace: demo-app
 spec:
   enable_disable_compliance_checks:
     disable_compliance_checks: {}

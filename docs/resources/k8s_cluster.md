@@ -55,8 +55,9 @@ Required fields:
 ```yaml
 metadata:
   name: my-k8s-cluster
-  namespace: system
+  namespace: demo-app
 spec: {}
+
 ```
 
 ### Metadata Argument Reference

@@ -60,7 +60,7 @@ apiVersion: v1
 kind: app_firewall
 metadata:
   name: default-waf
-  namespace: default
+  namespace: demo-app
 spec:
   blocking: {}
 
