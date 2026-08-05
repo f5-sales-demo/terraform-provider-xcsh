@@ -4,7 +4,9 @@ package client
 
 import (
 	"context"
+	"crypto/x509"
 	"encoding/json"
+	"encoding/pem"
 	"net/http"
 	"net/http/httptest"
 	"os"
@@ -631,6 +633,28 @@ func TestEmptyResponseBody(t *testing.T) {
 // Tests for certificate loading functions
 // =============================================================================
 
+func testCertificateKeyPair(t *testing.T) (string, string) {
+	t.Helper()
+
+	server := httptest.NewTLSServer(http.NotFoundHandler())
+	t.Cleanup(server.Close)
+
+	keyDER, err := x509.MarshalPKCS8PrivateKey(server.TLS.Certificates[0].PrivateKey)
+	if err != nil {
+		t.Fatalf("Failed to encode generated private key: %v", err)
+	}
+
+	certPEM := pem.EncodeToMemory(&pem.Block{
+		Type:  "CERTIFICATE",
+		Bytes: server.Certificate().Raw,
+	})
+	keyPEM := pem.EncodeToMemory(&pem.Block{
+		Type:  "PRIVATE KEY",
+		Bytes: keyDER,
+	})
+	return string(certPEM), string(keyPEM)
+}
+
 func TestLoadCertificateKeyPairFileNotFound(t *testing.T) {
 	_, err := LoadCertificateKeyPair("/nonexistent/cert.pem", "/nonexistent/key.pem", "")
 	if err == nil {
@@ -671,27 +695,7 @@ func TestLoadCertificateKeyPairCAFileNotFound(t *testing.T) {
 	}
 	defer os.RemoveAll(tmpDir)
 
-	// Create valid self-signed cert and key for testing
-	certPEM := `-----BEGIN CERTIFICATE-----
-MIIBkTCB+wIJAKHBfLTUjD5sMA0GCSqGSIb3DQEBCwUAMBExDzANBgNVBAMMBnVu
-dXNlZDAeFw0yMzAxMDEwMDAwMDBaFw0yNDAxMDEwMDAwMDBaMBExDzANBgNVBAMM
-BnVudXNlZDBcMA0GCSqGSIb3DQEBAQUAA0sAMEgCQQC7o96HilR6PorBTOR6QLXE
-LiL9cK+R4GTAbF5X5TLxlHNpSqaRk6yLe1L7RgBN0DGx7cN6VrL1JfP7Uf8kcYBL
-AgMBAAGjUzBRMB0GA1UdDgQWBBR7Wz5K6xVxqP5cP3mJB6A7a9x9bjAfBgNVHSME
-GDAWgBR7Wz5K6xVxqP5cP3mJB6A7a9x9bjAPBgNVHRMBAf8EBTADAQH/MA0GCSqG
-SIb3DQEBCwUAA0EAUdDT+FK/mzBSVKEVG8mVvm4q5Ao9B3l5MrP7lPJD5g8WVmJZ
-p+P+Y0lg5fFOJDvbJvJlVvmKlWL5hLlbGPv8FA==
------END CERTIFICATE-----`
-	keyPEM := `-----BEGIN RSA PRIVATE KEY-----
-MIIBOgIBAAJBALuj3oeKVHo+isFM5HpAtcQuIv1wr5HgZMBsXlflMvGUc2lKppGT
-rIt7UvtGAE3QMbHtw3pWsvUl8/tR/yRxgEsCAwEAAQJAWAzXqiuRCPJJQFZEMibi
-v0I6oGxvPJVmwkLNiZOFEcEdBHj/xKvfO5LnWZIhw+cxJhBBvJx+J3T7Xh9OSkpU
-gQIhAOQYt0YZ7Ky7+TLxnm+pA0RoqP7lO5SqVx4I8wUQOyRbAiEA0eD/DHWWQMVZ
-uDyG5N0vJlWLvxYvGPvFH1xWL1X7m2ECIFWb4kX9TqIJVAqKJQXw5CLKO+VPOdDt
-n9cM8nHjFvC3AiEAl7VPGKqSvfQa0qxvB/8qMzLXlNvJGLvmGCkzKMm6nmECIDa1
-i1O0E6kuWIQMZgYqKd0UhP7ZJLcXB8O7RH5L0uZg
------END RSA PRIVATE KEY-----`
-
+	certPEM, keyPEM := testCertificateKeyPair(t)
 	certFile := filepath.Join(tmpDir, "cert.pem")
 	keyFile := filepath.Join(tmpDir, "key.pem")
 
