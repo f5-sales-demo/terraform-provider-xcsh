@@ -55,8 +55,9 @@ Required fields:
 ```yaml
 metadata:
   name: my-efp
-  namespace: default
+  namespace: demo-app
 spec: {}
+
 ```
 
 ### Metadata Argument Reference

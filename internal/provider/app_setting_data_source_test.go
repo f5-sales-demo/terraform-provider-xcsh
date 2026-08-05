@@ -12,12 +12,12 @@ import (
 )
 
 func TestAccAppSettingDataSource_basic(t *testing.T) {
-	t.Skip("Skipping: requires hipster-shop namespace with namespace_type 'app' and specific app_type configuration not available in standard test environments")
+	t.Skip("Skipping: requires demo-app namespace with namespace_type 'app' and specific app_type configuration not available in standard test environments")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
 	// app_setting can only be created in namespaces with namespace_type: "app"
-	// Using "hipster-shop" which is an existing app-type namespace in the staging environment
+	// Using "demo-app" which is an existing app-type namespace in the staging environment
 	rName := acctest.RandomName("tf-acc-test-appset")
 	resourceName := "xcsh_app_setting.test"
 	dataSourceName := "data.xcsh_app_setting.test"
@@ -40,17 +40,17 @@ func TestAccAppSettingDataSource_basic(t *testing.T) {
 
 func testAccAppSettingDataSourceConfig_basic(name string) string {
 	// App setting requires app_type_settings with at least one app_type_ref
-	// Must be created in a namespace with namespace_type: "app" (e.g., hipster-shop)
+	// Must be created in a namespace with namespace_type: "app" (e.g., demo-app)
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
 resource "xcsh_app_setting" "test" {
   name      = %[1]q
-  namespace = "hipster-shop"
+  namespace = "demo-app"
 
   app_type_settings {
     app_type_ref {
-      name      = "hipster-shop"
+      name      = "demo-app"
       namespace = "shared"
     }
   }

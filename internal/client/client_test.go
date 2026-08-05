@@ -768,7 +768,7 @@ func TestAuthTypeToken(t *testing.T) {
 func TestMetadataJSONSerialization(t *testing.T) {
 	metadata := Metadata{
 		Name:      "test-resource",
-		Namespace: "test-namespace",
+		Namespace: "demo-app",
 		Labels: map[string]string{
 			"env": "test",
 		},

@@ -193,9 +193,9 @@ in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool
 
 A [`pools`](#pools-09599a) block (within [`ethernet_interface.dhcp_server.dhcp_networks`](#networks-684a1f)) supports the following:
 
-<a id="end-ip-c2fe97"></a>&#x2022; [`end_ip`](#end-ip-c2fe97) - Optional String<br>Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 0.0.0.200
+<a id="end-ip-c2fe97"></a>&#x2022; [`end_ip`](#end-ip-c2fe97) - Optional String<br>Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1
 
-<a id="start-ip-fce2c1"></a>&#x2022; [`start_ip`](#start-ip-fce2c1) - Optional String<br>Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 0.0.0.5
+<a id="start-ip-fce2c1"></a>&#x2022; [`start_ip`](#start-ip-fce2c1) - Optional String<br>Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1
 
 #### Ethernet Interface DHCP Server Interface IP Map
 

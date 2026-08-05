@@ -765,7 +765,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 											NestedObject: schema.NestedBlockObject{
 												Attributes: map[string]schema.Attribute{
 													"end_ip": schema.StringAttribute{
-														MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 0.0.0.200.",
+														MarkdownDescription: "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.200 with prefix length of 24, end offset is 192.0.2.1.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),
@@ -773,7 +773,7 @@ func (r *NetworkInterfaceResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 													"start_ip": schema.StringAttribute{
-														MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 0.0.0.5.",
+														MarkdownDescription: "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 10.1.1.5 with prefix length of 24, start offset is 192.0.2.1.",
 														Optional:            true,
 														Validators: []validator.String{
 															stringvalidator.LengthAtMost(1024),

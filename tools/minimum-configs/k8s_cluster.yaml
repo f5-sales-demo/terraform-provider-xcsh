@@ -1,0 +1,4 @@
+metadata:
+  name: my-k8s-cluster
+  namespace: demo-app
+spec: {}

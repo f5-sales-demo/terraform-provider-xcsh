@@ -2,6 +2,11 @@
 
 package resource
 
+const (
+	namespaceResourceKey = "namespace"
+	tenantResourceKey    = "tenant"
+)
+
 // AICategories maps resource names to their functional categories for AI discovery.
 // This is used by getResourceAIMetadata to generate structured metadata prefixes
 // that help AI tools understand resource classification.
@@ -86,10 +91,10 @@ var AICategories = map[string]string{
 	"api_crawler":    "API Security",
 
 	// Organization
-	"namespace":      "Organization",
-	"tenant":         "Organization",
-	"role":           "Organization",
-	"allowed_tenant": "Organization",
+	namespaceResourceKey: "Organization",
+	tenantResourceKey:    "Organization",
+	"role":               "Organization",
+	"allowed_tenant":     "Organization",
 }
 
 // Dependencies maps resource names to their common dependencies.

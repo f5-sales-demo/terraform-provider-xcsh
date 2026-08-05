@@ -59,7 +59,7 @@ apiVersion: v1
 kind: rate_limiter_policy
 metadata:
   name: example-rl
-  namespace: default
+  namespace: demo-app
 spec:
   burst_size: 1
   committed_information_rate: 1

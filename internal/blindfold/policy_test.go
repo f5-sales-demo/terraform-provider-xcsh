@@ -33,7 +33,7 @@ func TestGetSecretPolicyDocument_MockServer(t *testing.T) {
 				Data: SecretPolicyDocument{
 					Name:      "ves-io-allow-volterra",
 					Namespace: "shared",
-					Tenant:    "test-tenant",
+					Tenant:    "example-corp",
 					PolicyID:  "policy-id-12345",
 					PolicyInfo: SecretPolicyInfo{
 						Algo: "RSA-OAEP",
@@ -45,7 +45,7 @@ func TestGetSecretPolicyDocument_MockServer(t *testing.T) {
 			},
 			wantErr:      false,
 			wantPolicyID: "policy-id-12345",
-			wantTenant:   "test-tenant",
+			wantTenant:   "example-corp",
 		},
 		{
 			name:         "successful response with data wrapper map",
@@ -56,7 +56,7 @@ func TestGetSecretPolicyDocument_MockServer(t *testing.T) {
 				"data": map[string]interface{}{
 					"name":      "my-policy",
 					"namespace": "production",
-					"tenant":    "prod-tenant",
+					"tenant":    "example-corp",
 					"policy_id": "policy-67890",
 					"policy_info": map[string]interface{}{
 						"algo": "RSA-OAEP",
@@ -65,7 +65,7 @@ func TestGetSecretPolicyDocument_MockServer(t *testing.T) {
 			},
 			wantErr:      false,
 			wantPolicyID: "policy-67890",
-			wantTenant:   "prod-tenant",
+			wantTenant:   "example-corp",
 		},
 		{
 			name:           "policy not found",
@@ -103,7 +103,7 @@ func TestGetSecretPolicyDocument_MockServer(t *testing.T) {
 				Data: SecretPolicyDocument{
 					Name:      "test-policy",
 					Namespace: "shared",
-					Tenant:    "test-tenant",
+					Tenant:    "example-corp",
 					// PolicyID intentionally missing
 				},
 			},
@@ -199,9 +199,9 @@ func TestGetSecretPolicyDocument_URLEncoding(t *testing.T) {
 		},
 		{
 			name:            "names with spaces (url encoded)",
-			namespace:       "my namespace",
+			namespace:       "demo-app",
 			policyName:      "my policy",
-			wantEncodedPath: "/api/secret_management/namespaces/my%20namespace/secret_policys/my%20policy/get_policy_document",
+			wantEncodedPath: "/api/secret_management/namespaces/demo-app/secret_policys/my%20policy/get_policy_document",
 		},
 	}
 
@@ -323,7 +323,7 @@ func TestGetSecretPolicyDocument_NamespaceFallback(t *testing.T) {
 			Data: SecretPolicyDocument{
 				// Name and Namespace intentionally not set
 				PolicyID: "test-policy-id",
-				Tenant:   "test-tenant",
+				Tenant:   "example-corp",
 			},
 		}
 		w.Header().Set("Content-Type", "application/json")

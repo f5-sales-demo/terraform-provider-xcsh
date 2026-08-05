@@ -199,7 +199,7 @@ var resourceConfigs = map[string]string{
   a_pool {
     members {
       public_ip {
-        ip = "1.2.3.4"
+        ip = "192.0.2.1"
       }
     }
   }`,
@@ -207,7 +207,7 @@ var resourceConfigs = map[string]string{
 	"dns_load_balancer": `
   record_type = "A"
   dns_a_record {
-    values = ["1.2.3.4"]
+    values = ["192.0.2.1"]
   }`,
 
 	"dns_zone": `
@@ -616,7 +616,7 @@ resource "xcsh_origin_pool" "test" {
   namespace  = xcsh_namespace.test.name
   origin_servers {
     public_ip {
-      ip = "1.2.3.4"
+      ip = "192.0.2.1"
     }
   }
   port               = 80
@@ -631,7 +631,7 @@ resource "xcsh_origin_pool" "test" {
   namespace  = xcsh_namespace.test.name
   origin_servers {
     public_ip {
-      ip = "1.2.3.4"
+      ip = "192.0.2.1"
     }
   }
   port               = 80
@@ -646,7 +646,7 @@ resource "xcsh_origin_pool" "test" {
   namespace  = xcsh_namespace.test.name
   origin_servers {
     public_ip {
-      ip = "1.2.3.4"
+      ip = "192.0.2.1"
     }
   }
   port               = 80

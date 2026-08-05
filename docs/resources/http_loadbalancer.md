@@ -484,7 +484,7 @@ apiVersion: v1
 kind: http_loadbalancer
 metadata:
   name: example-app
-  namespace: default
+  namespace: demo-app
 spec:
   domains:
     - example.com

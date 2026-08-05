@@ -41,7 +41,7 @@ func mockF5XCServerForFile(t *testing.T, keyBits int) (*httptest.Server, *rsa.Pr
 					"key_version":            1,
 					"modulus_base64":         base64.StdEncoding.EncodeToString(privateKey.N.Bytes()),
 					"public_exponent_base64": base64.StdEncoding.EncodeToString([]byte{0x01, 0x00, 0x01}),
-					"tenant":                 "test-tenant",
+					"tenant":                 "example-corp",
 				},
 			}
 			w.WriteHeader(http.StatusOK)
@@ -51,8 +51,8 @@ func mockF5XCServerForFile(t *testing.T, keyBits int) (*httptest.Server, *rsa.Pr
 			response := map[string]interface{}{
 				"data": map[string]interface{}{
 					"name":      "test-policy",
-					"namespace": "test-namespace",
-					"tenant":    "test-tenant",
+					"namespace": "demo-app",
+					"tenant":    "example-corp",
 					"policy_id": "policy-123",
 					"policy_info": map[string]interface{}{
 						"algo": "RSA-OAEP",
@@ -275,7 +275,7 @@ func TestBlindfoldFileFunction_Run_FileNotFound(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue("/nonexistent/path/to/file.txt"),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -317,7 +317,7 @@ func TestBlindfoldFileFunction_Run_DirectoryNotFile(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(tmpDir), // directory, not a file
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -363,7 +363,7 @@ func TestBlindfoldFileFunction_Run_EmptyFile(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(emptyFile),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -409,7 +409,7 @@ func TestBlindfoldFileFunction_Run_WithMockServer(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(testFile),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -461,7 +461,7 @@ func TestBlindfoldFileFunction_Run_FileTooLarge(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(largeFile),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -515,7 +515,7 @@ func TestBlindfoldFileFunction_Run_TableDriven(t *testing.T) {
 				Arguments: function.NewArgumentsData([]attr.Value{
 					types.StringValue(validFile),
 					types.StringValue("test-policy"),
-					types.StringValue("test-namespace"),
+					types.StringValue("demo-app"),
 				}),
 			},
 			expectError: false,
@@ -623,7 +623,7 @@ func TestBlindfoldFileFunction_Run_RelativePath(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue("secret.txt"), // relative path
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -676,7 +676,7 @@ func TestBlindfoldFileFunction_Run_PathTraversal(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(pathWithTraversal),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -720,7 +720,7 @@ func TestBlindfoldFileFunction_Run_BinaryFile(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(binaryFile),
 			types.StringValue("test-policy"),
-			types.StringValue("test-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 

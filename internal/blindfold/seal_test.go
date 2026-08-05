@@ -25,7 +25,7 @@ func generateTestKeyPair(t *testing.T, bits int) (*rsa.PrivateKey, *PublicKey) {
 		KeyVersion:           1,
 		ModulusBase64:        base64.StdEncoding.EncodeToString(privateKey.N.Bytes()),
 		PublicExponentBase64: base64.StdEncoding.EncodeToString([]byte{0x01, 0x00, 0x01}), // 65537
-		Tenant:               "test-tenant",
+		Tenant:               "example-corp",
 	}
 
 	return privateKey, pubKey
@@ -35,9 +35,9 @@ func TestSeal(t *testing.T) {
 	_, pubKey := generateTestKeyPair(t, 2048)
 	policy := &SecretPolicyDocument{
 		Name:      "test-policy",
-		Namespace: "test-namespace",
+		Namespace: "demo-app",
 		PolicyID:  "policy-123",
-		Tenant:    "test-tenant",
+		Tenant:    "example-corp",
 	}
 
 	tests := []struct {
@@ -147,7 +147,7 @@ func TestSealBase64(t *testing.T) {
 	_, pubKey := generateTestKeyPair(t, 2048)
 	policy := &SecretPolicyDocument{
 		Name:      "test-policy",
-		Namespace: "test-namespace",
+		Namespace: "demo-app",
 		PolicyID:  "policy-123",
 	}
 
@@ -297,7 +297,7 @@ func TestSealOutputFormat(t *testing.T) {
 		Name:      "ves-io-allow-volterra",
 		Namespace: "shared",
 		PolicyID:  "policy-id-12345",
-		Tenant:    "test-tenant-xyz",
+		Tenant:    "example-corp",
 	}
 
 	sealed, err := Seal([]byte("test-secret"), pubKey, policy)
@@ -377,7 +377,7 @@ func TestSealJSONFieldNames(t *testing.T) {
 	_, pubKey := generateTestKeyPair(t, 2048)
 	policy := &SecretPolicyDocument{
 		PolicyID: "policy-123",
-		Tenant:   "test-tenant",
+		Tenant:   "example-corp",
 	}
 
 	sealed, err := Seal([]byte("test"), pubKey, policy)

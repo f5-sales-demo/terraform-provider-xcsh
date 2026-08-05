@@ -29,12 +29,12 @@ func TestGetPublicKey_MockServer(t *testing.T) {
 					KeyVersion:           1,
 					ModulusBase64:        "dGVzdC1tb2R1bHVz", // base64 of "test-modulus"
 					PublicExponentBase64: "AQAB",             // base64 of 65537
-					Tenant:               "test-tenant",
+					Tenant:               "example-corp",
 				},
 			},
 			wantErr:        false,
 			wantKeyVersion: 1,
-			wantTenant:     "test-tenant",
+			wantTenant:     "example-corp",
 		},
 		{
 			name:         "successful response with data wrapper",
@@ -44,12 +44,12 @@ func TestGetPublicKey_MockServer(t *testing.T) {
 					"key_version":            3,
 					"modulus_base64":         "dGVzdC1tb2R1bHVz",
 					"public_exponent_base64": "AQAB",
-					"tenant":                 "wrapped-tenant",
+					"tenant":                 "example-corp",
 				},
 			},
 			wantErr:        false,
 			wantKeyVersion: 3,
-			wantTenant:     "wrapped-tenant",
+			wantTenant:     "example-corp",
 		},
 		{
 			name:           "server error",
@@ -72,7 +72,7 @@ func TestGetPublicKey_MockServer(t *testing.T) {
 				Data: PublicKey{
 					KeyVersion:           1,
 					PublicExponentBase64: "AQAB",
-					Tenant:               "test-tenant",
+					Tenant:               "example-corp",
 				},
 			},
 			wantErr:        true,
@@ -85,7 +85,7 @@ func TestGetPublicKey_MockServer(t *testing.T) {
 				Data: PublicKey{
 					KeyVersion:    1,
 					ModulusBase64: "dGVzdC1tb2R1bHVz",
-					Tenant:        "test-tenant",
+					Tenant:        "example-corp",
 				},
 			},
 			wantErr:        true,
@@ -201,7 +201,7 @@ func TestGetPublicKeyWithVersion_MockServer(t *testing.T) {
 						KeyVersion:           tt.version,
 						ModulusBase64:        "dGVzdC1tb2R1bHVz",
 						PublicExponentBase64: "AQAB",
-						Tenant:               "test-tenant",
+						Tenant:               "example-corp",
 					},
 				}
 
@@ -319,7 +319,7 @@ func TestGetPublicKey_RetryOnRateLimit(t *testing.T) {
 				KeyVersion:           1,
 				ModulusBase64:        "dGVzdC1tb2R1bHVz",
 				PublicExponentBase64: "AQAB",
-				Tenant:               "test-tenant",
+				Tenant:               "example-corp",
 			},
 		}
 		w.Header().Set("Content-Type", "application/json")
@@ -365,7 +365,7 @@ func TestGetPublicKey_RetryOnServerError(t *testing.T) {
 						KeyVersion:           1,
 						ModulusBase64:        "dGVzdC1tb2R1bHVz",
 						PublicExponentBase64: "AQAB",
-						Tenant:               "test-tenant",
+						Tenant:               "example-corp",
 					},
 				}
 				w.Header().Set("Content-Type", "application/json")

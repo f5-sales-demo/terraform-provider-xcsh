@@ -24,7 +24,7 @@ func TestExtractDefaults_OriginServersLabelsMarker_Issue1103(t *testing.T) {
 		"spec": map[string]interface{}{
 			"origin_servers": []interface{}{
 				map[string]interface{}{
-					"public_ip": map[string]interface{}{"ip": "20.98.232.135"},
+					"public_ip": map[string]interface{}{"ip": "192.0.2.1"},
 				},
 			},
 		},
@@ -33,7 +33,7 @@ func TestExtractDefaults_OriginServersLabelsMarker_Issue1103(t *testing.T) {
 		"spec": map[string]interface{}{
 			"origin_servers": []interface{}{
 				map[string]interface{}{
-					"public_ip": map[string]interface{}{"ip": "20.98.232.135"},
+					"public_ip": map[string]interface{}{"ip": "192.0.2.1"},
 					"labels":    map[string]interface{}{},
 				},
 			},
@@ -51,7 +51,7 @@ func TestExtractDefaults_EndpointSubsetsMarker_Issue1103(t *testing.T) {
 		"spec": map[string]interface{}{
 			"default_route_pools": []interface{}{
 				map[string]interface{}{
-					"pool": map[string]interface{}{"name": "p", "namespace": "ns"},
+					"pool": map[string]interface{}{"name": "p", "namespace": "demo-app"},
 				},
 			},
 		},
@@ -60,7 +60,7 @@ func TestExtractDefaults_EndpointSubsetsMarker_Issue1103(t *testing.T) {
 		"spec": map[string]interface{}{
 			"default_route_pools": []interface{}{
 				map[string]interface{}{
-					"pool":             map[string]interface{}{"name": "p", "namespace": "ns"},
+					"pool":             map[string]interface{}{"name": "p", "namespace": "demo-app"},
 					"endpoint_subsets": map[string]interface{}{},
 				},
 			},

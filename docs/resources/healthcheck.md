@@ -321,7 +321,7 @@ apiVersion: v1
 kind: healthcheck
 metadata:
   name: http-health
-  namespace: default
+  namespace: demo-app
 spec:
   http_health_check:
     path: /health

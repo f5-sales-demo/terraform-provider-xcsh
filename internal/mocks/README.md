@@ -69,7 +69,7 @@ func testAccMyResourceConfig(mockCfg *acctest.MockTestConfig) string {
         `
 resource "xcsh_my_resource" "test" {
   name      = "test"
-  namespace = "my-namespace"
+  namespace = "demo-app"
 }
 `)
 }

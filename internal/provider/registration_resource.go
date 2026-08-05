@@ -1043,7 +1043,7 @@ func (r *RegistrationResource) Schema(ctx context.Context, req resource.SchemaRe
 								Optional:            true,
 							},
 							"no_proxy": schema.StringAttribute{
-								MarkdownDescription: "It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (1.2.3.4), an IP address prefix in CIDR notation (1.2.3.4/8), a domain name, or a special DNS label (*). An IP address prefix and..",
+								MarkdownDescription: "It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.1), an IP address prefix in CIDR notation (192.0.2.0/24), a domain name, or a special DNS label (*). An IP address prefix and..",
 								Optional:            true,
 							},
 							"proxy_cacert_url": schema.StringAttribute{

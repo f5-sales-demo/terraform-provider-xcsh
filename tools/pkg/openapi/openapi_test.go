@@ -324,9 +324,11 @@ func TestSchema_NewExtensions(t *testing.T) {
 }
 
 func TestGetAPIDocURL(t *testing.T) {
+	const namespaceResource = "namespace"
+
 	pathMap := map[string]string{
 		"http_loadbalancer": "views-http-loadbalancer",
-		"namespace":         "namespace",
+		namespaceResource:   namespaceResource,
 	}
 
 	tests := []struct {

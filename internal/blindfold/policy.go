@@ -25,7 +25,7 @@ const (
 //   - ctx: Context for cancellation and timeouts
 //   - httpClient: Configured HTTP client with authentication
 //   - baseURL: XCSH API base URL (e.g., "https://tenant.console.ves.volterra.io")
-//   - namespace: XCSH namespace containing the policy
+//   - namespace: demo-app
 //   - name: Name of the secret policy
 //
 // Returns:

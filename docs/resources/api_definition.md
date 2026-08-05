@@ -57,7 +57,7 @@ apiVersion: v1
 kind: api_definition
 metadata:
   name: example-api
-  namespace: default
+  namespace: demo-app
 spec: {}
 
 ```

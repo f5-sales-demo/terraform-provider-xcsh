@@ -385,7 +385,7 @@ When base64-decoded, the sealed JSON contains these fields:
 {
   "key_version": "v1.2.3",
   "policy_id": "shared/ves-io-allow-volterra",
-  "tenant": "your-tenant",
+  "tenant": "example-corp",
   "data": "ABCDEF1234567890..."
 }
 ```
@@ -394,7 +394,7 @@ Field descriptions:
 
 - `key_version`: Public key version used for encryption
 - `policy_id`: Reference to the SecretPolicy (namespace/name format)
-- `tenant`: Your F5XC tenant identifier
+- `tenant`: example-corp
 - `data`: base64-encoded RSA-OAEP ciphertext
 
 ### Function Behavior
