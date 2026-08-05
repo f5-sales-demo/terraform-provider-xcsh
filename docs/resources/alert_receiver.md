@@ -56,10 +56,11 @@ Required fields:
 ```yaml
 metadata:
   name: my-alert-receiver
-  namespace: system
+  namespace: demo-app
 spec:
   email:
     email_address: `alerts@example.com`
+
 ```
 
 ### Metadata Argument Reference

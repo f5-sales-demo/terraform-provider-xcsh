@@ -58,7 +58,7 @@ apiVersion: v1
 kind: waf_exclusion_policy
 metadata:
   name: example-waf-exclusion
-  namespace: default
+  namespace: demo-app
 spec:
   waf_exclusion_rules:
     - metadata:

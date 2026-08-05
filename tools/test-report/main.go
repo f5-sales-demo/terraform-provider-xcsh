@@ -93,10 +93,10 @@ type TestResult struct {
 
 // CategorySummary holds statistics for a test category
 type CategorySummary struct {
-	Total   int     `json:"total"`
-	Passed  int     `json:"passed"`
-	Failed  int     `json:"failed"`
-	Skipped int     `json:"skipped"`
+	Total    int     `json:"total"`
+	Passed   int     `json:"passed"`
+	Failed   int     `json:"failed"`
+	Skipped  int     `json:"skipped"`
 	Duration float64 `json:"duration_seconds"`
 }
 
@@ -115,13 +115,13 @@ type SkipReasonSummary struct {
 
 // DurationStats holds duration statistics
 type DurationStats struct {
-	Min    float64 `json:"min_seconds"`
-	Max    float64 `json:"max_seconds"`
-	Avg    float64 `json:"avg_seconds"`
-	P50    float64 `json:"p50_seconds"`
-	P90    float64 `json:"p90_seconds"`
-	P99    float64 `json:"p99_seconds"`
-	Total  float64 `json:"total_seconds"`
+	Min   float64 `json:"min_seconds"`
+	Max   float64 `json:"max_seconds"`
+	Avg   float64 `json:"avg_seconds"`
+	P50   float64 `json:"p50_seconds"`
+	P90   float64 `json:"p90_seconds"`
+	P99   float64 `json:"p99_seconds"`
+	Total float64 `json:"total_seconds"`
 }
 
 // Report is the full test report
@@ -220,9 +220,9 @@ func main() {
 
 func parseTestOutput(slowestCount int) *Report {
 	report := &Report{
-		Timestamp:  time.Now(),
-		ByCategory: make(map[TestCategory]*CategorySummary),
-		Tests:      make([]TestResult, 0),
+		Timestamp:   time.Now(),
+		ByCategory:  make(map[TestCategory]*CategorySummary),
+		Tests:       make([]TestResult, 0),
 		FailedTests: make([]TestResult, 0),
 	}
 
@@ -726,8 +726,8 @@ func outputText(out *os.File, report *Report, showAll bool) {
 	// Transient errors
 	if len(report.TransientErrors) > 0 {
 		fmt.Fprintln(out, "TRANSIENT ERRORS (Retry Candidates):")
-		for _, te := range report.TransientErrors {
-			fmt.Fprintf(out, "  [%s] %d tests: %s\n", te.Type, te.Count, strings.Join(te.Tests, ", "))
+		for _, transientErr := range report.TransientErrors {
+			fmt.Fprintf(out, "  [%s] %d tests: %s\n", transientErr.Type, transientErr.Count, strings.Join(transientErr.Tests, ", "))
 		}
 		fmt.Fprintln(out, subDivider)
 	}
@@ -840,9 +840,9 @@ func outputMarkdown(out *os.File, report *Report, showAll bool) {
 		fmt.Fprintln(out)
 		fmt.Fprintln(out, "| Error Type | Count | Tests |")
 		fmt.Fprintln(out, "|------------|------:|-------|")
-		for _, te := range report.TransientErrors {
-			testList := strings.Join(te.Tests, "`, `")
-			fmt.Fprintf(out, "| %s | %d | `%s` |\n", te.Type, te.Count, testList)
+		for _, transientErr := range report.TransientErrors {
+			testList := strings.Join(transientErr.Tests, "`, `")
+			fmt.Fprintf(out, "| %s | %d | `%s` |\n", transientErr.Type, transientErr.Count, testList)
 		}
 		fmt.Fprintln(out)
 	}

@@ -33,6 +33,7 @@ import (
 	"time"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
+	defaultspkg "github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/defaults"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/discovery"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/suppress"
@@ -42,38 +43,17 @@ import (
 // Data Structures
 // ============================================================================
 
-// DefaultsDatabase stores all discovered defaults for the provider
-type DefaultsDatabase struct {
-	Version        string                      `json:"version"`
-	GeneratedAt    string                      `json:"generated_at"`
-	APIEndpoint    string                      `json:"api_endpoint"`
-	TotalResources int                         `json:"total_resources"`
-	Discovered     int                         `json:"discovered"`
-	Skipped        int                         `json:"skipped"`
-	Failed         int                         `json:"failed"`
-	Resources      map[string]*DiscoveryResult `json:"resources"`
-}
+type DefaultsDatabase = defaultspkg.APIDefaultsFile
+type FieldDefault = defaultspkg.DefaultValue
 
 // DiscoveryResult holds the discovery result for a single resource type
 type DiscoveryResult struct {
-	ResourceName string                  `json:"resource_name"`
-	Category     string                  `json:"category"`
-	Status       string                  `json:"status"` // "discovered", "skipped", "failed"
-	SkipReason   string                  `json:"skip_reason,omitempty"`
-	Error        string                  `json:"error,omitempty"`
-	DiscoveredAt string                  `json:"discovered_at,omitempty"`
-	Defaults     map[string]FieldDefault `json:"defaults,omitempty"`
-	RequestSent  map[string]interface{}  `json:"request_sent,omitempty"`
-	ResponseGot  map[string]interface{}  `json:"response_got,omitempty"`
-}
-
-// FieldDefault represents a single field's default value
-type FieldDefault struct {
-	Path          string      `json:"path"`
-	DefaultValue  interface{} `json:"default_value"`
-	Type          string      `json:"type"` // "string", "int", "bool", "object", "array"
-	IsMarkerBlock bool        `json:"is_marker_block,omitempty"`
-	Description   string      `json:"description,omitempty"`
+	ResourceName  string
+	Category      string
+	Status        string // "discovered", "skipped", "failed"
+	SkipReason    string
+	FailureReason string
+	Defaults      map[string]FieldDefault
 }
 
 // ResourceCategory defines complexity categories for discovery
@@ -203,7 +183,7 @@ var ResourceConfigs = map[string]MinimalConfig{
 				map[string]interface{}{
 					"pool": map[string]interface{}{
 						"name":      "@prereq:origin_pool",
-						"namespace": "@prereq-ns:origin_pool",
+						"namespace": "demo-app",
 					},
 					"weight":   1,
 					"priority": 1,
@@ -240,7 +220,7 @@ var ResourceConfigs = map[string]MinimalConfig{
 				map[string]interface{}{
 					"pool": map[string]interface{}{
 						"name":      "@prereq:origin_pool",
-						"namespace": "@prereq-ns:origin_pool",
+						"namespace": "demo-app",
 					},
 					"weight": 1,
 				},
@@ -323,7 +303,7 @@ var ResourceConfigs = map[string]MinimalConfig{
 			"origin_servers": []interface{}{
 				map[string]interface{}{
 					"public_ip": map[string]interface{}{
-						"ip": "1.2.3.4",
+						"ip": "192.0.2.1",
 					},
 				},
 			},
@@ -524,16 +504,17 @@ var ResourceConfigs = map[string]MinimalConfig{
 // ============================================================================
 
 var (
-	flagAll      = flag.Bool("all", false, "Discover defaults for all resources")
-	flagResource = flag.String("resource", "", "Discover defaults for a specific resource")
-	flagPattern  = flag.String("pattern", "", "Discover defaults for resources matching pattern")
-	flagOutput   = flag.String("output", "tools/api-defaults.json", "Output file path")
-	flagValidate = flag.Bool("validate", false, "Validate stored defaults against current API")
-	flagVerbose  = flag.Bool("verbose", false, "Enable verbose output")
-	flagDryRun   = flag.Bool("dry-run", false, "Show what would be done without making API calls")
-	flagTestNS   = flag.String("test-namespace", "", "Use existing namespace for testing (skip namespace creation)")
-	flagCreateNS = flag.Bool("create-namespace", false, "Create test namespace automatically")
-	flagNSPrefix = flag.String("ns-prefix", "tf-discover", "Prefix for auto-created test namespace")
+	flagAll       = flag.Bool("all", false, "Discover defaults for all resources")
+	flagResource  = flag.String("resource", "", "Discover defaults for a specific resource")
+	flagPattern   = flag.String("pattern", "", "Discover defaults for resources matching pattern")
+	flagOutput    = flag.String("output", "tools/api-defaults.json", "Output file path")
+	flagNormalize = flag.Bool("normalize", false, "Rewrite stored defaults using the current minimized contract")
+	flagValidate  = flag.Bool("validate", false, "Validate stored defaults against current API")
+	flagVerbose   = flag.Bool("verbose", false, "Enable verbose output")
+	flagDryRun    = flag.Bool("dry-run", false, "Show what would be done without making API calls")
+	flagTestNS    = flag.String("test-namespace", "", "Use existing namespace for testing (skip namespace creation)")
+	flagCreateNS  = flag.Bool("create-namespace", false, "Create test namespace automatically")
+	flagNSPrefix  = flag.String("ns-prefix", "tf-discover", "Prefix for auto-created test namespace")
 )
 
 // strandedObjects records every discovery probe object whose DELETE never succeeded.
@@ -558,7 +539,7 @@ func main() {
 		}
 	}()
 
-	if !*flagAll && *flagResource == "" && *flagPattern == "" && !*flagValidate {
+	if !*flagAll && *flagResource == "" && *flagPattern == "" && !*flagValidate && !*flagNormalize {
 		fmt.Println("Usage: go run tools/discover-defaults.go [options]")
 		fmt.Println("")
 		fmt.Println("Options:")
@@ -571,6 +552,20 @@ func main() {
 		fmt.Println("  go run tools/discover-defaults.go -validate")
 		fmt.Println("  go run tools/discover-defaults.go -dry-run -all")
 		os.Exit(1)
+	}
+
+	if *flagNormalize {
+		db, err := loadDatabase(*flagOutput)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error loading database: %v\n", err)
+			os.Exit(1)
+		}
+		if err := saveDatabase(db, *flagOutput); err != nil {
+			fmt.Fprintf(os.Stderr, "Error saving database: %v\n", err)
+			os.Exit(1)
+		}
+		fmt.Printf("Normalized defaults database: %s\n", *flagOutput)
+		return
 	}
 
 	// Determine which resources to discover (needed for dry-run)
@@ -615,8 +610,7 @@ func main() {
 	db := &DefaultsDatabase{
 		Version:     "1.0.0",
 		GeneratedAt: time.Now().UTC().Format(time.RFC3339),
-		APIEndpoint: os.Getenv("XCSH_API_URL"),
-		Resources:   make(map[string]*DiscoveryResult),
+		Resources:   make([]defaultspkg.ResourceEntry, 0, len(resourcesToDiscover)),
 	}
 
 	// Load existing database if validating
@@ -686,7 +680,12 @@ func main() {
 		fmt.Printf("[%d/%d] Processing %s...\n", i+1, len(resourcesToDiscover), resourceName)
 
 		result := discoverResource(apiClient, resourceName)
-		db.Resources[resourceName] = result
+		db.Resources = append(db.Resources, defaultspkg.ResourceEntry{
+			ResourceName: result.ResourceName,
+			Category:     result.Category,
+			Status:       result.Status,
+			Defaults:     result.Defaults,
+		})
 
 		switch result.Status {
 		case "discovered":
@@ -697,7 +696,7 @@ func main() {
 			fmt.Printf("  ⊘ Skipped: %s\n", result.SkipReason)
 		case "failed":
 			db.Failed++
-			fmt.Printf("  ✗ Failed: %s\n", result.Error)
+			fmt.Printf("  ✗ Failed: %s\n", result.FailureReason)
 		}
 	}
 
@@ -840,7 +839,7 @@ func discoverResource(apiClient *client.Client, resourceName string) *DiscoveryR
 		}
 		if _, err := createAndGetResource(ctx, apiClient, p.Kind, testNamespace, preq); err != nil {
 			result.Status = "failed"
-			result.Error = fmt.Sprintf("prerequisite %s: %v", p.Kind, err)
+			result.FailureReason = "prerequisite create or read failed"
 			return result
 		}
 		prereqNames[p.Kind] = pName
@@ -856,25 +855,27 @@ func discoverResource(apiClient *client.Client, resourceName string) *DiscoveryR
 	}
 
 	request := buildRequest(testName, testNamespace, effectiveConfig)
-	result.RequestSent = request
 
 	response, err := createAndGetResource(ctx, apiClient, resourceName, testNamespace, request)
 	if err != nil {
 		result.Status = "failed"
-		result.Error = err.Error()
+		result.FailureReason = "resource create or read failed"
 		return result
 	}
 
-	result.ResponseGot = response
 	result.Status = "discovered"
-	result.DiscoveredAt = time.Now().UTC().Format(time.RFC3339)
 
 	// Extract defaults by comparing request and response. The differ lives in the
 	// testable tools/pkg/suppress package (recurses into list elements — #1103).
 	sd := suppress.ExtractDefaults(request, response)
 	result.Defaults = make(map[string]FieldDefault, len(sd))
 	for k, v := range sd {
-		result.Defaults[k] = FieldDefault{Path: v.Path, DefaultValue: v.DefaultValue, Type: v.Type, IsMarkerBlock: v.IsMarkerBlock}
+		result.Defaults[k] = FieldDefault{
+			Path:          v.Path,
+			DefaultValue:  defaultspkg.CanonicalizeIdentityValues(v.DefaultValue),
+			Type:          v.Type,
+			IsMarkerBlock: v.IsMarkerBlock,
+		}
 	}
 
 	// Clean up - delete the test resource
@@ -928,8 +929,6 @@ func createAndGetResource(ctx context.Context, apiClient *client.Client, resourc
 
 	if *flagVerbose {
 		fmt.Printf("  POST %s\n", createPath)
-		reqJSON, _ := json.MarshalIndent(request, "    ", "  ")
-		fmt.Printf("    Request: %s\n", string(reqJSON))
 	}
 
 	// Create the resource
@@ -1041,10 +1040,12 @@ func saveDatabase(db *DefaultsDatabase, path string) error {
 		return err
 	}
 
+	defaultspkg.CanonicalizeFile(db)
 	data, err := json.MarshalIndent(db, "", "  ")
 	if err != nil {
 		return err
 	}
+	data = append(data, '\n')
 
 	return os.WriteFile(path, data, 0644)
 }
@@ -1059,10 +1060,11 @@ func validateDefaults(apiClient *client.Client, db *DefaultsDatabase) {
 	valid := 0
 	invalid := 0
 
-	for name, result := range db.Resources {
+	for _, result := range db.Resources {
 		if result.Status != "discovered" {
 			continue
 		}
+		name := result.ResourceName
 
 		fmt.Printf("Validating %s... ", name)
 
@@ -1129,7 +1131,7 @@ func showDifferences(old, new map[string]FieldDefault) {
 	for path, oldDefault := range old {
 		if newDefault, exists := new[path]; exists {
 			if !reflect.DeepEqual(oldDefault.DefaultValue, newDefault.DefaultValue) {
-				fmt.Printf("  ~ %s: %v -> %v\n", path, oldDefault.DefaultValue, newDefault.DefaultValue)
+				fmt.Printf("  ~ %s (value changed)\n", path)
 			}
 		}
 	}

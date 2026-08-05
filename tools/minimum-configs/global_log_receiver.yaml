@@ -1,0 +1,7 @@
+metadata:
+  name: my-log-receiver
+  namespace: demo-app
+spec:
+  request_logs: {}
+  http_receiver:
+    uri: http://logs.example.com/ingest

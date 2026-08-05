@@ -60,7 +60,7 @@ apiVersion: v1
 kind: service_policy
 metadata:
   name: allow-all
-  namespace: default
+  namespace: demo-app
 spec:
   allow_all_requests: {}
 

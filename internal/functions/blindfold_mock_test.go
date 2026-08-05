@@ -104,7 +104,7 @@ func newMockServer(t *testing.T, keyBits int) *mockServer {
 			response := map[string]interface{}{
 				"data": map[string]interface{}{
 					"name":      "mock-policy",
-					"namespace": "mock-namespace",
+					"namespace": "demo-app",
 					"tenant":    m.customTenant,
 					"policy_id": m.customPolicyID,
 					"policy_info": map[string]interface{}{
@@ -174,7 +174,7 @@ func TestMockBlindfoldFunction_Success(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(plaintextBase64),
 			types.StringValue("mock-policy"),
-			types.StringValue("mock-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 
@@ -373,7 +373,7 @@ func TestMockBlindfoldFileFunction_Success(t *testing.T) {
 		Arguments: function.NewArgumentsData([]attr.Value{
 			types.StringValue(testFile),
 			types.StringValue("mock-policy"),
-			types.StringValue("mock-namespace"),
+			types.StringValue("demo-app"),
 		}),
 	}, &got)
 

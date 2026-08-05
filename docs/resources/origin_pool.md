@@ -127,7 +127,7 @@ resource "xcsh_origin_pool" "test" {
   origin_servers {
     labels {}
     public_ip {
-      ip = "93.184.216.34"
+      ip = "192.0.2.1"
     }
   }
 
@@ -223,7 +223,7 @@ apiVersion: v1
 kind: origin_pool
 metadata:
   name: backend-pool
-  namespace: default
+  namespace: demo-app
 spec:
   origin_servers:
     - public_name:

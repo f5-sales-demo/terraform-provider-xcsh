@@ -17,7 +17,7 @@ func TestAccAppSettingResource_basic(t *testing.T) {
 	acctest.PreCheck(t)
 
 	// app_setting can only be created in namespaces with namespace_type: "app"
-	// Using "hipster-shop" which is an existing app-type namespace in the staging environment
+	// Using "demo-app" which is an existing app-type namespace in the staging environment
 	resourceName := "xcsh_app_setting.test"
 	rName := acctest.RandomName("tf-test-appset")
 
@@ -31,7 +31,7 @@ func TestAccAppSettingResource_basic(t *testing.T) {
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
-					resource.TestCheckResourceAttr(resourceName, "namespace", "hipster-shop"),
+					resource.TestCheckResourceAttr(resourceName, "namespace", "demo-app"),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
 				),
 			},
@@ -60,15 +60,15 @@ func testAccAppSettingImportStateIdFunc(resourceName string) resource.ImportStat
 
 func testAccAppSettingConfig_basic(name string) string {
 	// App setting requires app_type_settings with at least one app_type_ref
-	// Must be created in a namespace with namespace_type: "app" (e.g., hipster-shop)
+	// Must be created in a namespace with namespace_type: "app" (e.g., demo-app)
 	return fmt.Sprintf(`
 resource "xcsh_app_setting" "test" {
   name      = %[1]q
-  namespace = "hipster-shop"
+  namespace = "demo-app"
 
   app_type_settings {
     app_type_ref {
-      name      = "hipster-shop"
+      name      = "demo-app"
       namespace = "shared"
     }
   }

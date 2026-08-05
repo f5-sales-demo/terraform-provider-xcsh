@@ -38,7 +38,7 @@ provider "xcsh" {}
 # 1. Health Check — monitors httpbin.org /get endpoint
 resource "xcsh_healthcheck" "httpbin" {
   name      = "httpbin-health"
-  namespace = "your-namespace"
+  namespace = "demo-app"
 
   http_health_check {
     use_origin_server_name {}
@@ -54,7 +54,7 @@ resource "xcsh_healthcheck" "httpbin" {
 # 2. Origin Pool — httpbin.org over TLS
 resource "xcsh_origin_pool" "httpbin" {
   name      = "httpbin-pool"
-  namespace = "your-namespace"
+  namespace = "demo-app"
 
   origin_servers {
     public_name {
@@ -87,7 +87,7 @@ resource "xcsh_origin_pool" "httpbin" {
 # 3. App Firewall — WAF in blocking mode
 resource "xcsh_app_firewall" "httpbin" {
   name      = "httpbin-waf"
-  namespace = "your-namespace"
+  namespace = "demo-app"
 
   blocking {}
   use_default_blocking_page {}
@@ -98,7 +98,7 @@ resource "xcsh_app_firewall" "httpbin" {
 # 4. HTTP Load Balancer — ties it all together
 resource "xcsh_http_loadbalancer" "httpbin" {
   name      = "httpbin-lb"
-  namespace = "your-namespace"
+  namespace = "demo-app"
   domains   = ["httpbin.example.com"]
 
   https_auto_cert {

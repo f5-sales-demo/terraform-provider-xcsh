@@ -61,7 +61,7 @@ apiVersion: v1
 kind: api_discovery
 metadata:
   name: example-discovery
-  namespace: default
+  namespace: demo-app
 spec:
   user_defined_api_discovery_policy: {}
 

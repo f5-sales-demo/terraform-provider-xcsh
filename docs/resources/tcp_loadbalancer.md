@@ -358,7 +358,7 @@ apiVersion: v1
 kind: tcp_loadbalancer
 metadata:
   name: database-lb
-  namespace: default
+  namespace: demo-app
 spec:
   listener:
     port: 5432

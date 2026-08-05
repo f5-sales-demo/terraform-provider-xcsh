@@ -62,7 +62,7 @@ apiVersion: v1
 kind: certificate
 metadata:
   name: example-cert
-  namespace: default
+  namespace: demo-app
 spec:
   certificate_url: "string:///BASE64_ENCODED_CERTIFICATE"
   private_key:

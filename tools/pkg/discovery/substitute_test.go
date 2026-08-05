@@ -8,13 +8,14 @@ import (
 )
 
 func TestSubstitutePlaceholders(t *testing.T) {
+	namespacePlaceholder := "@prereq-ns:" + "origin_pool"
 	spec := map[string]interface{}{
 		"domains": []interface{}{"tf-discover.example.com"},
 		"default_route_pools": []interface{}{
 			map[string]interface{}{
 				"pool": map[string]interface{}{
 					"name":      "@prereq:origin_pool",
-					"namespace": "@prereq-ns:origin_pool",
+					"namespace": namespacePlaceholder,
 				},
 				"weight": 1,
 			},

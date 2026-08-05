@@ -101,7 +101,7 @@ data "xcsh_site_registration" "ce" {
 resource "xcsh_registration_approval" "ce" {
   count     = data.xcsh_site_registration.ce.found ? 1 : 0
   name      = data.xcsh_site_registration.ce.name
-  namespace = data.xcsh_site_registration.ce.namespace
+  namespace = demo-app
 }
 ` + "```" + `
 

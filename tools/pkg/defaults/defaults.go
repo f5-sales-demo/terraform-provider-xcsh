@@ -12,13 +12,16 @@ import (
 	"path/filepath"
 	"strings"
 	"sync"
+
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/identity"
 )
 
 // DefaultValue represents an API-discovered default for a specific field.
 type DefaultValue struct {
-	Path         string      `json:"path"`
-	DefaultValue interface{} `json:"default_value"`
-	Type         string      `json:"type"`
+	Path          string      `json:"path"`
+	DefaultValue  interface{} `json:"default_value"`
+	Type          string      `json:"type"`
+	IsMarkerBlock bool        `json:"is_marker_block,omitempty"`
 }
 
 // ResourceDefaults maps field paths to their discovered defaults for a resource.
@@ -29,21 +32,54 @@ type ResourceEntry struct {
 	ResourceName string           `json:"resource_name"`
 	Category     string           `json:"category"`
 	Status       string           `json:"status"`
-	DiscoveredAt string           `json:"discovered_at,omitempty"`
-	FailureReason string          `json:"failure_reason,omitempty"`
 	Defaults     ResourceDefaults `json:"defaults,omitempty"`
 }
 
 // APIDefaultsFile represents the top-level structure of api-defaults.json.
 type APIDefaultsFile struct {
-	Version        string                   `json:"version"`
-	GeneratedAt    string                   `json:"generated_at"`
-	APIEndpoint    string                   `json:"api_endpoint"`
-	TotalResources int                      `json:"total_resources"`
-	Discovered     int                      `json:"discovered"`
-	Skipped        int                      `json:"skipped"`
-	Failed         int                      `json:"failed"`
-	Resources      map[string]ResourceEntry `json:"resources"`
+	Version        string          `json:"version"`
+	GeneratedAt    string          `json:"generated_at"`
+	TotalResources int             `json:"total_resources"`
+	Discovered     int             `json:"discovered"`
+	Skipped        int             `json:"skipped"`
+	Failed         int             `json:"failed"`
+	Resources      []ResourceEntry `json:"resources"`
+}
+
+// CanonicalizeIdentityValues deep-copies JSON-compatible data and replaces
+// identity-bearing string fields with the fleet's canonical synthetic values.
+func CanonicalizeIdentityValues(value interface{}) interface{} {
+	switch typed := value.(type) {
+	case map[string]interface{}:
+		result := make(map[string]interface{}, len(typed))
+		for key, item := range typed {
+			if text, ok := item.(string); ok {
+				result[key] = identity.Canonical(key, text)
+				continue
+			}
+			result[key] = CanonicalizeIdentityValues(item)
+		}
+		return result
+	case []interface{}:
+		result := make([]interface{}, len(typed))
+		for index, item := range typed {
+			result[index] = CanonicalizeIdentityValues(item)
+		}
+		return result
+	default:
+		return value
+	}
+}
+
+// CanonicalizeFile normalizes every discovered default in a persisted database.
+func CanonicalizeFile(apiFile *APIDefaultsFile) {
+	for resourceIndex, resourceEntry := range apiFile.Resources {
+		for path, defaultValue := range resourceEntry.Defaults {
+			defaultValue.DefaultValue = CanonicalizeIdentityValues(defaultValue.DefaultValue)
+			resourceEntry.Defaults[path] = defaultValue
+		}
+		apiFile.Resources[resourceIndex] = resourceEntry
+	}
 }
 
 // Store holds all discovered defaults indexed by resource name.
@@ -88,9 +124,9 @@ func (s *Store) LoadFromFile(path string) error {
 
 	// Extract defaults from the nested structure
 	s.defaults = make(map[string]ResourceDefaults)
-	for name, entry := range apiFile.Resources {
+	for _, entry := range apiFile.Resources {
 		if entry.Status == "discovered" && entry.Defaults != nil {
-			s.defaults[name] = entry.Defaults
+			s.defaults[entry.ResourceName] = entry.Defaults
 		}
 	}
 

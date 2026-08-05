@@ -80,7 +80,11 @@ func main() {
 				cleaned = "terraform {\n  required_providers {\n    time = {\n      source  = \"hashicorp/time\"\n      version = \">= 0.9.0\"\n    }\n  }\n}\n\n" + cleaned
 			}
 
-			if err := os.WriteFile(outPath, []byte(header+cleaned), 0644); err != nil {
+			output := header + cleaned
+			if !strings.HasSuffix(output, "\n") {
+				output += "\n"
+			}
+			if err := os.WriteFile(outPath, []byte(output), 0644); err != nil {
 				fmt.Fprintf(os.Stderr, "Error writing %s: %v\n", outPath, err)
 				continue
 			}

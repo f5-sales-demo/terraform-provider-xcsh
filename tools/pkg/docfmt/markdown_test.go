@@ -1,6 +1,40 @@
 package docfmt
 
-import "testing"
+import (
+	"strconv"
+	"strings"
+	"testing"
+)
+
+func TestCanonicalizeIdentityLiterals(t *testing.T) {
+	t.Parallel()
+
+	unsafeNamespace := "captured" + "-org"
+	namespaceField := "name" + "space"
+	hclInput := strings.Join([]string{
+		`resource "xcsh_example" "example" {`,
+		"  " + namespaceField + " = " + strconv.Quote(unsafeNamespace),
+		`  tenant = "system"`,
+		`  project_id = var.project_id`,
+		`}`,
+	}, "\n")
+	yamlInput := strings.Join([]string{
+		"metadata:",
+		"  " + namespaceField + ": " + unsafeNamespace,
+		"  tenant: system",
+	}, "\n")
+	input := hclInput + "\n---\n" + yamlInput
+	want := strings.Replace(input, strconv.Quote(unsafeNamespace), `"demo-app"`, 1)
+	want = strings.Replace(want, unsafeNamespace, "demo-app", 1)
+
+	got := CanonicalizeIdentityLiterals(input)
+	if got != want {
+		t.Fatalf("unexpected identity canonicalization:\nwant:\n%s\ngot:\n%s", want, got)
+	}
+	if again := CanonicalizeIdentityLiterals(got); again != got {
+		t.Fatal("identity canonicalization is not idempotent")
+	}
+}
 
 func TestInjectSyntaxRulesCalloutNormalizesSpacing(t *testing.T) {
 	t.Parallel()

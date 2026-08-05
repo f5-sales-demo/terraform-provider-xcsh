@@ -293,7 +293,7 @@ apiVersion: v1
 kind: malicious_user_mitigation
 metadata:
   name: example-mitigation
-  namespace: default
+  namespace: demo-app
 spec: {}
 
 ```

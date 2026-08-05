@@ -10,6 +10,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/docfmt"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/naming"
 )
 
@@ -63,6 +64,7 @@ func Clean(desc string, fieldPath string) string {
 	desc = regexp.MustCompile(`\.\s*\.`).ReplaceAllString(desc, ".")
 	// Normalize example names from F5 internal conventions ("my-*") to provider standard ("example-*")
 	desc = naming.NormalizeExampleNames(desc)
+	desc = docfmt.CanonicalizeNetworkLiterals(desc)
 	return desc
 }
 
@@ -282,6 +284,11 @@ func TransformResourceDescription(resourceName, rawDescription string) string {
 // GenerateCapabilityDescriptionOnly generates a capability-based description for a resource.
 // It returns only the description without AI metadata (metadata is added by the caller).
 func GenerateCapabilityDescriptionOnly(resourceName, humanName, rawDesc string) string {
+	const (
+		namespaceCapabilityKey = "namespace"
+		tenantCapabilityKey    = "tenant"
+	)
+
 	// Resource-specific capability mappings for common F5 XC resources
 	capabilities := map[string]string{
 		// Sites
@@ -362,10 +369,10 @@ func GenerateCapabilityDescriptionOnly(resourceName, humanName, rawDesc string) 
 		"api_crawler":    "API endpoint crawling and discovery",
 
 		// Organization
-		"namespace":      "logical namespace isolation for resources",
-		"tenant":         "tenant configuration and management",
-		"role":           "role-based access control definitions",
-		"allowed_tenant": "tenant access permissions and restrictions",
+		namespaceCapabilityKey: "logical namespace isolation for resources",
+		tenantCapabilityKey:    "tenant configuration and management",
+		"role":                 "role-based access control definitions",
+		"allowed_tenant":       "tenant access permissions and restrictions",
 	}
 
 	// Check if we have a specific capability mapping

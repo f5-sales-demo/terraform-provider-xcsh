@@ -26,6 +26,7 @@ import (
 	"strings"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/codegen"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/docfmt"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/tools/pkg/resource"
 )
 
@@ -84,10 +85,10 @@ type CategoryInfo struct {
 
 // JSONIndex is the top-level structure for terraform-llms-index.json.
 type JSONIndex struct {
-	Version    string                  `json:"version"`
-	Provider   JSONProvider            `json:"provider"`
-	Categories []JSONCategory          `json:"categories"`
-	Resources  map[string]JSONResource `json:"resources"`
+	Version    string         `json:"version"`
+	Provider   JSONProvider   `json:"provider"`
+	Categories []JSONCategory `json:"categories"`
+	Resources  []JSONResource `json:"resources"`
 }
 
 type JSONProvider struct {
@@ -118,15 +119,21 @@ type JSONDependencies struct {
 	UsedBy   []string `json:"used_by,omitempty"`
 }
 
+type JSONMinimalConfig struct {
+	Format string `json:"format"`
+	Source string `json:"source"`
+}
+
 type JSONResource struct {
-	Category       string           `json:"category"`
-	Description    string           `json:"description"`
-	Required       []string         `json:"required"`
-	OneOfGroups    []JSONOneOfGroup `json:"oneof_groups,omitempty"`
-	ServerDefaults []string         `json:"server_defaults,omitempty"`
-	MinimalConfig  string           `json:"minimal_config,omitempty"`
-	Dependencies   JSONDependencies `json:"dependencies"`
-	ImportSyntax   string           `json:"import_syntax"`
+	Name           string             `json:"name"`
+	Category       string             `json:"category"`
+	Description    string             `json:"description"`
+	Required       []string           `json:"required"`
+	OneOfGroups    []JSONOneOfGroup   `json:"oneof_groups,omitempty"`
+	ServerDefaults []string           `json:"server_defaults,omitempty"`
+	MinimalConfig  *JSONMinimalConfig `json:"minimal_config,omitempty"`
+	Dependencies   JSONDependencies   `json:"dependencies"`
+	ImportSyntax   string             `json:"import_syntax"`
 }
 
 // categoryDescriptions provides hardcoded descriptions for each category.
@@ -868,7 +875,7 @@ func extractMinimalConfig(content, name string) string {
 		}
 	}
 
-	return result
+	return docfmt.CanonicalizeIdentityLiterals(result)
 }
 
 func groupByCategory(resources []ResourceInfo) []CategoryInfo {
@@ -1213,7 +1220,7 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 				`Fields marked "Server applies default when omitted" can be safely omitted`,
 			},
 		},
-		Resources: make(map[string]JSONResource),
+		Resources: []JSONResource{},
 	}
 
 	for _, cat := range categories {
@@ -1230,6 +1237,13 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 		idx.Categories = append(idx.Categories, jcat)
 
 		for _, res := range cat.Resources {
+			var minimalConfig *JSONMinimalConfig
+			if res.MinimalConfig != "" {
+				minimalConfig = &JSONMinimalConfig{
+					Format: "terraform",
+					Source: fmt.Sprintf("_llms-txt/resources/%s.txt#minimal-valid-config", res.Name),
+				}
+			}
 			var oneOfGroups []JSONOneOfGroup
 			for _, g := range res.OneOfGroups {
 				oneOfGroups = append(oneOfGroups, JSONOneOfGroup{
@@ -1244,16 +1258,17 @@ func generateJSONIndex(config *LLMsConfig, categories []CategoryInfo, reverseDep
 			if usedBy, ok := reverseDeps[res.Name]; ok {
 				deps.UsedBy = usedBy
 			}
-			idx.Resources[res.Name] = JSONResource{
+			idx.Resources = append(idx.Resources, JSONResource{
+				Name:           res.Name,
 				Category:       cat.Slug,
 				Description:    res.Description,
 				Required:       res.RequiredFields,
 				OneOfGroups:    oneOfGroups,
 				ServerDefaults: res.ServerDefaults,
-				MinimalConfig:  res.MinimalConfig,
+				MinimalConfig:  minimalConfig,
 				Dependencies:   deps,
 				ImportSyntax:   fmt.Sprintf("terraform import xcsh_%s.example namespace/name", res.Name),
-			}
+			})
 		}
 	}
 

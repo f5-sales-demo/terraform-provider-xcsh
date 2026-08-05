@@ -1464,7 +1464,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 											},
 										},
 										"values": schema.ListAttribute{
-											MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 1.1.1.1 .",
+											MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.1 .",
 											Optional:            true,
 											ElementType:         types.StringType,
 											Validators: []validator.List{
@@ -2342,7 +2342,7 @@ func (r *DNSZoneResource) Schema(ctx context.Context, req resource.SchemaRequest
 														},
 													},
 													"values": schema.ListAttribute{
-														MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 1.1.1.1 .",
+														MarkdownDescription: "IPv4 Addresses. A valid IPv4 address, for example: 192.0.2.1 .",
 														Optional:            true,
 														ElementType:         types.StringType,
 														Validators: []validator.List{

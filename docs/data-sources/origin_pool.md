@@ -62,7 +62,7 @@ apiVersion: v1
 kind: origin_pool
 metadata:
   name: backend-pool
-  namespace: default
+  namespace: demo-app
 spec:
   origin_servers:
     - public_name:
