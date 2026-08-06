@@ -331,7 +331,6 @@ func GenerateCapabilityDescriptionOnly(resourceName, humanName, rawDesc string) 
 
 		// DNS
 		"dns_zone":              "DNS zone management and configuration",
-		"dns_domain":            "DNS domain registration and management",
 		"dns_lb_pool":           "DNS load balancer endpoint pools",
 		"dns_lb_health_check":   "health monitoring for DNS load balanced endpoints",
 		"dns_compliance_checks": "DNS security and compliance verification",

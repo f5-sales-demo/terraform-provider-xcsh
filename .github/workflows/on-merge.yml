@@ -757,7 +757,7 @@ jobs:
               }
               gh pr close "$PR" --comment "Superseded by newer regeneration from commit ${COMMIT_SHA}"
               if [ -n "$(git ls-remote origin "refs/heads/${BRANCH}")" ]; then
-                git push origin --delete "$BRANCH"
+                gh api -X DELETE "repos/${REPOSITORY}/git/refs/heads/${BRANCH}" || git push origin --delete "$BRANCH"
               fi
             done
           else

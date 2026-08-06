@@ -10,18 +10,18 @@ import (
 )
 
 func TestConstitutionAllowsRegeneratedProviderFilesWithGeneratorChange(t *testing.T) {
-	workflowPath := filepath.Join("..", "..", ".github", "workflows", "ci.yml")
-	workflow, err := os.ReadFile(workflowPath) //nolint:gosec // fixed repository path
+	scriptPath := filepath.Join("..", "..", "scripts", "check-no-generated-files.sh")
+	script, err := os.ReadFile(scriptPath) //nolint:gosec // fixed repository path
 	if err != nil {
 		t.Fatal(err)
 	}
-	text := string(workflow)
+	text := string(script)
 	for _, pattern := range []string{
 		`"^internal/provider/.*_resource\.go$"`,
 		`"^internal/provider/.*_data_source\.go$"`,
 	} {
 		if strings.Count(text, pattern) < 2 {
-			t.Fatalf("generated provider pattern %s must be both protected and allowed when its generator changes", pattern)
+			t.Fatalf("generated provider pattern %s must be both protected and allowed when its generator changes in check-no-generated-files.sh", pattern)
 		}
 	}
 }
