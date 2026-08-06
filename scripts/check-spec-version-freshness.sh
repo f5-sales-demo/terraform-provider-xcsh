@@ -11,7 +11,7 @@ if [ ! -f "$SPEC_VERSION_FILE" ]; then
   exit 1
 fi
 
-CURRENT_VERSION=$(tr -d '[:space:]' < "$SPEC_VERSION_FILE")
+CURRENT_VERSION=$(cat "$SPEC_VERSION_FILE" | tr -d '[:space:]')
 echo "Current pinned spec version: $CURRENT_VERSION"
 
 if command -v gh >/dev/null 2>&1; then

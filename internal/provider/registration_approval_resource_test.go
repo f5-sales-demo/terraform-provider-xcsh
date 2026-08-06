@@ -10,7 +10,8 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
-	"github.com/hashicorp/terraform-plugin-framework/types"
+	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
+	"github.com/hashicorp/terraform-plugin-go/tftypes"
 )
 
 func TestRegistrationApprovalResourceSchema(t *testing.T) {
@@ -63,12 +64,45 @@ func TestRegistrationApprovalIdempotency(t *testing.T) {
 	c := client.NewClient(server.URL, "test-token")
 	r := &RegistrationApprovalResource{client: c}
 
-	var data RegistrationApprovalResourceModel
-	data.Name = types.StringValue("test-site")
-	data.Namespace = types.StringValue("system")
+	schemaReq := resource.SchemaRequest{}
+	schemaResp := &resource.SchemaResponse{}
+	r.Schema(context.Background(), schemaReq, schemaResp)
 
-	// Verify client configuration
-	if r.client == nil {
-		t.Fatalf("Expected non-nil client")
+	planVal := tftypes.NewValue(tftypes.Object{
+		AttributeTypes: map[string]tftypes.Type{
+			"backup_connected_region": tftypes.String,
+			"connected_region":        tftypes.String,
+			"id":                      tftypes.String,
+			"name":                    tftypes.String,
+			"namespace":               tftypes.String,
+			"preferred_active_re":     tftypes.String,
+			"state":                   tftypes.String,
+		},
+	}, map[string]tftypes.Value{
+		"backup_connected_region": tftypes.NewValue(tftypes.String, nil),
+		"connected_region":        tftypes.NewValue(tftypes.String, nil),
+		"id":                      tftypes.NewValue(tftypes.String, nil),
+		"name":                    tftypes.NewValue(tftypes.String, "test-site"),
+		"namespace":               tftypes.NewValue(tftypes.String, "system"),
+		"preferred_active_re":     tftypes.NewValue(tftypes.String, nil),
+		"state":                   tftypes.NewValue(tftypes.String, nil),
+	})
+
+	req := resource.CreateRequest{
+		Plan: tfsdk.Plan{
+			Schema: schemaResp.Schema,
+			Raw:    planVal,
+		},
+	}
+	resp := resource.CreateResponse{
+		State: tfsdk.State{
+			Schema: schemaResp.Schema,
+		},
+	}
+
+	r.Create(context.Background(), req, &resp)
+
+	if resp.Diagnostics.HasError() {
+		t.Fatalf("Create returned unexpected diagnostics for idempotent 400: %v", resp.Diagnostics)
 	}
 }
