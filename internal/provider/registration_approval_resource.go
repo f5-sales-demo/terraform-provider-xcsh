@@ -189,8 +189,20 @@ func (r *RegistrationApprovalResource) Create(ctx context.Context, req resource.
 
 	actionPath := fmt.Sprintf("/api/register/namespaces/%s/registration/%s/approve", data.Namespace.ValueString(), data.Name.ValueString())
 	if err := r.client.Post(ctx, actionPath, body, nil); err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to perform RegistrationApproval action: %s", err))
-		return
+		errStr := err.Error()
+		if strings.Contains(errStr, "not in NEW state") || strings.Contains(errStr, "already approved") || strings.Contains(errStr, "APPROVED") {
+			var checkObj map[string]interface{}
+			if checkErr := r.client.GetLenient(ctx, sourcePath, &checkObj); checkErr == nil {
+				if currentState, ok := client.LookupNestedField(checkObj, "object.status.state", "status.state", "state"); ok && currentState == "APPROVED" {
+					tflog.Info(ctx, "Action target is already in APPROVED state, treating action as idempotent success")
+					err = nil
+				}
+			}
+		}
+		if err != nil {
+			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to perform RegistrationApproval action: %s", err))
+			return
+		}
 	}
 
 	data.ID = types.StringValue(data.Name.ValueString())
