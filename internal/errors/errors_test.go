@@ -249,6 +249,20 @@ func TestNewAPIError(t *testing.T) {
 	}
 }
 
+func TestNewAPIError_IncludesDetailsInErrorString(t *testing.T) {
+	jsonBody := []byte(`{
+		"code": "INVALID_ARGUMENT",
+		"message": "Validation failed",
+		"details": [
+			{"@type": "type.googleapis.com/ves.io.schema.ErrorDetail", "reason": "name is required", "domain": "ves.io"}
+		]
+	}`)
+	err := NewAPIError(400, jsonBody, "http_loadbalancer", "create")
+	if !strings.Contains(err.Error(), "name is required") {
+		t.Errorf("Expected err.Error() to contain 'name is required', got: %s", err.Error())
+	}
+}
+
 func TestNewNotFoundError(t *testing.T) {
 	err := NewNotFoundError("namespace", "test-ns", "system")
 

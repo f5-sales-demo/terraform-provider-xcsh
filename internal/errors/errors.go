@@ -62,6 +62,11 @@ func (e *XCSHError) Error() string {
 	if e.StatusCode != 0 {
 		fmt.Fprintf(&sb, " (status: %d)", e.StatusCode)
 	}
+	if details, ok := e.Details["api_details"]; ok {
+		fmt.Fprintf(&sb, " details: %v", details)
+	} else if raw, ok := e.Details["raw_response"]; ok {
+		fmt.Fprintf(&sb, " details: %v", raw)
+	}
 	if e.Wrapped != nil {
 		fmt.Fprintf(&sb, ": %v", e.Wrapped)
 	}

@@ -37,6 +37,10 @@ jobs:
   # ═══════════════════════════════════════════════════════════════════════════
   build-test:
     name: Build and Test
+    needs: [check-constitution]
+    if: |
+      always() &&
+      !contains(needs.check-constitution.result, 'failure')
     uses: ./.github/workflows/_build-test.yml
     with:
       run-lint: true
@@ -60,6 +64,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Check Spec Version Freshness (#1255)
+        run: |
+          bash scripts/check-spec-version-freshness.sh
 
       - name: Check for generated files (CLAUDE.md Rule 1)
         env:
