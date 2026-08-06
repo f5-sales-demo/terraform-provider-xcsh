@@ -80,12 +80,17 @@ NC='\033[0m' # No Color
 
 echo "🔍 Checking for generated files..."
 
-# Get list of staged files while preserving paths containing spaces. Use a
-# read loop rather than mapfile because macOS still ships Bash 3.2.
+# Get list of files to check (from CHANGED_FILES env var if set, else staged files)
 STAGED_FILES=()
-while IFS= read -r file; do
-  STAGED_FILES+=("$file")
-done < <(git diff --cached --name-only --diff-filter=ACM)
+if [ -n "$CHANGED_FILES" ]; then
+  for file in $CHANGED_FILES; do
+    STAGED_FILES+=("$file")
+  done
+else
+  while IFS= read -r file; do
+    [ -n "$file" ] && STAGED_FILES+=("$file")
+  done < <(git diff --cached --name-only --diff-filter=ACM)
+fi
 
 if [ ${#STAGED_FILES[@]} -eq 0 ]; then
   echo -e "${GREEN}✅ No files staged${NC}"

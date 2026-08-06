@@ -53,7 +53,6 @@ var AICategories = map[string]string{
 
 	// DNS
 	"dns_zone":              "DNS",
-	"dns_domain":            "DNS",
 	"dns_lb_pool":           "DNS",
 	"dns_lb_health_check":   "DNS",
 	"dns_compliance_checks": "DNS",
