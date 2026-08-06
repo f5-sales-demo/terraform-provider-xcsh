@@ -184,7 +184,7 @@ var resourceConfigs = map[string]string{
         api_server = "http://consul.example.com:8500"
       }
     }
-  }`,StartLine:187,TargetContent:
+  }`,
 
 	"dns_lb_health_check": `
   http {
