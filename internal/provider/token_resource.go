@@ -114,6 +114,7 @@ func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 			"uid": schema.StringAttribute{
 				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation.",
 				Computed:            true,
+				Sensitive:           true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},

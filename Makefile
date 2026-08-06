@@ -271,11 +271,11 @@ ci-build:
 ci-lint:
 	@echo "CI: Linting..."
 	$(GO) install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@$(GOLANGCI_LINT_VERSION)
-	$(GOLINT) run --timeout=5m ./internal/... .
+	$(GOLINT) run --timeout=5m ./internal/... . ./tools/...
 
 ci-test:
 	@echo "CI: Testing..."
-	$(GO) test -v -race ./internal/...
+	$(GO) test -v -race ./internal/... ./tools/...
 
 # Release preparation
 .PHONY: release-prep

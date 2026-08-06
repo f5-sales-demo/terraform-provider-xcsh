@@ -152,8 +152,8 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	// 3. Optional args alphabetically (annotations, labels)
 	// 4. Computed attributes (id first)
 
-	// DNS zone and DNS domain resources use domain names (with dots), not standard names
-	useDomainValidator := resourceName == "dns_zone" || resourceName == "dns_domain"
+	// DNS zone resource uses domain names (with dots), not standard names
+	useDomainValidator := resourceName == "dns_zone"
 	nameDescription := fmt.Sprintf("Name of the %s. Must be unique within the namespace.", naming.ToHumanReadableName(resourceName))
 	if useDomainValidator {
 		nameDescription = fmt.Sprintf("Domain name for the %s (e.g., example.com). Must be a valid DNS domain name.", naming.ToHumanReadableName(resourceName))
