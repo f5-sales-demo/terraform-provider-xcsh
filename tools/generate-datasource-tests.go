@@ -186,9 +186,6 @@ var resourceConfigs = map[string]string{
     }
   }`,
 
-	"dns_domain": `
-  dns_domain = "example.com"`,
-
 	"dns_lb_health_check": `
   http {
     path = "/"
