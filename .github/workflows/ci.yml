@@ -11,6 +11,7 @@ on:
     branches:
       - 'feature/**'
       - 'bugfix/**'
+      - 'fix/**'
       - 'refactor/**'
       - 'auto-generate/**'
       - 'auto-regenerate/**'
