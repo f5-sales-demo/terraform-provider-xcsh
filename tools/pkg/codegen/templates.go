@@ -1463,8 +1463,22 @@ func (r *{{.TitleCase}}Resource) Create(ctx context.Context, req resource.Create
 
 	actionPath := fmt.Sprintf("{{.ActionPath}}", data.Namespace.ValueString(), data.Name.ValueString())
 	if err := r.client.Post(ctx, actionPath, body, nil); err != nil {
-		resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to perform {{.TitleCase}} action: %s", err))
-		return
+		errStr := err.Error()
+		if strings.Contains(errStr, "not in NEW state") || strings.Contains(errStr, "already approved") || strings.Contains(errStr, "{{$.ActionState}}") {
+{{- if .ActionDerivedFields}}
+			var checkObj map[string]interface{}
+			if checkErr := r.client.GetLenient(ctx, sourcePath, &checkObj); checkErr == nil {
+				if currentState, ok := client.LookupNestedField(checkObj, "object.status.state", "status.state", "state"); ok && currentState == "{{$.ActionState}}" {
+					tflog.Info(ctx, "Action target is already in {{$.ActionState}} state, treating action as idempotent success")
+					err = nil
+				}
+			}
+{{- end}}
+		}
+		if err != nil {
+			resp.Diagnostics.AddError("Client Error", fmt.Sprintf("Unable to perform {{.TitleCase}} action: %s", err))
+			return
+		}
 	}
 
 	data.ID = types.StringValue(data.Name.ValueString())

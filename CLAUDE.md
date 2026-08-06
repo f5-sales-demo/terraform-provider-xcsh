@@ -13,6 +13,10 @@ This is an F5 sales-engineering fleet whose purpose is to **demonstrate the effi
 Files in `.claude/governance.json` are managed by docs-control. Make their changes through a
 detailed docs-control issue and let the managed-file workflow propagate the result.
 
+## Constitution Rules
+
+- **Rule 1: Never Commit Generated Files.** Do not manually edit generated schema files or resources under `internal/provider/` or `docs/`. Generator changes belong in generator templates under `tools/pkg/codegen/`. Let CI and generator scripts update generated artifacts.
+
 ## Workflow
 
 - **Start from current.** `git fetch --prune` and confirm the remote state before you plan, branch,

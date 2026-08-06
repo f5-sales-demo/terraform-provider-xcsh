@@ -194,7 +194,7 @@ func (r *RegistrationApprovalResource) Create(ctx context.Context, req resource.
 			var checkObj map[string]interface{}
 			if checkErr := r.client.GetLenient(ctx, sourcePath, &checkObj); checkErr == nil {
 				if currentState, ok := client.LookupNestedField(checkObj, "object.status.state", "status.state", "state"); ok && currentState == "APPROVED" {
-					tflog.Info(ctx, "Registration is already in APPROVED state, treating approve action as idempotent success")
+					tflog.Info(ctx, "Action target is already in APPROVED state, treating action as idempotent success")
 					err = nil
 				}
 			}
