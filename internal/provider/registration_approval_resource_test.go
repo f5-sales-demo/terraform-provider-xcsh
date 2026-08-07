@@ -37,6 +37,7 @@ func TestRegistrationApprovalResourceSchema(t *testing.T) {
 }
 
 func TestRegistrationApprovalIdempotency(t *testing.T) {
+	// Issue #1278: Ensure registration approval is idempotent
 	// Server responds with 400 'not in NEW state' on Post approve, but GET returns 'APPROVED' state.
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
