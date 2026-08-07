@@ -153,6 +153,10 @@ func tokenLikeSpec(resourceName string, withSystemMetadataUID bool) (*openapi.Sp
 			Type:       "object",
 			Properties: map[string]openapi.Schema{},
 		},
+		resourceName + "GetSpecType": {
+			Type:       "object",
+			Properties: map[string]openapi.Schema{},
+		},
 		"schemaSystemObjectGetMetaType": {
 			Type: "object",
 			Properties: map[string]openapi.Schema{
@@ -219,6 +223,39 @@ func TestExtractResourceSchema_ExposesUIDForToken(t *testing.T) {
 	}
 	if uid.GoName != "Uid" || uid.Type != "string" {
 		t.Errorf("uid GoName/Type = %q/%q, want Uid/string", uid.GoName, uid.Type)
+	}
+	if !uid.Sensitive {
+		t.Error("uid must be marked Sensitive for token")
+	}
+	if !strings.Contains(uid.Description, "plain text in the Terraform state file") {
+		t.Errorf("uid description must warn about state file storage, got %q", uid.Description)
+	}
+}
+
+func TestExtractReadOnlyResourceSchema_ExposesUIDForToken(t *testing.T) {
+	namespace.ClearProfiles()
+	defer namespace.ClearProfiles()
+
+	spec, extractAPIPath := tokenLikeSpec("token", true)
+	result, err := ExtractReadOnlyResourceSchema(spec, "token", extractAPIPath)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if !result.ExposeUID {
+		t.Error("DataSourceTemplate.ExposeUID should be true for token")
+	}
+	uid := findAttr(result.Attributes, "uid")
+	if uid == nil {
+		t.Fatal("uid attribute missing")
+	}
+	if !uid.Computed || uid.Required || uid.Optional {
+		t.Errorf("uid must be Computed-only, got Computed=%v Required=%v Optional=%v", uid.Computed, uid.Required, uid.Optional)
+	}
+	if !uid.Sensitive {
+		t.Error("uid must be marked Sensitive for token data source")
+	}
+	if !strings.Contains(uid.Description, "plain text in the Terraform state file") {
+		t.Errorf("uid description must warn about state file storage, got %q", uid.Description)
 	}
 }
 

@@ -225,10 +225,17 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	exposeUID := openapi.LoadExposeUID(naming.ToResourceTypeName(resourceName)) &&
 		ResponseHasSystemMetadataUID(spec, resourceName)
 	if exposeUID {
+		uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
+		uidSens := false
+		if naming.ToResourceTypeName(resourceName) == "Token" {
+			uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured."
+			uidSens = true
+		}
 		computedAttrs = append(computedAttrs, openapi.TerraformAttribute{
 			Name: "uid", GoName: "Uid", TfsdkTag: "uid", Type: "string",
-			Description:  "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation.",
+			Description:  uidDesc,
 			Computed:     true,
+			Sensitive:    uidSens,
 			PlanModifier: "UseStateForUnknown",
 			IsSpecField:  false,
 		})
@@ -684,6 +691,24 @@ func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extr
 			Description: "Annotations.", Computed: true},
 	}
 
+	exposeUID := openapi.LoadExposeUID(naming.ToResourceTypeName(resourceName)) &&
+		ResponseHasSystemMetadataUID(spec, resourceName)
+	if exposeUID {
+		uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
+		uidSens := false
+		if naming.ToResourceTypeName(resourceName) == "Token" {
+			uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured."
+			uidSens = true
+		}
+		computedMeta = append(computedMeta, openapi.TerraformAttribute{
+			Name: "uid", GoName: "Uid", TfsdkTag: "uid", Type: "string",
+			Description: uidDesc,
+			Computed:    true,
+			Sensitive:   uidSens,
+			IsSpecField: false,
+		})
+	}
+
 	var allAttrs []openapi.TerraformAttribute
 	allAttrs = append(allAttrs, metaAttrs...)
 	allAttrs = append(allAttrs, computedMeta...)
@@ -702,6 +727,7 @@ func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extr
 		Description:        resourceDescription,
 		Attributes:         allAttrs,
 		IsReadOnly:         true,
+		ExposeUID:          exposeUID,
 	}, nil
 }
 
