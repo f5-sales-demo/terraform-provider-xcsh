@@ -96,7 +96,7 @@ test:
 # Run linters
 lint:
 	@echo "Running linters..."
-	$(GOLINT) run --timeout=5m ./internal/... .
+	$(GOLINT) run --timeout=5m ./internal/... . ./tools/...
 
 # Format code
 fmt:
