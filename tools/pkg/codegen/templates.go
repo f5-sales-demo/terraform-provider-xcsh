@@ -111,6 +111,9 @@ func (r *{{.TitleCase}}Resource) Schema(ctx context.Context, req resource.Schema
 {{- if .Computed}}
 				Computed: true,
 {{- end}}
+{{- if .Sensitive}}
+				Sensitive: true,
+{{- end}}
 {{- if ne .StringDefault ""}}
 				Default: stringdefault.StaticString("{{.StringDefault}}"),
 {{- end}}
@@ -1017,6 +1020,9 @@ func (d *{{.TitleCase}}DataSource) Schema(ctx context.Context, req datasource.Sc
 			"uid": schema.StringAttribute{
 				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).",
 				Computed:            true,
+{{- if eq .TitleCase "Token"}}
+				Sensitive:           true,
+{{- end}}
 			},
 {{- end}}
 		},
@@ -1180,6 +1186,9 @@ func (d *{{.TitleCase}}DataSource) Schema(ctx context.Context, req datasource.Sc
 			"{{.TfsdkTag}}": schema.StringAttribute{
 				MarkdownDescription: "{{.Description}}",
 				Computed:            true,
+{{- if .Sensitive}}
+				Sensitive:           true,
+{{- end}}
 			},
 {{- end}}{{end}}
 		},

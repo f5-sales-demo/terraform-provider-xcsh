@@ -74,6 +74,7 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 			"uid": schema.StringAttribute{
 				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).",
 				Computed:            true,
+				Sensitive:           true,
 			},
 		},
 	}
