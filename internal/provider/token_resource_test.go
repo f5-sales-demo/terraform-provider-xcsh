@@ -28,7 +28,8 @@ func TestMockTokenResource_basic(t *testing.T) {
 				}
 
 				output "test_token" {
-					value = xcsh_token.test.uid
+					value     = xcsh_token.test.uid
+					sensitive = true
 				}
 				`,
 				ConfigPlanChecks: resource.ConfigPlanChecks{
