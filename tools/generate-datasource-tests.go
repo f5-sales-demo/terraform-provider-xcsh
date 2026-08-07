@@ -44,8 +44,8 @@ type ResourceConfig struct {
 // Key is the resource name (without xcsh_ prefix)
 var resourceConfigs = map[string]string{
 	// Simple resources - just name/namespace
-	"alert_policy":              "",
-	"allowed_tenant":            "",
+	"alert_policy": "",
+
 	"api_crawler":               "",
 	"api_definition":            "",
 	"api_discovery":             "",
@@ -66,12 +66,11 @@ var resourceConfigs = map[string]string{
 	"namespace":                 "",
 	"rate_limiter":              "",
 	"rate_limiter_policy":       "",
-	"secret_policy":             "",
-	"sensitive_data_policy":     "",
-	"tpm_manager":               "",
-	"trusted_ca_list":           "",
-	"virtual_k8s":               "",
-	"voltshare_admin_policy":    "",
+
+	"sensitive_data_policy": "",
+
+	"trusted_ca_list": "",
+	"virtual_k8s":     "",
 
 	// Resources with required fields
 	"address_allocator": `
@@ -85,10 +84,6 @@ var resourceConfigs = map[string]string{
   email {
     email = "test@example.com"
   }`,
-
-	"api_credential": `
-  api_credential_type = "API_TOKEN"
-  expiration_days     = 30`,
 
 	"app_setting": `
   app_type_refs {
@@ -137,9 +132,6 @@ var resourceConfigs = map[string]string{
     }
   }`,
 
-	"bigip_irule": `
-  when_http_request = "HTTP::respond 200 content \"OK\""`,
-
 	"certificate": `
   certificate_url = "string:///LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNxRENDQVpBQ0NRQ21SN0dCREN4dXRqQU5CZ2txaGtpRzl3MEJBUXNGQURBV01SUXdFZ1lEVlFRRERBdDAKWlhOMExXTmxjblF1WTI5dE1CNFhEVEkxTURFeE1UQXdNREF3TUZvWERUSTJNREV4TVRBd01EQXdNRm93RmpFVQpNQklHQTFVRUF3d0xkR1Z6ZEMxalpYSjBMbU52YlRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDCkFRb0NnZ0VCQU1wQklYdVhJcmZJT1ZoQndxWnBKNXZsRlk4cEtndnhOdHQ4elEyRWtLVmhmMk1mOXc4bE5RdTIKK3FkZm5YNW5YRUZXS2dhVnpqYUZGZHFOZ0xHaUlRaWQvWVcwa0dDd3RHZURlMGE4OFg1UW5oeTRHdkdHdEhyVgp6V3ZoTlVHaXJSSnJiOGUwemxQdWxGeTA2dEl4ZUdBb1FXT09KU0p1NUtsOWJJenFYZ0hHZG9LWXd0VG9ERzc5CnFXN3VZNGZNVnhSM2dBYm5CSk84eGxMR3dQNndpSU5PQTJObFNUc1g5TmliOHR3b0NuSnpQMm1wOGFOd1VYZWsKNHBiZW1HZ2dxY2ZBM0ROaXNmRUNhLy9SRzFYZlFrNjI1WGtrb3h5UlBuaG9JSU5kVmFhY0RRTDVYZU16akRuRwphaUZaaGZCQWJHWlB3dk1MRnVEN3JPYWllRGRGckZjQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBCmdEZjVPMk1DT0JCRURQZnFkRnpiMjBLUm9nNUp3bmNHcklwSVQwQmc1S0M5VElQRDUxdkJtY2w0ZWZxT3Q2TWkKT0lSeEFKa3JvTFFIRW5xMnBCdkxVM0dwT1IxQ1V1STYvRnBmb2toaFlEN1lsSnR4RE9mZW9JT0NOTk0rMXgyaApmTXY1NHVhV0V4R3dwQnVQL1M1dVZ6TU95aVVFcklXejIyUFpsZndIS3ZhdGNuclFBTjhLNmpvMUp1dkc4RmdsCk1VcjNVa3VMWEVYMHBNd1p0WWVoUjJVYlN0ZEVVT1puSTdFalp5TTU5WndFVmRrK1NWYmRVNjQzOEdYVHlDRjcKeGxRTjk3YmZOUnBkZG5JYWpyYU52SXJrclBYVnhERXhDOEo4NzQzRE9ZenZ2bTZNVW1vZW9ML3FuRVRiTGV5RApqQjJWS0MxTi9NeEFjUUdGOWRueHpBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
   private_key {
@@ -150,9 +142,6 @@ var resourceConfigs = map[string]string{
 
 	"certificate_chain": `
   certificate_url = "string:///LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNxRENDQVpBQ0NRQ21SN0dCREN4dXRqQU5CZ2txaGtpRzl3MEJBUXNGQURBV01SUXdFZ1lEVlFRRERBdDAKWlhOMExXTmxjblF1WTI5dE1CNFhEVEkxTURFeE1UQXdNREF3TUZvWERUSTJNREV4TVRBd01EQXdNRm93RmpFVQpNQklHQTFVRUF3d0xkR1Z6ZEMxalpYSjBMbU52YlRDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDCkFRb0NnZ0VCQU1wQklYdVhJcmZJT1ZoQndxWnBKNXZsRlk4cEtndnhOdHQ4elEyRWtLVmhmMk1mOXc4bE5RdTIKK3FkZm5YNW5YRUZXS2dhVnpqYUZGZHFOZ0xHaUlRaWQvWVcwa0dDd3RHZURlMGE4OFg1UW5oeTRHdkdHdEhyVgp6V3ZoTlVHaXJSSnJiOGUwemxQdWxGeTA2dEl4ZUdBb1FXT09KU0p1NUtsOWJJenFYZ0hHZG9LWXd0VG9ERzc5CnFXN3VZNGZNVnhSM2dBYm5CSk84eGxMR3dQNndpSU5PQTJObFNUc1g5TmliOHR3b0NuSnpQMm1wOGFOd1VYZWsKNHBiZW1HZ2dxY2ZBM0ROaXNmRUNhLy9SRzFYZlFrNjI1WGtrb3h5UlBuaG9JSU5kVmFhY0RRTDVYZU16akRuRwphaUZaaGZCQWJHWlB3dk1MRnVEN3JPYWllRGRGckZjQ0F3RUFBVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBCmdEZjVPMk1DT0JCRURQZnFkRnpiMjBLUm9nNUp3bmNHcklwSVQwQmc1S0M5VElQRDUxdkJtY2w0ZWZxT3Q2TWkKT0lSeEFKa3JvTFFIRW5xMnBCdkxVM0dwT1IxQ1V1STYvRnBmb2toaFlEN1lsSnR4RE9mZW9JT0NOTk0rMXgyaApmTXY1NHVhV0V4R3dwQnVQL1M1dVZ6TU95aVVFcklXejIyUFpsZndIS3ZhdGNuclFBTjhLNmpvMUp1dkc4RmdsCk1VcjNVa3VMWEVYMHBNd1p0WWVoUjJVYlN0ZEVVT1puSTdFalp5TTU5WndFVmRrK1NWYmRVNjQzOEdYVHlDRjcKeGxRTjk3YmZOUnBkZG5JYWpyYU52SXJrclBYVnhERXhDOEo4NzQzRE9ZenZ2bTZNVW1vZW9ML3FuRVRiTGV5RApqQjJWS0MxTi9NeEFjUUdGOWRueHpBPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="`,
-
-	"contact": `
-  email = "test@example.com"`,
 
 	"container_registry": `
   registry          = "registry.example.com"
@@ -307,12 +296,6 @@ var resourceConfigs = map[string]string{
     description_spec = "Test prefix"
   }`,
 
-	"known_label": `
-  key = "test-key"`,
-
-	"known_label_key": `
-  description = "Test label key"`,
-
 	"log_receiver": `
   http_receiver {
     uri = "https://logs.example.com/receive"
@@ -416,10 +399,6 @@ var resourceConfigs = map[string]string{
     }
   }`,
 
-	"oidc_provider": `
-  issuer   = "https://issuer.example.com"
-  jwks_url = "https://issuer.example.com/.well-known/jwks.json"`,
-
 	"origin_pool": `
   port = 443
   origin_servers {
@@ -465,15 +444,6 @@ var resourceConfigs = map[string]string{
 	"proxy": `
   proxy_url = "http://proxy.example.com:8080"`,
 
-	"report_config": `
-  report_type = "SECURITY_EVENTS"`,
-
-	"secret_policy_rule": `
-  action      = "ALLOW"
-  label_selector {
-    expressions = ["key1=value1"]
-  }`,
-
 	"service_policy": `
   allow_all_requests {}
   any_server {}`,
@@ -493,32 +463,8 @@ var resourceConfigs = map[string]string{
     }
   }`,
 
-	"ticket_tracking_system": `
-  jira {
-    url = "https://jira.example.com"
-    credentials {
-      email = "test@example.com"
-      token {
-        clear_secret_info {
-          url = "string:///dGVzdC10b2tlbg=="
-        }
-      }
-    }
-    project_key = "TEST"
-  }`,
-
 	"token": `
   type = "JWT"`,
-
-	"tpm_api_key": `
-  api_key {
-    clear_secret_info {
-      url = "string:///dGVzdC1hcGkta2V5"
-    }
-  }`,
-
-	"tpm_category": `
-  category_type = "CUSTOM"`,
 
 	"udp_loadbalancer": `
   domains     = ["%[1]s.example.com"]
@@ -568,30 +514,30 @@ var resourceConfigs = map[string]string{
 
 // Resources to skip (FORBIDDEN errors, special permissions required)
 var skipResources = map[string]string{
-	"addon_subscription":             "Requires special addon permissions",
-	"address_allocator":              "API returns BAD_REQUEST - requires specific infrastructure",
-	"apm":                            "Requires APM subscription",
+
+	"address_allocator": "API returns BAD_REQUEST - requires specific infrastructure",
+
 	"bot_defense_app_infrastructure": "Requires Bot Defense subscription",
-	"child_tenant":                   "Requires tenant management permissions",
-	"cloud_credentials":              "Requires system-level namespace access",
-	"cminstance":                     "Requires CM instance management permissions",
-	"customer_support":               "Requires special support permissions",
-	"forwarding_class":               "Requires tenant quota configuration",
-	"managed_tenant":                 "Requires tenant management permissions",
-	"protocol_inspection":            "Resource test has schema mismatch - needs fixing",
-	"protocol_policer":               "Resource test has schema mismatch - needs fixing",
-	"quota":                          "Requires system admin permissions",
-	"registration":                   "Requires site registration permissions",
-	"role":                           "Requires IAM permissions",
-	"site_mesh_group":                "API returns 500 errors",
-	"route":                          "API returns 500 errors",
-	"tenant_configuration":           "API returns 500 errors",
-	"tenant_profile":                 "API returns 501 errors",
-	"token":                          "Resource test has schema mismatch - needs fixing",
-	"tpm_category":                   "Resource test has schema mismatch - needs fixing",
-	"udp_loadbalancer":               "Requires system namespace template with dependencies - needs template fix",
-	"usb_policy":                     "Resource test fails - API returns BAD_REQUEST",
-	"waf_exclusion_policy":           "No resource test exists - config unknown",
+
+	"cloud_credentials": "Requires system-level namespace access",
+	"cminstance":        "Requires CM instance management permissions",
+
+	"forwarding_class": "Requires tenant quota configuration",
+
+	"protocol_inspection": "Resource test has schema mismatch - needs fixing",
+	"protocol_policer":    "Resource test has schema mismatch - needs fixing",
+
+	"registration": "Requires site registration permissions",
+
+	"site_mesh_group":      "API returns 500 errors",
+	"route":                "API returns 500 errors",
+	"tenant_configuration": "API returns 500 errors",
+
+	"token": "Resource test has schema mismatch - needs fixing",
+
+	"udp_loadbalancer":     "Requires system namespace template with dependencies - needs template fix",
+	"usb_policy":           "Resource test fails - API returns BAD_REQUEST",
+	"waf_exclusion_policy": "No resource test exists - config unknown",
 }
 
 // Resources that need special dependencies in the config
