@@ -7,8 +7,9 @@ description: |-
   such as Bot Defense, client-side Defense, and other security features. This data
   source allows you to query addon service details including tier requirements and
   activation type.
-  ~> Note: Addon services cannot be created or modified via Terraform. Use the
-  xcsh_addon_subscription resource to subscribe to an addon service.
+  ~> Note: Addon services cannot be created or modified via Terraform. To activate
+  or subscribe to an addon service, please use the F5 Distributed Cloud Console or
+  contact your account team.
 ---
 
 # xcsh_addon_service (Data Source)
@@ -20,8 +21,9 @@ such as Bot Defense, client-side Defense, and other security features. This data
 source allows you to query addon service details including tier requirements and
 activation type.
 
-~> **Note:** Addon services cannot be created or modified via Terraform. Use the
-`xcsh_addon_subscription` resource to subscribe to an addon service.
+~> **Note:** Addon services cannot be created or modified via Terraform. To activate
+or subscribe to an addon service, please use the F5 Distributed Cloud Console or
+contact your account team.
 
 ~> **Note** For more information about this data source, please refer to the [F5 XC API Documentation](https://docs.cloud.f5.com/docs/api/).
 
