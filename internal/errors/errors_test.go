@@ -480,3 +480,191 @@ func TestErrorCodeConstants(t *testing.T) {
 		seen[code] = true
 	}
 }
+
+func TestSafeAPIDiagnostics_DeterministicOrderingAndStructuredDetails(t *testing.T) {
+	err := &XCSHError{
+		Code:    ErrCodeBadRequest,
+		Message: "Invalid input",
+		Details: map[string]interface{}{
+			"api_details": []APIErrorDetail{
+				{Domain: "domainB", Reason: "reasonB"},
+				{Domain: "domainA", Reason: "reasonA"},
+				{Domain: "domainC", Reason: "reasonC"},
+			},
+		},
+	}
+	output := err.Error()
+	expectedSub := "[domainB: reasonB] [domainA: reasonA] [domainC: reasonC]"
+	if !strings.Contains(output, expectedSub) {
+		t.Errorf("expected deterministic ordering %q in output, got: %s", expectedSub, output)
+	}
+}
+
+func TestSafeAPIDiagnostics_AbsentMessages(t *testing.T) {
+	err := &XCSHError{
+		Code: ErrCodeServerError,
+	}
+	output := err.Error()
+	if strings.Contains(output, "details:") {
+		t.Errorf("did not expect details: tag for empty details")
+	}
+	if strings.Contains(output, "[]") {
+		t.Errorf("did not expect empty brackets")
+	}
+}
+
+func TestSafeAPIDiagnostics_CappingLimitsAndUTF8Splitting(t *testing.T) {
+	// A single UTF-8 character that is 3 bytes long
+	multiByte := "🔥"
+	longDomain := strings.Repeat("A", 255) + multiByte // 258 bytes
+	err := &XCSHError{
+		Code:    ErrCodeBadRequest,
+		Message: "Invalid input",
+		Details: map[string]interface{}{
+			"api_details": []APIErrorDetail{
+				{Domain: longDomain, Reason: "reason"},
+			},
+		},
+	}
+	output := err.Error()
+	// Domain should be truncated to 256 bytes.
+	// 255 A's + 1 byte of the 3-byte emoji would split it.
+	// The truncator should backtrack to 255 A's.
+	if strings.Contains(output, multiByte) {
+		t.Errorf("expected multi-byte character to be truncated")
+	}
+	if strings.Contains(output, "\ufffd") {
+		t.Errorf("expected no replacement characters from bad UTF-8 slicing")
+	}
+
+	// Test 1024 cap
+	longRaw := strings.Repeat("B", 1023) + multiByte
+	err2 := &XCSHError{
+		Code:    ErrCodeBadRequest,
+		Message: "Invalid input",
+		Details: map[string]interface{}{
+			"raw_response": longRaw,
+		},
+	}
+	output2 := err2.Error()
+	detailsIndex := strings.Index(output2, "details: ")
+	if detailsIndex == -1 {
+		t.Fatalf("expected details in output")
+	}
+	detailsStr := output2[detailsIndex+len("details: "):]
+	if len(detailsStr) > 1024 {
+		t.Errorf("expected details to be capped at 1024 bytes, got %d", len(detailsStr))
+	}
+	if strings.Contains(detailsStr, multiByte) {
+		t.Errorf("expected multi-byte character to be truncated at 1024 cap")
+	}
+}
+
+func TestSafeAPIDiagnostics_NormalizationAndControlCharacterRemoval(t *testing.T) {
+	err := &XCSHError{
+		Code:    ErrCodeBadRequest,
+		Message: "Bad",
+		Details: map[string]interface{}{
+			"raw_response": "line1\r\n\tline2\x00\x1b\xff end",
+		},
+	}
+	output := err.Error()
+	if strings.Contains(output, "\n") || strings.Contains(output, "\t") || strings.Contains(output, "\r") {
+		t.Errorf("expected whitespace to be normalized")
+	}
+	if strings.Contains(output, "\x00") || strings.Contains(output, "\x1b") {
+		t.Errorf("expected control characters to be removed")
+	}
+	if strings.Contains(output, "\xff") {
+		t.Errorf("expected invalid utf-8 to be removed")
+	}
+	expectedEnd := "line1 line2 end"
+	if !strings.Contains(output, expectedEnd) {
+		t.Errorf("expected normalized string %q, got: %s", expectedEnd, output)
+	}
+}
+
+func TestSafeAPIDiagnostics_RedactionClasses(t *testing.T) {
+	const secretSentinel = "S3CR3T_S3NT1N3L"
+	payloads := []string{
+		"Authorization: Bearer " + secretSentinel,
+		"api_key=" + secretSentinel,
+		"password : " + secretSentinel,
+		"cookie=session=" + secretSentinel,
+		"-----BEGIN PRIVATE KEY-----\n" + secretSentinel + "\n-----END PRIVATE KEY-----",
+		"{\"api_key\": \"" + secretSentinel + "\"}",
+		"password='" + secretSentinel + "'",
+		"Authorization: \"Bearer " + secretSentinel + "\"",
+	}
+
+	for _, payload := range payloads {
+		t.Run(payload[:10], func(t *testing.T) {
+			err := &XCSHError{
+				Code:    ErrCodeBadRequest,
+				Message: "Bad",
+				Details: map[string]interface{}{
+					"raw_response": payload,
+				},
+			}
+			output := err.Error()
+			if strings.Contains(output, secretSentinel) {
+				t.Errorf("failed to redact secret sentinel in payload: %s\nOutput: %s", payload, output)
+			}
+			if !strings.Contains(output, "[REDACTED") {
+				t.Errorf("expected redaction marker in output: %s", output)
+			}
+		})
+	}
+}
+
+func TestSafeAPIDiagnostics_RedactionPreTruncation(t *testing.T) {
+	// A secret that gets split exactly at the 256 byte mark
+	const secretSentinel = "S3CR3T_S3NT1N3L"
+
+	// Create a string that puts the secret right at the truncation boundary
+	// dReason is truncated at 256.
+	padding := strings.Repeat("A", 250)
+	payload := padding + "api_key=" + secretSentinel
+
+	err := &XCSHError{
+		Code:    ErrCodeBadRequest,
+		Message: "Bad request",
+		Details: map[string]interface{}{
+			"api_details": []APIErrorDetail{
+				{Domain: "xcsh.io", Reason: payload},
+			},
+		},
+	}
+	output := err.Error()
+	if strings.Contains(output, secretSentinel) {
+		t.Errorf("failed to redact secret near truncation boundary. Output: %s", output)
+	}
+	// We don't check for [REDACTED] because the marker itself gets truncated.
+}
+
+func TestSafeAPIDiagnostics_CreateDiagnosticFinalOutput(t *testing.T) {
+	const secretSentinel = "S3CR3T_S3NT1N3L"
+	err := &XCSHError{
+		Code:    ErrCodeBadRequest,
+		Message: "Bad request with secrets",
+		Details: map[string]interface{}{
+			"raw_response": "Bearer " + secretSentinel + " \x00\x1b\xff \r\n end",
+		},
+	}
+
+	diags := CreateDiagnostic("Creating", "Resource", err)
+	if !diags.HasError() {
+		t.Fatalf("expected errors")
+	}
+	diagMsg := diags.Errors()[0].Detail()
+
+	if strings.Contains(diagMsg, secretSentinel) {
+		t.Errorf("secret sentinel leaked to CreateDiagnostic output")
+	}
+	if strings.Contains(diagMsg, "\x00") || strings.Contains(diagMsg, "\n") {
+		t.Errorf("control characters or newlines leaked to CreateDiagnostic output")
+	}
+	if !strings.Contains(diagMsg, "[REDACTED]") {
+		t.Errorf("expected redaction marker in CreateDiagnostic output")
+	}
+}
