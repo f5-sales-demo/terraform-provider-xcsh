@@ -533,13 +533,6 @@ func (s *Server) applyResourceDefaults(spec map[string]interface{}, resourceType
 // validateResourceName validates the resource name based on resource type
 // Returns an error if the name is invalid for the resource type
 func (s *Server) validateResourceName(resourceType, name string) error {
-	switch resourceType {
-	case "dns_domains":
-		// DNS domains must be valid domain names (contain at least one dot)
-		if !isValidDomainName(name) {
-			return fmt.Errorf("invalid domain name: %s - must be a valid DNS domain", name)
-		}
-	}
 	return nil
 }
 
