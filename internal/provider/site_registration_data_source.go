@@ -75,6 +75,7 @@ type SiteRegistrationDataSourceModel struct {
 	ClusterName  types.String `tfsdk:"cluster_name"`
 	ClusterSize  types.Int64  `tfsdk:"cluster_size"`
 	ProviderType types.String `tfsdk:"provider_type"`
+	InstanceID   types.String `tfsdk:"instance_id"`
 }
 
 func (d *SiteRegistrationDataSource) Metadata(ctx context.Context, req datasource.MetadataRequest, resp *datasource.MetadataResponse) {
@@ -158,6 +159,10 @@ resource "xcsh_registration_approval" "ce" {
 			},
 			"provider_type": schema.StringAttribute{
 				MarkdownDescription: "Infrastructure provider the CE reported, e.g. `AZURE`, `AWS`, `GCP`, `VMWARE`.",
+				Computed:            true,
+			},
+			"instance_id": schema.StringAttribute{
+				MarkdownDescription: "Instance ID of the infrastructure node reported by the CE in `get_spec.infra.instance_id`.",
 				Computed:            true,
 			},
 		},
@@ -295,6 +300,7 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 		data.ClusterName = types.StringNull()
 		data.ClusterSize = types.Int64Null()
 		data.ProviderType = types.StringNull()
+		data.InstanceID = types.StringNull()
 		resp.Diagnostics.Append(resp.State.Set(ctx, &data)...)
 		return
 	}
@@ -315,6 +321,7 @@ func (d *SiteRegistrationDataSource) Read(ctx context.Context, req datasource.Re
 	data.ClusterName = stringOrNull(match.GetSpec.Passport.ClusterName)
 	data.ClusterSize = int64OrNull(match.GetSpec.Passport.ClusterSize)
 	data.ProviderType = stringOrNull(match.GetSpec.Infra.Provider)
+	data.InstanceID = stringOrNull(match.GetSpec.Infra.InstanceID)
 	if data.Hostname.IsNull() {
 		data.Hostname = stringOrNull(match.GetSpec.Infra.Hostname)
 	}
