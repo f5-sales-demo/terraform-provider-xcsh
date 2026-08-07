@@ -1018,7 +1018,7 @@ func (d *{{.TitleCase}}DataSource) Schema(ctx context.Context, req datasource.Sc
 			},
 {{- if .ExposeUID}}
 			"uid": schema.StringAttribute{
-				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).",
+				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).{{- if eq .TitleCase "Token"}} For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured.{{- end}}",
 				Computed:            true,
 {{- if eq .TitleCase "Token"}}
 				Sensitive:           true,

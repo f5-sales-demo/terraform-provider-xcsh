@@ -72,7 +72,7 @@ func (d *TokenDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 				ElementType:         types.StringType,
 			},
 			"uid": schema.StringAttribute{
-				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid).",
+				MarkdownDescription: "Server-generated unique identifier (system_metadata.uid). For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured.",
 				Computed:            true,
 				Sensitive:           true,
 			},
