@@ -8,7 +8,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"regexp"
 	"strings"
+	"unicode/utf8"
 
 	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"golang.org/x/text/cases"
@@ -62,11 +64,31 @@ func (e *XCSHError) Error() string {
 	if e.StatusCode != 0 {
 		fmt.Fprintf(&sb, " (status: %d)", e.StatusCode)
 	}
-	if details, ok := e.Details["api_details"]; ok {
-		fmt.Fprintf(&sb, " details: %v", details)
-	} else if raw, ok := e.Details["raw_response"]; ok {
-		fmt.Fprintf(&sb, " details: %v", raw)
+
+	if apiCode, ok := e.Details["api_code"]; ok {
+		fmt.Fprintf(&sb, " [api_code: %v]", apiCode)
 	}
+
+	var detailStr string
+	if details, ok := e.Details["api_details"].([]APIErrorDetail); ok && len(details) > 0 {
+		var parts []string
+		for _, d := range details {
+			dReason := redactSensitive(sanitizeText(d.Reason))
+			dDomain := redactSensitive(sanitizeText(d.Domain))
+			dReason = truncateUTF8(dReason, 256)
+			dDomain = truncateUTF8(dDomain, 256)
+			parts = append(parts, fmt.Sprintf("[%s: %s]", dDomain, dReason))
+		}
+		detailStr = strings.Join(parts, " ")
+	} else if raw, ok := e.Details["raw_response"].(string); ok {
+		detailStr = redactSensitive(sanitizeText(raw))
+	}
+
+	if detailStr != "" {
+		cappedStr := truncateUTF8(detailStr, 1024)
+		fmt.Fprintf(&sb, " details: %s", cappedStr)
+	}
+
 	if e.Wrapped != nil {
 		fmt.Fprintf(&sb, ": %v", e.Wrapped)
 	}
@@ -94,15 +116,18 @@ func (e *XCSHError) IsNotFound() bool {
 	return e.Code == ErrCodeNotFound
 }
 
+// APIErrorDetail represents a single detail object in an API error response
+type APIErrorDetail struct {
+	Type   string `json:"@type"`
+	Reason string `json:"reason"`
+	Domain string `json:"domain"`
+}
+
 // APIErrorResponse represents the F5 XC API error response structure
 type APIErrorResponse struct {
-	Code    string `json:"code"`
-	Message string `json:"message"`
-	Details []struct {
-		Type   string `json:"@type"`
-		Reason string `json:"reason"`
-		Domain string `json:"domain"`
-	} `json:"details"`
+	Code    string           `json:"code"`
+	Message string           `json:"message"`
+	Details []APIErrorDetail `json:"details"`
 }
 
 // NewAPIError creates an error from an API response
@@ -269,4 +294,54 @@ func WrapError(err error, resource, operation string) *XCSHError {
 		Operation: operation,
 		Wrapped:   err,
 	}
+}
+
+var (
+	// Redaction patterns
+	bearerPattern = regexp.MustCompile(`(?i)(bearer|authorization)(["']?\s*[:=]\s*["']?|[\s:=]+["']?)([^\s"']{10,})["']?`)
+	kvPattern     = regexp.MustCompile(`(?i)(token|api_?key|password|cookie|secret)(["']?\s*[:=]\s*["']?|[\s:=]+["']?)([^\s"']{5,})["']?`)
+	pemPattern    = regexp.MustCompile(`(?s)-----BEGIN.*?-----[\s\S]*?-----END.*?-----`)
+)
+
+func sanitizeText(s string) string {
+	var sb strings.Builder
+	sb.Grow(len(s))
+	for i, w := 0, 0; i < len(s); i += w {
+		r, width := utf8.DecodeRuneInString(s[i:])
+		w = width
+		if r == utf8.RuneError {
+			continue
+		}
+		if r == '\n' || r == '\r' || r == '\t' || r == ' ' {
+			if sb.Len() == 0 || sb.String()[sb.Len()-1] != ' ' {
+				sb.WriteRune(' ')
+			}
+			continue
+		}
+		if r < 32 || r == 127 {
+			continue
+		}
+		sb.WriteRune(r)
+	}
+	return strings.TrimSpace(sb.String())
+}
+
+func truncateUTF8(s string, maxBytes int) string {
+	if len(s) <= maxBytes {
+		return s
+	}
+	// Walk back from maxBytes to find valid rune boundary
+	for i := maxBytes; i > 0; i-- {
+		if utf8.RuneStart(s[i]) {
+			return s[:i]
+		}
+	}
+	return ""
+}
+
+func redactSensitive(s string) string {
+	s = bearerPattern.ReplaceAllString(s, "${1}${2}[REDACTED]")
+	s = kvPattern.ReplaceAllString(s, "${1}${2}[REDACTED]")
+	s = pemPattern.ReplaceAllString(s, "[REDACTED_PEM]")
+	return s
 }
