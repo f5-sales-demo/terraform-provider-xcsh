@@ -293,3 +293,43 @@ func (v etldPlusOneValidator) ValidateString(ctx context.Context, req validator.
 		)
 	}
 }
+
+// IntRange represents an inclusive [Min, Max] integer range
+type IntRange struct {
+	Min int64
+	Max int64
+}
+
+// Int64RangesValidator returns a validator for int64 attributes that must fall within one of the allowed ranges
+func Int64RangesValidator(ranges ...IntRange) validator.Int64 {
+	return &int64RangesValidator{ranges: ranges}
+}
+
+type int64RangesValidator struct {
+	ranges []IntRange
+}
+
+func (v int64RangesValidator) Description(ctx context.Context) string {
+	return "value must fall within one of the allowed integer ranges"
+}
+
+func (v int64RangesValidator) MarkdownDescription(ctx context.Context) string {
+	return "value must fall within one of the allowed integer ranges"
+}
+
+func (v int64RangesValidator) ValidateInt64(ctx context.Context, req validator.Int64Request, resp *validator.Int64Response) {
+	if req.ConfigValue.IsNull() || req.ConfigValue.IsUnknown() {
+		return
+	}
+	val := req.ConfigValue.ValueInt64()
+	for _, r := range v.ranges {
+		if val >= r.Min && val <= r.Max {
+			return
+		}
+	}
+	resp.Diagnostics.AddAttributeError(
+		req.Path,
+		"Invalid Attribute Value",
+		fmt.Sprintf("Value %d is not in any allowed integer range.", val),
+	)
+}
