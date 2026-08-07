@@ -121,7 +121,7 @@ func (d *AddonServiceActivationStatusDataSource) Read(ctx context.Context, req d
 	switch state {
 	case "AS_NONE":
 		data.CanActivate = types.BoolValue(true)
-		data.Message = types.StringValue("Addon service is available for activation. Create an addon_subscription to activate.")
+		data.Message = types.StringValue("Addon service is available for activation. Please use the F5 Distributed Cloud Console or contact your account team to activate.")
 	case "AS_PENDING":
 		data.CanActivate = types.BoolValue(false)
 		data.Message = types.StringValue("Addon service activation is pending. Wait for the subscription to be enabled.")

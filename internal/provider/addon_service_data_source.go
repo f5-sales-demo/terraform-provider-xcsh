@@ -53,8 +53,9 @@ such as Bot Defense, Client Side Defense, and other security features. This data
 source allows you to query addon service details including tier requirements and
 activation type.
 
-~> **Note:** Addon services cannot be created or modified via Terraform. Use the
-` + "`xcsh_addon_subscription`" + ` resource to subscribe to an addon service.`,
+~> **Note:** Addon services cannot be created or modified via Terraform. To activate
+or subscribe to an addon service, please use the F5 Distributed Cloud Console or
+contact your account team.`,
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
 				MarkdownDescription: "Unique identifier for the data source.",
