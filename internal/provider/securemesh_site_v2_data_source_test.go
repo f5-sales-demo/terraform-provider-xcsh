@@ -12,7 +12,6 @@ import (
 )
 
 func TestAccSecuremeshSiteV2DataSource_basic(t *testing.T) {
-	t.Skip("Skipping: requires physical/cloud site infrastructure and registration token")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -21,7 +20,7 @@ func TestAccSecuremeshSiteV2DataSource_basic(t *testing.T) {
 	resourceName := "xcsh_securemesh_site_v2.test"
 	dataSourceName := "data.xcsh_securemesh_site_v2.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	testCase := resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
 		ExternalProviders: map[string]resource.ExternalProvider{
@@ -37,6 +36,10 @@ func TestAccSecuremeshSiteV2DataSource_basic(t *testing.T) {
 				),
 			},
 		},
+	}
+
+	acctest.RunWithMockOrReal(t, testCase, func(mockCfg *acctest.MockTestConfig) {
+		mockCfg.SetupNamespaceMock(nsName)
 	})
 }
 
