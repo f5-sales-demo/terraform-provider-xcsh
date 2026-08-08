@@ -302,6 +302,12 @@ func (m *MockTestConfig) SetupAWSVPCSiteMock(namespace, name string, opts ...moc
 	m.PrePopulateResource(path, mocks.AWSVPCSiteResponse(namespace, name, opts...))
 }
 
+// SetupSecuremeshSiteV2Mock configures the mock server to provide a securemesh site v2
+func (m *MockTestConfig) SetupSecuremeshSiteV2Mock(namespace, name string) {
+	path := mocks.ResourcePath(namespace, "securemesh_site_v2s", name)
+	m.PrePopulateResource(path, mocks.SecuremeshSiteV2Response(namespace, name))
+}
+
 // SetupAzureVNETSiteMock configures the mock server to provide an Azure VNET site
 func (m *MockTestConfig) SetupAzureVNETSiteMock(namespace, name string, opts ...mocks.AzureVNETSiteOption) {
 	path := mocks.ResourcePath(namespace, "azure_vnet_sites", name)

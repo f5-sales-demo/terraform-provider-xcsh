@@ -17,7 +17,6 @@ import (
 // =============================================================================
 
 func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
-	t.Skip("Skipping: requires physical/cloud site infrastructure and registration token")
 	acctest.SkipIfNotAccTest(t)
 	acctest.PreCheck(t)
 
@@ -25,7 +24,7 @@ func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
 	rName := acctest.RandomName("tf-acc-test-smsite-v2")
 	resourceName := "xcsh_securemesh_site_v2.test"
 
-	resource.ParallelTest(t, resource.TestCase{
+	testCase := resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
 		ProtoV6ProviderFactories: acctest.ProtoV6ProviderFactories,
 		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_securemesh_site_v2"),
@@ -35,15 +34,26 @@ func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
 		Steps: []resource.TestStep{
 			// Step 1: Create securemesh_site_v2 with minimal configuration
 			{
-				Config: testAccSecuremeshSiteV2ResourceConfig_basic(nsName, rName),
+				Config: testAccSecuremeshSiteV2ResourceConfig_basic(nsName, rName, "Initial description"),
 				Check: resource.ComposeAggregateTestCheckFunc(
 					acctest.CheckResourceExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "name", rName),
 					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttr(resourceName, "description", "Initial description"),
 					resource.TestCheckResourceAttrSet(resourceName, "id"),
 				),
 			},
-			// Step 2: Import state verification
+			// Step 2: Update securemesh_site_v2 description
+			{
+				Config: testAccSecuremeshSiteV2ResourceConfig_basic(nsName, rName, "Updated description"),
+				Check: resource.ComposeAggregateTestCheckFunc(
+					acctest.CheckResourceExists(resourceName),
+					resource.TestCheckResourceAttr(resourceName, "name", rName),
+					resource.TestCheckResourceAttr(resourceName, "namespace", nsName),
+					resource.TestCheckResourceAttr(resourceName, "description", "Updated description"),
+				),
+			},
+			// Step 3: Import state verification
 			{
 				ResourceName:            resourceName,
 				ImportState:             true,
@@ -52,6 +62,13 @@ func TestAccSecuremeshSiteV2Resource_basic(t *testing.T) {
 				ImportStateIdFunc:       testAccSecuremeshSiteV2ImportStateIdFunc(resourceName),
 			},
 		},
+	}
+
+	acctest.RunWithMockOrReal(t, testCase, func(mockCfg *acctest.MockTestConfig) {
+		mockCfg.SetupNamespaceMock(nsName)
+		// mockCfg.SetupSecuremeshSiteV2Mock will be created dynamically during the test steps,
+		// but we can prepopulate for import/data sources if needed. Since Create works, we might
+		// not need to pre-populate here for the Resource test, as the POST creates the mock.
 	})
 }
 
@@ -67,7 +84,7 @@ func testAccSecuremeshSiteV2ImportStateIdFunc(resourceName string) resource.Impo
 	}
 }
 
-func testAccSecuremeshSiteV2ResourceConfig_basic(nsName, name string) string {
+func testAccSecuremeshSiteV2ResourceConfig_basic(nsName, name, description string) string {
 	return acctest.ConfigCompose(
 		acctest.ProviderConfig(),
 		fmt.Sprintf(`
@@ -81,9 +98,10 @@ resource "time_sleep" "wait_for_namespace" {
 }
 
 resource "xcsh_securemesh_site_v2" "test" {
-  depends_on = [time_sleep.wait_for_namespace]
-  name       = %[2]q
-  namespace  = xcsh_namespace.test.name
+  depends_on  = [time_sleep.wait_for_namespace]
+  name        = %[2]q
+  namespace   = xcsh_namespace.test.name
+  description = %[3]q
 }
-`, nsName, name))
+`, nsName, name, description))
 }
