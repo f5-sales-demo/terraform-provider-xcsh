@@ -536,6 +536,31 @@ func NFVServiceResponse(namespace, name string) map[string]interface{} {
 	}
 }
 
+// SecuremeshSiteV2Response creates a mock securemesh site v2 response
+func SecuremeshSiteV2Response(namespace, name string) map[string]interface{} {
+	return map[string]interface{}{
+		"metadata": map[string]interface{}{
+			"name":        name,
+			"namespace":   namespace,
+			"uid":         generateUID(),
+			"description": "Mock securemesh site v2",
+		},
+		"spec": map[string]interface{}{
+			"aws_region":    "us-east-1",
+			"vpc_id":        "vpc-12345678",
+			"instance_type": "t3.xlarge",
+		},
+		"system_metadata": map[string]interface{}{
+			"uid":                    generateUID(),
+			"creation_timestamp":     time.Now().UTC().Format(time.RFC3339),
+			"modification_timestamp": time.Now().UTC().Format(time.RFC3339),
+			"creator_class":          "API",
+			"creator_id":             "mock-server",
+			"tenant":                 "example-corp",
+		},
+	}
+}
+
 // GenericResourceResponse creates a generic mock resource response
 func GenericResourceResponse(namespace, name, resourceType string, spec map[string]interface{}) map[string]interface{} {
 	return map[string]interface{}{
