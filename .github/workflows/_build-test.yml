@@ -172,5 +172,5 @@ jobs:
           # concurrency, keeps peak memory bounded.
           # Use directories ({{.Dir}}), not import paths — golangci-lint expects paths.
           # Read into an array so each dir is a separate quoted arg (shellcheck-clean).
-          mapfile -t pkgs < <(go list -f '{{.Dir}}' ./internal/... . | grep -vE '/internal/(provider|client)$')
+          mapfile -t pkgs < <(go list -f '{{.Dir}}' ./internal/... . ./tools/... | grep -vE '/internal/(provider|client)$')
           golangci-lint run --timeout=15m --concurrency=1 "${pkgs[@]}"

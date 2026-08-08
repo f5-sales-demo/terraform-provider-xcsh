@@ -53,9 +53,13 @@ GENERATOR_SOURCE_PATTERNS=(
   "^tools/pkg/codegen/"
   "^tools/pkg/description/"
   "^tools/pkg/docfmt/"
+  "^tools/pkg/resource/"
   "^templates/"
   "^Makefile$"
   "^\.github/workflows/ci\.yml$"
+  "^internal/provider/addon_service"
+  "^internal/provider/site_registration"
+  "^internal/provider/functions_registration"
 )
 
 ALLOWED_WITH_GENERATORS=(
