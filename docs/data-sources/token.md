@@ -64,7 +64,7 @@ In addition to all arguments above, the following attributes are exported:
 
 <a id="labels"></a>&#x2022; [`labels`](#labels) - Optional Map<br>Labels applied to this resource
 
-<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (system_metadata.uid)
+<a id="uid"></a>&#x2022; [`uid`](#uid) - Optional String<br>Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured
 
 ---
 
