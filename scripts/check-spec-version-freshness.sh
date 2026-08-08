@@ -20,7 +20,7 @@ if command -v gh >/dev/null 2>&1; then
   LATEST_RELEASE=$(gh api repos/f5-sales-demo/api-specs-enriched/releases/latest --jq '.tag_name' 2>/dev/null)
   GH_EXIT_CODE=$?
   set -e
-  
+
   if [ $GH_EXIT_CODE -ne 0 ] || [ -z "$LATEST_RELEASE" ] || [ "$LATEST_RELEASE" = "null" ]; then
     echo "::error::Could not query upstream releases from GitHub API or received invalid/empty tag. Please check network connectivity or API limits."
     exit 2
