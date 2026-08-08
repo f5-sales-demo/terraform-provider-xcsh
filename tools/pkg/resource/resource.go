@@ -150,12 +150,6 @@ var SkippedResources = map[string]SkipReason{
 		SkipGenerate: false,
 		SkipAPITest:  true,
 	},
-	"addon_subscription": {
-		Reason:      "Requires active subscription",
-		Category:    "premium",
-		SkipGenerate: false,
-		SkipAPITest:  true,
-	},
 }
 
 // ManuallyMaintainedFiles lists files in internal/provider that are manually maintained
