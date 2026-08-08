@@ -339,7 +339,7 @@ if [ "$LINT_GO" = true ]; then
   echo ""
 
   # Lint same paths as CI: ./internal/... .
-  if ! GO_LINT_OUTPUT=$(golangci-lint run --timeout=5m ./internal/... . 2>&1); then
+  if ! GO_LINT_OUTPUT=$(golangci-lint run --timeout=5m ./internal/... . ./tools/... 2>&1); then
     GO_LINT_SUCCESS=false
   fi
 

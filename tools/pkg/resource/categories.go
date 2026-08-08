@@ -55,7 +55,6 @@ func V2CategoryCount() int {
 // that don't match any pattern or need a specific override.
 var SubcategoryOverrides = map[string]string{
 	// Explicit overrides for resources that don't match patterns well
-	"apm":                     "Monitoring",
 	"crl":                     "Certificates",
 	"bgp":                     "Networking",
 	"proxy":                   "Networking",
@@ -72,9 +71,6 @@ var SubcategoryOverrides = map[string]string{
 	"discovery":               "Applications",
 	"filter_set":              "Applications",
 	"policer":                 "Service Mesh",
-	"quota":                   "Organization",
-	"contact":                 "Organization",
-	"role":                    "Organization",
 	"token":                   "Authentication",
 	"registration":            "Sites",
 	namespaceResourceKey:      "Organization",

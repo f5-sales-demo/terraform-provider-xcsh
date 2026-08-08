@@ -42,6 +42,12 @@ for file in tools/*.go; do
   if ! go vet "${vet_files[@]}"; then
     failed=1
   fi
+  if [ -f "$test_file" ]; then
+    echo "[test] $test_file"
+    if ! go test "${vet_files[@]}"; then
+      failed=1
+    fi
+  fi
 done
 
 if [ "$checked" -eq 0 ]; then
@@ -54,4 +60,4 @@ if [ "$failed" -ne 0 ]; then
   exit 1
 fi
 
-echo "OK: $checked build-ignored generator(s) type-check cleanly"
+echo "OK: $checked build-ignored generator(s) type-check and test cleanly"

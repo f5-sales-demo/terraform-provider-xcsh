@@ -14,7 +14,7 @@ echo "=== Go checks ==="
 # golangci-lint (only if installed)
 if command -v golangci-lint &>/dev/null; then
   echo "[run] golangci-lint"
-  if ! golangci-lint run --timeout=5m ./internal/... .; then
+  if ! golangci-lint run --timeout=5m ./internal/... . ./tools/...; then
     FAILED=1
   fi
 else
