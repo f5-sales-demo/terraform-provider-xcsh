@@ -389,3 +389,43 @@ func TestETLDPlusOneValidator(t *testing.T) {
 		})
 	}
 }
+
+func TestInt64RangesValidator(t *testing.T) {
+	// Test discontinuous range {0} U [512, 16384] (e.g., MTU)
+	v := Int64RangesValidator(IntRange{Min: 0, Max: 0}, IntRange{Min: 512, Max: 16384})
+	ctx := context.Background()
+
+	tests := []struct {
+		name        string
+		input       int64
+		isNull      bool
+		expectError bool
+	}{
+		{"valid 0", 0, false, false},
+		{"valid 512", 512, false, false},
+		{"valid 1500", 1500, false, false},
+		{"valid 16384", 16384, false, false},
+		{"invalid 200 (discontinuous gap)", 200, false, true},
+		{"invalid 16385 (above max)", 16385, false, true},
+		{"invalid -1 (below min)", -1, false, true},
+		{"null allowed", 0, true, false},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := validator.Int64Request{
+				Path:        path.Root("mtu"),
+				ConfigValue: types.Int64Value(tt.input),
+			}
+			if tt.isNull {
+				req.ConfigValue = types.Int64Null()
+			}
+			resp := &validator.Int64Response{}
+			v.ValidateInt64(ctx, req, resp)
+
+			if got := resp.Diagnostics.HasError(); got != tt.expectError {
+				t.Errorf("Int64RangesValidator(%d): hasError = %v, want %v", tt.input, got, tt.expectError)
+			}
+		})
+	}
+}
