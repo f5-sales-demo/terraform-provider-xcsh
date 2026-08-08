@@ -5,6 +5,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+	"github.com/hashicorp/terraform-plugin-testing/statecheck"
+	"github.com/hashicorp/terraform-plugin-testing/tfjsonpath"
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/acctest"
 )
@@ -31,6 +33,9 @@ func TestMockTokenDataSource_basic(t *testing.T) {
 					namespace = xcsh_token.test.namespace
 				}
 				`,
+				ConfigStateChecks: []statecheck.StateCheck{
+					statecheck.ExpectSensitiveValue(dataSourceName, tfjsonpath.New("uid")),
+				},
 				Check: resource.ComposeAggregateTestCheckFunc(
 					resource.TestCheckResourceAttr(dataSourceName, "name", "test-token-ds"),
 					resource.TestCheckResourceAttr(dataSourceName, "namespace", "system"),

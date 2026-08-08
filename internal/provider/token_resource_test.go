@@ -60,7 +60,7 @@ func TestMockTokenResource_basic(t *testing.T) {
 					value = xcsh_token.test.uid
 				}
 				`,
-				ExpectError: regexp.MustCompile("sensitive"),
+				ExpectError: regexp.MustCompile("Output refers to sensitive values"),
 			},
 		},
 	})
