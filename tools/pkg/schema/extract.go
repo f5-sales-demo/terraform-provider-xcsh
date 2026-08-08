@@ -225,20 +225,9 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	exposeUID := openapi.LoadExposeUID(naming.ToResourceTypeName(resourceName)) &&
 		ResponseHasSystemMetadataUID(spec, resourceName)
 	if exposeUID {
-		uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
-		uidSens := false
-		if naming.ToResourceTypeName(resourceName) == "Token" {
-			uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured."
-			uidSens = true
-		}
-		computedAttrs = append(computedAttrs, openapi.TerraformAttribute{
-			Name: "uid", GoName: "Uid", TfsdkTag: "uid", Type: "string",
-			Description:  uidDesc,
-			Computed:     true,
-			Sensitive:    uidSens,
-			PlanModifier: "UseStateForUnknown",
-			IsSpecField:  false,
-		})
+		attr := SystemMetadataUIDAttribute(resourceName)
+		attr.PlanModifier = "UseStateForUnknown"
+		computedAttrs = append(computedAttrs, attr)
 	}
 
 	// Combine: ID components first, then other required, then optional (incl. standard), then computed
@@ -694,19 +683,7 @@ func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extr
 	exposeUID := openapi.LoadExposeUID(naming.ToResourceTypeName(resourceName)) &&
 		ResponseHasSystemMetadataUID(spec, resourceName)
 	if exposeUID {
-		uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
-		uidSens := false
-		if naming.ToResourceTypeName(resourceName) == "Token" {
-			uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured."
-			uidSens = true
-		}
-		computedMeta = append(computedMeta, openapi.TerraformAttribute{
-			Name: "uid", GoName: "Uid", TfsdkTag: "uid", Type: "string",
-			Description: uidDesc,
-			Computed:    true,
-			Sensitive:   uidSens,
-			IsSpecField: false,
-		})
+		computedMeta = append(computedMeta, SystemMetadataUIDAttribute(resourceName))
 	}
 
 	var allAttrs []openapi.TerraformAttribute
@@ -729,6 +706,27 @@ func ExtractReadOnlyResourceSchema(spec *openapi.Spec, resourceName string, extr
 		IsReadOnly:         true,
 		ExposeUID:          exposeUID,
 	}, nil
+}
+
+// SystemMetadataUIDAttribute constructs the Terraform attribute for the system_metadata.uid field.
+// It applies sensitivity and state-file warnings appropriately for resources like Token.
+func SystemMetadataUIDAttribute(resourceName string) openapi.TerraformAttribute {
+	uidDesc := "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation."
+	uidSens := false
+	if naming.ToResourceTypeName(resourceName) == "Token" {
+		uidDesc += " For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured."
+		uidSens = true
+	}
+	return openapi.TerraformAttribute{
+		Name:        "uid",
+		GoName:      "Uid",
+		TfsdkTag:    "uid",
+		Type:        "string",
+		Description: uidDesc,
+		Computed:    true,
+		Sensitive:   uidSens,
+		IsSpecField: false,
+	}
 }
 
 // ResponseHasSystemMetadataUID reports whether the resource's API response
