@@ -3,6 +3,7 @@
 package resource
 
 import (
+	"os"
 	"testing"
 )
 
@@ -12,7 +13,6 @@ func TestGetCategory(t *testing.T) {
 		expected     string
 	}{
 		// Override tests
-		{"apm", "Monitoring"},
 		{"crl", "Certificates"},
 		{"bgp", "Networking"},
 		{"namespace", "Organization"},
@@ -104,10 +104,10 @@ func TestIsSkipped(t *testing.T) {
 		resourceName string
 		expected     bool
 	}{
-		{"blindfold", true},           // SkipGenerate=true
-		{"http_loadbalancer", false},  // Not in skip list
-		{"origin_pool", false},        // Not in skip list
-		{"aws_vpc_site", false},       // SkipGenerate=false, only SkipAPITest=true
+		{"blindfold", true},          // SkipGenerate=true
+		{"http_loadbalancer", false}, // Not in skip list
+		{"origin_pool", false},       // Not in skip list
+		{"aws_vpc_site", false},      // SkipGenerate=false, only SkipAPITest=true
 	}
 
 	for _, tt := range tests {
@@ -125,12 +125,12 @@ func TestIsSkippedForAPITest(t *testing.T) {
 		resourceName string
 		expected     bool
 	}{
-		{"blindfold", true},          // SkipAPITest=true
-		{"aws_vpc_site", true},       // Requires AWS credentials
-		{"azure_vnet_site", true},    // Requires Azure credentials
-		{"gcp_vpc_site", true},       // Requires GCP credentials
-		{"cloud_credentials", true},  // Requires cloud provider secrets
-		{"securemesh_site", true},    // Requires physical hardware
+		{"blindfold", true},         // SkipAPITest=true
+		{"aws_vpc_site", true},      // Requires AWS credentials
+		{"azure_vnet_site", true},   // Requires Azure credentials
+		{"gcp_vpc_site", true},      // Requires GCP credentials
+		{"cloud_credentials", true}, // Requires cloud provider secrets
+		{"securemesh_site", true},   // Requires physical hardware
 		// #1244: v2 is NOT skipped — a single-node azure not_managed site creates
 		// Azure-free (HTTP 200), so discover-defaults can derive its server defaults.
 		{"securemesh_site_v2", false},
@@ -319,6 +319,24 @@ func TestAllCategories(t *testing.T) {
 		}
 		if !found {
 			t.Errorf("AllCategories() missing expected category %q", expected)
+		}
+	}
+}
+
+func TestNoStaleSubcategoryOverrides(t *testing.T) {
+	for key := range SubcategoryOverrides {
+		if key == namespaceResourceKey {
+			continue
+		}
+
+		resourcePath := "../../../internal/provider/" + key + "_resource.go"
+		dataSourcePath := "../../../internal/provider/" + key + "_data_source.go"
+
+		_, errRes := os.Stat(resourcePath)
+		_, errData := os.Stat(dataSourcePath)
+
+		if os.IsNotExist(errRes) && os.IsNotExist(errData) {
+			t.Errorf("SubcategoryOverride key %q has no corresponding resource or data source file", key)
 		}
 	}
 }

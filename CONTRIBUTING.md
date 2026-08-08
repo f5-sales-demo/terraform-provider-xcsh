@@ -50,7 +50,7 @@ this document governs how a change gets reviewed and merged.
 Carry every change through this complete path:
 
 ```text
-detailed issue → fresh feature branch → implement and verify → exact-HEAD Antigravity review
+detailed issue → fresh feature branch → implement and verify
 → linked PR → CI and branch-state repair loop → MERGED → cleanup → fleet convergence
 ```
 
@@ -165,8 +165,8 @@ the cached remote ref says, so it can be born behind (see CLAUDE.md).
 
 If a mergeable PR reports `BEHIND`, use the **Update branch** button or
 `gh pr update-branch <pr>` (`allow_update_branch` is enabled fleet-wide). A `DIRTY` PR needs conflict
-resolution on the feature branch: fetch, merge current `origin/main`, resolve and verify, rerun the
-exact-HEAD Antigravity review, then push the repaired branch.
+resolution on the feature branch: fetch, merge current `origin/main`, resolve and verify, then push
+the repaired branch.
 
 ## Step 3: Make Changes and Commit
 
@@ -192,12 +192,10 @@ background:
 
 1. Start `gh pr checks --watch <pr> &` as a background waiter.
 2. For pending checks, leave the waiter running and continue other in-scope work.
-3. For failed checks, inspect logs, repair the root cause, verify locally, rerun
-   `bash scripts/agy-pre-push-review.sh` against the committed exact HEAD, and push the feature
+3. For failed checks, inspect logs, repair the root cause, verify locally, and push the feature
    branch. Restart the loop for the new head.
 4. For mergeable `BEHIND`, run `gh pr update-branch <pr>` and follow the new checks. For `DIRTY`,
-   merge current `origin/main` into the feature branch, resolve conflicts, verify, rerun Antigravity
-   review, and push.
+   merge current `origin/main` into the feature branch, resolve conflicts, verify, and push.
 5. When auto-merge is absent, run `gh pr merge --auto --squash <pr>`.
 6. Query `gh pr view <pr> --json state,mergeStateStatus,autoMergeRequest` and repeat until `state` is
    `MERGED`.
@@ -207,74 +205,6 @@ background:
 
 Pause this loop only for uncertain authorization, destructive-risk approval, an unavailable
 credential, or a product decision that requires the user.
-
-## Automated code review
-
-Route semantic review through Antigravity. Coding assistants author, implement, verify, repair, and
-respond to its findings.
-
-| Route | What it reviews | Authority |
-| ----- | --------------- | --------- |
-| **Local document review** | A spec or implementation plan | Antigravity advisory gate |
-| **Local Antigravity review** | The committed branch diff before a PR push | Required workflow step |
-| **CI Antigravity review** | The exact pull-request head | Advisory automation |
-
-### CI review
-
-The Gemini Antigravity reviewer is fail-closed behind the organisation variable
-`ANTIGRAVITY_REVIEW_ENABLED`. Its immutable runtime, exact-head and workflow receipts, separated
-model and publication credentials, and rejection paths are covered by executable security UAT.
-It remains advisory and outside required status contexts. The linked-issue bypass prefixes in
-`require-linked-issue.yml` are reserved for their machine-generated workflows; human and agent work
-uses a detailed linked issue.
-
-#### Operating Antigravity review
-
-Keep the source gate in place, remove any same-named repository variables, and keep the reusable and
-governed `workflow_dispatch` callers enabled. The scheduled/manual docs-control watcher dispatches
-only exact same-repository heads from trusted default-branch workflow definitions. Future toggles
-change only the organisation variable. Keep the Antigravity CI review advisory and outside required
-status contexts.
-
-### Local review before a pull-request push
-
-Document review remains advisory. Run the managed Antigravity interface directly:
-
-```bash
-bash scripts/agy-review.sh document --kind spec --file path/to/spec.md
-bash scripts/agy-review.sh document --kind plan --file path/to/plan.md
-```
-
-The command runs independent reviewer and verifier sessions, validates structured output, and fails
-closed. Each phase emits an immediate start marker, a periodic stderr heartbeat, and a completion
-marker so automation can distinguish a live silent model call from a finished review. This managed
-command is the semantic-review route.
-
-Every Antigravity model phase uses `scripts/run-with-progress.sh`. It emits a line-oriented
-`[PROGRESS]` record every 30 seconds with the component, phase, state, elapsed seconds, heartbeat
-interval, and UTC timestamp, followed by a terminal record with the real exit code. GitHub Actions
-streams those records into the live log while retaining the diagnostic log, and appends one terminal
-Markdown record to `GITHUB_STEP_SUMMARY`. Heartbeats report liveness only: the model print timeout
-and the workflow's `timeout-minutes` remain the authoritative execution bounds.
-
-Branch review is mandatory before every push that opens or updates a pull request:
-
-```bash
-bash scripts/agy-pre-push-review.sh
-```
-
-Commit or stash every working-tree change first. The script binds the review to the current HEAD and
-the merge base with `origin/main`, removes GitHub credentials, and runs `agy` in sandboxed plan mode.
-It leaves files and GitHub unchanged. The managed command performs independent Antigravity
-verification and a deterministic gate; the implementation assistant fixes blocking findings and
-reruns it. Push the feature branch only after the exact current HEAD completes cleanly. The developer
-environment provides an authenticated `agy` executable.
-
-The prompt delegates a dedicated semantic PII review to `agy`: it runs the governed HEAD enforcement
-scan when available, traces affected runtime and repository data surfaces, treats confirmed PII or
-an invalid scan as blocking, and reports only redacted evidence. The deterministic `pii-guard`
-context remains the verifiable CI backstop. Local Antigravity review and deterministic CI remain
-separate required layers.
 
 ## Translations (GitHub Actions controlled)
 
@@ -326,19 +256,29 @@ requests.
    must be absent, and exact base/head/workflow receipts and behavioral security tests must pass.
 
 2. Create the `antigravity-automation` environment in docs-control with no protection rules. Create
-   both organisation variables with value `false` and visibility covering every governed repository.
-   Confirm there are no same-named repository variables. Enable and keep active the reusable
-   workflows, governed callers, and fleet watcher. From a `docs-control`
+   or update both organisation variables through the protected-main
+   `Configure Antigravity Controls` workflow's `disabled` phase. It sets both values to `false`
+   with `all` visibility. Confirm there are no same-named repository variables. Enable and keep
+   active the reusable workflows, governed callers, and fleet watcher. From a `docs-control`
    checkout, verify the false/active state with
    `bash scripts/verify-antigravity-controls.sh --workflow-state active`.
 
-3. Set selected visibility for a pilot same-repository documentation pull request. Set each desired
-   variable to `true`, then require a completed Antigravity review and 12 validated locale outputs.
-   Verify the exact pilot scope with `--visibility selected --selected-repo <repository>`. If the
-   pilot fails, set the relevant variable to `false` before cancelling in-flight runs.
+3. Dispatch the control workflow's `pilot` phase. It sets both variables to the literal value
+   `true` with `selected` visibility restricted to docs-control. Create a same-repository
+   documentation pull request, dispatch its exact-head translation, then dispatch review against
+   the translated head. Require both model and publication jobs to succeed, their exact-head
+   artifacts to remain available, the review marker to be published, and one validator-approved
+   output for each of the 12 required locales. Verify the exact pilot scope with
+   `--visibility selected --selected-repo docs-control`. If the pilot fails, dispatch `disabled`
+   before cancelling in-flight runs.
 
-4. Expand visibility to all governed repositories after the pilot. Future suspension changes only
-   the organisation variable value and cancels any already-running jobs; workflow states remain
+4. Expand visibility only through the control workflow's `all` phase. Supply the pilot pull-request
+   number, review and translation run IDs, translated pre-publication head SHA, and reviewed
+   post-publication head SHA. The phase fails before mutation unless GitHub proves both real job
+   pairs succeeded in trusted manual runs, both exact-head artifacts exist, the review marker is
+   published, and the guarded Antigravity commit contains exactly the 12 corresponding locale
+   outputs. The workflow then changes both variables to `all` visibility. Future suspension changes
+   only the organisation variable value and cancels any already-running jobs; workflow states remain
    active. After every change, run the verifier from a `docs-control` checkout with the expected
    boolean values, for example:
 
@@ -349,6 +289,13 @@ requests.
 
    It checks all 38 governed repositories plus `docs-control`, rejects repository-variable shadows,
    and exits 84 without retry amplification when GitHub reports a rate limit.
+
+The control workflow uses the existing `REPO_SETTINGS_TOKEN` from the unprotected
+`antigravity-automation` environment. It runs only the protected default-branch implementation,
+serializes transitions, uses the shared bounded retry helper, and emits 30-second structured
+heartbeats while waiting. An exit status of 84 means the transition deferred without treating the
+old or partially converged state as success; rerun the same idempotent phase after the reported
+cooldown. No GitHub App credentials are involved.
 
 ### Future restoration of the required freshness context
 

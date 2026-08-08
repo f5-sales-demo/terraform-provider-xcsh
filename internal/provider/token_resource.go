@@ -112,8 +112,9 @@ func (r *TokenResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 				},
 			},
 			"uid": schema.StringAttribute{
-				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation.",
+				MarkdownDescription: "Server-generated unique identifier (`system_metadata.uid`). Read-only; assigned by F5 Distributed Cloud on creation. For tokens, this value is the sensitive CE registration token. Note: This value will be stored in plain text in the Terraform state file; ensure your state file is properly secured.",
 				Computed:            true,
+				Sensitive:           true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
