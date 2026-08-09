@@ -4870,25 +4870,12 @@ func (r *ProtectedApplicationResource) Create(ctx context.Context, req resource.
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: func() types.Map {
-							if v, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
+						Tags: UnmarshalStringMap(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
+							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
 							return types.MapNull(types.StringType)
-						}(),
+						}(), "tags", &resp.Diagnostics),
 					}
 				}
 				return nil
@@ -7209,25 +7196,12 @@ func (r *ProtectedApplicationResource) Read(ctx context.Context, req resource.Re
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: func() types.Map {
-							if v, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
+						Tags: UnmarshalStringMap(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
+							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
 							return types.MapNull(types.StringType)
-						}(),
+						}(), "tags", &resp.Diagnostics),
 					}
 				}
 				return nil
@@ -10583,25 +10557,12 @@ func (r *ProtectedApplicationResource) Update(ctx context.Context, req resource.
 				}
 				if AWSConfigurationTagSelectorData, ok := blockData["aws_configuration_tag_selector"].(map[string]interface{}); ok {
 					return &ProtectedApplicationCloudfrontAWSConfigurationTagSelectorModel{
-						Tags: func() types.Map {
-							if v, ok := AWSConfigurationTagSelectorData["tags"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsNull() && !data.Cloudfront.AWSConfigurationTagSelector.Tags.IsUnknown() {
+						Tags: UnmarshalStringMap(ctx, AWSConfigurationTagSelectorData["tags"], func() types.Map {
+							if data.Cloudfront != nil && data.Cloudfront.AWSConfigurationTagSelector != nil {
 								return data.Cloudfront.AWSConfigurationTagSelector.Tags
 							}
 							return types.MapNull(types.StringType)
-						}(),
+						}(), "tags", &resp.Diagnostics),
 					}
 				}
 				return nil

@@ -315,19 +315,19 @@ var TCPLoadBalancerAdvertiseOnPublicPublicIPModelAttrTypes = map[string]attr.Typ
 
 // TCPLoadBalancerOriginPoolsWeightsModel represents origin_pools_weights block
 type TCPLoadBalancerOriginPoolsWeightsModel struct {
-	EndpointSubsets types.Map                                      `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                    `tfsdk:"priority"`
 	Weight          types.Int64                                    `tfsdk:"weight"`
 	Cluster         *TCPLoadBalancerOriginPoolsWeightsClusterModel `tfsdk:"cluster"`
+	EndpointSubsets *TCPLoadBalancerEmptyModel                     `tfsdk:"endpoint_subsets"`
 	Pool            *TCPLoadBalancerOriginPoolsWeightsPoolModel    `tfsdk:"pool"`
 }
 
 // TCPLoadBalancerOriginPoolsWeightsModelAttrTypes defines the attribute types for TCPLoadBalancerOriginPoolsWeightsModel
 var TCPLoadBalancerOriginPoolsWeightsModelAttrTypes = map[string]attr.Type{
-	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsClusterModelAttrTypes},
+	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: TCPLoadBalancerOriginPoolsWeightsPoolModelAttrTypes},
 }
 
@@ -1358,11 +1358,6 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 				MarkdownDescription: "Origin pools and weights used for this load balancer.",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
-						"endpoint_subsets": schema.MapAttribute{
-							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
-							Optional:            true,
-							ElementType:         types.StringType,
-						},
 						"priority": schema.Int64Attribute{
 							MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 							Optional:            true,
@@ -1405,6 +1400,9 @@ func (r *TCPLoadBalancerResource) Schema(ctx context.Context, req resource.Schem
 									},
 								},
 							},
+						},
+						"endpoint_subsets": schema.SingleNestedBlock{
+							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 						},
 						"pool": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -2400,13 +2398,8 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 					}
 					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
-				if !OriginPoolsWeightsItem.EndpointSubsets.IsNull() && !OriginPoolsWeightsItem.EndpointSubsets.IsUnknown() {
-					var EndpointSubsetsMap map[string]string
-					diags := OriginPoolsWeightsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						OriginPoolsWeightsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-					}
+				if OriginPoolsWeightsItem.EndpointSubsets != nil {
+					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if OriginPoolsWeightsItem.Pool != nil {
 					OriginPoolsWeightsPoolMap := make(map[string]interface{})
@@ -3323,24 +3316,14 @@ func (r *TCPLoadBalancerResource) Create(ctx context.Context, req resource.Creat
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() types.Map {
-						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-							items := make(map[string]string)
-							for mk, mv := range v {
-								if mvs, ok := mv.(string); ok {
-									items[mk] = mvs
-								} else {
-									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-								}
-							}
-							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-							resp.Diagnostics.Append(diags...)
-							return mapVal
-						}
-						if len(existingOriginPoolsWeightsItems) > listIdx && !existingOriginPoolsWeightsItems[listIdx].EndpointSubsets.IsNull() && !existingOriginPoolsWeightsItems[listIdx].EndpointSubsets.IsUnknown() {
+					EndpointSubsets: func() *TCPLoadBalancerEmptyModel {
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
 							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
-						return types.MapNull(types.StringType)
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &TCPLoadBalancerEmptyModel{}
+						}
+						return nil
 					}(),
 					Pool: func() *TCPLoadBalancerOriginPoolsWeightsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -4798,24 +4781,14 @@ func (r *TCPLoadBalancerResource) Read(ctx context.Context, req resource.ReadReq
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() types.Map {
-						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-							items := make(map[string]string)
-							for mk, mv := range v {
-								if mvs, ok := mv.(string); ok {
-									items[mk] = mvs
-								} else {
-									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-								}
-							}
-							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-							resp.Diagnostics.Append(diags...)
-							return mapVal
-						}
-						if len(existingOriginPoolsWeightsItems) > listIdx && !existingOriginPoolsWeightsItems[listIdx].EndpointSubsets.IsNull() && !existingOriginPoolsWeightsItems[listIdx].EndpointSubsets.IsUnknown() {
+					EndpointSubsets: func() *TCPLoadBalancerEmptyModel {
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
 							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
-						return types.MapNull(types.StringType)
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &TCPLoadBalancerEmptyModel{}
+						}
+						return nil
 					}(),
 					Pool: func() *TCPLoadBalancerOriginPoolsWeightsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -6022,13 +5995,8 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 					}
 					OriginPoolsWeightsItemMap["cluster"] = OriginPoolsWeightsClusterMap
 				}
-				if !OriginPoolsWeightsItem.EndpointSubsets.IsNull() && !OriginPoolsWeightsItem.EndpointSubsets.IsUnknown() {
-					var EndpointSubsetsMap map[string]string
-					diags := OriginPoolsWeightsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						OriginPoolsWeightsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-					}
+				if OriginPoolsWeightsItem.EndpointSubsets != nil {
+					OriginPoolsWeightsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if OriginPoolsWeightsItem.Pool != nil {
 					OriginPoolsWeightsPoolMap := make(map[string]interface{})
@@ -6993,24 +6961,14 @@ func (r *TCPLoadBalancerResource) Update(ctx context.Context, req resource.Updat
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() types.Map {
-						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-							items := make(map[string]string)
-							for mk, mv := range v {
-								if mvs, ok := mv.(string); ok {
-									items[mk] = mvs
-								} else {
-									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-								}
-							}
-							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-							resp.Diagnostics.Append(diags...)
-							return mapVal
-						}
-						if len(existingOriginPoolsWeightsItems) > listIdx && !existingOriginPoolsWeightsItems[listIdx].EndpointSubsets.IsNull() && !existingOriginPoolsWeightsItems[listIdx].EndpointSubsets.IsUnknown() {
+					EndpointSubsets: func() *TCPLoadBalancerEmptyModel {
+						if !isImport && len(existingOriginPoolsWeightsItems) > listIdx {
 							return existingOriginPoolsWeightsItems[listIdx].EndpointSubsets
 						}
-						return types.MapNull(types.StringType)
+						if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+							return &TCPLoadBalancerEmptyModel{}
+						}
+						return nil
 					}(),
 					Pool: func() *TCPLoadBalancerOriginPoolsWeightsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {

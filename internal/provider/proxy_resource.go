@@ -5377,25 +5377,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() types.Map {
-										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(),
+									}(), "custom_errors", &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -6158,25 +6145,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() types.Map {
-										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
+									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(),
+									}(), "custom_errors", &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
@@ -7301,25 +7275,12 @@ func (r *ProxyResource) Create(ctx context.Context, req resource.CreateRequest, 
 							}
 							return nil
 						}(),
-						CustomErrors: func() types.Map {
-							if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+						CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
 							return types.MapNull(types.StringType)
-						}(),
+						}(), "custom_errors", &resp.Diagnostics),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -8661,25 +8622,12 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return nil
 									}(),
-									CustomErrors: func() types.Map {
-										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(),
+									}(), "custom_errors", &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -9442,25 +9390,12 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 										}
 										return nil
 									}(),
-									CustomErrors: func() types.Map {
-										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
+									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(),
+									}(), "custom_errors", &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
@@ -10585,25 +10520,12 @@ func (r *ProxyResource) Read(ctx context.Context, req resource.ReadRequest, resp
 							}
 							return nil
 						}(),
-						CustomErrors: func() types.Map {
-							if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+						CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
 							return types.MapNull(types.StringType)
-						}(),
+						}(), "custom_errors", &resp.Diagnostics),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -13405,25 +13327,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() types.Map {
-										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(),
+									}(), "custom_errors", &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPProxy != nil && data.DynamicProxy.HTTPProxy.MoreOption != nil && !data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPProxy.MoreOption.DisableDefaultErrorPages
@@ -14186,25 +14095,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 										}
 										return nil
 									}(),
-									CustomErrors: func() types.Map {
-										if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsNull() && !data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors.IsUnknown() {
+									CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+										if data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.CustomErrors
 										}
 										return types.MapNull(types.StringType)
-									}(),
+									}(), "custom_errors", &resp.Diagnostics),
 									DisableDefaultErrorPages: func() types.Bool {
 										if !isImport && data.DynamicProxy != nil && data.DynamicProxy.HTTPSProxy != nil && data.DynamicProxy.HTTPSProxy.MoreOption != nil && !data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 											return data.DynamicProxy.HTTPSProxy.MoreOption.DisableDefaultErrorPages
@@ -15329,25 +15225,12 @@ func (r *ProxyResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							}
 							return nil
 						}(),
-						CustomErrors: func() types.Map {
-							if v, ok := MoreOptionData["custom_errors"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.CustomErrors.IsNull() && !data.HTTPProxy.MoreOption.CustomErrors.IsUnknown() {
+						CustomErrors: UnmarshalStringMap(ctx, MoreOptionData["custom_errors"], func() types.Map {
+							if data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil {
 								return data.HTTPProxy.MoreOption.CustomErrors
 							}
 							return types.MapNull(types.StringType)
-						}(),
+						}(), "custom_errors", &resp.Diagnostics),
 						DisableDefaultErrorPages: func() types.Bool {
 							if !isImport && data.HTTPProxy != nil && data.HTTPProxy.MoreOption != nil && !data.HTTPProxy.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 								return data.HTTPProxy.MoreOption.DisableDefaultErrorPages

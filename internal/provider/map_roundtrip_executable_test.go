@@ -25,23 +25,14 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 			},
 		}
 
-		// Execute actual generated-style unmarshaling closure on production type
-		result := func() types.Map {
-			if v, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-				items := make(map[string]string)
-				for mk, mv := range v {
-					if mvs, ok := mv.(string); ok {
-						items[mk] = mvs
-					} else {
-						diags.AddError("Unexpected type in map", "Expected string")
-					}
-				}
-				mapVal, d := types.MapValueFrom(ctx, types.StringType, items)
-				diags.Append(d...)
-				return mapVal
-			}
-			return types.MapNull(types.StringType)
-		}()
+		// Execute actual production helper directly on production types
+		result := UnmarshalStringMap(
+			ctx,
+			InterfaceListItemMap["labels"],
+			types.MapNull(types.StringType),
+			"labels",
+			&diags,
+		)
 
 		if diags.HasError() {
 			t.Fatalf("unexpected diagnostics error: %v", diags)
@@ -72,22 +63,13 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 			},
 		}
 
-		_ = func() types.Map {
-			if v, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-				items := make(map[string]string)
-				for mk, mv := range v {
-					if mvs, ok := mv.(string); ok {
-						items[mk] = mvs
-					} else {
-						diags.AddError("Unexpected type in map", "Expected string")
-					}
-				}
-				mapVal, d := types.MapValueFrom(ctx, types.StringType, items)
-				diags.Append(d...)
-				return mapVal
-			}
-			return types.MapNull(types.StringType)
-		}()
+		_ = UnmarshalStringMap(
+			ctx,
+			InterfaceListItemMap["labels"],
+			types.MapNull(types.StringType),
+			"labels",
+			&diags,
+		)
 
 		if !diags.HasError() {
 			t.Fatal("expected diagnostic error for non-string type, got none")
@@ -99,35 +81,21 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 		// Existing state contains a populated map inside production model struct
 		existingLabels, _ := types.MapValueFrom(ctx, types.StringType, map[string]string{"foo": "bar"})
 
-		InterfaceListExisting := []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel{
-			{
-				Labels: existingLabels,
-			},
+		existingState := SecuremeshSiteV2ResourceModel{
+			Labels: existingLabels,
 		}
-		InterfaceListIdx := 0
 
 		// API response is omitted (nil interface)
-		var InterfaceListItemMap map[string]interface{} = nil
+		var apiLabels interface{} = nil
 
-		// Execute exact generated-style state preservation closure
-		result := func() types.Map {
-			if InterfaceListItemMap != nil {
-				if v, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						}
-					}
-					mapVal, _ := types.MapValueFrom(ctx, types.StringType, items)
-					return mapVal
-				}
-			}
-			if len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Labels.IsNull() && !InterfaceListExisting[InterfaceListIdx].Labels.IsUnknown() {
-				return InterfaceListExisting[InterfaceListIdx].Labels
-			}
-			return types.MapNull(types.StringType)
-		}()
+		// Execute actual production helper with prior state from production model
+		result := UnmarshalStringMap(
+			ctx,
+			apiLabels,
+			existingState.Labels,
+			"labels",
+			&diag.Diagnostics{},
+		)
 
 		if result.IsNull() || result.IsUnknown() {
 			t.Fatal("expected omitted map state to be preserved from prior state, got null")
@@ -142,32 +110,18 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 
 	// 4. Null Map
 	t.Run("Null map unmarshaling", func(t *testing.T) {
-		InterfaceListExisting := []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel{
-			{
-				Labels: types.MapNull(types.StringType),
-			},
+		existingState := SecuremeshSiteV2ResourceModel{
+			Labels: types.MapNull(types.StringType),
 		}
-		InterfaceListIdx := 0
-		var InterfaceListItemMap map[string]interface{} = nil
+		var apiLabels interface{} = nil
 
-		result := func() types.Map {
-			if InterfaceListItemMap != nil {
-				if v, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						}
-					}
-					mapVal, _ := types.MapValueFrom(ctx, types.StringType, items)
-					return mapVal
-				}
-			}
-			if len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Labels.IsNull() && !InterfaceListExisting[InterfaceListIdx].Labels.IsUnknown() {
-				return InterfaceListExisting[InterfaceListIdx].Labels
-			}
-			return types.MapNull(types.StringType)
-		}()
+		result := UnmarshalStringMap(
+			ctx,
+			apiLabels,
+			existingState.Labels,
+			"labels",
+			&diag.Diagnostics{},
+		)
 
 		if !result.IsNull() {
 			t.Fatal("expected map to be null")
@@ -176,32 +130,18 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 
 	// 5. Unknown Map
 	t.Run("Unknown map unmarshaling", func(t *testing.T) {
-		InterfaceListExisting := []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel{
-			{
-				Labels: types.MapUnknown(types.StringType),
-			},
+		existingState := SecuremeshSiteV2ResourceModel{
+			Labels: types.MapUnknown(types.StringType),
 		}
-		InterfaceListIdx := 0
-		var InterfaceListItemMap map[string]interface{} = nil
+		var apiLabels interface{} = nil
 
-		result := func() types.Map {
-			if InterfaceListItemMap != nil {
-				if v, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						}
-					}
-					mapVal, _ := types.MapValueFrom(ctx, types.StringType, items)
-					return mapVal
-				}
-			}
-			if len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Labels.IsNull() && !InterfaceListExisting[InterfaceListIdx].Labels.IsUnknown() {
-				return InterfaceListExisting[InterfaceListIdx].Labels
-			}
-			return types.MapNull(types.StringType)
-		}()
+		result := UnmarshalStringMap(
+			ctx,
+			apiLabels,
+			existingState.Labels,
+			"labels",
+			&diag.Diagnostics{},
+		)
 
 		if !result.IsNull() {
 			t.Fatal("expected map to fallback to null since prior state is unknown")
@@ -211,32 +151,18 @@ func TestExecutableMapRoundTripBehavior(t *testing.T) {
 	// 6. Empty Map
 	t.Run("Empty map unmarshaling", func(t *testing.T) {
 		emptyMap, _ := types.MapValueFrom(ctx, types.StringType, map[string]string{})
-		InterfaceListExisting := []SecuremeshSiteV2BaremetalNotManagedNodeListInterfaceListModel{
-			{
-				Labels: emptyMap,
-			},
+		existingState := SecuremeshSiteV2ResourceModel{
+			Labels: emptyMap,
 		}
-		InterfaceListIdx := 0
-		var InterfaceListItemMap map[string]interface{} = nil
+		var apiLabels interface{} = nil
 
-		result := func() types.Map {
-			if InterfaceListItemMap != nil {
-				if v, ok := InterfaceListItemMap["labels"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						}
-					}
-					mapVal, _ := types.MapValueFrom(ctx, types.StringType, items)
-					return mapVal
-				}
-			}
-			if len(InterfaceListExisting) > InterfaceListIdx && !InterfaceListExisting[InterfaceListIdx].Labels.IsNull() && !InterfaceListExisting[InterfaceListIdx].Labels.IsUnknown() {
-				return InterfaceListExisting[InterfaceListIdx].Labels
-			}
-			return types.MapNull(types.StringType)
-		}()
+		result := UnmarshalStringMap(
+			ctx,
+			apiLabels,
+			existingState.Labels,
+			"labels",
+			&diag.Diagnostics{},
+		)
 
 		if result.IsNull() || result.IsUnknown() {
 			t.Fatal("expected empty map to be preserved, got null/unknown")

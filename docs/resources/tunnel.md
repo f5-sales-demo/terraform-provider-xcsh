@@ -197,7 +197,7 @@ A [`remote_ip`](#remote-ip) block supports the following:
 
 An [`endpoints`](#remote-ip-endpoints) block (within [`remote_ip`](#remote-ip)) supports the following:
 
-<a id="remote-ip-endpoints-endpoints"></a>&#x2022; [`endpoints`](#remote-ip-endpoints-endpoints) - Optional Map<br>Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes
+<a id="remote-ip-endpoints-endpoints"></a>&#x2022; [`endpoints`](#remote-ip-endpoints-endpoints) - Optional Block<br>Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes
 
 #### Remote IP IP
 

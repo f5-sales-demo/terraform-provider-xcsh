@@ -18,14 +18,14 @@ resource "xcsh_origin_pool" "test" {
   port = 443
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "backend1.example.com"
     }
   }
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "backend2.example.com"
     }

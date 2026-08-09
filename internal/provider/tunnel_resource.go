@@ -221,12 +221,12 @@ var TunnelRemoteIPModelAttrTypes = map[string]attr.Type{
 
 // TunnelRemoteIPEndpointsModel represents endpoints block
 type TunnelRemoteIPEndpointsModel struct {
-	Endpoints types.Map `tfsdk:"endpoints"`
+	Endpoints *TunnelEmptyModel `tfsdk:"endpoints"`
 }
 
 // TunnelRemoteIPEndpointsModelAttrTypes defines the attribute types for TunnelRemoteIPEndpointsModel
 var TunnelRemoteIPEndpointsModelAttrTypes = map[string]attr.Type{
-	"endpoints": types.MapType{ElemType: types.StringType},
+	"endpoints": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // TunnelRemoteIPIPModel represents ip block
@@ -507,11 +507,10 @@ func (r *TunnelResource) Schema(ctx context.Context, req resource.SchemaRequest,
 				Blocks: map[string]schema.Block{
 					"endpoints": schema.SingleNestedBlock{
 						MarkdownDescription: "Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel.",
-						Attributes: map[string]schema.Attribute{
-							"endpoints": schema.MapAttribute{
+						Attributes:          map[string]schema.Attribute{},
+						Blocks: map[string]schema.Block{
+							"endpoints": schema.SingleNestedBlock{
 								MarkdownDescription: "Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes.",
-								Optional:            true,
-								ElementType:         types.StringType,
 							},
 						},
 					},
@@ -788,13 +787,8 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 		RemoteIPMap := make(map[string]interface{})
 		if data.RemoteIP.Endpoints != nil {
 			RemoteIPEndpointsMap := make(map[string]interface{})
-			if !data.RemoteIP.Endpoints.Endpoints.IsNull() && !data.RemoteIP.Endpoints.Endpoints.IsUnknown() {
-				var EndpointsMap map[string]string
-				diags := data.RemoteIP.Endpoints.Endpoints.ElementsAs(ctx, &EndpointsMap, false)
-				resp.Diagnostics.Append(diags...)
-				if !diags.HasError() {
-					RemoteIPEndpointsMap["endpoints"] = EndpointsMap
-				}
+			if data.RemoteIP.Endpoints.Endpoints != nil {
+				RemoteIPEndpointsMap["endpoints"] = map[string]interface{}{}
 			}
 			RemoteIPMap["endpoints"] = RemoteIPEndpointsMap
 		}
@@ -1086,24 +1080,14 @@ func (r *TunnelResource) Create(ctx context.Context, req resource.CreateRequest,
 				}
 				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPEndpointsModel{
-						Endpoints: func() types.Map {
-							if v, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoints, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.RemoteIP != nil && data.RemoteIP.Endpoints != nil && !data.RemoteIP.Endpoints.Endpoints.IsNull() && !data.RemoteIP.Endpoints.Endpoints.IsUnknown() {
+						Endpoints: func() *TunnelEmptyModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
 								return data.RemoteIP.Endpoints.Endpoints
 							}
-							return types.MapNull(types.StringType)
+							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1522,24 +1506,14 @@ func (r *TunnelResource) Read(ctx context.Context, req resource.ReadRequest, res
 				}
 				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPEndpointsModel{
-						Endpoints: func() types.Map {
-							if v, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoints, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.RemoteIP != nil && data.RemoteIP.Endpoints != nil && !data.RemoteIP.Endpoints.Endpoints.IsNull() && !data.RemoteIP.Endpoints.Endpoints.IsUnknown() {
+						Endpoints: func() *TunnelEmptyModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
 								return data.RemoteIP.Endpoints.Endpoints
 							}
-							return types.MapNull(types.StringType)
+							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}
@@ -1786,13 +1760,8 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 		RemoteIPMap := make(map[string]interface{})
 		if data.RemoteIP.Endpoints != nil {
 			RemoteIPEndpointsMap := make(map[string]interface{})
-			if !data.RemoteIP.Endpoints.Endpoints.IsNull() && !data.RemoteIP.Endpoints.Endpoints.IsUnknown() {
-				var EndpointsMap map[string]string
-				diags := data.RemoteIP.Endpoints.Endpoints.ElementsAs(ctx, &EndpointsMap, false)
-				resp.Diagnostics.Append(diags...)
-				if !diags.HasError() {
-					RemoteIPEndpointsMap["endpoints"] = EndpointsMap
-				}
+			if data.RemoteIP.Endpoints.Endpoints != nil {
+				RemoteIPEndpointsMap["endpoints"] = map[string]interface{}{}
 			}
 			RemoteIPMap["endpoints"] = RemoteIPEndpointsMap
 		}
@@ -2104,24 +2073,14 @@ func (r *TunnelResource) Update(ctx context.Context, req resource.UpdateRequest,
 				}
 				if EndpointsData, ok := blockData["endpoints"].(map[string]interface{}); ok {
 					return &TunnelRemoteIPEndpointsModel{
-						Endpoints: func() types.Map {
-							if v, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
-								items := make(map[string]string)
-								for mk, mv := range v {
-									if mvs, ok := mv.(string); ok {
-										items[mk] = mvs
-									} else {
-										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoints, got %T", mk, mv))
-									}
-								}
-								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-								resp.Diagnostics.Append(diags...)
-								return mapVal
-							}
-							if data.RemoteIP != nil && data.RemoteIP.Endpoints != nil && !data.RemoteIP.Endpoints.Endpoints.IsNull() && !data.RemoteIP.Endpoints.Endpoints.IsUnknown() {
+						Endpoints: func() *TunnelEmptyModel {
+							if !isImport && data.RemoteIP != nil && data.RemoteIP.Endpoints != nil {
 								return data.RemoteIP.Endpoints.Endpoints
 							}
-							return types.MapNull(types.StringType)
+							if _, ok := EndpointsData["endpoints"].(map[string]interface{}); ok {
+								return &TunnelEmptyModel{}
+							}
+							return nil
 						}(),
 					}
 				}

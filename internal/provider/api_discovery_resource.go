@@ -63,14 +63,14 @@ var APIDiscoveryUserDefinedAPIDiscoveryPolicyModelAttrTypes = map[string]attr.Ty
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel represents discovery_rules block
 type APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel struct {
-	Labels         *APIDiscoveryEmptyModel                                                     `tfsdk:"labels"`
+	Labels         types.Map                                                                   `tfsdk:"labels"`
 	Metadata       *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel       `tfsdk:"metadata"`
 	RuleProperties *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModel `tfsdk:"rule_properties"`
 }
 
 // APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes defines the attribute types for APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel
 var APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModelAttrTypes = map[string]attr.Type{
-	"labels":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"labels":          types.MapType{ElemType: types.StringType},
 	"metadata":        types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModelAttrTypes},
 	"rule_properties": types.ObjectType{AttrTypes: APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesRulePropertiesModelAttrTypes},
 }
@@ -236,11 +236,14 @@ func (r *APIDiscoveryResource) Schema(ctx context.Context, req resource.SchemaRe
 					"discovery_rules": schema.ListNestedBlock{
 						MarkdownDescription: "Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action. Defaults to `[]`. Server applies default when omitted.",
 						NestedObject: schema.NestedBlockObject{
-							Attributes: map[string]schema.Attribute{},
-							Blocks: map[string]schema.Block{
-								"labels": schema.SingleNestedBlock{
+							Attributes: map[string]schema.Attribute{
+								"labels": schema.MapAttribute{
 									MarkdownDescription: "Map of string keys and values that can be used to organize and categorize the rule.",
+									Optional:            true,
+									ElementType:         types.StringType,
 								},
+							},
+							Blocks: map[string]schema.Block{
 								"metadata": schema.SingleNestedBlock{
 									MarkdownDescription: "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create..",
 									Attributes: map[string]schema.Attribute{
@@ -499,8 +502,13 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 				var DiscoveryRulesList []map[string]interface{}
 				for _, DiscoveryRulesItem := range DiscoveryRulesElems {
 					DiscoveryRulesItemMap := make(map[string]interface{})
-					if DiscoveryRulesItem.Labels != nil {
-						DiscoveryRulesItemMap["labels"] = map[string]interface{}{}
+					if !DiscoveryRulesItem.Labels.IsNull() && !DiscoveryRulesItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := DiscoveryRulesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							DiscoveryRulesItemMap["labels"] = LabelsMap
+						}
 					}
 					if DiscoveryRulesItem.Metadata != nil {
 						UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap := make(map[string]interface{})
@@ -625,15 +633,12 @@ func (r *APIDiscoveryResource) Create(ctx context.Context, req resource.CreateRe
 						_ = DiscoveryRulesIdx
 						if DiscoveryRulesItemMap, ok := DiscoveryRulesItem.(map[string]interface{}); ok {
 							DiscoveryRulesResult = append(DiscoveryRulesResult, APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel{
-								Labels: func() *APIDiscoveryEmptyModel {
-									if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
+								Labels: UnmarshalStringMap(ctx, DiscoveryRulesItemMap["labels"], func() types.Map {
+									if len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
 										return DiscoveryRulesExisting[DiscoveryRulesIdx].Labels
 									}
-									if _, ok := DiscoveryRulesItemMap["labels"].(map[string]interface{}); ok {
-										return &APIDiscoveryEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								Metadata: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel {
 									if MetadataData, ok := DiscoveryRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel{
@@ -956,15 +961,12 @@ func (r *APIDiscoveryResource) Read(ctx context.Context, req resource.ReadReques
 						_ = DiscoveryRulesIdx
 						if DiscoveryRulesItemMap, ok := DiscoveryRulesItem.(map[string]interface{}); ok {
 							DiscoveryRulesResult = append(DiscoveryRulesResult, APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel{
-								Labels: func() *APIDiscoveryEmptyModel {
-									if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
+								Labels: UnmarshalStringMap(ctx, DiscoveryRulesItemMap["labels"], func() types.Map {
+									if len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
 										return DiscoveryRulesExisting[DiscoveryRulesIdx].Labels
 									}
-									if _, ok := DiscoveryRulesItemMap["labels"].(map[string]interface{}); ok {
-										return &APIDiscoveryEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								Metadata: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel {
 									if MetadataData, ok := DiscoveryRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel{
@@ -1239,8 +1241,13 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 				var DiscoveryRulesList []map[string]interface{}
 				for _, DiscoveryRulesItem := range DiscoveryRulesElems {
 					DiscoveryRulesItemMap := make(map[string]interface{})
-					if DiscoveryRulesItem.Labels != nil {
-						DiscoveryRulesItemMap["labels"] = map[string]interface{}{}
+					if !DiscoveryRulesItem.Labels.IsNull() && !DiscoveryRulesItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := DiscoveryRulesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							DiscoveryRulesItemMap["labels"] = LabelsMap
+						}
 					}
 					if DiscoveryRulesItem.Metadata != nil {
 						UserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataMap := make(map[string]interface{})
@@ -1385,15 +1392,12 @@ func (r *APIDiscoveryResource) Update(ctx context.Context, req resource.UpdateRe
 						_ = DiscoveryRulesIdx
 						if DiscoveryRulesItemMap, ok := DiscoveryRulesItem.(map[string]interface{}); ok {
 							DiscoveryRulesResult = append(DiscoveryRulesResult, APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesModel{
-								Labels: func() *APIDiscoveryEmptyModel {
-									if !isImport && len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
+								Labels: UnmarshalStringMap(ctx, DiscoveryRulesItemMap["labels"], func() types.Map {
+									if len(DiscoveryRulesExisting) > DiscoveryRulesIdx {
 										return DiscoveryRulesExisting[DiscoveryRulesIdx].Labels
 									}
-									if _, ok := DiscoveryRulesItemMap["labels"].(map[string]interface{}); ok {
-										return &APIDiscoveryEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								Metadata: func() *APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel {
 									if MetadataData, ok := DiscoveryRulesItemMap["metadata"].(map[string]interface{}); ok {
 										return &APIDiscoveryUserDefinedAPIDiscoveryPolicyDiscoveryRulesMetadataModel{

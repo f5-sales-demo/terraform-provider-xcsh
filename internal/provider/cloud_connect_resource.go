@@ -112,19 +112,19 @@ var CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsModelAttrTypes = map[string]a
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel represents vpc_list block
 type CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel struct {
+	Labels        types.Map                                                                 `tfsdk:"labels"`
 	VPCID         types.String                                                              `tfsdk:"vpc_id"`
 	CustomRouting *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModel `tfsdk:"custom_routing"`
 	DefaultRoute  *CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModel  `tfsdk:"default_route"`
-	Labels        *CloudConnectEmptyModel                                                   `tfsdk:"labels"`
 	ManualRouting *CloudConnectEmptyModel                                                   `tfsdk:"manual_routing"`
 }
 
 // CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes defines the attribute types for CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModel
 var CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListModelAttrTypes = map[string]attr.Type{
+	"labels":         types.MapType{ElemType: types.StringType},
 	"vpc_id":         types.StringType,
 	"custom_routing": types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListCustomRoutingModelAttrTypes},
 	"default_route":  types.ObjectType{AttrTypes: CloudConnectAWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteModelAttrTypes},
-	"labels":         types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual_routing": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
@@ -210,21 +210,21 @@ var CloudConnectAzureVNETSiteVNETAttachmentsModelAttrTypes = map[string]attr.Typ
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel represents vnet_list block
 type CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel struct {
+	Labels         types.Map                                                           `tfsdk:"labels"`
 	SubscriptionID types.String                                                        `tfsdk:"subscription_id"`
 	VNETID         types.String                                                        `tfsdk:"vnet_id"`
 	CustomRouting  *CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModel `tfsdk:"custom_routing"`
 	DefaultRoute   *CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModel  `tfsdk:"default_route"`
-	Labels         *CloudConnectEmptyModel                                             `tfsdk:"labels"`
 	ManualRouting  *CloudConnectEmptyModel                                             `tfsdk:"manual_routing"`
 }
 
 // CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes defines the attribute types for CloudConnectAzureVNETSiteVNETAttachmentsVNETListModel
 var CloudConnectAzureVNETSiteVNETAttachmentsVNETListModelAttrTypes = map[string]attr.Type{
+	"labels":          types.MapType{ElemType: types.StringType},
 	"subscription_id": types.StringType,
 	"vnet_id":         types.StringType,
 	"custom_routing":  types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListCustomRoutingModelAttrTypes},
 	"default_route":   types.ObjectType{AttrTypes: CloudConnectAzureVNETSiteVNETAttachmentsVNETListDefaultRouteModelAttrTypes},
-	"labels":          types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"manual_routing":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
@@ -437,6 +437,11 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 										MarkdownDescription: "VPC List. Collection of items or values",
 										NestedObject: schema.NestedBlockObject{
 											Attributes: map[string]schema.Attribute{
+												"labels": schema.MapAttribute{
+													MarkdownDescription: "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
+													Optional:            true,
+													ElementType:         types.StringType,
+												},
 												"vpc_id": schema.StringAttribute{
 													MarkdownDescription: "Enter the VPC ID of the VPC to be attached .",
 													Optional:            true,
@@ -493,9 +498,6 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 														},
 													},
 												},
-												"labels": schema.SingleNestedBlock{
-													MarkdownDescription: "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
-												},
 												"manual_routing": schema.SingleNestedBlock{
 													MarkdownDescription: "Enable this option",
 												},
@@ -550,6 +552,11 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 								MarkdownDescription: "VNet List. Collection of items or values",
 								NestedObject: schema.NestedBlockObject{
 									Attributes: map[string]schema.Attribute{
+										"labels": schema.MapAttribute{
+											MarkdownDescription: "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
+											Optional:            true,
+											ElementType:         types.StringType,
+										},
 										"subscription_id": schema.StringAttribute{
 											MarkdownDescription: "Enter the Subscription ID of the VNet to be attached .",
 											Optional:            true,
@@ -612,9 +619,6 @@ func (r *CloudConnectResource) Schema(ctx context.Context, req resource.SchemaRe
 													},
 												},
 											},
-										},
-										"labels": schema.SingleNestedBlock{
-											MarkdownDescription: "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
 										},
 										"manual_routing": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
@@ -869,8 +873,13 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 								}
 								VPCListItemMap["default_route"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap
 							}
-							if VPCListItem.Labels != nil {
-								VPCListItemMap["labels"] = map[string]interface{}{}
+							if !VPCListItem.Labels.IsNull() && !VPCListItem.Labels.IsUnknown() {
+								var LabelsMap map[string]string
+								diags := VPCListItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									VPCListItemMap["labels"] = LabelsMap
+								}
 							}
 							if VPCListItem.ManualRouting != nil {
 								VPCListItemMap["manual_routing"] = map[string]interface{}{}
@@ -961,8 +970,13 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 							}
 							VNETListItemMap["default_route"] = AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap
 						}
-						if VNETListItem.Labels != nil {
-							VNETListItemMap["labels"] = map[string]interface{}{}
+						if !VNETListItem.Labels.IsNull() && !VNETListItem.Labels.IsUnknown() {
+							var LabelsMap map[string]string
+							diags := VNETListItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								VNETListItemMap["labels"] = LabelsMap
+							}
 						}
 						if VNETListItem.ManualRouting != nil {
 							VNETListItemMap["manual_routing"] = map[string]interface{}{}
@@ -1181,15 +1195,12 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 															}
 															return nil
 														}(),
-														Labels: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx {
+														Labels: UnmarshalStringMap(ctx, VPCListItemMap["labels"], func() types.Map {
+															if len(VPCListExisting) > VPCListIdx {
 																return VPCListExisting[VPCListIdx].Labels
 															}
-															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														ManualRouting: func() *CloudConnectEmptyModel {
 															if !isImport && len(VPCListExisting) > VPCListIdx {
 																return VPCListExisting[VPCListIdx].ManualRouting
@@ -1359,15 +1370,12 @@ func (r *CloudConnectResource) Create(ctx context.Context, req resource.CreateRe
 												}
 												return nil
 											}(),
-											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx {
+											Labels: UnmarshalStringMap(ctx, VNETListItemMap["labels"], func() types.Map {
+												if len(VNETListExisting) > VNETListIdx {
 													return VNETListExisting[VNETListIdx].Labels
 												}
-												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
-													return &CloudConnectEmptyModel{}
-												}
-												return nil
-											}(),
+												return types.MapNull(types.StringType)
+											}(), "labels", &resp.Diagnostics),
 											ManualRouting: func() *CloudConnectEmptyModel {
 												if !isImport && len(VNETListExisting) > VNETListIdx {
 													return VNETListExisting[VNETListIdx].ManualRouting
@@ -1710,15 +1718,12 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 															}
 															return nil
 														}(),
-														Labels: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx {
+														Labels: UnmarshalStringMap(ctx, VPCListItemMap["labels"], func() types.Map {
+															if len(VPCListExisting) > VPCListIdx {
 																return VPCListExisting[VPCListIdx].Labels
 															}
-															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														ManualRouting: func() *CloudConnectEmptyModel {
 															if !isImport && len(VPCListExisting) > VPCListIdx {
 																return VPCListExisting[VPCListIdx].ManualRouting
@@ -1888,15 +1893,12 @@ func (r *CloudConnectResource) Read(ctx context.Context, req resource.ReadReques
 												}
 												return nil
 											}(),
-											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx {
+											Labels: UnmarshalStringMap(ctx, VNETListItemMap["labels"], func() types.Map {
+												if len(VNETListExisting) > VNETListIdx {
 													return VNETListExisting[VNETListIdx].Labels
 												}
-												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
-													return &CloudConnectEmptyModel{}
-												}
-												return nil
-											}(),
+												return types.MapNull(types.StringType)
+											}(), "labels", &resp.Diagnostics),
 											ManualRouting: func() *CloudConnectEmptyModel {
 												if !isImport && len(VNETListExisting) > VNETListIdx {
 													return VNETListExisting[VNETListIdx].ManualRouting
@@ -2120,8 +2122,13 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 								}
 								VPCListItemMap["default_route"] = AWSProviderAWSTGWSiteVPCAttachmentsVPCListDefaultRouteMap
 							}
-							if VPCListItem.Labels != nil {
-								VPCListItemMap["labels"] = map[string]interface{}{}
+							if !VPCListItem.Labels.IsNull() && !VPCListItem.Labels.IsUnknown() {
+								var LabelsMap map[string]string
+								diags := VPCListItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+								resp.Diagnostics.Append(diags...)
+								if !diags.HasError() {
+									VPCListItemMap["labels"] = LabelsMap
+								}
 							}
 							if VPCListItem.ManualRouting != nil {
 								VPCListItemMap["manual_routing"] = map[string]interface{}{}
@@ -2212,8 +2219,13 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 							}
 							VNETListItemMap["default_route"] = AzureVNETSiteVNETAttachmentsVNETListDefaultRouteMap
 						}
-						if VNETListItem.Labels != nil {
-							VNETListItemMap["labels"] = map[string]interface{}{}
+						if !VNETListItem.Labels.IsNull() && !VNETListItem.Labels.IsUnknown() {
+							var LabelsMap map[string]string
+							diags := VNETListItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+							resp.Diagnostics.Append(diags...)
+							if !diags.HasError() {
+								VNETListItemMap["labels"] = LabelsMap
+							}
 						}
 						if VNETListItem.ManualRouting != nil {
 							VNETListItemMap["manual_routing"] = map[string]interface{}{}
@@ -2452,15 +2464,12 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 															}
 															return nil
 														}(),
-														Labels: func() *CloudConnectEmptyModel {
-															if !isImport && len(VPCListExisting) > VPCListIdx {
+														Labels: UnmarshalStringMap(ctx, VPCListItemMap["labels"], func() types.Map {
+															if len(VPCListExisting) > VPCListIdx {
 																return VPCListExisting[VPCListIdx].Labels
 															}
-															if _, ok := VPCListItemMap["labels"].(map[string]interface{}); ok {
-																return &CloudConnectEmptyModel{}
-															}
-															return nil
-														}(),
+															return types.MapNull(types.StringType)
+														}(), "labels", &resp.Diagnostics),
 														ManualRouting: func() *CloudConnectEmptyModel {
 															if !isImport && len(VPCListExisting) > VPCListIdx {
 																return VPCListExisting[VPCListIdx].ManualRouting
@@ -2630,15 +2639,12 @@ func (r *CloudConnectResource) Update(ctx context.Context, req resource.UpdateRe
 												}
 												return nil
 											}(),
-											Labels: func() *CloudConnectEmptyModel {
-												if !isImport && len(VNETListExisting) > VNETListIdx {
+											Labels: UnmarshalStringMap(ctx, VNETListItemMap["labels"], func() types.Map {
+												if len(VNETListExisting) > VNETListIdx {
 													return VNETListExisting[VNETListIdx].Labels
 												}
-												if _, ok := VNETListItemMap["labels"].(map[string]interface{}); ok {
-													return &CloudConnectEmptyModel{}
-												}
-												return nil
-											}(),
+												return types.MapNull(types.StringType)
+											}(), "labels", &resp.Diagnostics),
 											ManualRouting: func() *CloudConnectEmptyModel {
 												if !isImport && len(VNETListExisting) > VNETListIdx {
 													return VNETListExisting[VNETListIdx].ManualRouting

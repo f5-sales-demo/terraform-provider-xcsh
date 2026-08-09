@@ -176,44 +176,98 @@ func ResolveRefStrict(ref string, spec *openapi.Spec) (openapi.Schema, bool) {
 	return openapi.Schema{}, false
 }
 
+// hasStringMapRules returns true if the schema has any ves.io.schema.rules.map.values.string.* validation rules
+func hasStringMapRules(schema openapi.Schema) bool {
+	for k := range schema.XVesValidationRules {
+		if strings.HasPrefix(k, "ves.io.schema.rules.map.values.string.") {
+			return true
+		}
+	}
+	for k := range schema.XValidationRules {
+		if strings.HasPrefix(k, "ves.io.schema.rules.map.values.string.") {
+			return true
+		}
+	}
+	return false
+}
+
+// isMapFieldNameOverride returns true if the name matches a whitelisted string map attribute.
+func isMapFieldNameOverride(name string) bool {
+	name = strings.ToLower(name)
+	switch name {
+	case "labels", "annotations", "fixed_ip_map", "fixed_ipv6_map", "interface_ip_map", "dns_zone_ip_map", "labels_map", "metadata_labels":
+		return true
+	}
+	if strings.HasSuffix(name, "_map") || strings.HasSuffix(name, "_labels") {
+		return true
+	}
+	return false
+}
+
 // isStrictStringMap checks if a schema property strictly represents a string-valued map.
-func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, fieldPath string) bool {
+// It returns (true, "") if it is a valid string map.
+// If it is a map but has an unsupported element type, it returns (false, "unsupported map element type ...").
+// Otherwise, it returns (false, "").
+func isStrictStringMap(schema openapi.Schema, spec *openapi.Spec, name string, fieldPath string) (bool, string) {
 	if schema.Type != "" && schema.Type != "object" {
-		return false
+		return false, ""
 	}
 
 	if schema.AdditionalProperties == nil {
-		return false
+		if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+			return true, ""
+		}
+		return false, ""
 	}
 
+	// 1. If additionalProperties is a boolean
+	if apBool, ok := schema.AdditionalProperties.(bool); ok {
+		if !apBool {
+			return false, ""
+		}
+		if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+			return true, ""
+		}
+		return false, ""
+	}
+
+	// 2. If additionalProperties is a map
 	apMap, ok := schema.AdditionalProperties.(map[string]interface{})
 	if !ok {
-		return false
+		return false, ""
 	}
 
+	// If additionalProperties is an empty map {}
 	if len(apMap) == 0 {
-		return false
+		if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+			return true, ""
+		}
+		return false, ""
 	}
 
 	if t, ok := apMap["type"].(string); ok {
 		if t == "string" {
-			return true
+			return true, ""
 		}
-		panic(fmt.Sprintf("unsupported map element type %q for attribute %s, only string maps are supported", t, fieldPath))
+		return false, fmt.Sprintf("unsupported map element type %q for attribute %s, only string maps are supported", t, fieldPath)
 	}
 
 	if ref, ok := apMap["$ref"].(string); ok {
 		resolved, resolvedOk := ResolveRefStrict(ref, spec)
 		if !resolvedOk {
-			return false
+			return false, "unresolved reference " + ref
 		}
 		if resolved.Type == "string" {
-			return true
+			return true, ""
 		}
-		panic(fmt.Sprintf("unsupported map element type %q (resolved from %s) for attribute %s, only string maps are supported", resolved.Type, ref, fieldPath))
+		return false, fmt.Sprintf("unsupported map element type %q (resolved from %s) for attribute %s, only string maps are supported", resolved.Type, ref, fieldPath)
 	}
 
-	return false
+	if hasStringMapRules(schema) || isMapFieldNameOverride(name) {
+		return true, ""
+	}
+
+	return false, ""
 }
 
 // ConvertToTerraformAttribute converts an OpenAPI schema property to a TerraformAttribute.
@@ -510,7 +564,10 @@ func ConvertToTerraformAttributeWithDepth(name string, schema openapi.Schema, re
 			if depth < MaxNestedDepth {
 				attr.NestedAttributes = ExtractNestedAttributes(schema, spec, depth+1, fieldPath)
 			}
-		} else if isStrictStringMap(schema, spec, fieldPath) {
+		} else if isMap, mapErr := isStrictStringMap(schema, spec, name, fieldPath); isMap || mapErr != "" {
+			if mapErr != "" {
+				attr.ConversionError = mapErr
+			}
 			attr.Type = "map"
 			attr.ElementType = "string"
 			attr.GoType = "map[string]string"

@@ -361,7 +361,7 @@ that caused the user agent<br>See [CSRF Policy](#routes-route-destination-csrf-p
 
 <a id="cluster-098c21"></a>&#x2022; [`do_not_retract_cluster`](#cluster-098c21) - Optional Block<br>Enable this option
 
-<a id="subsets-17b178"></a>&#x2022; [`endpoint_subsets`](#subsets-17b178) - Optional Map<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
+<a id="subsets-17b178"></a>&#x2022; [`endpoint_subsets`](#subsets-17b178) - Optional Block<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
 
 <a id="routes-route-destination-hash-policy"></a>&#x2022; [`hash_policy`](#routes-route-destination-hash-policy) - Optional Block<br>Specifies a list of hash policies to use for ring hash load balancing. Each hash policy is evaluated individually and the combined result is used to route the request<br>See [Hash Policy](#routes-route-destination-hash-policy) below.
 
@@ -440,7 +440,7 @@ A [`destinations`](#routes-route-destination-destinations) block (within [`route
 
 <a id="cluster-d8ac1b"></a>&#x2022; [`cluster`](#cluster-d8ac1b) - Optional Block<br>Indicates the upstream cluster to which the request should be sent. If the cluster does not exist ServiceUnavailable response will be sent<br>See [Cluster](#cluster-d8ac1b) below.
 
-<a id="subsets-23862f"></a>&#x2022; [`endpoint_subsets`](#subsets-23862f) - Optional Map<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
+<a id="subsets-23862f"></a>&#x2022; [`endpoint_subsets`](#subsets-23862f) - Optional Block<br>Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset
 
 <a id="priority-830655"></a>&#x2022; [`priority`](#priority-830655) - Optional Number<br>Priority of this cluster, valid only with multiple destinations are configured. Value of 0 will make the cluster as lowest priority upstream cluster Priority of 1 means highest priority and is considered active. When active cluster is not available, lower priority clusters are made active as per
 

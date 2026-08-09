@@ -29,7 +29,7 @@ func TestMapRoundTrip(t *testing.T) {
 		t.Fatalf("unexpected unmarshal error: %v", err)
 	}
 
-	if !strings.Contains(unmarshal, "resp.Diagnostics.AddError(\"Unexpected type in map\"") {
-		t.Errorf("Expected diagnostics emission in unmarshal code, got:\n%s", unmarshal)
+	if !strings.Contains(unmarshal, "UnmarshalStringMap") {
+		t.Errorf("Expected UnmarshalStringMap helper invocation in unmarshal code, got:\n%s", unmarshal)
 	}
 }

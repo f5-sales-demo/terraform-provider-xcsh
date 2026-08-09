@@ -189,6 +189,9 @@ func RenderSpecMarshalCodeWithVar(attrs []openapi.TerraformAttribute, indent str
 // Terraform value (src) into dstMap[jsonName]. dstMap is a Go expression for a
 // map[string]interface{} (e.g. "apiResource.Spec" or a local item map).
 func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, src, dstMap, indent string) error {
+	if attr.ConversionError != "" {
+		return fmt.Errorf("%s", attr.ConversionError)
+	}
 	jsonName := attr.JsonName
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
@@ -250,6 +253,9 @@ func renderMarshalScalar(sb *strings.Builder, attr openapi.TerraformAttribute, s
 // this list block as types.List (top-level lists, or nested lists with a Computed descendant)
 // rather than a native slice. It recurses to arbitrary depth.
 func renderMarshalBlock(sb *strings.Builder, resourceTitleCase, prefixPath string, attr openapi.TerraformAttribute, src, dstMap, indent string, fieldIsTypesList bool) error {
+	if attr.ConversionError != "" {
+		return fmt.Errorf("%s", attr.ConversionError)
+	}
 	jsonName := attr.JsonName
 	if jsonName == "" {
 		jsonName = attr.TfsdkTag
@@ -469,6 +475,9 @@ func nestedObjectTypeExpr(resourceTitleCase, childPath string, attr openapi.Terr
 
 // renderUnmarshalTopLevelScalar assigns a primitive/list spec field directly to data.<Field>.
 func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAttribute, indent string) error {
+	if attr.ConversionError != "" {
+		return fmt.Errorf("%s", attr.ConversionError)
+	}
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -536,28 +545,7 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 		if attr.ElementType != "string" {
 			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
 		}
-		mapVar := attr.TfsdkTag + "Map"
-		sb.WriteString(fmt.Sprintf("%sif v, ok := apiResource.Spec[\"%s\"].(map[string]interface{}); ok {\n", indent, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\t%s := make(map[string]string)\n", indent, mapVar))
-		sb.WriteString(fmt.Sprintf("%s\tfor mk, mv := range v {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tif mvs, ok := mv.(string); ok {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t\t%s[mk] = mvs\n", indent, mapVar))
-		sb.WriteString(fmt.Sprintf("%s\t\t} else {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t\tresp.Diagnostics.AddError(\"Unexpected type in map\", fmt.Sprintf(\"Expected string for key %%s in field %s, got %%T\", mk, mv))\n", indent, attr.Name))
-		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\tmapVal, diags := types.MapValueFrom(ctx, types.StringType, %s)\n", indent, mapVar))
-		sb.WriteString(fmt.Sprintf("%s\tresp.Diagnostics.Append(diags...)\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\tif !resp.Diagnostics.HasError() {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = mapVal\n", indent, fieldName))
-		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s} else {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\tif !data.%s.IsNull() && !data.%s.IsUnknown() {\n", indent, fieldName, fieldName))
-		sb.WriteString(fmt.Sprintf("%s\t\t// Preserve configured map to prevent drift on omission\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t} else {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tdata.%s = types.MapNull(types.StringType)\n", indent, fieldName))
-		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s}\n", indent))
+		sb.WriteString(fmt.Sprintf("%sdata.%s = UnmarshalStringMap(ctx, apiResource.Spec[\"%s\"], data.%s, %q, &resp.Diagnostics)\n", indent, fieldName, jsonName, fieldName, attr.Name))
 	default:
 		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}
@@ -567,6 +555,9 @@ func renderUnmarshalTopLevelScalar(sb *strings.Builder, attr openapi.TerraformAt
 // renderUnmarshalTopLevelList rebuilds a top-level list block (always types.List) from the API
 // response, converting to types.List via ListValueFrom.
 func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) error {
+	if attr.ConversionError != "" {
+		return fmt.Errorf("%s", attr.ConversionError)
+	}
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -620,6 +611,9 @@ func renderUnmarshalTopLevelList(sb *strings.Builder, rc string, attr openapi.Te
 
 // renderUnmarshalTopLevelSingle rebuilds a top-level single block (pointer) from the API response.
 func renderUnmarshalTopLevelSingle(sb *strings.Builder, rc string, attr openapi.TerraformAttribute, indent string) error {
+	if attr.ConversionError != "" {
+		return fmt.Errorf("%s", attr.ConversionError)
+	}
 	fieldName := attr.GoName
 	jsonName := attr.JsonName
 	if jsonName == "" {
@@ -782,27 +776,13 @@ func renderUnmarshalScalarChild(sb *strings.Builder, rc string, attr openapi.Ter
 		if attr.ElementType != "string" {
 			return fmt.Errorf("unsupported map element type %q at field %s", attr.ElementType, attr.Name)
 		}
-		sb.WriteString(fmt.Sprintf("%s%s: func() types.Map {\n", indent, fieldName))
-		sb.WriteString(fmt.Sprintf("%s\tif v, ok := %s[\"%s\"].(map[string]interface{}); ok {\n", indent, srcMap, jsonName))
-		sb.WriteString(fmt.Sprintf("%s\t\titems := make(map[string]string)\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tfor mk, mv := range v {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t\tif mvs, ok := mv.(string); ok {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t\t\titems[mk] = mvs\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t\t} else {\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t\t\tresp.Diagnostics.AddError(\"Unexpected type in map\", fmt.Sprintf(\"Expected string for key %%s in field %s, got %%T\", mk, mv))\n", indent, attr.Name))
-		sb.WriteString(fmt.Sprintf("%s\t\t\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\t}\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tmapVal, diags := types.MapValueFrom(ctx, types.StringType, items)\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\tresp.Diagnostics.Append(diags...)\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t\treturn mapVal\n", indent))
-		sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+		var priorExpr string
 		if stateBase != "" {
-			sb.WriteString(fmt.Sprintf("%s\tif %s && !%s.%s.IsNull() && !%s.%s.IsUnknown() {\n", indent, stateGuard, stateBase, fieldName, stateBase, fieldName))
-			sb.WriteString(fmt.Sprintf("%s\t\treturn %s.%s\n", indent, stateBase, fieldName))
-			sb.WriteString(fmt.Sprintf("%s\t}\n", indent))
+			priorExpr = fmt.Sprintf("func() types.Map { if %s { return %s.%s }; return types.MapNull(types.StringType) }()", stateGuard, stateBase, fieldName)
+		} else {
+			priorExpr = "types.MapNull(types.StringType)"
 		}
-		sb.WriteString(fmt.Sprintf("%s\treturn types.MapNull(types.StringType)\n", indent))
-		sb.WriteString(fmt.Sprintf("%s}(),\n", indent))
+		sb.WriteString(fmt.Sprintf("%s%s: UnmarshalStringMap(ctx, %s[\"%s\"], %s, %q, &resp.Diagnostics),\n", indent, fieldName, srcMap, jsonName, priorExpr, attr.Name))
 	default:
 		return fmt.Errorf("unsupported type %q at field %s", attr.Type, attr.Name)
 	}

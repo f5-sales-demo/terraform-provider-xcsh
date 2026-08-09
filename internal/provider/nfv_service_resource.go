@@ -4550,25 +4550,12 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() types.Map {
-				if v, ok := blockData["tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
+			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+				if data.F5BigIPAWSService != nil {
 					return data.F5BigIPAWSService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "tags", &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
@@ -6360,25 +6347,12 @@ func (r *NfvServiceResource) Create(ctx context.Context, req resource.CreateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() types.Map {
-				if v, ok := blockData["tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.PaloAltoFwService != nil && !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
+			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+				if data.PaloAltoFwService != nil {
 					return data.PaloAltoFwService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "tags", &resp.Diagnostics),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -6951,25 +6925,12 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() types.Map {
-				if v, ok := blockData["tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
+			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+				if data.F5BigIPAWSService != nil {
 					return data.F5BigIPAWSService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "tags", &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
@@ -8761,25 +8722,12 @@ func (r *NfvServiceResource) Read(ctx context.Context, req resource.ReadRequest,
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() types.Map {
-				if v, ok := blockData["tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.PaloAltoFwService != nil && !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
+			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+				if data.PaloAltoFwService != nil {
 					return data.PaloAltoFwService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "tags", &resp.Diagnostics),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -10413,25 +10361,12 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() types.Map {
-				if v, ok := blockData["tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.F5BigIPAWSService != nil && !data.F5BigIPAWSService.Tags.IsNull() && !data.F5BigIPAWSService.Tags.IsUnknown() {
+			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+				if data.F5BigIPAWSService != nil {
 					return data.F5BigIPAWSService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "tags", &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["https_management"].(map[string]interface{}); ok && (isImport || data.HTTPSManagement != nil) {
@@ -12223,25 +12158,12 @@ func (r *NfvServiceResource) Update(ctx context.Context, req resource.UpdateRequ
 				}
 				return types.StringNull()
 			}(),
-			Tags: func() types.Map {
-				if v, ok := blockData["tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.PaloAltoFwService != nil && !data.PaloAltoFwService.Tags.IsNull() && !data.PaloAltoFwService.Tags.IsUnknown() {
+			Tags: UnmarshalStringMap(ctx, blockData["tags"], func() types.Map {
+				if data.PaloAltoFwService != nil {
 					return data.PaloAltoFwService.Tags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "tags", &resp.Diagnostics),
 			Version: func() types.String {
 				if v, ok := blockData["version"].(string); ok && v != "" {
 					return types.StringValue(v)

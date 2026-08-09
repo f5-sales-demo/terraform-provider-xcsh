@@ -1390,7 +1390,7 @@ var FleetStorageStaticRoutesModelAttrTypes = map[string]attr.Type{
 // FleetStorageStaticRoutesStorageRoutesModel represents storage_routes block
 type FleetStorageStaticRoutesStorageRoutesModel struct {
 	Attrs   types.List                                         `tfsdk:"attrs"`
-	Labels  *FleetEmptyModel                                   `tfsdk:"labels"`
+	Labels  types.Map                                          `tfsdk:"labels"`
 	Nexthop *FleetStorageStaticRoutesStorageRoutesNexthopModel `tfsdk:"nexthop"`
 	Subnets types.List                                         `tfsdk:"subnets"`
 }
@@ -1398,7 +1398,7 @@ type FleetStorageStaticRoutesStorageRoutesModel struct {
 // FleetStorageStaticRoutesStorageRoutesModelAttrTypes defines the attribute types for FleetStorageStaticRoutesStorageRoutesModel
 var FleetStorageStaticRoutesStorageRoutesModelAttrTypes = map[string]attr.Type{
 	"attrs":   types.ListType{ElemType: types.StringType},
-	"labels":  types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"labels":  types.MapType{ElemType: types.StringType},
 	"nexthop": types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesNexthopModelAttrTypes},
 	"subnets": types.ListType{ElemType: types.ObjectType{AttrTypes: FleetStorageStaticRoutesStorageRoutesSubnetsModelAttrTypes}},
 }
@@ -3729,11 +3729,13 @@ func (r *FleetResource) Schema(ctx context.Context, req resource.SchemaRequest, 
 										listvalidator.SizeAtMost(4),
 									},
 								},
+								"labels": schema.MapAttribute{
+									MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
 							},
 							Blocks: map[string]schema.Block{
-								"labels": schema.SingleNestedBlock{
-									MarkdownDescription: "Add Labels for this Static Route, these labels can be used in network policy.",
-								},
 								"nexthop": schema.SingleNestedBlock{
 									MarkdownDescription: "Nexthop. Identifies the next-hop for a route.",
 									Attributes: map[string]schema.Attribute{
@@ -5434,8 +5436,13 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 							StorageRoutesItemMap["attrs"] = AttrsItems
 						}
 					}
-					if StorageRoutesItem.Labels != nil {
-						StorageRoutesItemMap["labels"] = map[string]interface{}{}
+					if !StorageRoutesItem.Labels.IsNull() && !StorageRoutesItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := StorageRoutesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							StorageRoutesItemMap["labels"] = LabelsMap
+						}
 					}
 					if StorageRoutesItem.Nexthop != nil {
 						StorageStaticRoutesStorageRoutesNexthopMap := make(map[string]interface{})
@@ -6398,25 +6405,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
-								AdvancedStorageParameters: func() types.Map {
-									if v, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field advanced_storage_parameters, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(StorageClassesExisting) > StorageClassesIdx && !StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters.IsNull() && !StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters.IsUnknown() {
+								AdvancedStorageParameters: UnmarshalStringMap(ctx, StorageClassesItemMap["advanced_storage_parameters"], func() types.Map {
+									if len(StorageClassesExisting) > StorageClassesIdx {
 										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "advanced_storage_parameters", &resp.Diagnostics),
 								AllowVolumeExpansion: func() types.Bool {
 									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
@@ -6660,25 +6654,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
-								AdvancedAdvancedParameters: func() types.Map {
-									if v, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field advanced_advanced_parameters, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(StorageDevicesExisting) > StorageDevicesIdx && !StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters.IsUnknown() {
+								AdvancedAdvancedParameters: UnmarshalStringMap(ctx, StorageDevicesItemMap["advanced_advanced_parameters"], func() types.Map {
+									if len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "advanced_advanced_parameters", &resp.Diagnostics),
 								CustomStorage: func() *FleetEmptyModel {
 									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
@@ -6974,25 +6955,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() types.Map {
-															if v, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
-																items := make(map[string]string)
-																for mk, mv := range v {
-																	if mvs, ok := mv.(string); ok {
-																		items[mk] = mvs
-																	} else {
-																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																	}
-																}
-																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																resp.Diagnostics.Append(diags...)
-																return mapVal
-															}
-															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels.IsUnknown() {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapNasData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
 															}
 															return types.MapNull(types.StringType)
-														}(),
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.String {
 															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -7103,25 +7071,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
-																			Labels: func() types.Map {
-																				if v, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					items := make(map[string]string)
-																					for mk, mv := range v {
-																						if mvs, ok := mv.(string); ok {
-																							items[mk] = mvs
-																						} else {
-																							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																						}
-																					}
-																					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																					resp.Diagnostics.Append(diags...)
-																					return mapVal
-																				}
-																				if len(StorageExisting) > StorageIdx && !StorageExisting[StorageIdx].Labels.IsNull() && !StorageExisting[StorageIdx].Labels.IsUnknown() {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
 																				return types.MapNull(types.StringType)
-																			}(),
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
@@ -7463,25 +7418,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() types.Map {
-															if v, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
-																items := make(map[string]string)
-																for mk, mv := range v {
-																	if mvs, ok := mv.(string); ok {
-																		items[mk] = mvs
-																	} else {
-																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																	}
-																}
-																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																resp.Diagnostics.Append(diags...)
-																return mapVal
-															}
-															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels.IsUnknown() {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapSanData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
 															}
 															return types.MapNull(types.StringType)
-														}(),
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.Int64 {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
@@ -7601,25 +7543,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
-																			Labels: func() types.Map {
-																				if v, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					items := make(map[string]string)
-																					for mk, mv := range v {
-																						if mvs, ok := mv.(string); ok {
-																							items[mk] = mvs
-																						} else {
-																							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																						}
-																					}
-																					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																					resp.Diagnostics.Append(diags...)
-																					return mapVal
-																				}
-																				if len(StorageExisting) > StorageIdx && !StorageExisting[StorageIdx].Labels.IsNull() && !StorageExisting[StorageIdx].Labels.IsUnknown() {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
 																				return types.MapNull(types.StringType)
-																			}(),
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
@@ -8138,25 +8067,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() types.Map {
-																							if v, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
-																								items := make(map[string]string)
-																								for mk, mv := range v {
-																									if mvs, ok := mv.(string); ok {
-																										items[mk] = mvs
-																									} else {
-																										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																									}
-																								}
-																								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																								resp.Diagnostics.Append(diags...)
-																								return mapVal
-																							}
-																							if len(FlashArraysExisting) > FlashArraysIdx && !FlashArraysExisting[FlashArraysIdx].Labels.IsNull() && !FlashArraysExisting[FlashArraysIdx].Labels.IsUnknown() {
+																						Labels: UnmarshalStringMap(ctx, FlashArraysItemMap["labels"], func() types.Map {
+																							if len(FlashArraysExisting) > FlashArraysIdx {
 																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
 																							return types.MapNull(types.StringType)
-																						}(),
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -8288,25 +8204,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() types.Map {
-																							if v, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
-																								items := make(map[string]string)
-																								for mk, mv := range v {
-																									if mvs, ok := mv.(string); ok {
-																										items[mk] = mvs
-																									} else {
-																										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																									}
-																								}
-																								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																								resp.Diagnostics.Append(diags...)
-																								return mapVal
-																							}
-																							if len(FlashBladesExisting) > FlashBladesIdx && !FlashBladesExisting[FlashBladesIdx].Labels.IsNull() && !FlashBladesExisting[FlashBladesIdx].Labels.IsUnknown() {
+																						Labels: UnmarshalStringMap(ctx, FlashBladesItemMap["labels"], func() types.Map {
+																							if len(FlashBladesExisting) > FlashBladesIdx {
 																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
 																							return types.MapNull(types.StringType)
-																						}(),
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -8465,15 +8368,12 @@ func (r *FleetResource) Create(ctx context.Context, req resource.CreateRequest, 
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								Labels: func() *FleetEmptyModel {
-									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
+								Labels: UnmarshalStringMap(ctx, StorageRoutesItemMap["labels"], func() types.Map {
+									if len(StorageRoutesExisting) > StorageRoutesIdx {
 										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
-									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
@@ -9639,25 +9539,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
-								AdvancedStorageParameters: func() types.Map {
-									if v, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field advanced_storage_parameters, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(StorageClassesExisting) > StorageClassesIdx && !StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters.IsNull() && !StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters.IsUnknown() {
+								AdvancedStorageParameters: UnmarshalStringMap(ctx, StorageClassesItemMap["advanced_storage_parameters"], func() types.Map {
+									if len(StorageClassesExisting) > StorageClassesIdx {
 										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "advanced_storage_parameters", &resp.Diagnostics),
 								AllowVolumeExpansion: func() types.Bool {
 									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
@@ -9901,25 +9788,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
-								AdvancedAdvancedParameters: func() types.Map {
-									if v, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field advanced_advanced_parameters, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(StorageDevicesExisting) > StorageDevicesIdx && !StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters.IsUnknown() {
+								AdvancedAdvancedParameters: UnmarshalStringMap(ctx, StorageDevicesItemMap["advanced_advanced_parameters"], func() types.Map {
+									if len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "advanced_advanced_parameters", &resp.Diagnostics),
 								CustomStorage: func() *FleetEmptyModel {
 									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
@@ -10215,25 +10089,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() types.Map {
-															if v, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
-																items := make(map[string]string)
-																for mk, mv := range v {
-																	if mvs, ok := mv.(string); ok {
-																		items[mk] = mvs
-																	} else {
-																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																	}
-																}
-																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																resp.Diagnostics.Append(diags...)
-																return mapVal
-															}
-															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels.IsUnknown() {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapNasData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
 															}
 															return types.MapNull(types.StringType)
-														}(),
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.String {
 															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -10344,25 +10205,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
-																			Labels: func() types.Map {
-																				if v, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					items := make(map[string]string)
-																					for mk, mv := range v {
-																						if mvs, ok := mv.(string); ok {
-																							items[mk] = mvs
-																						} else {
-																							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																						}
-																					}
-																					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																					resp.Diagnostics.Append(diags...)
-																					return mapVal
-																				}
-																				if len(StorageExisting) > StorageIdx && !StorageExisting[StorageIdx].Labels.IsNull() && !StorageExisting[StorageIdx].Labels.IsUnknown() {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
 																				return types.MapNull(types.StringType)
-																			}(),
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
@@ -10704,25 +10552,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() types.Map {
-															if v, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
-																items := make(map[string]string)
-																for mk, mv := range v {
-																	if mvs, ok := mv.(string); ok {
-																		items[mk] = mvs
-																	} else {
-																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																	}
-																}
-																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																resp.Diagnostics.Append(diags...)
-																return mapVal
-															}
-															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels.IsUnknown() {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapSanData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
 															}
 															return types.MapNull(types.StringType)
-														}(),
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.Int64 {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
@@ -10842,25 +10677,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
-																			Labels: func() types.Map {
-																				if v, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					items := make(map[string]string)
-																					for mk, mv := range v {
-																						if mvs, ok := mv.(string); ok {
-																							items[mk] = mvs
-																						} else {
-																							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																						}
-																					}
-																					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																					resp.Diagnostics.Append(diags...)
-																					return mapVal
-																				}
-																				if len(StorageExisting) > StorageIdx && !StorageExisting[StorageIdx].Labels.IsNull() && !StorageExisting[StorageIdx].Labels.IsUnknown() {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
 																				return types.MapNull(types.StringType)
-																			}(),
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
@@ -11379,25 +11201,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							}
 																							return nil
 																						}(),
-																						Labels: func() types.Map {
-																							if v, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
-																								items := make(map[string]string)
-																								for mk, mv := range v {
-																									if mvs, ok := mv.(string); ok {
-																										items[mk] = mvs
-																									} else {
-																										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																									}
-																								}
-																								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																								resp.Diagnostics.Append(diags...)
-																								return mapVal
-																							}
-																							if len(FlashArraysExisting) > FlashArraysIdx && !FlashArraysExisting[FlashArraysIdx].Labels.IsNull() && !FlashArraysExisting[FlashArraysIdx].Labels.IsUnknown() {
+																						Labels: UnmarshalStringMap(ctx, FlashArraysItemMap["labels"], func() types.Map {
+																							if len(FlashArraysExisting) > FlashArraysIdx {
 																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
 																							return types.MapNull(types.StringType)
-																						}(),
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -11529,25 +11338,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 																							}
 																							return nil
 																						}(),
-																						Labels: func() types.Map {
-																							if v, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
-																								items := make(map[string]string)
-																								for mk, mv := range v {
-																									if mvs, ok := mv.(string); ok {
-																										items[mk] = mvs
-																									} else {
-																										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																									}
-																								}
-																								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																								resp.Diagnostics.Append(diags...)
-																								return mapVal
-																							}
-																							if len(FlashBladesExisting) > FlashBladesIdx && !FlashBladesExisting[FlashBladesIdx].Labels.IsNull() && !FlashBladesExisting[FlashBladesIdx].Labels.IsUnknown() {
+																						Labels: UnmarshalStringMap(ctx, FlashBladesItemMap["labels"], func() types.Map {
+																							if len(FlashBladesExisting) > FlashBladesIdx {
 																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
 																							return types.MapNull(types.StringType)
-																						}(),
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -11706,15 +11502,12 @@ func (r *FleetResource) Read(ctx context.Context, req resource.ReadRequest, resp
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								Labels: func() *FleetEmptyModel {
-									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
+								Labels: UnmarshalStringMap(ctx, StorageRoutesItemMap["labels"], func() types.Map {
+									if len(StorageRoutesExisting) > StorageRoutesIdx {
 										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
-									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{
@@ -13424,8 +13217,13 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 							StorageRoutesItemMap["attrs"] = AttrsItems
 						}
 					}
-					if StorageRoutesItem.Labels != nil {
-						StorageRoutesItemMap["labels"] = map[string]interface{}{}
+					if !StorageRoutesItem.Labels.IsNull() && !StorageRoutesItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := StorageRoutesItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							StorageRoutesItemMap["labels"] = LabelsMap
+						}
 					}
 					if StorageRoutesItem.Nexthop != nil {
 						StorageStaticRoutesStorageRoutesNexthopMap := make(map[string]interface{})
@@ -14408,25 +14206,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						_ = StorageClassesIdx
 						if StorageClassesItemMap, ok := StorageClassesItem.(map[string]interface{}); ok {
 							StorageClassesResult = append(StorageClassesResult, FleetStorageClassListStorageClassesModel{
-								AdvancedStorageParameters: func() types.Map {
-									if v, ok := StorageClassesItemMap["advanced_storage_parameters"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field advanced_storage_parameters, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(StorageClassesExisting) > StorageClassesIdx && !StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters.IsNull() && !StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters.IsUnknown() {
+								AdvancedStorageParameters: UnmarshalStringMap(ctx, StorageClassesItemMap["advanced_storage_parameters"], func() types.Map {
+									if len(StorageClassesExisting) > StorageClassesIdx {
 										return StorageClassesExisting[StorageClassesIdx].AdvancedStorageParameters
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "advanced_storage_parameters", &resp.Diagnostics),
 								AllowVolumeExpansion: func() types.Bool {
 									if v, ok := StorageClassesItemMap["allow_volume_expansion"].(bool); ok {
 										return types.BoolValue(v)
@@ -14670,25 +14455,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 						_ = StorageDevicesIdx
 						if StorageDevicesItemMap, ok := StorageDevicesItem.(map[string]interface{}); ok {
 							StorageDevicesResult = append(StorageDevicesResult, FleetStorageDeviceListStorageDevicesModel{
-								AdvancedAdvancedParameters: func() types.Map {
-									if v, ok := StorageDevicesItemMap["advanced_advanced_parameters"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field advanced_advanced_parameters, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(StorageDevicesExisting) > StorageDevicesIdx && !StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters.IsUnknown() {
+								AdvancedAdvancedParameters: UnmarshalStringMap(ctx, StorageDevicesItemMap["advanced_advanced_parameters"], func() types.Map {
+									if len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].AdvancedAdvancedParameters
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "advanced_advanced_parameters", &resp.Diagnostics),
 								CustomStorage: func() *FleetEmptyModel {
 									if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx {
 										return StorageDevicesExisting[StorageDevicesIdx].CustomStorage
@@ -14984,25 +14756,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() types.Map {
-															if v, ok := NetappBackendOntapNasData["labels"].(map[string]interface{}); ok {
-																items := make(map[string]string)
-																for mk, mv := range v {
-																	if mvs, ok := mv.(string); ok {
-																		items[mk] = mvs
-																	} else {
-																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																	}
-																}
-																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																resp.Diagnostics.Append(diags...)
-																return mapVal
-															}
-															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels.IsUnknown() {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapNasData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapNas.Labels
 															}
 															return types.MapNull(types.StringType)
-														}(),
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.String {
 															if v, ok := NetappBackendOntapNasData["limit_aggregate_usage"].(string); ok && v != "" {
 																return types.StringValue(v)
@@ -15113,25 +14872,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageModel{
-																			Labels: func() types.Map {
-																				if v, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					items := make(map[string]string)
-																					for mk, mv := range v {
-																						if mvs, ok := mv.(string); ok {
-																							items[mk] = mvs
-																						} else {
-																							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																						}
-																					}
-																					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																					resp.Diagnostics.Append(diags...)
-																					return mapVal
-																				}
-																				if len(StorageExisting) > StorageIdx && !StorageExisting[StorageIdx].Labels.IsNull() && !StorageExisting[StorageIdx].Labels.IsUnknown() {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
 																				return types.MapNull(types.StringType)
-																			}(),
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapNasStorageVolumeDefaultsModel{
@@ -15473,25 +15219,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 															}
 															return types.StringNull()
 														}(),
-														Labels: func() types.Map {
-															if v, ok := NetappBackendOntapSanData["labels"].(map[string]interface{}); ok {
-																items := make(map[string]string)
-																for mk, mv := range v {
-																	if mvs, ok := mv.(string); ok {
-																		items[mk] = mvs
-																	} else {
-																		resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																	}
-																}
-																mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																resp.Diagnostics.Append(diags...)
-																return mapVal
-															}
-															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels.IsNull() && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels.IsUnknown() {
+														Labels: UnmarshalStringMap(ctx, NetappBackendOntapSanData["labels"], func() types.Map {
+															if len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.Labels
 															}
 															return types.MapNull(types.StringType)
-														}(),
+														}(), "labels", &resp.Diagnostics),
 														LimitAggregateUsage: func() types.Int64 {
 															if !isImport && len(StorageDevicesExisting) > StorageDevicesIdx && StorageDevicesExisting[StorageDevicesIdx].NetappTrident != nil && StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan != nil && !StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage.IsUnknown() {
 																return StorageDevicesExisting[StorageDevicesIdx].NetappTrident.NetappBackendOntapSan.LimitAggregateUsage
@@ -15611,25 +15344,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																	_ = StorageIdx
 																	if StorageItemMap, ok := StorageItem.(map[string]interface{}); ok {
 																		StorageResult = append(StorageResult, FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageModel{
-																			Labels: func() types.Map {
-																				if v, ok := StorageItemMap["labels"].(map[string]interface{}); ok {
-																					items := make(map[string]string)
-																					for mk, mv := range v {
-																						if mvs, ok := mv.(string); ok {
-																							items[mk] = mvs
-																						} else {
-																							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																						}
-																					}
-																					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																					resp.Diagnostics.Append(diags...)
-																					return mapVal
-																				}
-																				if len(StorageExisting) > StorageIdx && !StorageExisting[StorageIdx].Labels.IsNull() && !StorageExisting[StorageIdx].Labels.IsUnknown() {
+																			Labels: UnmarshalStringMap(ctx, StorageItemMap["labels"], func() types.Map {
+																				if len(StorageExisting) > StorageIdx {
 																					return StorageExisting[StorageIdx].Labels
 																				}
 																				return types.MapNull(types.StringType)
-																			}(),
+																			}(), "labels", &resp.Diagnostics),
 																			VolumeDefaults: func() *FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel {
 																				if VolumeDefaultsData, ok := StorageItemMap["volume_defaults"].(map[string]interface{}); ok {
 																					return &FleetStorageDeviceListStorageDevicesNetappTridentNetappBackendOntapSanStorageVolumeDefaultsModel{
@@ -16148,25 +15868,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() types.Map {
-																							if v, ok := FlashArraysItemMap["labels"].(map[string]interface{}); ok {
-																								items := make(map[string]string)
-																								for mk, mv := range v {
-																									if mvs, ok := mv.(string); ok {
-																										items[mk] = mvs
-																									} else {
-																										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																									}
-																								}
-																								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																								resp.Diagnostics.Append(diags...)
-																								return mapVal
-																							}
-																							if len(FlashArraysExisting) > FlashArraysIdx && !FlashArraysExisting[FlashArraysIdx].Labels.IsNull() && !FlashArraysExisting[FlashArraysIdx].Labels.IsUnknown() {
+																						Labels: UnmarshalStringMap(ctx, FlashArraysItemMap["labels"], func() types.Map {
+																							if len(FlashArraysExisting) > FlashArraysIdx {
 																								return FlashArraysExisting[FlashArraysIdx].Labels
 																							}
 																							return types.MapNull(types.StringType)
-																						}(),
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashArraysItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -16298,25 +16005,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 																							}
 																							return nil
 																						}(),
-																						Labels: func() types.Map {
-																							if v, ok := FlashBladesItemMap["labels"].(map[string]interface{}); ok {
-																								items := make(map[string]string)
-																								for mk, mv := range v {
-																									if mvs, ok := mv.(string); ok {
-																										items[mk] = mvs
-																									} else {
-																										resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field labels, got %T", mk, mv))
-																									}
-																								}
-																								mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-																								resp.Diagnostics.Append(diags...)
-																								return mapVal
-																							}
-																							if len(FlashBladesExisting) > FlashBladesIdx && !FlashBladesExisting[FlashBladesIdx].Labels.IsNull() && !FlashBladesExisting[FlashBladesIdx].Labels.IsUnknown() {
+																						Labels: UnmarshalStringMap(ctx, FlashBladesItemMap["labels"], func() types.Map {
+																							if len(FlashBladesExisting) > FlashBladesIdx {
 																								return FlashBladesExisting[FlashBladesIdx].Labels
 																							}
 																							return types.MapNull(types.StringType)
-																						}(),
+																						}(), "labels", &resp.Diagnostics),
 																						MgmtDNSName: func() types.String {
 																							if v, ok := FlashBladesItemMap["mgmt_dns_name"].(string); ok && v != "" {
 																								return types.StringValue(v)
@@ -16475,15 +16169,12 @@ func (r *FleetResource) Update(ctx context.Context, req resource.UpdateRequest, 
 									}
 									return types.ListNull(types.StringType)
 								}(),
-								Labels: func() *FleetEmptyModel {
-									if !isImport && len(StorageRoutesExisting) > StorageRoutesIdx {
+								Labels: UnmarshalStringMap(ctx, StorageRoutesItemMap["labels"], func() types.Map {
+									if len(StorageRoutesExisting) > StorageRoutesIdx {
 										return StorageRoutesExisting[StorageRoutesIdx].Labels
 									}
-									if _, ok := StorageRoutesItemMap["labels"].(map[string]interface{}); ok {
-										return &FleetEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								Nexthop: func() *FleetStorageStaticRoutesStorageRoutesNexthopModel {
 									if NexthopData, ok := StorageRoutesItemMap["nexthop"].(map[string]interface{}); ok {
 										return &FleetStorageStaticRoutesStorageRoutesNexthopModel{

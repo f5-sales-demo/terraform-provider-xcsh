@@ -92,8 +92,8 @@ func TestRenderMapSupport_Success(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected unmarshal error: %v", err)
 	}
-	if !strings.Contains(unmarshal, "metadata_labelsMap") || !strings.Contains(unmarshal, "types.MapValueFrom(ctx, types.StringType, metadata_labelsMap)") {
-		t.Errorf("expected unmarshal code to convert back to MapValueFrom, got:\n%s", unmarshal)
+	if !strings.Contains(unmarshal, "UnmarshalStringMap") {
+		t.Errorf("expected unmarshal code to invoke UnmarshalStringMap, got:\n%s", unmarshal)
 	}
 }
 
@@ -182,7 +182,7 @@ func TestNestedMapSupport_Success(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected unmarshal error: %v", err)
 	}
-	if !strings.Contains(unmarshal, "types.MapValueFrom(ctx, types.StringType, items)") {
-		t.Errorf("expected nested unmarshal to use MapValueFrom, got:\n%s", unmarshal)
+	if !strings.Contains(unmarshal, "UnmarshalStringMap") {
+		t.Errorf("expected nested unmarshal to invoke UnmarshalStringMap, got:\n%s", unmarshal)
 	}
 }

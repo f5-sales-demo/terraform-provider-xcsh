@@ -1025,25 +1025,12 @@ func (r *CloudCredentialsResource) Create(ctx context.Context, req resource.Crea
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: func() types.Map {
-				if v, ok := blockData["session_tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field session_tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.AWSAssumeRole != nil && !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
+			SessionTags: UnmarshalStringMap(ctx, blockData["session_tags"], func() types.Map {
+				if data.AWSAssumeRole != nil {
 					return data.AWSAssumeRole.SessionTags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "session_tags", &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {
@@ -1518,25 +1505,12 @@ func (r *CloudCredentialsResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: func() types.Map {
-				if v, ok := blockData["session_tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field session_tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.AWSAssumeRole != nil && !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
+			SessionTags: UnmarshalStringMap(ctx, blockData["session_tags"], func() types.Map {
+				if data.AWSAssumeRole != nil {
 					return data.AWSAssumeRole.SessionTags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "session_tags", &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {
@@ -2189,25 +2163,12 @@ func (r *CloudCredentialsResource) Update(ctx context.Context, req resource.Upda
 				}
 				return types.StringNull()
 			}(),
-			SessionTags: func() types.Map {
-				if v, ok := blockData["session_tags"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field session_tags, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.AWSAssumeRole != nil && !data.AWSAssumeRole.SessionTags.IsNull() && !data.AWSAssumeRole.SessionTags.IsUnknown() {
+			SessionTags: UnmarshalStringMap(ctx, blockData["session_tags"], func() types.Map {
+				if data.AWSAssumeRole != nil {
 					return data.AWSAssumeRole.SessionTags
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "session_tags", &resp.Diagnostics),
 		}
 	}
 	if blockData, ok := apiResource.Spec["aws_secret_key"].(map[string]interface{}); ok && (isImport || data.AWSSecretKey != nil) {

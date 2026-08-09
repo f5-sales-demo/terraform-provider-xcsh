@@ -279,7 +279,7 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "example.com"
     }
@@ -486,7 +486,7 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "example.com"
     }
@@ -2824,7 +2824,7 @@ An [`origin_servers`](#default-pool-origin-servers) block (within [`default_pool
 
 <a id="default-pool-origin-servers-k8s-service"></a>&#x2022; [`k8s_service`](#default-pool-origin-servers-k8s-service) - Optional Block<br>Specify origin server with K8S service name and site information<br>See [K8S Service](#default-pool-origin-servers-k8s-service) below.
 
-<a id="default-pool-origin-servers-labels"></a>&#x2022; [`labels`](#default-pool-origin-servers-labels) - Optional Block<br>Add Labels for this origin server, these labels can be used to form subset
+<a id="default-pool-origin-servers-labels"></a>&#x2022; [`labels`](#default-pool-origin-servers-labels) - Optional Map<br>Add Labels for this origin server, these labels can be used to form subset
 
 <a id="default-pool-origin-servers-private-ip"></a>&#x2022; [`private_ip`](#default-pool-origin-servers-private-ip) - Optional Block<br>Specify origin server with private or public IP address and site information<br>See [Private IP](#default-pool-origin-servers-private-ip) below.
 
@@ -3182,7 +3182,7 @@ A [`pools`](#default-pool-list-pools) block (within [`default_pool_list`](#defau
 
 <a id="default-pool-list-pools-cluster"></a>&#x2022; [`cluster`](#default-pool-list-pools-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cluster](#default-pool-list-pools-cluster) below.
 
-<a id="subsets-f5b698"></a>&#x2022; [`endpoint_subsets`](#subsets-f5b698) - Optional Map<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
+<a id="subsets-f5b698"></a>&#x2022; [`endpoint_subsets`](#subsets-f5b698) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
 
 <a id="default-pool-list-pools-pool"></a>&#x2022; [`pool`](#default-pool-list-pools-pool) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Pool](#default-pool-list-pools-pool) below.
 
@@ -3217,7 +3217,7 @@ A [`default_route_pools`](#default-route-pools) block supports the following:
 
 <a id="default-route-pools-cluster"></a>&#x2022; [`cluster`](#default-route-pools-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cluster](#default-route-pools-cluster) below.
 
-<a id="default-route-pools-endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#default-route-pools-endpoint-subsets) - Optional Map<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers
+<a id="default-route-pools-endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#default-route-pools-endpoint-subsets) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers
 which are discovered in K8S or Consul
 
 <a id="default-route-pools-pool"></a>&#x2022; [`pool`](#default-route-pools-pool) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Pool](#default-route-pools-pool) below.
@@ -4942,7 +4942,7 @@ Policy](#policy-7816d7) below.
 
 <a id="spdy-676c6f"></a>&#x2022; [`enable_spdy`](#spdy-676c6f) - Optional Block<br>Configuration parameter for enable spdy
 
-<a id="subsets-b6a9d9"></a>&#x2022; [`endpoint_subsets`](#subsets-b6a9d9) - Optional Map<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
+<a id="subsets-b6a9d9"></a>&#x2022; [`endpoint_subsets`](#subsets-b6a9d9) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
 
 <a id="injection-4f494f"></a>&#x2022; [`inherited_bot_defense_javascript_injection`](#injection-4f494f) - Optional Block<br>Enable this option
 
@@ -5210,7 +5210,7 @@ An [`origin_pools`](#routes-simple-route-origin-pools) block (within [`routes.si
 
 <a id="cluster-094c5e"></a>&#x2022; [`cluster`](#cluster-094c5e) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cluster](#cluster-094c5e) below.
 
-<a id="subsets-73b90d"></a>&#x2022; [`endpoint_subsets`](#subsets-73b90d) - Optional Map<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
+<a id="subsets-73b90d"></a>&#x2022; [`endpoint_subsets`](#subsets-73b90d) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8S or Consul
 
 <a id="routes-simple-route-origin-pools-pool"></a>&#x2022; [`pool`](#routes-simple-route-origin-pools-pool) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Pool](#routes-simple-route-origin-pools-pool) below.
 

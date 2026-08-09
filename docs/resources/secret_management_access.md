@@ -126,7 +126,7 @@ A [`basic_auth`](#access-info-rest-auth-info-basic-auth) block (within [`access_
 
 A [`headers_auth`](#access-info-rest-auth-info-headers-auth) block (within [`access_info.rest_auth_info`](#access-info-rest-auth-info)) supports the following:
 
-<a id="headers-8b271f"></a>&#x2022; [`headers`](#headers-8b271f) - Optional Map<br>The set of authentication headers to pass in HTTP request
+<a id="headers-8b271f"></a>&#x2022; [`headers`](#headers-8b271f) - Optional Block<br>The set of authentication headers to pass in HTTP request
 
 #### Access Info REST Auth Info Query Params Auth
 

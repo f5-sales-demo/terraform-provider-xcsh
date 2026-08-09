@@ -54,11 +54,11 @@ type OriginPoolEmptyModel struct {
 
 // OriginPoolOriginServersModel represents origin_servers block
 type OriginPoolOriginServersModel struct {
+	Labels               types.Map                                         `tfsdk:"labels"`
 	CbipService          *OriginPoolOriginServersCbipServiceModel          `tfsdk:"cbip_service"`
 	ConsulService        *OriginPoolOriginServersConsulServiceModel        `tfsdk:"consul_service"`
 	CustomEndpointObject *OriginPoolOriginServersCustomEndpointObjectModel `tfsdk:"custom_endpoint_object"`
 	K8SService           *OriginPoolOriginServersK8SServiceModel           `tfsdk:"k8s_service"`
-	Labels               *OriginPoolEmptyModel                             `tfsdk:"labels"`
 	PrivateIP            *OriginPoolOriginServersPrivateIPModel            `tfsdk:"private_ip"`
 	PrivateName          *OriginPoolOriginServersPrivateNameModel          `tfsdk:"private_name"`
 	PublicIP             *OriginPoolOriginServersPublicIPModel             `tfsdk:"public_ip"`
@@ -69,11 +69,11 @@ type OriginPoolOriginServersModel struct {
 
 // OriginPoolOriginServersModelAttrTypes defines the attribute types for OriginPoolOriginServersModel
 var OriginPoolOriginServersModelAttrTypes = map[string]attr.Type{
+	"labels":                 types.MapType{ElemType: types.StringType},
 	"cbip_service":           types.ObjectType{AttrTypes: OriginPoolOriginServersCbipServiceModelAttrTypes},
 	"consul_service":         types.ObjectType{AttrTypes: OriginPoolOriginServersConsulServiceModelAttrTypes},
 	"custom_endpoint_object": types.ObjectType{AttrTypes: OriginPoolOriginServersCustomEndpointObjectModelAttrTypes},
 	"k8s_service":            types.ObjectType{AttrTypes: OriginPoolOriginServersK8SServiceModelAttrTypes},
-	"labels":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"private_ip":             types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateIPModelAttrTypes},
 	"private_name":           types.ObjectType{AttrTypes: OriginPoolOriginServersPrivateNameModelAttrTypes},
 	"public_ip":              types.ObjectType{AttrTypes: OriginPoolOriginServersPublicIPModelAttrTypes},
@@ -634,12 +634,12 @@ var OriginPoolAdvancedOptionsEnableSubsetsModelAttrTypes = map[string]attr.Type{
 
 // OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel represents default_subset block
 type OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel struct {
-	DefaultSubset types.Map `tfsdk:"default_subset"`
+	DefaultSubset *OriginPoolEmptyModel `tfsdk:"default_subset"`
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes defines the attribute types for OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel
 var OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes = map[string]attr.Type{
-	"default_subset": types.MapType{ElemType: types.StringType},
+	"default_subset": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // OriginPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel represents endpoint_subsets block
@@ -1046,7 +1046,13 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 			"origin_servers": schema.ListNestedBlock{
 				MarkdownDescription: "List of origin servers in this pool .",
 				NestedObject: schema.NestedBlockObject{
-					Attributes: map[string]schema.Attribute{},
+					Attributes: map[string]schema.Attribute{
+						"labels": schema.MapAttribute{
+							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
+							Optional:            true,
+							ElementType:         types.StringType,
+						},
+					},
 					Blocks: map[string]schema.Block{
 						"cbip_service": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
@@ -1312,9 +1318,6 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 									MarkdownDescription: "Configuration parameter for vk8s networks.",
 								},
 							},
-						},
-						"labels": schema.SingleNestedBlock{
-							MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
 						},
 						"private_ip": schema.SingleNestedBlock{
 							MarkdownDescription: "Specify origin server with private or public IP address and site information.",
@@ -1840,11 +1843,10 @@ func (r *OriginPoolResource) Schema(ctx context.Context, req resource.SchemaRequ
 							},
 							"default_subset": schema.SingleNestedBlock{
 								MarkdownDescription: "Configuration parameter for default subset.",
-								Attributes: map[string]schema.Attribute{
-									"default_subset": schema.MapAttribute{
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"default_subset": schema.SingleNestedBlock{
 										MarkdownDescription: "List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists.",
-										Optional:            true,
-										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -2541,8 +2543,13 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
-				if OriginServersItem.Labels != nil {
-					OriginServersItemMap["labels"] = map[string]interface{}{}
+				if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+					var LabelsMap map[string]string
+					diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						OriginServersItemMap["labels"] = LabelsMap
+					}
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
@@ -2814,13 +2821,8 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 				AdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-				if !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
-					var DefaultSubsetMap map[string]string
-					diags := data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
-					}
+				if data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
+					AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
 				}
 				AdvancedOptionsEnableSubsetsMap["default_subset"] = AdvancedOptionsEnableSubsetsDefaultSubsetMap
 			}
@@ -3494,17 +3496,12 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 						}
 						return nil
 					}(),
-					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx {
+					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if !isImport {
-							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
-							}
-						}
-						return nil
-					}(),
+						return types.MapNull(types.StringType)
+					}(), "labels", &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -4112,24 +4109,14 @@ func (r *OriginPoolResource) Create(ctx context.Context, req resource.CreateRequ
 							}
 							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-									DefaultSubset: func() types.Map {
-										if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+									DefaultSubset: func() *OriginPoolEmptyModel {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											return &OriginPoolEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -5291,17 +5278,12 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 						}
 						return nil
 					}(),
-					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx {
+					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if !isImport {
-							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
-							}
-						}
-						return nil
-					}(),
+						return types.MapNull(types.StringType)
+					}(), "labels", &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -5909,24 +5891,14 @@ func (r *OriginPoolResource) Read(ctx context.Context, req resource.ReadRequest,
 							}
 							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-									DefaultSubset: func() types.Map {
-										if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+									DefaultSubset: func() *OriginPoolEmptyModel {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											return &OriginPoolEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -6874,8 +6846,13 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 					}
 					OriginServersItemMap["k8s_service"] = OriginServersK8SServiceMap
 				}
-				if OriginServersItem.Labels != nil {
-					OriginServersItemMap["labels"] = map[string]interface{}{}
+				if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+					var LabelsMap map[string]string
+					diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+					resp.Diagnostics.Append(diags...)
+					if !diags.HasError() {
+						OriginServersItemMap["labels"] = LabelsMap
+					}
 				}
 				if OriginServersItem.PrivateIP != nil {
 					OriginServersPrivateIPMap := make(map[string]interface{})
@@ -7147,13 +7124,8 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 			}
 			if data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 				AdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-				if !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
-					var DefaultSubsetMap map[string]string
-					diags := data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
-					}
+				if data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
+					AdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
 				}
 				AdvancedOptionsEnableSubsetsMap["default_subset"] = AdvancedOptionsEnableSubsetsDefaultSubsetMap
 			}
@@ -7875,17 +7847,12 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 						}
 						return nil
 					}(),
-					Labels: func() *OriginPoolEmptyModel {
-						if !isImport && len(existingOriginServersItems) > listIdx {
+					Labels: UnmarshalStringMap(ctx, itemMap["labels"], func() types.Map {
+						if len(existingOriginServersItems) > listIdx {
 							return existingOriginServersItems[listIdx].Labels
 						}
-						if !isImport {
-							if _, ok := itemMap["labels"].(map[string]interface{}); ok {
-								return &OriginPoolEmptyModel{}
-							}
-						}
-						return nil
-					}(),
+						return types.MapNull(types.StringType)
+					}(), "labels", &resp.Diagnostics),
 					PrivateIP: func() *OriginPoolOriginServersPrivateIPModel {
 						if PrivateIPData, ok := itemMap["private_ip"].(map[string]interface{}); ok {
 							return &OriginPoolOriginServersPrivateIPModel{
@@ -8493,24 +8460,14 @@ func (r *OriginPoolResource) Update(ctx context.Context, req resource.UpdateRequ
 							}
 							if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 								return &OriginPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-									DefaultSubset: func() types.Map {
-										if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+									DefaultSubset: func() *OriginPoolEmptyModel {
+										if !isImport && data.AdvancedOptions != nil && data.AdvancedOptions.EnableSubsets != nil && data.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 											return data.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+											return &OriginPoolEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}

@@ -1118,25 +1118,12 @@ func (r *CloudLinkResource) Create(ctx context.Context, req resource.CreateReque
 												}
 												return nil
 											}(),
-											Tags: func() types.Map {
-												if v, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
-													items := make(map[string]string)
-													for mk, mv := range v {
-														if mvs, ok := mv.(string); ok {
-															items[mk] = mvs
-														} else {
-															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-														}
-													}
-													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-													resp.Diagnostics.Append(diags...)
-													return mapVal
-												}
-												if len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].Tags.IsNull() && !ConnectionsExisting[ConnectionsIdx].Tags.IsUnknown() {
+											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												return types.MapNull(types.StringType)
-											}(),
+											}(), "tags", &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -1588,25 +1575,12 @@ func (r *CloudLinkResource) Read(ctx context.Context, req resource.ReadRequest, 
 												}
 												return nil
 											}(),
-											Tags: func() types.Map {
-												if v, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
-													items := make(map[string]string)
-													for mk, mv := range v {
-														if mvs, ok := mv.(string); ok {
-															items[mk] = mvs
-														} else {
-															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-														}
-													}
-													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-													resp.Diagnostics.Append(diags...)
-													return mapVal
-												}
-												if len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].Tags.IsNull() && !ConnectionsExisting[ConnectionsIdx].Tags.IsUnknown() {
+											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												return types.MapNull(types.StringType)
-											}(),
+											}(), "tags", &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)
@@ -2237,25 +2211,12 @@ func (r *CloudLinkResource) Update(ctx context.Context, req resource.UpdateReque
 												}
 												return nil
 											}(),
-											Tags: func() types.Map {
-												if v, ok := ConnectionsItemMap["tags"].(map[string]interface{}); ok {
-													items := make(map[string]string)
-													for mk, mv := range v {
-														if mvs, ok := mv.(string); ok {
-															items[mk] = mvs
-														} else {
-															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field tags, got %T", mk, mv))
-														}
-													}
-													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-													resp.Diagnostics.Append(diags...)
-													return mapVal
-												}
-												if len(ConnectionsExisting) > ConnectionsIdx && !ConnectionsExisting[ConnectionsIdx].Tags.IsNull() && !ConnectionsExisting[ConnectionsIdx].Tags.IsUnknown() {
+											Tags: UnmarshalStringMap(ctx, ConnectionsItemMap["tags"], func() types.Map {
+												if len(ConnectionsExisting) > ConnectionsIdx {
 													return ConnectionsExisting[ConnectionsIdx].Tags
 												}
 												return types.MapNull(types.StringType)
-											}(),
+											}(), "tags", &resp.Diagnostics),
 											UserAssignedName: func() types.String {
 												if v, ok := ConnectionsItemMap["user_assigned_name"].(string); ok && v != "" {
 													return types.StringValue(v)

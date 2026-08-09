@@ -4631,27 +4631,7 @@ func (r *VirtualHostResource) Create(ctx context.Context, req resource.CreateReq
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["custom_errors"].(map[string]interface{}); ok {
-		custom_errorsMap := make(map[string]string)
-		for mk, mv := range v {
-			if mvs, ok := mv.(string); ok {
-				custom_errorsMap[mk] = mvs
-			} else {
-				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-			}
-		}
-		mapVal, diags := types.MapValueFrom(ctx, types.StringType, custom_errorsMap)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.CustomErrors = mapVal
-		}
-	} else {
-		if !data.CustomErrors.IsNull() && !data.CustomErrors.IsUnknown() {
-			// Preserve configured map to prevent drift on omission
-		} else {
-			data.CustomErrors = types.MapNull(types.StringType)
-		}
-	}
+	data.CustomErrors = UnmarshalStringMap(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", &resp.Diagnostics)
 	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
 		data.DefaultHeader = &VirtualHostEmptyModel{}
 	}
@@ -7137,27 +7117,7 @@ func (r *VirtualHostResource) Read(ctx context.Context, req resource.ReadRequest
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["custom_errors"].(map[string]interface{}); ok {
-		custom_errorsMap := make(map[string]string)
-		for mk, mv := range v {
-			if mvs, ok := mv.(string); ok {
-				custom_errorsMap[mk] = mvs
-			} else {
-				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-			}
-		}
-		mapVal, diags := types.MapValueFrom(ctx, types.StringType, custom_errorsMap)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.CustomErrors = mapVal
-		}
-	} else {
-		if !data.CustomErrors.IsNull() && !data.CustomErrors.IsUnknown() {
-			// Preserve configured map to prevent drift on omission
-		} else {
-			data.CustomErrors = types.MapNull(types.StringType)
-		}
-	}
+	data.CustomErrors = UnmarshalStringMap(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", &resp.Diagnostics)
 	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
 		data.DefaultHeader = &VirtualHostEmptyModel{}
 	}
@@ -10835,27 +10795,7 @@ func (r *VirtualHostResource) Update(ctx context.Context, req resource.UpdateReq
 			}(),
 		}
 	}
-	if v, ok := apiResource.Spec["custom_errors"].(map[string]interface{}); ok {
-		custom_errorsMap := make(map[string]string)
-		for mk, mv := range v {
-			if mvs, ok := mv.(string); ok {
-				custom_errorsMap[mk] = mvs
-			} else {
-				resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-			}
-		}
-		mapVal, diags := types.MapValueFrom(ctx, types.StringType, custom_errorsMap)
-		resp.Diagnostics.Append(diags...)
-		if !resp.Diagnostics.HasError() {
-			data.CustomErrors = mapVal
-		}
-	} else {
-		if !data.CustomErrors.IsNull() && !data.CustomErrors.IsUnknown() {
-			// Preserve configured map to prevent drift on omission
-		} else {
-			data.CustomErrors = types.MapNull(types.StringType)
-		}
-	}
+	data.CustomErrors = UnmarshalStringMap(ctx, apiResource.Spec["custom_errors"], data.CustomErrors, "custom_errors", &resp.Diagnostics)
 	if _, ok := apiResource.Spec["default_header"].(map[string]interface{}); ok && isImport && data.DefaultHeader == nil {
 		data.DefaultHeader = &VirtualHostEmptyModel{}
 	}

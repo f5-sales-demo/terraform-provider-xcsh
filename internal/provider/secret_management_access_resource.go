@@ -135,22 +135,22 @@ var SecretManagementAccessAccessInfoRESTAuthInfoBasicAuthPasswordClearSecretInfo
 
 // SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel represents headers_auth block
 type SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel struct {
-	Headers types.Map `tfsdk:"headers"`
+	Headers *SecretManagementAccessEmptyModel `tfsdk:"headers"`
 }
 
 // SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModelAttrTypes defines the attribute types for SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel
 var SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModelAttrTypes = map[string]attr.Type{
-	"headers": types.MapType{ElemType: types.StringType},
+	"headers": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel represents query_params_auth block
 type SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel struct {
-	QueryParams types.Map `tfsdk:"query_params"`
+	QueryParams *SecretManagementAccessEmptyModel `tfsdk:"query_params"`
 }
 
 // SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModelAttrTypes defines the attribute types for SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel
 var SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModelAttrTypes = map[string]attr.Type{
-	"query_params": types.MapType{ElemType: types.StringType},
+	"query_params": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // SecretManagementAccessAccessInfoTLSConfigModel represents tls_config block
@@ -757,21 +757,19 @@ func (r *SecretManagementAccessResource) Schema(ctx context.Context, req resourc
 							},
 							"headers_auth": schema.SingleNestedBlock{
 								MarkdownDescription: "AuthnTypeHeaders is used for setting headers for authentication.",
-								Attributes: map[string]schema.Attribute{
-									"headers": schema.MapAttribute{
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"headers": schema.SingleNestedBlock{
 										MarkdownDescription: "The set of authentication headers to pass in HTTP request.",
-										Optional:            true,
-										ElementType:         types.StringType,
 									},
 								},
 							},
 							"query_params_auth": schema.SingleNestedBlock{
 								MarkdownDescription: "AuthnTypeQueryParams is used for setting query_params for authentication.",
-								Attributes: map[string]schema.Attribute{
-									"query_params": schema.MapAttribute{
+								Attributes:          map[string]schema.Attribute{},
+								Blocks: map[string]schema.Block{
+									"query_params": schema.SingleNestedBlock{
 										MarkdownDescription: "The set of authentication parameters to be passed as query parameters.",
-										Optional:            true,
-										ElementType:         types.StringType,
 									},
 								},
 							},
@@ -1535,25 +1533,15 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 			}
 			if data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
 				AccessInfoRESTAuthInfoHeadersAuthMap := make(map[string]interface{})
-				if !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsNull() && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsUnknown() {
-					var HeadersMap map[string]string
-					diags := data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.ElementsAs(ctx, &HeadersMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						AccessInfoRESTAuthInfoHeadersAuthMap["headers"] = HeadersMap
-					}
+				if data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers != nil {
+					AccessInfoRESTAuthInfoHeadersAuthMap["headers"] = map[string]interface{}{}
 				}
 				AccessInfoRESTAuthInfoMap["headers_auth"] = AccessInfoRESTAuthInfoHeadersAuthMap
 			}
 			if data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
 				AccessInfoRESTAuthInfoQueryParamsAuthMap := make(map[string]interface{})
-				if !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsNull() && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsUnknown() {
-					var QueryParamsMap map[string]string
-					diags := data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.ElementsAs(ctx, &QueryParamsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						AccessInfoRESTAuthInfoQueryParamsAuthMap["query_params"] = QueryParamsMap
-					}
+				if data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams != nil {
+					AccessInfoRESTAuthInfoQueryParamsAuthMap["query_params"] = map[string]interface{}{}
 				}
 				AccessInfoRESTAuthInfoMap["query_params_auth"] = AccessInfoRESTAuthInfoQueryParamsAuthMap
 			}
@@ -2117,24 +2105,14 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							}
 							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
-									Headers: func() types.Map {
-										if v, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsNull() && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsUnknown() {
+									Headers: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
 											return data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -2146,24 +2124,14 @@ func (r *SecretManagementAccessResource) Create(ctx context.Context, req resourc
 							}
 							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
-									QueryParams: func() types.Map {
-										if v, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field query_params, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsNull() && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsUnknown() {
+									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
 											return data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -3274,24 +3242,14 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							}
 							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
-									Headers: func() types.Map {
-										if v, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsNull() && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsUnknown() {
+									Headers: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
 											return data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -3303,24 +3261,14 @@ func (r *SecretManagementAccessResource) Read(ctx context.Context, req resource.
 							}
 							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
-									QueryParams: func() types.Map {
-										if v, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field query_params, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsNull() && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsUnknown() {
+									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
 											return data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -4337,25 +4285,15 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 			}
 			if data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
 				AccessInfoRESTAuthInfoHeadersAuthMap := make(map[string]interface{})
-				if !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsNull() && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsUnknown() {
-					var HeadersMap map[string]string
-					diags := data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.ElementsAs(ctx, &HeadersMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						AccessInfoRESTAuthInfoHeadersAuthMap["headers"] = HeadersMap
-					}
+				if data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers != nil {
+					AccessInfoRESTAuthInfoHeadersAuthMap["headers"] = map[string]interface{}{}
 				}
 				AccessInfoRESTAuthInfoMap["headers_auth"] = AccessInfoRESTAuthInfoHeadersAuthMap
 			}
 			if data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
 				AccessInfoRESTAuthInfoQueryParamsAuthMap := make(map[string]interface{})
-				if !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsNull() && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsUnknown() {
-					var QueryParamsMap map[string]string
-					diags := data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.ElementsAs(ctx, &QueryParamsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						AccessInfoRESTAuthInfoQueryParamsAuthMap["query_params"] = QueryParamsMap
-					}
+				if data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams != nil {
+					AccessInfoRESTAuthInfoQueryParamsAuthMap["query_params"] = map[string]interface{}{}
 				}
 				AccessInfoRESTAuthInfoMap["query_params_auth"] = AccessInfoRESTAuthInfoQueryParamsAuthMap
 			}
@@ -4939,24 +4877,14 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							}
 							if HeadersAuthData, ok := RESTAuthInfoData["headers_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoHeadersAuthModel{
-									Headers: func() types.Map {
-										if v, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsNull() && !data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers.IsUnknown() {
+									Headers: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.HeadersAuth != nil {
 											return data.AccessInfo.RESTAuthInfo.HeadersAuth.Headers
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := HeadersAuthData["headers"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}
@@ -4968,24 +4896,14 @@ func (r *SecretManagementAccessResource) Update(ctx context.Context, req resourc
 							}
 							if QueryParamsAuthData, ok := RESTAuthInfoData["query_params_auth"].(map[string]interface{}); ok {
 								return &SecretManagementAccessAccessInfoRESTAuthInfoQueryParamsAuthModel{
-									QueryParams: func() types.Map {
-										if v, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
-											items := make(map[string]string)
-											for mk, mv := range v {
-												if mvs, ok := mv.(string); ok {
-													items[mk] = mvs
-												} else {
-													resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field query_params, got %T", mk, mv))
-												}
-											}
-											mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-											resp.Diagnostics.Append(diags...)
-											return mapVal
-										}
-										if data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsNull() && !data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams.IsUnknown() {
+									QueryParams: func() *SecretManagementAccessEmptyModel {
+										if !isImport && data.AccessInfo != nil && data.AccessInfo.RESTAuthInfo != nil && data.AccessInfo.RESTAuthInfo.QueryParamsAuth != nil {
 											return data.AccessInfo.RESTAuthInfo.QueryParamsAuth.QueryParams
 										}
-										return types.MapNull(types.StringType)
+										if _, ok := QueryParamsAuthData["query_params"].(map[string]interface{}); ok {
+											return &SecretManagementAccessEmptyModel{}
+										}
+										return nil
 									}(),
 								}
 							}

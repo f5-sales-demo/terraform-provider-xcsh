@@ -528,7 +528,7 @@ resource "xcsh_origin_pool" "test" {
   port = 443
 
   origin_servers {
-    labels {}  # API returns this even if not set
+    labels = {}  # API returns this even if not set
     public_name {
       dns_name = "example.com"
     }
@@ -555,7 +555,7 @@ resource "xcsh_origin_pool" "test" {
   }
 
   origin_servers {
-    labels {}  # API returns this even if not set
+    labels = {}  # API returns this even if not set
     public_name {
       dns_name = "example.com"
     }
@@ -576,7 +576,7 @@ resource "xcsh_origin_pool" "test" {
   port = 8080
 
   origin_servers {
-    labels {}
+    labels = {}
     public_ip {
       ip = "192.0.2.1"
     }
@@ -597,14 +597,14 @@ resource "xcsh_origin_pool" "test" {
   port = 443
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "backend1.example.com"
     }
   }
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "backend2.example.com"
     }
@@ -637,7 +637,7 @@ resource "xcsh_origin_pool" "test" {
   port = 443
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "example.com"
     }
@@ -663,7 +663,7 @@ resource "xcsh_origin_pool" "test" {
   port = %[2]d
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "example.com"
     }
@@ -688,7 +688,7 @@ resource "xcsh_origin_pool" "test" {
   }
 
   origin_servers {
-    labels {}  # API returns this even if not set
+    labels = {}  # API returns this even if not set
     public_name {
       dns_name = "example.com"
     }
@@ -721,7 +721,7 @@ resource "xcsh_origin_pool" "test" {
   port      = 443
 
   origin_servers {
-    labels {}
+    labels = {}
     public_name {
       dns_name = "example.com"
     }

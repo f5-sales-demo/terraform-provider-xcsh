@@ -4481,12 +4481,12 @@ var HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsModelAttrTypes = map[
 
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel represents default_subset block
 type HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel struct {
-	DefaultSubset types.Map `tfsdk:"default_subset"`
+	DefaultSubset *HTTPLoadBalancerEmptyModel `tfsdk:"default_subset"`
 }
 
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel
 var HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModelAttrTypes = map[string]attr.Type{
-	"default_subset": types.MapType{ElemType: types.StringType},
+	"default_subset": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 }
 
 // HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsEndpointSubsetsModel represents endpoint_subsets block
@@ -4569,11 +4569,11 @@ var HTTPLoadBalancerDefaultPoolHealthcheckModelAttrTypes = map[string]attr.Type{
 
 // HTTPLoadBalancerDefaultPoolOriginServersModel represents origin_servers block
 type HTTPLoadBalancerDefaultPoolOriginServersModel struct {
+	Labels               types.Map                                                          `tfsdk:"labels"`
 	CbipService          *HTTPLoadBalancerDefaultPoolOriginServersCbipServiceModel          `tfsdk:"cbip_service"`
 	ConsulService        *HTTPLoadBalancerDefaultPoolOriginServersConsulServiceModel        `tfsdk:"consul_service"`
 	CustomEndpointObject *HTTPLoadBalancerDefaultPoolOriginServersCustomEndpointObjectModel `tfsdk:"custom_endpoint_object"`
 	K8SService           *HTTPLoadBalancerDefaultPoolOriginServersK8SServiceModel           `tfsdk:"k8s_service"`
-	Labels               *HTTPLoadBalancerEmptyModel                                        `tfsdk:"labels"`
 	PrivateIP            *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel            `tfsdk:"private_ip"`
 	PrivateName          *HTTPLoadBalancerDefaultPoolOriginServersPrivateNameModel          `tfsdk:"private_name"`
 	PublicIP             *HTTPLoadBalancerDefaultPoolOriginServersPublicIPModel             `tfsdk:"public_ip"`
@@ -4584,11 +4584,11 @@ type HTTPLoadBalancerDefaultPoolOriginServersModel struct {
 
 // HTTPLoadBalancerDefaultPoolOriginServersModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolOriginServersModel
 var HTTPLoadBalancerDefaultPoolOriginServersModelAttrTypes = map[string]attr.Type{
+	"labels":                 types.MapType{ElemType: types.StringType},
 	"cbip_service":           types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersCbipServiceModelAttrTypes},
 	"consul_service":         types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersConsulServiceModelAttrTypes},
 	"custom_endpoint_object": types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersCustomEndpointObjectModelAttrTypes},
 	"k8s_service":            types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersK8SServiceModelAttrTypes},
-	"labels":                 types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"private_ip":             types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModelAttrTypes},
 	"private_name":           types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersPrivateNameModelAttrTypes},
 	"public_ip":              types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolOriginServersPublicIPModelAttrTypes},
@@ -5283,19 +5283,19 @@ var HTTPLoadBalancerDefaultPoolListModelAttrTypes = map[string]attr.Type{
 
 // HTTPLoadBalancerDefaultPoolListPoolsModel represents pools block
 type HTTPLoadBalancerDefaultPoolListPoolsModel struct {
-	EndpointSubsets types.Map                                         `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                       `tfsdk:"priority"`
 	Weight          types.Int64                                       `tfsdk:"weight"`
 	Cluster         *HTTPLoadBalancerDefaultPoolListPoolsClusterModel `tfsdk:"cluster"`
+	EndpointSubsets *HTTPLoadBalancerEmptyModel                       `tfsdk:"endpoint_subsets"`
 	Pool            *HTTPLoadBalancerDefaultPoolListPoolsPoolModel    `tfsdk:"pool"`
 }
 
 // HTTPLoadBalancerDefaultPoolListPoolsModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultPoolListPoolsModel
 var HTTPLoadBalancerDefaultPoolListPoolsModelAttrTypes = map[string]attr.Type{
-	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolListPoolsClusterModelAttrTypes},
+	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultPoolListPoolsPoolModelAttrTypes},
 }
 
@@ -5329,19 +5329,19 @@ var HTTPLoadBalancerDefaultPoolListPoolsPoolModelAttrTypes = map[string]attr.Typ
 
 // HTTPLoadBalancerDefaultRoutePoolsModel represents default_route_pools block
 type HTTPLoadBalancerDefaultRoutePoolsModel struct {
-	EndpointSubsets types.Map                                      `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                    `tfsdk:"priority"`
 	Weight          types.Int64                                    `tfsdk:"weight"`
 	Cluster         *HTTPLoadBalancerDefaultRoutePoolsClusterModel `tfsdk:"cluster"`
+	EndpointSubsets *HTTPLoadBalancerEmptyModel                    `tfsdk:"endpoint_subsets"`
 	Pool            *HTTPLoadBalancerDefaultRoutePoolsPoolModel    `tfsdk:"pool"`
 }
 
 // HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes defines the attribute types for HTTPLoadBalancerDefaultRoutePoolsModel
 var HTTPLoadBalancerDefaultRoutePoolsModelAttrTypes = map[string]attr.Type{
-	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsClusterModelAttrTypes},
+	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: HTTPLoadBalancerDefaultRoutePoolsPoolModelAttrTypes},
 }
 
@@ -7966,7 +7966,6 @@ var HTTPLoadBalancerRoutesSimpleRouteModelAttrTypes = map[string]attr.Type{
 // HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel represents advanced_options block
 type HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel struct {
 	DisableLocationAdd                     types.Bool                                                                          `tfsdk:"disable_location_add"`
-	EndpointSubsets                        types.Map                                                                           `tfsdk:"endpoint_subsets"`
 	PrefixRewrite                          types.String                                                                        `tfsdk:"prefix_rewrite"`
 	Priority                               types.String                                                                        `tfsdk:"priority"`
 	RequestCookiesToRemove                 types.List                                                                          `tfsdk:"request_cookies_to_remove"`
@@ -7989,6 +7988,7 @@ type HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel struct {
 	DisableWebSocketConfig                 *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"disable_web_socket_config"`
 	DoNotRetractCluster                    *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"do_not_retract_cluster"`
 	EnableSpdy                             *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"enable_spdy"`
+	EndpointSubsets                        *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"endpoint_subsets"`
 	InheritedBotDefenseJavascriptInjection *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"inherited_bot_defense_javascript_injection"`
 	InheritedWAF                           *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"inherited_waf"`
 	InheritedWAFExclusion                  *HTTPLoadBalancerEmptyModel                                                         `tfsdk:"inherited_waf_exclusion"`
@@ -8009,7 +8009,6 @@ type HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel struct {
 // HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModelAttrTypes defines the attribute types for HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModel
 var HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModelAttrTypes = map[string]attr.Type{
 	"disable_location_add":                       types.BoolType,
-	"endpoint_subsets":                           types.MapType{ElemType: types.StringType},
 	"prefix_rewrite":                             types.StringType,
 	"priority":                                   types.StringType,
 	"request_cookies_to_remove":                  types.ListType{ElemType: types.StringType},
@@ -8032,6 +8031,7 @@ var HTTPLoadBalancerRoutesSimpleRouteAdvancedOptionsModelAttrTypes = map[string]
 	"disable_web_socket_config":                  types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"do_not_retract_cluster":                     types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"enable_spdy":                                types.ObjectType{AttrTypes: map[string]attr.Type{}},
+	"endpoint_subsets":                           types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherited_bot_defense_javascript_injection": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherited_waf":                              types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"inherited_waf_exclusion":                    types.ObjectType{AttrTypes: map[string]attr.Type{}},
@@ -8607,19 +8607,19 @@ var HTTPLoadBalancerRoutesSimpleRouteIncomingPortModelAttrTypes = map[string]att
 
 // HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModel represents origin_pools block
 type HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModel struct {
-	EndpointSubsets types.Map                                                 `tfsdk:"endpoint_subsets"`
 	Priority        types.Int64                                               `tfsdk:"priority"`
 	Weight          types.Int64                                               `tfsdk:"weight"`
 	Cluster         *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsClusterModel `tfsdk:"cluster"`
+	EndpointSubsets *HTTPLoadBalancerEmptyModel                               `tfsdk:"endpoint_subsets"`
 	Pool            *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel    `tfsdk:"pool"`
 }
 
 // HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModelAttrTypes defines the attribute types for HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModel
 var HTTPLoadBalancerRoutesSimpleRouteOriginPoolsModelAttrTypes = map[string]attr.Type{
-	"endpoint_subsets": types.MapType{ElemType: types.StringType},
 	"priority":         types.Int64Type,
 	"weight":           types.Int64Type,
 	"cluster":          types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesSimpleRouteOriginPoolsClusterModelAttrTypes},
+	"endpoint_subsets": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"pool":             types.ObjectType{AttrTypes: HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModelAttrTypes},
 }
 
@@ -15503,11 +15503,10 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 									"default_subset": schema.SingleNestedBlock{
 										MarkdownDescription: "Configuration parameter for default subset.",
-										Attributes: map[string]schema.Attribute{
-											"default_subset": schema.MapAttribute{
+										Attributes:          map[string]schema.Attribute{},
+										Blocks: map[string]schema.Block{
+											"default_subset": schema.SingleNestedBlock{
 												MarkdownDescription: "List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists.",
-												Optional:            true,
-												ElementType:         types.StringType,
 											},
 										},
 									},
@@ -15662,7 +15661,13 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 					"origin_servers": schema.ListNestedBlock{
 						MarkdownDescription: "List of origin servers in this pool .",
 						NestedObject: schema.NestedBlockObject{
-							Attributes: map[string]schema.Attribute{},
+							Attributes: map[string]schema.Attribute{
+								"labels": schema.MapAttribute{
+									MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
+									Optional:            true,
+									ElementType:         types.StringType,
+								},
+							},
 							Blocks: map[string]schema.Block{
 								"cbip_service": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with Classic BIG-IP Service (Virtual Server).",
@@ -15928,9 +15933,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "Configuration parameter for vk8s networks.",
 										},
 									},
-								},
-								"labels": schema.SingleNestedBlock{
-									MarkdownDescription: "Add Labels for this origin server, these labels can be used to form subset.",
 								},
 								"private_ip": schema.SingleNestedBlock{
 									MarkdownDescription: "Specify origin server with private or public IP address and site information.",
@@ -16639,11 +16641,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Origin Pools. List of Origin Pools.",
 						NestedObject: schema.NestedBlockObject{
 							Attributes: map[string]schema.Attribute{
-								"endpoint_subsets": schema.MapAttribute{
-									MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
-									Optional:            true,
-									ElementType:         types.StringType,
-								},
 								"priority": schema.Int64Attribute{
 									MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 									Optional:            true,
@@ -16687,6 +16684,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 									},
 								},
+								"endpoint_subsets": schema.SingleNestedBlock{
+									MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
+								},
 								"pool": schema.SingleNestedBlock{
 									MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
 									Attributes: map[string]schema.Attribute{
@@ -16726,11 +16726,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				MarkdownDescription: "Origin Pools used when no route is specified (default route).",
 				NestedObject: schema.NestedBlockObject{
 					Attributes: map[string]schema.Attribute{
-						"endpoint_subsets": schema.MapAttribute{
-							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
-							Optional:            true,
-							ElementType:         types.StringType,
-						},
 						"priority": schema.Int64Attribute{
 							MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 							Optional:            true,
@@ -16773,6 +16768,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									},
 								},
 							},
+						},
+						"endpoint_subsets": schema.SingleNestedBlock{
+							MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 						},
 						"pool": schema.SingleNestedBlock{
 							MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -20390,11 +20388,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 											MarkdownDescription: "Disables append of x-F5 Distributed Cloud-location = <RE-site-name> at route level, if it is configured at virtual-host level. This configuration is ignored on CE sites.",
 											Optional:            true,
 										},
-										"endpoint_subsets": schema.MapAttribute{
-											MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
-											Optional:            true,
-											ElementType:         types.StringType,
-										},
 										"prefix_rewrite": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [disable_prefix_rewrite regex_rewrite] prefix_rewrite indicates that during forwarding, the matched prefix (or path) should be swapped with its value. When using regex path matching, the entire path (not including the query string) will be swapped with this value.",
 											Optional:            true,
@@ -20649,6 +20642,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 										},
 										"enable_spdy": schema.SingleNestedBlock{
 											MarkdownDescription: "Configuration parameter for enable spdy.",
+										},
+										"endpoint_subsets": schema.SingleNestedBlock{
+											MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 										},
 										"inherited_bot_defense_javascript_injection": schema.SingleNestedBlock{
 											MarkdownDescription: "Enable this option",
@@ -21328,11 +21324,6 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 									MarkdownDescription: "Origin Pools for this route .",
 									NestedObject: schema.NestedBlockObject{
 										Attributes: map[string]schema.Attribute{
-											"endpoint_subsets": schema.MapAttribute{
-												MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
-												Optional:            true,
-												ElementType:         types.StringType,
-											},
 											"priority": schema.Int64Attribute{
 												MarkdownDescription: "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the..",
 												Optional:            true,
@@ -21375,6 +21366,9 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 														},
 													},
 												},
+											},
+											"endpoint_subsets": schema.SingleNestedBlock{
+												MarkdownDescription: "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul..",
 											},
 											"pool": schema.SingleNestedBlock{
 												MarkdownDescription: "Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
@@ -27070,13 +27064,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 					DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-					if !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
-						var DefaultSubsetMap map[string]string
-						diags := data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
-						}
+					if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
+						DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
 					}
 					DefaultPoolAdvancedOptionsEnableSubsetsMap["default_subset"] = DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap
 				}
@@ -27377,8 +27366,13 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						OriginServersItemMap["k8s_service"] = DefaultPoolOriginServersK8SServiceMap
 					}
-					if OriginServersItem.Labels != nil {
-						OriginServersItemMap["labels"] = map[string]interface{}{}
+					if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							OriginServersItemMap["labels"] = LabelsMap
+						}
 					}
 					if OriginServersItem.PrivateIP != nil {
 						DefaultPoolOriginServersPrivateIPMap := make(map[string]interface{})
@@ -27812,13 +27806,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						PoolsItemMap["cluster"] = DefaultPoolListPoolsClusterMap
 					}
-					if !PoolsItem.EndpointSubsets.IsNull() && !PoolsItem.EndpointSubsets.IsUnknown() {
-						var EndpointSubsetsMap map[string]string
-						diags := PoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							PoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-						}
+					if PoolsItem.EndpointSubsets != nil {
+						PoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
 					}
 					if PoolsItem.Pool != nil {
 						DefaultPoolListPoolsPoolMap := make(map[string]interface{})
@@ -27867,13 +27856,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 					}
 					DefaultRoutePoolsItemMap["cluster"] = DefaultRoutePoolsClusterMap
 				}
-				if !DefaultRoutePoolsItem.EndpointSubsets.IsNull() && !DefaultRoutePoolsItem.EndpointSubsets.IsUnknown() {
-					var EndpointSubsetsMap map[string]string
-					diags := DefaultRoutePoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						DefaultRoutePoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-					}
+				if DefaultRoutePoolsItem.EndpointSubsets != nil {
+					DefaultRoutePoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if DefaultRoutePoolsItem.Pool != nil {
 					DefaultRoutePoolsPoolMap := make(map[string]interface{})
@@ -30669,13 +30653,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						if RoutesItem.SimpleRoute.AdvancedOptions.EnableSpdy != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["enable_spdy"] = map[string]interface{}{}
 						}
-						if !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
-							var EndpointSubsetsMap map[string]string
-							diags := RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = EndpointSubsetsMap
-							}
+						if RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets != nil {
+							RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = map[string]interface{}{}
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.InheritedBotDefenseJavascriptInjection != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
@@ -31224,13 +31203,8 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									OriginPoolsItemMap["cluster"] = RoutesSimpleRouteOriginPoolsClusterMap
 								}
-								if !OriginPoolsItem.EndpointSubsets.IsNull() && !OriginPoolsItem.EndpointSubsets.IsUnknown() {
-									var EndpointSubsetsMap map[string]string
-									diags := OriginPoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										OriginPoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-									}
+								if OriginPoolsItem.EndpointSubsets != nil {
+									OriginPoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
 								}
 								if OriginPoolsItem.Pool != nil {
 									RoutesSimpleRouteOriginPoolsPoolMap := make(map[string]interface{})
@@ -41223,24 +41197,14 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 										}
 										if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 											return &HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-												DefaultSubset: func() types.Map {
-													if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-														items := make(map[string]string)
-														for mk, mv := range v {
-															if mvs, ok := mv.(string); ok {
-																items[mk] = mvs
-															} else {
-																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
-															}
-														}
-														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-														resp.Diagnostics.Append(diags...)
-														return mapVal
-													}
-													if data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+												DefaultSubset: func() *HTTPLoadBalancerEmptyModel {
+													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 														return data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 													}
-													return types.MapNull(types.StringType)
+													if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+														return &HTTPLoadBalancerEmptyModel{}
+													}
+													return nil
 												}(),
 											}
 										}
@@ -41921,15 +41885,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								Labels: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
-									if _, ok := OriginServersItemMap["labels"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -42845,24 +42806,16 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() types.Map {
-									if v, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(PoolsExisting) > PoolsIdx && !PoolsExisting[PoolsIdx].EndpointSubsets.IsNull() && !PoolsExisting[PoolsIdx].EndpointSubsets.IsUnknown() {
+								EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+									if !isImport && len(PoolsExisting) > PoolsIdx {
 										return PoolsExisting[PoolsIdx].EndpointSubsets
 									}
-									return types.MapNull(types.StringType)
+									if !isImport {
+										if _, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+											return &HTTPLoadBalancerEmptyModel{}
+										}
+									}
+									return nil
 								}(),
 								Pool: func() *HTTPLoadBalancerDefaultPoolListPoolsPoolModel {
 									if PoolData, ok := PoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -42948,24 +42901,16 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() types.Map {
-						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-							items := make(map[string]string)
-							for mk, mv := range v {
-								if mvs, ok := mv.(string); ok {
-									items[mk] = mvs
-								} else {
-									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-								}
-							}
-							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-							resp.Diagnostics.Append(diags...)
-							return mapVal
-						}
-						if len(existingDefaultRoutePoolsItems) > listIdx && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsNull() && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsUnknown() {
+					EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+						if !isImport && len(existingDefaultRoutePoolsItems) > listIdx {
 							return existingDefaultRoutePoolsItems[listIdx].EndpointSubsets
 						}
-						return types.MapNull(types.StringType)
+						if !isImport {
+							if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerEmptyModel{}
+							}
+						}
+						return nil
 					}(),
 					Pool: func() *HTTPLoadBalancerDefaultRoutePoolsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -45450,25 +45395,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 				}
 				return nil
 			}(),
-			CustomErrors: func() types.Map {
-				if v, ok := blockData["custom_errors"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.MoreOption != nil && !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
+			CustomErrors: UnmarshalStringMap(ctx, blockData["custom_errors"], func() types.Map {
+				if data.MoreOption != nil {
 					return data.MoreOption.CustomErrors
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "custom_errors", &resp.Diagnostics),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					return data.MoreOption.DisableDefaultErrorPages
@@ -46422,25 +46354,12 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: func() types.Map {
-									if v, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field origin_server_subsets_action, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsUnknown() {
+								OriginServerSubsetsAction: UnmarshalStringMap(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
+									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "origin_server_subsets_action", &resp.Diagnostics),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
 										var items []string
@@ -49009,24 +48928,16 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 												}
 												return nil
 											}(),
-											EndpointSubsets: func() types.Map {
-												if v, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
-													items := make(map[string]string)
-													for mk, mv := range v {
-														if mvs, ok := mv.(string); ok {
-															items[mk] = mvs
-														} else {
-															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-														}
-													}
-													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-													resp.Diagnostics.Append(diags...)
-													return mapVal
-												}
-												if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
+											EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
 													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets
 												}
-												return types.MapNull(types.StringType)
+												if !isImport {
+													if _, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
+														return &HTTPLoadBalancerEmptyModel{}
+													}
+												}
+												return nil
 											}(),
 											InheritedBotDefenseJavascriptInjection: func() *HTTPLoadBalancerEmptyModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
@@ -50235,24 +50146,16 @@ func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.Crea
 														}
 														return nil
 													}(),
-													EndpointSubsets: func() types.Map {
-														if v, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-															items := make(map[string]string)
-															for mk, mv := range v {
-																if mvs, ok := mv.(string); ok {
-																	items[mk] = mvs
-																} else {
-																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-																}
-															}
-															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-															resp.Diagnostics.Append(diags...)
-															return mapVal
-														}
-														if len(OriginPoolsExisting) > OriginPoolsIdx && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsNull() && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsUnknown() {
+													EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+														if !isImport && len(OriginPoolsExisting) > OriginPoolsIdx {
 															return OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets
 														}
-														return types.MapNull(types.StringType)
+														if !isImport {
+															if _, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerEmptyModel{}
+															}
+														}
+														return nil
 													}(),
 													Pool: func() *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel {
 														if PoolData, ok := OriginPoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -60986,24 +60889,14 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 										}
 										if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 											return &HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-												DefaultSubset: func() types.Map {
-													if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-														items := make(map[string]string)
-														for mk, mv := range v {
-															if mvs, ok := mv.(string); ok {
-																items[mk] = mvs
-															} else {
-																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
-															}
-														}
-														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-														resp.Diagnostics.Append(diags...)
-														return mapVal
-													}
-													if data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+												DefaultSubset: func() *HTTPLoadBalancerEmptyModel {
+													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 														return data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 													}
-													return types.MapNull(types.StringType)
+													if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+														return &HTTPLoadBalancerEmptyModel{}
+													}
+													return nil
 												}(),
 											}
 										}
@@ -61684,15 +61577,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								Labels: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
-									if _, ok := OriginServersItemMap["labels"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -62608,24 +62498,16 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() types.Map {
-									if v, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(PoolsExisting) > PoolsIdx && !PoolsExisting[PoolsIdx].EndpointSubsets.IsNull() && !PoolsExisting[PoolsIdx].EndpointSubsets.IsUnknown() {
+								EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+									if !isImport && len(PoolsExisting) > PoolsIdx {
 										return PoolsExisting[PoolsIdx].EndpointSubsets
 									}
-									return types.MapNull(types.StringType)
+									if !isImport {
+										if _, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+											return &HTTPLoadBalancerEmptyModel{}
+										}
+									}
+									return nil
 								}(),
 								Pool: func() *HTTPLoadBalancerDefaultPoolListPoolsPoolModel {
 									if PoolData, ok := PoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -62711,24 +62593,16 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() types.Map {
-						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-							items := make(map[string]string)
-							for mk, mv := range v {
-								if mvs, ok := mv.(string); ok {
-									items[mk] = mvs
-								} else {
-									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-								}
-							}
-							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-							resp.Diagnostics.Append(diags...)
-							return mapVal
-						}
-						if len(existingDefaultRoutePoolsItems) > listIdx && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsNull() && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsUnknown() {
+					EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+						if !isImport && len(existingDefaultRoutePoolsItems) > listIdx {
 							return existingDefaultRoutePoolsItems[listIdx].EndpointSubsets
 						}
-						return types.MapNull(types.StringType)
+						if !isImport {
+							if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerEmptyModel{}
+							}
+						}
+						return nil
 					}(),
 					Pool: func() *HTTPLoadBalancerDefaultRoutePoolsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -65213,25 +65087,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 				}
 				return nil
 			}(),
-			CustomErrors: func() types.Map {
-				if v, ok := blockData["custom_errors"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.MoreOption != nil && !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
+			CustomErrors: UnmarshalStringMap(ctx, blockData["custom_errors"], func() types.Map {
+				if data.MoreOption != nil {
 					return data.MoreOption.CustomErrors
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "custom_errors", &resp.Diagnostics),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					return data.MoreOption.DisableDefaultErrorPages
@@ -66185,25 +66046,12 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: func() types.Map {
-									if v, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field origin_server_subsets_action, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsUnknown() {
+								OriginServerSubsetsAction: UnmarshalStringMap(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
+									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "origin_server_subsets_action", &resp.Diagnostics),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
 										var items []string
@@ -68772,24 +68620,16 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 												}
 												return nil
 											}(),
-											EndpointSubsets: func() types.Map {
-												if v, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
-													items := make(map[string]string)
-													for mk, mv := range v {
-														if mvs, ok := mv.(string); ok {
-															items[mk] = mvs
-														} else {
-															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-														}
-													}
-													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-													resp.Diagnostics.Append(diags...)
-													return mapVal
-												}
-												if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
+											EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
 													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets
 												}
-												return types.MapNull(types.StringType)
+												if !isImport {
+													if _, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
+														return &HTTPLoadBalancerEmptyModel{}
+													}
+												}
+												return nil
 											}(),
 											InheritedBotDefenseJavascriptInjection: func() *HTTPLoadBalancerEmptyModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
@@ -69998,24 +69838,16 @@ func (r *HTTPLoadBalancerResource) Read(ctx context.Context, req resource.ReadRe
 														}
 														return nil
 													}(),
-													EndpointSubsets: func() types.Map {
-														if v, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-															items := make(map[string]string)
-															for mk, mv := range v {
-																if mvs, ok := mv.(string); ok {
-																	items[mk] = mvs
-																} else {
-																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-																}
-															}
-															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-															resp.Diagnostics.Append(diags...)
-															return mapVal
-														}
-														if len(OriginPoolsExisting) > OriginPoolsIdx && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsNull() && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsUnknown() {
+													EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+														if !isImport && len(OriginPoolsExisting) > OriginPoolsIdx {
 															return OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets
 														}
-														return types.MapNull(types.StringType)
+														if !isImport {
+															if _, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerEmptyModel{}
+															}
+														}
+														return nil
 													}(),
 													Pool: func() *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel {
 														if PoolData, ok := OriginPoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -76014,13 +75846,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 					DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap := make(map[string]interface{})
-					if !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
-						var DefaultSubsetMap map[string]string
-						diags := data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.ElementsAs(ctx, &DefaultSubsetMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = DefaultSubsetMap
-						}
+					if data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset != nil {
+						DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap["default_subset"] = map[string]interface{}{}
 					}
 					DefaultPoolAdvancedOptionsEnableSubsetsMap["default_subset"] = DefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetMap
 				}
@@ -76321,8 +76148,13 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						OriginServersItemMap["k8s_service"] = DefaultPoolOriginServersK8SServiceMap
 					}
-					if OriginServersItem.Labels != nil {
-						OriginServersItemMap["labels"] = map[string]interface{}{}
+					if !OriginServersItem.Labels.IsNull() && !OriginServersItem.Labels.IsUnknown() {
+						var LabelsMap map[string]string
+						diags := OriginServersItem.Labels.ElementsAs(ctx, &LabelsMap, false)
+						resp.Diagnostics.Append(diags...)
+						if !diags.HasError() {
+							OriginServersItemMap["labels"] = LabelsMap
+						}
 					}
 					if OriginServersItem.PrivateIP != nil {
 						DefaultPoolOriginServersPrivateIPMap := make(map[string]interface{})
@@ -76756,13 +76588,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						PoolsItemMap["cluster"] = DefaultPoolListPoolsClusterMap
 					}
-					if !PoolsItem.EndpointSubsets.IsNull() && !PoolsItem.EndpointSubsets.IsUnknown() {
-						var EndpointSubsetsMap map[string]string
-						diags := PoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							PoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-						}
+					if PoolsItem.EndpointSubsets != nil {
+						PoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
 					}
 					if PoolsItem.Pool != nil {
 						DefaultPoolListPoolsPoolMap := make(map[string]interface{})
@@ -76811,13 +76638,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 					}
 					DefaultRoutePoolsItemMap["cluster"] = DefaultRoutePoolsClusterMap
 				}
-				if !DefaultRoutePoolsItem.EndpointSubsets.IsNull() && !DefaultRoutePoolsItem.EndpointSubsets.IsUnknown() {
-					var EndpointSubsetsMap map[string]string
-					diags := DefaultRoutePoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-					resp.Diagnostics.Append(diags...)
-					if !diags.HasError() {
-						DefaultRoutePoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-					}
+				if DefaultRoutePoolsItem.EndpointSubsets != nil {
+					DefaultRoutePoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
 				}
 				if DefaultRoutePoolsItem.Pool != nil {
 					DefaultRoutePoolsPoolMap := make(map[string]interface{})
@@ -79613,13 +79435,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						if RoutesItem.SimpleRoute.AdvancedOptions.EnableSpdy != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["enable_spdy"] = map[string]interface{}{}
 						}
-						if !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
-							var EndpointSubsetsMap map[string]string
-							diags := RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-							resp.Diagnostics.Append(diags...)
-							if !diags.HasError() {
-								RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = EndpointSubsetsMap
-							}
+						if RoutesItem.SimpleRoute.AdvancedOptions.EndpointSubsets != nil {
+							RoutesSimpleRouteAdvancedOptionsMap["endpoint_subsets"] = map[string]interface{}{}
 						}
 						if RoutesItem.SimpleRoute.AdvancedOptions.InheritedBotDefenseJavascriptInjection != nil {
 							RoutesSimpleRouteAdvancedOptionsMap["inherited_bot_defense_javascript_injection"] = map[string]interface{}{}
@@ -80168,13 +79985,8 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									OriginPoolsItemMap["cluster"] = RoutesSimpleRouteOriginPoolsClusterMap
 								}
-								if !OriginPoolsItem.EndpointSubsets.IsNull() && !OriginPoolsItem.EndpointSubsets.IsUnknown() {
-									var EndpointSubsetsMap map[string]string
-									diags := OriginPoolsItem.EndpointSubsets.ElementsAs(ctx, &EndpointSubsetsMap, false)
-									resp.Diagnostics.Append(diags...)
-									if !diags.HasError() {
-										OriginPoolsItemMap["endpoint_subsets"] = EndpointSubsetsMap
-									}
+								if OriginPoolsItem.EndpointSubsets != nil {
+									OriginPoolsItemMap["endpoint_subsets"] = map[string]interface{}{}
 								}
 								if OriginPoolsItem.Pool != nil {
 									RoutesSimpleRouteOriginPoolsPoolMap := make(map[string]interface{})
@@ -90194,24 +90006,14 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 										}
 										if DefaultSubsetData, ok := EnableSubsetsData["default_subset"].(map[string]interface{}); ok {
 											return &HTTPLoadBalancerDefaultPoolAdvancedOptionsEnableSubsetsDefaultSubsetModel{
-												DefaultSubset: func() types.Map {
-													if v, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
-														items := make(map[string]string)
-														for mk, mv := range v {
-															if mvs, ok := mv.(string); ok {
-																items[mk] = mvs
-															} else {
-																resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field default_subset, got %T", mk, mv))
-															}
-														}
-														mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-														resp.Diagnostics.Append(diags...)
-														return mapVal
-													}
-													if data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsNull() && !data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset.IsUnknown() {
+												DefaultSubset: func() *HTTPLoadBalancerEmptyModel {
+													if !isImport && data.DefaultPool != nil && data.DefaultPool.AdvancedOptions != nil && data.DefaultPool.AdvancedOptions.EnableSubsets != nil && data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset != nil {
 														return data.DefaultPool.AdvancedOptions.EnableSubsets.DefaultSubset.DefaultSubset
 													}
-													return types.MapNull(types.StringType)
+													if _, ok := DefaultSubsetData["default_subset"].(map[string]interface{}); ok {
+														return &HTTPLoadBalancerEmptyModel{}
+													}
+													return nil
 												}(),
 											}
 										}
@@ -90892,15 +90694,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								Labels: func() *HTTPLoadBalancerEmptyModel {
-									if !isImport && len(OriginServersExisting) > OriginServersIdx {
+								Labels: UnmarshalStringMap(ctx, OriginServersItemMap["labels"], func() types.Map {
+									if len(OriginServersExisting) > OriginServersIdx {
 										return OriginServersExisting[OriginServersIdx].Labels
 									}
-									if _, ok := OriginServersItemMap["labels"].(map[string]interface{}); ok {
-										return &HTTPLoadBalancerEmptyModel{}
-									}
-									return nil
-								}(),
+									return types.MapNull(types.StringType)
+								}(), "labels", &resp.Diagnostics),
 								PrivateIP: func() *HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel {
 									if PrivateIPData, ok := OriginServersItemMap["private_ip"].(map[string]interface{}); ok {
 										return &HTTPLoadBalancerDefaultPoolOriginServersPrivateIPModel{
@@ -91816,24 +91615,16 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								EndpointSubsets: func() types.Map {
-									if v, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(PoolsExisting) > PoolsIdx && !PoolsExisting[PoolsIdx].EndpointSubsets.IsNull() && !PoolsExisting[PoolsIdx].EndpointSubsets.IsUnknown() {
+								EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+									if !isImport && len(PoolsExisting) > PoolsIdx {
 										return PoolsExisting[PoolsIdx].EndpointSubsets
 									}
-									return types.MapNull(types.StringType)
+									if !isImport {
+										if _, ok := PoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+											return &HTTPLoadBalancerEmptyModel{}
+										}
+									}
+									return nil
 								}(),
 								Pool: func() *HTTPLoadBalancerDefaultPoolListPoolsPoolModel {
 									if PoolData, ok := PoolsItemMap["pool"].(map[string]interface{}); ok {
@@ -91919,24 +91710,16 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 						}
 						return nil
 					}(),
-					EndpointSubsets: func() types.Map {
-						if v, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
-							items := make(map[string]string)
-							for mk, mv := range v {
-								if mvs, ok := mv.(string); ok {
-									items[mk] = mvs
-								} else {
-									resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-								}
-							}
-							mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-							resp.Diagnostics.Append(diags...)
-							return mapVal
-						}
-						if len(existingDefaultRoutePoolsItems) > listIdx && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsNull() && !existingDefaultRoutePoolsItems[listIdx].EndpointSubsets.IsUnknown() {
+					EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+						if !isImport && len(existingDefaultRoutePoolsItems) > listIdx {
 							return existingDefaultRoutePoolsItems[listIdx].EndpointSubsets
 						}
-						return types.MapNull(types.StringType)
+						if !isImport {
+							if _, ok := itemMap["endpoint_subsets"].(map[string]interface{}); ok {
+								return &HTTPLoadBalancerEmptyModel{}
+							}
+						}
+						return nil
 					}(),
 					Pool: func() *HTTPLoadBalancerDefaultRoutePoolsPoolModel {
 						if PoolData, ok := itemMap["pool"].(map[string]interface{}); ok {
@@ -94421,25 +94204,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 				}
 				return nil
 			}(),
-			CustomErrors: func() types.Map {
-				if v, ok := blockData["custom_errors"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field custom_errors, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.MoreOption != nil && !data.MoreOption.CustomErrors.IsNull() && !data.MoreOption.CustomErrors.IsUnknown() {
+			CustomErrors: UnmarshalStringMap(ctx, blockData["custom_errors"], func() types.Map {
+				if data.MoreOption != nil {
 					return data.MoreOption.CustomErrors
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "custom_errors", &resp.Diagnostics),
 			DisableDefaultErrorPages: func() types.Bool {
 				if !isImport && data.MoreOption != nil && !data.MoreOption.DisableDefaultErrorPages.IsUnknown() {
 					return data.MoreOption.DisableDefaultErrorPages
@@ -95393,25 +95163,12 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 									}
 									return nil
 								}(),
-								OriginServerSubsetsAction: func() types.Map {
-									if v, ok := OriginServerSubsetRulesItemMap["origin_server_subsets_action"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field origin_server_subsets_action, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsNull() && !OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction.IsUnknown() {
+								OriginServerSubsetsAction: UnmarshalStringMap(ctx, OriginServerSubsetRulesItemMap["origin_server_subsets_action"], func() types.Map {
+									if len(OriginServerSubsetRulesExisting) > OriginServerSubsetRulesIdx {
 										return OriginServerSubsetRulesExisting[OriginServerSubsetRulesIdx].OriginServerSubsetsAction
 									}
 									return types.MapNull(types.StringType)
-								}(),
+								}(), "origin_server_subsets_action", &resp.Diagnostics),
 								RENameList: func() types.List {
 									if v, ok := OriginServerSubsetRulesItemMap["re_name_list"].([]interface{}); ok && len(v) > 0 {
 										var items []string
@@ -97980,24 +97737,16 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 												}
 												return nil
 											}(),
-											EndpointSubsets: func() types.Map {
-												if v, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
-													items := make(map[string]string)
-													for mk, mv := range v {
-														if mvs, ok := mv.(string); ok {
-															items[mk] = mvs
-														} else {
-															resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-														}
-													}
-													mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-													resp.Diagnostics.Append(diags...)
-													return mapVal
-												}
-												if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsNull() && !existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets.IsUnknown() {
+											EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
 													return existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions.EndpointSubsets
 												}
-												return types.MapNull(types.StringType)
+												if !isImport {
+													if _, ok := AdvancedOptionsData["endpoint_subsets"].(map[string]interface{}); ok {
+														return &HTTPLoadBalancerEmptyModel{}
+													}
+												}
+												return nil
 											}(),
 											InheritedBotDefenseJavascriptInjection: func() *HTTPLoadBalancerEmptyModel {
 												if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].SimpleRoute != nil && existingRoutesItems[listIdx].SimpleRoute.AdvancedOptions != nil {
@@ -99206,24 +98955,16 @@ func (r *HTTPLoadBalancerResource) Update(ctx context.Context, req resource.Upda
 														}
 														return nil
 													}(),
-													EndpointSubsets: func() types.Map {
-														if v, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
-															items := make(map[string]string)
-															for mk, mv := range v {
-																if mvs, ok := mv.(string); ok {
-																	items[mk] = mvs
-																} else {
-																	resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field endpoint_subsets, got %T", mk, mv))
-																}
-															}
-															mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-															resp.Diagnostics.Append(diags...)
-															return mapVal
-														}
-														if len(OriginPoolsExisting) > OriginPoolsIdx && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsNull() && !OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets.IsUnknown() {
+													EndpointSubsets: func() *HTTPLoadBalancerEmptyModel {
+														if !isImport && len(OriginPoolsExisting) > OriginPoolsIdx {
 															return OriginPoolsExisting[OriginPoolsIdx].EndpointSubsets
 														}
-														return types.MapNull(types.StringType)
+														if !isImport {
+															if _, ok := OriginPoolsItemMap["endpoint_subsets"].(map[string]interface{}); ok {
+																return &HTTPLoadBalancerEmptyModel{}
+															}
+														}
+														return nil
 													}(),
 													Pool: func() *HTTPLoadBalancerRoutesSimpleRouteOriginPoolsPoolModel {
 														if PoolData, ok := OriginPoolsItemMap["pool"].(map[string]interface{}); ok {

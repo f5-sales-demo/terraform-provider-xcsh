@@ -169,7 +169,7 @@ A [`vnet_list`](#list-af915b) block (within [`azure_vnet_site.vnet_attachments`]
 
 <a id="route-ec4f37"></a>&#x2022; [`default_route`](#route-ec4f37) - Optional Block<br>Configuration parameter for default route<br>See [Default Route](#route-ec4f37) below.
 
-<a id="labels-b9b212"></a>&#x2022; [`labels`](#labels-b9b212) - Optional Block<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
+<a id="labels-b9b212"></a>&#x2022; [`labels`](#labels-b9b212) - Optional Map<br>Add labels for the VNET attachments. These labels can then be used in policies such as enhanced firewall policies
 
 <a id="routing-207575"></a>&#x2022; [`manual_routing`](#routing-207575) - Optional Block<br>Enable this option
 

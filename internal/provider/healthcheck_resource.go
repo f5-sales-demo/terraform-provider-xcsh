@@ -564,25 +564,12 @@ func (r *HealthcheckResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: func() types.Map {
-				if v, ok := blockData["headers"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.Headers.IsNull() && !data.HTTPHealthCheck.Headers.IsUnknown() {
+			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "headers", &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -821,25 +808,12 @@ func (r *HealthcheckResource) Read(ctx context.Context, req resource.ReadRequest
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: func() types.Map {
-				if v, ok := blockData["headers"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.Headers.IsNull() && !data.HTTPHealthCheck.Headers.IsUnknown() {
+			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "headers", &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)
@@ -1156,25 +1130,12 @@ func (r *HealthcheckResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				return types.ListNull(types.StringType)
 			}(),
-			Headers: func() types.Map {
-				if v, ok := blockData["headers"].(map[string]interface{}); ok {
-					items := make(map[string]string)
-					for mk, mv := range v {
-						if mvs, ok := mv.(string); ok {
-							items[mk] = mvs
-						} else {
-							resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field headers, got %T", mk, mv))
-						}
-					}
-					mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-					resp.Diagnostics.Append(diags...)
-					return mapVal
-				}
-				if data.HTTPHealthCheck != nil && !data.HTTPHealthCheck.Headers.IsNull() && !data.HTTPHealthCheck.Headers.IsUnknown() {
+			Headers: UnmarshalStringMap(ctx, blockData["headers"], func() types.Map {
+				if data.HTTPHealthCheck != nil {
 					return data.HTTPHealthCheck.Headers
 				}
 				return types.MapNull(types.StringType)
-			}(),
+			}(), "headers", &resp.Diagnostics),
 			HostHeader: func() types.String {
 				if v, ok := blockData["host_header"].(string); ok && v != "" {
 					return types.StringValue(v)

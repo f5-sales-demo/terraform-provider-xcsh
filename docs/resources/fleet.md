@@ -767,7 +767,7 @@ A [`storage_routes`](#storage-static-routes-storage-routes) block (within [`stor
 <a id="attrs-e2e8e0"></a>&#x2022; [`attrs`](#attrs-e2e8e0) - Optional List  Defaults to `ROUTE_ATTR_NO_OP`<br>Possible values are `ROUTE_ATTR_NO_OP`, `ROUTE_ATTR_ADVERTISE`, `ROUTE_ATTR_INSTALL_HOST`, `ROUTE_ATTR_INSTALL_FORWARDING`, `ROUTE_ATTR_MERGE_ONLY`<br>[Enum: ROUTE_ATTR_NO_OP|ROUTE_ATTR_ADVERTISE|ROUTE_ATTR_INSTALL_HOST|ROUTE_ATTR_INSTALL_FORWARDING|ROUTE_ATTR_MERGE_ONLY] List of route
 attributes associated with the static route
 
-<a id="labels-c6c66c"></a>&#x2022; [`labels`](#labels-c6c66c) - Optional Block<br>Add Labels for this Static Route, these labels can be used in network policy
+<a id="labels-c6c66c"></a>&#x2022; [`labels`](#labels-c6c66c) - Optional Map<br>Add Labels for this Static Route, these labels can be used in network policy
 
 <a id="nexthop-e399f9"></a>&#x2022; [`nexthop`](#nexthop-e399f9) - Optional Block<br>Nexthop. Identifies the next-hop for a route<br>See [Nexthop](#nexthop-e399f9) below.
 

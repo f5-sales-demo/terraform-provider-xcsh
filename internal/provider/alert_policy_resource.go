@@ -96,7 +96,7 @@ var AlertPolicyRoutesModelAttrTypes = map[string]attr.Type{
 
 // AlertPolicyRoutesCustomModel represents custom block
 type AlertPolicyRoutesCustomModel struct {
-	Alertlabel types.Map                              `tfsdk:"alertlabel"`
+	Alertlabel *AlertPolicyEmptyModel                 `tfsdk:"alertlabel"`
 	Alertname  *AlertPolicyRoutesCustomAlertnameModel `tfsdk:"alertname"`
 	Group      *AlertPolicyRoutesCustomGroupModel     `tfsdk:"group"`
 	Severity   *AlertPolicyRoutesCustomSeverityModel  `tfsdk:"severity"`
@@ -104,7 +104,7 @@ type AlertPolicyRoutesCustomModel struct {
 
 // AlertPolicyRoutesCustomModelAttrTypes defines the attribute types for AlertPolicyRoutesCustomModel
 var AlertPolicyRoutesCustomModelAttrTypes = map[string]attr.Type{
-	"alertlabel": types.MapType{ElemType: types.StringType},
+	"alertlabel": types.ObjectType{AttrTypes: map[string]attr.Type{}},
 	"alertname":  types.ObjectType{AttrTypes: AlertPolicyRoutesCustomAlertnameModelAttrTypes},
 	"group":      types.ObjectType{AttrTypes: AlertPolicyRoutesCustomGroupModelAttrTypes},
 	"severity":   types.ObjectType{AttrTypes: AlertPolicyRoutesCustomSeverityModelAttrTypes},
@@ -362,14 +362,11 @@ func (r *AlertPolicyResource) Schema(ctx context.Context, req resource.SchemaReq
 						},
 						"custom": schema.SingleNestedBlock{
 							MarkdownDescription: "Set of matchers an alert has to fulfill to match the route.",
-							Attributes: map[string]schema.Attribute{
-								"alertlabel": schema.MapAttribute{
-									MarkdownDescription: "AlertLabel to configure the alert policy rule.",
-									Optional:            true,
-									ElementType:         types.StringType,
-								},
-							},
+							Attributes:          map[string]schema.Attribute{},
 							Blocks: map[string]schema.Block{
+								"alertlabel": schema.SingleNestedBlock{
+									MarkdownDescription: "AlertLabel to configure the alert policy rule.",
+								},
 								"alertname": schema.SingleNestedBlock{
 									MarkdownDescription: "Label Matcher.",
 									Attributes: map[string]schema.Attribute{
@@ -695,13 +692,8 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 				}
 				if RoutesItem.Custom != nil {
 					RoutesCustomMap := make(map[string]interface{})
-					if !RoutesItem.Custom.Alertlabel.IsNull() && !RoutesItem.Custom.Alertlabel.IsUnknown() {
-						var AlertlabelMap map[string]string
-						diags := RoutesItem.Custom.Alertlabel.ElementsAs(ctx, &AlertlabelMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							RoutesCustomMap["alertlabel"] = AlertlabelMap
-						}
+					if RoutesItem.Custom.Alertlabel != nil {
+						RoutesCustomMap["alertlabel"] = map[string]interface{}{}
 					}
 					if RoutesItem.Custom.Alertname != nil {
 						RoutesCustomAlertnameMap := make(map[string]interface{})
@@ -949,24 +941,14 @@ func (r *AlertPolicyResource) Create(ctx context.Context, req resource.CreateReq
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
-								Alertlabel: func() types.Map {
-									if v, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field alertlabel, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && !existingRoutesItems[listIdx].Custom.Alertlabel.IsNull() && !existingRoutesItems[listIdx].Custom.Alertlabel.IsUnknown() {
+								Alertlabel: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
 										return existingRoutesItems[listIdx].Custom.Alertlabel
 									}
-									return types.MapNull(types.StringType)
+									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
+										return &AlertPolicyEmptyModel{}
+									}
+									return nil
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
@@ -1468,24 +1450,14 @@ func (r *AlertPolicyResource) Read(ctx context.Context, req resource.ReadRequest
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
-								Alertlabel: func() types.Map {
-									if v, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field alertlabel, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && !existingRoutesItems[listIdx].Custom.Alertlabel.IsNull() && !existingRoutesItems[listIdx].Custom.Alertlabel.IsUnknown() {
+								Alertlabel: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
 										return existingRoutesItems[listIdx].Custom.Alertlabel
 									}
-									return types.MapNull(types.StringType)
+									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
+										return &AlertPolicyEmptyModel{}
+									}
+									return nil
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {
@@ -1903,13 +1875,8 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 				}
 				if RoutesItem.Custom != nil {
 					RoutesCustomMap := make(map[string]interface{})
-					if !RoutesItem.Custom.Alertlabel.IsNull() && !RoutesItem.Custom.Alertlabel.IsUnknown() {
-						var AlertlabelMap map[string]string
-						diags := RoutesItem.Custom.Alertlabel.ElementsAs(ctx, &AlertlabelMap, false)
-						resp.Diagnostics.Append(diags...)
-						if !diags.HasError() {
-							RoutesCustomMap["alertlabel"] = AlertlabelMap
-						}
+					if RoutesItem.Custom.Alertlabel != nil {
+						RoutesCustomMap["alertlabel"] = map[string]interface{}{}
 					}
 					if RoutesItem.Custom.Alertname != nil {
 						RoutesCustomAlertnameMap := make(map[string]interface{})
@@ -2177,24 +2144,14 @@ func (r *AlertPolicyResource) Update(ctx context.Context, req resource.UpdateReq
 					Custom: func() *AlertPolicyRoutesCustomModel {
 						if CustomData, ok := itemMap["custom"].(map[string]interface{}); ok {
 							return &AlertPolicyRoutesCustomModel{
-								Alertlabel: func() types.Map {
-									if v, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
-										items := make(map[string]string)
-										for mk, mv := range v {
-											if mvs, ok := mv.(string); ok {
-												items[mk] = mvs
-											} else {
-												resp.Diagnostics.AddError("Unexpected type in map", fmt.Sprintf("Expected string for key %s in field alertlabel, got %T", mk, mv))
-											}
-										}
-										mapVal, diags := types.MapValueFrom(ctx, types.StringType, items)
-										resp.Diagnostics.Append(diags...)
-										return mapVal
-									}
-									if len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && !existingRoutesItems[listIdx].Custom.Alertlabel.IsNull() && !existingRoutesItems[listIdx].Custom.Alertlabel.IsUnknown() {
+								Alertlabel: func() *AlertPolicyEmptyModel {
+									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil {
 										return existingRoutesItems[listIdx].Custom.Alertlabel
 									}
-									return types.MapNull(types.StringType)
+									if _, ok := CustomData["alertlabel"].(map[string]interface{}); ok {
+										return &AlertPolicyEmptyModel{}
+									}
+									return nil
 								}(),
 								Alertname: func() *AlertPolicyRoutesCustomAlertnameModel {
 									if !isImport && len(existingRoutesItems) > listIdx && existingRoutesItems[listIdx].Custom != nil && existingRoutesItems[listIdx].Custom.Alertname != nil {

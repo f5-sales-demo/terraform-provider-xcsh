@@ -264,7 +264,7 @@ An [`origin_pools_weights`](#origin-pools-weights) block supports the following:
 
 <a id="origin-pools-weights-cluster"></a>&#x2022; [`cluster`](#origin-pools-weights-cluster) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Cluster](#origin-pools-weights-cluster) below.
 
-<a id="origin-pools-weights-endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#origin-pools-weights-endpoint-subsets) - Optional Map<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers
+<a id="origin-pools-weights-endpoint-subsets"></a>&#x2022; [`endpoint_subsets`](#origin-pools-weights-endpoint-subsets) - Optional Block<br>Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that an endpoint must match in order to be selected by the load balancer For origin servers
 which are discovered in K8S or Consul
 
 <a id="origin-pools-weights-pool"></a>&#x2022; [`pool`](#origin-pools-weights-pool) - Optional Block<br>Type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name<br>See [Pool](#origin-pools-weights-pool) below.
